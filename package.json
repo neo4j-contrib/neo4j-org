@@ -1,7 +1,11 @@
 {
-  "name": "application-name",
+  "name": "neo4j-org",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node":"0.8.4",
+    "npm":"1.1.12"
+  },
   "scripts": {
     "start": "node app"
   },
