@@ -6,6 +6,13 @@ exports.index = function(req, res){
   res.render('index', { category: '', title: 'Learn, Create, Participate' });
 };
 
+/*
+ * GET - "download" page
+ */
+exports.index = function(req, res){
+  res.render('download', { category: 'download', title: 'Download' });
+};
+
 
 /*
  * GET - "learn" information with guided tracks
