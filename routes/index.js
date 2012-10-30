@@ -24,6 +24,13 @@ exports.neo4j = function(req, res){
 
 
 /*
+ * GET - "Neo4j apps" a showcase of live apps
+ */
+exports.apps = function(req, res){
+  res.render('learn/apps', { category: 'learn', title: 'Apps' });
+};
+
+/*
  * GET - "watch" screencasts and other video content
  */
 exports.watch = function(req, res){
