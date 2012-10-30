@@ -32,29 +32,19 @@ exports.watch = function(req, res){
 
 
 /*
- * GET - "browse" examples, demos, and production apps
- */
-exports.browse = function(req, res){
-  res.render('browse', { category: 'learn', title: 'Browse' });
-};
-
-
-/*
- * GET - "read" read blog posts about Neo4j
- */
-exports.browse = function(req, res){
-  res.render('browse', { category: 'learn', title: 'Read' });
-};
-
-
-
-/*
  * GET - "create" applications using Neo4j
  */
 exports.create = function(req, res){
-  res.render('create', { category: 'create' });
+  res.render('create', { category: 'create', title: 'Create' });
 };
 
+
+/*
+ * GET - "spring" everything you need to know about SDN
+ */
+exports.spring = function(req, res){
+  res.render('create/spring', { category: 'create', title: 'Spring Data Neo4j' });
+};
 
 /*
  * GET - "integrate" with languages and frameworks

@@ -57,7 +57,9 @@ app.locals({
 app.get('/', routes.index);
 app.get('/learn', routes.learn); // path: concepts, best practices, operations
 app.get('/learn/neo4j', routes.neo4j); // node:  about Neo4j
-app.get('/integrate', routes.integrate); // graph: languages and frameworks
+app.get('/create', routes.create); // path: development guides in featured languages
+app.get('/spring', routes.spring); // path: development guides in featured languages
+app.get('/integrate', routes.integrate); // graph: language drivers and frameworks
 
 
 
