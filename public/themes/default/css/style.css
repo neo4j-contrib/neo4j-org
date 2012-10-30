@@ -3,4 +3,15 @@ body {
 	padding-top: 80px;
 }
 
+body > div.container {
+  padding-bottom: 80px;
+}
+
 footer.bottom {background: white; }
+
+.thumbnail div.icon {
+  font-size: 120px;
+  margin: 20px;
+  width: 120px;
+  height: 120px;
+}
