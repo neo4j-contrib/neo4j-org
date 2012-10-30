@@ -8,3 +8,10 @@ body > div.container {
 }
 
 footer.bottom {background: white; }
+
+.thumbnail div.icon {
+  font-size: 120px;
+  margin: 20px;
+  width: 120px;
+  height: 120px;
+}

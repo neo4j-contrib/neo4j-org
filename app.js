@@ -60,6 +60,7 @@ app.get('/learn/neo4j', routes.neo4j); // node:  about Neo4j
 app.get('/create', routes.create); // path: development guides in featured languages
 app.get('/spring', routes.spring); // path: development guides in featured languages
 app.get('/integrate', routes.integrate); // graph: language drivers and frameworks
+app.get('/participate', routes.participate); // graph: language drivers and frameworks
 
 
 

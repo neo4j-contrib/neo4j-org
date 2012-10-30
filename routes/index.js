@@ -53,3 +53,10 @@ exports.integrate = function(req, res){
   res.render('integrate', { category: 'create', title: 'Integrate' });
 };
 
+/*
+ * GET - "participate" in the Neo4j community
+ */
+exports.participate = function(req, res){
+  res.render('participate', { category: 'participate', title: 'Participate' });
+};
+

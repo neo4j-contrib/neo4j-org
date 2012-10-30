@@ -138,6 +138,14 @@ a.thumbnail:hover {border-color: #c8584c; box-shadow:none;}
 
 div.nolink { box-shadow:none; border:5px solid #d7d4c7; padding:0; position:relative; display:inline-block; box-shadow:none; position:relative;}
 
+
+.thumbnail div.icon {
+  font-size: 120px;
+  margin: 20px;
+  width: 120px;
+  height: 120px;
+}
+
 /** sliders **/
 
 .smallSlider {}

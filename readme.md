@@ -39,10 +39,18 @@ For staging content, push to:
 
     git push staging master
 
+Then view the website like so:
+
+    heroku open --remote staging
+
 
 For production, push to the default remote:
 
     git push heroku master
+
+Viewable by:
+
+    heroku open
 
 References
 ----------
