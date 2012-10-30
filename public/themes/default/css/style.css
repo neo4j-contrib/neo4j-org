@@ -3,4 +3,8 @@ body {
 	padding-top: 80px;
 }
 
+body > div.container {
+  padding-bottom: 80px;
+}
+
 footer.bottom {background: white; }

@@ -16,6 +16,10 @@ body {
 }
 
 
+body > div.container {
+  padding-bottom: 80px;
+}
+
 /** Forms **/
 
 input, button, select, textarea {font-family: 'Lato', sans-serif;}

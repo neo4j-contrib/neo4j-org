@@ -3,23 +3,141 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h1>Learn about Neo4j</h1>
-        <p class="lead">From graph concepts to deploying a globe spanning cluster, this information will lead you to success.</p>
+        <h1>Learn Neo4j</h1>
+        <p class="lead">From graph concepts to deploying a globe spanning cluster, the path to success starts here.</p>
       </div>
 
       <div class="row">
         <div class="span3">
           <ul class="nav nav-tabs nav-stacked">
-            <li><a href="#concepts">Concepts</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#graphs">Graph Concepts</a></li>
+            <li><a href="#dev">Development</a></li>
+            <li><a href="#ops">Operations</a></li>
+            <li><a href="#production">Production</a></li>
           </ul>
         </div>
         
         <div class="span9">
         
-          <h1>Concepts</h1>
-          <section class="row">
+          <section id="introduction" class="row">
+            <h1>Introduction</h1>
+            
             <div class="span3">
-              <h2>About Neo4j</h2>
+              <h2>Hello Neo4j</h2>
+              <p>Neo4j is a graph database, a full featured enterprise database that stores and retrieves highly-connected information.</p>
+              <p><a class="btn" href="/learn/neo4j">Get familiar &raquo;</a></p>
+            </div>
+            
+            <div class="span3">
+              <h2>Live Apps</h2>
+              <p>Browse through a gallery of Neo4j applications, from clever demos to giant something-something.</p>
+              <p><a class="btn" href="/learn/apps">Check it out &raquo;</a></p>
+            </div>
+            
+            <div class="span3">
+              <h2>Why Graphs</h2>
+              <a data-toggle="lightbox" href="#whyGraphs" class="thumbnail">
+							 <img src="/assets/img/still/emil-explains.jpg" alt="Click to View">
+						  </a>
+						  <p class="caption">Emil Eifrem explains the secret behind websites like Twitter, Yelp and Facebook.</p>
+						  <div class="lightbox fade" id="whyGraphs" style="display: none;">
+  						  <div class='lightbox-content'>
+  						  <iframe title="Neo4j Videography Video Player" width="640" height="360" src="http://video.neo4j.org/player/YMD" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  						  </div>
+      				</div>
+            </div>
+        
+          </section>
+          
+          <section id="graphs" class="row">
+            <h1>Graph Concepts</h1>
+            <div class="span3">
+              <h2>Property Graph</h2>
+              <p>Neo4j stores data in a Property Graph: nodes + relationships, with properties on both. Leave the schema behind and start focusing on how your data is connected.</p>
+              <p><a class="btn" href="http://docs.neo4j.org/chunked/stable/what-is-a-graphdb.html">Proper reading &raquo;</a></p>
+            </div>
+            
+            <div class="span3">
+              <h2>Compare</h2>
+              <p>You know relational, now consider relationships. Compare the graph model to relational, documents, and other NOSQL stores.</p>
+              <p><a class="btn" href="http://docs.neo4j.org/chunked/stable/tutorial-comparing-models.html">And... fight &raquo;</a></p>
+            </div>
+            
+            <div class="span3">
+              <h2>Graph DB 101</h2>
+              <a data-toggle="lightbox" href="#graphdbIntro" class="thumbnail">
+							 <img src="/assets/img/still/graphdb-intro.png" alt="Click to View">
+						  </a>
+						  <p class="caption">A pleasant stroll through general Graph Databases concepts, and &amp; Neo4j particulars.</p>
+						  <div class="lightbox fade" id="graphdbIntro" style="display: none;">
+  						  <div class='lightbox-content'>
+  						  <iframe src="http://player.vimeo.com/video/46886385?badge=0" width="500" height="377" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
+  						  </div>
+      				</div>
+            </div>
+          </section>
+          
+          <section id="dev" class="row">
+            <h1>Development</h1>
+            <div class="span3">
+              <h2>Get Started</h2>
+              <p>A guide to guides about getting started using Neo4j in your awesome application.</p>
+              <p><a class="btn" href="/create">Let's go! &raquo;</a></p>
+            </div>
+            
+            <div class="span3">
+              <h2>Drivers &amp; Stacks</h2>
+              <p>With a universally accessible REST API, Neo4j integrates nicely from the usual languages, and many great frameworks.</p>
+              <p><a class="btn" href="/integrate">Mix and match &raquo;</a></p>
+            </div>
+            
+            <div class="span3">
+              <h2>Query with Cypher</h2>
+              <a data-toggle="lightbox" href="#queryCypher" class="thumbnail">
+							 <img src="/assets/img/still/cypher.png" alt="Click to View">
+						  </a>
+						  <p class="caption">Cypher is a graph query language. Easy to read, concise and powerful.</p>
+						  <div class="lightbox fade" id="queryCypher" style="display: none;">
+  						  <div class='lightbox-content'>
+  						  <iframe src="http://player.vimeo.com/video/50389825?badge=0" width="500" height="377" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  						  </div>
+      				</div>
+            </div>
+          </section>
+          
+          <section id="ops" class="row">
+            <h1>Operations</h1>
+            <div class="span3">
+              <h2>Property Graph</h2>
+              <p>Neo4j stores data in a Property Graph: node + relationship, with properties on both.</p>
+              <p><a class="btn" href="http://docs.neo4j.org/chunked/stable/what-is-a-graphdb.html">Read more &raquo;</a></p>
+            </div>
+            
+            <div class="span3">
+              <h2>Compare</h2>
+              <p>You know relational, now consider relationships. Compare the graph model to relational, documents, and other NOSQL stores.</p>
+              <p><a class="btn" href="http://docs.neo4j.org/chunked/stable/tutorial-comparing-models.html">Read more &raquo;</a></p>
+            </div>
+            
+            <div class="span3">
+              <h2>Graph DB 101</h2>
+              <a data-toggle="lightbox" href="#graphdbIntro" class="thumbnail">
+							 <img src="/assets/img/still/graphdb-intro.png" alt="Click to View">
+						  </a>
+						  <p class="caption">Introduction to Graph Databases &amp; Neo4j.</p>
+						  <div class="lightbox fade" id="graphdbIntro" style="display: none;">
+  						  <div class='lightbox-content'>
+    						  <iframe src="http://player.vimeo.com/video/49485027?badge=0" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  						  </div>
+      				</div>
+            </div>
+          </section>
+          
+          <section id="production" class="row">
+            <h1>Production</h1>
+            <div class="span3">
+              <h2>Neo4j</h2>
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
               <p><a class="btn" href="#">Read more &raquo;</a></p>
             </div>
@@ -28,10 +146,18 @@
               <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
               <p><a class="btn" href="#">Read more &raquo;</a></p>
             </div>
+            
             <div class="span3">
-              <h2>Heading</h2>
-              <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-              <p><a class="btn" href="#">Read more &raquo;</a></p>
+              <h2>Production Secrets</h2>
+              <a data-toggle="lightbox" href="#productionSecrets" class="thumbnail">
+							 <img src="/assets/img/still/secrets.png" alt="Click to View">
+						  </a>
+						  <p class="caption">Maybe a day or two before you get featured on Techcrunch, make sure your application is fully production-ready.</p>
+						  <div class="lightbox fade" id="productionSecrets" style="display: none;">
+  						  <div class='lightbox-content'>
+    						  <iframe src="http://player.vimeo.com/video/49485027?badge=0" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  						  </div>
+      				</div>
             </div>
           </section>
           
