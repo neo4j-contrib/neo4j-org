@@ -54,6 +54,22 @@ exports.create = function(req, res){
 
 
 /*
+ * GET - "heroku" managed Neo4j on Heroku's PaaS
+ */
+exports.heroku = function(req, res){
+  res.render('create/heroku', { category: 'create', title: 'Heroku Add-on' });
+};
+
+
+/*
+ * GET - "ec2" DIY deployment on Amazon's EC2
+ */
+exports.ec2 = function(req, res){
+  res.render('create/ec2', { category: 'create', title: 'DIY EC2' });
+};
+
+
+/*
  * GET - "spring" everything you need to know about SDN
  */
 exports.spring = function(req, res){
