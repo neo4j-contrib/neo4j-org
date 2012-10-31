@@ -9,7 +9,7 @@ exports.index = function(req, res){
 /*
  * GET - "download" page
  */
-exports.index = function(req, res){
+exports.download = function(req, res){
   res.render('download', { category: 'download', title: 'Download' });
 };
 
