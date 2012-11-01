@@ -20,18 +20,6 @@ Which should report something like:
 
 Which means you can now open a browser to [http://localhost:3000](http://localhost:3000)
 
-Ongoing Development
--------------------
-
-Get the latest changes:
-
-    git pull
-
-Submit your local changes:
-
-    git commit -am "beautification and verbal eloquence"
-    git push origin master
-
 Publish
 -------
 
@@ -39,18 +27,10 @@ For staging content, push to:
 
     git push staging master
 
-Then view the website like so:
-
-    heroku open --remote staging
-
 
 For production, push to the default remote:
 
     git push heroku master
-
-Viewable by:
-
-    heroku open
 
 References
 ----------
