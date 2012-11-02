@@ -6,57 +6,125 @@
       <div class="main row">
         <div class="span8">
           <h1>DIY on Amazon EC2</h1>
-          <p class="lead">Neo4j is a graph database. A graph database stores data. </p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec venenatis turpis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam arcu elit, rutrum sit amet gravida vulputate, rhoncus a ipsum. Cras gravida odio et sapien tincidunt at porta lectus volutpat. Praesent eu malesuada dolor. Vestibulum quis nisl ut dui molestie luctus. Maecenas in interdum urna. Vestibulum purus urna, eleifend non pellentesque nec, aliquet quis est. Phasellus non est non nulla scelerisque posuere. Ut tempus dapibus dui, at pulvinar odio consequat eu. Sed vitae lorem nisl, dapibus interdum libero. Pellentesque tincidunt libero sit amet ante ultricies eleifend. Duis semper malesuada nisl, quis feugiat neque sollicitudin ac. Vestibulum facilisis porttitor nulla, vitae ultricies nisl varius non. Nam leo est, mollis ac aliquam quis, molestie quis mauris.</p>
-
-          <p>Nunc lacinia velit et odio auctor a rhoncus ligula viverra. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus eleifend nisi id nisl congue eu sagittis neque dapibus. Donec suscipit, mauris vel mollis varius, mauris lacus consectetur purus, in rhoncus tellus odio vitae magna. In ultricies ante eget dolor lacinia commodo. Pellentesque eros lectus, commodo nec congue sit amet, feugiat sit amet sem. Nam tempus neque ac tortor pretium vestibulum sodales ipsum dictum. Aliquam faucibus iaculis velit, sit amet scelerisque nisl aliquet quis. Mauris et est nulla. Vestibulum rhoncus suscipit elit, eget luctus diam vestibulum quis. Integer a diam orci, quis consectetur lacus. Nunc vel libero at justo eleifend volutpat at non mi. In gravida tincidunt lacus, placerat luctus nisl ultrices vitae. Aenean sagittis dapibus faucibus. Suspendisse est augue, porta eget rhoncus sit amet, lobortis eu dui. Etiam in bibendum erat.</p>
+          <p class="lead">For ultimate control, you can provision Neo4j by hand to perfectly match your needs</p>
           
-          <div class="tabbable tabs-left">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#community" data-toggle="tab">Community</a></li>
-              <li><a href="#advanced" data-toggle="tab">Advanced</a></li>
-              <li><a href="#enterprise" data-toggle="tab">Enterprise</a></li>
-            </ul>
-            <div class="tab-content">            
-              <div class="tab-pane active" id="community">
-                <table class="table table-striped">
-                  <thead>
-                    <tr><td>Features</td></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>scalable - 32 Billion Nodes, 32 Billion Relationships, 64 Billion Properties</td></tr>
-                    <tr><td>accessible - REST API with the usual language drivers</td></tr>
-                    <tr><td>embeddable - use directly from any JVM-friendly language</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="tab-pane" id="advanced">
-                <table class="table table-striped">
-                  <thead>
-                    <tr><td>Features</td></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>scalable - 32 Billion Nodes, 32 Billion Relationships, 64 Billion Properties</td></tr>
-                    <tr><td>accessible - REST API with the usual language drivers</td></tr>
-                    <tr><td>embeddable - use directly from any JVM-friendly language</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="tab-pane" id="enterprise">
-                <table class="table table-striped">
-                  <thead>
-                    <tr><td>Features</td></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>huge - 32 Billion Nodes, 32 Billion Relationships, 64 Billion Properties</td></tr>
-                    <tr><td>accessible - REST API with the usual language drivers</td></tr>
-                    <tr><td>embeddable - use directly from any JVM-friendly language</td></tr>
-                    <tr class="enterprise"><td>robust - High Availability for read scaling and failover</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          <h3>Install Amazon Tools</h3>
+
+<p>Follow Amazon's own <a href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting Started guide</a>.</p>
+
+<h3>Launch an instance to host Neo4j</h3>
+
+<ol>
+<li>Log in to aws.amazon.com</li>
+<li>Go to the EC2 Console</li>
+<li>Click "Launch Instance"</li>
+<li>Select the "Classic Wizard"</li>
+<li>"Choose an AMI"
+
+<ol>
+<li>Select "Ubuntu Server 12.04.1 LTS" 64-bit</li>
+</ol>
+</li>
+<li>"Instance Details"
+
+<ol>
+<li>Instance Type: "m1.large"</li>
+<li>Availability Zone: "no preference"
+
+<ul>
+<li>just make sure it is any "us-east"</li>
+</ul>
+</li>
+<li>Click "Continue"</li>
+</ol>
+</li>
+<li>Instance Details - Advanced Instance Options
+
+<ol>
+<li>Termination Protection: enable</li>
+<li>Click "Continue"</li>
+</ol>
+</li>
+<li>Instance Details - Storage Device Configuration
+
+<ol>
+<li>Click "Edit"</li>
+<li>Select "EBS Volumes"</li>
+<li>Volume Size: 40GiB</li>
+<li>Volume Type: Standard</li>
+<li>Delete on Termination: disable (!!!)</li>
+<li>Click "Add"
+(Note the device path, something like /dev/sdf)</li>
+<li>Click "Continue"</li>
+</ol>
+</li>
+<li>Instance Details - Add tags
+
+<ol>
+<li>Optional, and safe to ignore</li>
+<li>Click "Continue"</li>
+</ol>
+</li>
+<li>Create Key Pair
+
+<ol>
+<li>Choose an existing, or create a new Key Pair
+
+<ul>
+<li>be sure to adjust permissions of a created PEM file to only be readable by you</li>
+</ul>
+</li>
+<li>Select "Continue"</li>
+</ol>
+</li>
+<li>Configure Firewall</li>
+<li>. Select "Create a new Security Group"</li>
+<li>. Group Name "Neo4j"</li>
+<li>. Group Description "for remote access to Neo4j database"</li>
+<li>. Port range: 7474</li>
+<li>. follow instructions here: https://devcenter.heroku.com/articles/external-services
+
+<ul>
+<li><code>$ ec2-authorize Neo4j -P tcp -p 7474 -u 098166147350 -o default</code></li>
+</ul>
+</li>
+<li>. Click "Continue"</li>
+<li>Review</li>
+<li>. Review the settings</li>
+<li>. Click "Launch"</li>
+</ol>
+
+
+<p>Wait for the instance to launch by monitoring it on the "Instances" dashboard.
+Once it is running ssh onto the instance like so:
+ssh -i {/path/to/KEYPAIR.pem} ubunutu@ec2-???-??-???-???.compute-1.amazonaws.com</p>
+
+<h3>Add Neo4j from debian</h3>
+
+<p>For details follow http://debian.neo4j.org</p>
+
+<ol>
+<li>sudo vi /etc/apt/sources.list.d/neo4j.list
+
+<ol>
+<li>add a line like this...
+deb http://debian.neo4j.org/repo stable/</li>
+<li>save it</li>
+</ol>
+</li>
+<li>sudo apt-get update</li>
+<li>sudo apt-get install neo4j
+
+<ol>
+<li>say "yes" to all questions</li>
+</ol>
+</li>
+</ol>
+
+
+<h3>Confirm Neo4j is running Locally</h3>
+
+<p><code>curl http://localhost:7474</code></p>
           
           <div class="related row">
             <div class="span2">
@@ -83,21 +151,14 @@
           <div class="summary">
             <h2>Briefly</h2>
             <div class="well">
-              <p>Neo4j is a <strong>graph</strong> database</p>
-              <ul class="circle">
-                      <li>the data model is a Property Graph</li>
-                      <li>Nodes + Relationships, with Properties</li>
-                      <li>Query with a traversal</li>
-                      <li>Indexes for simple lookups</li>
-              </ul>
-              <p>Neo4j is a graph <strong>database</strong></p>
-              <ul class="circle">
-                      <li>reliable ACID transactions</li>
-                      <li>scalable to billions of records</li>
-                      <li>easily grokked REST API</li>
-                      <li>high-performance HA clustering</li>
-              </ul>
-  
+              <p>DIY in the Cloud</p>
+              <ol>
+                <li><a href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting started on Amazon EC2</a></li>
+                <li>Provision a generous EC2 Instance</li>
+                <li><a href="/download">Download Neo4j</a> onto the EC2 instance</li>
+                <li>Mix in the <a href="http://github.com">authentication plugin</a></li>
+                <li>Configure your application to use the authenticated Neo4j URL</li>
+              </ol>
             </div>
           </div>
           
