@@ -1,3 +1,76 @@
+body {
+font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif;
+  color: #505050;
+}
+
+.sites {
+  font-family: Arial,Helevetica;
+}
+
+/** header **/
+.navbar {
+  margin-bottom: 20px;
+}
+/** container **/
+
+.hero-unit h1, .main h1 {
+  font-size: 54px;
+  font-weight: 600;
+  line-height:60px;
+}
+
+.row h2 {
+  font-size: 28px;
+  line-height: 15px;
+  font-weight: 600;
+  color: #08C;
+}
+
+.row h3 {
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 400;
+}
+
+.row h4 {
+  font-size: 28px;
+  font-weight: 400;
+}
+.row p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight:400;
+}
+
+.participate {
+  margin-left: 100px;
+}
+
+
+/** page nav **/
+.nav-stacked.affix  {
+  font-size: 18px;
+  top: 250px;
+  width: 240px;
+
+}
+
+.hero-unit {
+  bottom: 100px;
+}
+
+
+/** icon **/
+.thumbnail {
+  padding: 15px 0 0 10px;
+}
+.thumbnail.corner {
+  font-size: 28px;	
+  margin-top: 5px;
+}
+
+/** download table **/
 .table-download h2 {
   color: #ffffff;
   font-weight: 200;
@@ -20,7 +93,6 @@
   height: 50px;
  
 }
-
 
 .table-download th.edition {
   color: #ffffff;
@@ -77,12 +149,29 @@
   background-repeat: repeat-x;
 }
 
-
-
-
 .os {
   margin-left:25px;
   margin-right: -25px;
+}
+
+/** footer **/
+.footer h4 {
+ font-size: 28px;
+ color: #777;
+ line-height:30px;
+ text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+
+}
+.footer, .footer a {
+ color: #777;
+ text-decoration: none;
+}
+.footer a:hover {
+ color: #ccc;
+}
+.footer li {
+  line-height:.5em;
+  font-size: 13px;
 }
 
 
