@@ -37,6 +37,29 @@ exports.apps = function(req, res){
   res.render('learn/apps', { category: 'learn', title: 'Apps' });
 };
 
+
+/*
+ * GET - "Neo4j Licensing" guide to how we think about dual license
+ */
+exports.license = function(req, res){
+  res.render('learn/licensing', { category: 'learn', title: 'Licensing Guide' });
+};
+
+/*
+ * GET - "Property Graph" the basics about Nodes, Relationships and Properties
+ */
+exports.propertygraph = function(req, res){
+  res.render('learn/propertygraph', { category: 'learn', title: 'Property Graph' });
+};
+
+/*
+ * GET - "Comparison" of Neo4j vs. other databases
+ */
+exports.comparison = function(req, res){
+  res.render('learn/comparison', { category: 'learn', title: 'Comparisons' });
+};
+
+
 /*
  * GET - "watch" screencasts and other video content
  */
