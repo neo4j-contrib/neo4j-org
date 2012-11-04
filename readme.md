@@ -43,6 +43,8 @@ Then view the website like so:
 
     heroku open --remote staging
 
+Or go directly here: [http://obscure-wildwood-7384.herokuapp.com](http://obscure-wildwood-7384.herokuapp.com)
+
 
 For production, push to the default remote:
 
@@ -50,7 +52,9 @@ For production, push to the default remote:
 
 Viewable by:
 
-    heroku open
+    heroku open --remote heroku
+
+Or go directly here: [http://neo4j-org.herokuapp.com/](http://neo4j-org.herokuapp.com/)
 
 References
 ----------

@@ -34,7 +34,8 @@ var rnd = function rnd(min, max) { return Math.floor(Math.random() * (max - min 
 
 var themes = ["default","quartum","coolblue"];
 app.locals.theme = function() {
-  return themes[rnd(0,themes.length - 1)];
+/*   return themes[rnd(0,themes.length - 1)]; */
+  return "coolblue";
 }
  
 app.locals({
@@ -68,13 +69,16 @@ app.get('/', routes.index);
 app.get('/learn', routes.learn); // path: concepts, best practices, operations
 app.get('/learn/neo4j', routes.neo4j); // node:  about Neo4j
 app.get('/learn/apps', routes.apps); // graph:  showcase of apps built with Neo4j
+app.get('/learn/licensing', routes.license); // node:  Neo4j licensing guide (categorized URL)
+app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
+app.get('/learn/propertygraph', routes.propertygraph); // node:  explanation of property graph
+app.get('/learn/comparison', routes.comparison); // node:  compare to other databases
 app.get('/create', routes.create); // path: development guides in featured languages
 app.get('/create/heroku', routes.heroku); // path: development guides in featured languages
 app.get('/create/ec2', routes.ec2); // path: development guides in featured languages
 app.get('/spring', routes.spring); // path: development guides in featured languages
 app.get('/integrate', routes.integrate); // graph: language drivers and frameworks
 app.get('/participate', routes.participate); // graph: language drivers and frameworks
-app.get('/integrate', routes.integrate); // graph: languages and frameworks
 app.get('/download', routes.download); //  download Neo4j
 
 

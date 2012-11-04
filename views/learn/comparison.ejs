@@ -1,0 +1,107 @@
+
+<% include ../head %>
+
+    <div class="container">
+    
+      <!-- Main Content Row -->
+      <div class="main row">
+        <div class="span8">
+          
+          <div class="tabbable ">
+          
+            <h2>Database Comparison</h2>
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#nosql" data-toggle="tab">NOSQL</a></li>
+              <li><a href="#rdbms" data-toggle="tab">Relational</a></li>
+              <li><a href="#keyvalue" data-toggle="tab">Key-Value</a></li>
+              <li><a href="#document" data-toggle="tab">Document</a></li>
+            </ul>
+            
+            <div class="tab-content">        
+                
+              <div class="tab-pane active" id="nosql">
+                <h5 class="cypher">(Neo4j) &ndash;[:is_a]&ndash;&gt; (NOSQL Database)</h5>
+                <div class="row">
+                  <div class="span4">                  
+                    <p>Not Only SQL, but modern choices which excel at answering different kinds of questions.</p>
+                    <ul>
+                      <li>Average income? Ask an RDBMS</li>
+                      <li>Shopping cart? Use a Key Value Store</li>
+                      <li>How did you get here? Ask a graph</li>
+                    </ul>
+                  </div>
+                  <div class="span4">
+                    <img src="/assets/img/propertygraph/nosql-space.png" alt="" title="nosql-space" width="351" height="329" />
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tab-pane" id="rdbms">
+                <h5 class="cypher">(A Graph Database) &ndash;[:transforms_a]&ndash;&gt; (RDBMS)</h5>
+                <div class="row">
+                  <div class="span4"><img src="/assets/img/propertygraph/vs-rdbms.png" alt="" title="vs-rdbms" width="270" height="141" /></div>
+                  <div class="span4"><img src="/assets/img/propertygraph/as-rdbms.png" alt="" title="as-rdbms" width="254" height="289" /></div>
+                </div>
+                <p>Topple the stacks of records in a relational database while keeping all the relationships, and you&#8217;ll see a graph. Where an RDBMS 
+                is optimized for aggregated data, Neo4j is optimized for highly connected data.</p>
+              </div>
+              
+              <div class="tab-pane" id="keyvalue">
+                <h5 class="cypher">(A Graph Database) &ndash;[:relates_a]&ndash;&gt; (Key-Value Store)</h5>
+                <div class="row">
+                  <div class="span4"><img src="/assets/img/propertygraph/vs-key-value.png" alt="" title="vs-key-value" width="245" height="76" /></div>
+                  <div class="span4"><img src="/assets/img/propertygraph/as-key-value.png" alt="" title="as-key-value" width="264" height="163" /></div>
+                </div>
+                <p>A Key-Value model is great for lookups of simple or even complex values. When the values are themselves interconnected, you&#8217;ve got a 
+                graph. Neo4j lets you traverse quickly among all the connected values.</p>
+              </div>
+              
+              <div class="tab-pane" id="document">
+                <h5 class="cypher">(A Graph Database) &ndash;[:navigates_a]&ndash;&gt; (Document Store)</h5>
+                <div class="row">
+                  <div class="span4"><img src="/assets/img/propertygraph/vs-document.png" alt="" title="vs-document" width="159" height="241" /></div>
+                  <div class="span4"><img src="/assets/img/propertygraph/as-document.png" alt="" title="as-document" width="267" height="232" /></div>
+                </div>
+                <p>The container hierarchy of a document database accommodates nice, schema-free data that can easily be represented as a tree. Which is 
+                of course a graph. Refer to other documents (or document elements) within that tree and you have a more expressive representation of the 
+                same data that you can easily navigate with Neo4j.</p>
+              </div>
+              
+            </div> <!-- tab-content -->
+            
+          </div> <!-- tabbable -->
+          
+        </div>
+    			
+        <aside class="span4 sidebar">
+          <div class="summary">
+            <h2>Briefly</h2>
+            <div class="well">
+              <p>Neo4j is a NOSQL database:</p>
+              <ul class="circle">
+                <li>data model is a graph</li>
+                <li>can represent any data</li>
+                <li>fantastic at connected data</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="next-steps">
+            <h2>Next Steps</h2>
+            <div class="next thumbnail">
+              <div class="caption">
+                <h5><i class="icon-download"></i> Download Neo4j <%= neo4j.version %></h5> 
+                <p><%= neo4j.summary %></p>
+                <a href="/download" class="btn btn-primary" type="button">Neo4j <%= neo4j.version %></a>
+                <a href="<%= neo4j.readme %>" class="btn" type="button">Read More</a>
+              </div>            
+            </div>
+          </div>
+
+        </aside>
+        
+    	</div><!-- main row -->
+    </div><!-- container -->
+    
+
+<% include ../foot %>
