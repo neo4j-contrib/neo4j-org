@@ -2,6 +2,10 @@ body {
 font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif;
   color: #505050;
 }
+/** responsive change  **/
+  [class*="span"] {
+    min-height: 1px;
+  }
 
 .sites {
   font-family: Arial,Helevetica;
@@ -11,8 +15,23 @@ font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNe
 .navbar {
   margin-bottom: 20px;
 }
-/** container **/
 
+.navbar .brand {
+ font-size: 26px;
+ font-family: 'officinaserifstd-bold',Helvetica,sans-serif;
+}
+.logo img {
+  margin-right: 5px;
+}
+
+.hero {
+  margin-top:-20px;
+}
+
+/** container **/
+.news a, .events a {
+ color: #08C;
+}
 .hero-unit h1, .main h1 {
   font-size: 54px;
   font-weight: 600;
@@ -24,6 +43,12 @@ font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNe
   line-height: 15px;
   font-weight: 600;
   color: #08C;
+}
+.hero h2 {
+  color: #fff;
+  font-size: 50px;
+  line-height: 32px;
+  margin-top: 30px;
 }
 
 .row h3 {
@@ -42,9 +67,13 @@ font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNe
   line-height: 20px;
   font-weight:400;
 }
+.community h4 {
+  margin-left: 10px;
+}
 
-.participate {
-  margin-left: 100px;
+/** hero **/
+.hero-unit {
+  bottom: 100px;
 }
 
 
@@ -56,18 +85,12 @@ font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNe
 
 }
 
-.hero-unit {
-  bottom: 100px;
-}
-
 
 /** icon **/
-.thumbnail {
-  padding: 15px 0 0 10px;
-}
 .thumbnail.corner {
   font-size: 28px;	
   margin-top: 5px;
+ padding: 15px 0 0 10px;
 }
 
 /** download table **/
@@ -157,13 +180,16 @@ font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNe
 /** footer **/
 .footer h4 {
  font-size: 28px;
- color: #777;
+ color: #999;
  line-height:30px;
  text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
 
 }
+.footer {
+	position: relative;
+}
 .footer, .footer a {
- color: #777;
+ color: #999;
  text-decoration: none;
 }
 .footer a:hover {
@@ -173,7 +199,12 @@ font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNe
   line-height:.5em;
   font-size: 13px;
 }
-
-
+.newsletter button.btn {
+ background-color: #63CB3F;
+}
+.social {
+ color: #fff;
+ font-size:50px;
+}
 
 
