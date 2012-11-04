@@ -66,6 +66,11 @@ app.locals({
 
 
 app.get('/', routes.index);
+
+app.get('/home1', routes.home1);
+app.get('/home2', routes.home2);
+app.get('/home3', routes.home3);
+
 app.get('/learn', routes.learn); // path: concepts, best practices, operations
 app.get('/learn/neo4j', routes.neo4j); // node:  about Neo4j
 app.get('/learn/apps', routes.apps); // graph:  showcase of apps built with Neo4j
