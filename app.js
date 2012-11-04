@@ -55,7 +55,13 @@ app.locals({
     readme: "http://blog.neo4j.org/2012/09/neo4j-18rc1-really-careful-ftw.html"
   } 
 });
-
+app.locals({
+  neo4jS: {
+    version: "1.9-SNAPSHOT",
+    date: "2012-10-02",
+    summary: "Snapshot",
+  } 
+});
 
 /**
  * Page types:
