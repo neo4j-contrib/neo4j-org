@@ -76,15 +76,17 @@ ________|  Header  |__________________________________________*/
 .super-nav {
   background-color: #323131;
   color: #fff;
+  background:url(/assets/img/super-nav-BG.png);
 }
 .super-nav a {
   color: #fff;
   font-size: 12px;
+  font-family: Arial,Helevetica;
 }
 .super-nav-inner {
   /*min-height: 32px;*/
   padding:8px 20px;
-  height: 21px;
+  height: 19px;
 }
 .sites {
   float:left;
@@ -96,7 +98,7 @@ ________|  Header  |__________________________________________*/
 input[type="search"] {
   margin-bottom:0px;
   height: 13px;
-  margin-top: -2px;
+  margin-top: -3px;
 }
 
 /*Super Nav Media Queries*/ 
@@ -120,14 +122,14 @@ input[type="search"] {
   margin:0;
 }
 .navbar-inner {
-  min-height: 40px;
+  min-height: 50px;
   padding-right: 20px;
   padding-left: 20px;
   background-color: #fafafa;
 }
 .navbar .search {
   display:none;
-  margin-top: 27px;
+  margin-top: 18px;
   margin-right: 30px;
 }
 .navbar input[type="search"] {
@@ -138,7 +140,7 @@ input[type="search"] {
   left: 0;
   display: block;
   float: right;
-  margin: 30px 10px 0 0;
+  margin: 21px 10px 0 0;
 }
 
 .navbar .nav > li > a {
@@ -168,7 +170,7 @@ input[type="search"] {
 .navbar .brand {
   display: block;
   float: left;
-  padding: 10px 30px 10px;
+  padding: 8px 30px 6px;
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
@@ -176,11 +178,15 @@ input[type="search"] {
   text-shadow: 0 1px 0 #ffffff;
 }
 
+.navbar .brand img {
+  height: 45px;
+}
+
 .navbar .btn-navbar {
   display: none;
   float: right;
   padding: 12px 18px;
-  margin: 20px 5px 0 5px;
+  margin: 10px 5px 0 5px;
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #3D3C3C;
@@ -226,7 +232,7 @@ ________|  Hero/Learning Path  |__________________________________________*/
 
 .hero .container {
   background: url(/assets/img/arrows.png) no-repeat;
-  background-position: 47% 69%;
+  background-position: 48% 69%;
 }
 
 /*____________ Main Hero ______________*/
@@ -248,12 +254,50 @@ ________|  Hero/Learning Path  |__________________________________________*/
 
 .download{
   text-align:center;
+  height: 102px;
+  width:255px;
+  overflow: hidden;
+  margin-bottom: 0px;
+  background: url(/assets/img/btn_download_sprite.png) 0% 97%;
+  margin: 0 auto;
+}
+.download:hover{
+    background: url(/assets/img/btn_download_sprite.png) 0% 0%;
+}
+.download a{
+  color: white;
+  font-size: 30px;
+  font-family: Helvetica;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 21px;
+  top: 31px;
+  height: 102px;
+  width: 255px;
+  display:block;
+  position: relative;
+}
+.download a:hover {
+  text-decoration: none
+}
+.download a span{
+  font-size:14px;
+  font-weight: normal;
+}
+
+.all-versions{
+  color:#fff;
+  text-decoration: underline;
+  font-family: Helvetica;
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding-left: 5px;
 }
 
 .hero-unit {
-  margin-bottom: 30px;
   background-color:transparent;
   padding:0;
+  text-align: center;
 }
 
 .hero-unit h1 {
@@ -293,8 +337,9 @@ ________|  Hero/Learning Path  |__________________________________________*/
   -webkit-transition-timing-function: ease;
   cursor: hand;
 }
+/*---Start---*/
 .start{
-
+  padding-top: 14px;
 }
 .start img {
   width: 60%;
@@ -302,22 +347,26 @@ ________|  Hero/Learning Path  |__________________________________________*/
 .start img:hover {
   width: 63%;
 }
+/*---Learn---*/
 .learn{
   text-align:left;
 }
 .learn img {
   width: 53%;
-  padding-left: 35px;
+  padding-left: 45px;
 }
 .learn:hover img {
   width: 56%;
   padding-left: 35px;
 }
+/*---Create---*/
 .create{
   text-align: left;
+  padding-top: 15px;
 }
 .create img {
   width: 73%;
+  margin-left: -30px;
 }
 .create:hover img {
   width: 76%;
@@ -326,14 +375,21 @@ ________|  Hero/Learning Path  |__________________________________________*/
 /*Learning Path Media Queries*/  
 
 @media (max-width: 1198px){
-  .start  { text-align:left; }
+  .start        {text-align:left;}
+  .start img    {padding-top: 5px;}
+  .create img   {margin-left: 0px;}
 }
 @media (max-width: 979px) and (min-width: 768px){
-  .start img { text-align:left;padding-top: 18px; }
+  .start img          {text-align:left;padding-top: 7px;margin-left: -60px;width:70%; }
+  .start img:hover    {width:78%}
+  .learn img          {width: 63%;padding-left: 14px;}
+  .learn img:hover    {width:68%;padding-left:10px;}
+  .create img         {width: 86%;margin-left: 45px;}
+  .create img:hover   {width:88%;}
 }
 @media (max-width: 767px) {
-  .learning-path .span1     { display:none; }
-  .learning-path .span4     { margin-top:50px;margin-bottom:50px; }
+  .learning-path .span1          { display:none; }
+  .learning-path .span4          { margin-top:50px;margin-bottom:50px; }
   .start                         { text-align: center; }
   .start img,.start:hover img    { width: auto;margin-left: -22px; }
   .learn                         { text-align: center; }
@@ -439,6 +495,9 @@ ________|  Feeds/Makerting  |__________________________________________*/
   font-style: italic;
   font-size: 16px;
   color:#00ADDF;
+}
+#creditfooter {
+  display:none;
 }
 
 /*_______________ Events _________________*/
@@ -571,7 +630,11 @@ ________|  Footer  |__________________________________________*/
 /*_____________ Social ________________*/
 
 .social {
-  margin-top: 15px;
+  margin-top: 100px;
+}
+.social h4{
+  font-size:24px;
+  margin-bottom:18px;
 }
 .social a  {
   margin-right:25px;
@@ -588,6 +651,7 @@ ________|  Footer  |__________________________________________*/
 
 @media (max-width: 976px) {
   .clear-social { clear:both; }
+  .social       { margin-top: 10px;margin-left: 18px; }
 }
 /*======================================*/
 
