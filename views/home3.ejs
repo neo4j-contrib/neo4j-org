@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Neo4j - Learn, Create, Participate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Styles -->
+    
+    <link href="/assets/css/font-awesome.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  	<link href="/assets/css/bootstrap-lightbox.css" rel="stylesheet">
+
+    <link href="/assets/css/isotope.css" rel="stylesheet">
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- Random Pick-a-Theme -->
+    <link href="/themes/coolblue/css/style.css" rel="stylesheet">
+    <link href="/assets/css/neo4j.css" rel="stylesheet">
+
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/ico/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/ico/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/ico/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/ico/apple-touch-icon-114x114.png">
+
+<!--     <script src="/assets/js/modernizr.js" type="text/javascript"></script> -->
+
+  </head>
+
+  <body data-spy="scroll" data-target=".spyme">
+
+    <!-- header id="header" class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/"><img id="logo" src="/assets/img/neo4j/logo.png"/>Neo4j</a>
+          <nav id="menu" class="nav-collapse collapse">
+            <ul class="nav pull-right">
+              <li  > <a href="/learn">Learn</a></li>
+              <li  > <a href="/create">Create</a></li>
+              <li  > <a href="/participate">Participate</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
+                <ul class="dropdown-menu">
+                  <li><a href="/create">Create</a></li>
+                  <li><a href="/download">Download</a></li>
+                  <li><a href="/integrate">Integrate</a></li>
+                  <li><a href="/learn">Learn</a></li>
+                  <li><a href="/learn/neo4j">Neo4j</a></li>
+                  <li><a href="/watch">Watch</a></li>
+                </ul>
+              </li>
+            </ul>
+            
+          </nav>< !--/.nav-collapse -- >
+        </div>
+      </div>
+    </header -->
+    
+        <div class="super-nav">
+      <div class="super-nav-inner">
+          <div class="sites">
+            <a href="#">NEOTECHNOLOGY.COM</a> | <a href="#">NEO4J.ORG</a> | <a href="#">GRAPHCONNECT.COM</a>
+          </div>
+          <div class="search">
+            <input type="search" placeholder="Search Site" >
+          </div>
+      </div>
+    </div>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="search">
+            <input type="search" placeholder="Search Site" >
+          </div>
+          <h1><a class="brand logo" href="/"><img src="/assets/img/neo4j/logo.png" alt="Neo4J">Neo4j</a></h1>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Start<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="nav-header">your path</li>
+                  <li class="divider"></li>
+                  <li><a href="#">About Neo4j</a></li>
+                  <li><a href="#">Try Live</a></li>
+                  <li><a href="#">Download</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="/learn" class="dropdown-toggle" data-toggle="dropdown">Learn<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="nav-header">What, Why, How</li>
+                  <li class="divider"></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Videos</a></li>
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">Neo4j Manual</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="/create" class="dropdown-toggle" data-toggle="dropdown">Create<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="nav-header">Any Application</li>
+                  <li class="divider"></li>
+                  <li><a href="#">Language</a></li>
+                  <li><a href="#">Spring Data</a></li>
+                  <li><a href="#">Cloud</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="/participate" class="dropdown-toggle" data-toggle="dropdown">Participate<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="nav-header">In Community</li>
+                  <li class="divider"></li>
+                  <li><a href="#">Google Group</a></li>
+                  <li><a href="#">Github</a></li>
+                  <li><a href="#">Stack Overflow</a></li>
+                  <li><a href="#">Meetups</a></li>
+                </ul>
+              </li>
+              
+              <li class="dropdown"> <!-- DELETE ME -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Home Variations</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/home1">Home 1</a></li>
+                      <li><a href="/home2">Home 2</a></li>
+                      <li><a href="/home3">Home 3</a></li>
+                    </ul>
+                  </li>
+                  <li class="divider"></li>
+                  <li><a href="/learn">Learn</a></li>
+                  <li><a href="/learn/neo4j">Neo4j</a></li>
+                  <li><a href="/learn/apps">Apps</a></li>
+                  <li><a href="/learn/licensing">Licensing</a></li>
+                  <li><a href="/learn/propertygraph">Property Graph</a></li>
+                  <li><a href="/learn/comparison">Comparison</a></li>
+                  <li><a href="/create">Create</a></li>
+                  <li><a href="/create/heroku">Heroku</a></li>
+                  <li><a href="/create/ec2">EC2</a></li>
+                  <li><a href="/spring">Spring</a></li>
+                  <li><a href="/integrate">Integrate</a></li>
+                  <li><a href="/participate">Participate</a></li>
+                  <li><a href="/download">Download</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+
+  <!-- Main Hero -->
+  <div class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="hero-unit">
+          <!--<img src="/assets/img/hero.png"> -->
+          <h2>Neo4j<br>
+          <span>The Worlds Leading Graph Database</span></h2>
+          <p class="download"><a class=""><img src="/themes/coolblue/img/btn_download.png" alt=""></a></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="learning-path">
+          <div class="span1 spacer"></div>
+          <div class="span3 start"><a href="#"><img src="/themes/coolblue/img/start.png" alt="Start"></a></div>
+          <div class="span4 learn"><a href="#"><img src="/themes/coolblue/img/learn.png" alt="Learn"></a></div>
+          <div class="span3 create"><a href="#"><img src="/themes/coolblue/img/create.png" alt="Create"></a></div>
+          <div class="span1 spacer"></div>
+        </div>
+      </div>  
+    </div> 
+  </div>
+
+  <!-- Community -->
+  <div class="community-container">
+    <div class="community">
+      <div class="container">
+        <div class="row">
+          <div class="span4">
+            <h4>Join the Community</h4>
+          </div>
+          <div class="span4">
+            <p>receive Neo4j monthly e-mails<br>
+            get news and events, and meet graph enthusiast </p>
+          </div>
+          <div class="span4">
+            <input class="span3" type="email" placeholder="Enter Email Address">
+            <button type="submit" class="btn">Join</button>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+    
+  <!-- RSS Feeds & Marketing -->
+  <div class="feeds-marketing">
+    <div class="container">
+      <div class="row">
+        <div class="span4 news">
+          <h4>Latest News</h4>
+            <ul>
+              <li><a href="#">Fusce Lorem Ullamcorper Ligula Aenean</a></li>
+              <li><a href="#">Fusce Lorem Ullamcorper Ligula Aenean Cursus Cras Ullamcorper</a></li>
+              <li><a href="#">Fusce Lorem Ullamcorper Cursus Cras Ullamcorper</a></li>
+              <li><a href="#">Fusce Lorem Ullamcorper Ligula Aenean</a></li>
+            </ul>
+        </div>
+        <div class="span4 events">
+          <h4>Upcoming Events</h4>
+            <ul>
+              <li>Manchester Talk: The Challenge of Connected Data<br><span>Tue, 16th Oct. 2012</span><br><a href="#">event info</a></li>
+              <li>Manchester Talk: The Challenge of Connected Data<br><span>Tue, 16th Oct. 2012</span><br><a href="#">event info</a></li>
+              <li>Manchester Talk: The Challenge of Connected Data<br><span>Tue, 16th Oct. 2012</span><br><a href="#">event info</a></li>
+            </ul>
+       </div>
+        <div class="span4 marketing">
+            <div id="marketing-slider">
+              <img class="slide" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
+              <img class="slide hidden" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
+              <img class="slide hidden" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
+              <img class="slide hidden" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
+              <img class="slide hidden" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
+              <img class="slide hidden" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+      
+    </div> <!-- /container -->
+
+      </div>
+  <footer>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="span2">
+          	<h4>About</h4>
+            <ul>
+              <li><a href="#">What is Neo4j</a></li>
+               <li><a href="#">Blog</a></li>
+              <li><a href="#">Try Live</a></li>
+              <li><a href="#">Download</a></li>
+            </ul>
+          </div>
+          <div class="span2">
+            <h4>Learn</h4>
+            <ul>
+              <li><a href="#">Neo4j Manual</a></li>
+              <li><a href="#">Videos</a></li>
+              <li><a href="#">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="span2">
+            <h4>Create</h4>
+            <ul>
+              <li><a href="#">Language</a></li>
+              <li><a href="#">Spring Data Neo4j</a></li>
+              <li><a href="#">Neo4j Cloud</a></li>
+            </ul>
+          </div>
+          <div class="span2">
+           <h4>Participate</h4>
+            <ul>
+              <li><a href="#">Google Group</a></li>
+              <li><a href="#">Stack Overflow</a></li>
+              <li><a href="#">Meetups</a></li>
+              <li><a href="#">Git Hub</a></li>
+            </ul>
+          </div>
+          <!--<div class="span4">
+            <div class="newsletter">
+              <h5>Subscribe to our Mailing List</h5>
+              <p>Get Tips, Tricks, and the latest Neo4j News</p>
+              <input class="span3" type="email" placeholder="Enter Email Address">
+              <button type="submit" class="btn">Submit</button>
+            </div>
+            <div class="social">
+              <a href="#"><img src="/themes/coolblue/img/f_icon_twitter.png" alt="twitter"></a>
+              <a href="#"><img src="/themes/coolblue/img/f_icon_meetup.png" alt="meetup"></a>
+              <a href="#"><img src="/themes/coolblue/img/f_icon_stack.png" alt="stackoverflow"></a>
+              <a href="#"><img src="/themes/coolblue/img/f_icon_github.png" alt="github"></a>
+            </div>-->
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="span2 offset1">
+            <p class="pull-left">&copy; <a href="http://neotechnology.com">Neo Technology</a> 2012</p>
+            <!--<p>With <i class="icon-heart"></i> from Sweden.</p>-->
+          </div>
+        </div
+
+      </div> 
+    </div>
+  </footer>
+  
+
+      
+    <!-- javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap.js" type="text/javascript"></script>
+    <script src="/assets/js/jquery.isotope.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-iso.js" type="text/javascript"></script>
+  	<script src="/assets/js/bootstrap-lightbox.js" type="text/javascript"></script>
+  	<script src="/assets/js/bootstrap-transition.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // $('#marketing-slider').revolver({transition: {type: 'fade'}});
+    </script>
+    
+  </body>
+</html>
