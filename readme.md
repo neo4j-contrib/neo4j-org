@@ -52,7 +52,7 @@ For production, push to the default remote:
 
 Viewable by:
 
-    heroku open
+    heroku open --remote heroku
 
 Or go directly here: [http://neo4j-org.herokuapp.com/](http://neo4j-org.herokuapp.com/)
 
