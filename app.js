@@ -32,10 +32,9 @@ app.configure('development', function(){
 
 var rnd = function rnd(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
-var themes = ["default","quartum","coolblue"];
+var themes = ["default","quartum","coolblue","aqua"];
 app.locals.theme = function() {
-/*   return themes[rnd(0,themes.length - 1)]; */
-  return "coolblue";
+  return themes[rnd(0,themes.length - 1)];
 }
  
 app.locals({

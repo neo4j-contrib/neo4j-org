@@ -15,3 +15,7 @@ footer.bottom {background: white; }
   width: 120px;
   height: 120px;
 }
+
+div#super-nav {
+  visibility: hidden;
+}
