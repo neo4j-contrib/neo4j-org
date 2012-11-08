@@ -1,22 +1,23 @@
+  <!-- Header -->
 <% include head %>
-
+<% include header %>
   <!-- Main Hero -->
   <div class="hero">
     <div class="container">
       <div class="row">
         <div class="hero-unit">
-          <!--<img src="/assets/img/hero.png"> -->
           <h2>Neo4j<br>
-          <span>The World's Leading Graph Database</span></h2>
-          <p class="download"><a class=""><img src="/themes/<%= theme() %>/img/btn_download.png" alt=""></a></p>
+          <span>The Worlds Leading Graph Database</span></h2>
+          <p class="download"><a href="#" class="">Download<br><span>Version 1.7.2</span></a></p>
+          <a class="all-versions" href="#">View All Versions</a>
         </div>
       </div>
       <div class="row">
         <div class="learning-path">
           <div class="span1 spacer"></div>
-          <div class="span3 start"><a href="#"><img src="/themes/<%= theme() %>/img/start.png" alt="Start"></a></div>
-          <div class="span4 learn"><a href="#"><img src="/themes/<%= theme() %>/img/learn.png" alt="Learn"></a></div>
-          <div class="span3 create"><a href="#"><img src="/themes/<%= theme() %>/img/create.png" alt="Create"></a></div>
+          <div class="span3 start"><a href="#"><img src="/assets/img/start.png" alt="Start"></a></div>
+          <div class="span4 learn"><a href="#"><img src="/assets/img/learn.png" alt="Learn"></a></div>
+          <div class="span3 create"><a href="#"><img src="/assets/img/create.png" alt="Create"></a></div>
           <div class="span1 spacer"></div>
         </div>
       </div>  
@@ -32,7 +33,7 @@
             <h4>Join the Community</h4>
           </div>
           <div class="span4">
-            <p>receive Neo4j monthly e-mails<br>
+            <p>recieve Neo4j monthly e-mails<br>
             get news and events, and meet graph enthusiast </p>
           </div>
           <div class="span4">
@@ -50,32 +51,31 @@
       <div class="row">
         <div class="span4 news">
           <h4>Latest News</h4>
-            <ul>
-              <li><a href="#">Fusce Lorem Ullamcorper Ligula Aenean</a></li>
-              <li><a href="#">Fusce Lorem Ullamcorper Ligula Aenean Cursus Cras Ullamcorper</a></li>
-              <li><a href="#">Fusce Lorem Ullamcorper Cursus Cras Ullamcorper</a></li>
-              <li><a href="#">Fusce Lorem Ullamcorper Ligula Aenean</a></li>
-            </ul>
+          <script src="http://feeds.feedburner.com/Twitter/Neo4j?format=sigpro" type="text/javascript" ></script>
         </div>
         <div class="span4 events">
           <h4>Upcoming Events</h4>
-            <ul>
-              <li>Manchester Talk: The Challenge of Connected Data<br><span>Tue, 16th Oct. 2012</span><br><a href="#">event info</a></li>
-              <li>Manchester Talk: The Challenge of Connected Data<br><span>Tue, 16th Oct. 2012</span><br><a href="#">event info</a></li>
-              <li>Manchester Talk: The Challenge of Connected Data<br><span>Tue, 16th Oct. 2012</span><br><a href="#">event info</a></li>
-            </ul>
+          <script src="http://feeds.feedburner.com/google/jYkD?format=sigpro&excerptLength=5" type="text/javascript" ></script>
+            <!-- <ul>
+              <li>GraphConnect 2012 San Francisco: Tutorial<br><span>Mon, 05 Nov 2012</span><br><a href="http://www.graphconnect.com/">event info</a></li>
+              <li>GraphConnect 2012 San Francisco: Sessions<br><span>Tue, 06 Nov 2012</span><br><a href="http://www.graphconnect.com/">event info</a></li>
+              <li>Malmo Talk @ Øredev: Highly Connected Data Models in NOSQL Stores<br><span>Wed, 07 Nov 2012</span><br><a href="http://oredev.org/2012/sessions/highly-connected-data-models-in-nosql-stores">event info</a></li>
+            </ul> -->
        </div>
         <div class="span4 marketing">
             <div id="marketing-slider">
-              <img class="slide" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
-              <img class="slide hidden" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
-              <img class="slide hidden" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
-              <img class="slide hidden" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
-              <img class="slide hidden" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
-              <img class="slide hidden" src="/themes/coolblue/img/marketing_block_L.png" alt="" />
+              <img class="slide" src="/assets/img/marketing_block_L.png" alt="" />
+              <img class="slide hidden" src="/assets/img/marketing_block_L.png" alt="" />
+              <img class="slide hidden" src="/assets/img/marketing_block_L.png" alt="" />
+              <img class="slide hidden" src="/assets/img/marketing_block_L.png" alt="" />
+              <img class="slide hidden" src="/assets/img/marketing_block_L.png" alt="" />
+              <img class="slide hidden" src="/assets/img/marketing_block_L.png" alt="" />
           </div>
         </div>
       </div>
     </div>
+  </div>
 
+  <!-- Footer -->
+<% include footer %>
 <% include foot %>
