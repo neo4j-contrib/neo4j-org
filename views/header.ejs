@@ -1,18 +1,26 @@
-    <div id="super-nav" class="super-nav">
+    <div class="super-nav">
       <div class="super-nav-inner">
           <div class="sites">
             <a href="#">NEOTECHNOLOGY.COM</a> | <a href="#">NEO4J.ORG</a> | <a href="#">GRAPHCONNECT.COM</a>
           </div>
-          <div class="search">
+          <!-- <div class="search">
             <input type="search" placeholder="Search Site" >
-          </div>
+          </div> -->
       </div>
     </div>
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar affix">
       <div class="navbar-inner">
         <div class="container">
-          <h1><a class="brand logo" href="/"><img src="/assets/img/neo4j/logo.png" alt="Neo4J">Neo4j</a></h1>
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <!--<div class="search">
+            <input type="search" placeholder="Search Site" >
+          </div> -->
+          <h1><a class="brand logo" href="#"><img src="/assets/img/neo4j-logo.png" alt="Neo4J"></a></h1>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="dropdown">
@@ -26,7 +34,7 @@
                 </ul>
               </li>
               <li class="dropdown">
-                <a href="/learn" class="dropdown-toggle" data-toggle="dropdown">Learn<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Learn<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li class="nav-header">What, Why, How</li>
                   <li class="divider"></li>
@@ -37,7 +45,7 @@
                 </ul>
               </li>
               <li class="dropdown">
-                <a href="/create" class="dropdown-toggle" data-toggle="dropdown">Create<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Create<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li class="nav-header">Any Application</li>
                   <li class="divider"></li>
@@ -47,7 +55,7 @@
                 </ul>
               </li>
               <li class="dropdown">
-                <a href="/participate" class="dropdown-toggle" data-toggle="dropdown">Participate<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Participate<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li class="nav-header">In Community</li>
                   <li class="divider"></li>
@@ -55,34 +63,6 @@
                   <li><a href="#">Github</a></li>
                   <li><a href="#">Stack Overflow</a></li>
                   <li><a href="#">Meetups</a></li>
-                </ul>
-              </li>
-              
-              <li class="dropdown"> <!-- DELETE ME -->
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-submenu">
-                    <a tabindex="-1" href="#">Home Variations</a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/home1">Home 1</a></li>
-                      <li><a href="/home2">Home 2</a></li>
-                      <li><a href="/home3">Home 3</a></li>
-                    </ul>
-                  </li>
-                  <li class="divider"></li>
-                  <li><a href="/learn">Learn</a></li>
-                  <li><a href="/learn/neo4j">Neo4j</a></li>
-                  <li><a href="/learn/apps">Apps</a></li>
-                  <li><a href="/learn/licensing">Licensing</a></li>
-                  <li><a href="/learn/propertygraph">Property Graph</a></li>
-                  <li><a href="/learn/comparison">Comparison</a></li>
-                  <li><a href="/create">Create</a></li>
-                  <li><a href="/create/heroku">Heroku</a></li>
-                  <li><a href="/create/ec2">EC2</a></li>
-                  <li><a href="/spring">Spring</a></li>
-                  <li><a href="/integrate">Integrate</a></li>
-                  <li><a href="/participate">Participate</a></li>
-                  <li><a href="/download">Download</a></li>
                 </ul>
               </li>
             </ul>

@@ -4223,13 +4223,13 @@ input[type="submit"].btn.btn-mini {
           box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1), 0 -1px 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbar .nav {
+/*.navbar .nav {
   position: relative;
   left: 0;
   display: block;
   float: left;
   margin: 0 10px 0 0;
-}
+}*/
 
 .navbar .nav.pull-right {
   float: right;
@@ -4239,13 +4239,13 @@ input[type="submit"].btn.btn-mini {
   float: left;
 }
 
-.navbar .nav > li > a {
+/*.navbar .nav > li > a {
   float: none;
   padding: 10px 15px 10px;
   color: #555555;
   text-decoration: none;
   text-shadow: 0 1px 0 #ffffff;
-}
+}*/
 
 .navbar .nav .dropdown-toggle .caret {
   margin-top: 8px;
