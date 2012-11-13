@@ -29,6 +29,7 @@ font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNe
 }
 
 /** container **/
+
 .news a, .events a {
  color: #08C;
 }
@@ -105,7 +106,7 @@ font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNe
   text-transform: capitalize;
 }
 .table-download h3 {
-  color: #ffffff;
+  color: #000000;
   font-weight: 200;
   font-size: 20px;
   line-height:15px;
@@ -139,7 +140,6 @@ font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNe
   vertical-align: middle;
   text-decoration: none;
   background-color: #0088cc;
-  background-color: #0081c2;
   background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
   background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
@@ -148,6 +148,14 @@ font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNe
   background-repeat: repeat-x;
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);  
   border-color: #387038; 
+}
+
+.table-striped tbody tr:nth-child(odd) th, .table-striped tbody th  {
+  width: 20%;  
+  text-decoration: none;
+  background-image: none;
+  border-color: #ccc;
+  background-color: #F9F9F9;
 }
 
 .table-download tbody th.ltgreen {
@@ -184,7 +192,10 @@ font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNe
   vertical-align: middle;
   color: #505050;
 }
-
+.bg-btn {
+ background-image: none;
+ font-size: 16px;
+}
 .archives {
   margin-left: 70px;
 }
