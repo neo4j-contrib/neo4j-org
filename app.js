@@ -85,12 +85,14 @@ app.get('/learn/propertygraph', routes.propertygraph); // node:  explanation of 
 app.get('/learn/comparison', routes.comparison); // node:  compare to other databases
 app.get('/create', routes.create); // path: development guides in featured languages
 app.get('/create/heroku', routes.heroku); // path: development guides in featured languages
+app.get('/create/spring', routes.spring); // path: development guides in featured languages
 app.get('/create/ec2', routes.ec2); // path: development guides in featured languages
 app.get('/spring', routes.spring); // path: development guides in featured languages
 app.get('/integrate', routes.integrate); // graph: language drivers and frameworks
 app.get('/participate', routes.participate); // graph: language drivers and frameworks
 app.get('/download', routes.download); //  download Neo4j
 app.get('/contributors', routes.contributors);
+app.get('/intro', routes.intro);
 
 
 

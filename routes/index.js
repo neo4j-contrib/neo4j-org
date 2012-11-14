@@ -69,11 +69,8 @@ exports.license = function(req, res){
   res.render('learn/licensing', { category: 'learn', title: 'Licensing Guide' });
 };
 
-/*
- * GET - "Property Graph" the basics about Nodes, Relationships and Properties
- */
-exports.propertygraph = function(req, res){
-  res.render('learn/propertygraph', { category: 'learn', title: 'Property Graph' });
+exports.intro = function(req, res){
+  res.render('intro', { category: 'learn', title: 'Introduction to Neo4j' });
 };
 
 /*
@@ -105,6 +102,10 @@ exports.create = function(req, res){
  */
 exports.heroku = function(req, res){
   res.render('create/heroku', { category: 'create', title: 'Heroku Add-on' });
+};
+
+exports.spring = function(req, res){
+    res.render('create/spring', { category: 'create', title: 'Spring Data Neo4j' });
 };
 
 
