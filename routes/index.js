@@ -137,3 +137,6 @@ exports.participate = function(req, res){
   res.render('participate', { category: 'participate', title: 'Participate' });
 };
 
+exports.contributors = function(req, res){
+    res.render('contributors', { category: 'contributors', title: 'Contributors' });
+};

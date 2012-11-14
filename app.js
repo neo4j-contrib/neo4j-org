@@ -58,7 +58,7 @@ app.locals({
   neo4jS: {
     version: "1.9-SNAPSHOT",
     date: "2012-10-02",
-    summary: "Snapshot",
+    summary: "Snapshot"
   } 
 });
 
@@ -90,6 +90,7 @@ app.get('/spring', routes.spring); // path: development guides in featured langu
 app.get('/integrate', routes.integrate); // graph: language drivers and frameworks
 app.get('/participate', routes.participate); // graph: language drivers and frameworks
 app.get('/download', routes.download); //  download Neo4j
+app.get('/contributors', routes.contributors);
 
 
 
