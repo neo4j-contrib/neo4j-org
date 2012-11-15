@@ -131,6 +131,10 @@ exports.integrate = function(req, res){
   res.render('integrate', { category: 'create', title: 'Integrate' });
 };
 
+exports.try = function(req, res){
+  res.render('learn/try', { category: 'learn', title: 'Try Neo4j' });
+};
+
 /*
  * GET - "participate" in the Neo4j community
  */

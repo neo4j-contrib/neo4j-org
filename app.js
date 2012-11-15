@@ -93,6 +93,7 @@ app.get('/participate', routes.participate); // graph: language drivers and fram
 app.get('/download', routes.download); //  download Neo4j
 app.get('/contributors', routes.contributors);
 app.get('/intro', routes.intro);
+app.get('/learn/try', routes.try);
 
 
 
