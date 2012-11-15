@@ -85,6 +85,7 @@ app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (we
 app.get('/learn/propertygraph', routes.propertygraph); // node:  explanation of property graph
 app.get('/learn/comparison', routes.comparison); // node:  compare to other databases
 app.get('/create', routes.create); // path: development guides in featured languages
+app.get('/create/install', routes.install); // path: development guides in featured languages
 app.get('/create/heroku', routes.heroku); // path: development guides in featured languages
 app.get('/create/spring', routes.spring); // path: development guides in featured languages
 app.get('/create/ec2', routes.ec2); // path: development guides in featured languages
