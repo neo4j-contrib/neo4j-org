@@ -11,7 +11,7 @@
           following arrows around the diagram to form sentences.</p>
           
           <div class="tabbable ">
-            <h2>Property graph</h2>
+            <h2>Property Graph</h2>
             <ul class="nav nav-tabs">
               <li class="active"><a href="#graph" data-toggle="tab">Graph</a></li>
               <li><a href="#traversal" data-toggle="tab">Traversal</a></li>
@@ -24,12 +24,12 @@
                 <h4>A Graph contains Nodes and Relationships</h4>
                 <div class="row">
                   <div class="span5">
-                    <h5>“A Graph &#8211;records data in&#8211;&gt; Nodes &#8211;which have&#8211;&gt; Properties.”</h5>
+                    <h5 class="cypher">A Graph &#8211;records data in&#8211;&gt; Nodes &#8211;which have&#8211;&gt; Properties.</h5>
                     <p>The simplest possible graph is a single Node, a record that has named values referred to as 
                       Properties. A Node could start with a single Property and grow to a few million, though that can 
                       get a little awkward. At some point it makes sense to distribute the data into multiple nodes, 
                       organized with explicit Relationships.</p>
-                      <h5>“Nodes &#8211;are organized by&#8211;> Relationships &#8212; which also have&#8211;> Properties.”</h5>
+                      <h5 class="cypher">Nodes &#8211;are organized by&#8211;> Relationships &#8212; which also have&#8211;> Properties.</h5>
                       <p>Relationships organize Nodes into arbitrary structures, allowing a Graph to resemble a List, a 
                         Tree, a Map, or a compound Entity – any of which can be combined into yet more complex, richly inter-connected structures.</p>
                   </div>
@@ -43,7 +43,7 @@
                 <h4>Query a Graph with a Traversal</h4>
                 <div class="row">
                   <div class="span5">
-                    <h5>“A Traversal &#8211;navigates&#8211;> a Graph; it &#8211;identifies&#8211;> Paths &#8211;which order&#8211;> Nodes.”</h5>
+                    <h5 class="cypher">A Traversal &#8211;navigates&#8211;> a Graph; it &#8211;identifies&#8211;> Paths &#8211;which order&#8211;> Nodes.</h5>
                     <p>A Traversal is how you query a Graph, navigating from starting Nodes to related Nodes according to an algorithm, finding 
                     answers to questions like &#8220;what music do my friends like that I don&#8217;t yet own,&#8221; or &#8220;if this power 
                     supply goes down, what web services are affected?&#8221;</p>
@@ -58,7 +58,7 @@
       					<h4>Indexes look-up Nodes or Relationships</h4>
                 <div class="row">
                   <div class="span5">
-                    <h5>“An Index &#8211;maps from&#8211;> Properties &#8211;to either&#8211;> Nodes or Relationships.<br />It &#8211;is a special&#8211;> Traversal.”</h5>
+                    <h5 class="cypher">An Index &#8211;maps from&#8211;> Properties &#8211;to either&#8211;> Nodes or Relationships.<br />It &#8211;is a special&#8211;> Traversal.</h5>
                     <p>Often, you want to find a specific Node or Relationship according to a Property it has. This special case of 
                     Traversal is so common that it is optimized into an Index look-up, for questions like &#8220;find the Account for 
                     username master-of-graphs.&#8221;</p>
@@ -73,7 +73,7 @@
                 <h4>Neo4j is a Graph Database</h4>
                 <div class="row">
                   <div class="span5">
-                    <h5>“A Graph Database &#8211;manages a&#8211;> Graph and &#8211;also manages related&#8211;> Indexes”</h5>
+                    <h5 class="cypher">A Graph Database &#8211;manages a&#8211;> Graph and &#8211;also manages related&#8211;> Indexes</h5>
                     <p>Neo4j is a <a onclick="javascript:pageTracker._trackPageview('/outgoing/neotechnology.com/');"  href="http://neotechnology.com/">commercially supported</a> 
                     open-source graph database, that is:</p>
                     <ul>

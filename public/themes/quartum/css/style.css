@@ -103,14 +103,14 @@ a.twitterBtn:hover {background-position: -1px -1px; background-color: transparen
 .navbar .navbar-inner .nav li.dropdown:hover a {color:#fff; background: transparent url(../img/tip-dropdown.png) no-repeat center bottom;}
 .navbar .navbar-inner .container .nav li.dropdown ul.dropdown-menu {border:none; text-align:center; border-radius:20px; box-shadow:none; margin:0; }
 .navbar .navbar-inner .container .nav li.dropdown ul.dropdown-menu a {color:#c8584c; padding:5px 3px; }
-.navbar .navbar-inner .container .nav li.dropdown ul.dropdown-menu a:hover {color:#a6c3b2; }
+.navbar .navbar-inner .container .nav li.dropdown ul.dropdown-menu a:hover {/* color:#a6c3b2; */ color: #999; }
 .navbar .pull-right > li > .dropdown-menu::after, .navbar .nav > li > .dropdown-menu.pull-right::after  {border:none;}
 .navbar .pull-right > li > .dropdown-menu::before, .navbar .nav > li > .dropdown-menu.pull-right::before {border:none;}
 .navbar .pull-right > li > .dropdown-menu, .navbar .nav > li > .dropdown-menu.pull-right {left:-36px; right:auto;}
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {box-shadow:none;}
-.navbar .navbar-inner .container .nav li a {padding: 0 10px; font-size: 14px; color: #d1e2d8; text-shadow: none; font-weight: 900; text-transform: uppercase;}
+.navbar .navbar-inner .container .nav li a {padding: 0 10px; font-size: 14px; /* color: #d1e2d8; */ text-shadow: none; font-weight: 900; text-transform: uppercase;}
 .navbar .navbar-inner .container .nav li.active > a {background: transparent url(../img/tip-active-menu.png) no-repeat center bottom; box-shadow:none; color:#fff;}
-.navbar .nav li.dropdown > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle {color: #bcd2c5;}
+.navbar .nav li.dropdown > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle {/* color: #bcd2c5; */}
 .navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {background:transparent; color:#fff; }
 .navbar .navbar-inner .container .nav li a:hover {color: #fff;}
 .navbar .nav-collapse.collapse {background: url(../img/navbarBg.jpg) repeat 0 0; border-radius: 0 0 5px 5px;}

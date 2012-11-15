@@ -21,8 +21,10 @@
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
 
     <!-- Random Pick-a-Theme -->
+
     <link href="/themes/<%= theme() %>/css/style.css" rel="stylesheet">
-    <link href="/assets/css/neo4j.css" rel="stylesheet">
+    <link href="/assets/css/neo.css" rel="stylesheet">
+    <!--<link href="/assets/css/neo4j.css" rel="stylesheet">-->
 
     <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -42,39 +44,5 @@
   </head>
 
   <body data-spy="scroll" data-target=".spyme">
-
-    <!-- header id="header" class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/"><img id="logo" src="/assets/img/neo4j/logo.png"/>Neo4j</a>
-          <nav id="menu" class="nav-collapse collapse">
-            <ul class="nav pull-right">
-              <li <% if (category=="learn") { %>class="active"<% } %> > <a href="/learn">Learn</a></li>
-              <li <% if (category=="create") { %>class="active"<% } %> > <a href="/create">Create</a></li>
-              <li <% if (category=="participate") { %>class="active"<% } %> > <a href="/participate">Participate</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
-                <ul class="dropdown-menu">
-                  <li><a href="/create">Create</a></li>
-                  <li><a href="/download">Download</a></li>
-                  <li><a href="/integrate">Integrate</a></li>
-                  <li><a href="/learn">Learn</a></li>
-                  <li><a href="/learn/neo4j">Neo4j</a></li>
-                  <li><a href="/watch">Watch</a></li>
-                </ul>
-              </li>
-            </ul>
-            
-          </nav>< !--/.nav-collapse -- >
-        </div>
-      </div>
-    </header -->
-    
-    <% include header %>
-
-    <div class="container">
+ 
+  <% include header %>

@@ -1,4 +1,4 @@
-    <div id="super-nav" class="super-nav">
+<!-- Remove Top Header   <div class="super-nav">
       <div class="super-nav-inner">
           <div class="sites">
             <a href="#">NEOTECHNOLOGY.COM</a> | <a href="#">NEO4J.ORG</a> | <a href="#">GRAPHCONNECT.COM</a>
@@ -7,86 +7,66 @@
             <input type="search" placeholder="Search Site" >
           </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
-          <h1><a class="brand logo" href="/"><img src="/assets/img/neo4j/logo.png" alt="Neo4J">Neo4j</a></h1>
+         <div class="container">
+          <div class="pull-left">
+          <h1 class="header"><a class="brand logo" href="/"><img src="/assets/img/neo4j/logo.png" alt="Neo4J World's Leading Graph Database">Neo4j</a></h1>
+          </div>
           <div class="nav-collapse collapse">
-            <ul class="nav">
+            <ul class="nav pull-right">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Start<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Start</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-header">your path</li>
+                  <li id="nav-path">Your Path</li>
                   <li class="divider"></li>
-                  <li><a href="#">About Neo4j</a></li>
-                  <li><a href="#">Try Live</a></li>
-                  <li><a href="#">Download</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="/learn" class="dropdown-toggle" data-toggle="dropdown">Learn<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="nav-header">What, Why, How</li>
-                  <li class="divider"></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Videos</a></li>
-                  <li><a href="#">Gallery</a></li>
-                  <li><a href="#">Neo4j Manual</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="/create" class="dropdown-toggle" data-toggle="dropdown">Create<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="nav-header">Any Application</li>
-                  <li class="divider"></li>
-                  <li><a href="#">Language</a></li>
-                  <li><a href="#">Spring Data</a></li>
-                  <li><a href="#">Cloud</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="/participate" class="dropdown-toggle" data-toggle="dropdown">Participate<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="nav-header">In Community</li>
-                  <li class="divider"></li>
-                  <li><a href="#">Google Group</a></li>
-                  <li><a href="#">Github</a></li>
-                  <li><a href="#">Stack Overflow</a></li>
-                  <li><a href="#">Meetups</a></li>
-                </ul>
-              </li>
-              
-              <li class="dropdown"> <!-- DELETE ME -->
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-submenu">
-                    <a tabindex="-1" href="#">Home Variations</a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/home1">Home 1</a></li>
-                      <li><a href="/home2">Home 2</a></li>
-                      <li><a href="/home3">Home 3</a></li>
-                    </ul>
-                  </li>
-                  <li class="divider"></li>
-                  <li><a href="/learn">Learn</a></li>
-                  <li><a href="/learn/neo4j">Neo4j</a></li>
-                  <li><a href="/learn/apps">Apps</a></li>
-                  <li><a href="/learn/licensing">Licensing</a></li>
-                  <li><a href="/learn/propertygraph">Property Graph</a></li>
-                  <li><a href="/learn/comparison">Comparison</a></li>
-                  <li><a href="/create">Create</a></li>
-                  <li><a href="/create/heroku">Heroku</a></li>
-                  <li><a href="/create/ec2">EC2</a></li>
-                  <li><a href="/spring">Spring</a></li>
-                  <li><a href="/integrate">Integrate</a></li>
-                  <li><a href="/participate">Participate</a></li>
+                  <li><a href="/learn/neo4j">About Neo4j</a></li>
+                  <li><a href="/learn/propertygraph">What&#39;s a Graph Database</a>
+                  <li><a href="http://console.neo4j.org/">Try Live</a></li>
                   <li><a href="/download">Download</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="/learn" class="dropdown-toggle" data-toggle="dropdown">Learn</a>
+                <ul class="dropdown-menu">
+                  <li id="nav-path"><a href="/learn">What, Why, How</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/learn/neo4j">What is Neo4j</a>
+                  <li><a href="/learn/propertygraph">Graph Database</a>
+                  <li><a href="/learn/licensing">Licensing</a>                                     
+                  <li><a href="/learn/apps">Example Graph Apps</a>
+                  <li><a href="/learn/comparison">NOSQL Comparison</a>                             
+                  <li><a href="http://blog.neo4j.org">Blog</a></li>
+                  <li><a href="http://docs.neo4j.org">Neo4j Manual</a></li>
+                  <li><a href="http://watch.neo4j.org">Videos</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="/create" class="dropdown-toggle" data-toggle="dropdown">Create</a>
+                <ul class="dropdown-menu">
+                  <li id="nav-path"><a href="/create">Any Application</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/integrate">Languages &amp; Frameworks</a></li>
+                  <li><a href="/create/spring">Spring Data Neo4j</a></li>
+                  <li><a href="/create/ec2">EC2</a></li>
+                  <li><a href="/create/heroku">Heroku</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="/participate" class="dropdown-toggle" data-toggle="dropdown">Participate</a>
+                <ul class="dropdown-menu">
+                  <li id="nav-path"><a href="/participate">In Neo4j Community</a></li>
+                  <li class="divider"></li>
+                  <li><a href="https://groups.google.com/forum/?fromgroups#!forum/neo4j">Google Group</a></li>
+                  <li><a href="https://github.com/neo4j">Github</a></li>
+                  <li><a href="http://stackoverflow.com/questions/tagged/neo4j/">Stack Overflow</a></li>
+                  <li><a href="http://neo4j.meetup.com/">Meetups</a></li>
                 </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
-        </div>
+      </div> <!--/ container -->
       </div>
     </div>

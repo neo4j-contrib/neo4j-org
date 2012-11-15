@@ -32,7 +32,8 @@ app.configure('development', function(){
 
 var rnd = function rnd(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
-var themes = ["default","quartum","coolblue","aqua"];
+/* var themes = ["default","quartum","coolblue","aqua"]; */
+var themes = ["default","quartum"];
 app.locals.theme = function() {
   return themes[rnd(0,themes.length - 1)];
 }
@@ -86,7 +87,7 @@ app.get('/learn/comparison', routes.comparison); // node:  compare to other data
 app.get('/create', routes.create); // path: development guides in featured languages
 app.get('/create/heroku', routes.heroku); // path: development guides in featured languages
 app.get('/create/ec2', routes.ec2); // path: development guides in featured languages
-app.get('/spring', routes.spring); // path: development guides in featured languages
+app.get('/create/spring', routes.spring); // path: development guides in featured languages
 app.get('/integrate', routes.integrate); // graph: language drivers and frameworks
 app.get('/participate', routes.participate); // graph: language drivers and frameworks
 app.get('/download', routes.download); //  download Neo4j
