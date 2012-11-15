@@ -8,6 +8,16 @@
           </div>
       </div>
     </div> -->
+    <!--<div id="super-nav" class="super-nav">-->
+      <!--<div class="super-nav-inner">-->
+          <!--<div class="sites">-->
+            <!--<a href="#">NEOTECHNOLOGY.COM</a> | <a href="#">NEO4J.ORG</a> | <a href="#">GRAPHCONNECT.COM</a>-->
+          <!--</div>-->
+          <!--<div class="search">-->
+            <!--<input type="search" placeholder="Search Site" >-->
+          <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -24,7 +34,8 @@
                   <li class="divider"></li>
                   <li><a href="/learn/neo4j">About Neo4j</a></li>
                   <li><a href="/learn/propertygraph">What&#39;s a Graph Database</a>
-                  <li><a href="http://console.neo4j.org/">Try Live</a></li>
+                  <li><a href="/intro">Introduction</a></li>
+                  <li><a href="http://console.neo4j.org" target="_blank">Try Live</a></li>
                   <li><a href="/download">Download</a></li>
                 </ul>
               </li>
@@ -41,6 +52,9 @@
                   <li><a href="http://blog.neo4j.org">Blog</a></li>
                   <li><a href="http://docs.neo4j.org">Neo4j Manual</a></li>
                   <li><a href="http://watch.neo4j.org">Videos</a></li>
+                  <li><a href="/learn/apps">Gallery</a></li>
+                  <li><a href="/learn/try">Try Live</a></li>
+                  <li><a href="http://docs.neo4j.org" target="_blank">Neo4j Manual</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -48,8 +62,8 @@
                 <ul class="dropdown-menu">
                   <li id="nav-path"><a href="/create">Any Application</a></li>
                   <li class="divider"></li>
-                  <li><a href="/integrate">Languages &amp; Frameworks</a></li>
-                  <li><a href="/create/spring">Spring Data Neo4j</a></li>
+                  <li><a href="/integrate">Language drivers</a></li>
+                  <li><a href="/create/spring">Spring Data</a></li>
                   <li><a href="/create/ec2">EC2</a></li>
                   <li><a href="/create/heroku">Heroku</a></li>
                 </ul>
@@ -59,12 +73,42 @@
                 <ul class="dropdown-menu">
                   <li id="nav-path"><a href="/participate">In Neo4j Community</a></li>
                   <li class="divider"></li>
-                  <li><a href="https://groups.google.com/forum/?fromgroups#!forum/neo4j">Google Group</a></li>
-                  <li><a href="https://github.com/neo4j">Github</a></li>
-                  <li><a href="http://stackoverflow.com/questions/tagged/neo4j/">Stack Overflow</a></li>
-                  <li><a href="http://neo4j.meetup.com/">Meetups</a></li>
+                    <li><a href="https://groups.google.com/group/neo4j/" target="_blank">Google Group</a></li>
+                    <li><a href="http://stackoverflow.com/search?q=neo4j" target="_blank">Stack Overflow</a></li>
+                    <li><a href="http://neo4j.meetup.com" target="_blank">Meetups</a></li>
+                    <li><a href="http://www.github.com/neo4j/neo4j" target="_blank">GitHub</a></li>
                 </ul>
               </li>
+              
+              <li class="dropdown"> <!-- DELETE ME -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Home Variations</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/home1">Home 1</a></li>
+                      <li><a href="/home2">Home 2</a></li>
+                      <li><a href="/home3">Home 3</a></li>
+                    </ul>
+                  </li>
+                  <li class="divider"></li>
+                  <li><a href="/learn">Learn</a></li>
+                  <li><a href="/learn/neo4j">Neo4j</a></li>
+                  <li><a href="/learn/apps">Apps</a></li>
+                  <li><a href="/learn/licensing">Licensing</a></li>
+                  <li><a href="/intro">Introduction</a></li>
+                  <li><a href="/learn/comparison">Comparison</a></li>
+                  <li><a href="/create">Create</a></li>
+                  <li><a href="/create/heroku">Heroku</a></li>
+                  <li><a href="/create/ec2">EC2</a></li>
+                  <li><a href="/spring">Spring</a></li>
+                  <li><a href="/integrate">Integrate</a></li>
+                  <li><a href="/participate">Participate</a></li>
+                  <li><a href="/contributors">Contributors</a></li>
+                  <li><a href="/download">Download</a></li>
+                </ul>
+              </li>
+                <li><a href="/download" class="btn btn-primary" type="button">Neo4j <%= neo4j.version %></a></li>
             </ul>
           </div><!--/.nav-collapse -->
       </div> <!--/ container -->

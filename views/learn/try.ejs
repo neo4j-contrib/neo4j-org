@@ -1,0 +1,53 @@
+<% include ../head %>
+
+
+<div class="main row">
+    <div class="span3 sidebar">
+        <div class="row">
+            <div class="span3 sidebar">
+
+                <div class="summary">
+                    <h2>Live Datasets</h2>
+
+                    <div class="well">
+                        <p>Click the links to load</p>
+                        <ul class="circle">
+                            <li><a onclick="renderConsole('http://console.neo4j.org/r/GoT')">Game of Thrones </a></li>
+                            <li><a onclick="renderConsole('http://console.neo4j.org')">The Matrix</a></li>
+                            <li><a onclick="renderConsole('http://console.neo4j.org/r/complete_graph')"> Complete Graph </a> </li>
+                            <li><a onclick="renderConsole('http://console.neo4j.org/r/find_friends_based_on_similar_tagging')"> Friend finding </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3 sidebar">
+                <div class="summary">
+                    <h2>More Information</h2>
+
+                    <div class="well">
+                        <ul>
+                            <li><a href="http://docs.neo4j.org/chunked/snapshot/cypher-query-lang.html" target="_blank">Cypher Reference</a>
+                            </li>
+                            <li><a href="http://neo4j.org/resources/cypher" target="_blank">Cypher Cheat Sheet (PDF)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="span6">
+        <h2>Try Cypher live on a dataset</h2>
+
+        <div id="console">
+
+        </div>
+    </div>
+</div>
+<div>
+
+</div>
+
+<% include ../foot %>
