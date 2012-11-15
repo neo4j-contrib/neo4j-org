@@ -68,6 +68,7 @@ a:hover {
 .navbar .navbar-inner .container .nav li.dropdown ul.dropdown-menu {
  border: 1px solid #F0F0F0;
  padding: 5px 5px;
+ margin-top: -2px;
  color: #f0f0f0;
 }
 ul.nav li.dropdown:hover ul.dropdown-menu{
@@ -82,6 +83,26 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
  text-transform: uppercase;
 }
+#btn-nav {
+ font-size: 14px;
+ font-weight: normal;
+ text-transform: none;
+ color: #fff;
+ margin-top: 12px;
+ padding: 0 10px;
+ line-height: 20px;
+ text-shadow: none;
+}
+#btn-nav i {
+ background-image: none;
+ margin-top: 3px;
+}
+#btn-nav:hover {
+ color: #555;
+ background-color: #339933;
+}
+
+/* hero */
 #hero {
  padding-top: 40px;
  min-height: 260px;
@@ -116,28 +137,30 @@ h5.cypher {
  padding:10px 0;
  color: #999;
 }
-
 /* call to action */
 .gray-row {
  background: transparent url(../img/grayBg.jpg) repeat 0 0; 
- padding: 40px 0 35px 10px; 
-}
-.start,.learn,.create {
- text-align: center;
-}
-start img {
- width: 40%;
-}
-.start img:hover {
- width: 50%;
-}
-.learn img:hover {
- width: 60%;
-}
-.create img:hover {
- width: 63%;
+ padding: 30px 0 35px 10px; 
 }
 
+.path i {
+ background-image: none;
+ font-size: 64px;
+ margin-right: 50px;
+ margin-top: 20px;
+}
+.path, .path i, .path a{
+ color: #fff;
+}
+.path h2 {
+ font-size: 60px;
+ text-shadow: 0.05em 0.05em 0.15em #666;
+ background: none;
+}
+.path h2 a:hover,.path a:hover .icon {
+ color:#ccc; 
+ text-decoration:none;
+}
 
 /** page **/
 .nav-stacked.affix  {
