@@ -111,10 +111,11 @@ div#super-nav {
 }
 
 
-.navbar-inner { background: url(../img/navbarBg.png) repeat-x 0 0; box-shadow: none; height: 110px; line-height: 40px; filter:none; }
+.navbar-inner { background: url(../img/navbarBg1.png) repeat-x 0 0; box-shadow: none; height: 110px; line-height: 40px; filter:none; }
 .navbar a.brand {color: #bcd2c5; font-weight: 700; text-shadow: none; text-transform: uppercase; font-size: 18px; padding: 0 0 0 10px; background: none; margin-left:0; font-weight:900; white-space:nowrap;}
 .navbar a.brand.active {background: transparent url(../img/tip-active-menu.png) no-repeat 68% bottom; box-shadow: none; color:#fff;}
 .navbar a.brand img {margin-right:10px;}
+#fix {color:#fff;} /* fix for dark background */
 
 .navbar .nav {
   float:right;
@@ -130,7 +131,7 @@ div#super-nav {
 .navbar .pull-right > li > .dropdown-menu::before, .navbar .nav > li > .dropdown-menu.pull-right::before {border:none;}
 .navbar .pull-right > li > .dropdown-menu, .navbar .nav > li > .dropdown-menu.pull-right {left:-36px; right:auto;}
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {box-shadow:none;}
-.navbar .navbar-inner .container .nav li a {padding: 0 10px; font-size: 14px; color: #d1e2d8; text-shadow: none; font-weight: 900; text-transform: uppercase;}
+.navbar .navbar-inner .container .nav li a {padding: 0 10px; font-size: 14px; color: #fff; text-shadow: none; font-weight: 900; text-transform: uppercase;}
 .navbar .navbar-inner .container .nav li.active > a {background: transparent url(../img/tip-active-menu.png) no-repeat center bottom; box-shadow:none; color:#fff;}
 .navbar .nav li.dropdown > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle {color: #bcd2c5;}
 .navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {background:transparent; color:#fff; }
