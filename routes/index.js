@@ -146,3 +146,6 @@ exports.participate = function(req, res){
 exports.contributors = function(req, res){
     res.render('contributors', { category: 'contributors', title: 'Contributors' });
 };
+exports.example_data = function(req, res){
+    res.render('create/example_data', { category: 'create', title: 'Sample Datasets' });
+};

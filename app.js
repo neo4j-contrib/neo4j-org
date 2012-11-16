@@ -89,6 +89,7 @@ app.get('/create/install', routes.install); // path: development guides in featu
 app.get('/create/heroku', routes.heroku); // path: development guides in featured languages
 app.get('/create/spring', routes.spring); // path: development guides in featured languages
 app.get('/create/ec2', routes.ec2); // path: development guides in featured languages
+app.get('/create/example_data', routes.example_data); // path: development guides in featured languages
 app.get('/create/spring', routes.spring); // path: development guides in featured languages
 app.get('/integrate', routes.integrate); // graph: language drivers and frameworks
 app.get('/participate', routes.participate); // graph: language drivers and frameworks
