@@ -64,7 +64,6 @@
 }
 
 
-
 .variable-sizes .element.width2 { width: 230px; }
 
 .variable-sizes .element.height2 { height: 230px; }
@@ -80,6 +79,10 @@
   width: 350px;
   height: 350px;
   z-index: 100;
+}
+
+#isotope.thumbnails ul {
+ min-height: 300px;
 }
 
 #isotope.thumbnails > li {

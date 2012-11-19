@@ -4,32 +4,51 @@
         <div class="container">
           <div class="span2">
             <ul>
-                <li><a href="/intro">Introduction</a></li>
+                <li class="fheader">Neo4j</li>
+
+                <li><a href="http://blog.neo4j.org" target="_blank">Neo4j Blog</a></li>
+                <li><a href="http://docs.neo4j.org" target="_blank">Neo4j Manual</a></li>
                 <li><a href="/learn/try" >Try Live</a></li>
                 <li><a href="/download">Download</a></li>
             </ul>
           </div>
           <div class="span2">
             <ul>
-                <li><a href="http://blog.neo4j.org" target="_blank">Blog</a></li>
-                <!--<li><a href="/learn/watch">Videos</a></li>-->
-                <li><a href="/learn/apps">Gallery</a></li>
-                <li><a href="http://docs.neo4j.org" target="_blank">Neo4j Manual</a></li>
+            	<li class="fheader">LEARN</li>
+            	<li><a href="/intro">Graph Database</a></li>
+            	<li><a href="/learn/neo4j" target="_blank">What is Neo4j</a></li>
+            	<li><a href="/intro">Database Comparison</a></li>
+                <li><a href="http://watch.neo4j.org" target="_blank">Videos</a></li>
+                <li><a href="/learn/apps">Apps Gallery</a></li>
+
             </ul>
           </div>
           <div class="span2">
             <ul>
+                <li class="fheader">RESOURCES</li>
+                <li><a href="/create">Create with Neo4j</a></li>
                 <li><a href="/integrate">Language drivers</a></li>
                 <li><a href="/create/spring">Spring Data</a></li>
+                <li><a href="/create/ec2">Amazon EC2</a></li>
                 <li><a href="/create/heroku">Heroku</a></li>
+                <li><a href="/create/example_data">Sample Datasets</a></li>
             </ul>
           </div>
           <div class="span2">
             <ul>
-              <li><a href="https://groups.google.com/group/neo4j/" target="_blank">Google Group</a></li>
+              <li class="fheader">COMMUNITY</li>
+              <li><a href="/contributors">Contributors</a></li>
+              <li><a href="https://groups.google.com/group/neo4j/" target="_blank">Google Groups</a></li>
               <li><a href="http://stackoverflow.com/search?q=neo4j" target="_blank">Stack Overflow</a></li>
               <li><a href="http://neo4j.meetup.com" target="_blank">Meetups</a></li>
               <li><a href="http://www.github.com/neo4j/neo4j" target="_blank">GitHub</a></li>
+            </ul>
+          </div>
+
+          <div class="span1">
+            <ul>
+              <li><a href="https://twitter.com/neo4j" target="_blank"><i class="icon-twitter"></i>  Twitter</a></li>
+              <li><a href="http://www.linkedin.com/groups?gid=2623939" target="_blank"><i class="icon-linkedin"></i>  LinkedIn</a></li>
             </ul>
           </div>
           <!--<div class="span4">
@@ -49,9 +68,12 @@
         </div> 
         
         <div class="row footer-gray">
-          <div class="span12">
-            <p class="pull-right">&copy; <a href="http://neotechnology.com">Neo Technology</a> <%= new Date().getFullYear() %></p>
+          <div class="container">
+            <div class="span12 fcompany">
+            <p class="pull-left">&copy; <%= new Date().getFullYear() %> <a href="http://neotechnology.com">Neo Technology</a>, Inc.  &nbsp; Graphs are Everywhere.</p>
+            <p class="pull-right"><a href="http://neotechnology.com/about" target="_blank">NeoTechnology.com</a> | <a href="http://info.neotechnology.com/contactus.html" target="_blank">Contact Us</a></p>
             <!--<p>With <i class="icon-heart"></i> from Sweden.</p>-->
+            </div>
           </div>
         </div>
 

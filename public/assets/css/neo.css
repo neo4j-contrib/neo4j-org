@@ -294,7 +294,8 @@ p.lead,.text18 {
 
 .footer {
  position: relative;
- padding-top: 50px;	
+ padding-top: 30px;	
+ background-color: #eee;
 }
 .footer, .footer a {
  text-decoration: none;
@@ -311,9 +312,21 @@ p.lead,.text18 {
  list-style-type:none;
 }
 .footer-gray {
- background: transparent url(../img/grayBg.jpg) repeat 0 0; 
+ /*background: transparent url(../img/grayBg.jpg) repeat 0 0; */
+ background-color: #999;
  padding: 10px 0px 8px 0px;
  bottom: 0px;
+}
+.fcompany p {
+ font-size: 13px;
+}
+.fcompany a {
+ color: #fafafa;
+}
+.fheader {
+ border-bottom: 1px solid #999;
+ font-weight: bold;
+ color: #999;
 }
 #sitemap {
  padding-bottom: 50px;
