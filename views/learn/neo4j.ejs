@@ -2,26 +2,15 @@
 
 <div class="container">
 
-    <!-- Main Content Row -->
-    <div class="main row">
+<!-- Main Content Row -->
+<div class="main row">
+  <div class="span8">
+    <h2>What is Neo4j?</h2>
+    <p>Neo4j is a <a onclick="javascript:pageTracker._trackPageview('/outgoing/neotechnology.com/');"
+                         href="http://neotechnology.com/">commercially supported</a>, open-source graph database supported by Neo Technology. Editions include: <strong>Community</strong> <a href="http://en.wikipedia.org/wiki/Affero_General_Public_License" target="_blank">GPLv3</a> , with <strong>Advanced</strong> and <strong>Enterprise</strong> editions available under both the <a href="http://en.wikipedia.org/wiki/Affero_General_Public_License" target="_blank">AGPLv3</a> and commercial licenses.</p>
+    <p>Neo4j stores data in nodes and relationships with properties on both, also known as a <a href="/learn/propertygraph">Property Graph</a>. Nodes are simply data records. Relationships are the connections between records.</p>
 
-        <h2>What is Neo4j?</h2>
-
-        <p>Neo4j is a <a onclick="javascript:pageTracker._trackPageview('/outgoing/neotechnology.com/');"
-                         href="http://neotechnology.com/">commercially supported</a>
-            open-source graph database, that is:</p>
-
-        <div class="span5">
-
-            <p>A graph database stores data in nodes and relationships with properties on both, something we call a <a
-                    href="/learn/propertygraph">Property Graph</a>.
-                Nodes are simply data records. Relationships are the connections between records.</p>
-
-            <p>Neo4j is both an open source project, and a commercial product. in a GPLv3 Community edition, with
-                Advanced and Enterprise editions available under both the AGPLv3 and commercial licenses, supported by
-                Neo Technology.</p>
-
-            <ul>
+    <!-- <ul>
                 <li>intuitive, using a graph model for data representation</li>
                 <li>reliable, with fully ACID transactions</li>
                 <li>durable, using disk-based, native storage</li>
@@ -34,164 +23,142 @@
                         href="http://docs.neo4j.org/chunked/<%= neo4jGA.version %>/rest-api.html">REST interface</a> or
                     object-oriented <a onclick="javascript:pageTracker._trackPageview('/outgoing/api.neo4j.org/');"
                                        href="http://api.neo4j.org/<%= neo4jGA.version %>">API</a></li>
-            </ul>
-            <iframe width="560" height="315" src="http://www.youtube.com/embed/2ElGO1P8v0c" frameborder="0" allowfullscreen></iframe>
+            </ul>-->
+    <div class="tabbable tabs-left">
+      <h2>Neo4j Editions</h2>
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <h5><a href="#community" data-toggle="tab">Community</a></h5>
+        </li>
+        <li>
+          <h5><a href="#advanced" data-toggle="tab">Advanced</a></h5>
+        </li>
+        <li>
+          <h5><a href="#enterprise" data-toggle="tab">Enterprise</a></h5>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="community">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <td><span class="text18">FEATURES</span></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="text18">scalable</span> - 32 Billion Nodes, 32 Billion Relationships,
+                  64 Billion Properties </td>
+              </tr>
+              <tr>
+                <td><span class="text18">accessible</span> - REST API with the usual language drivers </td>
+              </tr>
+              <tr>
+                <td><span class="text18">embeddable</span> - use directly from any JVM-friendly language </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="span3">
-            <div class='visually_embed' data-category='Technology' rel='infographic'>
-                <img class='visually_embed_infographic'
+        <div class="tab-pane" id="advanced">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <td><span class="text18">FEATURES</span></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="text18">scalable</span> - 32 Billion Nodes, 32 Billion Relationships,
+                  64 Billion Properties </td>
+              </tr>
+              <tr>
+                <td><span class="text18">accessible</span> - REST API with the usual language drivers </td>
+              </tr>
+              <tr>
+                <td><span class="text18">embeddable</span> - use directly from any JVM-friendly language </td>
+              </tr>
+              <tr class="advanced">
+                <td><span class="text18">monitorable </span>- advanced insight into database status</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane" id="enterprise">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <td><span class="text18">FEATURES</span></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="text18">scalable</span> - 32 Billion Nodes, 32 Billion Relationships,
+                  64 Billion Properties </td>
+              </tr>
+              <tr>
+                <td><span class="text18">accessible</span> - REST API with the usual language drivers </td>
+              </tr>
+              <tr>
+                <td><span class="text18">embeddable</span> - use directly from any JVM-friendly language </td>
+              </tr>
+              <tr class="advanced">
+                <td><span class="text18">monitorable</span> - advanced insight into database status</td>
+              </tr>
+              <tr class="enterprise">
+                <td><span class="text18">robust</span> - High Availability for read scaling and failover </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="video">
+      <h2>Neo4j Example as Social Graph</h2>
+      <iframe width="560" height="315" src="http://www.youtube.com/embed/2ElGO1P8v0c" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+    </div>
+  </div>
+  <aside class="span4 sidebar">
+  <div class="summary">
+    <h2>Briefly</h2>
+    <div class="well">
+      <p>Neo4j is a <strong>graph</strong> database</p>
+      <ul class="circle">
+        <li>the data model is a Property Graph</li>
+        <li>Nodes + Relationships, with Properties</li>
+        <li>Query with a traversal</li>
+        <li>Indexes for simple lookups</li>
+      </ul>
+      <p>Neo4j is a graph <strong>database</strong></p>
+      <ul class="circle">
+        <li>reliable ACID transactions</li>
+        <li>scalable to billions of records</li>
+        <li>easily grokked <a
+                        onclick="javascript:pageTracker._trackPageview('/outgoing/docs.neo4j.org/chunked/stable/rest-api.html');"
+                        href="http://docs.neo4j.org/chunked/<%= neo4jGA.version %>/rest-api.html">REST interface</a></li>
+        <li>object-oriented <a onclick="javascript:pageTracker._trackPageview('/outgoing/api.neo4j.org/');" href="http://api.neo4j.org/<%= neo4jGA.version %>">API</a></li>
+        <li>high-performance HA clustering</li>
+      </ul>
+    </div>
+  </div>
+  <div class="next-steps">
+    <h2>Next Steps</h2>
+    <div class="next thumbnail">
+      <div class="caption">
+        <h5><i class="icon-download"></i> Download Neo4j <%= neo4j.version %></h5>
+        <p><%= neo4j.summary %></p>
+        <a href="/download" class="btn btn-primary" type="button">Neo4j <%= neo4j.version %></a> <a href="<%= neo4j.readme %>" class="btn" type="button">Read More</a> </div>
+    </div>
+  </div>
+  <div class="reference-card">
+    <h2>Neo4j Reference Card</h2>
+    <div class='visually_embed' data-category='Technology' rel='infographic'> <img class='visually_embed_infographic'
                      src='http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w587.png'
-                     rel='http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c.png' alt="What's a Graph Database" />
-                <div class='visually_embed_bar'>
-                    <span class='visually_embed_cycle'>Learn about <a
-                            href='http://visual.ly/learn/business-intelligence-tools/'>business intelligence tools</a>.</span>
-                </div>
-                <a id='visually_embed_view_more' target='_blank' href='http://visual.ly/whats-graph-database'></a>
-                <link rel='stylesheet' type='text/css' href='http://visual.ly/embeder/style.css'/>
-                <script type='text/javascript' src='http://visual.ly/embeder/embed.js'></script>
-            </div>
-
-        </div>
-        <aside class="span4 sidebar">
-            <div class="summary">
-                <h2>Briefly</h2>
-
-                <div class="well">
-                    <p>Neo4j is a <strong>graph</strong> database</p>
-                    <ul class="circle">
-                        <li>the data model is a Property Graph</li>
-                        <li>Nodes + Relationships, with Properties</li>
-                        <li>Query with a traversal</li>
-                        <li>Indexes for simple lookups</li>
-                    </ul>
-                    <p>Neo4j is a graph <strong>database</strong></p>
-                    <ul class="circle">
-                        <li>reliable ACID transactions</li>
-                        <li>scalable to billions of records</li>
-                        <li>easily grokked REST API</li>
-                        <li>high-performance HA clustering</li>
-                    </ul>
-
-                </div>
-            </div>
-
-            <div class="next-steps">
-                <h2>Next Steps</h2>
-
-                <div class="next thumbnail">
-                    <div class="caption">
-                        <h5><i class="icon-download"></i> Download Neo4j <%= neo4j.version %></h5>
-
-                        <p><%= neo4j.summary %></p>
-                        <a href="/download" class="btn btn-primary" type="button">Neo4j <%= neo4j.version %></a>
-                        <a href="<%= neo4j.readme %>" class="btn" type="button">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-        </aside>
-
+                     rel='http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c.png' alt="What's a Graph Database" /> <a id='visually_embed_view_more' target='_blank' href='http://visual.ly/whats-graph-database'></a>
+      <link rel='stylesheet' type='text/css' href='http://visual.ly/embeder/style.css'/>
+      <script type='text/javascript' src='http://visual.ly/embeder/embed.js'></script>
     </div>
-    <div class="row">
-        <div class="span8">
-            <div class="tabbable tabs-left">
-                <h2>Neo4j Editions</h2>
-                <ul class="nav nav-tabs">
-                    <li class="active"><h5><a href="#community" data-toggle="tab">Community</a></h5></li>
-                    <li><h5><a href="#advanced" data-toggle="tab">Advanced</a></h5></li>
-                    <li><h5><a href="#enterprise" data-toggle="tab">Enterprise</a></h5></li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="community">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <td><span class="text18">FEATURES</span></td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td><span class="text18">scalable</span> - 32 Billion Nodes, 32 Billion Relationships,
-                                    64 Billion Properties
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text18">accessible</span> - REST API with the usual language drivers
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text18">embeddable</span> - use directly from any JVM-friendly language
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane" id="advanced">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <td><span class="text18">FEATURES</span></td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td><span class="text18">scalable</span> - 32 Billion Nodes, 32 Billion Relationships,
-                                    64 Billion Properties
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text18">accessible</span> - REST API with the usual language drivers
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text18">embeddable</span> - use directly from any JVM-friendly language
-                                </td>
-                            </tr>
-                            <tr class="advanced">
-                                <td><span class="text18">monitorable </span>- advanced insight into database status</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane" id="enterprise">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <td><span class="text18">FEATURES</span></td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td><span class="text18">scalable</span> - 32 Billion Nodes, 32 Billion Relationships,
-                                    64 Billion Properties
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text18">accessible</span> - REST API with the usual language drivers
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="text18">embeddable</span> - use directly from any JVM-friendly language
-                                </td>
-                            </tr>
-                            <tr class="advanced">
-                                <td><span class="text18">monitorable</span> - advanced insight into database status</td>
-                            </tr>
-                            <tr class="enterprise">
-                                <td><span class="text18">robust</span> - High Availability for read scaling and failover
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-    </div>
-
+    </aside>
+  </div>
 </div>
 
 
