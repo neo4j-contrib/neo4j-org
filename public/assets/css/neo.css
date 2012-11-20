@@ -80,6 +80,9 @@ a:hover {
  padding: 0px 20px 0px;
  margin-left: 0px;
 }
+.caption {
+    margin-top: 5px;
+}
 .navbar a.brand img {
  margin-right:10px;
 }
