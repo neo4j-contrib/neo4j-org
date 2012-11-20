@@ -3,24 +3,26 @@
 <div class="container">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
-      <div id="learn" class="hero-unit">
-        <h1>Learn Neo4j</h1>
+    <div class="row">
+
+    <div class="span3">
+      <ul class="nav nav-tabs nav-stacked affix">
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#graphs">Graph Concepts</a></li>
+        <li><a href="#dev">Development</a></li>
+        <li><a href="#ops">Operations</a></li>
+        <li><a href="#production">Production</a></li>
+      </ul>
+    </div>
+
+        <div class="span9">
+      <div id="learn" class="hero-unit path">
+
+        <h2><a><i class="icon icon-book"></i> Learn</a></h2>
         <p class="lead">From graph concepts to deploying a globe spanning cluster, the path to success starts here.</p>
       </div>
 
-      <div class="row">
-        <div class="span3">
-          <ul class="nav nav-tabs nav-stacked affix">
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#graphs">Graph Concepts</a></li>
-            <li><a href="#dev">Development</a></li>
-            <li><a href="#ops">Operations</a></li>
-            <li><a href="#production">Production</a></li>
-          </ul>
-        </div>
-        
-        <div class="span9">
-        
+
           <section id="introduction" class="row">
             <h2>Introduction</h2>
             
@@ -29,7 +31,7 @@
               <p>Neo4j is a graph database, a full featured enterprise database that happily stores and retrieves highly-connected data.</p>
               <p><a class="btn" href="/learn/neo4j">Get familiar &raquo;</a></p>
             </div>
-            
+
             <div class="span3">
               <h3>Documentation</h3>
               <p>Our versioned online manual start with a comprehensive tutorial section, complemented with detailed a reference and live interaction.</p>
@@ -48,7 +50,13 @@
   						  </div>
       				</div>
             </div>
-        
+
+              <div class="span3">
+                <h3>Demo Console</h3>
+                <p>The Neo4j Demo Console allows you to interactively learn and try our Cypher Query Language</p>
+                <p><a class="btn" href="/learn/try">Try live &raquo;</a></p>
+              </div>
+
           </section>
           
           <section id="graphs" class="row">
@@ -56,13 +64,13 @@
             <div class="span3">
               <h3>Property Graph</h3>
               <p>Neo4j stores data in a Property Graph: nodes + relationships, with properties on both. Leave the schema behind and start focusing on how your data is connected.</p>
-              <p><a class="btn" href="http://docs.neo4j.org/chunked/stable/what-is-a-graphdb.html">Proper reading &raquo;</a></p>
+              <p><a class="btn" href="/intro">Proper reading &raquo;</a></p>
             </div>
             
             <div class="span3">
-              <h3>Compare</h3>
-              <p>You know relational, now consider relationships. Compare the graph model to relational, documents, and other NOSQL stores.</p>
-              <p><a class="btn" href="http://docs.neo4j.org/chunked/stable/tutorial-comparing-models.html">Not Only SQL &raquo;</a></p>
+              <h3>NOSQL</h3>
+              <p>You know relational, now consider relationships. Relate the graph model to relational, documents, and other NOSQL stores.</p>
+              <p><a class="btn" href="/learn/nosql">Not Only SQL &raquo;</a></p>
             </div>
             
             <div class="span3">
@@ -105,6 +113,13 @@
   						  </div>
       				</div>
             </div>
+
+              <div class="span3">
+                <h3>Apps Gallery</h3>
+                <p>A selection of example apps lets you explore the possibilities that a graph database offers.</p>
+                <p><a class="btn" href="/learn/apps">Check them out</a></p>
+              </div>
+
           </section>
           
           <section id="ops" class="row">
@@ -165,5 +180,6 @@
         </div>
 
 </div> 
+</div>
 <% include foot %>
 

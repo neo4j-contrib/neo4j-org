@@ -1,3 +1,7 @@
+.idea
+*.iml
+*.iws
+*.ipr
 .DS_Store
 node_modules
 *.esproj/

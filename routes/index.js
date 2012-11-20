@@ -81,10 +81,10 @@ exports.intro = function(req, res){
 };
 
 /*
- * GET - "Comparison" of Neo4j vs. other databases
+ * GET - "NOSQL Datamodel" of Neo4j vs. other databases
  */
-exports.comparison = function(req, res){
-  res.render('learn/comparison', { category: 'learn', title: 'Comparisons' });
+exports.nosql = function(req, res){
+  res.render('learn/nosql', { category: 'learn', title: 'NOSQL Data Models' });
 };
 
 

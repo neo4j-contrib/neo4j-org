@@ -83,7 +83,7 @@ app.get('/learn/apps', routes.apps); // graph:  showcase of apps built with Neo4
 app.get('/learn/licensing', routes.license); // node:  Neo4j licensing guide (categorized URL)
 app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
 app.get('/learn/propertygraph', routes.propertygraph); // node:  explanation of property graph
-app.get('/learn/comparison', routes.comparison); // node:  compare to other databases
+app.get('/learn/nosql', routes.nosql); // node:  compare to other databases
 app.get('/create', routes.create); // path: development guides in featured languages
 app.get('/create/install', routes.install); // path: development guides in featured languages
 app.get('/create/heroku', routes.heroku); // path: development guides in featured languages

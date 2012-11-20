@@ -173,6 +173,7 @@ h5.cypher {
 }
 .path, .path i, .path a{
  color: #fff;
+ background-color: #999999;
 }
 .path h2 {
  font-size: 60px;
@@ -196,9 +197,14 @@ p.lead,.text18 {
  font-size: 18px;
 }
 .thumbnail div.icon {
- margin: 30px 30px 0 30px;
+ margin: 30px 30px 30px 30px;
  height: 80px;
 }
+.thumbnail a div.img {
+  margin-top: 10px;
+  text-align: center;
+}
+
 .well {
  background-color: #fff;
 }
@@ -327,6 +333,7 @@ p.lead,.text18 {
  border-bottom: 1px solid #999;
  font-weight: bold;
  color: #999;
+ font-variant: small-caps;
 }
 #sitemap {
  padding-bottom: 50px;
