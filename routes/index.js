@@ -37,6 +37,13 @@ exports.download = function(req, res){
   res.render('download', { category: 'download', title: 'Download' });
 };
 
+/*
+ * GET - "download thanks" page
+ */
+exports.download_thanks = function(req, res){
+  res.render('download_thanks', { category: 'download_thanks', title: 'Download Thanks' });
+};
+
 
 /*
  * GET - "learn" information with guided tracks

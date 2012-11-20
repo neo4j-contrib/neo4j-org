@@ -1,0 +1,60 @@
+<% include head %>
+<div class="container">
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+  <div id="download" class="hero-unit">
+    <h1>Thank You for Downloading Neo4j</h1>
+  </div>
+
+If your download did not start automatically, 
+  <a id="downloadLink" href="http://dist.neo4j.org/neo4j-community-1.7.2-unix.tar">click here to get your file</a>.
+
+  <h3>Neo4j Installation</h3>
+
+  <div><iframe src="http://player.vimeo.com/video/53838744" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+   
+  <h3>Upgrading?</h3>
+
+  When upgrading from a previous version, please be sure to consult the documentation on upgrading.
+
+
+<% include foot %>
+
+<script type='text/javascript'>//<![CDATA[ 
+
+var ed = getUrlVars()["edition"];
+var re = getUrlVars()["release"];
+var pl = getUrlVars()["platform"];
+var suffix = 'zip';
+var marketo_idnum = 'NEED_MARKETO_CODE';
+
+	if (pl == 'unix' || pl == 'mac_linux') {
+		suffix = 'tar.gz';
+		packaging = 'tarball';
+	}
+	
+var downloadLink = "http://dist.neo4j.org/neo4j-" + ed + "-" + re + "-" + pl +"." + suffix;
+
+/* randomly select redfox to provide download */
+var redfox = "http://download.neo4j.org/artifact?edition=" + ed + "&version=" + re + "&distribution=" + packaging + "&dlid=" + marketo_idnum;	
+if (Math.floor(Math.random()*11) > 5) {
+	    downloadLink = redfox;
+	    redfox = "yup";
+	}	
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+var downloadTimeout = setTimeout(
+    function() {
+       /* window.location = downloadLink;*/
+    },
+    2000
+);
+
+</script> 

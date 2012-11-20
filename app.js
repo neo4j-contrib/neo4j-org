@@ -94,6 +94,7 @@ app.get('/create/spring', routes.spring); // path: development guides in feature
 app.get('/integrate', routes.integrate); // graph: language drivers and frameworks
 app.get('/participate', routes.participate); // graph: language drivers and frameworks
 app.get('/download', routes.download); //  download Neo4j
+app.get('/download_thanks', routes.download_thanks); //  download thanks Neo4j
 app.get('/contributors', routes.contributors);
 app.get('/intro', routes.intro);
 app.get('/learn/try', routes.try);
@@ -103,3 +104,5 @@ app.get('/learn/try', routes.try);
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+

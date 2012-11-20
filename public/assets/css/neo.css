@@ -127,7 +127,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 /* hero */
 #hero {
  padding-top: 40px;
- min-height: 260px;
+ min-height: 250px;
 }
 .hero-unit {
  padding: 15px 40px;
@@ -140,8 +140,8 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 #hero h2 {
  font-family: 'officinaserifstd-bold','OfficinaSerifStd',Helvetica,sans-serif; 
  margin: 0;
- font-size: 48px;
- line-height: 42px;
+ font-size: 50px;
+ line-height: 50px;
  background: none;
  text-transform: capitalize;
  text-align: center;
