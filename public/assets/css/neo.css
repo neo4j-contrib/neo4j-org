@@ -127,7 +127,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 /* hero */
 #hero {
  padding-top: 40px;
- min-height: 250px;
+ min-height: 200px;
 }
 .hero-unit {
  padding: 15px 40px;
@@ -163,14 +163,14 @@ h5.cypher {
 .gray-row {
  background-color: #999999;
 /* background: transparent url(../img/grayBg.jpg) repeat 0 0; */
- padding: 30px 0 35px 10px; 
+ padding: 20px 0 30px 10px; 
 }
 
 .path i {
  background-image: none;
- font-size: 64px;
- margin-right: 50px;
+ font-size: 60px;
  margin-top: 20px;
+ margin-right: 50px;
 }
 .path, .path i, .path a{
  color: #fff;
@@ -334,10 +334,13 @@ p.lead,.text18 {
  border-bottom: 1px solid #999;
  font-weight: bold;
  color: #999;
- font-variant: small-caps;
+/* font-variant: small-caps;*/
 }
 #sitemap {
  padding-bottom: 50px;
+}
+.sitelinks i {
+ background-image: none;
 }
 
 
