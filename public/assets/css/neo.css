@@ -161,7 +161,8 @@ h5.cypher {
 }
 /* call to action */
 .gray-row {
- background: transparent url(../img/grayBg.jpg) repeat 0 0; 
+ background-color: #999999;
+/* background: transparent url(../img/grayBg.jpg) repeat 0 0; */
  padding: 30px 0 35px 10px; 
 }
 
