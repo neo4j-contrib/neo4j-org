@@ -20,6 +20,16 @@
         </ul>
       </div>
     </div>
+    <div class="installation">
+      <h3>Installation Instructions</h3>
+      <a data-toggle="lightbox" href="#installvideo" class="thumbnail"><img src="/assets/img/still/install.gif" alt="Click to View" /></a>
+      <p class="caption">Peter Neubauer guides through the first steps of downloading and running Neo4j.</p>
+      <div class="lightbox fade" id="installvideo" style="display: none;">
+        <div class='lightbox-content'>
+          <iframe src="http://player.vimeo.com/video/53838744" width="500" height="281" frameborder="0" webkitallowfullscreen="webkitAllowFullScreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowFullScreen"></iframe>
+        </div>
+       </div>
+      </div>    
   </div>
   <div class="span8">
     <table class="table table-striped table-download table-bordered table-green">
@@ -109,8 +119,6 @@
         </tr>
       </tbody>
     </table>
-
-      <div><iframe src="http://player.vimeo.com/video/53838744" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
   </div>
 </div>
 
@@ -120,7 +128,7 @@
   <div class="span8 offset3">
     <div class="accordion archives" id="accordion1">
       <div class="accordion-group">
-        <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"><h2>Neo4j Archives<i class="icon icon-caret-down"></i></h2>
+        <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"><h2>Neo4j Archives<i class="icon icon-archives icon-caret-down"></i></h2>
         </a> </div>
         <div id="collapseOne" class="accordion-body collapse">
           <div class="accordion-inner">
@@ -233,8 +241,8 @@ $(window).load(function(){
 
 $(".accordion-toggle").click(function(){
 
-   $(".icon").toggleClass("icon-caret-up");
-   $(".icon").toggleClass("icon-caret-down");
+   $(".icon-archives").toggleClass("icon-caret-up");
+   $(".icon-archives").toggleClass("icon-caret-down");
 
 });
 
