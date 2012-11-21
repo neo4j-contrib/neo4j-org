@@ -86,9 +86,28 @@ a:hover {
 .navbar a.brand img {
  margin-right:10px;
 }
-/* nav */
 .dropdown.toggle a{
  color: #555;
+}
+/* pag nav */
+.nav-stacked.affix  {
+  font-size: 18px;
+  width: 230px;
+}
+@media (min-width: 768px) and (max-width: 980px) {
+  .nav-stacked.affix {
+    width: 160px;
+    text-align: left;
+  }
+}
+@media (max-width: 767px) {
+   .nav-stacked.affix {
+     position: static;
+     width: auto;
+   }
+}
+.navbar-inner {
+ height: auto;
 }
 .navbar .navbar-inner .container .nav li.dropdown ul.dropdown-menu {
  border: 1px solid #F0F0F0;
@@ -155,7 +174,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 .container {
  margin-right: auto;
  margin-left: auto;
- width: 1200px;
+/* width: 1200px; */
 }
 h5.cypher {
  font-size: 16px;
@@ -190,10 +209,7 @@ h5.cypher {
 }
 
 /** page **/
-.nav-stacked.affix  {
-  font-size: 18px;
-  width: 240px;
-}
+
 .tab-pane img {
  margin-bottom: 20px;
 }
