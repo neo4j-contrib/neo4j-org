@@ -69,11 +69,12 @@ exports.apps = function(req, res){
 };
 
 
+
 /*
  * GET - "Neo4j Licensing" guide to how we think about dual license
  */
 exports.license = function(req, res){
-  res.render('learn/licensing', { category: 'learn', title: 'Licensing Guide' });
+  res.render('learn/licensing', { category: 'learn', title: 'Editions & Licensing Guide' });
 };
 
 exports.intro = function(req, res){
@@ -138,7 +139,7 @@ exports.integrate = function(req, res){
   res.render('integrate', { category: 'create', title: 'Integrate' });
 };
 
-exports.try = function(req, res){
+exports["try"] = function(req, res){
   res.render('learn/try', { category: 'learn', title: 'Try Neo4j' });
 }
 

@@ -80,8 +80,7 @@ app.get('/home3', routes.home3);
 app.get('/learn', routes.learn); // path: concepts, best practices, operations
 app.get('/learn/neo4j', routes.neo4j); // node:  about Neo4j
 app.get('/learn/apps', routes.apps); // graph:  showcase of apps built with Neo4j
-app.get('/learn/licensing', routes.license); // node:  Neo4j licensing guide (categorized URL)
-app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
+app.get('/learn/licensing', routes.license); // node:  Neo4j editions and licensing guide (categorized URL)
 app.get('/learn/propertygraph', routes.propertygraph); // node:  explanation of property graph
 app.get('/learn/nosql', routes.nosql); // node:  compare to other databases
 app.get('/create', routes.create); // path: development guides in featured languages
@@ -97,8 +96,10 @@ app.get('/download', routes.download); //  download Neo4j
 app.get('/download_thanks', routes.download_thanks); //  download thanks Neo4j
 app.get('/contributors', routes.contributors);
 app.get('/intro', routes.intro);
-app.get('/learn/try', routes.try);
+app.get('/learn/try', routes["try"]);
 
+// well known historic URLs redicrects
+app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
 
 
 http.createServer(app).listen(app.get('port'), function(){

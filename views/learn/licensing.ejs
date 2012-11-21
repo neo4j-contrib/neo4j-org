@@ -1,0 +1,103 @@
+<% include ../head %>
+
+<div class="container">
+
+<!-- Main Content Row -->
+<div class="main row">
+  <div class="span8">
+    <h2>Neo4j Editions</h2>
+
+      <p>Neo4j is commercially supported by <a
+              onclick="javascript:pageTracker._trackPageview('/outgoing/neotechnology.com/');"
+              href="http://neotechnology.com/">Neo Technology</a> who also takes care of Neo4j customers, license
+          agreements, the partner network and more.
+      </p>
+
+      <p>The editions available for Neo4j include: <strong>Community</strong> <a
+              href="http://en.wikipedia.org/wiki/Affero_General_Public_License" target="_blank">GPLv3</a> , with
+          <strong>Advanced</strong> and <strong>Enterprise</strong> editions available under both the <a
+                  href="http://en.wikipedia.org/wiki/Affero_General_Public_License" target="_blank">AGPLv3</a> and
+          commercial licenses.</p>
+
+      <p>Commercial Licenses include the permission to integrate the enterprise editions in closed-source software
+          products, service and support by the Neo Technology support team, a great relationship with a dedicated
+          representative.</p>
+
+      <div class="tabbable tabs-left">
+      <h2>Neo4j Editions</h2>
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <h5><a href="#community" onclick="$('.enterprise').hide()">Community</a></h5>
+        </li>
+        <li>
+          <h5><a href="#advanced" onclick="$('.advanced').show();$('.enterprise').hide()">Advanced</a></h5>
+        </li>
+        <li>
+          <h5><a href="#enterprise" onclick="$('.enterprise, .advanced').show()">Enterprise</a></h5>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="community">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <td><span class="text18">FEATURES</span></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="text18">scalable</span> - 34 Billion Nodes, 34 Billion Relationships,
+                  68 Billion Properties </td>
+              </tr>
+              <tr>
+                <td><span class="text18">accessible</span> - REST API with the usual language drivers </td>
+              </tr>
+              <tr>
+                <td><span class="text18">embeddable</span> - use directly from any JVM-friendly language </td>
+              </tr>
+              <tr class="advanced" style="display: none;">
+                <td><span class="text18">monitorable </span>- advanced insight into database status</td>
+              </tr>
+              <tr class="enterprise" style="display: none;">
+                <td><span class="text18">robust</span> - High Availability for read scaling and failover </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <aside class="span4 sidebar">
+  <div class="summary">
+    <h2>Briefly</h2>
+    <div class="well">
+        <p>Commercial Relationship with Neo Technology </p>
+        <ul class="circle">
+          <li>commercial licenses</li>
+          <li>24/7 support</li>
+          <li>Partner Network</li>
+        </ul>
+      <p>Neo4j editions</p>
+      <ul class="circle">
+        <li>Community GPLv3</li>
+        <li>Advanced AGPL, Commercial</li>
+        <li>Enterprise AGPL, Commercial</li>
+      </ul>
+    </div>
+  </div>
+  <div class="next-steps">
+    <h2>Next Steps</h2>
+    <div class="next thumbnail">
+      <div class="caption">
+        <h5>Contact Neo Technology</h5>
+        <p>For more information, case-studies, sales representative.</p>
+        <a href="http://neotechnology.com/contactus/" class="btn" type="button">Contact Page</a> </div>
+    </div>
+  </div>
+  </aside>
+</div>
+</div>
+
+
+<% include ../foot %>
+
