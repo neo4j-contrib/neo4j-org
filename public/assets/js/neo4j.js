@@ -2,7 +2,10 @@ $(document).ready(function(){
     renderConsole("http://console.neo4j.org");
     $('#isotope').imagesLoaded(function($images){
         $(this).isotope({
-            itemSelector : '.item'
+            itemSelector : 'li',layoutMode:"masonry",
+            masonry: {
+                columnWidth:240
+            }
         });
     });
 

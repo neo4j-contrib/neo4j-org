@@ -345,5 +345,7 @@ p.lead,.text18 {
 .sitelinks i {
  background-image: none;
 }
-
+#isotope li {
+    min-width: 200px
+}
 
