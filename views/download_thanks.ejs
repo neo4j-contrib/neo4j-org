@@ -4,20 +4,42 @@
 <!-- Main hero unit for a primary marketing message or call to action -->
   <div id="download" class="hero-unit">
     <h1>Thank You for Downloading Neo4j</h1>
+    <p>If your download did not start automatically, 
+    <a id="downloadLink" href="http://dist.neo4j.org/neo4j-community-1.7.2-unix.tar">click here to get your file</a>.</p>
   </div>
-
-If your download did not start automatically, 
-  <a id="downloadLink" href="http://dist.neo4j.org/neo4j-community-1.7.2-unix.tar">click here to get your file</a>.
-
-  <h3>Neo4j Installation</h3>
-
-  <div><iframe src="http://player.vimeo.com/video/53838744" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
-   
-  <h3>Upgrading?</h3>
-
-  When upgrading from a previous version, please be sure to consult the documentation on upgrading.
-
-
+  <div class="row-fluid">
+    <div class="span4">
+      <div class="installation">
+        <h2>Installation Instructions</h2>
+        <a data-toggle="lightbox" href="#installvideo" class="thumbnail"><img src="/assets/img/still/install.gif" alt="Click to View" /></a>
+        <p class="caption">Peter Neubauer guides through the first steps of downloading and running Neo4j.</p>
+        <div class="lightbox fade" id="installvideo" style="display: none;">
+          <div class='lightbox-content'>
+            <iframe src="http://player.vimeo.com/video/53838744" width="500" height="281" frameborder="0" webkitallowfullscreen="webkitAllowFullScreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowFullScreen"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="span4">      
+      <div class="summary">
+        <h2>Next Steps</h2>
+        <div class="well">
+          <p class="text18">After Download</p>
+          <ul class="circle">
+            <li><a href="http://docs.neo4j.org/chunked/snapshot/server-installation.html" target="_blank">Installation Instructions</a></li>
+            <li><a href="/intro">Graph Introduction</a></li>
+            <li><a href="/create">Learn to Build Apps</a></li>
+            <li><a href="/participate">Get Help</a></li>
+          </ul>
+          <p class="text18">Upgrading?</p>
+          <p>Read <a href="http://docs.neo4j.org/chunked/1.9.M01/deployment-upgrading.html" target="_blank">Upgrading Docs</a></p>
+        </div>
+      </div> 
+    </div>    
+          
+  </div>
+     
 <% include foot %>
 
 <script type='text/javascript'>//<![CDATA[ 
