@@ -171,7 +171,7 @@ h5.cypher {
 }
 /* call to action */
 .gray-row {
- background-color: #999999;
+ background-color: #00546A;
 /* background: transparent url(../img/grayBg.jpg) repeat 0 0; */
  padding: 20px 0 30px 10px; 
 }
@@ -182,9 +182,13 @@ h5.cypher {
  margin-top: 20px;
  margin-right: 50px;
 }
+
+a {
+   color: #00546A;
+}
 .path, .path i, .path a{
  color: #fff;
- background-color: #999999;
+ background-color: #00546A;
 }
 .path h2 {
  font-size: 60px;
