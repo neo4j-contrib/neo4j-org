@@ -56,7 +56,7 @@ h5 {
  font-size: 20px;
  padding: 10px 10px;
 }
-p {
+p,ul {
  font-family: 'Open Sans', sans-serif;
  font-size: 14px;
  line-height: 20px;
@@ -209,7 +209,9 @@ h5.cypher {
 }
 
 /** page **/
-
+#features li{
+ margin: 8px 0;
+}
 .tab-pane img {
  margin-bottom: 20px;
 }
@@ -321,7 +323,6 @@ table th {
 .accordion-heading .icon {
  margin: 10px 0 0 10px;
 }
-
 
 /* footer */
 
