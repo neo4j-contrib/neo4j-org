@@ -94,18 +94,6 @@ a:hover {
   font-size: 18px;
   width: 230px;
 }
-@media (min-width: 768px) and (max-width: 980px) {
-  .nav-stacked.affix {
-    width: 160px;
-    text-align: left;
-  }
-}
-@media (max-width: 767px) {
-   .nav-stacked.affix {
-     position: static;
-     width: auto;
-   }
-}
 .navbar-inner {
  height: auto;
 }
@@ -370,6 +358,29 @@ table th {
  background-image: none;
 }
 #isotope li {
-    min-width: 200px
+ min-width: 200px
+}
+/* responsive changes  */
+#nav-menu {
+ margin: 15px 20px 0 0;
+}
+@media (min-width: 768px) and (max-width: 980px) {
+  .navbar .nav-collapse.collapse {
+  background: none;
+  background-color: #eee;
+  }
+  .path h2 {
+    font-size: 50px;
+  }
+  .nav-stacked.affix {
+    width: 160px;
+    text-align: left;
+  }
+}
+@media (max-width: 767px) {
+   .nav-stacked.affix {
+     position: static;
+     width: auto;
+   }
 }
 
