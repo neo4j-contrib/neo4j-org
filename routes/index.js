@@ -65,7 +65,7 @@ exports.cypher = function(req, res){
 };
 
 exports.visualize = function(req, res){
-  res.render('learn/visualize', { category: 'learn', title: 'Graph Visualizations' });
+  res.render('create/visualize', { category: 'create', title: 'Graph Visualizations' });
 };
 
 
