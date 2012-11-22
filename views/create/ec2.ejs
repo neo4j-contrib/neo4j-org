@@ -10,122 +10,131 @@
           
           <h3>Install Amazon Tools</h3>
 
-<p>Follow Amazon&#39;s own <a href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting Started guide</a>.</p>
+            <p>Follow Amazon&#39;s own <a
+                    href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting
+                Started guide</a>.</p>
 
-<h3>Launch an instance to host Neo4j</h3>
+            <h3>Launch an instance to host Neo4j</h3>
 
-<ol>
-<li>Log in to aws.amazon.com</li>
-<li>Go to the EC2 Console</li>
-<li>Click "Launch Instance"</li>
-<li>Select the "Classic Wizard"</li>
-<li>"Choose an AMI"
+            <ol>
+                <li>Log in to aws.amazon.com</li>
+                <li>Go to the EC2 Console</li>
+                <li>Click "Launch Instance"</li>
+                <li>Select the "Classic Wizard"</li>
+                <li>"Choose an AMI"
 
-<ol>
-<li>Select "Ubuntu Server 12.04.1 LTS" 64-bit</li>
-</ol>
-</li>
-<li>"Instance Details"
+                    <ol>
+                        <li>Select "Ubuntu Server 12.04.1 LTS" 64-bit</li>
+                    </ol>
+                </li>
+                <li>"Instance Details"
 
-<ol>
-<li>Instance Type: "m1.large"</li>
-<li>Availability Zone: "no preference"
+                    <ol>
+                        <li>Instance Type: "m1.large"</li>
+                        <li>Availability Zone: "no preference"
 
-<ul>
-<li>just make sure it is any "us-east"</li>
-</ul>
-</li>
-<li>Click "Continue"</li>
-</ol>
-</li>
-<li>Instance Details - Advanced Instance Options
+                            <ul>
+                                <li>just make sure it is any "us-east"</li>
+                            </ul>
+                        </li>
+                        <li>Click "Continue"</li>
+                    </ol>
+                </li>
+                <li>Instance Details - Advanced Instance Options
 
-<ol>
-<li>Termination Protection: enable</li>
-<li>Click "Continue"</li>
-</ol>
-</li>
-<li>Instance Details - Storage Device Configuration
+                    <ol>
+                        <li>Termination Protection: enable</li>
+                        <li>Click "Continue"</li>
+                    </ol>
+                </li>
+                <li>Instance Details - Storage Device Configuration
 
-<ol>
-<li>Click "Edit"</li>
-<li>Select "EBS Volumes"</li>
-<li>Volume Size: 40GiB</li>
-<li>Volume Type: Standard</li>
-<li>Delete on Termination: disable (!!!)</li>
-<li>Click "Add"
-(Note the device path, something like /dev/sdf)</li>
-<li>Click "Continue"</li>
-</ol>
-</li>
-<li>Instance Details - Add tags
+                    <ol>
+                        <li>Click "Edit"</li>
+                        <li>Select "EBS Volumes"</li>
+                        <li>Volume Size: 40GiB</li>
+                        <li>Volume Type: Standard</li>
+                        <li>Delete on Termination: disable (!!!)</li>
+                        <li>Click "Add"
+                            (Note the device path, something like /dev/sdf)
+                        </li>
+                        <li>Click "Continue"</li>
+                    </ol>
+                </li>
+                <li>Instance Details - Add tags
 
-<ol>
-<li>Optional, and safe to ignore</li>
-<li>Click "Continue"</li>
-</ol>
-</li>
-<li>Create Key Pair
+                    <ol>
+                        <li>Optional, and safe to ignore</li>
+                        <li>Click "Continue"</li>
+                    </ol>
+                </li>
+                <li>Create Key Pair
 
-<ol>
-<li>Choose an existing, or create a new Key Pair
+                    <ol>
+                        <li>Choose an existing, or create a new Key Pair</li>
+                        <li>be sure to <strong>adjust permissions</strong> of a created PEM file to only be
+                            readable by you (e.g. <code>chmod go-rwx keypair.pem</code>)
+                        </li>
+                        <li>Select "Continue"</li>
+                    </ol>
+                </li>
+                <li>Configure Firewall</li>
+                <ol>
+                    <li>Select "Create a new Security Group"</li>
+                    <li>Group Name "Neo4j"</li>
+                    <li>Group Description "for remote access to Neo4j database"</li>
+                    <li>Port range: 7474</li>
+                    <li>(check out Heroku instructions <a
+                            href="https://devcenter.heroku.com/articles/external-services">here</a>)
+                    <li>or programmatically <code>$ ec2-authorize Neo4j -P tcp -p 7474 -u 098166147350 -o default</code></li>
+                    <li>Click "Continue"</li>
+                </ol>
 
-<ul>
-<li>be sure to adjust permissions of a created PEM file to only be readable by you</li>
-</ul>
-</li>
-<li>Select "Continue"</li>
-</ol>
-</li>
-<li>Configure Firewall</li>
-<li>. Select "Create a new Security Group"</li>
-<li>. Group Name "Neo4j"</li>
-<li>. Group Description "for remote access to Neo4j database"</li>
-<li>. Port range: 7474</li>
-<li>. follow instructions here: https://devcenter.heroku.com/articles/external-services
-
-<ul>
-<li><code>$ ec2-authorize Neo4j -P tcp -p 7474 -u 098166147350 -o default</code></li>
-</ul>
-</li>
-<li>. Click "Continue"</li>
-<li>Review</li>
-<li>. Review the settings</li>
-<li>. Click "Launch"</li>
-</ol>
+                <li>Review &amp; Launch</li>
+                <ol>
+                    <li>Review the settings</li>
+                    <li>Click "Launch"</li>
+                </ol>
+            </ol>
 
 
 <p>Wait for the instance to launch by monitoring it on the "Instances" dashboard.
 Once it is running ssh onto the instance like so:
-ssh -i {/path/to/KEYPAIR.pem} ubunutu@ec2-???-??-???-???.compute-1.amazonaws.com</p>
+<code>ssh -i /path/to/keypair.pem ubuntu@ec2-???-??-???-???.compute-1.amazonaws.com</code></p>
 
-<h3>Add Neo4j from debian</h3>
+            <h3>Add Neo4j on Debian/Ubuntu</h3>
 
-<p>For details follow http://debian.neo4j.org</p>
-
-<ol>
-<li>sudo vi /etc/apt/sources.list.d/neo4j.list
-
-<ol>
-<li>add a line like this...
-deb http://debian.neo4j.org/repo stable/</li>
-<li>save it</li>
-</ol>
-</li>
-<li>sudo apt-get update</li>
-<li>sudo apt-get install neo4j
-
-<ol>
-<li>say "yes" to all questions</li>
-</ol>
-</li>
-</ol>
+            <p>For details follow <a href="http://debian.neo4j.org">http://debian.neo4j.org</a></p>
 
 
-<h3>Confirm Neo4j is running Locally</h3>
+            <ol>
+                <li>Add Neo4j repository to APT:<br/>
+                    <code>echo 'deb http://debian.neo4j.org/repo stable/' > /etc/apt/sources.list.d/neo4j.list</code>
+                </li>
 
-<p><code>curl http://localhost:7474</code></p>
-          
+                <li>Update depedency lists: <code>sudo apt-get update</code></li>
+                <li>Install Neo4j: <code>sudo apt-get install neo4j</code> (say "yes" to all questions)</li>
+            </ol>
+
+
+            <h3>Confirm Neo4j is running locally</h3>
+
+            <p><code>curl http://localhost:7474</code></p>
+
+            <h3>Make Neo4j accessible from the outside</h3>
+
+            <p>Only do this if it is necessary, for instance when your services accessing Neo4j run on a different host. Make sure to secure the instance by
+               enabling SSL and adding authentication (like the <a href="http://github.com/neo4j/authentication-extension" target="_blank">authentication-extension</a>.
+            </p>
+            <ol>
+                <li>Find and open: <code>/path/to/neo4j/conf/neo4j-server.properties</code></li>
+                <li>uncomment the line: <code>#org.neo4j.server.webserver.address=0.0.0.0</code></li>
+                <li>Check that SSL access is enabled: <code>org.neo4j.server.webserver.https.enabled=true</code></li>
+                <li>Check if it is accessible from the outside: <code>curl
+                    http://ec2-???-??-???-???.compute-1.amazonaws.com:7474</code>
+                </li>
+            </ol>
+
 
         </div>
         
@@ -133,14 +142,10 @@ deb http://debian.neo4j.org/repo stable/</li>
           <div class="summary">
             <h2>Briefly</h2>
             <div class="well">
-              <p>DIY in the Cloud</p>
-              <ol>
-                <li><a href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting started on Amazon EC2</a></li>
-                <li>Provision a generous EC2 Instance</li>
-                <li><a href="/download">Download Neo4j</a> onto the EC2 instance</li>
-                <li>Mix in the <a href="http://github.com">authentication plugin</a></li>
-                <li>Configure your application to use the authenticated Neo4j URL</li>
-              </ol>
+                <li>Neo4j runs on EC2 Ubuntu AMI's</li>
+                <li>Configure Firewall</li>
+                <li>Install Neo4j via deb or download</li>
+                <li>Configure external Access</li>
             </div>
           </div>
           
@@ -148,11 +153,15 @@ deb http://debian.neo4j.org/repo stable/</li>
             <h2>Next Steps</h2>
             <div class="next thumbnail">
               <div class="caption">
-                <h5><i class="icon-download"></i> Download Neo4j <%= neo4j.version %></h5> 
-                <p><%= neo4j.summary %></p>
-                <a href="/download" class="btn btn-primary" type="button">Neo4j <%= neo4j.version %></a>
-                <a href="<%= neo4j.readme %>" class="btn" type="button">Read More</a>
-              </div>            
+                  <p>DIY in the Cloud</p>
+                  <ol>
+                    <li><a href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting started on Amazon EC2</a></li>
+                    <li>Provision a generous EC2 Instance</li>
+                    <li><a href="/download">Download Neo4j</a> onto the EC2 instance</li>
+                    <li>Mix in the <a href="http://github.com/neo4j/authentication-extension">authentication plugin</a></li>
+                    <li>Configure your application to use the authenticated Neo4j URL</li>
+                  </ol>
+              </div>
             </div>
           </div>
 

@@ -40,6 +40,32 @@
         </tr>
       </thead>
       <tbody>
+      <tr>
+        <th class="ltgrey" rowspan=2><p class="text18">General Availability<br />
+          <%= neo4jGA.version %></p>
+          <p class="date"><%= neo4jGA.date %></p>
+          <a href="<%= neo4jGA.readme %>" class="btn" type="button">Read Me</a> </th>
+        <td class="os"><h3>Linux/Mac</h3></td>
+        <td><div class="btn-group">
+          <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="/download_thanks/?edition=community&amp;release=<%= neo4jGA.version %>&amp;platform=unix">Community <%= neo4jGA.version %></a></li>
+            <li><a href="/download_thanks/?edition=advanced&amp;release=<%= neo4jGA.version %>&amp;platform=unix">Advanced <%= neo4jGA.version %></a></li>
+            <li><a href="/download_thanks/?edition=enterprise&amp;release=<%= neo4jGA.version %>&amp;platform=unix">Enterprise <%= neo4jGA.version %></a></li>
+          </ul>
+        </div></td>
+      </tr>
+      <tr>
+        <td><h3>Windows</h3></td>
+        <td><div class="btn-group">
+          <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="/download_thanks/?edition=community&amp;release=<%= neo4jGA.version %>&amp;platform=windows">Community <%= neo4j.version %></a></li>
+            <li><a href="/download_thanks/?edition=advanced&amp;release=<%= neo4jGA.version %>&amp;platform=windows">Advanced <%= neo4j.version %></a></li>
+            <li><a href="/download_thanks/?edition=enterprise&amp;release=<%= neo4jGA.version %>&amp;platform=windows">Enterprise <%= neo4j.version %></a></li>
+          </ul>
+        </div></td>
+      </tr>
         <tr>
           <th class="ltgrey" rowspan=2><p class="text18">Milestone Release<br />
             <%= neo4j.version %></p>
@@ -89,32 +115,6 @@
               <li><a href="/download_thanks/?edition=community&amp;release=<%= neo4jS.version %>&amp;platform=windows">Community <%= neo4jS.version %></a></li>
               <li><a href="/download_thanks/?edition=advanced&amp;release=<%= neo4jS.version %>&amp;platform=windows">Advanced <%= neo4jS.version %></a></li>
               <li><a href="/download_thanks/?edition=enterprise&amp;release=<%= neo4jS.version %>&amp;platform=windows">Enterprise <%= neo4jS.version %></a></li>
-            </ul>
-          </div></td>
-        </tr>
-        <tr>
-          <th class="ltgrey" rowspan=2><p class="text18">General Availability<br />
-            <%= neo4jGA.version %></p>
-            <p class="date"><%= neo4jGA.date %></p>
-            <a href="<%= neo4jGA.readme %>" class="btn" type="button">Read Me</a> </th>
-          <td class="os"><h3>Linux/Mac</h3></td>
-          <td><div class="btn-group">
-            <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="/download_thanks/?edition=community&amp;release=<%= neo4jGA.version %>&amp;platform=unix">Community <%= neo4jGA.version %></a></li>
-              <li><a href="/download_thanks/?edition=advanced&amp;release=<%= neo4jGA.version %>&amp;platform=unix">Advanced <%= neo4jGA.version %></a></li>
-              <li><a href="/download_thanks/?edition=enterprise&amp;release=<%= neo4jGA.version %>&amp;platform=unix">Enterprise <%= neo4jGA.version %></a></li>
-            </ul>
-          </div></td>
-        </tr>
-        <tr>
-          <td><h3>Windows</h3></td>
-          <td><div class="btn-group">
-            <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="/download_thanks/?edition=community&amp;release=<%= neo4jGA.version %>&amp;platform=windows">Community <%= neo4j.version %></a></li>
-              <li><a href="/download_thanks/?edition=advanced&amp;release=<%= neo4jGA.version %>&amp;platform=windows">Advanced <%= neo4j.version %></a></li>
-              <li><a href="/download_thanks/?edition=enterprise&amp;release=<%= neo4jGA.version %>&amp;platform=windows">Enterprise <%= neo4j.version %></a></li>
             </ul>
           </div></td>
         </tr>

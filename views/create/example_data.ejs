@@ -2,48 +2,71 @@
 
 
 <!-- Main Content Row -->
-<div class="main row">
-    <div class="container">
-        <h1>Sample Datasets to get you going</h1>
-        <ul>
-            <li><a href="http://example-data.neo4j.org/files/drwho.zip">DrWho (0.05MB)</a></li>
-            <li><a href="http://example-data.neo4j.org/files/fec_data_presidential_2012.zip">fec_data_presidential_2012.zip
-                (63.91MB)</a></li>
-            <li><a href="http://example-data.neo4j.org/files/twitter.s12gx.zip">twitter.s12gx.zip (0.19MB)</a></li>
-            <li><a href="http://example-data.neo4j.org/files/cineasts_39_movies_446_actors.zip">cineasts_39_movies_446_actors.zip
-                (0.14MB)</a></li>
-            <li><a href="http://example-data.neo4j.org/files/cineasts_12k_movies_50k_actors.zip">cineasts_12k_movies_50k_actors.zip
-                (12.32MB)</a></li>
-            <li><a href="http://example-data.neo4j.org/files/hubway_data_challenge_boston.zip">hubway_data_challenge_boston.zip
-                (50.01MB)</a></li>
-            <li><a href="http://example-data.neo4j.org/files/neo4j-jdbc-driver-demo-people-dataset.zip">neo4j-jdbc-driver-demo-people-dataset.zip
-                (0.00MB)</a></li>
-            <li><a href="http://example-data.neo4j.org/files/nosqlnow.zip">NoSQL Now (0.01MB)</a></li>
-        </ul>
+<div class="container">
+    <div id="learn" class="hero-unit path">
+        <h2><a><i class="icon icon-cogs"></i> Example Data Sets</a></h2>
+
+        <p class="lead">Pre-canned data sets for you to explore</p>
     </div>
+    <div class="row">
+        <div class="span8">
+            <ul>
+                <li><a href="http://example-data.neo4j.org/files/drwho.zip">DrWho (0.05MB)</a> Source: <a
+                        href="http://github.com/jimwebber/neo4j-tutorial">Neo4j Tutorial</a></li>
+                <li><a href="http://example-data.neo4j.org/files/fec_data_presidential_2012.zip">fec_data_presidential_2012.zip
+                    (63.91MB)</a> Source: the Federal Election Committee Capaign Data <a
+                        href="http://blog.neo4j.org/2012/10/follow-data-fec-campaign-data-challenge.html">Workshop</a>
+                </li>
+                <li><a href="http://example-data.neo4j.org/files/twitter.s12gx.zip">twitter.s12gx.zip (0.19MB)</a>
+                    Source: 
+                </li>
+                <li><a href="http://example-data.neo4j.org/files/cineasts_39_movies_446_actors.zip">cineasts_39_movies_446_actors.zip
+                    (0.14MB)</a>Source: small dataset of the Spring Data Neo4j Cineasts.net <a href="http://spring.neo4j.org/tutorial">tutorial</a></li>
+                <li><a href="http://example-data.neo4j.org/files/cineasts_12k_movies_50k_actors.zip">cineasts_12k_movies_50k_actors.zip
+                    (12.32MB)</a> Source: Spring Data Neo4j Cineasts.net <a href="http://spring.neo4j.org/tutorial">tutorial</a>
+                </li>
+                <li><a href="http://example-data.neo4j.org/files/hubway_data_challenge_boston.zip">hubway_data_challenge_boston.zip
+                    (50.01MB)</a> Source: The <a
+                        href="http://blog.neo4j.org/2012/10/using-spring-data-neo4j-for-hubway-data.html">Hubway Data
+                    Challenge</a> with Spring Data Neo4j
+                </li>
+                <li><a href="http://example-data.neo4j.org/files/neo4j-jdbc-driver-demo-people-dataset.zip">neo4j-jdbc-driver-demo-people-dataset.zip
+                    (0.00MB)</a>Source: Neo4j <a
+                        href="http://blog.neo4j.org/2012/06/wanted-your-help-in-testing-neo4j-jdbc.html">JDBC Driver
+                    Test</a></li>
+                <li><a href="http://example-data.neo4j.org/files/nosqlnow.zip">NoSQL Now (0.01MB)</a> Source: <a
+                        href="http://blog.neo4j.org/2012/08/at-conference-need-dataset-neo4j-at.html">Sessions and
+                    Tracks</a> at NOSQL-Now
+                </li>
+            </ul>
+            <p>The ZIP-Files contain the content of the <code>graph.db</code> directory.
+                To use them you have to stop your Neo4j server, extract the file into
+                <code>/path/to/neo>/data/graph.db</code> and start the server again. The examples work with Neo4j
+                version 1.6 and later</p>
 
-    <!--<aside class="span4 sidebar">
-      <div class="summary">
-        <h2>Next steps</h2>
-        <div class="well">
-          <p>Start your Heroku Neo4j project</p>
-          <ul class="circle">
-                  <li><a href="https://github.com/neo4j/neo4j-heroku-example">Clone an example Github Herkou template</a></li>
-              <li><a href="https://devcenter.heroku.com/articles/neo4j">Heroku addon see the Heorku docs for information</a></li>
-          </ul>
+            <iframe src="http://player.vimeo.com/video/53867161?badge=0&byline=0&portrait=0&title=0" width="500" height="281" frameborder="0"
+                    webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
-      </div>
 
+        <aside class="span4 sidebar">
+            <div class="summary">
+                <h2>Next steps</h2>
 
-
-    </aside>-->
-</div>
-        <div class="row">
-            <div class="container">
-                <iframe src="http://player.vimeo.com/video/53867161?badge=0" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/53867161">Installing Sample Datasets in Neo4j</a> from <a href="http://vimeo.com/user1375223">Peter Neubauer</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+                <div class="well">
+                    <p>Start exploring the data</p>
+                    <ul class="circle">
+                        <li>Open the <a href="http://localhost:7474" target="_blank">Neo4j Web Interface</a></li>
+                        <li>Explore the Data Browser Tab</li>
+                        <li>Switch to the Console Tab</li>
+                        <li>Read about the <a href="/learn/cypher">Cypher</a> Query Language</li>
+                        <li>Follow the source links for some example cypher queries</li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
 
+        </aside>
+    </div>
+</div>
 <% include ../foot %>
 

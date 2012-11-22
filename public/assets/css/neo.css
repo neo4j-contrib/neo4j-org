@@ -216,6 +216,9 @@ h5.cypher {
 p.lead,.text18 {
  font-size: 18px;
 }
+.bigger {
+ font-size: larger;
+}
 .thumbnail div.icon {
  margin: 30px 30px 30px 30px;
  height: 80px;
@@ -286,6 +289,10 @@ p.lead,.text18 {
 .table-download th { 
   text-shadow: 0 -1px 0 #999;
   background-color: #999;
+}
+
+table th {
+    font-size: larger;
 }
 .date {
   font-size: 12px;

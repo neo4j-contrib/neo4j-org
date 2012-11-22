@@ -41,7 +41,7 @@ app.locals.theme = function() {
 app.locals({
   neo4j: {
     version: "1.9.M01",
-    date: "2012-10-26",
+    date: "Oct 26, 2012",
     summary: "Early access to self-managed HA, for simplified ops.",
     readme: "http://blog.neo4j.org/2012/10/neo4j-19m01-self-managed-ha.html"
   } 
@@ -50,15 +50,15 @@ app.locals({
 app.locals({
   neo4jGA: {
     version: "1.8",
-    date: "2012-09-29",
+    date: "Oct 2, 2012",
     summary: "General Availability",
-    readme: "http://blog.neo4j.org/2012/09/neo4j-18rc1-really-careful-ftw.html"
+    readme: "http://blog.neo4j.org/2012/10/neo4j-18-release-fluent-graph-literacy.html"
   } 
 });
 app.locals({
   neo4jS: {
     version: "1.9-SNAPSHOT",
-    date: "2012-10-02",
+    date: "Nov, 2012",
     summary: "Snapshot"
   } 
 });
