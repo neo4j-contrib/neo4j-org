@@ -73,16 +73,14 @@ app.locals({
 
 app.get('/', routes.index);
 
-app.get('/home1', routes.home1);
-app.get('/home2', routes.home2);
-app.get('/home3', routes.home3);
-
 app.get('/learn', routes.learn); // path: concepts, best practices, operations
 app.get('/learn/neo4j', routes.neo4j); // node:  about Neo4j
 app.get('/learn/apps', routes.apps); // graph:  showcase of apps built with Neo4j
 app.get('/learn/licensing', routes.license); // node:  Neo4j editions and licensing guide (categorized URL)
 app.get('/learn/propertygraph', routes.propertygraph); // node:  explanation of property graph
 app.get('/learn/nosql', routes.nosql); // node:  compare to other databases
+app.get('/learn/cypher', routes.cypher); // node:  compare to other databases
+app.get('/learn/visualize', routes.visualize); // node:  compare to other databases
 app.get('/create', routes.create); // path: development guides in featured languages
 app.get('/create/install', routes.install); // path: development guides in featured languages
 app.get('/create/heroku', routes.heroku); // path: development guides in featured languages
@@ -94,7 +92,7 @@ app.get('/integrate', routes.integrate); // graph: language drivers and framewor
 app.get('/participate', routes.participate); // graph: language drivers and frameworks
 app.get('/download', routes.download); //  download Neo4j
 app.get('/download_thanks', routes.download_thanks); //  download thanks Neo4j
-app.get('/contributors', routes.contributors);
+app.get('/participate/contributors', routes.contributors);
 app.get('/intro', routes.intro);
 app.get('/learn/try', routes["try"]);
 

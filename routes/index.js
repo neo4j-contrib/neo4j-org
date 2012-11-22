@@ -60,6 +60,14 @@ exports.neo4j = function(req, res){
   res.render('learn/neo4j', { category: 'learn', title: 'Neo4j' });
 };
 
+exports.cypher = function(req, res){
+  res.render('learn/cypher', { category: 'learn', title: 'Cypher Tutorial' });
+};
+
+exports.visualize = function(req, res){
+  res.render('learn/visualize', { category: 'learn', title: 'Graph Visualizations' });
+};
+
 
 /*
  * GET - "Neo4j apps" a showcase of live apps
@@ -152,7 +160,7 @@ exports.participate = function(req, res){
 };
 
 exports.contributors = function(req, res){
-    res.render('contributors', { category: 'contributors', title: 'Contributors' });
+    res.render('participate/contributors', { category: 'contributors', title: 'Contributors' });
 };
 exports.example_data = function(req, res){
     res.render('create/example_data', { category: 'create', title: 'Sample Datasets' });

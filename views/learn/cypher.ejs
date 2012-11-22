@@ -1,0 +1,136 @@
+<% include ../head %>
+
+<div class="container">
+
+<!-- Main Content Row -->
+<div class="main row">
+  <div class="span8">
+    <h2>Cypher Tutorial</h2>
+
+      <!--p>Setup a neo4j console link and also a heroku instance with the dataset
+      Can we add a &#8220;deploy to heroku&#8221; link for the example datasets? or a show in Neo4j console</p-->
+
+      <h3>Quickstart</h3>
+      <ul><li>Make sure to get the <a href="http://neo4j.org/resources/cypher" target="_blank">Cypher Cheat Sheet</a></li>
+      <li>Download <a href="/download">Neo4j Server</a></li>
+      <li>Add the <a href="/create/example_data">demo dataset</a> (cineasts)</li>
+      <!--li>tell them to stop the screencast and get it done</li-->
+      <li>Open the <a href="http://localhost:7474">Neo4j Web Interface</a> on the console tab</li></ul>
+      <h3>First steps with Cypher</h3>
+      <ul>
+          <li>return a single node, by id (The Matrix) <br/><code>start movie=node:node_auto_index(id="603") return movie;</code></li>
+          <li>return the title and id of the matrix node <br/><code>start movie=node:node_auto_index(id="603") return movie.id, movie.title;</code></li>
+          <li>first use of the match clause, show all actors
+              <br/><code>start m=node:node_auto_index(id="603") match m&lt;-[:ACTS_IN]-actor return actor;</code></li>
+          <li>return just the name, order them by name
+              <br/><code>start m=node:node_auto_index(id="603") match m&lt;-[:ACTS_IN]-actor return actor.name order by actor.name;</code></li>
+          <li>first aggregation, count the actors
+              <br/><code>start m=node:node_auto_index(id="603") match m&lt;-[:ACTS_IN]-actor return count(*);</code></li>
+          <li><p>first filtering only the actors born in the US
+              <br/><code>start m=node:node_auto_index(id="603") match m&lt;-[:ACTS_IN]-actor where actor.birthplace =~ /.*(United States|US).*/ return actor.name ;</code></p></li>
+      </ul>
+
+      <h3>Explore a dataset</h3>
+      <ul>
+          <li>some exploratory queries for unknown datasets, <strong>don&#8217;t do that on live production instances</strong></li>
+          <li>Count nodes <br/><code>start n=node(*) return count(*);</code></li>
+          <li>Count relationship types <br/><code>start n=node(*) match n-[r?]-&gt;() return type(r), count(*);</code></li>
+      </ul>
+
+      <h3>Updating the graph</h3>
+
+      <ul>
+          <li>we will add ourselves, friends and ratings</li>
+          <li>add a node for yourself and return it, note the id <br/><code>create me={name: "Michael"} return me;</code>
+          </li>
+          <li>let&#8217;s check if the node is there: <br/><code>start me=node(488) return me.name;</code></li>
+          <li>I want to rate a movie <br/><code>start me=node(488), movie=node:Movie(id="603") create me-[:RATED {stars : 5,
+              comment : "I love that movie!"}]-&gt;movie;</code></li>
+          <li>which movies did I rate <br/><code>start me=node(488) match me-[r:RATED]-&gt;movie return r.stars,
+              r.comment,movie.title;</code></li>
+          <li>we need a friend <br/><code>create friend={name: "A Friend"} return friend;</code> // node(489)</li>
+          <li>add our friendship idempotently, so we can rerun the query without adding it several times, we return the
+              relationship to check that it has not been created several times
+              <br/><code>start me=node(488), friend=node(489) relate me-[r:FRIEND]-&gt;friend return r;</code></li>
+          <li>rerun the query</li>
+          <li>update our friendship with a <code>since</code> property
+              <br/><code>start me=node(488), friend=node(489) MATCH me-[r:FRIEND]-&gt;friend set r.since='forever' return
+                  r;</code></li>
+          <li>we pretend being our friend and want to see which movies our frriends have rated
+              <br/><code>start me=node(489) MATCH me-[:FRIEND]-friend-[r:RATED]-&gt;movie return movie.title, avg(r.stars),
+                  collect(r.comment), count(*);</code></li>
+          <li>that&#8217;s too little data, let&#8217;s add some more friends and ratings
+              <br/><code>start me=node(488)
+              foreach (i in range(1,10) : create me-[:FRIEND]->({name:&#8221;Friend &#8220;+i}))</code>
+          </li>
+      </ul>
+
+      <h3>Paths everywhere</h3>
+
+      <ul>
+      <li>same setup as before, with all the added friends and ratings</li>
+      <li>lets explore the relationships between the actors</li>
+      <li>All other movies that the matrix actors acted in ordered by occurrence
+      <br/><code>start m=node:Movie(id="603") match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie return movie.title, count(*) order by count(*) desc;</code></li>
+      <li>obviously the Matrix trilogy, but also others, let&#8217;s see which actors
+      <br/><code>start m=node:Movie(id="603") match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie return movie.title, collect(actor.name) order by count(*) desc;</code></li>
+      <li>what about co-acting, actors that acted together
+      <br/><code>start m=node:Movie(id="603") match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie&lt;-[:ACTS_IN]-colleague return actor.name, collect(distinct colleague.name);</code></li>
+      <li>who of those other actors acted most often with anyone from the matrix cast
+      <br/><code>start m=node:Movie(id="603") match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie&lt;-[:ACTS_IN]-colleague return colleague.name,count(*) order by count(*) desc limit 10;</code></li>
+      <li>starting with paths, a path is a sequence of nodes and relationships from a start node to an end nod</li>
+      <li>we know that Trinity loves Neo, but how many paths exist between their actors; we limit the path length and the query as it exhaustively searches the graph otherwise
+      <br/><code>start neo=node:Person(id="6384"),trinity=node:Person(id="530") match p = neo-[:ACTS_IN*0..5]-trinity return p, length(p) limit 10;</code></li>
+      <li>that&#8217;s a lot of data, we just want to look at the names and titles of the nods of this path
+      <br/><code>start neo=node:Person(id="6384"),trinity=node:Person(id="530") match p = neo-[:ACTS_IN*0..5]-trinity return extract(n in nodes(p) : coalesce(n.title?,n.name?)), length(p) order by length(p) limit 10 ;</code></li>
+      <li>let&#8217;s explore connections between more people, we chose an actor who has only a few connections to the team, Sean Bean (Boromir, Eddard Stark) is a good candiate (id 467)
+      `start m=node:Movie(id=&#8221;603&#8221;),sean=node(467) match m&lt;-[:ACTS_IN]-actor,p  return colleague.name,count(<em>) order by count(</em>) desc limit 10;</li>
+      </ul>
+
+      <p>Integration:
+      Use the Neo4j Console for exploration, sharing and testing
+      Deploy an instance of the graph to heroku, create the ruby forwarding app, and upload the dataset
+      Use the JDBC driver for integration with existing tools</p>
+
+
+
+      <h3>Cypher Webinar</h3>
+
+      <iframe src="http://player.vimeo.com/video/50389825?badge=0&portrait=0&title=0&byline=0" width="500" height="377" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+      <p class="caption">A guide through the cypher query language.</p>
+  </div>
+  <aside class="span4 sidebar">
+  <div class="summary">
+    <h2>Briefly</h2>
+    <div class="well">
+      <p>Cypher is a Graph Query Language</p>
+      <ul class="circle">
+        <li>it is human readable and expressive</li>
+        <li>matches patterns in the graph</li>
+        <li>is about the what not how</li>
+      </ul>
+    </div>
+  </div>
+  <div class="next-steps">
+    <h2>Next Steps</h2>
+    <div class="next thumbnail">
+      <div class="caption">
+          <ul>
+              <li>Try more cypher in the <a href="/try">Demo Console</a></li>
+              <li>Read up in detail in the <a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html" target="_blank">Cypher Reference Manual</a></li>
+          </ul>
+    </div>
+    </div>
+    </div>
+
+  <div class="reference-card">
+    <h2>Cypher Reference Card</h2>
+    <a href="http://neo4j.org/resources/cypher" target="_blank"><img alt="Cypher Reference Card" src="/assets/img/still/cypher_refcard.gif"/></a>
+   </div>
+   </aside>
+  </div>
+</div>
+
+
+<% include ../foot %>
+
