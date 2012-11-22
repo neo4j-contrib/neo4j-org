@@ -4,11 +4,31 @@
       <!-- Main Content Row -->
       <div class="main row">
         <div class="span8">
-          <h1>Neo4j Add-on to Heroku</h1>
-          <p class="lead">A managed graph database in the cloud, perfect for getting to know Neo4j. </p>
-          <p>Neo4j is available as a <a href="https://devcenter.heroku.com/articles/neo4j">Heroku addon see the Heorku docs for information</a>.</p>
-            <iframe title="Neo4j Videography Video Player" width="640" height="360" src="http://video.neo4j.org/player/U4Yq" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <div id="integrate" class="hero-unit path">
+              <h2><a><i class="icon icon-cogs"></i> Neo4j Heroku Add-on</a></h2>
+              <p class="lead">A managed graph database in the cloud, perfect for getting to know Neo4j. </p>
+            </div>
 
+            <h3>Neo4j on Heroku</h3>
+          <p>As a platform-as-a-service (PAAS) provider, <a href="http://heroku.com">Heroku</a> offers a quick way from your locally developed app to a
+             managed deployment in the cloud. The ability of adding different hosted services is crucial for the daily needs of a modern day web-application.
+             To run a Neo4j graph powered app on Heroku you can easily add the <a href="https://devcenter.heroku.com/articles/neo4j">Neo4j Add-on</a>.
+          </p>
+
+            <h3>Add Neo4j to your Heroku Application</h3>
+            <p>After installing the <a href="https://toolbelt.heroku.com" target="_blank">Heroku toolbelt</a>, it is as easy as:
+            <ol>
+                <li>Create an application: <code>heroku apps:create your-app-name</code></li>
+                <li>Add the Neo4j Add-on: <code>heroku addons:add neo4j</code></li>
+                <li>Open the Neo4j Administration page: <code>heroku addons:open neo4j</code></li>
+                <li>Show the your app's environment variables: <code>heroku config</code></li>
+                <li>Use <code>ENV["NEO4J_URL"]</code> or <code>System.getenv("NEO4J_URL")</code> to access the Neo4j Server with one of the <a href="/integrate">language drivers</a></li>
+            </ol>
+          </p>
+
+            <h3>Screencast: Integrate Neo4j, Heroku and Google Docs</h3>
+            <iframe title="Neo4j Videography Video Player" width="640" height="360" src="http://video.neo4j.org/player/U4Yq" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+              <p>Step by step setup instructions and a ready-made github repository can be found in the accompanying <a href="http://blog.neo4j.org/2011/12/neo4j-labs-heroku-neo4j-and-google.html" target="_blank">blog post</a>.</p>
 
         </div>
         
@@ -18,11 +38,16 @@
             <div class="well">
               <p>Start your Heroku Neo4j project</p>
               <ul class="circle">
-                      <li><a href="https://github.com/neo4j/neo4j-heroku-example">Clone an example Github Herkou template</a></li>
-                  <li><a href="https://devcenter.heroku.com/articles/neo4j">Heroku addon see the Heorku docs for information</a></li>
+                  <li><a href="http://addons.heroku.com/neo4j" target="_blank">Heroku Neo4j Add-on</a></li>
+                  <li><a href="http://devcenter.heroku.com/articles/neo4j" target="_blank">Heroku devcenter article on Neo4j</a></li>
+                  <li><a href="https://github.com/neo4j/neo4j-heroku-example" target="_blank">Clone an example Github Herkou template</a></li>
+                  <li><a href="http://maxdemarzi.com/tag/heroku/" target="_blank">Max De Marzi's Heroku examples</a></li>
+                  <li><a href="http://blog.neo4j.org/2012/03/heroku-challengers-vote-now.html" target="_blank">Neo4j Heroku Challenge Applications</a></li>
+                  <li><a href="http://watch.neo4j.org/video/53221343" target="_blank">James Ward on deploying Graph Applications on Heroku</a></li>
               </ul>
             </div>
           </div>
+          <div><a href="http://addons.heroku.com/neo4j"><img src="/assets/img/still/neo4j_heroku_addon.gif"></a></div>
           
 
 

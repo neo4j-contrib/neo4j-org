@@ -111,7 +111,7 @@ div#super-nav {
 }
 
 
-.navbar-inner { background: url(../img/navbarBg1.png) repeat-x 0 0; box-shadow: none; height: 50px; line-height: 40px; filter:none; }
+.navbar-inner { background: url(../img/navbarBg1.png) repeat-x 0 0; box-shadow: none; min-height: 50px; ; filter:none; }
 .navbar a.brand {color: #bcd2c5; font-weight: 700; text-shadow: none; text-transform: uppercase; font-size: 18px; padding: 0 0 0 10px; background: none; margin-left:0; font-weight:900; white-space:nowrap;}
 .navbar a.brand.active {background: transparent url(../img/tip-active-menu.png) no-repeat 68% bottom; box-shadow: none; color:#fff;}
 .navbar a.brand img {margin-right:10px;}
