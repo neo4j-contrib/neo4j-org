@@ -6,29 +6,6 @@ exports.index = function(req, res){
   res.render('index', { category: '', title: 'Learn, Create, Participate' });
 };
 
-/*
- * GET home page.
- */
-exports.home1 = function(req, res){
-  res.render('home1', { category: '', title: 'Home Variation #1' });
-};
-
-
-/*
- * GET home page.
- */
-exports.home2 = function(req, res){
-  res.render('home2', { category: '', title: 'Home Variation #2' });
-};
-
-
-/*
- * GET home page.
- */
-exports.home3 = function(req, res){
-  res.render('home3', { category: '', title: 'Home Variation #3' });
-};
-
 
 /*
  * GET - "download" page
