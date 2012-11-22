@@ -95,6 +95,7 @@ app.get('/download_thanks', routes.download_thanks); //  download thanks Neo4j
 app.get('/participate/contributors', routes.contributors);
 app.get('/intro', routes.intro);
 app.get('/learn/try', routes["try"]);
+app.get('/d3', routes["d3"]);
 
 // well known historic URLs redicrects
 app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)

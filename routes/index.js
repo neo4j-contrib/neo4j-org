@@ -165,3 +165,7 @@ exports.contributors = function(req, res){
 exports.example_data = function(req, res){
     res.render('create/example_data', { category: 'create', title: 'Sample Datasets' });
 };
+
+exports.d3 = function(req, res){
+    res.render('d3', { category: 'create', title: 'Sample Datasets' });
+};
