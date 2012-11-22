@@ -54,7 +54,7 @@ ul.social li a {width: 36px; height: 36px; display: block; margin: 0 2px;}
 h1 {
 	margin: 40px 0 30px;
 }
-h2 {background:transparent url(../img/hdr2-line-bg.png) repeat-x 0 50%; text-align:center; padding: 0; text-transform: uppercase; font-size:18px; line-height:33px; color:#93b2a0; white-space:nowrap; margin:50px 0 30px 0;}
+h2 {background:transparent url(../img/hdr2-line-bg.png) repeat-x 0 50%; text-align:center; padding: 0; text-transform: uppercase; font-size:18px; line-height:33px; color:#93b2a0; white-space:normal; margin:50px 0 30px 0;}
 h2 span.lft {background:transparent url(../img/hdr2-bg-left.png) no-repeat 3px 79%; width:18px; height:33px; display:inline-block;}
 h2 span.rt {background:transparent url(../img/hdr2-bg-right.png) no-repeat -3px 79%; width:18px; height:33px; display:inline-block;}
 h2 span.mid {background: transparent url(../img/hdr2-bg-mid.png) repeat 0 0; padding:0 8px; display:inline-block; height:33px;}
@@ -64,7 +64,7 @@ h2 span.mid {background: transparent url(../img/hdr2-bg-mid.png) repeat 0 0; pad
 .green-row h2 span.rt {background:transparent url(../img/hdr2-bg-grn-right.png) no-repeat -3px 79%; width:18px; height:33px; display:inline-block;}
 .green-row h2 span.mid {background: transparent url(../img/hdr2-bg-grn-mid.png) repeat 0 0; padding:0 8px; display:inline-block; height:33px;}
 
-h3 { background:transparent url(../img/hdr3-line-bg.png) repeat-x 0 50%; text-align:left; padding: 0; text-transform: uppercase; font-size:14px; line-height:23px; color:#93b2a0; white-space:nowrap; margin:50px 0 10px 0;}
+h3 { background:transparent url(../img/hdr3-line-bg.png) repeat-x 0 50%; text-align:left; padding: 0; text-transform: uppercase; font-size:14px; line-height:23px; color:#93b2a0; white-space:normal; margin:50px 0 10px 0;}
 
 .hero h2 {
   font-size:48px;

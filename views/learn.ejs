@@ -7,9 +7,9 @@
 
     <div class="span3">
       <ul class="nav nav-tabs nav-stacked affix">
-        <li><a href="#introduction">Introduction</a></li>
         <li><a href="#graphs">Graph Concepts</a></li>
-        <li><a href="#dev">Development</a></li>
+          <li><a href="#introduction">Neo4j Introduction</a></li>
+          <li><a href="#dev">Development</a></li>
         <li><a href="#ops">Operations</a></li>
         <li><a href="#production">Production</a></li>
       </ul>
@@ -22,9 +22,35 @@
         <p class="lead">From graph concepts to deploying a globe spanning cluster, the path to success starts here.</p>
       </div>
 
+        <section id="graphs" class="row">
+            <h2>Graph Concepts</h2>
+            <div class="span3">
+              <h3>Property Graph</h3>
+              <p>Neo4j stores data in a Property Graph: nodes + relationships, with properties on both. Leave the schema behind and start focusing on how your data is connected.</p>
+              <p><a class="btn" href="/intro">Learn more &raquo;</a></p>
+            </div>
 
+            <div class="span3">
+              <h3>NoSQL</h3>
+              <p>You know relational, now consider relationships. Relate the graph model to relational, documents, and other NoSQL stores.</p>
+              <p><a class="btn" href="/learn/nosql">Not only SQL &raquo;</a></p>
+            </div>
+
+            <div class="span3">
+              <h3>Graph DB 101</h3>
+              <a data-toggle="lightbox" href="#graphdbIntro" class="thumbnail">
+							 <img src="/assets/img/still/graphdb-intro.png" alt="Click to View">
+						  </a>
+						  <p class="caption">A pleasant stroll through general concepts, and Neo4j particulars.</p>
+						  <div class="lightbox fade" id="graphdbIntro" style="display: none;">
+  						  <div class='lightbox-content'>
+  						  <iframe src="http://player.vimeo.com/video/46886385?badge=0" width="500" height="377" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  						  </div>
+      				</div>
+            </div>
+          </section>
           <section id="introduction" class="row">
-            <h2>Introduction</h2>
+            <h2>Neo4j Introduction</h2>
             
             <div class="span3">
               <h3>Neo4j Intro</h3>
@@ -57,34 +83,6 @@
 						  <div class="lightbox fade" id="whyGraphs" style="display: none;">
   						  <div class='lightbox-content'>
   						  <iframe title="Neo4j Videography Video Player" width="640" height="360" src="http://video.neo4j.org/player/YMD" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-  						  </div>
-      				</div>
-            </div>
-          </section>
-          
-          <section id="graphs" class="row">
-            <h2>Graph Concepts</h2>
-            <div class="span3">
-              <h3>Property Graph</h3>
-              <p>Neo4j stores data in a Property Graph: nodes + relationships, with properties on both. Leave the schema behind and start focusing on how your data is connected.</p>
-              <p><a class="btn" href="/intro">Learn more &raquo;</a></p>
-            </div>
-            
-            <div class="span3">
-              <h3>NoSQL</h3>
-              <p>You know relational, now consider relationships. Relate the graph model to relational, documents, and other NoSQL stores.</p>
-              <p><a class="btn" href="/learn/nosql">Not only SQL &raquo;</a></p>
-            </div>
-            
-            <div class="span3">
-              <h3>Graph DB 101</h3>
-              <a data-toggle="lightbox" href="#graphdbIntro" class="thumbnail">
-							 <img src="/assets/img/still/graphdb-intro.png" alt="Click to View">
-						  </a>
-						  <p class="caption">A pleasant stroll through general concepts, and Neo4j particulars.</p>
-						  <div class="lightbox fade" id="graphdbIntro" style="display: none;">
-  						  <div class='lightbox-content'>
-  						  <iframe src="http://player.vimeo.com/video/46886385?badge=0" width="500" height="377" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
   						  </div>
       				</div>
             </div>
@@ -133,6 +131,16 @@
               <h3>High Availability</h3>
               <p>Master-slave replication in a cluster provides your application with read-scaling and fault tolerance.</p>
               <p><a class="btn" href="http://docs.neo4j.org/chunked/stable/ha-how.html">Read more &raquo;</a></p>
+
+                <a data-toggle="lightbox" href="#hacluster" class="thumbnail">
+                               <img src="/assets/img/still/ha_video.gif" alt="Click to View">
+                            </a>
+                            <p class="caption">See how to setup a 3-member cluster for the <strong>new Neo4j HA 1.5</strong> running on a single machine.</p>
+                            <div class="lightbox fade" id="hacluster" style="display: none;">
+                              <div class='lightbox-content'> 
+                                <iframe src="http://player.vimeo.com/video/51906007?badge=0" width="500" height="377" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                              </div>
+                        </div>
             </div>
             
             <div class="span3">
