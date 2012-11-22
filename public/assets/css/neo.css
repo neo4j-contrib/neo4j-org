@@ -1,3 +1,4 @@
+/* fonts for Firefox, Chrome,Safari ok */
 @font-face {
  font-family: 'OfficinaSerifStdBold';
  src: url('../font/officinaserifstd-bold.eot');
@@ -89,6 +90,9 @@ a:hover {
 .dropdown.toggle a{
  color: #555;
 }
+#navigation {
+ margin-top: -5px;
+}
 /* pag nav */
 .nav-stacked.affix  {
   font-size: 18px;
@@ -141,6 +145,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 }
 .hero-unit {
  padding: 15px 40px;
+ background-color: #00546A;
 }
 .hero-unit h1, .main h1 {
   font-size: 50px;
@@ -178,9 +183,9 @@ h5.cypher {
 
 .path i {
  background-image: none;
- font-size: 60px;
+ font-size: 52px;
  margin-top: 20px;
- margin-right: 50px;
+ margin-right: 40px;
 }
 
 a {
@@ -188,10 +193,10 @@ a {
 }
 .path, .path i, .path a{
  color: #fff;
- background-color: #00546A;
+ background-color: none;
 }
 .path h2 {
- font-size: 60px;
+ font-size: 50px;
  text-shadow: 0.05em 0.05em 0.15em #666;
  background: none;
 }
@@ -371,23 +376,61 @@ table th {
 @media (min-width: 768px) and (max-width: 980px) {
   .navbar .nav-collapse.collapse {
     background: none;
-    background-color: #999;
+    background-color: #EEE;
   }
-  .path h2 {
-    font-size: 50px;
+  .navbar .navbar-inner .container .nav li a {
+    color: #00546A;
+  }
+  .navbar a.brand {
+    margin-top: -5px;
   }
   .nav-stacked.affix {
     width: 160px;
     text-align: left;
+    font-size: 16px;
+  }
+  .path h2,.path i{
+    font-size: 38px;
+  }
+  .path i {
+	margin-top: 15px;
+	margin-right: 25px;
+  }
+  p, p.lead,.footer li{
+	text-align:left;
   }
 }
 @media (max-width: 767px) {
+  .navbar .nav-collapse.collapse {
+    background: none;
+    background-color: #EEE;
+  }
+  .navbar .navbar-inner .container .nav li a {
+    color: #00546A;
+  }
   .navbar a.brand {
     margin-top: -5px;
   }
   .nav-stacked.affix {
     position: static;
     width: auto;
+    font-size: 16px;
+  }
+  .path h2,.path i{
+    font-size: 38px;
+  }
+  .path i {
+	margin-top: 15px;
+	margin-right: 25px;
+  }
+  .gray-row p {
+	text-align: left;
+  }
+  p, p.lead {
+	text-align:left;
+  }
+  .fheader img{
+    float: none;
   }
 }
 
