@@ -370,8 +370,8 @@ table th {
 }
 @media (min-width: 768px) and (max-width: 980px) {
   .navbar .nav-collapse.collapse {
-  background: none;
-  background-color: #eee;
+    background: none;
+    background-color: #999;
   }
   .path h2 {
     font-size: 50px;
@@ -382,10 +382,13 @@ table th {
   }
 }
 @media (max-width: 767px) {
-   .nav-stacked.affix {
-     position: static;
-     width: auto;
-   }
+  .navbar a.brand {
+    margin-top: -5px;
+  }
+  .nav-stacked.affix {
+    position: static;
+    width: auto;
+  }
 }
 
 /*d3*/
