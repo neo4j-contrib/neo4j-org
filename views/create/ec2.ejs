@@ -2,15 +2,21 @@
 <div class="container">
 
 
-      <!-- Main Content Row -->
-      <div class="main row">
+    <!-- Main Content Row -->
+    <div class="main row">
         <div class="span8">
             <div id="learn" class="hero-unit path">
-              <h2><a><i class="icon icon-cogs"></i> DIY on Amazon EC2</a></h2>
-              <p class="lead">For ultimate control, you can provision Neo4j to perfectly match your needs</p>
+                <h2><a><i class="icon icon-cogs"></i> DIY on Amazon EC2</a></h2>
+
+                <p class="lead">For ultimate control, you can provision Neo4j to perfectly match your needs</p>
             </div>
 
-          <h3>Install Amazon Tools</h3>
+            <iframe src="http://player.vimeo.com/video/54142111?badge=0" width="500" height="281" frameborder="0"
+                    webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            <p><a href="http://vimeo.com/54142111">Neo4j Install Tutorial for EC2</a> from <a
+                    href="http://vimeo.com/user1375223">Peter Neubauer</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+
+            <h3>Install Amazon Tools</h3>
 
             <p>Follow Amazon&#39;s own <a
                     href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting
@@ -88,7 +94,8 @@
                     <li>Port range: 7474</li>
                     <li>(check out Heroku instructions <a
                             href="https://devcenter.heroku.com/articles/external-services">here</a>)
-                    <li>or programmatically <code>$ ec2-authorize Neo4j -P tcp -p 7474 -u 098166147350 -o default</code></li>
+                    <li>or programmatically <code>$ ec2-authorize Neo4j -P tcp -p 7474 -u 098166147350 -o default</code>
+                    </li>
                     <li>Click "Continue"</li>
                 </ol>
 
@@ -100,9 +107,9 @@
             </ol>
 
 
-<p>Wait for the instance to launch by monitoring it on the "Instances" dashboard.
-Once it is running ssh onto the instance like so:
-<code>ssh -i /path/to/keypair.pem ubuntu@ec2-???-??-???-???.compute-1.amazonaws.com</code></p>
+            <p>Wait for the instance to launch by monitoring it on the "Instances" dashboard.
+                Once it is running ssh onto the instance like so:
+                <code>ssh -i /path/to/keypair.pem ubuntu@ec2-???-??-???-???.compute-1.amazonaws.com</code></p>
 
             <h3>Add Neo4j on Debian/Ubuntu</h3>
 
@@ -125,8 +132,11 @@ Once it is running ssh onto the instance like so:
 
             <h3>Make Neo4j accessible from the outside</h3>
 
-            <p>Only do this if it is necessary, for instance when your services accessing Neo4j run on a different host. Make sure to secure the instance by
-               enabling SSL and adding authentication (like the <a href="http://github.com/neo4j/authentication-extension" target="_blank">authentication-extension</a>.
+            <p>Only do this if it is necessary, for instance when your services accessing Neo4j run on a different host.
+                Make sure to secure the instance by
+                enabling SSL and adding authentication (like the <a
+                        href="http://github.com/neo4j/authentication-extension"
+                        target="_blank">authentication-extension</a>.
             </p>
             <ol>
                 <li>Find and open: <code>/path/to/neo4j/conf/neo4j-server.properties</code></li>
@@ -139,36 +149,41 @@ Once it is running ssh onto the instance like so:
 
 
         </div>
-        
+
         <aside class="span4 sidebar">
-          <div class="summary">
-            <h2>Briefly</h2>
-            <div class="well">
-                <li>Neo4j runs on EC2 Ubuntu AMI's</li>
-                <li>Configure Firewall</li>
-                <li>Install Neo4j via deb or download</li>
-                <li>Configure external Access</li>
+            <div class="summary">
+                <h2>Briefly</h2>
+
+                <div class="well">
+                    <li>Neo4j runs on EC2 Ubuntu AMI's</li>
+                    <li>Configure Firewall</li>
+                    <li>Install Neo4j via deb or download</li>
+                    <li>Configure external Access</li>
+                </div>
             </div>
-          </div>
-          
-          <div class="next-steps">
-            <h2>Next Steps</h2>
-            <div class="next thumbnail">
-              <div class="caption">
-                  <p>DIY in the Cloud</p>
-                  <ol>
-                    <li><a href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting started on Amazon EC2</a></li>
-                    <li>Provision a generous EC2 Instance</li>
-                    <li><a href="/download">Download Neo4j</a> onto the EC2 instance</li>
-                    <li>Mix in the <a href="http://github.com/neo4j/authentication-extension">authentication plugin</a></li>
-                    <li>Configure your application to use the authenticated Neo4j URL</li>
-                  </ol>
-              </div>
+
+            <div class="next-steps">
+                <h2>Next Steps</h2>
+
+                <div class="next thumbnail">
+                    <div class="caption">
+                        <p>DIY in the Cloud</p>
+                        <ol>
+                            <li>
+                                <a href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting
+                                    started on Amazon EC2</a></li>
+                            <li>Provision a generous EC2 Instance</li>
+                            <li><a href="/download">Download Neo4j</a> onto the EC2 instance</li>
+                            <li>Mix in the <a href="http://github.com/neo4j/authentication-extension">authentication
+                                plugin</a></li>
+                            <li>Configure your application to use the authenticated Neo4j URL</li>
+                        </ol>
+                    </div>
+                </div>
             </div>
-          </div>
 
         </aside>
-      </div>
+    </div>
 
 </div>
 <% include ../foot %>
