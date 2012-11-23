@@ -45,11 +45,11 @@
 
 
 </div>
-<div class="span8">
+<div class="span9">
 <table class="table table-striped table-download table-bordered table-green">
     <thead>
     <tr>
-        <th class="database" colspan=3><h2>Neo4j Server - generic packaging</h2></th>
+        <th class="database" colspan=3><h2>Neo4j Server Download</h2></th>
     </tr>
     </thead>
     <tbody>
@@ -143,55 +143,10 @@
             </div>
         </td>
     </tr>
-    <tr>
-        <th class="ltgrey" rowspan=2><p class="text18">Snapshot<br/>
-            <%= neo4jS.version %></p>
-
-            <p class="date"><%= neo4jS.date %></p>
-        </th>
-        <td class="os"><h3>Linux/Mac</h3></td>
-        <td>
-            <div class="btn-group">
-                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span
-                        class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="/download_thanks/?edition=community&amp;release=<%= neo4jS.version %>&amp;platform=unix">Community
-                            <%= neo4jS.version %></a></li>
-                    <li>
-                        <a href="/download_thanks/?edition=advanced&amp;release=<%= neo4jS.version %>&amp;platform=unix">Advanced
-                            <%= neo4jS.version %></a></li>
-                    <li>
-                        <a href="/download_thanks/?edition=enterprise&amp;release=<%= neo4jS.version %>&amp;platform=unix">Enterprise
-                            <%= neo4jS.version %></a></li>
-                </ul>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td><h3>Windows</h3></td>
-        <td>
-            <div class="btn-group">
-                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span
-                        class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="/download_thanks/?edition=community&amp;release=<%= neo4jS.version %>&amp;platform=windows">Community
-                            <%= neo4jS.version %></a></li>
-                    <li>
-                        <a href="/download_thanks/?edition=advanced&amp;release=<%= neo4jS.version %>&amp;platform=windows">Advanced
-                            <%= neo4jS.version %></a></li>
-                    <li>
-                        <a href="/download_thanks/?edition=enterprise&amp;release=<%= neo4jS.version %>&amp;platform=windows">Enterprise
-                            <%= neo4jS.version %></a></li>
-                </ul>
-            </div>
-        </td>
-    </tr>
     </tbody>
 </table>
 <div class="installation">
-    <h3>Maven - stable</h3>
+    <h3>Maven</h3>
 
     <p>If you use Apache Maven, you don’t have to bother with manual downloads. Just add Neo4j to your build, like
         this:</p>
@@ -202,24 +157,24 @@
 &lt;/dependency&gt;
 </pre>
     <p>If you want to use Neo4j Advanced instead, just change the artifactId to <code>neo4j-advanced,</code> or use
-        <code>neo4j-enterprise</code> to use Neo4j Enterprise.</p>
+        <code>neo4j-enterprise</code> to use Neo4j Enterprise. For other neo4j versions state the corresponding version in the dependency declaration.</p>
 
     <p>For other build systems use the appropriate the config from <a target="_blank"
                                                                       href="http://search.maven.org/#artifactdetails%7Corg.neo4j%7Cneo4j%7C<%= neo4jGA.version %>%7Cjar">Maven
         Central</a>.</p>
 </div>
 <div class="installation">
-    <h3>Debian - stable</h3>
-    <pre>﻿sudo sh -c 'echo deb http://debian.neo4.org/repo stable/ > /etc/apt/sources.list.d/neo4j.list'
+    <h3>Debian - stable (<%= neo4jGA.version %>)</h3>
+	<p>To install Neo4j on Debian/Ubuntu we provide a debian repository and package, so just add the repository to <code>apt</code> and install it. To use the other editions just choose <code>neo4j-advanced</code>, <code>neo4j-enterprise</code> for the install. Neo4j will be installed as a service in your system and started automatically when your system boots up.</p>
+    <pre>﻿sudo sh -c 'echo "deb http://debian.neo4.org/repo stable/" > /etc/apt/sources.list.d/neo4j.list'
 sudo apt-get update
 sudo apt-get install neo4j
-sudo apt-get install neo4j-advanced
-sudo apt-get install neo4j-enterprise
 neo4j start
     </pre>
 </div>
 <div class="installation">
-    <h3>OS X - Homebrew - stable</h3>
+    <h3>MacOS X - Homebrew - stable (<%= neo4jGA.version %>)</h3>
+	<p>If you have <a href="http://mxcl.github.com/homebrew/">homebrew</a> installed, adding Neo4j to your Mac is simple a:</p>
     <pre>brew update && brew install neo4j
 neo4j start</pre>
 </div>
@@ -227,12 +182,12 @@ neo4j start</pre>
 <div class="accordion archives" id="accordion1">
     <div class="accordion-group">
         <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1"
-                                          href="#collapseOne"><h2>Neo4j Archives<i
+                                          href="#collapseOne"><h2>Other Neo4j Versions<i
                 class="icon icon-archives icon-caret-down"></i></h2>
         </a></div>
         <div id="collapseOne" class="accordion-body collapse">
             <div class="accordion-inner">
-                <div class="row-fluid grid-gray">&nbsp;<br/>
+                <div class="row grid-gray">&nbsp;<br/>
 
                     <div class="span5">
                         <table class="table table-striped table-download table-bordered table-green">
@@ -245,7 +200,7 @@ neo4j start</pre>
                             <tr>
                                 <th class="ltgrey"><h3>1.7.2</h3>
 
-                                    <p>2012-05-28</p></th>
+                                    <p>May 28, 2012</p></th>
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
@@ -267,7 +222,7 @@ neo4j start</pre>
                             <tr>
                                 <th class="ltgrey"><h3>1.6.3</h3>
 
-                                    <p>2012-05-28</p></th>
+                                    <p>May 28, 2012</p></th>
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
@@ -289,7 +244,7 @@ neo4j start</pre>
                             <tr>
                                 <th class="ltgrey"><h3>1.5.3</h3>
 
-                                    <p>2012-05-24</p></th>
+                                    <p>May 24, 2012</p></th>
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
@@ -308,6 +263,28 @@ neo4j start</pre>
                                     </div>
                                 </td>
                             </tr>
+                            <tr>
+                                <th class="ltgrey"><h3><%= neo4jS.version %></h3>
+
+                                    <p><%= neo4jS.date %></p></th>
+                                <td>
+					            <div class="btn-group">
+					                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span
+					                        class="caret"></span></button>
+					                <ul class="dropdown-menu">
+					                    <li>
+					                        <a href="/download_thanks/?edition=community&amp;release=<%= neo4jS.version %>&amp;platform=unix">Community
+					                            <%= neo4jS.version %></a></li>
+					                    <li>
+					                        <a href="/download_thanks/?edition=advanced&amp;release=<%= neo4jS.version %>&amp;platform=unix">Advanced
+					                            <%= neo4jS.version %></a></li>
+					                    <li>
+					                        <a href="/download_thanks/?edition=enterprise&amp;release=<%= neo4jS.version %>&amp;platform=unix">Enterprise
+					                            <%= neo4jS.version %></a></li>
+					                </ul>
+					            </div>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -322,7 +299,7 @@ neo4j start</pre>
                             <tr>
                                 <th class="ltgrey"><h3>1.7.2 </h3>
 
-                                    <p>2012-05-28</p></th>
+                                    <p>May 28, 2012</p></th>
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
@@ -344,7 +321,7 @@ neo4j start</pre>
                             <tr>
                                 <th class="ltgrey"><h3>1.6.3</h3>
 
-                                    <p>2012-05-28</p></th>
+                                    <p>May 28, 2012</p></th>
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
@@ -366,7 +343,7 @@ neo4j start</pre>
                             <tr>
                                 <th class="ltgrey"><h3>1.5.3</h3>
 
-                                    <p>2012-05-24</p></th>
+                                    <p>May 24, 2012</p></th>
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
@@ -383,6 +360,28 @@ neo4j start</pre>
                                                     1.5.3</a></li>
                                         </ul>
                                     </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="ltgrey"><h3><%= neo4jS.version %></h3>
+
+                                    <p><%= neo4jS.date %></p></th>
+                                <td>
+					            <div class="btn-group">
+					                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span
+					                        class="caret"></span></button>
+					                <ul class="dropdown-menu">
+					                    <li>
+					                        <a href="/download_thanks/?edition=community&amp;release=<%= neo4jS.version %>&amp;platform=windows">Community
+					                            <%= neo4jS.version %></a></li>
+					                    <li>
+					                        <a href="/download_thanks/?edition=advanced&amp;release=<%= neo4jS.version %>&amp;platform=windows">Advanced
+					                            <%= neo4jS.version %></a></li>
+					                    <li>
+					                        <a href="/download_thanks/?edition=enterprise&amp;release=<%= neo4jS.version %>&amp;platform=windows">Enterprise
+					                            <%= neo4jS.version %></a></li>
+					                </ul>
+					            </div>
                                 </td>
                             </tr>
                             </tbody>

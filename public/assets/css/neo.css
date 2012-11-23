@@ -287,7 +287,7 @@ p.lead,.text18 {
 
 .table-download th { 
   text-shadow: 0 -1px 0 #999;
-  background-color: #999;
+  background-color: #00546A;
 }
 
 table th {
@@ -305,7 +305,7 @@ table th {
  margin:0;
 }
 .accordion-heading {
- background: #999;
+ background: #00546A;
  position: relative;
 }
 .accordion-heading h2 {
@@ -344,7 +344,8 @@ table th {
 }
 .footer-gray {
  /*background: transparent url(../img/grayBg.jpg) repeat 0 0; */
- background-color: #999;
+ background-color: #00546A;
+ color: white;
  padding: 10px 0px 8px 0px;
  bottom: 0px;
 }
@@ -355,9 +356,9 @@ table th {
  color: #fafafa;
 }
 .fheader {
- border-bottom: 1px solid #999;
+ border-bottom: 1px solid #00546A;
  font-weight: bold;
- color: #999;
+ color: #00546A;
  text-transform: uppercase;
 }
 #sitemap {
@@ -447,3 +448,6 @@ line.link {
     stroke-width: 1.5px;
 }
 
+code {
+    color: #00546A;
+}
