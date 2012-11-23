@@ -146,3 +146,7 @@ exports.example_data = function(req, res){
 exports.d3 = function(req, res){
     res.render('d3', { category: 'create', title: 'Sample Datasets' });
 };
+
+exports.test = function(req, res){
+    res.render('test', { category: 'create', title: 'Test' });
+};

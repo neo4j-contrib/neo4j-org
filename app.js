@@ -96,6 +96,7 @@ app.get('/participate/contributors', routes.contributors);
 app.get('/learn/graphdatabase', routes.graphdb);
 app.get('/learn/try', routes["try"]);
 app.get('/d3', routes["d3"]);
+app.get('/test', routes["test"]);
 
 // well known historic URLs redicrects
 app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)

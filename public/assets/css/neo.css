@@ -205,6 +205,9 @@ a {
  text-decoration:none;
 }
 
+.transparent {
+    color: white;
+}
 /** page **/
 #features li{
  margin: 8px 0;
@@ -450,4 +453,42 @@ line.link {
 
 code {
     color: #00546A;
+}
+
+.node {
+    color:white;
+    font-size: 30px;
+    background-color: #10647A;
+    padding: 20px;
+    min-width:180px;
+    border: 2px solid white;
+    min-height:100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    position: absolute;
+    margin: 30px;
+    text-align: center;
+}
+.node h2 {
+    color:white;
+    font-size: 30px;
+    text-align: center;
+}
+.node h2 a i {
+   margin-right: 20px;
+   padding-top: 10px;
+}
+.node h2 a {
+    color:white;
+    font-size: 30px;
+}
+
+.node h2 a:hover h2 {
+    color:white;
+    font-size: 30px;
+}
+.node h2 a:link {
+    color:white;
+    font-size: 30px;
 }
