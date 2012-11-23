@@ -6,7 +6,10 @@
 <div class="main row">
 
   <div class="span9">
-    <h2>Cypher Tutorial</h2>
+      <div id="cypher" class="hero-unit path">
+        <h2><a><i class="icon icon-book"></i> Cypher Tutorial</a></h2>
+        <p class="lead">We want to encourage you to learn Neoj's query language Cypher interactively, so go ahead and give it a spin.</p>
+      </div>
 
       <script type="text/javascript">
           $(document).ready(function(){
@@ -21,6 +24,7 @@
               $('#console').html('<iframe name="neo4j-console" width="800" height="300" src="'+url+'"/>');
           }
       </script>
+
       <!--p>Setup a neo4j console link and also a heroku instance with the dataset
       Can we add a &#8220;deploy to heroku&#8221; link for the example datasets? or a show in Neo4j console</p-->
 
@@ -160,7 +164,7 @@
     <div class="next thumbnail">
       <div class="caption">
           <ul>
-              <li>Try more cypher in the <a href="/try">Demo Console</a></li>
+              <li>Try more Cypher in the <a href="/try">Demo Console</a></li>
               <li>Read up in detail in the <a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html" target="_blank">Cypher Reference Manual</a></li>
           </ul>
     </div>

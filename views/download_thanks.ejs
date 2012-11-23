@@ -1,14 +1,15 @@
 <% include head %>
+
 <div class="container">
 
-<!-- Main hero unit for a primary marketing message or call to action -->
-  <div id="download" class="hero-unit">
-    <h1>Thank You for Downloading Neo4j</h1>
-    <p>If your download did not start automatically, 
-    <a id="downloadLink" href="http://dist.neo4j.org/neo4j-community-1.7.2-unix.tar">click here to get your file</a>.</p>
+  <div id="download" class="hero-unit path">
+    <h1><a class="downloadLink" href=""><i class="icon icon-download-alt"></i></a> Thank You for Downloading Neo4j</h1>
+    <p class="lead">Enjoy your database and explore more options of managing you connected data.</p>
   </div>
-  <div class="row-fluid">
-    <div class="span4">
+    <div class="row span9 large"><p>If your download did not start automatically,
+    <a class="downloadLink btn btn-success" href="">click here to get your file</a>.</p></div>
+  <div class="row">
+    <div class="span8">
       <div class="installation">
         <h2>Installation Instructions</h2>
         <a data-toggle="lightbox" href="#installvideo" class="thumbnail"><img src="/assets/img/still/install.gif" alt="Click to View" /></a>
@@ -28,7 +29,7 @@
           <p class="text18">After Download</p>
           <ul class="circle">
               <li><a href="http://docs.neo4j.org/chunked/milestone/server-installation.html" target="_blank">detailed Installation Instructions</a></li>
-              <li><a href="/intro">Graph Introduction</a></li>
+              <li><a href="/learn/graphdatabase">Graph Introduction</a></li>
               <li><a href="/create">Learn to Build Apps</a></li>
               <li><a href="/participate">Get Help</a></li>
           </ul>
@@ -39,14 +40,15 @@
     </div>    
           
   </div>
-     
+ </div>
+ </div>
 <% include foot %>
 
-<script type='text/javascript'>//<![CDATA[ 
+<script type='text/javascript'>//<![CDATA[
 
-var ed = getUrlVars()["edition"];
-var re = getUrlVars()["release"];
-var pl = getUrlVars()["platform"];
+var ed = getUrlVars()["edition"] || "community";
+var re = getUrlVars()["release"] || <%= neo4jGA.version %>;
+var pl = getUrlVars()["platform"] || "unix";
 var suffix = 'zip';
 var marketo_idnum = 'NEED_MARKETO_CODE';
 
@@ -54,15 +56,12 @@ var marketo_idnum = 'NEED_MARKETO_CODE';
 		suffix = 'tar.gz';
 		packaging = 'tarball';
 	}
-	
-var downloadLink = "http://dist.neo4j.org/neo4j-" + ed + "-" + re + "-" + pl +"." + suffix;
 
-/* randomly select redfox to provide download */
-var redfox = "http://download.neo4j.org/artifact?edition=" + ed + "&version=" + re + "&distribution=" + packaging + "&dlid=" + marketo_idnum;	
-if (Math.floor(Math.random()*11) > 5) {
-	    downloadLink = redfox;
-	    redfox = "yup";
-	}	
+//var downloadLink = "http://dist.neo4j.org/neo4j-" + ed + "-" + re + "-" + pl +"." + suffix;
+
+var downloadLink = "http://download.neo4j.org/artifact?edition=" + ed + "&version=" + re + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
+
+$(".downloadLink").attr("href",downloadLink);
 
 function getUrlVars() {
     var vars = {};
@@ -79,4 +78,4 @@ var downloadTimeout = setTimeout(
     2000
 );
 
-</script> 
+</script>

@@ -62,8 +62,8 @@ exports.license = function(req, res){
   res.render('learn/licensing', { category: 'learn', title: 'Editions & Licensing Guide' });
 };
 
-exports.intro = function(req, res){
-  res.render('intro', { category: 'learn', title: 'Introduction to Neo4j' });
+exports.graphdb = function(req, res){
+  res.render('learn/graphdatabase', { category: 'learn', title: 'What is a Graph Database' });
 };
 
 /*
