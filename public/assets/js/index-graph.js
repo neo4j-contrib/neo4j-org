@@ -23,11 +23,11 @@ jsPlumb.bind('ready',function(){
 			//[ "Arrow", { location:0.3, direction:-1 }, arrowCommon ]
 		];
 
-	jsPlumb.connect({source:"learn", target:"create",detachable:false,anchors:["BottomCenter"], overlays:overlays}); // , detachable:true, reattach:true
+	jsPlumb.connect({source:"learn", target:"create",detachable:false,anchors:["RightMiddle","LeftMiddle"], overlays:overlays}); // , detachable:true, reattach:true
 	jsPlumb.connect({source:"learn", target:"download",detachable:false,anchors:["TopCenter","LeftMiddle"], overlays:overlays});
-    jsPlumb.connect({source:"create", target:"participate",detachable:false,anchors:["LeftMiddle","RightMiddle"], overlays:overlays});
-    jsPlumb.connect({source:"download", target:"create",detachable:false,anchors:["RightMiddle","TopCenter"], overlays:overlays});
-    jsPlumb.connect({source:"download", target:"participate",detachable:false,anchors:["BottomCenter","TopCenter"], overlays:overlays});
+    jsPlumb.connect({source:"create", target:"participate",detachable:false,anchors:["RightMiddle","LeftMiddle"], overlays:overlays});
+    jsPlumb.connect({source:"download", target:"create",detachable:false,anchors:["BottomCenter","TopCenter"], overlays:overlays});
+    jsPlumb.connect({source:"download", target:"participate",detachable:false,anchors:["RightMiddle","TopCenter"], overlays:overlays});
 
 	jsPlumb.draggable(jsPlumb.getSelector(".node"));
 });

@@ -456,6 +456,15 @@ code {
 }
 
 .node {
+    padding-left: 15px;
+    padding-top: 15px;
+    position: absolute;
+/*
+    border: 1px solid red;
+*/
+}
+.node div {
+    text-align: center;
     color:white;
     font-size: 30px;
     background-color: #10647A;
@@ -466,10 +475,8 @@ code {
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px;
-    position: absolute;
-    margin: 30px;
-    text-align: center;
 }
+
 .node h2 {
     color:white;
     font-size: 30px;
