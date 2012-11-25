@@ -14,11 +14,12 @@
         <div class="well">
             <p class="text18">After Download</p>
             <ul class="circle">
-                <li><a href="http://docs.neo4j.org/chunked/stable/server-installation.html" target="_blank">Installation
-                    Instructions</a></li>
+                <li><a href="#install">Installation Video</a></li>
                 <li><a href="/learn/graphdatabase">Graph Introduction</a></li>
                 <li><a href="/create">Learn to Build Apps</a></li>
                 <li><a href="/participate">Get Help</a></li>
+                <li><a href="http://docs.neo4j.org/chunked/stable/server-installation.html" target="_blank">Detailed Installation
+                    Instructions</a></li>
             </ul>
             <p class="text18">Upgrading?</p>
 
@@ -26,23 +27,6 @@
                 Docs</a></p>
         </div>
     </div>
-    <div class="installation">
-        <h3>Installing Neo4j</h3>
-        <a data-toggle="lightbox" href="#installvideo" class="thumbnail"><img src="/assets/img/still/install.gif"
-                                                                              alt="Click to View"/></a>
-
-        <p class="caption"><i class="icon icon-facetime-video"></i> Peter Neubauer guides through the first steps of downloading and running Neo4j.</p>
-
-        <div class="lightbox fade" id="installvideo" style="display: none;">
-            <div class='lightbox-content'>
-                <iframe src="http://player.vimeo.com/video/53838744" width="500" height="281" frameborder="0"
-                        webkitallowfullscreen="webkitAllowFullScreen" mozallowfullscreen="mozallowfullscreen"
-                        allowfullscreen="allowFullScreen"></iframe>
-            </div>
-        </div>
-    </div>
-
-
 
 </div>
 <div class="span9">
@@ -145,6 +129,8 @@
     </tr>
     </tbody>
 </table>
+
+<% include download/installation %>
 <div class="installation">
     <h3>Maven</h3>
 
@@ -163,6 +149,7 @@
                                                                       href="http://search.maven.org/#artifactdetails%7Corg.neo4j%7Cneo4j%7C<%= neo4jGA.version %>%7Cjar">Maven
         Central</a>.</p>
 </div>
+
 <div class="installation">
     <h3>Debian - stable (<%= neo4jGA.version %>)</h3>
 	<p>To install Neo4j on Debian/Ubuntu we provide a debian repository and package, so just add the repository to <code>apt</code> and install it. To use the other editions just choose <code>neo4j-advanced</code>, <code>neo4j-enterprise</code> for the install. Neo4j will be installed as a service in your system and started automatically when your system boots up.</p>

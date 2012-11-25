@@ -10,16 +10,7 @@
     <a class="downloadLink btn btn-success" href="">click here to get your file</a>.</p></div>
   <div class="row">
     <div class="span8">
-      <div class="installation">
-        <h2>Installation Instructions</h2>
-        <a data-toggle="lightbox" href="#installvideo" class="thumbnail"><img src="/assets/img/still/install.gif" alt="Click to View" /></a>
-        <p class="caption">Peter Neubauer guides through the first steps of downloading and running Neo4j.</p>
-        <div class="lightbox fade" id="installvideo" style="display: none;">
-          <div class='lightbox-content'>
-            <iframe src="http://player.vimeo.com/video/53838744" width="500" height="281" frameborder="0" webkitallowfullscreen="webkitAllowFullScreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowFullScreen"></iframe>
-          </div>
-        </div>
-      </div>
+<% include download/installation %>
     </div>
     
     <div class="span4">      
@@ -28,10 +19,10 @@
         <div class="well">
           <p class="text18">After Download</p>
           <ul class="circle">
-              <li><a href="http://docs.neo4j.org/chunked/milestone/server-installation.html" target="_blank">detailed Installation Instructions</a></li>
               <li><a href="/learn/graphdatabase">Graph Introduction</a></li>
               <li><a href="/create">Learn to Build Apps</a></li>
               <li><a href="/participate">Get Help</a></li>
+              <li><a href="http://docs.neo4j.org/chunked/milestone/server-installation.html" target="_blank">detailed Installation Instructions</a></li>
           </ul>
           <p class="text18">Upgrading?</p>
           <p>Read <a href="http://docs.neo4j.org/chunked/milestone/deployment-upgrading.html" target="_blank">Upgrading Docs</a></p>
@@ -62,6 +53,8 @@ var marketo_idnum = 'NEED_MARKETO_CODE';
 var downloadLink = "http://download.neo4j.org/artifact?edition=" + ed + "&version=" + re + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
 
 $(".downloadLink").attr("href",downloadLink);
+
+$(".dirName").text("neo4j-"+ed+"-"+re);
 
 function getUrlVars() {
     var vars = {};
