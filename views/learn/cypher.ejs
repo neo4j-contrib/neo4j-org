@@ -17,7 +17,7 @@
                 var cypher=$(this).text();
                 console.log("cypher "+cypher);
                 if (cypher.indexOf(";")==-1) return;
-                renderConsole("http://console.neo4j.org?query="+encodeURIComponent(cypher));
+                renderConsole("http://console-test.neo4j.org?query="+encodeURIComponent(cypher));
               });
           });
           function renderConsole(url) {
