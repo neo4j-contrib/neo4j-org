@@ -229,7 +229,6 @@ p.lead,.text18 {
   margin-top: 10px;
   text-align: center;
 }
-
 .well {
  background-color: #fff;
 }
@@ -241,6 +240,9 @@ p.lead,.text18 {
 }
 .accordion-inner {
  padding:0px;
+}
+.legal p {
+ font-size: 12px;
 }
 
 /** download table **/
@@ -368,7 +370,14 @@ table th {
  background-image: none;
 }
 #isotope li {
- min-width: 200px
+ min-width: 200px;
+}
+.fcompany a.legal {
+ font-size: 12px;
+ color: #f0f0f0;
+}
+.fcompany a.legal:hover {
+ color: #ccc;
 }
 /* responsive changes  */
 #nav-menu {

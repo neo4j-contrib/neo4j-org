@@ -102,7 +102,8 @@ app.get('/learn/try', routes["try"]);
 app.get('/d3', routes["d3"]);
 app.get('/test', routes["test"]);
 app.get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
-
+app.get('/terms', routes.terms); // terms and conditions
+app.get('/privacy', routes.privacy); // privacy policy
 
 // well known historic URLs redicrects
 app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)

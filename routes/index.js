@@ -150,3 +150,12 @@ exports.d3 = function(req, res){
 exports.test = function(req, res){
     res.render('test', { category: 'create', title: 'Test' });
 };
+/*
+ * GET - "terms" and "privacy"
+ */
+exports.terms = function(req, res){
+  res.render('terms', { category: 'terms', title: 'Terms' });
+};
+exports.privacy = function(req, res){
+  res.render('privacy', { category: 'privacy', title: 'Privacy' });
+};
