@@ -279,7 +279,6 @@ p.lead,.text18 {
   font-size: 16px;
   vertical-align: middle;
 }
-
 .table-striped tbody tr:nth-child(odd) th, .table-striped tbody th  {
   width: 40%;  
   text-decoration: none;
@@ -287,12 +286,10 @@ p.lead,.text18 {
   border-color: #ccc;
   background-color: #F9F9F9;
 }
-
 .table-download th { 
   text-shadow: 0 -1px 0 #999;
   background-color: #00546A;
 }
-
 table th {
     font-size: larger;
 }
@@ -510,5 +507,6 @@ code {
 }
 
 section {
-   border-bottom: 1px solid #a9a9a9
+   border-bottom: 1px dotted #a9a9a9;
+   padding: 20px 0;
 }
