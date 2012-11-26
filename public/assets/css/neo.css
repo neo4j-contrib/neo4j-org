@@ -466,12 +466,12 @@ code {
 .node div {
     text-align: center;
     color:white;
-    font-size: 30px;
+    font-size: 2em;
     background-color: #10647A;
     padding: 20px;
-    min-width:180px;
+    min-width:8em;
     border: 2px solid white;
-    min-height:100px;
+    min-height:2em;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px;
