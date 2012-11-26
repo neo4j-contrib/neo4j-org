@@ -7,7 +7,7 @@ jsPlumb.bind('ready',function(){
 		// than the curves on the first demo, which use the default curviness value.
         //endpointsOnTop: false,
         RenderMode : jsPlumb.SVG,
-		Connector : [ "StateMachine", { curviness:20 } ],// "Bezier", { curviness:90 }
+		Connector : [ "StateMachine", { curviness:0 } ],// "Bezier", { curviness:90 }
 		// Connector : ["Bezier", { curviness:90 }],//
 		//DragOptions : { cursor: "pointer", zIndex:2000 },
 		PaintStyle : { strokeStyle:color, lineWidth:10 },
@@ -28,7 +28,7 @@ jsPlumb.bind('ready',function(){
 	jsPlumb.connect({source:"learn", target:"create",detachable:false,anchors:["RightMiddle","LeftMiddle"], overlays:overlays}); // , detachable:true, reattach:true
 	jsPlumb.connect({source:"learn", target:"download",detachable:false,anchors:["TopCenter","LeftMiddle"], overlays:overlays});
     jsPlumb.connect({source:"create", target:"participate",detachable:false,anchors:["RightMiddle","LeftMiddle"], overlays:overlays});
-    jsPlumb.connect({source:"download", target:"create",detachable:false,anchors:["BottomCenter","TopCenter"], overlays:overlays, connector : [ "StateMachine", { curviness:0 } ]});
+    jsPlumb.connect({source:"download", target:"create",detachable:false,anchors:["BottomCenter","TopCenter"], overlays:overlays});
     jsPlumb.connect({source:"download", target:"participate",detachable:false,anchors:["RightMiddle","TopCenter"], overlays:overlays});
 
 	jsPlumb.draggable(jsPlumb.getSelector(".node"));
