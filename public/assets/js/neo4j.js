@@ -28,17 +28,14 @@ function lightbox(id, url) {
 
     var lightbox = $('#' + id);
     var iframe=lightbox.find(".lightbox-content iframe");
+    if (lightbox.find(".lightbox-content .lightbox-header").length==0) {
+        iframe.before('<div class="lightbox-header"> <button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button> </div>');
+    }
     lightbox.on('show', function () {
         url+="?badge=0&title=0&portrait=0&autoplay=1&rel=0";
         iframe.attr("src",url);
-        iframe.focus();
     }).on('hide', function () {
         iframe.removeAttr("src");
-    });
-    iframe.keydown(function(e) {
-        if (e.keyCode==27) {
-            lightbox.modal('hide');
-        }
     });
 }
 
