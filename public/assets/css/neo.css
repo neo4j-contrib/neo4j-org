@@ -499,3 +499,12 @@ code {
     color:white;
     font-size: 30px;
 }
+
+.dropdown-menu {
+    z-index: 100;
+}
+
+.accordion-inner {
+    padding-bottom: 50px;
+    padding-left: 10px;
+}
