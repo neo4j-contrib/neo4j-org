@@ -24,7 +24,7 @@ function renderConsole(url) {
 }
 
 function lightbox(id, url) {
-    console.log("Handling lightbox "+id+" "+url)
+    // console.log("Handling lightbox "+id+" "+url)
 
     var lightbox = $('#' + id);
     var iframe=lightbox.find(".lightbox-content iframe");
@@ -32,8 +32,8 @@ function lightbox(id, url) {
         iframe.before('<div class="lightbox-header"> <button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button> </div>');
     }
     lightbox.on('show', function () {
-        url+="?badge=0&title=0&portrait=0&autoplay=1&rel=0";
-        iframe.attr("src",url);
+        url+="?badge=0&title=0&portrait=0&autoplay=1&rel=0&byline=0";
+        iframe.attr("src",url).attr("height",$(window).height() / 1.2).attr("width",$(window).width() / 1.2);
     }).on('hide', function () {
         iframe.removeAttr("src");
     });
