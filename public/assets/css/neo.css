@@ -508,3 +508,7 @@ code {
     padding-bottom: 50px;
     padding-left: 10px;
 }
+
+section {
+   border-bottom: 1px solid #a9a9a9
+}
