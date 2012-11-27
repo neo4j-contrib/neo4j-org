@@ -49,8 +49,9 @@ h4 {
   text-transform: uppercase;
 }
 h5 {
-  font-size: 20px;
-  padding: 10px 10px;
+  font-size: 18px;
+  font-weight: normal;
+  /* padding: 10px 10px;*/
 }
 p,ul {
   font-family: 'Open Sans', sans-serif;
