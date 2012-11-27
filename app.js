@@ -84,15 +84,15 @@ app.get('/learn/licensing', routes.license); // node:  Neo4j editions and licens
 app.get('/learn/propertygraph', routes.propertygraph); // node:  explanation of property graph
 app.get('/learn/nosql', routes.nosql); // node:  compare to other databases
 app.get('/learn/cypher', routes.cypher); // node:  compare to other databases
-app.get('/create/visualize', routes.visualize); // node:  compare to other databases
-app.get('/create', routes.create); // path: development guides in featured languages
-app.get('/create/install', routes.install); // path: development guides in featured languages
-app.get('/create/heroku', routes.heroku); // path: development guides in featured languages
-app.get('/create/spring', routes.spring); // path: development guides in featured languages
-app.get('/create/ec2', routes.ec2); // path: development guides in featured languages
-app.get('/create/example_data', routes.example_data); // path: development guides in featured languages
-app.get('/create/spring', routes.spring); // path: development guides in featured languages
-app.get('/create/drivers', routes.drivers); // graph: language drivers and frameworks
+app.get('/develop/visualize', routes.visualize); // node:  compare to other databases
+app.get('/develop', routes.develop); // path: development guides in featured languages
+app.get('/develop/install', routes.install); // path: development guides in featured languages
+app.get('/develop/heroku', routes.heroku); // path: development guides in featured languages
+app.get('/develop/spring', routes.spring); // path: development guides in featured languages
+app.get('/develop/ec2', routes.ec2); // path: development guides in featured languages
+app.get('/develop/example_data', routes.example_data); // path: development guides in featured languages
+app.get('/develop/spring', routes.spring); // path: development guides in featured languages
+app.get('/develop/drivers', routes.drivers); // graph: language drivers and frameworks
 app.get('/participate', routes.participate); // graph: language drivers and frameworks
 app.get('/download', routes.download); //  download Neo4j
 app.get('/download_thanks', routes.download_thanks); //  download thanks Neo4j

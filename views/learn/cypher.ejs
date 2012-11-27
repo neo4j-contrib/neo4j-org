@@ -17,7 +17,7 @@
                 var cypher=$(this).text();
                 console.log("cypher "+cypher);
                 if (cypher.indexOf(";")==-1) return;
-                renderConsole("http://console-test.neo4j.org?query="+encodeURIComponent(cypher));
+                renderConsole("http://console.neo4j.org?query="+encodeURIComponent(cypher));
               });
           });
           function renderConsole(url) {
@@ -44,7 +44,7 @@
             <h3>Intro</h3>
             <ul>
                 <li>Make sure to get the <a href="http://neo4j.org/resources/cypher" target="_blank">Cypher Cheat Sheet</a> first.</li>
-                <li>To start with the tutorial please <a class="btn-mini btn" onclick="renderConsole('http://console.neo4j.org');return false;" href="#">open the interactive console</a></li>
+                <li>To start with the tutorial please <a class="btn-mini btn" onclick="renderConsole('http://consol.neo4j.org/r/cineasts');return false;" href="#">open the interactive console</a></li>
                 <li>Our example graph consists of <code>movies</code> with an <code>id</code>, <code>year</code> and <code>title</code> and <code>actors</code> with a <code>name</code>.
                     Actors have an <code>:ACTS_IN</code> relationship to movies, which represents the
                     <code>role</code> they played, the role relationship has also a <code>role</code> attribute.
@@ -134,7 +134,7 @@
             <h3>Alternative Setups</h3>
             <ul>
                 <li>Use the <a href="/try">Neo4j Console</a> for exploration, sharing and testing</li>
-                <li>Deploy an instance of the graph to <a href="/create/heroku">Heroku</a>, upload the <a href="/create/heroku#upload">dataset</a> and optionally add a <a href="https://github.com/neo4j-examples/heroku-neo4j-proxy" target="_blank">read-only forwarder</a> to expose the Web Interface</li>
+                <li>Deploy an instance of the graph to <a href="/develop/heroku">Heroku</a>, upload the <a href="/develop/heroku#upload">dataset</a> and optionally add a <a href="https://github.com/neo4j-examples/heroku-neo4j-proxy" target="_blank">read-only forwarder</a> to expose the Web Interface</li>
                 <li>Connect with the <a href="http://blog.neo4j.org/2012/06/wanted-your-help-in-testing-neo4j-jdbc.html" target="_blank">JDBC driver</a> to a Neo4j Server for integration with existing tools</li>
             </ul>
         </div>

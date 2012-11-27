@@ -3,7 +3,7 @@
  * GET home page.
  */
 exports.index = function(req, res){
-  res.render('index', { category: '', title: 'Learn, Create, Participate' });
+  res.render('index', { category: '', title: 'Learn, Develop, Participate' });
 };
 
 
@@ -42,7 +42,7 @@ exports.cypher = function(req, res){
 };
 
 exports.visualize = function(req, res){
-  res.render('create/visualize', { category: 'create', title: 'Graph Visualizations' });
+  res.render('develop/visualize', { category: 'develop', title: 'Graph Visualizations' });
 };
 
 
@@ -83,10 +83,10 @@ exports.watch = function(req, res){
 
 
 /*
- * GET - "create" applications using Neo4j
+ * GET - "develop" applications using Neo4j
  */
-exports.create = function(req, res){
-  res.render('create', { category: 'create', title: 'Create' });
+exports.develop = function(req, res){
+  res.render('develop', { category: 'develop', title: 'Develop' });
 };
 
 
@@ -94,11 +94,11 @@ exports.create = function(req, res){
  * GET - "heroku" managed Neo4j on Heroku's PaaS
  */
 exports.heroku = function(req, res){
-  res.render('create/heroku', { category: 'create', title: 'Heroku Add-on' });
+  res.render('develop/heroku', { category: 'develop', title: 'Heroku Add-on' });
 };
 
 exports.spring = function(req, res){
-    res.render('create/spring', { category: 'create', title: 'Spring Data Neo4j' });
+    res.render('develop/spring', { category: 'develop', title: 'Spring Data Neo4j' });
 };
 
 
@@ -106,7 +106,7 @@ exports.spring = function(req, res){
  * GET - "ec2" DIY deployment on Amazon's EC2
  */
 exports.ec2 = function(req, res){
-  res.render('create/ec2', { category: 'create', title: 'DIY EC2' });
+  res.render('develop/ec2', { category: 'develop', title: 'DIY EC2' });
 };
 
 
@@ -114,14 +114,14 @@ exports.ec2 = function(req, res){
  * GET - "spring" everything you need to know about SDN
  */
 exports.spring = function(req, res){
-  res.render('create/spring', { category: 'create', title: 'Spring Data Neo4j' });
+  res.render('develop/spring', { category: 'develop', title: 'Spring Data Neo4j' });
 };
 
 /*
  * GET - "drivers" with languages and frameworks
  */
 exports.drivers = function(req, res){
-  res.render('create/drivers', { category: 'create', title: 'Language Drivers' });
+  res.render('develop/drivers', { category: 'develop', title: 'Language Drivers' });
 };
 
 exports["try"] = function(req, res){
@@ -129,7 +129,7 @@ exports["try"] = function(req, res){
 }
 
 exports.install = function(req, res){
-  res.render('create/install', { category: 'install', title: 'Installation' });
+  res.render('develop/install', { category: 'install', title: 'Installation' });
 };
 
 exports.participate = function(req, res){
@@ -140,15 +140,15 @@ exports.contributors = function(req, res){
     res.render('participate/contributors', { category: 'contributors', title: 'Contributors' });
 };
 exports.example_data = function(req, res){
-    res.render('create/example_data', { category: 'create', title: 'Sample Datasets' });
+    res.render('develop/example_data', { category: 'develop', title: 'Sample Datasets' });
 };
 
 exports.d3 = function(req, res){
-    res.render('d3', { category: 'create', title: 'Sample Datasets' });
+    res.render('d3', { category: 'develop', title: 'Sample Datasets' });
 };
 
 exports.test = function(req, res){
-    res.render('test', { category: 'create', title: 'Test' });
+    res.render('test', { category: 'develop', title: 'Test' });
 };
 /*
  * GET - "terms" and "privacy"
