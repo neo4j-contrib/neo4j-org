@@ -73,9 +73,10 @@ a:hover {
  font-size: 32px;
 }
 .navbar a.brand {
- font-family: 'officinaserifstd-bold','OfficinaSerifStdBold', Helvetica,sans-serif; 
- font-size: 26px;
+ font-family: 'OfficinaSerifStd','OfficinaSerifStdBold', Helvetica,sans-serif; 
+ font-size: 24px;
  font-weight: normal;
+ letter-spacing:1px;
  color: #555;
  text-transform: capitalize;
  padding: 0px 20px 0px;
@@ -85,7 +86,7 @@ a:hover {
     margin-top: 5px;
 }
 .navbar a.brand img {
- margin-right:10px;
+ margin-right:3px;
 }
 .dropdown.toggle a{
  color: #555;
