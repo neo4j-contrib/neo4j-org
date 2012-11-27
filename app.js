@@ -98,9 +98,9 @@ app.get('/download', routes.download); //  download Neo4j
 app.get('/download_thanks', routes.download_thanks); //  download thanks Neo4j
 app.get('/participate/contributors', routes.contributors);
 app.get('/learn/graphdatabase', routes.graphdb);
-app.get('/learn/try', routes["try"]);
-app.get('/d3', routes["d3"]);
-app.get('/test', routes["test"]);
+app.get('/learn/try', routes.try);
+app.get('/test/d3', routes.d3);
+app.get('/test/jsplumb', routes.test);
 app.get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
 app.get('/terms', routes.terms); // terms and conditions
 app.get('/privacy', routes.privacy); // privacy policy
