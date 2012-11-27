@@ -17,7 +17,7 @@
                 var cypher=$(this).text();
                 console.log("cypher "+cypher);
                 if (cypher.indexOf(";")==-1) return;
-                renderConsole("http://console.neo4j.org?query="+encodeURIComponent(cypher));
+                renderConsole("http://console-test.neo4j.org?query="+encodeURIComponent(cypher));
               });
           });
           function renderConsole(url) {
@@ -44,7 +44,7 @@
             <h3>Intro</h3>
             <ul>
                 <li>Make sure to get the <a href="http://neo4j.org/resources/cypher" target="_blank">Cypher Cheat Sheet</a> first.</li>
-                <li>To start with the tutorial please <a class="btn-mini btn" onclick="renderConsole('http://consol.neo4j.org/r/cineasts');return false;" href="#">open the interactive console</a></li>
+                <li>To start with the tutorial please <a class="btn-mini btn" onclick="renderConsole('http://console-test.neo4j.org/r/cineasts');return false;" href="#">open the interactive console</a></li>
                 <li>Our example graph consists of <code>movies</code> with an <code>id</code>, <code>year</code> and <code>title</code> and <code>actors</code> with a <code>name</code>.
                     Actors have an <code>:ACTS_IN</code> relationship to movies, which represents the
                     <code>role</code> they played, the role relationship has also a <code>role</code> attribute.
