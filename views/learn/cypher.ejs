@@ -17,13 +17,20 @@
                 var cypher=$(this).text();
                 console.log("cypher "+cypher);
                 if (cypher.indexOf(";")==-1) return;
-                var cypherConsole=frames['neo4j-console'];
-                cypherConsole.send(cypher);
+                runConsole(cypher);
               });
           });
+          function runConsole(cypher) {
+              if (frames['neo4j-console']) {
+                  frames['neo4j-console'].send(cypher);
+              }
+          }
           function startConsole() {
-              var url="/console?id=cineasts";
-              $('#console').html('<iframe name="neo4j-console" width="800" height="300" src="'+url+'"/>');
+              if (!frames['neo4j-console']) {
+                var url = "/console?id=cineasts";
+                var iframe = $('<iframe name="neo4j-console" width="800" height="300" src="'+url+'"/>');
+                $('#console').html(iframe);
+              }
           }
       </script>
 
@@ -45,8 +52,8 @@
         <div class="tab-pane active" id="intro">
             <h3>Intro</h3>
             <ul>
-                <li>Make sure to get the <a href="http://neo4j.org/resources/cypher" target="_blank">Cypher Cheat Sheet</a> first.</li>
-                <li>To start with the tutorial please <a class="btn-mini btn" onclick="startConsole();return false;" href="#">open the interactive console</a></li>
+                <!--li>Make sure to get the <a href="http://neo4j.org/resources/cypher" target="_blank">Cypher Cheat Sheet</a> first.</li-->
+                <li>To start with the tutorial please <a class="btn-mini btn btn-primary" onclick="startConsole();return false;" href="#">open the interactive console</a><br/>&nbsp;</li>
                 <li>Our example graph consists of <code>movies</code> with an <code>id</code>, <code>year</code> and <code>title</code> and <code>actors</code> with a <code>name</code>.
                     Actors have an <code>:ACTS_IN</code> relationship to movies, which represents the
                     <code>role</code> they played, the role relationship has also a <code>role</code> attribute.
@@ -63,13 +70,13 @@
                 <li>return a single node, by id (The Matrix) <br/><code>start movie=node:node_auto_index(id="603") return movie;</code></li>
                 <li>return the title and id of the matrix node <br/><code>start movie=node:node_auto_index(id="603") return movie.id, movie.title;</code></li>
                 <li>first use of the match clause, show all actors
-                    <br/><code>start m=node:node_auto_index(id="603") match m&lt;-[:ACTS_IN]-actor return actor;</code></li>
+                    <br/><code>start m=<%=tutorial.matrix%> match m&lt;-[:ACTS_IN]-actor return actor;</code></li>
                 <li>return just the name, order them by name
-                    <br/><code>start m=node:node_auto_index(id="603") match m&lt;-[:ACTS_IN]-actor return actor.name order by actor.name;</code></li>
+                    <br/><code>start m=<%=tutorial.matrix%> match m&lt;-[:ACTS_IN]-actor return actor.name order by actor.name;</code></li>
                 <li>first aggregation, count the actors
-                    <br/><code>start m=node:node_auto_index(id="603") match m&lt;-[:ACTS_IN]-actor return count(*);</code></li>
-                <li><p>first filtering only the actors born in the US
-                    <br/><code>start m=node:node_auto_index(id="603") match m&lt;-[:ACTS_IN]-actor where actor.birthplace =~ /.*(United States|US).*/ return actor.name ;</code></p></li>
+                    <br/><code>start m=<%=tutorial.matrix%> match m&lt;-[:ACTS_IN]-actor return count(*);</code></li>
+                <li><p>first filtering only the actors whose names end with "s"
+                    <br/><code>start m=<%=tutorial.matrix%> match m&lt;-[:ACTS_IN]-actor where actor.name =~ ".*s$" return actor.name ;</code></p></li>
             </ul>
         </div>
         <div class="tab-pane" id="explore">
@@ -77,7 +84,7 @@
             <ul>
                 <li>some exploratory queries for unknown datasets, <strong>don&#8217;t do that on live production instances</strong></li>
                 <li>Count nodes <br/><code>start n=node(*) return count(*);</code></li>
-                <li>Count relationship types <br/><code>start n=node(*) match n-[r?]-&gt;() return type(r), count(*);</code></li>
+                <li>Count relationship types <br/><code>start n=node(*) match n-[r]-&gt;() return type(r), count(*);</code></li>
             </ul>
         </div>
         <div class="tab-pane" id="update">
@@ -85,27 +92,27 @@
 
             <ul>
                 <li>we will add ourselves, friends and ratings</li>
-                <li>add a node for yourself and return it, note the id <br/><code>create me={name: "Michael"} return me;</code>
+                <li>add a node for yourself and return it, let's say your name is "Me" <br/><code>create me={name: "Me"} return me;</code>
                 </li>
-                <li>let&#8217;s check if the node is there: <br/><code>start me=node(488) return me.name;</code></li>
-                <li>I want to rate a movie <br/><code>start me=node(488), movie=node:Movie(id="603") create me-[:RATED {stars : 5,
+                <li>let&#8217;s check if the node is there: <br/><code>start me=<%=tutorial.me%> return me.name;</code></li>
+                <li>I want to rate a movie <br/><code>start me=<%=tutorial.me%>, movie=<%=tutorial.matrix%> create me-[:RATED {stars : 5,
                     comment : "I love that movie!"}]-&gt;movie;</code></li>
-                <li>which movies did I rate <br/><code>start me=node(488) match me-[r:RATED]-&gt;movie return r.stars,
+                <li>which movies did I rate <br/><code>start me=<%=tutorial.me%> match me-[r:RATED]-&gt;movie return r.stars,
                     r.comment,movie.title;</code></li>
-                <li>we need a friend <br/><code>create friend={name: "A Friend"} return friend;</code> // node(489)</li>
-                <li>add our friendship idempotently, so we can rerun the query without adding it several times, we return the
+                <li>we need a friend <br/><code>create friend={name: "A Friend"} return friend;</code></li>
+                <li>add our friendship idempotently, so we can re-run the query without adding it several times, we return the
                     relationship to check that it has not been created several times
-                    <br/><code>start me=node(488), friend=node(489) relate me-[r:FRIEND]-&gt;friend return r;</code></li>
+                    <br/><code>start me=<%=tutorial.me%>, friend=<%=tutorial.friend%> create unique me-[r:FRIEND]-&gt;friend return r;</code></li>
                 <li>rerun the query</li>
                 <li>update our friendship with a <code>since</code> property
-                    <br/><code>start me=node(488), friend=node(489) MATCH me-[r:FRIEND]-&gt;friend set r.since='forever' return
+                    <br/><code>start me=<%=tutorial.me%>, friend=<%=tutorial.friend%> MATCH me-[r:FRIEND]-&gt;friend set r.since='forever' return
                         r;</code></li>
-                <li>we pretend being our friend and want to see which movies our frriends have rated
-                    <br/><code>start me=node(489) MATCH me-[:FRIEND]-friend-[r:RATED]-&gt;movie return movie.title, avg(r.stars),
+                <li>we pretend being our friend and wanting to see which movies our friends have rated
+                    <br/><code>start me=<%=tutorial.friend%> MATCH me-[:FRIEND]-friend-[r:RATED]-&gt;movie return movie.title, avg(r.stars),
                         collect(r.comment), count(*);</code></li>
-                <li>that&#8217;s too little data, let&#8217;s add some more friends and ratings
-                    <br/><code>start me=node(488)
-                    foreach (i in range(1,10) : create me-[:FRIEND]->({name:&#8221;Friend &#8220;+i}))</code>
+                <li>that's too little data, let's add some more friends and friendships
+                    <br/><code>start me=<%=tutorial.me%>
+                    foreach (i in range(1,10) : create friend={name: "Friend "+i}, me-[:FRIEND]->friend);</code>
                 </li>
             </ul>
         </div>
@@ -116,20 +123,21 @@
             <li>same setup as before, with all the added friends and ratings</li>
             <li>lets explore the relationships between the actors</li>
             <li>All other movies that the matrix actors acted in ordered by occurrence
-            <br/><code>start m=node:Movie(id="603") match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie return movie.title, count(*) order by count(*) desc;</code></li>
-            <li>obviously the Matrix trilogy, but also others, let&#8217;s see which actors
-            <br/><code>start m=node:Movie(id="603") match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie return movie.title, collect(actor.name) order by count(*) desc;</code></li>
+            <br/><code>start m=<%=tutorial.matrix%> match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie return movie.title, count(*) order by count(*) desc;</code></li>
+            <li>obviously the Matrix trilogy, but also others, let's see which actors
+            <br/><code>start m=<%=tutorial.matrix%> match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie return movie.title, collect(actor.name) order by count(*) desc;</code></li>
             <li>what about co-acting, actors that acted together
-            <br/><code>start m=node:Movie(id="603") match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie&lt;-[:ACTS_IN]-colleague return actor.name, collect(distinct colleague.name);</code></li>
+            <br/><code>start m=<%=tutorial.matrix%> match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie&lt;-[:ACTS_IN]-colleague return actor.name, collect(distinct colleague.name);</code></li>
             <li>who of those other actors acted most often with anyone from the matrix cast
-            <br/><code>start m=node:Movie(id="603") match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie&lt;-[:ACTS_IN]-colleague return colleague.name,count(*) order by count(*) desc limit 10;</code></li>
+            <br/><code>start m=<%=tutorial.matrix%> match m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie&lt;-[:ACTS_IN]-colleague return colleague.name,count(*) order by count(*) desc limit 10;</code></li>
             <li>starting with paths, a path is a sequence of nodes and relationships from a start node to an end nod</li>
             <li>we know that Trinity loves Neo, but how many paths exist between their actors; we limit the path length and the query as it exhaustively searches the graph otherwise
-            <br/><code>start neo=node:Person(id="6384"),trinity=node:Person(id="530") match p = neo-[:ACTS_IN*0..5]-trinity return p, length(p) limit 10;</code></li>
-            <li>that&#8217;s a lot of data, we just want to look at the names and titles of the nods of this path
-            <br/><code>start neo=node:Person(id="6384"),trinity=node:Person(id="530") match p = neo-[:ACTS_IN*0..5]-trinity return extract(n in nodes(p) : coalesce(n.title?,n.name?)), length(p) order by length(p) limit 10 ;</code></li>
-            <li>let&#8217;s explore connections between more people, we chose an actor who has only a few connections to the team, Sean Bean (Boromir, Eddard Stark) is a good candiate (id 467)
-            `start m=node:Movie(id=&#8221;603&#8221;),sean=node(467) match m&lt;-[:ACTS_IN]-actor,p  return colleague.name,count(<em>) order by count(</em>) desc limit 10;</li>
+            <br/><code>start neo=<%=tutorial.neo%>,trinity=<%=tutorial.trinity%> match p = neo-[:ACTS_IN*0..5]-trinity return p, length(p) limit 10;</code></li>
+            <li>if that's a lot of data, we just want to look at the names and titles of the nods of this path
+            <br/><code>start neo=<%=tutorial.neo%>,trinity=<%=tutorial.trinity%> match p = neo-[:ACTS_IN*0..5]-trinity return extract(n in nodes(p) : coalesce(n.title?,n.name?)) as "names and titles", length(p) order by length(p) limit 10 ;</code></li>
+            <!--li>let's explore connections between more people, we choose some other actor
+            <code>start m=<%=tutorial.matrix%>,other=<%=tutorial.morpheus%> match m&lt;-[:ACTS_IN]-actor,p  return colleague.name,count(<em>) order by count(</em>) desc limit 10;</code>
+            </li-->
             </ul>
         </div>
         <div class="tab-pane" id="setups">
@@ -166,7 +174,7 @@
     <div class="next thumbnail">
       <div class="caption">
           <ul>
-              <li>Try more Cypher in the <a href="/try">Demo Console</a></li>
+              <li>Try more Cypher in the <a href="/learn/try">Demo Console</a></li>
               <li>Read up in detail in the <a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html" target="_blank">Cypher Reference Manual</a></li>
           </ul>
     </div>

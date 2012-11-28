@@ -65,6 +65,16 @@ app.locals({
     summary: "Snapshot"
   } 
 });
+app.locals({
+    tutorial : {
+        matrix :'node:node_auto_index(id="603")',
+        neo : 'node:node_auto_index(name="Keanu Reeves")',
+        trinity : 'node:node_auto_index(name="Carrie-Anne Moss")',
+        me : 'node:node_auto_index(name="Me")',
+        friend : 'node:node_auto_index(name="A Friend")'
+    }
+});
+
 
 function forward(url) {
     return function(req,res) { res.redirect(url); }
