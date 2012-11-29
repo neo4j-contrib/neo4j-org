@@ -43,6 +43,25 @@
             <div id="console"></div>
 
         </div>
+
+        <div class="row">
+            <div class="span3">
+                <h3><a href="/learn/try">Demo Console</a></h3>
+
+                <p>The Neo4j Demo Console allows you to interactively try our Cypher Query
+                    Language with different datasets</p>
+
+                <p><a href="/learn/try">Try live &raquo;</a></p>
+            </div>
+            <div class="span4">
+                <h3><a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html">Cypher Manual</a></h3>
+
+                <p>Read up in detail in the <a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html" target="_blank">Cypher Reference Manual</a></p>
+
+                <p><a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html">Read more &raquo;</a></p>
+            </div>
+        </div>
+
         <div class="row">
             <div class="span3">
                 <h3>Cypher Webinar</h3>
@@ -66,29 +85,12 @@
             </div>
 
             <div class="reference-card span4">
-                <h2>Cypher Reference Card</h2>
+                <h3><a href="http://neo4j.org/resources/cypher" target="_blank">Cypher Reference Card</a></h3>
                 <a href="http://neo4j.org/resources/cypher" target="_blank"><img alt="Cypher Reference Card" src="/assets/img/still/cypher_refcard.gif"/></a>
             </div>
 
         </div>
 
-        <div class="row">
-            <div class="span3">
-                <h3><a href="/learn/try">Demo Console</a></h3>
-
-                <p>The Neo4j Demo Console allows you to interactively try our Cypher Query
-                    Language with different datasets</p>
-
-                <p><a href="/learn/try">Try live &raquo;</a></p>
-            </div>
-            <div class="span4">
-                <h3><a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html">Cypher Manual</a></h3>
-
-                <p>Read up in detail in the <a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html" target="_blank">Cypher Reference Manual</a></p>
-
-                <p><a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html">Read more &raquo;</a></p>
-            </div>
-        </div>
     </div>
 
 
@@ -113,8 +115,9 @@
                     <code>role</code> they played, the role relationship has also a <code>role</code> attribute.
                 </li>
                 <li>We encourage you to enter the Cypher statements in the interactive console manually, but you can also click on the code snippets. <br/>Like this one
-                    <pre>START n=node(*)
-RETURN "Hello Graph with "+count(*)+" Nodes!" as welcome;</pre>
+                    <pre>START n=node(*) 
+RETURN "Hello Graph with "+count(*)+" Nodes!" 
+       as welcome;</pre>
                 </li>
                 <img src="/assets/img/still/cineasts.gif"/>
             </ul>
@@ -123,18 +126,18 @@ RETURN "Hello Graph with "+count(*)+" Nodes!" as welcome;</pre>
             <h3>First steps with Cypher</h3>
             <ul>
                 <li>
-RETURN a single node, by id (The Matrix) <br/><pre>START movie=node:node_auto_index(id="603") 
+return a single node, by id (The Matrix) <br/><pre>START movie=<%=tutorial.matrix%> 
 RETURN movie;</pre></li>
                 <li>
-RETURN the title and id of the matrix node <br/><pre>START movie=node:node_auto_index(id="603") 
+return the title and id of the matrix node <br/><pre>START movie=<%=tutorial.matrix%>  
 RETURN movie.id, movie.title;</pre></li>
                 <li>first use of the 
 MATCH clause, show all actors
-                    <br/><pre>START m=<%=tutorial.matrix%> 
+                    <br/><pre>START m=<%=tutorial.matrix%>  
 MATCH m&lt;-[:ACTS_IN]-actor 
 RETURN actor;</pre></li>
                 <li>
-RETURN just the name, order them by name
+return just the name, order them by name
                     <br/><pre>START m=<%=tutorial.matrix%> 
 MATCH m&lt;-[:ACTS_IN]-actor 
 RETURN actor.name order by actor.name;</pre></li>
@@ -142,24 +145,24 @@ RETURN actor.name order by actor.name;</pre></li>
                     <br/><pre>START m=<%=tutorial.matrix%> 
 MATCH m&lt;-[:ACTS_IN]-actor 
 RETURN count(*);</pre></li>
-                <li><p>first filtering only the actors whose names end with "s"
-                    <br/><pre>START m=<%=tutorial.matrix%> 
+                <li>first filtering only the actors whose names end with "s"
+                    <br/><pre>START m=<%=tutorial.matrix%>  
 MATCH m&lt;-[:ACTS_IN]-actor 
 WHERE actor.name =~ ".*s$" 
-RETURN actor.name ;</pre></p></li>
+RETURN actor.name ;</pre></li>
             </ul>
         </div>
         <div class="tab-pane" id="explore">
             <h3>Explore a dataset</h3>
             <ul>
                 <li>some exploratory queries for unknown datasets, <strong>don&#8217;t do that on live production instances</strong></li>
-                <li>Count nodes <br/><pre>START n=node(*) 
+                <li>Count nodes <br/><pre>START n=node(*)  
 RETURN count(*);</pre></li>
-                <li>Count relationship types <br/><pre>START n=node(*) 
+                <li>Count relationship types <br/><pre>START n=node(*)  
 MATCH n-[r]-&gt;() 
 RETURN type(r), count(*);</pre></li>
-                <li>List all nodes and their relationships<br/><pre>START n=node(*)
-MATCH n-[r]-&gt;m
+                <li>List all nodes and their relationships<br/><pre>START n=node(*)    
+MATCH n-[r]-&gt;m 
 RETURN n as from, r as `->`, m as to;</pre></li>
             </ul>
         </div>
@@ -169,83 +172,86 @@ RETURN n as from, r as `->`, m as to;</pre></li>
             <ul>
                 <li>we will add ourselves, friends and ratings</li>
                 <li>add a node for yourself and 
-RETURN it, let's say your name is "Me" <br/><pre>CREATE me={name: "Me"}
+return it, let's say your name is "Me" <br/><pre>CREATE me={name: "Me"} 
 RETURN me;</pre>
                 </li>
-                <li>let&#8217;s check if the node is there: <br/><pre>START me=<%=tutorial.me%> 
+                <li>let's check if the node is there: <br/><pre>START me=<%=tutorial.me%>  
 RETURN me.name;</pre></li>
-                <li>I want to rate a movie <br/><pre>START me=<%=tutorial.me%>, movie=<%=tutorial.matrix%>
+                <li>I want to rate a movie <br/><pre>START me=<%=tutorial.me%>, movie=<%=tutorial.matrix%> 
 CREATE me-[:RATED {stars : 5, comment : "I love that movie!"}]-&gt;movie;</pre></li>
                 <li>which movies did I rate <br/><pre>START me=<%=tutorial.me%> 
 MATCH me-[r:RATED]-&gt;movie 
 RETURN r.stars,
                     r.comment,movie.title;</pre></li>
-                <li>we need a friend <br/><pre>CREATE friend={name: "A Friend"}
+                <li>we need a friend <br/><pre>CREATE friend={name: "A Friend"} 
 RETURN friend;</pre></li>
                 <li>add our friendship idempotently, so we can re-run the query without adding it several times, we return the
                     relationship to check that it has not been created several times
-                    <br/><pre>START me=<%=tutorial.me%>, friend=<%=tutorial.friend%>
-CREATE UNIQUE me-[r:FRIEND]-&gt;friend
+                    <br/><pre>START me=<%=tutorial.me%>, friend=<%=tutorial.friend%> 
+CREATE UNIQUE me-[r:FRIEND]-&gt;friend 
 RETURN r;</pre></li>
                 <li>rerun the query</li>
                 <li>update our friendship with a <code>since</code> property
-                    <br/><pre>START me=<%=tutorial.me%>, friend=<%=tutorial.friend%> 
-MATCH me-[r:FRIEND]-&gt;friend
-SET r.since='forever'
+                    <br/><pre>START me=<%=tutorial.me%>, friend=<%=tutorial.friend%>  
+MATCH me-[r:FRIEND]-&gt;friend 
+SET r.since='forever' 
 RETURN r;</pre></li>
-                <li>we pretend being our friend and wanting to see which movies our friends have rated
-                    <br/><pre>START me=<%=tutorial.friend%> 
+                <li>we pretend us being our friend and wanting to see which movies our friends have rated
+                    <br/><pre>START me=<%=tutorial.friend%>  
 MATCH me-[:FRIEND]-friend-[r:RATED]-&gt;movie 
 RETURN movie.title, avg(r.stars) as stars, collect(r.comment) as comments, count(*);</pre></li>
                 <li>that's too little data, let's add some more friends and friendships
-                    <br/><pre>START me=<%=tutorial.me%>
-FOREACH (i in range(1,10) :
+                    <br/><pre>START me=<%=tutorial.me%> 
+FOREACH (i in range(1,10) : 
   CREATE friend={name: "Friend "+i}, me-[:FRIEND]->friend);</pre>
                 </li>
             </ul>
         </div>
         <div class="tab-pane" id="paths">
-            <h3>Paths every
-WHERE</h3>
+            <h3>Paths everywhere</h3>
 
             <ul>
             <li>same setup as before, with all the added friends and ratings</li>
             <li>lets explore the relationships between the actors</li>
             <li>All other movies that the matrix actors acted in ordered by occurrence
-            <br/><pre>START m=<%=tutorial.matrix%> 
+            <br/><pre>START m=<%=tutorial.matrix%>  
 MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie 
 RETURN movie.title, count(*) order by count(*) desc;</pre></li>
             <li>obviously the Matrix trilogy, but also others, let's see which actors
             <br/><pre>START m=<%=tutorial.matrix%> 
 MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie 
-RETURN movie.title, collect(actor.name), count(*) as count
+RETURN movie.title, collect(actor.name), 
+       count(*) as count 
 ORDER BY count desc;</pre></li>
             <li>what about co-acting, actors that acted together
             <br/><pre>START m=<%=tutorial.matrix%> 
-MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie&lt;-[:ACTS_IN]-colleague 
+MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie
+       &lt;-[:ACTS_IN]-colleague  
 RETURN actor.name, collect(distinct colleague.name);</pre></li>
             <li>who of those other actors acted most often with anyone from the matrix cast
             <br/><pre>START m=<%=tutorial.matrix%> 
-MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie&lt;-[:ACTS_IN]-colleague 
-RETURN colleague.name,count(*)
+MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie
+       &lt;-[:ACTS_IN]-colleague 
+RETURN colleague.name,count(*) 
 ORDER BY count(*) desc LIMIT 10;</pre></li>
-            <li>STARTing with paths, a path is a sequence of nodes and relationships from a start node to an end nod</li>
+            <li>starting with paths, a path is a sequence of nodes and relationships from a start node to an end nod</li>
             <li>we know that Trinity loves Neo, but how many paths exist between their actors; we limit the path length and the query as it exhaustively searches the graph otherwise
-            <br/><pre>START neo=<%=tutorial.neo%>,
-      trinity=<%=tutorial.trinity%>
-MATCH p = neo-[:ACTS_IN*0..5]-trinity 
-RETURN p, length(p)
+            <br/><pre>START neo=<%=tutorial.neo%>, 
+trinity=<%=tutorial.trinity%> 
+MATCH p = neo-[:ACTS_IN*0..5]-trinity  
+RETURN p, length(p) 
 LIMIT 10;</pre></li>
             <li>if that's a lot of data, we just want to look at the names and titles of the nods of this path
-            <br/><pre>START neo=<%=tutorial.neo%>,
-      trinity=<%=tutorial.trinity%>
-MATCH p = neo-[:ACTS_IN*0..5]-trinity 
-RETURN extract(n in nodes(p) : coalesce(n.title?,n.name?)) as `names and titles`,
-       length(p)
+            <br/><pre>START neo=<%=tutorial.neo%>, 
+trinity=<%=tutorial.trinity%> 
+MATCH p = neo-[:ACTS_IN*0..5]-trinity  
+RETURN extract(n in nodes(p) : 
+  coalesce(n.title?,n.name?)) as `names and titles`, 
+  length(p) 
 ORDER BY length(p) LIMIT 10 ;</pre></li>
             <!--li>let's explore connections between more people, we choose some other actor
-            <pre>START m=<%=tutorial.matrix%>,other=<%=tutorial.morpheus%> 
-MATCH m&lt;-[:ACTS_IN]-actor,p  
+            <pre>START m=<%=tutorial.matrix%>,other=<%=tutorial.morpheus%>  
+MATCH m&lt;-[:ACTS_IN]-actor,p   
 RETURN colleague.name,count(<em>) order by count(</em>) desc limit 10;</pre>
             </li-->
             </ul>
@@ -253,17 +259,13 @@ RETURN colleague.name,count(<em>) order by count(</em>) desc limit 10;</pre>
         <div class="tab-pane" id="setups">
             <h3>Alternative Setups</h3>
             <ul>
-                <li>Use the <a href="/try">Neo4j Console</a> for exploration, sharing and testing</li>
-                <li>Deploy an instance of the graph to <a href="/develop/heroku">Heroku</a>, upload the <a href="/develop/heroku#upload">dataset</a> and optionally add a <a href="https://github.com/neo4j-examples/heroku-neo4j-proxy" target="_blank">read-only forwarder</a> to expose the Web Interface</li>
+                <li>Use the <a href="/learn/try">Neo4j Console</a> for exploration, sharing and testing</li>
+                <li>Deploy an <a href="/develop/example_data">instance of the graph</a> to <a href="/develop/heroku">Heroku</a>, upload the <a href="/develop/heroku#upload">dataset</a> and optionally add a <a href="https://github.com/neo4j-examples/heroku-neo4j-proxy" target="_blank">read-only forwarder</a> to expose the Web Interface</li>
                 <li>Connect with the <a href="http://blog.neo4j.org/2012/06/wanted-your-help-in-testing-neo4j-jdbc.html" target="_blank">JDBC driver</a> to a Neo4j Server for integration with existing tools</li>
             </ul>
         </div>
       </div>
       </div>
-
-
-
-
 
   <!--<aside class="span3">
 
