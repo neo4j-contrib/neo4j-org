@@ -118,10 +118,12 @@ app.get('/learn/events', forward("http://www.google.com/calendar/embed?src=neope
 
 
 // well known historic URLs redicrects
+app.get('/about', routes.neo4j);
 app.get('/terms', routes.terms); // terms and conditions
 app.get('/privacy', routes.privacy); // privacy policy
 app.get('/ruby', routes.drivers);
 app.get('/community', routes.participate);
+app.get('/community/feeds', routes.participate);
 app.get('/resources', routes.learn);
 app.get('/resources/cypher',forward("http://neo4j.org/wp-content/uploads/2012/07/Neo4j_CheatSheet_v3.pdf"));
 app.get('/forums',forward("http://groups.google.com/group/neo4j"));
