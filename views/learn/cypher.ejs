@@ -5,14 +5,16 @@
 <!-- Main Content Row -->
 <div class="main row">
 
-  <div class="span9">
+  <div class="span12">
       <div id="cypher" class="hero-unit path">
         <h2><a><i class="icon icon-book"></i> Cypher Tutorial</a></h2>
         <p class="lead">We want to encourage you to learn Neoj&#39;s query language Cypher interactively, so go ahead and give it a spin.</p>
       </div>
+  </div>
 
   <script type="text/javascript">
       $(document).ready(function(){
+          startConsole();
           $("code, pre").click(function() {
             var cypher=$(this).text();
             console.log("cypher "+cypher);
@@ -28,15 +30,15 @@
       function startConsole() {
           if (!frames['neo4j-console']) {
             var url = "/console?id=cineasts";
-            var iframe = $('<iframe name="neo4j-console" width="100%" height="300" src="'+url+'"/>');
+            var iframe = $('<iframe name="neo4j-console" width="100%" height="500" src="'+url+'"/>');
             $('#console').html(iframe);
           }
       }
   </script>
 
-    <div id="console" style="width: 100%;"></div>
+    <div id="console" class="span7"></div>
 
-    <div>
+    <div class="span5">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#intro" data-toggle="tab">Intro</a></li>
         <li><a href="#firststeps" data-toggle="tab">First steps with Cypher</a></li>
@@ -51,12 +53,12 @@
             <h3>Intro</h3>
             <ul>
                 <!--li>Make sure to get the <a href="http://neo4j.org/resources/cypher" target="_blank">Cypher Cheat Sheet</a> first.</li-->
-                <li>To start with the tutorial please <a class="btn-mini btn btn-primary" onclick="startConsole(); return false;" href="#">open the interactive console</a><br/>&nbsp;</li>
+                <!--<li>To start with the tutorial please <a class="btn-mini btn btn-primary" onclick="startConsole(); return false;" href="#">open the interactive console</a><br/>&nbsp;</li>-->
                 <li>Our example graph consists of <code>movies</code> with an <code>id</code>, <code>year</code> and <code>title</code> and <code>actors</code> with a <code>name</code>.
                     Actors have an <code>:ACTS_IN</code> relationship to movies, which represents the
                     <code>role</code> they played, the role relationship has also a <code>role</code> attribute.
                 </li>
-                <li>We encourage you to enter the Cypher statements in the console manually, but you can also click on the code snippets. <br/>Like this one
+                <li>We encourage you to enter the Cypher statements in the interactive console manually, but you can also click on the code snippets. <br/>Like this one
                     <pre>START n=node(*)
 RETURN "Hello Graph with "+count(*)+" Nodes!" as welcome;</pre>
                 </li>
@@ -200,9 +202,49 @@ RETURN colleague.name,count(<em>) order by count(</em>) desc limit 10;</pre>
         </div>
       </div>
       </div>
+
+  <div class="span3">
+      <h3>Cypher Webinar</h3>
+
+      <div>
+
+      <a data-toggle="lightbox" href="#cypher-webinar" class="thumbnail"><img src="/assets/img/still/cypher.png"
+                                                                            alt="Click to View"/></a>
+
+      <p class="caption"><i class="icon icon-facetime-video"></i> A guide through the cypher query language.</p>
+
+      <div class="lightbox fade" id="cypher-webinar" tabindex="-1" style="display: none;" src="http://player.vimeo.com/video/50389825">
+              <div class='lightbox-content'>
+                  <iframe src="" width="1000" height="432" frameborder="0"
+                      webkitallowfullscreen="webkitAllowFullScreen" mozallowfullscreen="mozallowfullscreen"
+                      allowfullscreen="allowFullScreen"></iframe>
+          </div>
+      </div>
   </div>
 
-  <aside class="span3 sidebar">
+    </div>
+
+  <div class="reference-card span3">
+    <h2>Cypher Reference Card</h2>
+    <a href="http://neo4j.org/resources/cypher" target="_blank"><img alt="Cypher Reference Card" src="/assets/img/still/cypher_refcard.gif"/></a>
+   </div>
+
+
+  <div class="span3">
+      <h3><a href="/learn/try">Demo Console</a></h3>
+
+      <p>The Neo4j Demo Console allows you to interactively try our Cypher Query
+          Language with different datasets</p>
+
+      <p><a href="/learn/try">Try live &raquo;</a></p>
+      <h3><a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html">Cypher Manual</a></h3>
+
+      <p>Read up in detail in the <a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html" target="_blank">Cypher Reference Manual</a></p>
+
+      <p><a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html">Read more &raquo;</a></p>
+  </div>
+
+  <aside class="span3">
 
     <div class="summary">
     <h2>Briefly</h2>
@@ -212,49 +254,13 @@ RETURN colleague.name,count(<em>) order by count(</em>) desc limit 10;</pre>
         <li>it is human readable and expressive</li>
         <li>
 MATCHes patterns in the graph</li>
-        <li>is about the what not how</li>
+        <li>is about the <strong>what</strong> not how</li>
       </ul>
     </div>
   </div>
-  <div class="next-steps">
-    <h2>Next Steps</h2>
-    <div class="next thumbnail">
-      <div class="caption">
-          <ul>
-              <li>Try more Cypher in the <a href="/learn/try">Demo Console</a></li>
-              <li>Read up in detail in the <a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html" target="_blank">Cypher Reference Manual</a></li>
-          </ul>
-    </div>
-    </div>
-    </div>
 
-  <div class="reference-card">
-    <h2>Cypher Reference Card</h2>
-    <a href="http://neo4j.org/resources/cypher" target="_blank"><img alt="Cypher Reference Card" src="/assets/img/still/cypher_refcard.gif"/></a>
-   </div>
 
-      <div>
-          <h3>Cypher Webinar</h3>
-
-          <div>
-
-          <a data-toggle="lightbox" href="#cypher-webinar" class="thumbnail"><img src="/assets/img/still/cypher.png"
-                                                                                alt="Click to View"/></a>
-
-          <p class="caption"><i class="icon icon-facetime-video"></i> A guide through the cypher query language.</p>
-
-          <div class="lightbox fade" id="cypher-webinar" tabindex="-1" style="display: none;" src="http://player.vimeo.com/video/50389825">
-                  <div class='lightbox-content'>
-                      <iframe src="" width="1000" height="432" frameborder="0"
-                          webkitallowfullscreen="webkitAllowFullScreen" mozallowfullscreen="mozallowfullscreen"
-                          allowfullscreen="allowFullScreen"></iframe>
-              </div>
-          </div>
-      </div>
-
-        </div>
-
-   </aside>
+   </aside></div>
   </div>
 </div>
 
