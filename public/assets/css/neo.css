@@ -527,3 +527,5 @@ section {
   border-bottom: 1px dotted #a9a9a9;
   padding: 20px 0;
 }
+
+.thumbnail { margin-top: 10px; }
