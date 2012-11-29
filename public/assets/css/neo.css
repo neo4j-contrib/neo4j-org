@@ -467,7 +467,7 @@ line.link {
   stroke-width: 1.5px;
 }
 
-code {
+code, pre {
   color: #00546A;
 }
 
