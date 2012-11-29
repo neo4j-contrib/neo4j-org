@@ -1,12 +1,4 @@
 $(document).ready(function(){
-    $('#isotope').imagesLoaded(function($images){
-        $(this).isotope({
-            itemSelector : 'li',layoutMode:"masonry",
-            masonry: {
-                columnWidth:240
-            }
-        });
-    });
     $(".lightbox").each(function() {
         var lb=$(this);
         var url=lb.attr("src");
