@@ -12,6 +12,8 @@
       </div>
   </div>
 
+  </div>
+<div class="row">
   <script type="text/javascript">
       $(document).ready(function(){
           startConsole();
@@ -36,7 +38,59 @@
       }
   </script>
 
-    <div id="console" class="span7"></div>
+    <div class="span7">
+        <div class="row">
+            <div id="console"></div>
+
+        </div>
+        <div class="row">
+            <div class="span3">
+                <h3>Cypher Webinar</h3>
+
+                <div>
+
+                    <a data-toggle="lightbox" href="#cypher-webinar" class="thumbnail"><img src="/assets/img/still/cypher.png"
+                                                                                            alt="Click to View"/></a>
+
+                    <p class="caption"><i class="icon icon-facetime-video"></i> A guide through the cypher query language.</p>
+
+                    <div class="lightbox fade" id="cypher-webinar" tabindex="-1" style="display: none;" src="http://player.vimeo.com/video/50389825">
+                        <div class='lightbox-content'>
+                            <iframe src="" width="1000" height="432" frameborder="0"
+                                    webkitallowfullscreen="webkitAllowFullScreen" mozallowfullscreen="mozallowfullscreen"
+                                    allowfullscreen="allowFullScreen"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="reference-card span4">
+                <h2>Cypher Reference Card</h2>
+                <a href="http://neo4j.org/resources/cypher" target="_blank"><img alt="Cypher Reference Card" src="/assets/img/still/cypher_refcard.gif"/></a>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="span3">
+                <h3><a href="/learn/try">Demo Console</a></h3>
+
+                <p>The Neo4j Demo Console allows you to interactively try our Cypher Query
+                    Language with different datasets</p>
+
+                <p><a href="/learn/try">Try live &raquo;</a></p>
+            </div>
+            <div class="span4">
+                <h3><a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html">Cypher Manual</a></h3>
+
+                <p>Read up in detail in the <a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html" target="_blank">Cypher Reference Manual</a></p>
+
+                <p><a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html">Read more &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+
 
     <div class="span5">
       <ul class="nav nav-tabs">
@@ -104,6 +158,9 @@ RETURN count(*);</pre></li>
                 <li>Count relationship types <br/><pre>START n=node(*) 
 MATCH n-[r]-&gt;() 
 RETURN type(r), count(*);</pre></li>
+                <li>List all nodes and their relationships<br/><pre>START n=node(*)
+MATCH n-[r]-&gt;m
+RETURN n as from, r as `->`, m as to;</pre></li>
             </ul>
         </div>
         <div class="tab-pane" id="update">
@@ -161,7 +218,8 @@ RETURN movie.title, count(*) order by count(*) desc;</pre></li>
             <li>obviously the Matrix trilogy, but also others, let's see which actors
             <br/><pre>START m=<%=tutorial.matrix%> 
 MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie 
-RETURN movie.title, collect(actor.name) order by count(*) desc;</pre></li>
+RETURN movie.title, collect(actor.name), count(*) as count
+ORDER BY count desc;</pre></li>
             <li>what about co-acting, actors that acted together
             <br/><pre>START m=<%=tutorial.matrix%> 
 MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie&lt;-[:ACTS_IN]-colleague 
@@ -182,7 +240,7 @@ LIMIT 10;</pre></li>
             <br/><pre>START neo=<%=tutorial.neo%>,
       trinity=<%=tutorial.trinity%>
 MATCH p = neo-[:ACTS_IN*0..5]-trinity 
-RETURN extract(n in nodes(p) : coalesce(n.title?,n.name?)) as "names and titles",
+RETURN extract(n in nodes(p) : coalesce(n.title?,n.name?)) as `names and titles`,
        length(p)
 ORDER BY length(p) LIMIT 10 ;</pre></li>
             <!--li>let's explore connections between more people, we choose some other actor
@@ -203,48 +261,11 @@ RETURN colleague.name,count(<em>) order by count(</em>) desc limit 10;</pre>
       </div>
       </div>
 
-  <div class="span3">
-      <h3>Cypher Webinar</h3>
-
-      <div>
-
-      <a data-toggle="lightbox" href="#cypher-webinar" class="thumbnail"><img src="/assets/img/still/cypher.png"
-                                                                            alt="Click to View"/></a>
-
-      <p class="caption"><i class="icon icon-facetime-video"></i> A guide through the cypher query language.</p>
-
-      <div class="lightbox fade" id="cypher-webinar" tabindex="-1" style="display: none;" src="http://player.vimeo.com/video/50389825">
-              <div class='lightbox-content'>
-                  <iframe src="" width="1000" height="432" frameborder="0"
-                      webkitallowfullscreen="webkitAllowFullScreen" mozallowfullscreen="mozallowfullscreen"
-                      allowfullscreen="allowFullScreen"></iframe>
-          </div>
-      </div>
-  </div>
-
-    </div>
-
-  <div class="reference-card span3">
-    <h2>Cypher Reference Card</h2>
-    <a href="http://neo4j.org/resources/cypher" target="_blank"><img alt="Cypher Reference Card" src="/assets/img/still/cypher_refcard.gif"/></a>
-   </div>
 
 
-  <div class="span3">
-      <h3><a href="/learn/try">Demo Console</a></h3>
 
-      <p>The Neo4j Demo Console allows you to interactively try our Cypher Query
-          Language with different datasets</p>
 
-      <p><a href="/learn/try">Try live &raquo;</a></p>
-      <h3><a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html">Cypher Manual</a></h3>
-
-      <p>Read up in detail in the <a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html" target="_blank">Cypher Reference Manual</a></p>
-
-      <p><a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html">Read more &raquo;</a></p>
-  </div>
-
-  <aside class="span3">
+  <!--<aside class="span3">
 
     <div class="summary">
     <h2>Briefly</h2>
@@ -260,7 +281,7 @@ MATCHes patterns in the graph</li>
   </div>
 
 
-   </aside></div>
+   </aside>--></div>
   </div>
 </div>
 
