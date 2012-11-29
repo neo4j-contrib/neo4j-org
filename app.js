@@ -128,7 +128,7 @@ app.get('/resources', routes.learn);
 app.get('/resources/cypher',forward("http://neo4j.org/wp-content/uploads/2012/07/Neo4j_CheatSheet_v3.pdf"));
 app.get('/forums',forward("http://groups.google.com/group/neo4j"));
 app.get('/spring', routes.spring);
-app.get('/heroku', routes.heroku());
+app.get('/heroku', routes.heroku);
 app.get('/azure', forward("http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"));
 app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
 
