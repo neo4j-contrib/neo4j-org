@@ -187,6 +187,7 @@ h5.cypher {
 }
 a {
   color: #00546A;
+  font-weight: bold;
 }
 .path, .path i, .path a{
   color: #fff;
@@ -329,6 +330,7 @@ table th {
 }
 .footer, .footer a {
   text-decoration: none;
+  font-weight: normal;
 }
 .footer a:hover {
   color: #ccc;
