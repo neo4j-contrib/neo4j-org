@@ -99,7 +99,6 @@ app.get('/learn/nosql', routes.nosql); // node:  compare to other databases
 app.get('/learn/cypher', routes.cypher); // node:  compare to other databases
 app.get('/develop/visualize', routes.visualize); // node:  compare to other databases
 app.get('/develop', routes.develop); // path: development guides in featured languages
-app.get('/develop/install', routes.install); // path: development guides in featured languages
 app.get('/develop/heroku', routes.heroku); // path: development guides in featured languages
 app.get('/develop/spring', routes.spring); // path: development guides in featured languages
 app.get('/develop/ec2', routes.ec2); // path: development guides in featured languages
@@ -107,7 +106,7 @@ app.get('/develop/example_data', routes.example_data); // path: development guid
 app.get('/develop/spring', routes.spring); // path: development guides in featured languages
 app.get('/develop/drivers', routes.drivers); // graph: language drivers and frameworks
 app.get('/participate', routes.participate); // graph: language drivers and frameworks
-app.get('/download', routes.download); //  download Neo4j
+app.get('/install', routes.install); //  download Neo4j
 app.get('/download_thanks', routes.download_thanks); //  download thanks Neo4j
 app.get('/participate/contributors', routes.contributors);
 app.get('/learn/graphdatabase', routes.graphdb);
@@ -118,6 +117,7 @@ app.get('/learn/events', forward("http://www.google.com/calendar/embed?src=neope
 
 
 // well known historic URLs redicrects
+app.get('/download', routes.install);
 app.get('/about', routes.neo4j);
 app.get('/terms', routes.terms); // terms and conditions
 app.get('/privacy', routes.privacy); // privacy policy

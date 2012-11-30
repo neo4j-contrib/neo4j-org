@@ -8,17 +8,17 @@ exports.index = function(req, res){
 
 
 /*
- * GET - "download" page
+ * GET - "install" page
  */
-exports.download = function(req, res){
-  res.render('download', { category: 'download', title: 'Download' });
+exports.install = function(req, res){
+  res.render('install', { category: 'install', title: 'Installation' });
 };
 
 /*
  * GET - "download thanks" page
  */
 exports.download_thanks = function(req, res){
-  res.render('download_thanks', { category: 'download_thanks', title: 'Download Thanks' });
+  res.render('download_thanks', { category: 'install', title: 'Download Thanks' });
 };
 
 
@@ -127,10 +127,6 @@ exports.drivers = function(req, res){
 exports["try"] = function(req, res){
   res.render('learn/try', { category: 'learn', title: 'Try Neo4j' });
 }
-
-exports.install = function(req, res){
-  res.render('develop/install', { category: 'install', title: 'Installation' });
-};
 
 exports.participate = function(req, res){
   res.render('participate', { category: 'participate', title: 'Participate' });
