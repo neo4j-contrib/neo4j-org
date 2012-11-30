@@ -142,6 +142,7 @@
                 <li>Find and open: <code>/path/to/neo4j/conf/neo4j-server.properties</code></li>
                 <li>uncomment the line: <code>#org.neo4j.server.webserver.address=0.0.0.0</code></li>
                 <li>Check that SSL access is enabled: <code>org.neo4j.server.webserver.https.enabled=true</code></li>
+                <li>restart the Neo4j Server: <code>sudo /etc/init.d/neo4j-server restart</code></li>
                 <li>Check if it is accessible from the outside: <code>curl
                     http://ec2-???-??-???-???.compute-1.amazonaws.com:7474</code>
                 </li>
