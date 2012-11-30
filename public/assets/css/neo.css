@@ -456,7 +456,7 @@ table th {
   }
 }
 
-.nav-tabs li a {
+.nav-tabs li a, a.btn {
     font-weight: normal;
 }
 
