@@ -155,3 +155,10 @@ exports.terms = function(req, res){
 exports.privacy = function(req, res){
   res.render('privacy', { category: 'privacy', title: 'Privacy' });
 };
+
+exports.resource = function(req,res) {
+    var path = req.path;
+    var idx = path.lastIndexOf('/');
+    var file = idx > -1 ? path.substr(idx+1,path.length) : path;
+    res.redirect('/assets/download/'+file); 
+}
