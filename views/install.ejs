@@ -153,12 +153,17 @@
 
 <div class="installation">
     <h3>Debian - stable (<%= neo4jGA.version %>)</h3>
-	<p>To install Neo4j on Debian/Ubuntu we provide a debian repository and package, so just add the repository to <code>apt</code> and install it. To use the other editions just choose <code>neo4j-advanced</code>, <code>neo4j-enterprise</code> for the install. Neo4j will be installed as a service in your system and started automatically when your system boots up.</p>
-    <pre>﻿sudo sh -c 'echo "deb http://debian.neo4.org/repo stable/" > /etc/apt/sources.list.d/neo4j.list'
+
+    <p>To install Neo4j on Debian/Ubuntu we provide a debian repository and package, so just add the repository to
+        <code>apt</code> and install it. To use the other editions just choose <code>neo4j-advanced</code>, <code>neo4j-enterprise</code>
+        for the install. Neo4j will be installed as a service in your system and started automatically when your system
+        boots up.</p>
+    <pre>sudo sh -c 'echo "deb http://debian.neo4.org/repo stable/" > /etc/apt/sources.list.d/neo4j.list'
 sudo apt-get update
 sudo apt-get install neo4j
 neo4j start
     </pre>
+    <p>If you want to install unsupported milestone or snapshot builds, add <code>testing</code> or <code>unstable</code> to <code>neo4j.list</code>.</p>
 </div>
 <div class="installation">
     <h3>MacOS X - Homebrew - stable (<%= neo4jGA.version %>)</h3>
@@ -383,7 +388,7 @@ neo4j start</pre>
 </div>
 </div>
 
-
+</div>
 <script type='text/javascript'>//<![CDATA[
 $(window).load(function () {
 
