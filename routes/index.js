@@ -21,6 +21,12 @@ exports.download_thanks = function(req, res){
   res.render('download_thanks', { category: 'install', title: 'Download Thanks' });
 };
 
+/*
+ * GET - "subscribe thanks" page
+ */
+exports.subscribe_thanks = function(req, res){
+  res.render('subscribe_thanks', { category: 'install', title: 'Subscribe Thanks' });
+};
 
 /*
  * GET - "learn" information with guided tracks
