@@ -1,6 +1,8 @@
 jsPlumb.bind('ready',function(){
 
-	var color = "#00546A";
+    $(window).bind("resize", jsPlumb.repaintEverything);
+	
+    var color = "#00546A";
 
 	jsPlumb.importDefaults({
 		// notice the 'curviness' argument to this Bezier curve.  the curves on this page are far smoother
