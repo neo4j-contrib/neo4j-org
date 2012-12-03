@@ -146,6 +146,9 @@ exports.terms = function(req, res){
 exports.privacy = function(req, res){
   res.render('privacy', { category: 'privacy', title: 'Privacy' });
 };
+exports.release_notes = function(req, res){
+  res.render('download/release_notes', { category: 'download', title: 'Release Notes' });
+};
 
 exports.resource = function(req,res) {
     var path = req.path;
