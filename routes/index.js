@@ -153,6 +153,7 @@ exports.release_notes = function(req, res){
 exports.resource = function(req,res) {
     var path = req.path;
     var idx = path.lastIndexOf('/');
-    var file = idx > -1 ? path.substr(idx+1,path.length) : path;
+    var file = idx > -1 ? path.substr(idx+ 1,path.length) : path;
+    console.log('got request for ',path,' from ',req.header('Referer'));
     res.redirect('/assets/download/'+file); 
 }

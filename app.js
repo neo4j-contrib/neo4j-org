@@ -139,6 +139,8 @@ app.get('/release-notes', routes.release_notes);
 app.get('/resources/cypher', forward('/assets/download/Neo4j_CheatSheet_v3.pdf'));
 
 app.get('/wp-content/*', routes.resource);
+app.get('/wp-includes/*', routes.resource);
+//app.get('/assets/download/*', routes.resource);
 app.get('/img/*', routes.resource);
 app.get('/highlighter/*', routes.resource);
 
