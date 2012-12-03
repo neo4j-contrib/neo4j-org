@@ -96,9 +96,6 @@ exports.develop = function(req, res){
 };
 
 
-/*
- * GET - "heroku" managed Neo4j on Heroku's PaaS
- */
 exports.heroku = function(req, res){
   res.render('develop/heroku', { category: 'develop', title: 'Heroku Add-on' });
 };
@@ -108,24 +105,15 @@ exports.spring = function(req, res){
 };
 
 
-/*
- * GET - "ec2" DIY deployment on Amazon's EC2
- */
 exports.ec2 = function(req, res){
   res.render('develop/ec2', { category: 'develop', title: 'DIY EC2' });
 };
 
 
-/*
- * GET - "spring" everything you need to know about SDN
- */
 exports.spring = function(req, res){
   res.render('develop/spring', { category: 'develop', title: 'Spring Data Neo4j' });
 };
 
-/*
- * GET - "drivers" with languages and frameworks
- */
 exports.drivers = function(req, res){
   res.render('develop/drivers', { category: 'develop', title: 'Language Drivers' });
 };
@@ -152,9 +140,6 @@ exports.d3 = function(req, res){
 exports.test = function(req, res){
     res.render('test', { category: 'develop', title: 'Test' });
 };
-/*
- * GET - "terms" and "privacy"
- */
 exports.terms = function(req, res){
   res.render('terms', { category: 'terms', title: 'Terms' });
 };
