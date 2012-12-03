@@ -108,6 +108,7 @@ app.get('/develop/drivers', routes.drivers); // graph: language drivers and fram
 app.get('/participate', routes.participate); // graph: language drivers and frameworks
 app.get('/install', routes.install); //  download Neo4j
 app.get('/download_thanks', routes.download_thanks); //  download thanks Neo4j
+app.get('/subscribe_thanks', routes.subscribe_thanks); //  download thanks Neo4j
 app.get('/participate/contributors', routes.contributors);
 app.get('/learn/graphdatabase', routes.graphdb);
 app.get('/learn/try', routes.try);
@@ -116,7 +117,7 @@ app.get('/test/jsplumb', routes.test);
 app.get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
 
 
-// well known historic URLs redicrects
+// well known historic URLs redirects
 app.get('/download', routes.install);
 app.get('/about', routes.neo4j);
 app.get('/terms', routes.terms); // terms and conditions
@@ -125,13 +126,20 @@ app.get('/ruby', routes.drivers);
 app.get('/community', routes.participate);
 app.get('/community/feeds', routes.participate);
 app.get('/resources', routes.learn);
-app.get('/resources/cypher',forward("http://neo4j.org/wp-content/uploads/2012/07/Neo4j_CheatSheet_v3.pdf"));
 app.get('/forums',forward("http://groups.google.com/group/neo4j"));
+app.get('/nabble',forward("http://groups.google.com/group/neo4j"));
 app.get('/spring', routes.spring);
 app.get('/heroku', routes.heroku);
 app.get('/azure', forward("http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"));
 app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
 
+
+// download resources
+app.get('/resources/cypher', forward('/assets/download/Neo4j_CheatSheet_v3.pdf'));
+
+app.get('/wp-content/*', routes.resource);
+app.get('/img/*', routes.resource);
+app.get('/highlighter/*', routes.resource);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

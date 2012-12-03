@@ -21,6 +21,12 @@ exports.download_thanks = function(req, res){
   res.render('download_thanks', { category: 'install', title: 'Download Thanks' });
 };
 
+/*
+ * GET - "subscribe thanks" page
+ */
+exports.subscribe_thanks = function(req, res){
+  res.render('subscribe_thanks', { category: 'install', title: 'Subscribe Thanks' });
+};
 
 /*
  * GET - "learn" information with guided tracks
@@ -155,3 +161,10 @@ exports.terms = function(req, res){
 exports.privacy = function(req, res){
   res.render('privacy', { category: 'privacy', title: 'Privacy' });
 };
+
+exports.resource = function(req,res) {
+    var path = req.path;
+    var idx = path.lastIndexOf('/');
+    var file = idx > -1 ? path.substr(idx+1,path.length) : path;
+    res.redirect('/assets/download/'+file); 
+}

@@ -38,6 +38,23 @@
 
      <script src="/assets/js/jquery-1.8.1.min.js" type="text/javascript"></script>
      <script src="/assets/js/neo4j.js" type="text/javascript"></script>
+     
+     <!-- hide iframe white flash -->
+     <script type="text/javascript">   
+      (function () {
+	      var div = document.createElement('div'),
+	      ref = document.getElementsByTagName('base')[0] || document.getElementsByTagName('script')[0];
+
+          div.innerHTML = '&shy;<style> iframe { visibility: hidden; } </style>';
+
+          ref.parentNode.insertBefore(div, ref);
+    
+          window.onload = function() {
+	      div.parentNode.removeChild(div);
+	      }
+    
+	    })();
+    </script>
 
   </head>
 
