@@ -133,6 +133,7 @@ app.get('/heroku', routes.heroku);
 app.get('/azure', forward("http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"));
 app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
 app.get('/release-notes', routes.release_notes);
+app.get('/customers', routes.customers);
 
 
 // download resources
