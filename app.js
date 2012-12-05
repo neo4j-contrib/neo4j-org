@@ -132,6 +132,8 @@ app.get('/nabble',forward("http://groups.google.com/group/neo4j"));
 app.get('/spring', routes.spring);
 app.get('/heroku', routes.heroku);
 app.get('/azure', forward("http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"));
+app.get('/price-list', forward("http://www.neotechnology.com/price-list/"));
+app.get('/bookstore', forward("http://www.neotechnology.com/bookstore/"));
 app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
 app.get('/release-notes', routes.release_notes);
 app.get('/customers', routes.customers);
@@ -146,6 +148,13 @@ app.get('/wp-includes/*', routes.resource);
 //app.get('/assets/download/*', routes.resource);
 app.get('/img/*', routes.resource);
 app.get('/highlighter/*', routes.resource);
+app.get('/video/*', function(req, res){
+    var path = req.path;
+    var idx = path.lastIndexOf('/');
+    var file = idx > -1 ? path.substr(idx+ 1,path.length) : path;
+    console.log('got request for ',path,' from ',req.header('Referer'));
+    res.redirect('http://watch.neo4j.org/video/'+file);
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
