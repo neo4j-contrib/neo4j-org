@@ -114,7 +114,7 @@ app.get('/participate/contributors', routes.contributors);
 app.get('/learn/graphdatabase', routes.graphdb);
 app.get('/learn/try', routes.try);
 app.get('/test/d3', routes.d3);
-app.get('/test/jsplumb', routes.test);
+app.get('/index', routes.index_graph);
 app.get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
 
 

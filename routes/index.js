@@ -137,8 +137,8 @@ exports.d3 = function(req, res){
     res.render('d3', { category: 'develop', title: 'Sample Datasets' });
 };
 
-exports.test = function(req, res){
-    res.render('test', { category: 'develop', title: 'Test' });
+exports.index_graph = function(req, res){
+    res.render('index_graph', { category: 'develop', title: 'Test' });
 };
 exports.terms = function(req, res){
   res.render('terms', { category: 'terms', title: 'Terms' });
