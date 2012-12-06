@@ -6,6 +6,10 @@ exports.index = function(req, res){
   res.render('index', { category: '', title: 'Learn, Develop, Participate' });
 };
 
+exports.index_graph = function(req, res){
+    res.render('index_graph', { category: '', title: 'Welcome earthling' });
+};
+
 
 /*
  * GET - "install" page
@@ -137,9 +141,6 @@ exports.d3 = function(req, res){
     res.render('d3', { category: 'develop', title: 'Sample Datasets' });
 };
 
-exports.index_graph = function(req, res){
-    res.render('index_graph', { category: 'develop', title: 'Test' });
-};
 exports.terms = function(req, res){
   res.render('terms', { category: 'terms', title: 'Terms' });
 };
