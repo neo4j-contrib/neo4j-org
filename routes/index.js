@@ -9,6 +9,9 @@ exports.index = function(req, res){
 exports.index_graph = function(req, res){
     res.render('index_graph', { category: '', title: 'Start' });
 };
+exports.index_graph_svg = function(req, res){
+    res.render('index_graph_svg', { category: '', title: 'Start' });
+};
 
 
 /*

@@ -89,6 +89,8 @@ function forward(url) {
 
 
 app.get('/', routes.index);
+app.get('/index', routes.index_graph);
+app.get('/index_graph_svg', routes.index_graph_svg);
 app.get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 
 app.get('/learn', routes.learn); // path: concepts, best practices, operations
@@ -115,7 +117,6 @@ app.get('/participate/contributors', routes.contributors);
 app.get('/learn/graphdatabase', routes.graphdb);
 app.get('/learn/try', routes.try);
 app.get('/test/d3', routes.d3);
-app.get('/index', routes.index_graph);
 app.get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
 
 

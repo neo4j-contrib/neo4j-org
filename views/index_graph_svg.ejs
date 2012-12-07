@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="/assets/js/graph-diagram.js"></script>
+    <link rel="stylesheet" href="/assets/css/graph-diagram.css" type="text/css">
+    <script type="text/javascript" src="/assets/js/d3.v2.js"></script>
+    <!-- Google Analytics Content Experiment code -->
+    <script>
+        _udn = "www.neo4j.org";
+    </script>
+
+    <!--<script>function utmx_section(){}function utmx(){}(function(){var
+            k='2722339-1',d=document,l=d.location,c=d.cookie;
+        if(l.search.indexOf('utm_expid='+k)>0)return;
+        function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+                indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+                length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+                '<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+                        '://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+                        '&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+                        valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+                        '" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+    </script><script>utmx('url','A/B');</script>-->
+    <!-- End of Google Analytics Content Experiment code -->
+    <meta charset="utf-8">
+    <title><%= title %> - Neo4j: The World&#39; Leading Graph Database</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neo4j is an open-source, NoSQL graph database supported by Neo Technology.">
+
+    <!-- Styles -->
+
+    <link href="/assets/css/font-awesome.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-lightbox.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
+          rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300'
+          rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic'
+          rel='stylesheet' type='text/css'>
+
+    <!-- Random Pick-a-Theme -->
+
+    <link href="/themes/<%= theme() %>/css/style.css" rel="stylesheet">
+    <link href="/assets/css/neo.css" rel="stylesheet">
+    <!--<link href="/assets/css/neo4j.css" rel="stylesheet">-->
+
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/ico/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/ico/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/ico/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/ico/apple-touch-icon-114x114.png">
+
+    <script src="/assets/js/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <script src="/assets/js/neo4j.js" type="text/javascript"></script>
+
+    <!-- hide iframe white flash -->
+    <script type="text/javascript">
+        (function () {
+            var div = document.createElement('div'),
+                    ref = document.getElementsByTagName('base')[0] || document.getElementsByTagName('script')[0];
+
+            div.innerHTML = '&shy;<style> iframe { visibility: hidden; } </style>';
+
+            ref.parentNode.insertBefore(div, ref);
+
+            window.onload = function () {
+                div.parentNode.removeChild(div);
+            }
+
+        })();
+    </script>
+
+</head>
+
+<body data-spy="scroll" data-target=".spyme">
+<figure class="graph-diagram">
+    <svg xmlns="http://www.w3.org/2000/svg" class="graph-diagram pre-sized" height="100%" width="100%"
+         viewBox="-79.15166672497259 -725.266302511501 1592.4500990146537 1583.5859796517402"></svg>
+
+    <ul class="graph-diagram-markup" data-internal-scale="2" data-external-scale="3">
+        <li class="graph-diagram-node" data-node-id="0" data-x="300" data-y="0" href="/learn">
+            <span class="graph-diagram-in-node-caption">learn</span>
+        </li>
+        <li class="graph-diagram-node" data-node-id="1" data-x="-50" data-y="-50">
+            <span class="graph-diagram-in-node-caption">graph database</span><dl class="graph-diagram-properties"><dt>is</dt><dd>cool</dd></dl></li>
+        
+        <li class="graph-diagram-relationship" data-from="0" data-to="1">
+            <span class="graph-diagram-relationship-type">use via</span>
+        </li>
+    </ul>
+
+</figure>
+
+<script type="text/javascript">
+    var test ;
+    d3.selectAll("figure.graph-diagram").each(function () {
+        var graph = gd.markup.parse(d3.select(this).select("ul.graph-diagram-markup"));
+        test = graph;
+        console.log(test);
+        var diagramView = d3.select(this).selectAll("svg.graph-diagram").data([graph]);
+
+        diagramView
+                .enter()
+                .append("svg:svg")
+                .attr("class", "graph-diagram");
+
+        bind(graph, diagramView);
+
+        if (!diagramView.classed("pre-sized")) {
+            gd.scaling.sizeSvgToFitDiagram(graph, diagramView);
+        }
+    });
+</script>
+
+<% include foot %>

@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script type="text/javascript" src="/assets/js/graph-diagram.js"></script>
-    <link rel="stylesheet" href="/assets/css/graph-diagram.css" type="text/css">
-    <script type="text/javascript" src="/assets/js/d3.v2.js"></script>
-    <!--<link rel="stylesheet" href="/assets/css/graph-editor.css" type="text/css">-->
     <!-- Google Analytics Content Experiment code -->
     <script>
         _udn = "www.neo4j.org";
     </script>
 
-    <!--<script>function utmx_section(){}function utmx(){}(function(){var
+    <script>function utmx_section(){}function utmx(){}(function(){var
             k='2722339-1',d=document,l=d.location,c=d.cookie;
         if(l.search.indexOf('utm_expid='+k)>0)return;
         function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
@@ -21,10 +17,10 @@
                         '&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
                         valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
                         '" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
-    </script><script>utmx('url','A/B');</script>-->
+    </script><script>utmx('url','A/B');</script>
     <!-- End of Google Analytics Content Experiment code -->
     <meta charset="utf-8">
-    <title><%= title %> - Neo4j: The World&#39; Leading Graph Database</title>
+    <title>Start - Neo4j: The World&#39; Leading Graph Database</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Neo4j is an open-source, NoSQL graph database supported by Neo Technology.">
 
@@ -35,16 +31,13 @@
     <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="/assets/css/bootstrap-lightbox.css" rel="stylesheet">
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
-          rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300'
-          rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic'
-          rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
 
     <!-- Random Pick-a-Theme -->
 
-    <link href="/themes/<%= theme() %>/css/style.css" rel="stylesheet">
+    <link href="/themes/aqua/css/style.css" rel="stylesheet">
     <link href="/assets/css/neo.css" rel="stylesheet">
     <!--<link href="/assets/css/neo4j.css" rel="stylesheet">-->
 
@@ -74,7 +67,7 @@
 
             ref.parentNode.insertBefore(div, ref);
 
-            window.onload = function () {
+            window.onload = function() {
                 div.parentNode.removeChild(div);
             }
 
@@ -84,43 +77,234 @@
 </head>
 
 <body data-spy="scroll" data-target=".spyme">
-<figure class="graph-diagram">
-    <svg xmlns="http://www.w3.org/2000/svg" class="graph-diagram pre-sized" height="100%" width="100%"
-         viewBox="-79.15166672497259 -725.266302511501 1592.4500990146537 1583.5859796517402"></svg>
 
-    <ul class="graph-diagram-markup" data-internal-scale="2" data-external-scale="3">
-        <li class="graph-diagram-node" data-node-id="0" data-x="300" data-y="0" href="/learn">
-            <span class="graph-diagram-in-node-caption">learn</span>
-        </li>
-        <li class="graph-diagram-node" data-node-id="1" data-x="-50" data-y="-50">
-            <span class="graph-diagram-in-node-caption">graph database</span><dl class="graph-diagram-properties"><dt>is</dt><dd>cool</dd></dl></li>
-        
-        <li class="graph-diagram-relationship" data-from="0" data-to="1">
-            <span class="graph-diagram-relationship-type">use via</span>
-        </li>
-    </ul>
+<div class="container">
+    <div class="row">
+        <div id="hero">
+            <div class="span12 pagination-centered">
+                <h2 class=""><a class="brand logo" id="fix" href="/"><img src="/assets/img/neo4j/logo-white.svg" width="80px" alt="Neo4J World's Leading Graph Database"> </a>Neo4j</h2>
+                <br />
+                <span id="tag">The Graph Database.</span><br />
 
-</figure>
+                <p class="lead"><strong>Neo4j is an open-source, high-performance, NOSQL graph database, optimized for superfast graph traversals.</strong></p>
 
+                <p>Easily model and change the full complexity of your system.</p>
+                <!--<a href="/install" class="btn btn-large btn-success" type="button"><i class="icon-download-alt"></i> Download</a>-->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/assets/js/jquery.jsPlumb-1.3.16-all-min.js" type="text/javascript"></script>
+<script src="/assets/js/index-graph.js" type="text/javascript"></script>
+
+<div class="container" style="height: 200px;">
+    <div id="download" class="node" style="left: 40%;top:325px;">
+        <div>
+            <h2><a href="/install"><i class="icon icon-download-alt"></i>Install</a></h2>
+
+            <p>Try Neo4j for yourself.</p></div>
+    </div>
+    <div id="learn" class="node" style="left: 15%;top:530px">
+        <div><h2><a href="/learn"><i class="icon icon-book"></i>Learn</a></h2>
+
+            <p>What is Neo4j? What can I do with it?</p></div>
+    </div>
+    <div id="develop" class="node" style="left: 40%;top:530px;">
+        <div><h2><a href="/develop"><i class="icon icon-cogs"></i>Develop</a></h2>
+
+            <p>Tutorials, installation, drivers, sample apps.</p></div>
+    </div>
+    <div id="participate" class="node" style="left: 65%;top:530px;">
+        <div><h2><a href="/participate"><i class="icon icon-refresh"></i>Participate</a></h2>
+
+            <p>Join the Neo4j Community.</p></div>
+    </div>
+</div>
+
+</div> <!-- /container -->
+
+<footer>
+    <div class="footer">
+        <div class="row" id="sitemap">
+            <div class="container">
+                <div class="span2">
+                    <ul>
+                        <li class="fheader"><i class="icon icon-book"></i>Learn</li>
+                        <li><a href="/learn/graphdatabase">Graph Database</a></li>
+                        <li><a href="/learn/neo4j">What is Neo4j</a></li>
+                        <li><a href="/learn/cypher">Query Tutorial</a></li>
+                        <li><a href="/learn/nosql">NoSQL Data Models</a></li>
+                        <li><a href="/learn/apps">Apps Gallery</a></li>
+                        <li><a href="http://www.neotechnology.com/customers/" target="_blank">Customers & Use cases</a></li>
+                        <li><a href="/learn/licensing">Licensing Guide</a></li>
+                    </ul>
+                </div>
+                <div class="span2">
+                    <ul>
+                        <li class="fheader"><i class="icon icon-cogs"></i>Develop</li>
+                        <li><a href="/develop#install">Install Neo4j</a></li>
+                        <li><a href="/develop#cloud">Cloud</a></li>
+                        <li><a href="/learn/try" >Try Live</a></li>
+                        <li><a href="/develop/drivers">Language drivers</a></li>
+                        <li><a href="/develop/visualize">Visualization</a></li>
+                        <li><a href="/develop/example_data">Sample Datasets</a></li>
+                        <li><a href="/develop/spring">Spring Data Neo4j</a></li>
+                    </ul>
+                </div>
+                <div class="span2">
+                    <ul>
+                        <li class="fheader" ><i class="icon icon-refresh"></i>Participate</li>
+                        <li><a href="/participate/contributors">Contributors</a></li>
+                        <li><a href="http://stackoverflow.com/search?q=neo4j" target="_blank">Stack Overflow</a></li>
+                        <li><a href="http://neo4j.meetup.com" target="_blank">Meetups</a></li>
+                        <li><a href="https://groups.google.com/group/neo4j/" target="_blank">Google Group</a></li>
+                        <li><a href="http://www.github.com/neo4j/neo4j" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="span2">
+                    <ul>
+                        <li class="fheader" ><img src="/assets/img/neo4j/neo4j-aqua.svg" width="16px" align="left" alt="Neo4j">Quick Links</li>
+                        <li><a href="/install">Install</a></li>
+                        <li><a href="http://docs.neo4j.org" target="_blank">Neo4j Manual</a></li>
+                        <li><a href="/learn/try" >Try Live</a></li>
+                        <li><a href="http://watch.neo4j.org" target="_blank">Videos</a></li>
+                    </ul>
+                </div>
+
+                <div class="span2 sitelinks">
+                    <ul>
+                        <li><a href="http://blog.neo4j.org" target="_blank"><i class="icon-bookmark"></i> Neo4j&nbsp;Blog</a></li>
+                        <li><a href="https://twitter.com/neo4j" target="_blank"><i class="icon-twitter"></i>  Twitter</a></li>
+                        <li><a href="http://www.linkedin.com/groups?gid=2623939" target="_blank"><i class="icon-linkedin"></i>  LinkedIn</a></li>
+                        <li><a href="http://info.neotechnology.com/contactus.html" target="_blank"><i class="icon-phone"></i>  Contact Us</a></li>
+                    </ul>
+                    <div class="subscribe">
+                        Please keep me updated about Neo4j events, releases and articles.
+                        <iframe src="http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html" onload="this.style.visibility = 'visible';" style="border:0;padding: 0;" width="300px" height="100px" frameborder=”0” scrolling="no"></iframe>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row footer-gray">
+            <div class="container">
+                <div class="span12 fcompany">
+                    <p class="pull-left">&copy; 2012 <a href="http://neotechnology.com">Neo Technology</a>, Inc.  &nbsp; Graphs are Everywhere.  &nbsp; &nbsp; <a href="/terms" class="legal">Terms</a> | <a href="/privacy" class="legal">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                <div class="span12">
+                    <h3>Got feedback? Can't find what you are looking for? Tell us!</h3>
+                    <div id="disqus_thread"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            //are we live?
+            var disqus_url = window.location;
+            console.log('current URL: ',disqus_url);
+            var origin = disqus_url.origin;
+            if(origin != 'www.neo4j.org') {
+                console.log('this site is not live at ', origin, 'switching to disqus developer mode');
+                var disqus_developer = 1; // developer mode is on
+            }    else {
+                var disqus_developer = 0; // developer mode is off
+            }
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'neo4jorglive'; // required: replace example with your forum shortname
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+</footer>
+
+
+
+<!-- javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/assets/js/jquery-1.8.1.min.js" type="text/javascript"></script>
+<script src="/assets/js/bootstrap.js" type="text/javascript"></script>
+<script src="/assets/js/jquery.isotope.min.js" type="text/javascript"></script>
+<script src="/assets/js/bootstrap-iso.js" type="text/javascript"></script>
+<script src="/assets/js/bootstrap-lightbox.js" type="text/javascript"></script>
+<script src="/assets/js/bootstrap-transition.js" type="text/javascript"></script>
+<script src="/assets/js/bootstrap-dropdown.js" type="text/javascript"></script>
 <script type="text/javascript">
-    var test ;
-    d3.selectAll("figure.graph-diagram").each(function () {
-        var graph = gd.markup.parse(d3.select(this).select("ul.graph-diagram-markup"));
-        test = graph;
-        console.log(test);
-        var diagramView = d3.select(this).selectAll("svg.graph-diagram").data([graph]);
-
-        diagramView
-                .enter()
-                .append("svg:svg")
-                .attr("class", "graph-diagram");
-
-        bind(graph, diagramView);
-
-        if (!diagramView.classed("pre-sized")) {
-            gd.scaling.sizeSvgToFitDiagram(graph, diagramView);
-        }
-    });
+    // $('#marketing-slider').revolver({transition: {type: 'fade'}});
 </script>
 
-<% include foot %>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1192232-3']);
+    _gaq.push(['_setDomainName', 'www.neo4j.org']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_setCustomVar',
+        3,                   // This custom var is set to slot #3.  Required parameter.
+        'site_version',     // The name acts as a kind of category for the user activity.  Required parameter.
+        '111'               // This value of the custom variable.  Required parameter.
+    ]);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        //debugging the tracker
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/u/ga_debug.js';
+//        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+<script type="text/javascript">
+
+    $.ajax({
+        url: document.location.protocol + '//munchkin.marketo.net/munchkin.js',
+        dataType: 'script',
+        cache: true,
+        success: function() {
+            Munchkin.init('773-GON-065');
+        }
+    });
+
+</script>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'neo4jorglive';
+    //are we live?
+    var disqus_url = window.location;
+    console.log('current URL: ',disqus_url);
+    var origin = disqus_url.origin;
+    if(origin != 'www.neo4j.org') {
+        console.log('this site is not live at ', origin, 'switching to disqus developer mode');
+        var disqus_developer = 1; // developer mode is on
+    }    else {
+        var disqus_developer = 0; // developer mode is off
+    }
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+body, svg {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+circle.graph-diagram-node {
+    stroke: black;
+    stroke-width: 8px;
+    fill: white;
+}
+
+circle.graph-diagram-node.highlight {
+    stroke: blue;
+}
+
+circle.graph-diagram-node.lowlight {
+    stroke: #555;
+}
+
+path.graph-diagram-relationship, text.graph-diagram-bound-variable, text.graph-diagram-relationship-label, text.speech-bubble-content {
+    stroke: none;
+    fill: black;
+}
+
+path.graph-diagram-relationship.highlight, text.graph-diagram-bound-variable.highlight, text.graph-diagram-relationship-label.highlight {
+    fill: blue;
+}
+
+path.graph-diagram-relationship.lowlight, text.graph-diagram-bound-variable.lowlight, text.graph-diagram-relationship-label.lowlight {
+    fill: #555;
+}
+
+path.graph-diagram-property-outline, path.speech-bubble-outline {
+    stroke: black;
+    stroke-width: 3px;
+    fill: white;
+}
+
+text.speech-bubble-content {
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+    alignment-baseline: central;
+    font-size: 50px
+}
+
+text.speech-bubble-content.property-key {
+    text-anchor: end;
+}
+
+text.graph-diagram-bound-variable, text.graph-diagram-bound-variable-shadow {
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+    text-anchor: middle;
+    alignment-baseline: central;
+    font-size: 50px
+}
+
+text.graph-diagram-bound-variable-shadow {
+    fill: none;
+    stroke: white;
+    stroke-width: 20px;
+    stroke-linejoin: round;
+}
+
+text.graph-diagram-relationship-label {
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+    text-anchor: middle;
+    alignment-baseline: bottom;
+    baseline-shift: 30%;
+    font-size: 50px
+}
+
+#textMeasuringCanvas {
+    display: none;
+}
