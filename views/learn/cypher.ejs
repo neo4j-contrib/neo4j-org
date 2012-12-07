@@ -15,14 +15,44 @@
   </div>
 <div class="row">
   <script type="text/javascript">
-      $(document).ready(function(){
-          startConsole();
-          $("code, pre").click(function() {
+        function nextTab(elem) {
+          $(elem + ' li.active')
+            .next()
+            .find('a[data-toggle="tab"]')
+            .click();
+        }
+        function prevTab(elem) {
+          $(elem + ' li.active')
+            .prev()
+            .find('a[data-toggle="tab"]')
+            .click();
+        }
+        function runCypher() {
             var cypher=$(this).text();
             console.log("cypher "+cypher);
             if (cypher.indexOf(";")==-1) return;
             runConsole(cypher);
-          });
+        }
+        function addPlayButton() {
+            var play=$('<div id="play-button" class="btn icon-play" title="Run Cypher Query"></div>')
+            $("pre").mouseenter(function() {
+                var pos={top:$(this).position().top+5,
+                         left:$(this).position().left+$(this).width()-10};
+                play.appendTo($(this)).css(pos) 
+            });
+            $("pre").mouseleave(function() {
+               play.detach() 
+            });
+
+            $("code, pre").click(runCypher);
+            play.click(function() { runCypher($(this).parent()) })
+        }
+      $(document).ready(function(){
+          startConsole();
+          addPlayButton();
+          $("#next-button").click(function() {
+              nextTab("#tabs");
+          })
       });
       function runConsole(cypher) {
           if (frames['neo4j-console']) {
@@ -95,13 +125,13 @@
 
 
     <div class="span5">
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#intro" data-toggle="tab">Intro</a></li>
-        <li><a href="#firststeps" data-toggle="tab">First steps with Cypher</a></li>
-        <li><a href="#explore" data-toggle="tab">Explore a dataset</a></li>
-        <li><a href="#update" data-toggle="tab">Updating the graph</a></li>
-        <li><a href="#paths" data-toggle="tab">Paths everywhere</a></li>
-        <li><a href="#setups" data-toggle="tab">Alternative Setups</a></li>
+      <ul id="tabs" class="nav nav-tabs">
+        <li class="active"><a href="#intro" data-toggle="tab">1. Intro</a></li>
+        <li><a href="#firststeps" data-toggle="tab">2. First steps with Cypher</a></li>
+        <li><a href="#explore" data-toggle="tab">3. Explore a dataset</a></li>
+        <li><a href="#update" data-toggle="tab">4. Updating the graph</a></li>
+        <li><a href="#paths" data-toggle="tab">5. Paths everywhere</a></li>
+        <li><a href="#setups" data-toggle="tab">6. Other Setups</a></li>
       </ul>
 
       <div class="tab-content">
@@ -265,6 +295,7 @@ RETURN colleague.name,count(<em>) order by count(</em>) desc limit 10;</pre>
             </ul>
         </div>
       </div>
+        <a id="next-button" class="btn">Next</a>
       </div>
 
   <!--<aside class="span3">

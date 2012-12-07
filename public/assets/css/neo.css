@@ -61,7 +61,7 @@ p,ul {
 }
 a:hover {
   color:#999999; 
-  text-decoration:none;
+  text-decoration:underline;
 }
 
 /** header **/
@@ -199,8 +199,8 @@ a {
   background: none;
 }
 .path h2 a:hover,.path a:hover .icon {
-  color:#ccc; 
-  text-decoration:none;
+  color:#ccc;
+  text-decoration: none;  
 }
 .transparent {
   color: white;
@@ -334,6 +334,7 @@ table th {
 }
 .footer a:hover {
   color: #ccc;
+  text-decoration: underline;  
 }
 .footer ul {
   padding: 0;
@@ -536,3 +537,10 @@ section {
 }
 
 .thumbnail { margin-top: 10px; }
+
+#play-button {
+    height: 20px;
+    padding: 2px;
+    font-size: 16px;
+    position: absolute;
+}
