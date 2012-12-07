@@ -43,9 +43,9 @@ app.locals.theme = function() {
  
 app.locals({
   neo4j: {
-    version: "1.9.M01",
-    date: "Oct 26, 2012",
-    summary: "Early access to self-managed HA, for simplified ops.",
+    version: "1.9.M02",
+    date: "Dec 7, 2012",
+    summary: "Rolling HA upgrades, Cypher performance.",
     readme: "http://blog.neo4j.org/2012/10/neo4j-19m01-self-managed-ha.html"
   } 
 });
