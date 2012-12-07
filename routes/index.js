@@ -22,14 +22,14 @@ exports.install = function(req, res){
  * GET - "download thanks" page
  */
 exports.download_thanks = function(req, res){
-  res.render('download_thanks', { category: 'install', title: 'Download Thanks' });
+  res.render('download_thanks', { category: 'install', title: 'Go create.' });
 };
 
 /*
  * GET - "subscribe thanks" page
  */
 exports.subscribe_thanks = function(req, res){
-  res.render('subscribe_thanks', { category: 'install', title: 'Subscribe Thanks' });
+  res.render('subscribe_thanks', { category: 'install', title: 'Thanks' });
 };
 
 /*
@@ -39,12 +39,16 @@ exports.learn = function(req, res){
   res.render('learn', { category: 'learn', title: 'Learn' });
 };
 
+exports.learn_graph = function(req, res){
+    res.render('learn_graph', { category: 'learn', title: 'Learn' });
+};
+
 
 /*
  * GET - "learn about neo4j" with an explanation of Neo4j as a graph database
  */
 exports.neo4j = function(req, res){
-  res.render('learn/neo4j', { category: 'learn', title: 'Neo4j' });
+  res.render('learn/neo4j', { category: 'learn', title: 'Learn' });
 };
 
 exports.cypher = function(req, res){
@@ -138,7 +142,7 @@ exports.example_data = function(req, res){
 };
 
 exports.d3 = function(req, res){
-    res.render('d3', { category: 'develop', title: 'Sample Datasets' });
+    res.render('d3', { category: 'develop', title: 'D3 Test' });
 };
 
 exports.terms = function(req, res){

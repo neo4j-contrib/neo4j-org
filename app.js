@@ -92,6 +92,7 @@ app.get('/', routes.index);
 app.get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 
 app.get('/learn', routes.learn); // path: concepts, best practices, operations
+app.get('/learn_graph', routes.learn_graph); // path: concepts, best practices, operations
 app.get('/learn/neo4j', routes.neo4j); // node:  about Neo4j
 app.get('/learn/apps', routes.apps); // graph:  showcase of apps built with Neo4j
 app.get('/learn/licensing', routes.license); // node:  Neo4j editions and licensing guide (categorized URL)
