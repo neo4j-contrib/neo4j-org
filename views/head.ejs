@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <% if (run_experiment) { %>
+    <% include experiment %>
+    <% } %>
     <meta charset="utf-8">
     <title><%= title %> - Neo4j: The World&#39; Leading Graph Database</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -6,18 +6,35 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
+  , https = require('https')
   , path = require('path')
-  , forwarder=require("./forwarder");
+  , ejs = require('ejs')
+  , fs = require('fs')
+  , experiment = ejs.render(fs.readFileSync("views/experiment.ejs", "utf-8"))  
+  , forwarder=require("./forwarder")
 
 var app = express();
 
 forwarder.add_console_forward(app,express,http);
+
+https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/versions.json"},
+    function(res) {
+        res.on("data", function(data) {
+            app.locals.versions = JSON.parse(data);            
+            console.log(app.locals.versions);
+        })
+    })
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
 //  app.use(express.favicon());
+  app.use(function(req, res, next){
+      res.locals.path = req.path;
+      res.locals.run_experiment = app.get('env') == 'production' && ['/','/index'].indexOf(req.path) != -1
+      next();
+  });  
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
@@ -26,8 +43,6 @@ app.configure(function(){
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
-
-
 
 app.configure('development', function(){
   app.use(express.errorHandler());
@@ -40,26 +55,21 @@ var rnd = function rnd(min, max) { return Math.floor(Math.random() * (max - min 
 app.locals.theme = function() {
   return themes[rnd(0,themes.length - 1)];
 }
- 
+
 app.locals({
   neo4j: {
     version: "1.9.M02",
     date: "Dec 7, 2012",
     summary: "Rolling HA upgrades, Cypher performance.",
-    readme: "http://blog.neo4j.org/2012/10/neo4j-19m01-self-managed-ha.html"
-  } 
-});
-
-app.locals({
-  neo4jGA: {
+    readme: "http://blog.neo4j.org/2012/12/neo4j-milestone-release-1.9-M02-under-the-hood.html"
+  }
+  , neo4jGA: {
     version: "1.8",
     date: "Oct 2, 2012",
     summary: "General Availability",
     readme: "http://blog.neo4j.org/2012/10/neo4j-18-release-fluent-graph-literacy.html"
-  } 
-});
-app.locals({
-  neo4jS: {
+  }
+  , neo4jS: {
     version: "1.9-SNAPSHOT",
     date: "Nov, 2012",
     summary: "Snapshot"
