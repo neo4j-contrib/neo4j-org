@@ -5,15 +5,32 @@
 <link rel="stylesheet" href="/assets/css/graph-diagram.css" type="text/css">
 <link rel="stylesheet" href="/assets/css/graph-editor.css" type="text/css">
 
-<figure class="graph-diagram">
-    <svg xmlns="http://www.w3.org/2000/svg" class="graph-diagram pre-sized" height="100%" width="100%"
+<div class="container">
+<div class="row">
+    <div class="span6 pagination-centered" id="hero">
+      <h2 style="text-align: center;"><img src="/assets/img/neo4j/logo.svg" width="80px" alt="Neo4J World's Leading Graph Database"> Neo4j</h2>
+        <br />
+        <span id="tag">The World&#39;s Leading Graph Database</span><br />
+        <p class="lead"><strong>Neo4j is an open-source, high-performance, enterprise-grade NOSQL graph database.</strong></p>
+
+        <p>Neo4j is a robust (fully ACID) transactional <a href="/learn/graphdatabase">property graph</a> database. Due to its
+  graph data model, Neo4j is highly agile and blazing fast. For connected data
+  operations, <a href="/learn/neo4j">Neo4j</a> runs a thousand times faster than relational databases.</p>
+        <p>Neo4j is utilized in a wide variety of use cases such as social applications,
+  recommendation engines, fraud detection, resource authorization, network &
+  data center management and much more.</p>
+        <a href="/install" class="btn btn-large btn-success" type="button"><i class="icon-download-alt"></i> Install</a>
+    </div>
+<div class="span6">
+    <figure class="graph-diagram">
+    <svg xmlns="http://www.w3.org/2000/svg" class="graph-diagram pre-sized" width="100%"
          viewBox="-500 -500 1000 1000"></svg>
 
-    <ul class="graph-diagram-markup" style="display: none;" data-internal-scale="2" data-external-scale="1">
+    <ul class="graph-diagram-markup" style="display: none;" data-internal-scale="1.5" data-external-scale="1">
         <li class="graph-diagram-node" data-node-id="4" data-x="0" data-y="-50" href="/learn/neo4j">
             <span class="graph-diagram-in-node-caption">Neo4j</span>
         </li>
-        <li class="graph-diagram-node" data-node-id="0" data-x="0" data-y="-180" href="/install">
+        <li class="graph-diagram-node" data-node-id="0" data-x="0" data-y="-250" href="/install">
             <span class="graph-diagram-in-node-caption">Install</span>
         </li>
 
@@ -28,7 +45,7 @@
             </li>
             
         
-        <li class="graph-diagram-node" data-node-id="1" data-x="-300" data-y="0" href="/learn">
+        <li class="graph-diagram-node" data-node-id="1" data-x="-250" data-y="0" href="/learn">
             <span class="graph-diagram-in-node-caption">Learn</span>
         </li>
 
@@ -39,7 +56,7 @@
                 <span class="graph-diagram-relationship-type">then</span>
             </li>
         
-        <li class="graph-diagram-node" data-node-id="2" data-x="0" data-y="100" href="/develop">
+        <li class="graph-diagram-node" data-node-id="2" data-x="0" data-y="150" href="/develop">
             <span class="graph-diagram-in-node-caption">Develop</span>
         </li>
 
@@ -50,7 +67,7 @@
                 <span class="graph-diagram-relationship-type">with</span>
             </li>
 
-        <li class="graph-diagram-node" data-node-id="3" data-x="300" data-y="0" href="/participate"><span class="graph-diagram-in-node-caption">Participate</span></li>
+        <li class="graph-diagram-node" data-node-id="3" data-x="250" data-y="0" href="/participate"><span class="graph-diagram-in-node-caption">Participate</span></li>
 
             <li class="graph-diagram-relationship" data-from="3" data-to="4">
                 <span class="graph-diagram-relationship-type">in</span>
@@ -58,7 +75,9 @@
     </ul>
 
 </figure>
-
+</div>
+</div>
+</div>
 <script type="text/javascript">
     d3.selectAll("figure.graph-diagram").each(function () {
         var graph = gd.markup.parse(d3.select(this).select("ul.graph-diagram-markup"));

@@ -61,6 +61,9 @@
 
   </head>
 
-  <body data-spy="scroll" data-target=".spyme">
- 
-  <% include header %>
+  <% if (!index_page) { %>
+    <body data-spy="scroll" data-target=".spyme" style="padding-top: 80">
+    <% include header %>
+  <% } else { %>
+    <body data-spy="scroll" data-target=".spyme">
+  <% } %>

@@ -12,12 +12,12 @@ body {
 	font-family: 'Lato', sans-serif;
 	background: #efeeea url(../img/grayBg.png) repeat 0 0;
 	color: #404040;
-	padding-top: 80px;
+	padding-top: 20px;
 }
 
 
 body > div.container {
-  padding-bottom: 80px;
+  padding-bottom: 20px;
 }
 
 /** Forms **/

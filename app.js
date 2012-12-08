@@ -32,7 +32,8 @@ app.configure(function(){
 //  app.use(express.favicon());
   app.use(function(req, res, next){
       res.locals.path = req.path;
-      res.locals.run_experiment = app.get('env') == 'production' && ['/','/index'].indexOf(req.path) != -1
+      res.locals.index_page = ['/','/index','/index_graph','/index_graph_svg'].indexOf(req.path) != -1
+      res.locals.run_experiment = app.get('env') == 'production' && res.locals.index_page
       next();
   });  
   app.use(express.logger('dev'));

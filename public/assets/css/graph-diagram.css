@@ -2,6 +2,10 @@ body, svg {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
+.graph-diagram {
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
 circle.graph-diagram-node {
     stroke: #00546A;
     stroke-width: 8px;
