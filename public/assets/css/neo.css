@@ -536,8 +536,13 @@ section {
   padding: 20px 0;
 }
 
-.thumbnail { margin-top: 10px; }
-
+.thumbnail { 
+    margin-top: 10px;
+    padding: 10px;
+}
+.thumbnail a {
+    text-align: center;
+}
 #play-button {
     height: 20px;
     padding: 2px;
