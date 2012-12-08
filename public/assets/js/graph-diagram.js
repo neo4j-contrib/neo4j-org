@@ -508,6 +508,10 @@ function bind(graph, view, nodeBehaviour, relationshipBehaviour) {
 
         function label(d) {
             return d.label();
+
+        }
+        function href(d) {
+            return d.href;
         }
 
         function hasProperties(d) {
@@ -610,12 +614,16 @@ function bind(graph, view, nodeBehaviour, relationshipBehaviour) {
                 .data(d3.values(graph.nodeList()).filter(label));
 
             boundVariables.exit().remove();
+            //   <a xlink:href="/svg/index.html">
 
-            boundVariables.enter().append("svg:text")
+            boundVariables.enter()
+                .append("svg:a")
+                .attr("xlink:href",href)
+//                .selectAll("a")
+//                .data(boundVariables).enter()
+                .append("svg:text")
                 .attr("class", boundVariableClasses)
-                .call(nodeBehaviour);
-
-            boundVariables
+                .call(nodeBehaviour)
                 .attr("x", cx)
                 .attr("y", cy)
                 .text(label);
