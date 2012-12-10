@@ -56,14 +56,14 @@ var rnd = function rnd(min, max) { return Math.floor(Math.random() * (max - min 
 app.locals.theme = function() {
   return themes[rnd(0,themes.length - 1)];
 }
-
+ 
 app.locals({
   neo4j: {
     version: "1.9.M02",
-    date: "Dec 7, 2012",
-    summary: "Rolling HA upgrades, Cypher performance.",
+    date: "Dec 10, 2012",
+    summary: "Faster Cypher and Kernel, HA ops improvements.",
     readme: "http://blog.neo4j.org/2012/12/neo4j-milestone-release-1.9-M02-under-the-hood.html"
-  }
+  } 
   , neo4jGA: {
     version: "1.8",
     date: "Oct 2, 2012",
