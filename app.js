@@ -43,10 +43,10 @@ app.locals.theme = function() {
  
 app.locals({
   neo4j: {
-    version: "1.9.M01",
-    date: "Oct 26, 2012",
-    summary: "Early access to self-managed HA, for simplified ops.",
-    readme: "http://blog.neo4j.org/2012/10/neo4j-19m01-self-managed-ha.html"
+    version: "1.9.M02",
+    date: "Dec 10, 2012",
+    summary: "Faster Cypher and Kernel, HA ops improvements.",
+    readme: "http://blog.neo4j.org/2012/12/neo4j-milestone-release-1.9-M02-under-the-hood.html"
   } 
 });
 
