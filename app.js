@@ -11,7 +11,8 @@ var express = require('express')
   , ejs = require('ejs')
   , fs = require('fs')
   , experiment = ejs.render(fs.readFileSync("views/experiment.ejs", "utf-8"))  
-  , forwarder=require("./forwarder")
+  , forwarder=require("./helpers/forwarder")
+  , munchkin=require("./helpers/munchkin")
 
 var app = express();
 
@@ -130,6 +131,17 @@ app.get('/learn/try', routes.try);
 app.get('/test/d3', routes.d3);
 app.get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
 
+app.get('/marketo',function(req,res) {
+    var cookie = req.cookies["_mkto_trk"];
+    if (cookie && munchkin) {
+        munchkin.marketo(cookie, function(id) { 
+            if (id) res.send(200,""+id);
+            else res.send(404,"Unknown"); 
+        })
+    } else {
+        res.send(500);
+    }
+});
 
 // well known historic URLs redirects
 app.get('/download', routes.install);
