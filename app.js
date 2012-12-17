@@ -70,6 +70,10 @@ app.locals({
     date: "Oct 2, 2012",
     summary: "General Availability",
     readme: "http://blog.neo4j.org/2012/10/neo4j-18-release-fluent-graph-literacy.html"
+//    version: "1.8.1",
+//    date: "Dec 14, 2012",
+//    summary: "General Availability",
+//    readme: "http://blog.neo4j.org/2012/12/...."
   }
   , neo4jS: {
     version: "1.9-SNAPSHOT",

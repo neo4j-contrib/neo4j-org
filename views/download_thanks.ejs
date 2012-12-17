@@ -47,7 +47,7 @@
 <script type='text/javascript'>//<![CDATA[
 $(document).ready(function() {
     var ed = getUrlVars()["edition"] || "community";
-    var re = getUrlVars()["release"] || <%= neo4jGA.version %>;
+    var re = getUrlVars()["release"] || "<%= neo4jGA.version %>";
     var pl = getUrlVars()["platform"] || "unix";
     var packaging = 'zip';
     var suffix = "zip";
