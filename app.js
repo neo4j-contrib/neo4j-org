@@ -65,15 +65,11 @@ app.locals({
     summary: "Faster Cypher and Kernel, HA ops improvements.",
     readme: "http://blog.neo4j.org/2012/12/neo4j-milestone-release-1.9-M02-under-the-hood.html"
   } 
-  , neo4jGA: {
-    version: "1.8",
-    date: "Oct 2, 2012",
-    summary: "General Availability",
-    readme: "http://blog.neo4j.org/2012/10/neo4j-18-release-fluent-graph-literacy.html"
-//    version: "1.8.1",
-//    date: "Dec 14, 2012",
-//    summary: "General Availability",
-//    readme: "http://blog.neo4j.org/2012/12/...."
+   ,neo4jGA: {
+    version: "1.8.1"
+   ,date: "Dec 14, 2012"
+   ,summary: "General Availability"
+   ,readme: "http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html"
   }
   , neo4jS: {
     version: "1.9-SNAPSHOT",
