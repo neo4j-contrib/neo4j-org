@@ -52,16 +52,16 @@ app.locals({
 
 app.locals({
   neo4jGA: {
-    version: "1.8",
-    date: "Oct 2, 2012",
-    summary: "General Availability",
-    readme: "http://blog.neo4j.org/2012/10/neo4j-18-release-fluent-graph-literacy.html"
+    version: "1.8.1",
+    date: "Dec 14, 2012",
+    summary: "General Availability"
+    //, readme: "http://blog.neo4j.org/2012/10/neo4j-18-release-fluent-graph-literacy.html"
   } 
 });
 app.locals({
   neo4jS: {
     version: "1.9-SNAPSHOT",
-    date: "Nov, 2012",
+    date: "Dec, 2012",
     summary: "Snapshot"
   } 
 });
