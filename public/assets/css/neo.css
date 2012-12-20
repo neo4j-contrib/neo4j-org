@@ -90,6 +90,12 @@ a:hover {
 #navigation {
   margin-top: -5px;
 }
+h3.target:before {
+  display: block;
+  content: '';
+  height: 70px;
+  margin: -70px 0 0;
+}
 
 /** page nav **/
 .nav-stacked.affix  {
