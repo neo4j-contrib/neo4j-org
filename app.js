@@ -60,10 +60,10 @@ app.locals.theme = function() {
  
 app.locals({
   neo4j: {
-    version: "1.9.M02",
-    date: "Dec 10, 2012",
-    summary: "Faster Cypher and Kernel, HA ops improvements.",
-    readme: "http://blog.neo4j.org/2012/12/neo4j-milestone-release-1.9-M02-under-the-hood.html"
+    version: "1.9.M03",
+    date: "Dec 21, 2012",
+    summary: "Cypher bugfixes, Gremlin deps refactoring",
+    readme: "http://blog.neo4j.org/2012/12/neo4j-19m03-released.html"
   } 
    ,neo4jGA: {
     version: "1.8.1"
