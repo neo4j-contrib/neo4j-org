@@ -161,7 +161,7 @@
 
     <p>We provide Debian packages in a repository.  We sign the packages so you know you're getting the genuine Neo4j packages.  To use the packages, you need to get our signing key first.  You also need to configure your system to look for our packages: see the instructions below.  Neo4j will be started automatically when your system boots up.  Run all the commands below in a root shell.</p>
     <pre>
-wget -O - http://debian.neo4j.org/neotech.asc | apt-key add - # Import our signing key
+wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - # Import our signing key
 echo 'deb http://debian.neo4j.org/repo stable/' &gt; /etc/apt/sources.list.d/neo4j.list
 # Create an Apt sources.list file
 aptitude update -y # Find out about the files in our repository
