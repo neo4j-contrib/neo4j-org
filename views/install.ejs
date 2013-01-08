@@ -159,16 +159,16 @@
 <div class="installation">
     <h3>Debian - stable (<%= neo4jGA.version %>)</h3>
 
-    <p>To install Neo4j on Debian/Ubuntu we provide a debian repository and package, so just add the repository to
-        <code>apt</code> and install it. To use the other editions just choose <code>neo4j-advanced</code>, <code>neo4j-enterprise</code>
-        for the install. Neo4j will be installed as a service in your system and started automatically when your system
-        boots up.</p>
-    <pre>sudo sh -c 'echo "deb http://debian.neo4j.org/repo stable/" > /etc/apt/sources.list.d/neo4j.list'
-sudo apt-get update
-sudo apt-get install neo4j
+    <p>We provide Debian packages in a repository.  We sign the packages so you know you're getting the genuine Neo4j packages.  To use the packages, you need to get our signing key first.  You also need to configure your system to look for our packages: see the instructions below.  Neo4j will be started automatically when your system boots up.  Run all the commands below in a root shell.</p>
+    <pre>
+wget -O - http://debian.neo4j.org/neotech.asc | apt-key add - # Import our signing key
+echo 'deb http://debian.neo4j.org/repo stable/' &gt; /etc/apt/sources.list.d/neo4j.list
+# Create an Apt sources.list file
+aptitude update -y # Find out about the files in our repository
+aptitude install neo4j -y # Install Neo4j, community edition
 neo4j start
     </pre>
-    <p>If you want to install unsupported milestone or snapshot builds, add <code>testing/</code> or <code>unstable/</code> to <code>neo4j.list</code> instead of <code>stable/</code>.</p>
+    <p>To use the other editions, install <code>neo4j-advanced</code>, <code>neo4j-enterprise</code> instead of <code>neo4j</code>.  If you want to install unsupported milestone builds, add <code>testing/</code> to <code>neo4j.list</code> instead of <code>stable/</code>.</p>
 </div>
 <div class="installation">
     <h3>MacOS X - Homebrew - stable (<%= neo4jGA.version %>)</h3>
