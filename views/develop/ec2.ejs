@@ -113,18 +113,17 @@
 
             <h3>Add Neo4j on Debian/Ubuntu</h3>
 
-            <p>For details follow <a href="http://debian.neo4j.org">http://debian.neo4j.org</a></p>
-
-
-            <ol>
-                <li>Add Neo4j repository to APT:<br/>
-                    <code>echo 'deb http://debian.neo4j.org/repo stable/' > /etc/apt/sources.list.d/neo4j.list</code>
-                </li>
-
-                <li>Update depedency lists: <code>sudo apt-get update</code></li>
-                <li>Install Neo4j: <code>sudo apt-get install neo4j</code> (say "yes" to all questions)</li>
-            </ol>
-
+            <p>Run all the commands below in a root shell.  You can safely copy and paste all the details
+            into a root shell on a new EC2 machine.  For details follow <a href="/install">our install guide</a>.</p>
+                <pre>
+wget -O - http://debian.neo4j.org/neotech.asc | apt-key add -
+# Import our signing key
+echo 'deb http://debian.neo4j.org/repo stable/' &gt; \
+/etc/apt/sources.list.d/neo4j.list # Create an Apt sources.list file
+aptitude update -y # Find out about the files in our repository
+aptitude install neo4j -y # Install Neo4j, community edition
+neo4j start
+                </pre>
 
             <h3>Confirm Neo4j is running locally</h3>
 
