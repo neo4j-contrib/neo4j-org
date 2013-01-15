@@ -1,0 +1,24 @@
+<p>We provide Debian packages in a repository.<br/>  
+    We <em>sign</em> the packages so you know you're getting the genuine Neo4j packages.  
+    To use the packages, you need to get our signing key first.<br/>  
+    You also need to configure your system to look for our packages, see the instructions below.
+    You can safely copy and paste all the commands below into a <strong>root shell</strong> on the target machine.<br/>
+    <em>Neo4j will be started automatically when your system boots up.</em>  
+</p>
+<pre>
+# start root shell
+sudo su -
+# Import our signing key
+wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add - 
+# Create an Apt sources.list file
+echo 'deb http://debian.neo4j.org/repo stable/' &gt; /etc/apt/sources.list.d/neo4j.list
+# Find out about the files in our repository
+aptitude update -y
+# Install Neo4j, community edition
+aptitude install neo4j -y
+# start neo4j server, available at <a href="http://localhost:7474">http://localhost:7474</a> of the target machine
+neo4j start
+</pre>
+<p>To use the other editions, install <code>neo4j-advanced</code>, <code>neo4j-enterprise</code> instead of <code>neo4j</code>.  
+   If you want to install unsupported milestone builds, add <code>testing/</code> to <code>neo4j.list</code> instead of <code>stable/</code>.
+</p>
