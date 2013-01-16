@@ -1,0 +1,66 @@
+<% include ../head %>
+<div class="container">
+
+<div role="main" class="row">
+  <div class="span8">
+
+      <div id="neo4j" class="hero-unit path">
+        <h2><a><i class="icon icon-cogs"></i> Neo4j for Java developers.</a></h2>
+        <p class="lead">As the 4j indicates Neo4j is a paradise for JVM developers. Welcome to the journey.</p>
+      </div>
+
+      <p>Welcome to Neo4j. For a Java or JVM-language developer, Neo4j offers a rich set of development possibilities.
+         Make sure to have looked at our information on graph databases and Neo4j in general. You should also check out
+         our graph query language Cypher which makes it very easy to get going. 
+      </p>
+      <p>Neo4j comes in two flavors. The standalone Server can be installed on any machine and then accessed via its REST API.
+         You can then use whatever REST-library you choose.
+      </p>
+      <p>But you can also run Neo4j embedded in your JVM process, much like HSQL or Derby. This is great for unit testing, but
+          also for high performance / no-network setups.
+      </p>
+       
+      <h3>Java API</h3>
+      <h3>Using Cypher from Java</h3>
+      <h3>Neo4j Server</h3>
+      <h3>Batch Insertion</h3>
+      <h3>JDBC driver</h3>
+      <h3>Sample Projects</h3>
+      <h3>Ways of accessing Neo4j in the JVM</h3>
+      <% var tilespan=3; %>
+      <div class="thumbnails drivers row-fluid">
+          <% ["neo4j_rest","spring_data_neo4j","neo4j_java","scala"].forEach(function(driver) { %>
+              <% include ../develop/_driver %>
+          <% }); %>
+      </div>
+      <div class="thumbnails drivers row-fluid">
+          <% ["neocons","anorm_cypher","neo4j_python","datanucleus"].forEach(function(driver) { %>
+              <% include ../develop/_driver %>
+          <% }); %>
+      </div>
+      <div class="thumbnails drivers row-fluid">
+          <% ["neo4j_rb"].forEach(function(driver) { %>
+              <% include ../develop/_driver %>
+          <% }); %>
+      </div>
+    </div>
+    <aside class="span4 sidebar">
+  <div class="next-steps">
+    <h2>Next Steps</h2>
+    <div class="next thumbnail">
+      <div class="caption">
+          <ul>
+              <li><a href="/learn/graphdatabase">What is a graph database</a></li>
+              <li><a href="/install">Install Neo4j</a></li>
+              <li><a href="/learn/cypher">Introduction to Cypher</a></li>
+              <li><a href="/develop">Develop an App</a></li>
+          </ul>
+    </div>
+  </div>
+  </div>
+   
+    </aside>
+  </div>
+</div>
+<% include ../foot %>
+

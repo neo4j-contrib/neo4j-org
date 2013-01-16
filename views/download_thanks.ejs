@@ -15,7 +15,7 @@
         <p>Stay informed about Neo4j events, releases and technical articles on graphs and development with Neo4j. </p>
         <iframe src="http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html" onload="this.style.visibility = 'visible';" style="border:0;padding: 5;" width="220px" height="60px" frameborder=”0” scrolling="no"></iframe>
         
-        <h3>Learn how to install Neo4j after download.</h3>
+        <h3>Install Neo4j after download.</h3>
         <% include download/installation %>
        
     </div>
@@ -28,7 +28,8 @@
           <ul class="circle">
               <li><a href="/learn/graphdatabase">Graph Introduction</a></li>
               <li><a href="/develop">Learn to Build Apps</a></li>
-              <li><a href="/participate">Get Help</a></li>
+              <li><a href="/develop/example_data">Sample Datasets</a></li>
+              <li><a href="/develop">Learn to Build Apps</a></li>
               <li><a href="http://docs.neo4j.org/chunked/milestone/server-installation.html" target="_blank">Detailed Installation Instructions</a></li>
               <li><a href="/release-notes" >Release notes for the Neo4j major versions</a></li>
               
@@ -46,6 +47,7 @@
 
 <script type='text/javascript'>//<![CDATA[
 $(document).ready(function() {
+    var testing = getUrlVars()["test"] || null;
     var ed = getUrlVars()["edition"] || "community";
     var re = getUrlVars()["release"] || "<%= neo4jGA.version %>";
     var pl = getUrlVars()["platform"] || "unix";
@@ -75,9 +77,10 @@ $(document).ready(function() {
         var downloadLink = "http://download.neo4j.org/artifact?edition=" + ed + "&version=" + re + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
 
         $(".downloadLink").attr("href",downloadLink);
-        window.location = downloadLink;
+        if (testing==null) {
+            window.location = downloadLink;
+        }
     }
-
     $.ajax("/marketo", {
         success: function(id) {
             updateDownloadLink(id)

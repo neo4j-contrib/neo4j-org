@@ -5,260 +5,29 @@
 
 
 <div class="span12">
-<div class="inner">
-    <div id="drivers" class="hero-unit path">
-        <h2><a><i class="icon icon-cogs"></i> Language Drivers</a></h2>
+    <div class="inner">
+        <div id="drivers" class="hero-unit path">
+            <h2><a><i class="icon icon-cogs"></i> Language Drivers</a></h2>
 
-        <p class="lead">Friends of Neo4j speak many languages, and work in many frameworks. </p></div>
-</div>
+            <p class="lead">Friends of Neo4j speak many languages, and work in many frameworks. </p></div>
 
 
 <div class="thumbnails drivers row-fluid">
-
-    <div class="span2 thumbnail java rest thumbnail">
-        <a href="http://docs.neo4j.org/chunked/milestone/rest-api.html">
-            <img src="/assets/img/languages/neo4jrest.png" title="Neo4j rest thumbnail" alt="image"/>
-            <h5>Neo4j REST API</h5></a>
-
-
-        <p>Discoverable, language-neutral data access from anything that can send HTTP requests. You could write
-            a
-            whole application with just bash scripts and curl.</p>
-    </div>
-
-    <div class=" span2 java embedded rest thumbnail">
-
-        <a href="/develop/spring">
-
-            <img src="/assets/img/languages/sdn.png" title="Spring Data Neo4j" alt="image"/>
-
-
-            <h5>Spring Data Neo4j</h5></a>
-
-        <p>Familiar POJO-based development, enabling object-to-graph mapping using annotations. Amazingly
-            simple,
-            with full graph power just a traversal query away.</p></div>
-
-    <div class=" span2 embedded thumbnail">
-
-        <a href="http://docs.neo4j.org/chunked/stable/tutorials-java-embedded.html">
-
-            <img src="/assets/img/languages/embedded.png" title="Neo4j embedded" alt="image"/>
-
-
-            <h5>Embedded Java</h5></a>
-
-        <p>For intimate access, talk directly to Neo4j&#39;s graph engine directly in your JVM based
-            application.
-            Full feature parity with Neo4j Server, including HA clustering.</p></div>
-
-    <div class="span2 ruby embedded thumbnail">
-
-        <a href="https://github.com/andreasronge/neo4j">
-
-            <img src="/assets/img/languages/rails.png" title="neo4j.rb" alt="image"/>
-
-
-            <h5>neo4j.rb</h5></a>
-
-        <p>Ruby on Rails? Try coasting along graph paths with Neo4j. Everything you know and love, wrapped with
-            graph glory.</p></div>
-
-    <div class="span2 ruby rest thumbnail">
-
-        <a href="https://github.com/maxdemarzi/neography/">
-
-            <img src="/assets/img/languages/ruby.png" title="Neography" alt="image"/>
-
-
-            <h5>Neography</h5></a>
-
-        <p>For native Ruby access to Neo4j, Neography provides a thin, elegant wrapper around the REST API. </p></div>
-
-    <div class="span2 php rest thumbnail">
-
-        <a href="https://github.com/jadell/neo4jphp/wiki/Introduction">
-
-            <img src="/assets/img/languages/php.png" title="Neo4jPHP" alt="image"/>
-
-
-            <h5>Neo4jPHP</h5></a>
-
-        <p>Neo4jPHP provides an API that is both intuitive and flexible, and it takes advantage of
-            "under-the-hood"
-            performance enhancements, such as caching and lazy-loading. </p></div>
-</div>
-<div class="thumbnails drivers row-fluid">
-    <div class="span2 dotnet rest thumbnail">
-
-        <a href="http://hg.readify.net/neo4jclient/wiki/Home/">
-
-            <img src="/assets/img/languages/dotnet.png" title="Neo4jClient .net" alt="image"/>
-
-
-            <h5>Neo4jClient</h5></a>
-
-        <p>A .NET client for Neo4j which supports basic CRUD operations, a fluent Cypher query interface, and
-            some
-            indexing operations. </p></div>
-
-    <div class="span2 python rest thumbnail">
-
-        <a href="http://py2neo.org/">
-
-            <img src="/assets/img/languages/py2neo.png" title="py2neo" alt="image"/>
-
-
-            <h5>py2neo</h5></a>
-
-        <p>Py2neo is a simple and pragmatic Python library that provides access to the popular graph database
-            Neo4j via its RESTful web service interface.</p></div>
-    <div class="span2 python embedded thumbnail">
-
-        <a href="http://pypi.python.org/pypi/neo4j-embedded thumbnail">
-
-            <img src="/assets/img/languages/python.png" title="python logo" alt="python logo"/>
-
-
-            <h5>Python Embedded</h5></a>
-
-        <p>The JVM based Python integration for Neo4j uses JPype. More details in the <a
-                href="http://docs.neo4j.org/chunked/snapshot/python-embedded.html">Neo4j manual.</a></p></div>
-
-    <div class="span2 js rest thumbnail">
-
-        <a href="https://github.com/thingdom/node-neo4j">
-
-            <img src="/assets/img/languages/nodejs.png" title="node-neo4j" alt="image"/>
-
-
-            <h5>node-neo4j</h5></a>
-
-        <p>Node.js driver for Neo4j. Cleverly asynchronous, and blazingly fast. </p></div>
-
-    <div class="span2 clojure rest thumbnail">
-
-        <a href="http://clojureneo4j.info/">
-
-            <img src="/assets/img/languages/clojure.png" title="Neocons Clojure" alt="image"/>
-
-
-            <h5>Neocons</h5></a>
-
-        <p>An idiomatic, feature rich Clojure client which supports (almost) all Neo4J REST API features and is
-            constantly tested against bleeding edge server changes, like the Cypher language improvements. </p></div>
-
-
-    <div class="span2 python rest thumbnail">
-
-        <a href="http://bulbflow.com/overview/">
-
-            <img src="/assets/img/languages/bulbflow.png" title="Bulbflow" alt="image"/>
-
-
-            <h5>Bulbflow</h5></a>
-
-        <p>Bulbs is an open-source Python persistence framework for graph databases and the first piece of a
-            larger
-            Web-development toolkit. It’s like an ORM for graphs. </p></div>
+    <% ["neo4j_rest","spring_data_neo4j","neo4j_java","neo4j_rb","neography","neo4jphp"].forEach(function(driver) { %>
+        <% include _driver %>
+    <% }); %>
 
 </div>
 <div class="thumbnails drivers row-fluid">
-    <div class="span2 ruby rest thumbnail">
-
-        <a href="http://github.com/therubymug/keymaker">
-
-            <img src="/assets/img/languages/ruby.png" title="Keymaker" alt="image"/>
-
-
-            <h5>Keymaker</h5></a>
-
-        <p>A multi-layer REST API Ruby wrapper for the Neo4j graph database built on top of Faraday.</p></div>
-    <div class="span2 ruby rest thumbnail">
-
-        <a href="https://github.com/elado/neoid">
-
-            <img src="/assets/img/languages/rails.png" title="Neoid" alt="image"/>
-
-
-            <h5>Neoid</h5></a>
-
-        <p>Make your ActiveRecords stored and searchable on Neo4j graph database. With Neoid, queries that would
-            make MySQL crawl become super fast. You get the benefits of Neo4j speed while keeping your schema on
-            your plain old RDBMS. </p></div>
-
-    <div class="span2 python rest thumbnail">
-
-        <a href="https://github.com/scholrly/neo4django">
-
-            <img src="/assets/img/languages/django.png" title="neo4django" alt="image"/>
-
-
-            <h5>neo4django</h5></a>
-
-        <p>neo4django is an Object Graph Mapper (OGM) for Django. Use familiar Django models and queries against
-            Neo4j.</p></div>
-
-    <div class="span2 perl rest thumbnail">
-
-        <a href="https://metacpan.org/release/REST-Neo4p">
-
-            <img src="/assets/img/languages/perl.png" title="Neo4p" alt="image"/>
-
-
-            <h5>REST::Neo4p</h5></a>
-
-        <p>Works with the Neo4j's REST by using Perl5 objects in a Perl person's favorite way.</p></div>
-
-    <div class="span2 scala rest thumbnail">
-
-        <a href="https://github.com/FaKod/neo4j-scala/">
-
-            <img src="/assets/img/languages/scala.png" title="neo4j-scala" alt="image"/>
-
-
-            <h5>Neo4j Scala</h5></a>
-
-        <p>A Scala wrapper for Neo4j which introduces an intuitive DSL for graph operations.</p></div>
-
-    <div class="span2 scala rest thumbnail">
-
-        <a href="http://anormcypher.org/">
-
-            <img src="/assets/img/languages/scala.png" title="AnormCypher" alt="image"/>
-
-
-            <h5>AnormCypher</h5></a>
-
-        <p>A Cypher-oriented Scala library modeled after the Play! framework's Anorm library.</p></div>
-
+    <% [ "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "bulbflow"].forEach(function(driver) { %>
+        <% include _driver %>
+    <% }); %>
 </div>
 <div class="thumbnails drivers row-fluid">
-    <div class="span2 haskell rest thumbnail">
-
-        <a href="http://hackage.haskell.org/package/cypher-0.8">
-
-            <img src="/assets/img/languages/haskell.png" title="haskell-cypher" alt="image"/>
-
-
-            <h5>Haskell Cypher</h5></a>
-
-        <p>Haskell Cypher makes it easy to send cypher commands to neo4j servers over the REST API.
-            Additionally, it
-            allows users to parse haskell datatypes from cypher queries.</p></div>
-    <div class="span2 java embedded thumbnail">
-
-        <a href="http://www.datanucleus.org/plugins/store.neo4j.html">
-
-            <img src="/assets/img/languages/datanucleus.png" title="DataNucleus" alt="image"/>
-
-
-            <h5>DataNucleus Neo4j Plugin</h5></a>
-
-        <p>datanucleus-neo4j provides persistence of Java objects to Neo4j. It builds on top of the basic
-            persistence provided by datanucleus-core.</p></div>
-
-
+    <% [ "keymaker", "neoid", "neo4django","neo4j_rest_client", "neo4p", "scala", "anorm_cypher", "haskell", "datanucleus","neo4j_go" ].forEach(function(driver) { %>
+        <% include _driver %>
+    <% }); %>
+</div>
 </div>
 </div>
 </div>

@@ -13,11 +13,12 @@ var express = require('express')
   , experiment = ejs.render(fs.readFileSync("views/experiment.ejs", "utf-8"))  
   , forwarder=require("./helpers/forwarder")
   , munchkin=require("./helpers/munchkin")
+  , drivers=require("./helpers/drivers")
 
 var app = express();
 
 forwarder.add_console_forward(app,express,http);
-
+/*
 https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/versions.json"},
     function(res) {
         res.on("data", function(data) {
@@ -25,7 +26,7 @@ https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/version
             console.log(app.locals.versions);
         })
     })
-
+*/
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
@@ -57,7 +58,8 @@ var rnd = function rnd(min, max) { return Math.floor(Math.random() * (max - min 
 app.locals.theme = function() {
   return themes[rnd(0,themes.length - 1)];
 }
- 
+app.locals.drivers=drivers.drivers;
+
 app.locals({
   neo4j: {
     version: "1.9.M03",
@@ -163,6 +165,7 @@ app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (we
 app.get('/release-notes', routes.release_notes);
 app.get('/customers', routes.customers);
 app.get('/getting-started', routes.develop);
+app.get('/java', routes.java);
 
 
 // download resources

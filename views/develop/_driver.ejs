@@ -1,0 +1,9 @@
+<% var info=drivers[driver] %>
+<div class="span<%= tilespan||2 %> <%=: info['tags'] | join:' ' %> thumbnail">
+    <a href="<%= info['url'] %>">
+        <img src="<%= info['logo'] %>" title="<%= info['name'] %>" alt="image"/>
+        <h5><%= info['name'] %></h5>
+    </a>
+    <a href="http://twitter.com/<%= info['twitter']||'neo4j' %>"><em><%= info['author']||'' %></em></a>
+    <p><%- info['text'] %></p>
+</div>
