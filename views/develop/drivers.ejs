@@ -24,7 +24,12 @@
     <% }); %>
 </div>
 <div class="thumbnails drivers row-fluid">
-    <% [ "keymaker", "neoid", "neo4django","neo4j_rest_client", "neo4p", "scala", "anorm_cypher", "haskell", "datanucleus","neo4j_go" ].forEach(function(driver) { %>
+    <% [ "keymaker", "neoid", "neo4django","neo4j_rest_client", "neo4p", "scala" ].forEach(function(driver) { %>
+        <% include _driver %>
+    <% }); %>
+</div>
+<div class="thumbnails drivers row-fluid">
+    <% [ "anorm_cypher", "haskell", "datanucleus","neo4j_go" ].forEach(function(driver) { %>
         <% include _driver %>
     <% }); %>
 </div>

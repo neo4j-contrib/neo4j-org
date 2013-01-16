@@ -1,9 +1,24 @@
 <% var info=drivers[driver] %>
 <div class="span<%= typeof tilespan=='undefined' ? 2 : tilespan %> <%=: info['tags'] | join:' ' %> thumbnail">
-    <a href="<%= info['url'] %>">
+    <a target="_blank" href="<%= info['url'] %>">
         <img src="<%= info['logo'] %>" title="<%= info['name'] %>" alt="image"/>
         <h5><%= info['name'] %></h5>
     </a>
-    <a href="http://twitter.com/<%= info['twitter']||'neo4j' %>"><em><%= info['author']||'' %></em></a>
+    <div style="text-align: center; ">
+        <a target="_blank" href="http://twitter.com/<%= info['twitter']||'neo4j' %>"><h6><%= info['author']||'' %></h6></a>
+    </div>    
     <p><%- info['text'] %></p>
+    
+    <div style="text-align: center; "><% if (info['site']) { %>
+    <a target="_blank" href="<%= info['site'] %>">Site</a>
+    <% }
+       if (info['docs']) { 
+    %>
+    | <a target="_blank" href="<%= info['docs'] %>">Docs</a> 
+    <% }
+       if (info['source']) { 
+    %>
+    | <a target="_blank" href="<%= info['source'] %>">Source</a> 
+    <% }
+    %></div>
 </div>

@@ -117,16 +117,17 @@ app.get('/learn/nosql', routes.nosql); // node:  compare to other databases
 app.get('/learn/cypher', routes.cypher); // node:  compare to other databases
 app.get('/develop/visualize', routes.visualize); // node:  compare to other databases
 app.get('/develop', routes.develop); // path: development guides in featured languages
-app.get('/develop/heroku', routes.heroku); // path: development guides in featured languages
-app.get('/develop/spring', routes.spring); // path: development guides in featured languages
+app.get('/develop/heroku', routes.heroku); // path: heroku deployment
+app.get('/develop/spring', routes.spring); // path: spring data neo4j landing page
 app.get('/develop/ec2', routes.ec2); // path: development guides in featured languages
-app.get('/develop/example_data', routes.example_data); // path: development guides in featured languages
+app.get('/develop/example_data', routes.example_data); // path: example data sets
 app.get('/develop/spring', routes.spring); // path: development guides in featured languages
-app.get('/develop/drivers', routes.drivers); // graph: language drivers and frameworks
-app.get('/participate', routes.participate); // graph: language drivers and frameworks
-app.get('/install', routes.install); //  download Neo4j
-app.get('/download_thanks', routes.download_thanks); //  download thanks Neo4j
-app.get('/subscribe_thanks', routes.subscribe_thanks); //  download thanks Neo4j
+app.get('/develop/drivers', routes.drivers);
+app.get('/drivers', routes.drivers);
+app.get('/participate', routes.participate); 
+app.get('/install', routes.install);
+app.get('/download_thanks', routes.download_thanks);
+app.get('/subscribe_thanks', routes.subscribe_thanks); 
 app.get('/participate/contributors', routes.contributors);
 app.get('/learn/graphdatabase', routes.graphdb);
 app.get('/learn/try', routes.try);

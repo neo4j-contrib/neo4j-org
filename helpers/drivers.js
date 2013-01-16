@@ -3,8 +3,10 @@ exports.drivers = {
         name : "AnormCypher",
         author : "Wes Freeman",
         twitter : "wefreema",
-        source : "https://github.com/wfreeman/AnormCypher",
-        url : "http://anormcypher.org/",
+        source : "https://github.com/AnormCypher/AnormCypher",
+        docs : "https://github.com/AnormCypher/AnormCypher/blob/master/readme.md#anormcypher",
+        url : "http://anormcypher.org",
+        site : "http://anormcypher.org",
         logo : "/assets/img/languages/scala.png",
         text: "A Cypher-oriented Scala library modeled after the Play! framework's Anorm library.",
         tags: ["scala","rest","cypher"]
