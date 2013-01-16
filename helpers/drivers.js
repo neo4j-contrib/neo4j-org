@@ -2,7 +2,7 @@ exports.drivers = {
     anorm_cypher : {
         name : "AnormCypher",
         author : "Wes Freeman",
-        twitter : "wfreeman",
+        twitter : "wefreema",
         source : "https://github.com/wfreeman/AnormCypher",
         url : "http://anormcypher.org/",
         logo : "/assets/img/languages/scala.png",

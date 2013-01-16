@@ -1,5 +1,5 @@
 <% var info=drivers[driver] %>
-<div class="span<%= tilespan||2 %> <%=: info['tags'] | join:' ' %> thumbnail">
+<div class="span<%= typeof tilespan=='undefined' ? 2 : tilespan %> <%=: info['tags'] | join:' ' %> thumbnail">
     <a href="<%= info['url'] %>">
         <img src="<%= info['logo'] %>" title="<%= info['name'] %>" alt="image"/>
         <h5><%= info['name'] %></h5>
