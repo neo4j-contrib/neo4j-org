@@ -120,7 +120,11 @@ exports.spring = function(req, res){
 
 
 exports.ec2 = function(req, res){
-  res.render('develop/ec2', { category: 'develop', title: 'DIY EC2' });
+  res.render('develop/ec2', { category: 'develop', title: 'Easy Neo4j Setup on EC2' });
+};
+
+exports.ec2_detailed = function(req, res){
+  res.render('develop/ec2_detailed', { category: 'develop', title: 'Detailed Instructions and Skripts for EC2 setup' });
 };
 
 

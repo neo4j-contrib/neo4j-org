@@ -31,13 +31,18 @@ https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/version
 */
 
 app.locals.content = {}
-https.get({host: "raw.github.com", path: "/neo4j-contrib/neo4j-puppet/master/README.md"},
-    function(res) {
-        res.on("data", function(data) {
-            app.locals.content.puppet = data.toString();            
+function load_github_content(name, path, host) {
+    if (!host) host="raw.github.com";
+    https.get({host: host, path: path},
+        function(res) {
+            res.on("data", function(data) {
+                app.locals.content[name] = data.toString();            
+            })
         })
-    })
-
+    
+}
+load_github_content('puppet',"/neo4j-contrib/neo4j-puppet/master/README.md")
+load_github_content('ec2_template',"/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md")
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -138,6 +143,7 @@ app.get('/develop', routes.develop); // path: development guides in featured lan
 app.get('/develop/heroku', routes.heroku); // path: heroku deployment
 app.get('/develop/spring', routes.spring); // path: spring data neo4j landing page
 app.get('/develop/ec2', routes.ec2); // path: development guides in featured languages
+app.get('/develop/ec2_detailed', routes.ec2_detailed); // path: development guides in featured languages
 app.get('/develop/example_data', routes.example_data); // path: example data sets
 app.get('/develop/spring', routes.spring); // path: development guides in featured languages
 app.get('/develop/drivers', routes.drivers);
