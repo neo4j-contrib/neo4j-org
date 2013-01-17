@@ -6,23 +6,39 @@
     <div class="main row">
         <div class="span8">
             <div id="learn" class="hero-unit path">
-                <h2><a><i class="icon icon-cogs"></i> DIY on Amazon EC2</a></h2>
+                <h2><a><i class="icon icon-cogs"></i> Neo4j on Amazon EC2</a></h2>
 
                 <p class="lead">For ultimate control, you can provision Neo4j to perfectly match your needs</p>
             </div>
+            
+            <h2  id="video">Manual Setup Neo4j on EC2</h2>
+            
+            <a data-toggle="lightbox" href="#ec2video" class="thumbnail"><img src="/assets/img/still/ec2_install.gif"
+                                                                                  alt="Click to View"/></a>
 
-            <iframe src="http://player.vimeo.com/video/54142111?badge=0" width="500" height="281" frameborder="0"
-                    webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-            <p><a href="http://vimeo.com/54142111">Neo4j Install Tutorial for EC2</a> from <a
-                    href="http://vimeo.com/user1375223">Peter Neubauer</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+            <p class="caption"><i class="icon icon-facetime-video"></i> Peter Neubauer shows how to install Neo4j on EC2.</p>
 
-            <h3>Install Amazon Tools</h3>
+            <div class="lightbox fade" id="ec2video" tabindex="-1" style="display: none;" src="http://player.vimeo.com/video/54142111">
+                    <div class='lightbox-content'>
+                        <iframe src="" width="1000" height="432" frameborder="0"
+                            webkitallowfullscreen="webkitAllowFullScreen" mozallowfullscreen="mozallowfullscreen"
+                            allowfullscreen="allowFullScreen"></iframe>
+                </div>
+            </div>
+            
+            <h2 id="awstools">Install Amazon Tools</h2>
 
             <p>Follow Amazon&#39;s own <a
                     href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting
                 Started guide</a>.</p>
 
-            <h3>Launch an instance to host Neo4j</h3>
+            <h2 id="puppet">Setup your EC2 instance and Neo4j using Puppet <a href="https://github.com/neo4j-contrib/neo4j-puppet" target="_blank">(source)</a></h2>
+            
+            <blockquote class="external markdown">
+                <%-: content.puppet | md %>
+            </blockquote>
+
+            <h3  id="manual">Launch an instance to host Neo4j</h3>
 
             <ol>
                 <li>Log in to aws.amazon.com</li>
@@ -86,7 +102,7 @@
                         <li>Select "Continue"</li>
                     </ol>
                 </li>
-                <li>Configure Firewall</li>
+                <li id="firewall">Configure Firewall</li>
                 <ol>
                     <li>Select "Create a new Security Group"</li>
                     <li>Group Name "Neo4j"</li>
@@ -111,7 +127,7 @@
                 Once it is running ssh onto the instance like so:
                 <code>ssh -i /path/to/keypair.pem ubuntu@ec2-???-??-???-???.compute-1.amazonaws.com</code></p>
 
-            <h3>Add Neo4j on Debian/Ubuntu</h3>
+            <h3 id="debian">Add Neo4j on Debian/Ubuntu</h3>
 
             <% include ../download/debian %>
 
@@ -119,7 +135,7 @@
 
             <p><code>curl http://localhost:7474</code></p>
 
-            <h3>Make Neo4j accessible from the outside</h3>
+            <h3 id="config">Make Neo4j accessible from the outside</h3>
 
             <p>Only do this if it is necessary, for instance when your services accessing Neo4j run on a different host.
                 Make sure to secure the instance by
@@ -145,9 +161,10 @@
                 <h2>Briefly</h2>
 
                 <div class="well">
-                    <li>Neo4j runs on EC2 Ubuntu AMI's</li>
-                    <li>Configure Firewall</li>
-                    <li>Install Neo4j via deb or download</li>
+                    <li><a href="#ec2video">Video</a> installation instructions</li>
+                    <li>Neo4j runs on <a href="#manual">EC2 Ubuntu AMI's</a></li>
+                    <li>Configure <a href="#firewall">Firewall</a></li>
+                    <li>Install Neo4j via <a href="#debian">debian</a>, <a href="/install">download</a>, <a href="#puppet">puppet</a></li>
                     <li>Configure external Access</li>
                 </div>
             </div>
@@ -160,11 +177,11 @@
                         <p>DIY in the Cloud</p>
                         <ol>
                             <li>
-                                <a href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting
-                                    started on Amazon EC2</a></li>
+                                <a href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html"  target="_blank">Getting
+                                    Started Guide on Amazon EC2</a></li>
                             <li>Provision a generous EC2 Instance</li>
                             <li><a href="/install">Install Neo4j</a> on the EC2 instance</li>
-                            <li>Mix in the <a href="http://github.com/neo4j/authentication-extension">authentication
+                            <li>Mix in the <a href="http://github.com/neo4j-contrib/authentication-extension" target="_blank">authentication
                                 plugin</a></li>
                             <li>Read how to <a href="http://blogs.mindspew-age.com/2012/12/04/another-great-example-of-aws-fidelity-neo4j-cloud-init-and-eucalyptus/" target="_blank">deploy Neo4j on Eucalyptus</a></li>
                         </ol>

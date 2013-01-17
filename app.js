@@ -13,11 +13,13 @@ var express = require('express')
   , experiment = ejs.render(fs.readFileSync("views/experiment.ejs", "utf-8"))  
   , forwarder=require("./helpers/forwarder")
   , munchkin=require("./helpers/munchkin")
-  , drivers=require("./helpers/drivers")
+  , data=require("./helpers/data")
+  , markdown = require("node-markdown").Markdown
 
 var app = express();
 
 forwarder.add_console_forward(app,express,http);
+
 /*
 https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/versions.json"},
     function(res) {
@@ -27,6 +29,16 @@ https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/version
         })
     })
 */
+
+app.locals.content = {}
+https.get({host: "raw.github.com", path: "/neo4j-contrib/neo4j-puppet/master/README.md"},
+    function(res) {
+        res.on("data", function(data) {
+            app.locals.content.puppet = data.toString();            
+        })
+    })
+
+
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
@@ -47,6 +59,10 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
+ejs.filters.md = function(b) { 
+   return markdown(b) 
+}; 
+
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
@@ -58,7 +74,9 @@ var rnd = function rnd(min, max) { return Math.floor(Math.random() * (max - min 
 app.locals.theme = function() {
   return themes[rnd(0,themes.length - 1)];
 }
-app.locals.drivers=drivers.drivers;
+app.locals.drivers=data.drivers;
+app.locals.apps=data.apps;
+app.locals.contributors=data.contributors;
 
 app.locals({
   neo4j: {

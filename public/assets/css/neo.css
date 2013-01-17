@@ -560,3 +560,18 @@ section {
     font-size: 16px;
     position: absolute;
 }
+
+.external {
+    background-color: #f5f5f5;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 10px;
+}
+.markdown h1 {
+    font-size: 24px;
+}
+.markdown h2 {
+    font-size: 18px;
+}
