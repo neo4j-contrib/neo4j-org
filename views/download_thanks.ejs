@@ -48,21 +48,20 @@
 <script type='text/javascript'>//<![CDATA[
 $(document).ready(function() {
     var testing = getUrlVars()["test"] || null;
-    var ed = getUrlVars()["edition"] || "community";
-    var re = getUrlVars()["release"] || "<%= neo4jGA.version %>";
-    var pl = getUrlVars()["platform"] || "unix";
+    var edition = getUrlVars()["edition"] || "community";
+    var release = getUrlVars()["release"] || "<%= neo4jGA.version %>";
+    var platform = getUrlVars()["platform"] || "unix";
     var packaging = 'zip';
     var suffix = "zip";
     
-    if (pl == 'unix' || pl == 'mac_linux') {
+    if (platform == 'unix' || platform == 'mac_linux') {
         suffix = 'tar.gz';
         packaging = 'tarball';
     }
         
-    //var downloadLink = "http://dist.neo4j.org/neo4j-" + ed + "-" + re + "-" + pl +"." + suffix;
     
     
-    $(".dirName").text("neo4j-"+ed+"-"+re);
+    $(".dirName").text("neo4j-"+edition+"-"+release);
     
     function getUrlVars() {
         var vars = {};
@@ -74,7 +73,10 @@ $(document).ready(function() {
     
     function updateDownloadLink(marketo_id) {
         var marketo_idnum = marketo_id || 'notread';
-        var downloadLink = "http://download.neo4j.org/artifact?edition=" + ed + "&version=" + re + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
+        var downloadLink = "http://dist.neo4j.org/neo4j-" + edition + "-" + release + "-" + platform +"." + suffix;
+        if (!release.match("SNAPSHOT")) {
+            downloadLink = "http://download.neo4j.org/artifact?edition=" + edition + "&version=" + release + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
+        }
 
         $(".downloadLink").attr("href",downloadLink);
         if (testing==null) {
@@ -83,9 +85,11 @@ $(document).ready(function() {
     }
     $.ajax("/marketo", {
         success: function(id) {
+            console.log("marketo-success",id)
             updateDownloadLink(id)
         },
         error:function(err) {
+            console.log("marketo-error",err)
             updateDownloadLink()
     }})
 });

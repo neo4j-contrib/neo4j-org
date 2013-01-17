@@ -18,17 +18,39 @@ var express = require('express')
 
 var app = express();
 
-forwarder.add_console_forward(app,express,http);
+app.locals({
+  neo4j: {
+    version: "1.9.M03",
+    date: "Dec 21, 2012",
+    summary: "Cypher improvements, Gremlin refactoring",
+    readme: "http://blog.neo4j.org/2012/12/neo4j-19m03-released.html"
+  } 
+   ,neo4jGA: {
+    version: "1.8.1"
+   ,date: "Dec 14, 2012"
+   ,summary: "General Availability"
+   ,readme: "http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html"
+  }
+  , neo4jS: {
+    version: "1.9-SNAPSHOT",
+    date: "2013",
+    summary: "Unstable Snapshot, for resolution issue verification"
+  } 
+});
 
-/*
 https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/versions.json"},
     function(res) {
         res.on("data", function(data) {
-            app.locals.versions = JSON.parse(data);            
+            app.locals.versions = JSON.parse(data) || {};
             console.log(app.locals.versions);
+            temp_update_version(app.locals.versions.stable,app.locals.neo4jGA,app.locals.versions.stable_date);
+            temp_update_version(app.locals.versions.milestone,app.locals.neo4j,app.locals.versions.milestone_date);
+            temp_update_version(app.locals.versions.snapshot,app.locals.neo4jS);
+            console.log(app.locals);
         })
     })
-*/
+
+forwarder.add_console_forward(app,express,http);
 
 app.locals.content = {}
 function load_github_content(name, path, host) {
@@ -83,25 +105,20 @@ app.locals.drivers=data.drivers;
 app.locals.apps=data.apps;
 app.locals.contributors=data.contributors;
 
-app.locals({
-  neo4j: {
-    version: "1.9.M03",
-    date: "Dec 21, 2012",
-    summary: "Cypher bugfixes, Gremlin deps refactoring",
-    readme: "http://blog.neo4j.org/2012/12/neo4j-19m03-released.html"
-  } 
-   ,neo4jGA: {
-    version: "1.8.1"
-   ,date: "Dec 14, 2012"
-   ,summary: "General Availability"
-   ,readme: "http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html"
-  }
-  , neo4jS: {
+app.locals.neo4jS = {
     version: "1.9-SNAPSHOT",
-    date: "Nov, 2012",
-    summary: "Snapshot"
-  } 
-});
+    date: "2013",
+    summary: "Unstable Snapshot, for resolution issue verification"
+}        
+
+function temp_update_version(current, data, current_date) {
+    if (current != data.version) {
+        data.version = current;
+        data.date = current_date || "2013";
+        data.readme = "http://blog.neo4j.org";
+    }
+}
+
 app.locals({
     tutorial : {
         matrix :'node:node_auto_index(id="603")',

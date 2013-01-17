@@ -47,43 +47,15 @@
             <a href="<%= neo4j.readme %>" class="btn" type="button">Read Me</a></th>
             <% } %>
         <td class="os"><h3>Linux/Mac</h3></td>
-        <td>
-            <div class="btn-group">
-                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span
-                        class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="/download_thanks/?edition=community&amp;release=<%= neo4j.version %>&amp;platform=unix">Community
-                            <%= neo4j.version %></a></li>
-                    <li>
-                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=<%= neo4j.version %>&amp;platform=unix">Advanced
-                            <%= neo4j.version %></a></li>
-                    <li>
-                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=<%= neo4j.version %>&amp;platform=unix">Enterprise
-                            <%= neo4j.version %></a></li>
-                </ul>
-            </div>
-        </td>
+        <% var platform = "unix" %>
+        <% var version = neo4j.version %>
+        <% include download/_download %>
     </tr>
     <tr>
-        <td><h3>Windows</h3></td>
-        <td>
-            <div class="btn-group">
-                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span
-                        class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="/download_thanks/?edition=community&amp;release=<%= neo4j.version %>&amp;platform=windows">Community
-                            <%= neo4j.version %></a></li>
-                    <li>
-                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=<%= neo4j.version %>&amp;platform=windows">Advanced
-                            <%= neo4j.version %></a></li>
-                    <li>
-                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=<%= neo4j.version %>&amp;platform=windows">Enterprise
-                            <%= neo4j.version %></a></li>
-                </ul>
-            </div>
-        </td>
+        <td class="os"><h3>Windows</h3></td>
+        <% var platform = "windows" %>
+        <% var version = neo4j.version %>
+        <% include download/_download %>
     </tr>
     <tr>
         <th class="ltgrey" rowspan=2><p class="text18">Major Stable Version<br/>
@@ -94,43 +66,15 @@
                 <a href="<%= neo4jGA.readme %>" class="btn" type="button">Read Me</a></th>
             <% } %>
         <td class="os"><h3>Linux/Mac</h3></td>
-        <td>
-            <div class="btn-group">
-                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span
-                        class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="/download_thanks/?edition=community&amp;release=<%= neo4jGA.version %>&amp;platform=unix">Community
-                            <%= neo4jGA.version %></a></li>
-                    <li>
-                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=<%= neo4jGA.version %>&amp;platform=unix">Advanced
-                            <%= neo4jGA.version %></a></li>
-                    <li>
-                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=<%= neo4jGA.version %>&amp;platform=unix">Enterprise
-                            <%= neo4jGA.version %></a></li>
-                </ul>
-            </div>
-        </td>
+        <% var platform = "unix" %>
+        <% var version = neo4jGA.version %>
+        <% include download/_download %>
     </tr>
     <tr>
         <td><h3>Windows</h3></td>
-        <td>
-            <div class="btn-group">
-                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span
-                        class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="/download_thanks/?edition=community&amp;release=<%= neo4jGA.version %>&amp;platform=windows">Community
-                            <%= neo4jGA.version %></a></li>
-                    <li>
-                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=<%= neo4jGA.version %>&amp;platform=windows">Advanced
-                            <%= neo4jGA.version %></a></li>
-                    <li>
-                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=<%= neo4jGA.version %>&amp;platform=windows">Enterprise
-                            <%= neo4jGA.version %></a></li>
-                </ul>
-            </div>
-        </td>
+        <% var platform = "windows" %>
+        <% var version = neo4jGA.version %>
+        <% include download/_download %>
     </tr>
     </tbody>
 </table>
@@ -183,97 +127,25 @@ neo4j start</pre>
                             <thead>
                             <tr>
                                 <th class="database" colspan=3><h2>Linux/Mac</h2></th>
+                                <% var platform = "unix" %>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th class="ltgrey"><h3>1.7.2</h3>
-
-                                    <p>May 28, 2012</p></th>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                            Download <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="/download_thanks/?edition=community&amp;release=1.7.2&amp;platform=unix">Community
-                                                    1.7.2</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=1.7.2&amp;platform=unix">Advanced
-                                                    1.7.2</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=1.7.2&amp;platform=unix">Enterprise
-                                                    1.7.2</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ltgrey"><h3>1.6.3</h3>
-
-                                    <p>May 28, 2012</p></th>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                            Download <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="/download_thanks/?edition=community&amp;release=1.6.3&amp;platform=unix">Community
-                                                    1.6.3</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=1.6.3&amp;platform=unix">Advanced
-                                                    1.6.3</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=1.6.3&amp;platform=unix">Enterprise
-                                                    1.6.3</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ltgrey"><h3>1.5.3</h3>
-
-                                    <p>May 24, 2012</p></th>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                            Download <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="/download_thanks/?edition=community&amp;release=1.5.3&amp;platform=unix">Community
-                                                    1.5.3</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=1.5.3&amp;platform=unix">Advanced
-                                                    1.5.3</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=1.5.3&amp;platform=unix">Enterprise
-                                                    1.5.3</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ltgrey"><h3><%= neo4jS.version %></h3>
-
-                                    <p><%= neo4jS.date %></p></th>
-                                <td>
-					            <div class="btn-group">
-					                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span
-					                        class="caret"></span></button>
-					                <ul class="dropdown-menu">
-					                    <li>
-					                        <a href="/download_thanks/?edition=community&amp;release=<%= neo4jS.version %>&amp;platform=unix">Community
-					                            <%= neo4jS.version %></a></li>
-					                    <li>
-					                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=<%= neo4jS.version %>&amp;platform=unix">Advanced
-					                            <%= neo4jS.version %></a></li>
-					                    <li>
-					                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=<%= neo4jS.version %>&amp;platform=unix">Enterprise
-					                            <%= neo4jS.version %></a></li>
-					                </ul>
-					            </div>
-                                </td>
-                            </tr>
+                            <% var version = versions.old_stable %>
+                            <% var version_date = versions.old_stable_date %>
+                            <% include download/_download_other %>
+                            
+                            <% var version = versions.older_stable %>
+                            <% var version_date = versions.older_stable_date %>
+                            <% include download/_download_other %>
+                            
+                            <% var version = versions.oldest_stable %>
+                            <% var version_date = versions.oldest_stable_date %>
+                            <% include download/_download_other %>
+                            
+                            <% var version = neo4jS.version %>
+                            <% var version_date = neo4jS.date %>
+                            <% include download/_download_other %>
                             </tbody>
                         </table>
                     </div>
@@ -282,97 +154,26 @@ neo4j start</pre>
                             <thead>
                             <tr>
                                 <th class="database" colspan=3><h2>Windows</h2></th>
+                                <% var platform = "windows" %>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th class="ltgrey"><h3>1.7.2 </h3>
+                            <% var version = versions.old_stable %>
+                            <% var version_date = versions.old_stable_date %>
+                            <% include download/_download_other %>
+                            
+                            <% var version = versions.older_stable %>
+                            <% var version_date = versions.older_stable_date %>
+                            <% include download/_download_other %>
+                            
+                            <% var version = versions.oldest_stable %>
+                            <% var version_date = versions.oldest_stable_date %>
+                            <% include download/_download_other %>
+                            
+                            <% var version = neo4jS.version %>
+                            <% var version_date = neo4jS.date %>
+                            <% include download/_download_other %>
 
-                                    <p>May 28, 2012</p></th>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                            Download <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="/download_thanks/?edition=community&amp;release=1.7.2&amp;platform=windows">Community
-                                                    1.7.2</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=1.7.2&amp;platform=windows">Advanced
-                                                    1.7.2</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=1.7.2&amp;platform=windows">Enterprise
-                                                    1.7.2</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ltgrey"><h3>1.6.3</h3>
-
-                                    <p>May 28, 2012</p></th>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                            Download <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="/download_thanks/?edition=community&amp;release=1.6.3&amp;platform=windows">Community
-                                                    1.6.3</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=1.6.3&amp;platform=windows">Advanced
-                                                    1.6.3</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=1.6.3&amp;platform=windows">Enterprise
-                                                    1.6.3</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ltgrey"><h3>1.5.3</h3>
-
-                                    <p>May 24, 2012</p></th>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                            Download <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="/download_thanks/?edition=community&amp;release=1.5.3&amp;platform=windows">Community
-                                                    1.5.3</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=1.5.3&amp;platform=windows">Advanced
-                                                    1.5.3</a></li>
-                                            <li>
-                                                <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=1.5.3&amp;platform=windows">Enterprise
-                                                    1.5.3</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="ltgrey"><h3><%= neo4jS.version %></h3>
-
-                                    <p><%= neo4jS.date %></p></th>
-                                <td>
-					            <div class="btn-group">
-					                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Download <span
-					                        class="caret"></span></button>
-					                <ul class="dropdown-menu">
-					                    <li>
-					                        <a href="/download_thanks/?edition=community&amp;release=<%= neo4jS.version %>&amp;platform=windows">Community
-					                            <%= neo4jS.version %></a></li>
-					                    <li>
-					                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=advanced&amp;release=<%= neo4jS.version %>&amp;platform=windows">Advanced
-					                            <%= neo4jS.version %></a></li>
-					                    <li>
-					                        <a href="http://info.neotechnology.com/download-Neo4j.html?edition=enterprise&amp;release=<%= neo4jS.version %>&amp;platform=windows">Enterprise
-					                            <%= neo4jS.version %></a></li>
-					                </ul>
-					            </div>
-                                </td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>

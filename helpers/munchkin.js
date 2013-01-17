@@ -44,4 +44,4 @@ function extractId(result) {
     return null;
 }
 
-exports.marketo=getMarketoLead;
+exports.marketo=marketoId && marketoSecret ? getMarketoLead : function(cookie,fun) { return fun() };
