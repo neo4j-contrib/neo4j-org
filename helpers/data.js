@@ -110,7 +110,7 @@ exports.drivers = {
     },
     node_neo4j : {
         tags : ["js", "rest", "nodejs"],
-        author : "Aseem Kishore",
+        author : "Aseem Kishore, Daniel Gasienica",
         twitter : "aseemk",
         url : "https://github.com/thingdom/node-neo4j",
         logo : "/assets/img/languages/nodejs.png" ,
