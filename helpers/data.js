@@ -78,11 +78,14 @@ exports.drivers = {
     py2neo : {
         tags : ["python", "rest"],
         url : "http://py2neo.org/",
+        site : "http://py2neo.org/",
         author : "Nigel Small",
         twitter : "techige",
         logo : "/assets/img/languages/py2neo.png" ,
         name : "py2neo",
-        text : "Py2neo is a simple and pragmatic Python library that provides access to the popular graph database Neo4j via its RESTful web service interface."
+        text : "Py2neo is a simple and pragmatic Python library that provides access to the popular graph database Neo4j via its RESTful web service interface.",
+        source : "https://github.com/nigelsmall/py2neo",
+        docs : "http://nigelsmall.com/_api/py2neo/"
     },
     neo4j_python : {
         tags : ["python", "jvm"],
