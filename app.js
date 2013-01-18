@@ -46,7 +46,6 @@ https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/version
             temp_update_version(app.locals.versions.stable,app.locals.neo4jGA,app.locals.versions.stable_date);
             temp_update_version(app.locals.versions.milestone,app.locals.neo4j,app.locals.versions.milestone_date);
             temp_update_version(app.locals.versions.snapshot,app.locals.neo4jS);
-            console.log(app.locals);
         })
     })
 
@@ -145,6 +144,7 @@ function forward(url) {
 app.get('/', routes.index);
 app.get('/index', routes.index_graph);
 app.get('/index_graph_svg', routes.index_graph_svg);
+app.get('/index_graph_svg2', routes.index_graph_svg2);
 app.get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 
 app.get('/learn', routes.learn); // path: concepts, best practices, operations

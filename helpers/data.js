@@ -124,7 +124,7 @@ exports.drivers = {
         text : "Neo4j REST client for JavaScript, used in Neo4j Web-UI, makes use of promises to handle deferred responses. Needs jQuery to run."
     },
     neocons : {
-        tags : ["clojure", "rest"],
+        tags : ["clojure", "rest","jvm"],
         author : "Michael Klishin",
         twitter : "michaelklishin",
         url : "http://clojureneo4j.info/",
