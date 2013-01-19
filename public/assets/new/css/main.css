@@ -431,21 +431,6 @@ ul.hor li {
     padding-bottom: .25em ! important;
 }
 
-/*.chapter h2 {
-    font-size: 1.5em;
-    width: 12em;
-    height: 4em;
-    padding: .25em 0 1em 1em;
-    border: 1px solid #a5a5a5;
-    background: #00546a;
-    border-radius: 1em;
-    color: #fff;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-*/
-
 .chapter h2 {
     color: #555;
     font-size: 2.2em;
@@ -505,11 +490,6 @@ ul.hor li {
     text-align: right;
 }
 
-/*.features .content iframe {
-    width: 40em;
-    height: 22.5em;
-}*/
-
 .featured .caption {
     width: 12em;
     font-size: 1.5em;
@@ -533,13 +513,14 @@ ul.hor li {
     color: #00546a;
 }
 
-/*.featured .slide:hover {
-    background: #f5f5f5;
-    cursor: pointer;
-}*/
-
 .featured .slide img {
     width: 600px;
+}
+
+.featured .slide img:hover {
+    cursor: pointer;
+    border: 3px solid #00546a;
+    margin: -3px;
 }
 
 .related {
@@ -582,6 +563,12 @@ ul.hor li {
 
 .related .row .item h3 {
     padding-bottom: .5em;
+}
+
+.related .row .item img {
+    width: 8em;
+    height: 8em;
+    margin: 0 0 1em 4em;
 }
 
 #linkContainer {

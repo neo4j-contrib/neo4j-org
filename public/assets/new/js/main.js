@@ -47,6 +47,15 @@ var nav = {
 	},
 
 	/**
+	* Activate an item in the main menu
+	*/
+	activateMain : function(label) {
+		var mainNav = $('#mainNav');
+		$('a', mainNav).removeClass('active');
+        $('.' + label + ' a', mainNav).addClass('active');
+	},
+
+	/**
 	*	Initialize all thumbnails
 	*/
 	initThumbnails : function() {

@@ -110,17 +110,11 @@ exports.drivers = {
     },
     node_neo4j : {
         tags : ["js", "rest", "nodejs"],
-<<<<<<< HEAD
-        author : "Aseem Kishore",
-        twitter : "aseemk",
-        url : "https://github.com/thingdom/node-neo4j",
-=======
         author : "Aseem Kishore, Daniel Gasienica",
         twitter : "aseemk",
         url : "https://github.com/thingdom/node-neo4j",
         docs : "http://coffeedoc.info/github/thingdom/node-neo4j/",
         source : "https://github.com/thingdom/node-neo4j",
->>>>>>> 936630ed0f5f25dcbead228c7e5e4708c4531f95
         logo : "/assets/img/languages/nodejs.png" ,
         name : "node-neo4j",
         text : "Node.js driver for Neo4j. Cleverly asynchronous, and blazingly fast. "

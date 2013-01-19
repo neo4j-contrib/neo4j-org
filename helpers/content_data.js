@@ -82,6 +82,7 @@ exports.chapters = {
         featured : {
             heading : "Installing Neo4j",
             type : "video",
+            thumbnail : "/assets/img/still/install.gif",
             intro : "Peter Neubauer guides through the first steps of downloading and running Neo4j.",
             src : "http://player.vimeo.com/video/53838744"
         },
@@ -117,6 +118,7 @@ exports.chapters = {
         featured : {
             heading : "Query with Cypher",
             type : "video",
+            thumbnail : "/assets/img/still/cypher.png",
             intro : "Cypher is a graph query language. Easy on the eyes, while expressive and powerful.",
             src : "http://player.vimeo.com/video/50389825"
         },
@@ -146,6 +148,7 @@ exports.chapters = {
         featured : {
             heading : "James Ward on Neo4j",
             type : "video",
+            thumbnail : "/assets/img/still/jamesward.jpg",
             intro : "James Ward shows how to build and deploy a Neo4j based app on heroku.",
             src : "http://player.vimeo.com/video/53221343"
         },
@@ -163,6 +166,7 @@ exports.chapters = {
         featured : {
             heading : "Good Relationships",
             type : "video",
+            thumbnail : "/assets/img/still/sdn-intro.png",
             intro : "Michael Hunger introduces <a target='_blank' href='http://www.infoq.com/minibooks/good-relationships-spring-data'>Good Relationships</a>, the SDN book.",
             src : "http://www.youtube.com/embed/heC-8Pq2exQ"
         },
@@ -186,6 +190,7 @@ exports.chapters = {
         featured : {
             heading : "High Availability",
             type : "video",
+            thumbnail : "/assets/img/still/ha_video.gif",
             intro : "See how to setup a 3-member cluster for the <strong>new Neo4j HA 1.5</strong> running on a single machine.",
             src : "http://player.vimeo.com/video/51906007"
         },
@@ -209,5 +214,103 @@ exports.chapters = {
                 actionText : ""
             }
         ]
+    },
+
+    // participate
+
+    questions : {
+        heading : "Ask Questions and Share Answers",
+        related : [
+            {
+                heading : "Stack Overflow",
+                path : "http://stackoverflow.com/questions/tagged/neo4j",
+                img : "/assets/img/logo/stackoverflow.png",
+                intro : "Find answers or reach to fellow developers with questions.",
+                actionText : "Ask Neo4j questions &raquo;"
+            },
+            {
+                heading : "Neo4j Google Group",
+                path : "http://groups.google.com/group/neo4j",
+                img : "/assets/img/logo/googlegroups.png",
+                intro : "Find answers or reach to fellow developers with questions.",
+                actionText : "Join now &raquo;"
+            },
+            {
+                heading : "GitHub Issues",
+                path : "http://github.com/neo4j/neo4j/issues",
+                img : "/assets/img/logo/github.png",
+                intro : "Encountered an issue with Neo4j? Submit it here.",
+                actionText : "Report issue &raquo;"
+            }
+        ]
+    },
+    meet : {
+        heading : "Meet & Learn",
+        related : [
+            {
+                heading : "Meetups / User Groups",
+                path : "http://neo4j.meetup.com",
+                img : "/assets/img/logo/meetup.jpg",
+                intro : "Find answers or reach to fellow developers with questions.",
+                actionText : "Ask Neo4j questions &raquo;"
+            },
+            {
+                heading : "Webinars and Events",
+                path : "learn/events",
+                img : "/assets/img/logo/webinar.png",
+                intro : "Learn from the Neo4j community, watch our webinars or see us at special events.",
+                actionText : "Event Calendar &raquo;"
+            },
+            {
+                heading : "GraphConnect",
+                path : "http://graphconnect.com",
+                img : "/assets/img/logo/github.png",
+                intro : "GraphConnect 2012 conference has been a blast. Keep connected for updates on 2013 events.",
+                actionText : "Attend GraphConnect &raquo;"
+            },
+            {
+                heading : "Graphistas World Map",
+                path : "/participate/contributors#map",
+                img : "/assets/img/logo/graphmap.png",
+                intro : "Add yourself to the graphistas world map and let it become a smaller place.",
+                actionText : "Add yourself &raquo;"
+            }
+        ]
+    },
+    contribute : {
+        heading : "Contribute",
+        related : [
+            {
+                heading : "GitHub",
+                path : "http://github.com/neo4j/neo4j",
+                img : "/assets/img/logo/github.png",
+                intro : "As an open-source project, Neo4j is hosted on GitHub. Check out the code and please contribute improvements as pull requests.",
+                actionText : "View the Source  &raquo;"
+            },
+            {
+                heading : "Contributors",
+                path : "/participate/contributors",
+                img : "/assets/img/logo/stackoverflow.png",
+                intro : "We&#39;re very proud to have such an engaged group of contributors to Neo4j and its ecosystem.",
+                actionText : "See our contributors &raquo;"
+            },
+            {
+                heading : "Contribute to Neo4j.org",
+                path : "http://github.com/neo4j-contrib/neo4j-org",
+                img : "https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png",
+                intro : "Feel free to fork the code for the neo4j.org site on github, to correct, update or extend the information and issue a pull request.",
+                actionText : "Fork Me &raquo;"
+            },
+            {
+                heading : "Contribution Guidelines",
+                path : "http://docs.neo4j.org/chunked/stable/community-contributing.html",
+                img : "",
+                intro : "If you want to contribute, start here.",
+                actionText : "Contribution Guidelines &raquo;"
+            },
+        ]
     }
 };
+
+
+
