@@ -6,178 +6,32 @@
     <div class="main row">
         <div class="span8">
             <div id="learn" class="hero-unit path">
-                <h2><a><i class="icon icon-cogs"></i> DIY on Amazon EC2</a></h2>
+                <h2><a><i class="icon icon-cogs"></i> Easy Neo4j on Amazon EC2</a></h2>
 
-                <p class="lead">For ultimate control, you can provision Neo4j to perfectly match your needs</p>
+                <p class="lead">One stop shop for setting up Neo4j on EC2</p>
             </div>
-
-            <iframe src="http://player.vimeo.com/video/54142111?badge=0" width="500" height="281" frameborder="0"
-                    webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-            <p><a href="http://vimeo.com/54142111">Neo4j Install Tutorial for EC2</a> from <a
-                    href="http://vimeo.com/user1375223">Peter Neubauer</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
-
-            <h3>Install Amazon Tools</h3>
-
-            <p>Follow Amazon&#39;s own <a
-                    href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting
-                Started guide</a>.</p>
-
-            <h3>Launch an instance to host Neo4j</h3>
-
-            <ol>
-                <li>Log in to aws.amazon.com</li>
-                <li>Go to the EC2 Console</li>
-                <li>Click "Launch Instance"</li>
-                <li>Select the "Classic Wizard"</li>
-                <li>"Choose an AMI"
-
-                    <ol>
-                        <li>Select "Ubuntu Server 12.04.1 LTS" 64-bit</li>
-                    </ol>
-                </li>
-                <li>"Instance Details"
-
-                    <ol>
-                        <li>Instance Type: "m1.large"</li>
-                        <li>Availability Zone: "no preference"
-
-                            <ul>
-                                <li>just make sure it is any "us-east"</li>
-                            </ul>
-                        </li>
-                        <li>Click "Continue"</li>
-                    </ol>
-                </li>
-                <li>Instance Details - Advanced Instance Options
-
-                    <ol>
-                        <li>Termination Protection: enable</li>
-                        <li>Click "Continue"</li>
-                    </ol>
-                </li>
-                <li>Instance Details - Storage Device Configuration
-
-                    <ol>
-                        <li>Click "Edit"</li>
-                        <li>Select "EBS Volumes"</li>
-                        <li>Volume Size: 40GiB</li>
-                        <li>Volume Type: Standard</li>
-                        <li>Delete on Termination: disable (!!!)</li>
-                        <li>Click "Add"
-                            (Note the device path, something like /dev/sdf)
-                        </li>
-                        <li>Click "Continue"</li>
-                    </ol>
-                </li>
-                <li>Instance Details - Add tags
-
-                    <ol>
-                        <li>Optional, and safe to ignore</li>
-                        <li>Click "Continue"</li>
-                    </ol>
-                </li>
-                <li>Create Key Pair
-
-                    <ol>
-                        <li>Choose an existing, or create a new Key Pair</li>
-                        <li>be sure to <strong>adjust permissions</strong> of a created PEM file to only be
-                            readable by you (e.g. <code>chmod go-rwx keypair.pem</code>)
-                        </li>
-                        <li>Select "Continue"</li>
-                    </ol>
-                </li>
-                <li>Configure Firewall</li>
-                <ol>
-                    <li>Select "Create a new Security Group"</li>
-                    <li>Group Name "Neo4j"</li>
-                    <li>Group Description "for remote access to Neo4j database"</li>
-                    <li>Port range: 7474</li>
-                    <li>(check out Heroku instructions <a
-                            href="https://devcenter.heroku.com/articles/external-services">here</a>)
-                    <li>or programmatically <code>$ ec2-authorize Neo4j -P tcp -p 7474 -u 098166147350 -o default</code>
-                    </li>
-                    <li>Click "Continue"</li>
-                </ol>
-
-                <li>Review &amp; Launch</li>
-                <ol>
-                    <li>Review the settings</li>
-                    <li>Click "Launch"</li>
-                </ol>
-            </ol>
-
-
-            <p>Wait for the instance to launch by monitoring it on the "Instances" dashboard.
-                Once it is running ssh onto the instance like so:
-                <code>ssh -i /path/to/keypair.pem ubuntu@ec2-???-??-???-???.compute-1.amazonaws.com</code></p>
-
-            <h3>Add Neo4j on Debian/Ubuntu</h3>
-
-            <p>Run all the commands below in a root shell.  You can safely copy and paste all the details
-            into a root shell on a new EC2 machine.  For details follow <a href="/install">our install guide</a>.</p>
-                <pre>
-wget -O - http://debian.neo4j.org/neotechnology.gpg.key| apt-key add -
-# Import our signing key
-echo 'deb http://debian.neo4j.org/repo stable/' &gt; \
-/etc/apt/sources.list.d/neo4j.list # Create an Apt sources.list file
-aptitude update -y # Find out about the files in our repository
-aptitude install neo4j -y # Install Neo4j, community edition
-neo4j start
-                </pre>
-
-            <h3>Confirm Neo4j is running locally</h3>
-
-            <p><code>curl http://localhost:7474</code></p>
-
-            <h3>Make Neo4j accessible from the outside</h3>
-
-            <p>Only do this if it is necessary, for instance when your services accessing Neo4j run on a different host.
-                Make sure to secure the instance by
-                enabling SSL and adding authentication (like the <a
-                        href="http://github.com/neo4j/authentication-extension"
-                        target="_blank">authentication-extension</a>.
-            </p>
-            <ol>
-                <li>Find and open: <code>/path/to/neo4j/conf/neo4j-server.properties</code></li>
-                <li>uncomment the line: <code>#org.neo4j.server.webserver.address=0.0.0.0</code></li>
-                <li>Check that SSL access is enabled: <code>org.neo4j.server.webserver.https.enabled=true</code></li>
-                <li>restart the Neo4j Server: <code>sudo /etc/init.d/neo4j-server restart</code></li>
-                <li>Check if it is accessible from the outside: <code>curl
-                    http://ec2-???-??-???-???.compute-1.amazonaws.com:7474</code>
-                </li>
-            </ol>
-
-
+            
+            <h2 id="ec2template">Setup your EC2 instance AND Neo4j using Puppet <a href="https://github.com/neo4j-contrib/neo4j-puppet/blob/master/README.CLOUDFORMATION.md" target="_blank">(source)</a></h2>
+            
+            <blockquote class="external markdown">
+                <%-: content.ec2_template | md %>
+            </blockquote>
         </div>
 
         <aside class="span4 sidebar">
-            <div class="summary">
-                <h2>Briefly</h2>
-
-                <div class="well">
-                    <li>Neo4j runs on EC2 Ubuntu AMI's</li>
-                    <li>Configure Firewall</li>
-                    <li>Install Neo4j via deb or download</li>
-                    <li>Configure external Access</li>
-                </div>
-            </div>
-
             <div class="next-steps">
                 <h2>Next Steps</h2>
 
                 <div class="next thumbnail">
                     <div class="caption">
-                        <p>DIY in the Cloud</p>
-                        <ol>
+                        <ul>
+                            <li>Learn about <a href="/develop">developing applications</a> with Neo4j Server</li>
+                            <li>Find a suitable <a href="/develop/drivers">remote driver</a> for your language</li>
+                            <li>If needed, check out the <a href="ec2_detailed">detailed and manual installation instructions</a></li>
                             <li>
-                                <a href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html">Getting
-                                    started on Amazon EC2</a></li>
-                            <li>Provision a generous EC2 Instance</li>
-                            <li><a href="/install">Install Neo4j</a> on the EC2 instance</li>
-                            <li>Mix in the <a href="http://github.com/neo4j/authentication-extension">authentication
-                                plugin</a></li>
-                            <li>Read how to <a href="http://blogs.mindspew-age.com/2012/12/04/another-great-example-of-aws-fidelity-neo4j-cloud-init-and-eucalyptus/" target="_blank">deploy Neo4j on Eucalyptus</a></li>
-                        </ol>
+                                <a href="http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html"  target="_blank">Getting
+                                    Started Guide on Amazon EC2</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

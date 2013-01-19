@@ -1,81 +1,16 @@
-</div> <!-- /container -->
-
 <% include footer %>
 
+        <script src="/assets/new/js/plugins.js"></script>
+        <script src="/assets/new/js/neo4j.js"></script>
+        <script src="/assets/new/js/main.js"></script>
 
-<!-- javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="/assets/js/jquery-1.8.1.min.js" type="text/javascript"></script>
-<script src="/assets/js/bootstrap.js" type="text/javascript"></script>
-<script src="/assets/js/jquery.isotope.min.js" type="text/javascript"></script>
-<script src="/assets/js/bootstrap-iso.js" type="text/javascript"></script>
-<script src="/assets/js/bootstrap-lightbox.js" type="text/javascript"></script>
-<script src="/assets/js/bootstrap-transition.js" type="text/javascript"></script>
-<script src="/assets/js/bootstrap-dropdown.js" type="text/javascript"></script>
-<script type="text/javascript">
-    // $('#marketing-slider').revolver({transition: {type: 'fade'}});
-</script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
 
-<script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-1192232-3']);
-    _gaq.push(['_setDomainName', 'www.neo4j.org']);
-    _gaq.push(['_setAllowLinker', true]);
-    _gaq.push(['_setCustomVar',
-        3,                   // This custom var is set to slot #3.  Required parameter.
-        'site_version',     // The name acts as a kind of category for the user activity.  Required parameter.
-        '111'               // This value of the custom variable.  Required parameter.
-    ]);
-    _gaq.push(['_trackPageview']);
-
-    (function () {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        //debugging the tracker
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/u/ga_debug.js';
-//        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-    })();
-
-</script>
-
-<script type="text/javascript">
-
-	$.ajax({
-		url: document.location.protocol + '//munchkin.marketo.net/munchkin.js',
-		dataType: 'script',
-		cache: true,
-		success: function() {
-		   Munchkin.init('773-GON-065').munchkinFunction("associateLead");
-		}
-	});
-
-</script>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'neo4jorglive';
-    //are we live?
-    var disqus_url = window.location;
-    console.log('current URL: ',disqus_url);
-    var origin = disqus_url.origin;
-    if(origin != 'www.neo4j.org') {
-        console.log('this site is not live at ', origin, 'switching to disqus developer mode');
-        var disqus_developer = 1; // developer mode is on
-    }    else {
-        var disqus_developer = 0; // developer mode is off
-    }
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-
-</body>
+    </body>
 </html>

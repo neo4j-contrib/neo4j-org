@@ -1,0 +1,14 @@
+<% var info=apps[app] %>
+<div class="span3">
+    <div class="thumbnail ">
+        <a href="<%= info['url'] %>">
+            <img src="<%= info['logo'] %>" width="300" title="<%= info['name'] %>" alt="<%= info['name'] %> logo"/>
+        </a>
+
+        <div class="caption">
+            <h5><%= info['name'] %></h5>
+
+            <p><%- info['text'] %></p>
+        </div>
+    </div>
+</div>

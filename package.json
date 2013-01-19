@@ -13,6 +13,7 @@
     "soap": "0.2.7",
     "marketo-soap-security": "0.0.2",
     "express": "3.0.0rc5",
-    "ejs": "*"
+    "ejs": "*",
+    "node-markdown":"0.1.1"
   }
 }

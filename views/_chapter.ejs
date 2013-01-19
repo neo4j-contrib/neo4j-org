@@ -1,0 +1,51 @@
+<% var c = chapters[chapter] ; var i = 0 %>
+<!-- BEGIN chapter <%= c.heading %>-->
+           	<div class="chapter" id="<%= chapter %>">
+                <h2><%= c.heading %></h2>
+                <div class="featured" class="mainElement">
+                    <div class="slide">
+                        <div class="caption">
+                            <h3><%= c.featured.heading %></h3>
+                            <%- c.featured.type == 'video' ? '<i class="icon icon-facetime-video"></i>' : '' %><%- c.featured.intro %>
+                        </div>
+                        <div class="content">
+                        	<!--iframe src="<%= c.featured.src %>" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe-->
+                        	<img class="thumbnail" src="<%= c.featured.thumbnail %>" data-src="<%= c.featured.src %>">
+                            <%- c.featured.content %>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+				</div><!-- featured -->
+
+                <div class="related" class="mainElement">
+
+                    <div class="row">
+
+						<% c.related.forEach(function(related) { %>
+
+                        <% if (i > 0 && i % 3 == 0) { %>
+						</div><!-- row -->
+						<div class="row">                        
+						<% } %>
+
+						<% i++ %>
+
+                        <div class="item">
+                        	<% var hasPath = related.path %>
+                            <h3><% if (hasPath) { %><a href="<%= related.path %>"><% } %><%= related.heading %><% if (hasPath) { %></a><% } %></h3>
+                            <div>
+                                <p><%- related.intro %></p>
+                            </div>
+                            <% if (hasPath) { %><p><a class="btn" href="<%= related.path %>"><%= related.actionText %></a></p><% } %>
+
+                        </div>
+
+
+                        <% }); %>
+
+                    </div><!-- row -->
+
+                </div><!-- related -->
+
+            </div>
+<!-- END chapter <%= c.heading %>-->

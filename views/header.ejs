@@ -1,28 +1,24 @@
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <div class="pull-left">
-                <h1 class="header"><a class="brand logo" id="fix" href="/"><img src="/assets/img/neo4j/logo-white.svg" width="40px" alt="Neo4J World's Leading Graph Database">Neo4j</a>
-                </h1>
+
+        <div id="headerWrapper" class="mainElement">
+            <div id="header">
+                <img id="logo" src="/assets/new/img/logo-white.svg" alt="Neo4j World's Leading Graph Database"> <div class="brand"><a href="/">Neo4j</a></div>
+                <div id="mainNav">
+
+                    <ul class="hor menu">
+                        <li class="active"><a href="/learn"><i class="icon icon-book"></i> LEARN</a></li>
+                        <li><a href="/develop"><i class="icon icon-cogs"></i> DEVELOP</a></li>
+                        <li><a href="/participate"><i class="icon icon-refresh"></i> PARTICIPATE</a></li>
+                        <li><a class="btn btn-install" href="/install"><i class="icon icon-download-alt"></i> INSTALL</a></li>
+                        <a href="#" onclick="$('#search').show(function() { $('#search form input').focus()});" id="btn-search" type="button"><i class="icon icon-search"></i></a>
+                    </ul>
+
+                    <div id="search" onmouseout="$('#search').hide()" style="z-index:100;position:absolute; top:5px;right: 5px; display: none;">
+                        <form target="_blank" action="http://google.com/search" method="get"><input type="hidden" name="q" value="site:www.neo4j.org"/><input type="text" name="q" /></form>
+                    </div>
+
+                    <div id="activePointer"><i class="icon icon-caret-up"></i></div>
+
+                </div>
             </div>
-            <div id="nav-menu">  
-              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              </a>
-            </div>
-            <div id="navigation" class="nav-collapse collapse">
-                <div id="search" onmouseout="$('#search').hide()" style="z-index:100;position:absolute; top:5px;right: 5px; display: none;"><form target="_blank" action="http://google.com/search" method="get"><input type="hidden" name="q" value="site:www.neo4j.org"/><input type="text" name="q" /></form></div>
-                <ul class="nav pull-right">
-                    <li><a href="/learn"  >Learn</a></li>
-                    <li><a href="/develop"  >Develop</a></li>
-                    <li><a href="/participate"  >Participate</a></li>
-                    <li><a href="/install" class="btn btn-success" id="btn-nav" type="button"><i
-                            class="icon icon-download-alt"></i> Install</a></li>
-                    <li><a href="#" onclick="$('#search').show(function() { $('#search form input').focus()});" class="" id="btn-search" type="button"><i class="icon icon-search"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+            <div id="chapterNav" class="mainElement">
+                

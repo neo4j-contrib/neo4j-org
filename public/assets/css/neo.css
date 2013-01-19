@@ -90,11 +90,11 @@ a:hover {
 #navigation {
   margin-top: -5px;
 }
-h3.target:before {
+h3[id]::before, section[id]::before {
   display: block;
   content: '';
-  height: 70px;
-  margin: -70px 0 0;
+  height: 80px;
+  margin-top: -60px;
 }
 
 /** page nav **/

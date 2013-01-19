@@ -1,101 +1,66 @@
-  <footer>
-    <div class="footer">
-      <div class="row" id="sitemap">
-        <div class="container">
-            <div class="span2">
-                <ul>
-                    <li class="fheader"><i class="icon icon-book"></i>Learn</li>
-                    <li><a href="/learn/graphdatabase">Graph Database</a></li>
-                    <li><a href="/learn/neo4j">What is Neo4j</a></li>
-                    <li><a href="/learn/cypher">Query Tutorial</a></li>
-                    <li><a href="/learn/nosql">NoSQL Data Models</a></li>
-                    <li><a href="/learn/apps">Apps Gallery</a></li>
-                    <li><a href="http://www.neotechnology.com/customers/" target="_blank">Customers & Use cases</a></li>
-                    <li><a href="/learn/licensing">Licensing Guide</a></li>
-                </ul>
-            </div>
-            <div class="span2">
-                <ul>
-                    <li class="fheader"><i class="icon icon-cogs"></i>Develop</li>
-                    <li><a href="/develop#install">Install Neo4j</a></li>
-                    <li><a href="/develop#cloud">Cloud</a></li>
-                    <li><a href="/learn/try" >Try Live</a></li>
-                    <li><a href="/develop/drivers">Language drivers</a></li>
-                    <li><a href="/develop/visualize">Visualization</a></li>
-                    <li><a href="/develop/example_data">Sample Datasets</a></li>
-                    <li><a href="/develop/spring">Spring Data Neo4j</a></li>
-                </ul>
-            </div>
-            <div class="span2">
-              <ul>
-                <li class="fheader" ><i class="icon icon-refresh"></i>Participate</li>
-                <li><a href="/participate/contributors">Contributors</a></li>
-                <li><a href="http://stackoverflow.com/search?q=neo4j" target="_blank">Stack Overflow</a></li>
-                <li><a href="http://neo4j.meetup.com" target="_blank">Meetups</a></li>
-                <li><a href="https://groups.google.com/group/neo4j/" target="_blank">Google Group</a></li>
-                <li><a href="http://www.github.com/neo4j/neo4j" target="_blank">GitHub</a></li>
-              </ul>
-            </div>
-            <div class="span2">
-              <ul>
-                <li class="fheader" ><img src="/assets/img/neo4j/neo4j-aqua.svg" width="16px" align="left" alt="Neo4j">Quick Links</li>
-                <li><a href="/install">Install</a></li>
-                <li><a href="http://docs.neo4j.org" target="_blank">Neo4j Manual</a></li>
-                <li><a href="/learn/try" >Try Live</a></li>
-                <li><a href="http://watch.neo4j.org" target="_blank">Videos</a></li>
-              </ul>
-            </div>
 
-            <div class="span2 sitelinks">            
-              <ul>
-                <li><a href="http://blog.neo4j.org" target="_blank"><i class="icon-bookmark"></i> Neo4j&nbsp;Blog</a></li>
-                <li><a href="https://twitter.com/neo4j" target="_blank"><i class="icon-twitter"></i>  Twitter</a></li>
-                <li><a href="http://www.linkedin.com/groups?gid=2623939" target="_blank"><i class="icon-linkedin"></i>  LinkedIn</a></li>
-                <li><a href="http://info.neotechnology.com/contactus.html" target="_blank"><i class="icon-phone"></i>  Contact Us</a></li>
-              </ul>
-              <% include subscribe %>
-          </div>
-        </div>
-      </div> 
-        
-      <div class="row footer-gray">
-        <div class="container">
-          <div class="span12 fcompany">
-            <p class="pull-left">&copy; <%= new Date().getFullYear() %> <a href="http://neotechnology.com">Neo Technology</a>, Inc.  &nbsp; Graphs are Everywhere.  &nbsp; &nbsp; <a href="/terms" class="legal">Terms</a> | <a href="/privacy" class="legal">Privacy Policy</a></p>
-          </div>
-        </div>
-      </div>
-        <div class="row">
-            <div class="container">
-                <div class="span12">
-                    <h3>Got feedback? Can't find what you are looking for? Tell us!</h3>
-                    <div id="disqus_thread"></div>
+        <div id="footer" class="mainElement">
+
+            <div id="linkContainer">
+
+                <div class="linkBlock">
+                    <ul class="vertical menu">
+                        <li class="fheader"><i class="icon icon-book"></i><a href="/learn">Learn</a></li>
+                        <li><a href="/learn/graphdatabase">Graph Database</a></li>
+                        <li><a href="/learn/neo4j">What is Neo4j</a></li>
+                        <li><a href="/learn/cypher">Query Tutorial</a></li>
+                        <li><a href="/learn/nosql">NoSQL Data Models</a></li>
+                        <li><a href="/learn/apps">Apps Gallery</a></li>
+                        <li><a href="http://www.neotechnology.com/customers/" target="_blank">Customers & Use cases</a></li>
+                        <li><a href="/learn/licensing">Licensing Guide</a></li>
+                    </ul>
                 </div>
+                <div class="linkBlock">
+                    <ul class="vertical menu">
+                        <li class="fheader"><i class="icon icon-cogs"></i><a href="/learn">Develop</a></li>
+                        <li><a href="/develop#install">Install Neo4j</a></li>
+                        <li><a href="/develop#cloud">Cloud</a></li>
+                        <li><a href="/learn/try" >Try Live</a></li>
+                        <li><a href="/develop/drivers">Language drivers</a></li>
+                        <li><a href="/develop/visualize">Visualization</a></li>
+                        <li><a href="/develop/example_data">Sample Datasets</a></li>
+                        <li><a href="/develop/spring">Spring Data Neo4j</a></li>
+                    </ul>
+                </div>
+                <div class="linkBlock">
+                  <ul class="vertical menu">
+                    <li class="fheader"><i class="icon icon-refresh"></i><a href="/learn">Participate</a></li>
+                    <li><a href="/participate/contributors">Contributors</a></li>
+                    <li><a href="http://stackoverflow.com/search?q=neo4j" target="_blank">Stack Overflow</a></li>
+                    <li><a href="http://neo4j.meetup.com" target="_blank">Meetups</a></li>
+                    <li><a href="https://groups.google.com/group/neo4j/" target="_blank">Google Group</a></li>
+                    <li><a href="http://www.github.com/neo4j/neo4j" target="_blank">GitHub</a></li>
+                  </ul>
+                </div>
+                <div class="linkBlock">
+                  <ul class="vertical menu">
+                    <li class="fheader"><img class="icon" src="/assets/new/img/neo4j-aqua.svg" width="16px" align="left" alt="Neo4j"><a href="/learn">Quick Links</a></li>
+                    <li><a href="/install">Install</a></li>
+                    <li><a href="http://docs.neo4j.org" target="_blank">Neo4j Manual</a></li>
+                    <li><a href="/learn/try" >Try Live</a></li>
+                    <li><a href="http://watch.neo4j.org" target="_blank">Videos</a></li>
+                  </ul>
+                </div>
+
+                <div class="linkBlock">
+                  <ul class="vertical menu connect">
+                    <li><a href="http://blog.neo4j.org" target="_blank"><i class="icon-bookmark"></i> Neo4j&nbsp;Blog</a></li>
+                    <!-- <li><a href="https://groups.google.com/group/neo4j/" target="_blank"><i class="icon-comments"></i> Google Group</a></li> -->
+                    <li><a href="https://twitter.com/neo4j" target="_blank"><i class="icon-twitter"></i>  Twitter</a></li>
+                    <li><a href="http://www.linkedin.com/groups?gid=2623939" target="_blank"><i class="icon-linkedin"></i>  LinkedIn</a></li>
+                    <li><a href="http://info.neotechnology.com/contactus.html" target="_blank"><i class="icon-phone"></i>  Contact Us</a></li>
+                  </ul>
+                  <!--<% include subscribe %>-->
+                </div>
+
+
+                <p class="disclaimer">&copy; <%= new Date().getFullYear() %> <a href="http://neotechnology.com">Neo Technology</a>, Inc.  &nbsp; Graphs are Everywhere.  &nbsp; &nbsp; <a href="/terms" class="legal">Terms</a> | <a href="/privacy" class="legal">Privacy Policy</a></p>
+
             </div>
         </div>  
-      <script type="text/javascript">
-          //are we live?
-          var disqus_url = window.location;
-          console.log('current URL: ',disqus_url);
-          var origin = disqus_url.origin;
-          if(origin != 'www.neo4j.org') {
-            console.log('this site is not live at ', origin, 'switching to disqus developer mode');
-            var disqus_developer = 1; // developer mode is on
-          }    else {
-            var disqus_developer = 0; // developer mode is off
-          }
-          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'neo4jorglive'; // required: replace example with your forum shortname
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    </div>
-
-  </footer>
-  
+ 

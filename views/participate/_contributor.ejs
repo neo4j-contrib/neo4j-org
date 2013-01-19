@@ -1,0 +1,12 @@
+<% var info=contributors[contributor] %>
+<div class="thumbnail  span2">
+
+    <a href="<%= info['url'] %>">
+        <img src="<%= info['logo'] %>" width="200" title="<%= info['name'] %>" alt="picture of <%= info['name'] %>"/>
+    </a>
+
+    <div class="caption">
+        <h5><a href="http://twitter.com/<%=contributor %>" target="_blank"><%= info['name'] %></a></h5>
+        <p><%- info['text'] %></p>
+    </div>
+</div>

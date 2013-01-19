@@ -1,0 +1,862 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Chrome Frame prompt
+   ========================================================================== */
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   neo4j.org custom styles
+   ========================================================================== */
+@font-face {
+        font-family: 'OfficinaSerifStd-Bold';
+        src: url('../font/officinaserifstd-bold.eot');
+        src: url('../font/officinaserifstd-bold.eot?#iefix') format('embedded-opentype'),
+                 url('../font/officinaserifstd-bold.woff') format('woff'),
+                 url('../font/officinaserifstd-bold.ttf') format('truetype'),
+                 url('../font/officinaserifstd-bold.svg#officinaserifstd-bold') format('svg');
+        font-weight: normal;
+        font-style: normal;
+}
+
+/** Default */
+body {
+    background-color: #e5e5e5;
+    font-size: 9pt;
+}
+
+@media (min-width: 800px) and (max-width: 900px) {
+    body {
+        font-size: 9.5pt;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1080px) {
+    body {
+        font-size: 11pt;
+    }
+}
+
+@media (min-width: 1080px) {
+    body {
+        font-size: 12pt;
+    }
+}
+
+body, h1, h2, h3, h4 {
+    font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif;
+    color: #555;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+p {
+    margin-top: 0;
+    line-height: 1.6em;
+}
+
+a, a:hover, a:active, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.mainElement {
+    width: 100%;
+}
+
+div.clear {
+    clear: both;
+}
+
+ul.menu {
+    padding: 0;
+    margin: 0;
+}
+
+ul.menu li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 1em 0 0;
+}
+
+ul.hor li {
+    display: inline-block;
+}
+
+.btn {
+    display: inline-block;
+    *display: inline;
+    padding: 4px 14px;
+    margin-bottom: 0;
+    *margin-left: .3em;
+    font-size: 14px;
+    line-height: 20px;
+    *line-height: 20px;
+    color: #333333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    *background-color: #e6e6e6;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+    background-repeat: repeat-x;
+    border: 1px solid #bbbbbb;
+    *border: 0;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-bottom-color: #a2a2a2;
+    -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+    *zoom: 1;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-install {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #5bb75b;
+    *background-color: #51a351;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+    background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+    background-image: -o-linear-gradient(top, #62c462, #51a351);
+    background-image: linear-gradient(to bottom, #62c462, #51a351);
+    background-image: -moz-linear-gradient(top, #62c462, #51a351);
+    background-repeat: repeat-x;
+    border-color: #51a351 #51a351 #387038;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+
+.btn-action {
+    color: #555 ! important;
+    font-size: 1em;
+    text-shadow: 0 -1px 0 rgba(255, 255, 255, .25);
+    background-color: #e5e5e5;
+    *background-color: #e5e5e5;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e5e5e5), to(#c0c0c0));
+    background-image: -webkit-linear-gradient(top, #e5e5e5, #c0c0c0);
+    background-image: -o-linear-gradient(top, #e5e5e5, #c0c0c0);
+    background-image: linear-gradient(to bottom, #e5e5e5, #c0c0c0);
+    background-image: -moz-linear-gradient(top, #e5e5e5, #c0c0c0);
+    background-repeat: repeat-x;
+    border-color: #51a351 #51a351 #387038;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+
+.btn-action:hover {
+    color: #222 ! important;
+}
+
+#sun {
+    position: absolute;
+    z-index: 0;
+}
+
+#headerWrapper {
+    background: #00546a url('../img/header_bg.gif') repeat-x;
+    /*border-bottom: 1px solid #c4ced0;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+#header {
+    height: 5em;
+    width: 60em;
+    margin: 0 auto;
+    background: transparent;
+    position: relative;
+}
+
+#header .brand {
+    margin: .7em 0 0 .35em;
+    float: left;
+    font-family: 'OfficinaSerifStd-Bold', 'Times New Roman', serif;
+    font-size: 2em;
+}
+
+#header a, #header a:hover, #header a:active, #header a:visited {
+    color: #fff;
+    text-decoration: none;   
+}
+
+#logo {
+    float: left;
+    width: 3em;
+    margin: .75em 0 0 0;
+}
+
+#mainNav {
+    position: absolute;
+    right: 0;
+    bottom: .5em;
+    margin: 1.5em 0 0 0;
+    font-size: 1.2em;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: bold;
+    color: #fff;
+}
+
+#mainNav a:hover, #mainNav .active {
+    /*text-decoration: underline;*/
+    /*color: #e7e7e7;*/
+    text-shadow: #fff 0 0 .75em;
+}
+
+#mainNav a.btn {
+    margin-top: -.2em;
+    text-decoration: none;
+}
+
+#mainNav .icon-search {
+    text-decoration: none;   
+}
+
+#activePointer {
+    position: absolute;
+    right: 13.1em;
+    bottom: 0;
+    font-size: 2em;
+    line-height: 0em;
+    margin-bottom: -.18em;
+    color: #f5f5f5;
+}
+
+#lead {
+    width: 60em;
+    height: 1.7em;
+    margin: 0 auto;
+    padding-top: .5em;
+}
+
+#chapterNav {
+    position: absolute;
+    width: 100%;
+    top: 5em;
+    height: 4.5em;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #c4ced0;
+}
+
+#chapterNav ul {
+    width: 60em;
+    margin: .25em auto;
+}
+
+#chapterNav a,
+#chapterNav a:visited,
+#chapterNav a:hover {
+    color: #555;
+    display: inline-block;
+    /*display: none;*/
+    margin-top: .13em;
+    padding: .25em 1em;
+}
+
+#chapter a:active,
+#chapterNav a.active,
+#chapterNav a.active:visited {
+    text-shadow: #fff 0 0 .75em;
+    color: #00546a;
+    border-top: 1px solid #c4ced0;
+    border-left: 1px solid #c4ced0;
+    border-right: 1px solid #c4ced0;
+/*    border-bottom: 1px solid #f5f5f5;
+    background: #f5f5f5;*/
+    border-bottom: 1px solid #fff;
+    background: #fff;
+}
+
+
+#chapterNav a:hover {
+    text-decoration: underline;
+}
+
+/*#chapterNav h2 {
+    width: 100%;
+    height: 4em;
+    line-height: 1em;
+    color: #00546a;
+    text-align: center;
+}
+*/
+#main {
+    /*height: 800px;*/
+    overflow: auto;
+    position: relative;
+    padding: 9em 0 0 0;
+    /*background: #f5f5f5;*/
+    background: #fff;
+    /*background: rgba(253, 253, 253, .2) url('../img/bg_learn.png');*/
+}
+
+.chapter {
+    position: relative;
+    z-index: 2;
+    width: 60em;
+    margin: 2em auto 2em auto;
+    background-color: rgba(255, 255, 255, .8);
+    /*display: none;*/
+    sborder: 1px solid #c4ced0;
+    border-radius: .25em;
+    padding: 1em 2em;
+/*    box-shadow: 0px 0px 1em #e0e0e0;
+    -webkit-box-shadow: 0px 0px 1em #e0e0e0;
+    -moz-box-shadow: 0px 0px 1em #e0e0e0;*/
+    box-shadow: 0px 0px 1em #e5e5e5;
+    -webkit-box-shadow: 0px 0px 1em #e5e5e5;
+    -moz-box-shadow: 0px 0px 1em #e5e5e5;
+    border: 1px solid #dce7ea;
+}
+
+.chapter h1 {
+    color: #555;
+    padding-bottom: .25em ! important;
+}
+
+/*.chapter h2 {
+    font-size: 1.5em;
+    width: 12em;
+    height: 4em;
+    padding: .25em 0 1em 1em;
+    border: 1px solid #a5a5a5;
+    background: #00546a;
+    border-radius: 1em;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+*/
+
+.chapter h2 {
+    color: #555;
+    font-size: 2.2em;
+    padding-bottom: .25em;
+}
+
+.chapter h2 a,
+.chapter h2 i {
+    font-size: 2em  ;
+    color: #00546a;
+}
+
+#prev {
+    left: 0;
+}
+
+#next {
+    right: 0;
+}
+
+.navBtn {
+    z-index: 2;
+    font-size: 1.5em;
+    position: absolute;
+    top: .5em;
+    margin: 1em;
+    cursor: pointer;
+    display: none;
+}
+
+.navBtn:hover {
+    color: #222s;
+    text-shadow: #aaa 0 0 1em;
+}
+
+.featured {
+    /*background: #fff;*/
+    padding: 0;
+     /*url('../img/background_2560x1440.png') center 0px no-repeat;*/
+     border-top: 1px solid #dce7ea;
+}
+
+.featured .slide {
+    width: 60em;
+    margin: 1.5em auto;
+    position: relative;
+    height: 22em;
+}
+
+.featured .slide .thumbnail {
+    width: 40em;
+}
+
+.featured .content {
+    width: 40em;
+    float: right;
+    text-align: right;
+}
+
+/*.features .content iframe {
+    width: 40em;
+    height: 22.5em;
+}*/
+
+.featured .caption {
+    width: 12em;
+    font-size: 1.5em;
+    line-height: 1.5em;
+    position: absolute;
+    top: 0;
+}
+
+.featured .caption h3 {
+    line-height: 1em;
+    font-size: 1.2em;
+    padding: 0 0 .5em 0;
+    margin: -.2sem 0 0 0;
+    color: #00546a;
+}
+
+.featured .caption a,
+.featured .caption a:visited,
+.featured .caption a:hover,
+.featured .caption a:active {
+    color: #00546a;
+}
+
+/*.featured .slide:hover {
+    background: #f5f5f5;
+    cursor: pointer;
+}*/
+
+.featured .slide img {
+    width: 600px;
+}
+
+.related {
+    padding-top: 1em;
+    min-height: 12em;
+    /*background-color: #fff;*/
+    /*border-bottom: 1px solid #ccc;*/
+}
+
+.related a,
+.related a:visited,
+.related a:hover,
+.related a:active {
+    font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif;
+    color: #00546a;
+}
+
+.related .row {
+    width: 60em;
+    height: 14em;
+    margin: 0 auto;
+    border-top: 1px solid #dce7ea;
+    padding-top: 1em;
+}
+
+.related .row .item {
+    width: 19em;
+    float: left;
+    padding: .75em 0 0 0;
+    margin-left: 1.5em;
+}
+
+.related .row .item:first-child {
+    margin: 0;
+}
+
+.related .row .item div {
+    /* comment in to give the text block of related items the same height height: 7.2em;*/
+}
+
+.related .row .item h3 {
+    padding-bottom: .5em;
+}
+
+#linkContainer {
+    width: 60em;
+    /*height: 160px;*/
+    margin: 0 auto;
+    padding: 2em 0 0 0;
+}
+
+.featured .icon {
+    margin-right: .25em;
+}
+
+.linkBlock li.fheader .icon {
+    margin-left: -1.41em;
+    margin-right: .1em;
+    vertical-align: middle;
+}
+
+.linkBlock {
+    color: #00546a;
+    width: 12em;
+    height: 12em;
+    float: left;
+}
+
+.linkBlock a {
+    color: #00546a;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-size: 9pt;
+    text-decoration: none;
+}
+
+.linkBlock a:hover {
+    text-shadow: #a5a5a5 0 0 .15em;    
+}
+
+.linkBlock li.fheader,
+.linkBlock li.fheader a {
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.linkBlock li.fheader a:hover {
+    text-shadow: #a5a5a5 0 0 .1em;  
+}
+
+.linkBlock .connect li {
+    margin-bottom: .8em;
+}
+
+.linkBlock .connect a {
+    font-size: 12pt;
+}
+
+#footer {
+    background-color: #e5e5e5;
+    border-top: 1px solid #c4ced0;
+    height: 15.5em;
+/*    position: fixed;
+    z-index: 3;
+    bottom: 0;
+*/}
+
+#footer .disclaimer {
+}
+
+#footer .disclaimer,
+#footer .disclaimer a,
+#footer .disclaimer a:hover,
+#footer .disclaimer a:active,
+#footer .disclaimer a:visited {
+    color: #00546a;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-size: 7.5pt;
+    text-decoration: none;
+    /*text-align: right;*/
+}
+
+#footer .disclaimer a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   Theses examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
