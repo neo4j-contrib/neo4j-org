@@ -40,7 +40,7 @@
 
                             <h3><% if (hasPath) { %><a href="<%= related.path %>"><% } %><%= related.heading %><% if (hasPath) { %></a><% } %></h3>
                             <% if (related.img) { %>
-                            <img src="<%= related.img %>">
+                            <a href="<%= related.path %>"><img class="logo" src="<%= related.img %>"></a>
                             <% } %>
                             <div>
                                 <p><%- related.intro %></p>

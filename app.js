@@ -15,6 +15,7 @@ var express = require('express')
   , munchkin=require("./helpers/munchkin")
   , data=require("./helpers/data")
   , content_data=require("./helpers/content_data")
+  , track_data=require("./helpers/track_data")
   , markdown = require("node-markdown").Markdown
 
 var app = express();
@@ -105,6 +106,7 @@ app.locals.drivers=data.drivers;
 app.locals.apps=data.apps;
 app.locals.contributors=data.contributors;
 app.locals.chapters=content_data.chapters;
+app.locals.units=track_data.units;
 
 app.locals.neo4jS = {
     version: "1.9-SNAPSHOT",

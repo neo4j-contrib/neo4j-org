@@ -17,16 +17,17 @@
         <!--
         $(document).ready(function() {
 
-            $('#activePointer').css({
-              right: '13.1em'
-            });
-
-            nav.activateMain('learn');
+            nav.activateMain('learn', '13.1em');
 
             nav.initThumbnails();
 
             nav.init();
             nav.activate('graph_concepts');
+            
+            $(window).on('resize', function() {
+                nav.resize();
+            });
+
 
         });
         //-->

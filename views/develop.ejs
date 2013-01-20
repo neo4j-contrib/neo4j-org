@@ -17,16 +17,16 @@
         <!--
         $(document).ready(function() {
 
-            $('#activePointer').css({
-              right: '9.8em'
-            });
-
-            nav.activateMain('develop');
+            nav.activateMain('develop', '9.8em');
 
             nav.initThumbnails();
 
             nav.init();
             nav.activate('install');
+
+            $(window).on('resize', function() {
+                nav.resize();
+            });
 
         });
         //-->

@@ -17,16 +17,16 @@
         <!--
         $(document).ready(function() {
 
-            $('#activePointer').css({
-              right: '5.9em'
-            });
-
-            nav.activateMain('participate');
+            nav.activateMain('participate', '5.9em');
 
             nav.initThumbnails();
 
             nav.init();
             nav.activate('questions');
+
+            $(window).on('resize', function() {
+                nav.resize();
+            });
 
         });
         //-->

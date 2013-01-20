@@ -105,7 +105,7 @@ textarea {
 
 /** Default */
 body {
-    background-color: #e5e5e5;
+    background-color: #fff;
     font-size: 9pt;
 }
 
@@ -331,7 +331,7 @@ ul.hor li {
 
 #activePointer {
     position: absolute;
-    right: 13.1em;
+    display: none;
     bottom: 0;
     font-size: 2em;
     line-height: 0em;
@@ -341,28 +341,60 @@ ul.hor li {
 
 #lead {
     width: 60em;
-    height: 1.7em;
+    /*min-height: 1.7em;*/
     margin: 0 auto;
     padding-top: .5em;
+}
+
+#lead .intro {
+    font-weight: 600;
+}
+
+#lead a,
+#lead a:visited,
+#lead a:hover,
+#lead a:active {
+    color: #00546a;
+}
+
+#lead .col {
+    width: 48%;
+    height: 80%;
+}
+
+#lead .left {
+    float: left;
+}
+
+#lead .right {
+    float: right;
+}
+
+#lead .col:first-child {
+    margin-right: 2em;
+}
+
+#lead h3 {
+    padding: .5em 0;
 }
 
 #chapterNav {
     position: absolute;
     width: 100%;
     top: 5em;
-    height: 4.5em;
+    /*min-height: 4.5em;*/
     background-color: #f5f5f5;
     border-bottom: 1px solid #c4ced0;
 }
 
 #chapterNav ul {
     width: 60em;
-    margin: .25em auto;
+    margin: .25em auto 0 auto;
 }
 
-#chapterNav a,
-#chapterNav a:visited,
-#chapterNav a:hover {
+#chapterNav li a,
+#chapterNav li a:visited,
+#chapterNav li a:hover {
     color: #555;
     display: inline-block;
     /*display: none;*/
@@ -370,9 +402,9 @@ ul.hor li {
     padding: .25em 1em;
 }
 
-#chapter a:active,
-#chapterNav a.active,
-#chapterNav a.active:visited {
+#chapter li a:active,
+#chapterNav li a.active,
+#chapterNav li a.active:visited {
     text-shadow: #fff 0 0 .75em;
     color: #00546a;
     border-top: 1px solid #c4ced0;
@@ -382,12 +414,14 @@ ul.hor li {
     background: #f5f5f5;*/
     border-bottom: 1px solid #fff;
     background: #fff;
+    margin: -1px;
 }
 
 
 #chapterNav a:hover {
     text-decoration: underline;
 }
+
 
 /*#chapterNav h2 {
     width: 100%;
@@ -398,10 +432,10 @@ ul.hor li {
 }
 */
 #main {
-    /*height: 800px;*/
+    min-height: 10em;
     overflow: auto;
     position: relative;
-    padding: 9em 0 0 0;
+    padding: 9.5em 0 0 0;
     /*background: #f5f5f5;*/
     background: #fff;
     /*background: rgba(253, 253, 253, .2) url('../img/bg_learn.png');*/
@@ -409,7 +443,6 @@ ul.hor li {
 
 .chapter {
     position: relative;
-    z-index: 2;
     width: 60em;
     margin: 2em auto 2em auto;
     background-color: rgba(255, 255, 255, .8);
@@ -424,6 +457,14 @@ ul.hor li {
     -webkit-box-shadow: 0px 0px 1em #e5e5e5;
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
     border: 1px solid #dce7ea;
+}
+
+.chapter .icon {
+    margin-right: .4em;
+}
+
+.chapter .thumbnail {
+    cursor: pointer;
 }
 
 .chapter h1 {
@@ -566,6 +607,10 @@ ul.hor li {
 }
 
 .related .row .item img {
+    margin-bottom: 1em;
+}
+
+.related .row .item img.logo {
     width: 8em;
     height: 8em;
     margin: 0 0 1em 4em;
@@ -575,12 +620,9 @@ ul.hor li {
     width: 60em;
     /*height: 160px;*/
     margin: 0 auto;
-    padding: 2em 0 0 0;
+    padding: 1em 0 0 0;
 }
 
-.featured .icon {
-    margin-right: .25em;
-}
 
 .linkBlock li.fheader .icon {
     margin-left: -1.41em;
@@ -627,11 +669,11 @@ ul.hor li {
 #footer {
     background-color: #e5e5e5;
     border-top: 1px solid #c4ced0;
-    height: 15.5em;
-/*    position: fixed;
+    height: 15em;
+/*    position: absolute;
     z-index: 3;
-    bottom: 0;
-*/}
+    bottom: 0;*/
+}
 
 #footer .disclaimer {
 }

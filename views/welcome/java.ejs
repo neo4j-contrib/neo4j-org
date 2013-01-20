@@ -1,84 +1,62 @@
 <% include ../head %>
-<div class="container">
 
-<div role="main" class="row">
-  <div class="span8">
+        
+        <div id="lead">
+          <h1><i class="icon icon-cogs"></i> Neo4j for Java developers.</h1>
 
-      <div id="neo4j" class="hero-unit path">
-        <h2><a><i class="icon icon-cogs"></i> Neo4j for Java developers.</a></h2>
-        <p class="lead">As the 4j indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.</p>
-      </div>
+          <h3>As the 4j indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.</h3>
 
-      <p>Welcome to Neo4j. For a Java or JVM-language developer, Neo4j offers a rich set of integration possibilities.
-         Make sure to have looked at our information on <a href="/learn/graphdatabase">graph databases</a> and <a href="/learn/neo4j">Neo4j</a> in general. 
-          You should also check out our graph query language <a href="/learn/cypher">Cypher</a> which makes it very easy to get going regardless of the development platform.
-      </p>
-      <p>Neo4j comes in two flavors. The standalone <strong>Neo4j-Server</strong> can be installed on any machine and then accessed via its REST API.
-         You can then use whatever REST-library you choose for any JVM language. The dedicated Neo4j drivers go beyond that
-         by offering comprehensive APIs for integrating with graph based applications.
-      </p>
-      <p>But you can also run Neo4j <strong>embedded in your JVM</strong> process, much like HSQL or Derby. This is great for unit testing, but
-          also for high performance / no-network setups. If you use Neo4j embedded you can use the Neo4j Core-API directly.
-          Besides an object oriented approach to the graph database, working with Nodes, Relationships and Paths, it also offers highly customizable
-          high-speed traversal- and graph-algorithm implementations.
-          You can also choose from any useful wrapping drivers that exist either for specific programming languages or that add interesting functionality. 
-      </p>
-      <p>One example is <a href="/develop/spring">Spring Data Neo4j</a> which integrates tightly with the <a href="http://springframework.org/spring-data/neo4j">SpringFramework</a> and offers Object-Graph mapping on top of Neo4j.
-      Just to tease your interest - there are hundreds of open source Neo4j-related ecosystem projects, example applications and tutorials 
-      that can spark new ideas and possibilities.
-      </p>
-      <p>As a JVM developer you are also on the bright side when it comes to pouring large amounts of data into Neo4j. With its non-transactional
-      batch-insertion facilities it can ingest millions of nodes and relationships in just seconds.</p> 
-      
-      <h3>JVM based ecosystem projects</h3> 
+          <p class="intro">Welcome to Neo4j. For a Java or JVM-language developer, Neo4j offers a rich set of integration possibilities.
+           Make sure to have looked at our information on <a href="/learn/graphdatabase">graph databases</a> and <a href="/learn/neo4j">Neo4j</a> in general. 
+            You should also check out our graph query language <a href="/learn/cypher">Cypher</a> which makes it very easy to get going regardless of the development platform.
+        </p>
 
-         <ul><!-- todo replace with tiles -->
-            <li>Neo4j Spatial offering geospatial functionality on top of the graph</li>
-            <li>Structr a Java based custom Neo4j backend and CMS frontend</li>
-            <li>Neoclipse an Eclipse RCP based Neo4j workbench</li> 
-            <li>Graph Collections a set of in-graph representations of typical data structures, like lists, trees etc.</li>
-            <li>Java Rest Binding which offers a Java API for the Neo4j-Server, built on jersey-client</li>
-            <li>The Neo4j JDBC driver which allows to run Cypher statements via JDBC and integrates so with all JDBC libraries and tools</li>
-            <li><a href="https://github.com/alexsmirnov/neo4j-connector">Neo4j JCA connector</a></li>
-         </ul>
-      <!-- server plugins -->
-    <h3>Server plugins</h3>
-      <ul>
-          <li><a href="https://github.com/neo4j/neo4j-geoff">Geoff plugin</a> for importing and exporting py2neo's geoff format</li>
-          <li>Gremlin plugin that offers a tinkerpop-gremlin shell and REST endpoint</li>
-      </ul>
-      <!-- content and resources, also as tiles -->
-      <h3>Educational Examples</h3>
-      <ul>
-          <li>Jim and Ian's Java (JUnit) based Neo4j koans that use the Dr. Who universe as a lively use-case</li>
-          <li><a href="https://github.com/xebia-france/workshop-neo4j">French workshop</a> around Neo4j from Xebia</li>
-      </ul>
-      
-          <h3>Java API</h3>
-      <h3>Using Cypher from Java</h3>
-      <h3>Neo4j Server</h3>
-      <h3>Batch Insertion</h3>
-      <h3>JDBC driver</h3>
-      <h3>Sample Projects</h3>
-      <h3>Drivers of accessing Neo4j in the JVM</h3>
-      <% var tilespan=3; %>
-      <div class="thumbnails drivers row-fluid">
-          <% ["neo4j_rest","spring_data_neo4j","neo4j_java","scala"].forEach(function(driver) { %>
-              <% include ../develop/_driver %>
-          <% }); %>
-      </div>
-      <div class="thumbnails drivers row-fluid">
-          <% ["neocons","anorm_cypher","neo4j_python","datanucleus"].forEach(function(driver) { %>
-              <% include ../develop/_driver %>
-          <% }); %>
-      </div>
-      <div class="thumbnails drivers row-fluid">
-          <% ["neo4j_rb","grails"].forEach(function(driver) { %>
-              <% include ../develop/_driver %>
-          <% }); %>
-      </div>
-    </div>
-    <aside class="span4 sidebar">
+          <div class="col left">
+
+            <p>Neo4j comes in two flavors. The standalone <strong>Neo4j-Server</strong> can be installed on any machine and then accessed via its REST API.
+               You can then use whatever REST-library you choose for any JVM language. The dedicated Neo4j drivers go beyond that
+               by offering comprehensive APIs for integrating with graph based applications.
+            </p>
+
+            <p>But you can also run Neo4j <strong>embedded in your JVM</strong> process, much like HSQL or Derby. This is great for unit testing, but
+                also for high performance / no-network setups. If you use Neo4j embedded you can use the Neo4j Core-API directly.</p>
+            <p>
+                Besides an object oriented approach to the graph database, working with Nodes, Relationships and Paths, it also offers highly customizable
+                high-speed traversal- and graph-algorithm implementations.</p>
+        </div>
+        <div class="col right">
+
+            <p>
+                You can also choose from any useful wrapping drivers that exist either for specific programming languages or that add interesting functionality. 
+            </p>
+
+        <p>One example is <a href="/develop/spring">Spring Data Neo4j</a> which integrates tightly with the <a href="http://springframework.org/spring-data/neo4j">SpringFramework</a> and offers Object-Graph mapping on top of Neo4j.
+        Just to tease your interest - there are hundreds of open source Neo4j-related ecosystem projects, example applications and tutorials 
+        that can spark new ideas and possibilities.
+        </p>
+        <p>As a JVM developer you are also on the bright side when it comes to pouring large amounts of data into Neo4j. With its non-transactional
+        batch-insertion facilities it can ingest millions of nodes and relationships in just seconds.</p> 
+
+        </div>
+        <div class="clear"></div>
+  
+        <h3>Follow the track we set up for JVM developers:</h3>
+
+        </div><!-- lead -->
+
+
+        <ul class="hor menu">
+<% ["jvm", "server_plugins", "java_api", "cypher_java", "neo4j_server"].forEach(function(track_unit) { %><% include _trackUnitHeading %><% }); %>
+        </ul>
+                
+            </div>
+        </div>
+
+      <div id="main" class="mainElement">
+<% ["jvm", "server_plugins", "java_api", "cypher_java", "neo4j_server"].forEach(function(track_unit) { %><% include _trackUnit %><% }); %>
+        </div><!-- #main -->
+
+<!--    <aside class="span4 sidebar">
   <div class="next-steps">
     <h2>Next Steps</h2>
     <div class="next thumbnail">
@@ -94,7 +72,28 @@
   </div>
    
     </aside>
-  </div>
-</div>
+
+    -->
+
+        <script type="text/javascript">
+        <!--
+        $(document).ready(function() {
+
+            nav.activateMain('develop', '9.8em');
+
+            nav.initThumbnails();
+
+            nav.init();
+            nav.activate('jvm');
+            
+            $(window).on('resize', function() {
+                nav.resize();
+            });
+
+        });
+        //-->
+        </script>
+
+
 <% include ../foot %>
 
