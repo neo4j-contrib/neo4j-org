@@ -13,9 +13,9 @@ wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add -
 # Create an Apt sources.list file
 echo 'deb http://debian.neo4j.org/repo stable/' &gt; /etc/apt/sources.list.d/neo4j.list
 # Find out about the files in our repository
-aptitude update -y
+apt-get update
 # Install Neo4j, community edition
-aptitude install neo4j -y
+apt-get install neo4j
 # start neo4j server, available at <a href="http://localhost:7474">http://localhost:7474</a> of the target machine
 neo4j start
 </pre>
