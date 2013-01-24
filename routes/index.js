@@ -61,6 +61,11 @@ exports.cypher = function(req, res){
   res.render('learn/cypher', { category: 'learn', title: 'Cypher Tutorial' });
 };
 
+exports.books = function(req, res){
+  res.render('learn/books', { category: 'learn', title: 'Books' });
+};
+
+
 exports.visualize = function(req, res){
   res.render('develop/visualize', { category: 'develop', title: 'Graph Visualizations' });
 };

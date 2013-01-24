@@ -103,6 +103,7 @@ app.locals.theme = function() {
 app.locals.drivers=data.drivers;
 app.locals.apps=data.apps;
 app.locals.contributors=data.contributors;
+app.locals.books=data.books;
 
 app.locals.neo4jS = {
     version: "1.9-SNAPSHOT",
@@ -155,6 +156,7 @@ app.get('/learn/licensing', routes.license); // node:  Neo4j editions and licens
 app.get('/learn/propertygraph', routes.propertygraph); // node:  explanation of property graph
 app.get('/learn/nosql', routes.nosql); // node:  compare to other databases
 app.get('/learn/cypher', routes.cypher); // node:  compare to other databases
+app.get('/learn/books', routes.books); // node: showcase of books about Neo4j and Graph Theory
 app.get('/develop/visualize', routes.visualize); // node:  compare to other databases
 app.get('/develop', routes.develop); // path: development guides in featured languages
 app.get('/develop/heroku', routes.heroku); // path: heroku deployment

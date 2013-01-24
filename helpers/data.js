@@ -333,3 +333,62 @@ exports.contributors = {
     }
 }
 
+exports.books = {
+    springdata : {
+        url : "http://shop.oreilly.com/product/0636920024767.do",
+        name : "Spring Data",
+        author : "Jon Brisbin, Oliver Gierke, Thomas Risberg, Mark Pollack, Michael Hunger",
+        price : "Early Release Ebook $23.99",
+        logo : "/assets/img/books/spring_data.png",
+        text : 'This book shows you how Spring’s data access framework can help you connect to either non-relational or relational databases, or a combination of the two.'
+    },
+    goodrelationships : {
+        url : "http://www.lulu.com/shop/michael-hunger-and-david-montag-and-andreas-kollegger/good-relationships-the-spring-data-neo4j-guide-book/paperback/product-20201195.html",
+        name : "Good Relationships",
+        author : "Michael Hunger with Andreas Kolleger and David Montag",
+        price : "$9.95",
+        logo : "/assets/img/books/good_relationships.png",
+        text : 'With Spring Data, the ever popular Spring Framework has cultivated a new patch of ground, bringing Big Data and NOSQL technology like Neo4j to enterprise developers. This guide introduces you to Spring Data Neo4j, using the fast, powerful and scalable graph database Neo4j to enjoy the benefits of having good relationships in your data.'
+    },
+    nosqldistilled : {
+        url : "http://www.amazon.com/gp/product/0321826620/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0321826620&linkCode=as2&tag=neotech05-20",
+        name : "NoSQL Distilled: A Brief Guide to the Emerging World of Polyglot Persistence",
+        author : "Pramod J. Sadalage and Martin Fowler",
+        price : "List Price: $39.99",
+        logo : "/assets/img/books/nosql_distilled.png",
+        text : 'Together, Fowler and ThoughtWorks principal consultant Pramod Sadalage thoroughly explain how NoSQL databases work, and why they may often be a superior alternative for Big Data, high-traffic web sites, heavy-duty streaming media delivery, and other demanding environments.'
+    },
+    sevendatabases : {
+        url : "http://www.amazon.com/gp/product/1934356921/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1934356921&linkCode=as2&tag=neotech05-20",
+        name : "Seven Databases in Seven Weeks",
+        author : "Eric Redmond and Jim R. Wilson",
+        price : "List Price: $35.00",
+        logo : "/assets/img/books/seven_databases.png",
+        text : 'Seven Databases in Seven Weeks takes you on a tour of some of the hottest open source databases today. In the tradition of Bruce A. Tate\'s Seven Languages in Seven Weeks, this book goes beyond your basic tutorial to explore the essential concepts at the core each technology.'
+    },
+    neo4jinaction : {
+        url : "http://www.manning.com/partner/",
+        name : "Neo4j in Action",
+        author : "Jonas Partner and Aleksa Vukotic",
+        price : "Ebook - $35.99, Print - $44.99",
+        logo : "/assets/img/books/neo4j_in_action.png",
+        text : 'Neo4j in Action is a comprehensive guide to Neo4j, aimed mainly at application developers and software architects. This exciting new book by Jonas Partner and Aleksa Vukotic is the first full length book on Neo4j, covering an introduction to Neo4j, application development with Neo4j, and Neo4j in production.'
+    },
+    visualcomplexity : {
+        url : "http://www.amazon.com/gp/product/1568989369/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1568989369&linkCode=as2&tag=neotech05-20",
+        name : "Visual Complexity: Mapping Patterns of Information",
+        author : "Manuel Lima",
+        price : "List Price: $50.00",
+        logo : "/assets/img/books/visual_complexity.png",
+        text : 'From representing networks of friends on Facebook to depicting interactions among proteins in a human cell, Visual Complexity presents one hundred of the most interesting examples of information-visualization by the field\'s leading practitioners.'
+    },
+    connected : {
+        url : "http://www.amazon.com/gp/product/0316036137/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0316036137&linkCode=as2&tag=neotech05-20",
+        name : "Connected: The Surprising Power of Our Social Networks and How They Shape Our Lives — How Your Friends\' Friends\' Friends Affect Everything You Feel, Think, and Do",
+        author : "Nicholas A. Christakis and James H. Fowler",
+        price : "List Price: $15.99",
+        logo : "/assets/img/books/connected.png",
+        text : 'Renowned scientists Christakis and Fowler present compelling evidence for our profound influence on one another\'s tastes, health, wealth, happiness, beliefs, even weight, as they explain how social networks form and how they operate.'
+    }
+
+}
