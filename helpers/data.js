@@ -47,6 +47,15 @@ exports.drivers = {
         name : "neo4j.rb",
         text : "Ruby on Rails? Try coasting along graph paths with Neo4j. Everything you know and love, wrapped with graph glory."
     },
+    neo4j_core : {
+        tags : ["ruby", "jvm"],
+        author : "Andreas Ronge",
+        twitter : "ronge",
+        url : "https://github.com/andreasronge/neo4j-core",
+        logo : "/assets/img/languages/ruby.png" ,
+        name : "neo4j-core",
+        text : "For a fast and simple JRuby binding to the embedded Neo4j Java API. This gem is used by neo4j.rb"
+    },
     neography : {
         tags : ["ruby", "rest"],
         author : "Max de Marzi",
