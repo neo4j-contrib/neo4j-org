@@ -10,6 +10,7 @@
     "start": "node app"
   },
   "dependencies": {
+	"rssparser" : "0.0.2"
     "soap": "0.2.7",
     "marketo-soap-security": "0.0.2",
     "express": "3.0.0rc5",

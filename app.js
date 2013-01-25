@@ -15,6 +15,7 @@ var express = require('express')
   , munchkin=require("./helpers/munchkin")
   , data=require("./helpers/data")
   , markdown = require("node-markdown").Markdown
+  , rssparser = require('rssparser')
 
 var app = express();
 
@@ -225,6 +226,47 @@ route_get('/marketo',function(req,res) {
     } else {
         res.send(500);
     }
+});
+
+function meetup(group,event,fun) {
+    // graphdb-belgium/events/81881472
+    http.get({host: 'api.meetup.com', path: '/oembed?url=http://meetup.com/'+group + (event == null ? "" : "/events/" + event)},
+        function(r) {
+            r.setEncoding('utf8');
+            var content="";
+            r.on("end",function(x) {
+                var json=JSON.parse(content);
+                fun(json);
+            })
+            r.on("data", function(data) {
+                content += data;    
+            })
+        })
+}
+
+
+route_get('/meetup',function(req,res) {
+	meetup(req.query['group'],req.query['event'], function(json) {
+        res.send(200,json['html']);
+    });
+});
+
+function events(fun, filter) {
+	var calendarUrl='http://www.google.com/calendar/feeds/neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com/public/basic';
+	rssparser.parseURL(calendarUrl, {}, function(err, out){
+		if (filter) fun(out.items.filter(filter));
+		else fun(out.items)
+	});
+}
+
+route_get('/events.json',function(req,res) {
+	var filter=req.query['filter'];
+	events(function(items) {
+		var data = JSON.stringify(items)
+	    res.send(200,data);
+	}, function(item) {
+		return !filter || item.title.match(filter) || item.summary.match(filter)
+	})
 });
 
 // well known historic URLs redirects
