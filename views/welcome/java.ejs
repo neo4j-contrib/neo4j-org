@@ -30,6 +30,11 @@
       <p>As a JVM developer you are also on the bright side when it comes to pouring large amounts of data into Neo4j. With its non-transactional
       batch-insertion facilities it can ingest millions of nodes and relationships in just seconds.</p> 
       
+      <h3>Embedded Java Tutorial</h3> 
+
+      <% console.log(content2.java_embedded_tutorial())  %>
+	  <div class="markdown"><%- content2.java_embedded_tutorial() %></div>
+	
       <h3>JVM based ecosystem projects</h3> 
 
          <ul><!-- todo replace with tiles -->
@@ -78,21 +83,26 @@
           <% }); %>
       </div>
     </div>
-    <aside class="span4 sidebar">
-  <div class="next-steps">
-    <h2>Next Steps</h2>
-    <div class="next thumbnail">
-      <div class="caption">
-          <ul>
-              <li><a href="/learn/graphdatabase">What is a graph database</a></li>
-              <li><a href="/install">Install Neo4j</a></li>
-              <li><a href="/learn/cypher">Introduction to Cypher</a></li>
-              <li><a href="/develop">Develop an App</a></li>
-          </ul>
-    </div>
-  </div>
-  </div>
-   
+  <aside class="span4 sidebar">
+      <div class="next-steps">
+        <h2>Next Steps</h2>
+        <div class="next thumbnail">
+          <div class="caption">
+              <ul>
+    		    <%- next_steps('java','java') %>
+              </ul>
+         </div>
+        
+          <!--div class="caption">
+              <ul>
+                  <li><a href="/learn/graphdatabase">What is a graph database</a></li>
+                  <li><a href="/install">Install Neo4j</a></li>
+                  <li><a href="/learn/cypher">Introduction to Cypher</a></li>
+                  <li><a href="/develop">Develop an App</a></li>
+              </ul>
+          </div-->
+        </div>
+      </div>
     </aside>
   </div>
 </div>

@@ -46,7 +46,7 @@ exports.learn = function(req, res){
 };
 
 exports.learn_graph = function(req, res){
-    res.render('learn_graph', { category: 'learn', title: 'Learn' });
+    res.render('learn_graph', { category: 'learn', title: 'What is a graph database?' });
 };
 
 
@@ -54,7 +54,7 @@ exports.learn_graph = function(req, res){
  * GET - "learn about neo4j" with an explanation of Neo4j as a graph database
  */
 exports.neo4j = function(req, res){
-  res.render('learn/neo4j', { category: 'learn', title: 'Learn' });
+  res.render('learn/neo4j', { category: 'learn', title: 'What is Neo4j?' });
 };
 
 exports.cypher = function(req, res){

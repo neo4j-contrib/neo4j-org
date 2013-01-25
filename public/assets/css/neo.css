@@ -575,3 +575,7 @@ section {
 .markdown h2 {
     font-size: 18px;
 }
+
+.markdown h3 {
+    font-size: 15px;
+}
