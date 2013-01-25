@@ -62,7 +62,9 @@ function load_github_content(name, path, host) {
             })
         })
 }
+var doc_url = "http://docs.neo4j.org/chunked/milestone/"
 function load_learn_content(name, path, host) {
+    var add_attribs='target="_blank" class="manual" ';
     if (!host) host="learn.neo4j.org";
     http.get({host: host, path: path},
         function(res) {
@@ -72,16 +74,19 @@ function load_learn_content(name, path, host) {
 				content = content.replace(/-neo4j-version/g,app.locals.neo4j.version);
 				content = content.replace(/<!\[CDATA\[|\]\]>/g,"");
 				
-				content = content.replace(/((?:href|src)\s*=\s*")(.{4})/g, function (match, group1, group2) {
-					if (group2=="http" || group2[0]=="#") return match;
-					return group1+"http://"+host+"/"+group2;
+				content = content.replace(/((?:href|src)\s*=\s*")([^"]+)/g, function (match, group1, group2) {
+                    console.log(match,group1,group2)
+                    var fixed=group1+doc_url+group2;
+			        if (group2.match("^http")) fixed=match;
+                    else if (group2[0] == "#") fixed=group1+doc_url+group2.substr(1)+".html";
+					return add_attribs+fixed;
 				})
-				if (app.locals.content2[name]) {
-					var tmp = app.locals.content2[name]();
+				
+                if (app.locals.content2[name]) {
+					var tmp = app.locals.content2[name];
 					content = tmp + content;
 				}
-            	app.locals.content2[name] = function() { return content};
-				console.log(content)
+            	app.locals.content2[name] = content;
             })
         })
 }
@@ -169,7 +174,8 @@ function forward(url) {
 
 function route_get(url, fun) {
 //	console.log(url);
-	fun.url = url;
+	if (fun) fun.url = url;
+    else console.log("Route missing for url: "+url);
 	return app.get(url,fun);
 }
  
@@ -242,15 +248,16 @@ route_get('/release-notes', routes.release_notes);
 route_get('/customers', routes.customers);
 route_get('/getting-started', routes.develop);
 route_get('/java', routes.java);
+route_get('/java/basics', routes.java_basics);
 
 
 app.locals.paths={}
 app.locals.paths.java = {
-	java : ["learn_graph","neo4j","cypher","jvm_drivers","java_basics","server_basics"],
+	java : ["learn_graph","neo4j","cypher","jvm_drivers","java_basics","server"],
 //	learn_graph : ["neo4j","java_basics" ],
 //	neo4j : ["cypher","java_basics","server_basics"],
 	jvm_drivers : ["ide","java_basics","java_cypher"],
-	java_basics : ["java_cypher","jvm_drivers","ide","example_data","spring"]
+	java_basics : ["java_cypher","jvm_drivers","ide","example_data","spring","server","server_extensions"]
 }
 // download resources
 route_get('/resources/cypher', forward('/assets/download/Neo4j_CheatSheet_v3.pdf'));

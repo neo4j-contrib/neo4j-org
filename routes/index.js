@@ -114,7 +114,11 @@ exports.develop = function(req, res){
   res.render('develop', { category: 'develop', title: 'Develop' });
 };
 exports.java = function(req, res){
-  res.render('welcome/java', { category: 'welcome', title: 'Neo4j for Java developers' });
+  res.render('paths/java', { category: 'java', title: 'Neo4j for Java developers' });
+};
+
+exports.java_basics = function(req, res){
+  res.render('paths/java/java_basics', { category: 'java', title: 'Start using Neo4j from Java' });
 };
 
 
