@@ -70,24 +70,24 @@ function load_learn_content(name, path, host) {
     http.get({host: host, path: path},
         function(res) {
             res.on("data", function(data) {
-				var content = data.toString();
-				content = content.replace(/<\/?(html|body|!DOCTYPE).*?>/g,"");
-				content = content.replace(/-neo4j-version/g,app.locals.neo4j.version);
-				content = content.replace(/<!\[CDATA\[|\]\]>/g,"");
-				
-				content = content.replace(/((?:href|src)\s*=\s*")([^"]+)/g, function (match, group1, group2) {
+                var content = data.toString();
+                content = content.replace(/<\/?(html|body|!DOCTYPE).*?>/g,"");
+                content = content.replace(/-neo4j-version/g,app.locals.neo4j.version);
+                content = content.replace(/<!\[CDATA\[|\]\]>/g,"");
+                
+                content = content.replace(/((?:href|src)\s*=\s*")([^"]+)/g, function (match, group1, group2) {
                     console.log(match,group1,group2)
                     var fixed=group1+doc_url+group2;
-			        if (group2.match("^http")) fixed=match;
+                    if (group2.match("^http")) fixed=match;
                     else if (group2[0] == "#") fixed=group1+doc_url+group2.substr(1)+".html";
-					return add_attribs+fixed;
-				})
-				
+                    return add_attribs+fixed;
+                })
+                
                 if (app.locals.content2[name]) {
-					var tmp = app.locals.content2[name];
-					content = tmp + content;
-				}
-            	app.locals.content2[name] = content;
+                    var tmp = app.locals.content2[name];
+                    content = tmp + content;
+                }
+                app.locals.content2[name] = content;
             })
         })
 }
@@ -174,10 +174,10 @@ function forward(url) {
  */
 
 function route_get(url, fun) {
-//	console.log(url);
-	if (fun) fun.url = url;
+//  console.log(url);
+    if (fun) fun.url = url;
     else console.log("Route missing for url: "+url);
-	return app.get(url,fun);
+    return app.get(url,fun);
 }
  
 route_get('/', routes.index);
@@ -214,6 +214,7 @@ route_get('/learn/graphdatabase', routes.graphdb);
 route_get('/learn/try', routes.try);
 route_get('/test/d3', routes.d3);
 route_get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
+route_get('/events', routes.events)
 
 
 route_get('/marketo',function(req,res) {
@@ -246,27 +247,55 @@ function meetup(group,event,fun) {
 
 
 route_get('/meetup',function(req,res) {
-	meetup(req.query['group'],req.query['event'], function(json) {
+    meetup(req.query['group'],req.query['event'], function(json) {
         res.send(200,json['html']);
     });
 });
 
 function events(fun, filter) {
-	var calendarUrl='http://www.google.com/calendar/feeds/neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com/public/basic';
-	rssparser.parseURL(calendarUrl, {}, function(err, out){
-		if (filter) fun(out.items.filter(filter));
-		else fun(out.items)
-	});
+    var calendarUrl='http://www.google.com/calendar/feeds/neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com/public/basic?orderby=starttime&sortorder=ascending&max-results=30&futureevents=true&hl=en';
+    rssparser.parseURL(calendarUrl, { headers: {'Accept-Language':'en'}}, function(err, out){
+        function event_prop(item,name,regexp) {
+            var match = item.summary.match(regexp);
+            item[name]=match == null ? '' : match[1];
+        }
+        var items=out.items.map(function(item) {
+            event_prop(item,'date',/When: (.+?)(\n|<br *\/>)/)
+            event_prop(item,'status',/Event Status: (.+?)(\n|<br *\/>)/)
+            event_prop(item,'location',/Where: (.+?)(\n|<br *\/>)/)
+            event_prop(item,'description',/Event Description: ([\s\S]+)$/)
+            event_prop(item,'page',/Event Description: <a +href="(.+?)".*>.+?<\/a>/)
+            event_prop(item,'page_text',/Event Description: <a +href=".+?".*>(.+?)<\/a>/)
+			item.description = item.description.replace(/^<a +href=".+?".*>.+?<\/a> */,"");
+            if (item.page && item.page.match(/http:\/\/www.google.com\/url\?q=/)) {
+              var url=item.page.replace(/http:\/\/www.google.com\/url\?q=/,"")
+              url=decodeURIComponent(url);
+			  url=url.replace(/\/&.*$/,"");
+              item.page=url;
+            }
+            var meetup=item.page.match(/http:\/\/(?:www\.)?meetup.com\/(.+)(?:\/events\/(\d+))/);
+            if (meetup){
+				item.meetup_group=meetup[1];
+				item.meetup_event=meetup[2];
+			}
+            console.log(item)
+            return item;
+        });
+        if (filter) fun(items.filter(filter));
+        else fun(items)
+    });
 }
 
+events(function(items) { app.locals.events = items; }) // todo refresh
+
 route_get('/events.json',function(req,res) {
-	var filter=req.query['filter'];
-	events(function(items) {
-		var data = JSON.stringify(items)
-	    res.send(200,data);
-	}, function(item) {
-		return !filter || item.title.match(filter) || item.summary.match(filter)
-	})
+    var filter=req.query['filter'];
+    events(function(items) {
+        var data = JSON.stringify(items)
+        res.send(200,data);
+    }, function(item) {
+        return !filter || item.title.match(filter) || item.summary.match(filter)
+    })
 });
 
 // well known historic URLs redirects
@@ -295,11 +324,11 @@ route_get('/java/basics', routes.java_basics);
 
 app.locals.paths={}
 app.locals.paths.java = {
-	java : ["learn_graph","neo4j","cypher","jvm_drivers","java_basics","server"],
-//	learn_graph : ["neo4j","java_basics" ],
-//	neo4j : ["cypher","java_basics","server_basics"],
-	jvm_drivers : ["ide","java_basics","java_cypher"],
-	java_basics : ["java_cypher","jvm_drivers","ide","example_data","spring","server","server_extensions"]
+    java : ["learn_graph","neo4j","cypher","jvm_drivers","java_basics","server"],
+//  learn_graph : ["neo4j","java_basics" ],
+//  neo4j : ["cypher","java_basics","server_basics"],
+    jvm_drivers : ["ide","java_basics","java_cypher"],
+    java_basics : ["java_cypher","jvm_drivers","ide","example_data","spring","server","server_extensions"]
 }
 // download resources
 route_get('/resources/cypher', forward('/assets/download/Neo4j_CheatSheet_v3.pdf'));
@@ -318,26 +347,26 @@ route_get('/video/*', function(req, res){
 });
 
 function next_steps(path, page) {
-	var pages = app.locals.paths[path][page];
-	var urls=[];
-	var mock = { render : function (page,opts) { var dest=urls[urls.length-1];dest.page=page;dest.opts=opts; }, 
-	                 url: function (url) {urls.push({url:url});return this;}
-	           }
-	for (var i=0;i<pages.length;i++) {
-		var page=pages[i];
-		var route = routes[page];
-//		console.log(page,route ? route.url : "undefined");
-		if (route) {
-			route(null, mock.url(route.url))
-		}
-	}
-	return urls;
-//	console.log(urls)
+    var pages = app.locals.paths[path][page];
+    var urls=[];
+    var mock = { render : function (page,opts) { var dest=urls[urls.length-1];dest.page=page;dest.opts=opts; }, 
+                     url: function (url) {urls.push({url:url});return this;}
+               }
+    for (var i=0;i<pages.length;i++) {
+        var page=pages[i];
+        var route = routes[page];
+//      console.log(page,route ? route.url : "undefined");
+        if (route) {
+            route(null, mock.url(route.url))
+        }
+    }
+    return urls;
+//  console.log(urls)
 }
 
 
 app.locals.next_steps = function(path,page) {
-	return next_steps(path,page).map( function(step) { return "<li><a href='"+step.url+"'>"+step.opts.title+"</a></li>"}).join("\n")
+    return next_steps(path,page).map( function(step) { return "<li><a href='"+step.url+"'>"+step.opts.title+"</a></li>"}).join("\n")
 }
 console.log(app.locals.next_steps("java","java"))
 

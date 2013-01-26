@@ -1,0 +1,29 @@
+<div class="span3">
+    <div class="thumbnail ">
+<%
+/*
+When: Fri Feb 15, 2013 3:45am to 4:30am PST
+
+Where: Open Venue, 20 Bank Plain, Norwich, Norfolk NR2 4SF\n
+Event Status: confirmed\n
+Event Description: Event Info
+<a href="\&quot;http://www.google.com/url?q=http%3A%2F%2Fsyncconf.com%2F&amp;ust=1359165468136000&amp;usg=AFQjCNHxoMNKtRJSsyuqj9CRGHanxvNHeQ\&quot;" target="\&quot;_blank\&quot;">Event Info</a>
+*/
+%>
+		<% if (event['meetup_event']) {%>
+			<div class="meetup" group="<%= event['meetup_group'] %>" event="<%= event['meetup_event'] %>">
+			</div>
+		<% } else { %>
+            <a href="<%= event['link'] %>">
+                <img src="<%= event['logo'] %>" width="300" title="<%= event['title'] %>" alt="<%= event['title'] %> logo"/>
+            </a>
+	        <div class="caption">
+	            <h5><%= event['title'] %></h5>
+				When: <%= event['date'] %><br/>
+				Where: <%= event['location'] %><br/>
+				Link: <a href="<%= event['page'] %>" target="_blank"><%= event['page_text'] %></a><br/>
+	            <p><%-: event['description'] | truncate_words: 30 %></p>
+	        </div>
+   		<% } %>
+    </div>
+</div>

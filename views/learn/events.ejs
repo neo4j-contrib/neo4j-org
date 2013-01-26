@@ -1,0 +1,46 @@
+<% include ../head %>
+<div class="container">
+
+    <!-- Example row of columns -->
+    <div role="main" class="main row">
+
+        <div class="span12">
+
+            <div class="inner">
+                <div id="apps" class="hero-unit path">
+                    <h2><a><i class="icon icon-book"></i> <%= title %></a></h2>
+
+                    <p class="lead">There are Neo4j related everywhere at every time. Pick one.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<h3>Pernilla / Adam intro</h3>
+	
+	<p>If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors,
+	talk to our engineers or discuss with our customers. There are many Neo4j Meetups, Trainings and Conferences happening everywhere and
+	at any time.</p>
+	
+    <div class="thumbnails events row-fluid">
+
+        <% events.forEach(function(event) { %>
+            <% include _event %>
+        <% }); %>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('div.meetup').each(function() {
+	    var e=$(this);
+		$.get("/meetup?group="+e.attr("group")+"&event="+e.attr("event"), function(data,err) {
+			e.html(data);
+		})
+	})
+})
+</script>
+</div>
+    <% include ../foot %>
+
