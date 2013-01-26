@@ -270,7 +270,7 @@ function events(fun, filter) {
             if (item.page && item.page.match(/http:\/\/www.google.com\/url\?q=/)) {
               var url=item.page.replace(/http:\/\/www.google.com\/url\?q=/,"")
               url=decodeURIComponent(url);
-			  url=url.replace(/\/&.*$/,"");
+			  url=url.replace(/&amp;ust=.*$/,"");
               item.page=url;
             }
             var meetup=item.page.match(/http:\/\/(?:www\.)?meetup.com\/(.+)(?:\/events\/(\d+))/);
