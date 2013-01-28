@@ -53,7 +53,6 @@ https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/version
 forwarder.add_console_forward(app,express,http);
 
 app.locals.content = {}
-app.locals.content2 = {}
 function load_github_content(name, path, host) {
     if (!host) host="raw.github.com";
     https.get({host: host, path: path},
@@ -83,11 +82,12 @@ function load_learn_content(name, path, host) {
                     return add_attribs+fixed;
                 })
                 
-                if (app.locals.content2[name]) {
-                    var tmp = app.locals.content2[name];
+                if (app.locals.content[name]) {
+                    var tmp = app.locals.content[name];
                     content = tmp + content;
                 }
-                app.locals.content2[name] = content;
+//                console.log("content:", content);
+                app.locals.content[name] = content;
             })
         })
 }
@@ -159,7 +159,8 @@ app.locals({
 
 load_github_content('puppet',"/neo4j-contrib/neo4j-puppet/master/README.md")
 load_github_content('ec2_template',"/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md")
-load_learn_content('java_embedded_tutorial',"/java-course.html")
+load_learn_content('java_hello_world',"/java-hello-world.html")
+load_learn_content('java_cypher',"/java-cypher.html")
 
 
 function forward(url) {
@@ -278,7 +279,7 @@ function events(fun, filter) {
 				item.meetup_group=meetup[1];
 				item.meetup_event=meetup[2];
 			}
-            console.log(item)
+//            console.log(item)
             return item;
         });
         if (filter) fun(items.filter(filter));
@@ -320,14 +321,16 @@ route_get('/customers', routes.customers);
 route_get('/getting-started', routes.develop);
 route_get('/java', routes.java);
 route_get('/java/basics', routes.java_basics);
+route_get('/java/cypher', routes.java_cypher);
 
 
 app.locals.paths={}
 app.locals.paths.java = {
-    java : ["learn_graph","neo4j","cypher","jvm_drivers","java_basics","server"],
+    java : ["learn_graph","neo4j","cypher","java_cypher","jvm_drivers","java_basics","server"],
 //  learn_graph : ["neo4j","java_basics" ],
 //  neo4j : ["cypher","java_basics","server_basics"],
     jvm_drivers : ["ide","java_basics","java_cypher"],
+    java_cypher : ["cypher","jvm_drivers","ide","example_data"],
     java_basics : ["java_cypher","jvm_drivers","ide","example_data","spring","server","server_extensions"]
 }
 // download resources

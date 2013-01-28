@@ -121,6 +121,10 @@ exports.java_basics = function(req, res){
   res.render('paths/java/java_basics', { category: 'java', title: 'Start using Neo4j from Java' });
 };
 
+exports.java_cypher = function(req, res){
+    res.render('paths/java/java_cypher', { category: 'java', title: 'Using Cypher from Java' });
+};
+
 
 exports.heroku = function(req, res){
   res.render('develop/heroku', { category: 'develop', title: 'Heroku Add-on' });

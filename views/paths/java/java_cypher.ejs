@@ -6,21 +6,10 @@
 
       <div id="neo4j" class="hero-unit path">
         <h2><a><i class="icon icon-cogs"></i> <%= title %></a></h2>
-        <p class="lead">Getting started with Neo4j in Java.</p>
+        <p class="lead">Start using Cypher from Java.</p>
       </div>
 
-      <p>The Neo4j Java API is very easy to use. You can interact with the GraphDatabase, Nodes and Relationships directly.
-         To run more interesting queries or complex operations you can also execute <a href="/paths/java/java_cypher">Cypher</a>
-         from your program.
-      </p>
-
-      <p>After including Neo4j in your project and <a href="/java/ide">setting up your IDE</a>. See the Hello-World example 
-     below for getting started.   </p>
-      <h3>Adding the Neo4j dependencies to your project</h3>
-      
-      <% include ../../download/_embedded_dependency %>
-
-	  <div class="markdown"><%- content.java_hello_world %></div>
+      <div class=""><%- content.java_cypher %></div>
 	      
     </div>
   <aside class="span4 sidebar">
@@ -29,7 +18,7 @@
         <div class="next thumbnail">
           <div class="caption">
               <ul>
-    		    <%- next_steps('java','java_basics') %>
+    		    <%- next_steps('java','java_cypher') %>
               </ul>
               <!--h3>Java API</h3>
               <h3>Using Cypher from Java</h3>
