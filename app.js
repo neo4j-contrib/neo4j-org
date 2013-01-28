@@ -190,6 +190,7 @@ route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 route_get('/learn', routes.learn); // path: concepts, best practices, operations
 route_get('/learn_graph', routes.learn_graph); // path: concepts, best practices, operations
 route_get('/learn/neo4j', routes.neo4j); // node:  about Neo4j
+route_get('/learn/training', routes.training); // node: showcase of books about Neo4j and Graph Theory
 route_get('/learn/books', routes.books); // node: showcase of books about Neo4j and Graph Theory
 route_get('/learn/apps', routes.apps); // graph:  showcase of apps built with Neo4j
 route_get('/learn/licensing', routes.license); // node:  Neo4j editions and licensing guide (categorized URL)
