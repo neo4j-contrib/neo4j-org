@@ -131,6 +131,7 @@ app.locals.drivers=data.drivers;
 app.locals.apps=data.apps;
 app.locals.contributors=data.contributors;
 app.locals.books=data.books;
+app.locals.trainings=data.trainings;
 
 app.locals.neo4jS = {
     version: "1.9-SNAPSHOT",

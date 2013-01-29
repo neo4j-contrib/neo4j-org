@@ -390,5 +390,21 @@ exports.books = {
         logo : "/assets/img/books/connected.png",
         text : 'Renowned scientists Christakis and Fowler present compelling evidence for our profound influence on one another\'s tastes, health, wealth, happiness, beliefs, even weight, as they explain how social networks form and how they operate.'
     }
-
 }
+exports.trainings=[
+{ date : "Feb 13", url: "0213-siliconvalley-register.html", city: "Silicon Valley", presenter: {name:"David Montag", twitter: "dmontag"}, location: "Quadrus Conference Center" ,area: "US" },
+{ date : "Feb 20", url: "0220-chicago-register.html", city: "Chicago", presenter: {name:"Max de Marzi", twitter: "maxdemarzi"}, location: "TechNexus" ,area: "US" },
+{ date : "Feb 26", url: "0226-dc-register.html", city: "Washington, D.C.", presenter: {name: "Max de Marzi", twitter: "maxdemarzi"}, location: "Catalyst Restaurant" ,area: "US" },
+{ date : "Feb 28", url: "0228-boston-register.html", city: "Boston", presenter: {name: "Max de Marzi", twitter: "maxdemarzi"}, location: "Catalyst Restaurant" ,area: "US" },
+{ date : "Mar 7", url: "0307-sf-register.html", city: "San Francisco", presenter: { name: "Andreas Kolleger", twitter: "akollegger"}, location: "Mission Bay CC" ,area: "US" },
+{ date : "Mar 12", url: "0312-la-register.html", city: "Los Angeles", presenter: { name: "Chris Leishman", twitter: "cleishm"}, location: "Working Village" ,area: "US" },
+
+{ date : "Feb 19", url: "0219-munich-register.html", city: "M&uuml;nchen", presenter: { name: "Stefan Armbruster", twitter: "darthvader42"}, location: "comSysto" ,area: "EU" },
+{ date : "Feb 21", url: "0221-frankfurt-register.html", city: "Frankfurt", presenter: { name: "Stefan Armbruster", twitter: "darthvader42"}, location: "UG Morgner" ,area: "EU" },
+{ date : "Mar 4", url:"http://qconlondon.com/london-2013/presentation/Neo4j%20Tutorial", city: "London", presenter: [{ name: "Ian Robinson", twitter: "iansrobinson"},{ name: "Jim Webber", twitter: "jimwebber"}], location: "QCon London" ,area: "EU" },
+{ date : "Mar 5", url: "0305-paris-register.html", city: "Paris", presenter: { name: "Stefan Armbruster", twitter: "darthvader42"}, location: "Zenika" ,area: "EU" },
+{ date : "Mar 5", url: "0305-london-register.html", city: "London", presenter: { name: "Aleksa Vukotic", twitter: "AleksaVukotic",company: "OpenCredo"}, location: "LMG Training & Development" ,area: "EU"},
+{ date : "Mar 7", url: "0307-amsterdam-register.html", city: "Amsterdam", presenter: { name: "Stefan Armbruster", twitter: "darthvader42"}, location: "Xebia" ,area: "EU" },
+{ date : "Mar 12", url: "0312-berlin-register.html", city: "Berlin", presenter: { name: "Michael Hunger", twitter: "mesirii"}, location: "betahaus" ,area: "EU" },
+{ date : "Mar 14", url: "0314-dusseldorf-register.html", city: "D&uuml;sseldorf", presenter: { name: "Stefan Armbruster", twitter: "darthvader42"}, location: "codecentric" ,area: "EU" }
+]

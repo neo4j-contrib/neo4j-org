@@ -6,9 +6,9 @@
 <div class="main row">
 
     <div class="row">       
-    	<div class="span12">
-        	<div class="inner">
-            	<div id="apps" class="hero-unit path">
+        <div class="span12">
+            <div class="inner">
+                <div id="apps" class="hero-unit path">
                <h2><a><i class="icon icon-book"></i> <%= title %></a></h2>
                <p class="lead">Get connected with Neo4j experts in trainings at your office and at events across the globe!</p></div>
             </div>                               
@@ -16,44 +16,55 @@
     </div>
     
     <div class="row">
-    	<div class="span8">
-       	 <h2>Neo4j Tutorials</h2>       
-       	 <h4>Sign-up for a Neo4j Graph Database Tutorial</h4>
-       	 <p> With a mixture of theory and hands-on practice sessions, learn how easy it is to develop a Neo4j-backed application.</p>
+        <div class="span8">
+         <h2>Neo4j Trainings</h2>       
+         <h4>Get productive with Neo4j with a Graph Database Training</h4>
+         <p>Together with <a href="http://twitter.com/peterbell" target="_blank">Peter Bell</a> we developed a hands-on, fully day training course to learn the basics of using a graph database like Neo4j. After the training you should feel familiar enough to get started with your own development project using it.</p>
 
-       	 <p><strong>Topics covered include:</strong></p>
-       	 <ul><li>Introduction to Neo4j</li>
-        	<li>Overview of Cypher query language</li>
-        	<li>Social use cases including recommendations</li> 
-        	<li>Permissions modeling</li>
-        	<li>Other case studies in real world domains</li>
-        	<li>Opportunity to consult on current projects, possible implementations and proof of concepts </li>
+         <p><strong>We cover these topics:</strong>
+         <ul>
+            <li>Introduction to Neo4j</li>
+            <li>Overview of our Cypher graph query language</li>
+            <li>Several real-world use-cases</li> 
+            <li>Social use cases including recommendations</li> 
+            <li>Permissions modeling</li>
+            <li>Other case studies in real world domains</li>
+            <li>Hands-on session with Cypher</li>
+            <li>Opportunity to consult on current projects, possible implementations and proof of concepts </li>
          </ul>   
-         <h4>Upcoming Tutorials</h4>    
-         <section class="row">
- 
-        	<div class="span4">
-        		<h4>US</h4>
-        		<p>February 20: <a href="http://info.neotechnology.com/0220-chicago-register.html" target="_blank">Neo4j Tutorial - 	Chicago</a><br />
-        		February 26: <a href="http://info.neotechnology.com/0226-dc-register.html" target="_blank">Neo4j Tutorial - Washington, D.C.</a><br />
-        		February 28: <a href="http://info.neotechnology.com/0228-boston-register.html" target="_blank">Neo4j Tutorial - Boston</a><br />
-        		March 7: <a href="http://info.neotechnology.com/0307-sf-register.html" target="_blank">Neo4j Tutorial - San Francisco</a><br />
-        		March 12: <a href="http://info.neotechnology.com/0312-la-register.html" target="_blank">Neo4j Tutorial - Los Angeles</a><p>
-        	</div>
+        </p>
+        <p>You won't need any previous experience with Neo4j, NOSQL databases or specific development languages, but you will need your own laptop with <a href="/install" target="_blank">Neo4j installed</a>.</p>
+
+        <p>We hosted a the first training in New York City with Peter Bell. It was wildly successful. Attendees’ feedback included:</p>
+
+        <blockquote>“Excellent high-level overview that also provided insight into technical details”<br/>
+        “Great jump-start to the subject matter”<br/>
+        “Real queries, real results shown”</blockquote>
         
-			<div class="span4">
-				<h4>Europe</h4>
-				<p>February 19: <a href="http://info.neotechnology.com/0219-munich-register.html" target="_blank">Neo4j Tutorial - M&uuml;nchen</a><br />
-				February 21: <a href="http://info.neotechnology.com/0221-frankfurt-register.html" target="_blank">Neo4j Tutorial - Frankfurt</a><br />
-				March 4: <a href="http://qconlondon.com/london-2013/presentation/Neo4j%20Tutorial" target="_blank">Neo4j Tutorial - London @ QCon London</a><br />
-				March 5: <a href="http://info.neotechnology.com/0305-paris-register.html" target="_blank">Neo4j Tutorial - Paris</a><br />
-				March 5: <a href="http://info.neotechnology.com/0305-london-register.html" target="_blank">Neo4j Tutorial - London</a><br />
-				March 7: <a href="http://info.neotechnology.com/0307-amsterdam-register.html" target="_blank">Neo4j Tutorial - Amsterdam</a><br />
-				March 12: <a href="http://info.neotechnology.com/0312-berlin-register.html" target="_blank">Neo4j Tutorial - Berlin</a><br />
-				March 14: <a href="http://info.neotechnology.com/0314-dusseldorf-register.html" target="_blank">Neo4j Tutorial - D&uuml;sseldorf</a></p>
-			</div>	
-		</section>
-			
+         <h4>Upcoming Trainings</h4>    
+         <section class="row">
+<!-- todo pull the data off the event stream -->
+            <div class="span4">
+                <h4>US</h4>
+<p>
+                <% trainings.filter(function(t) {return t.area=="US"}).forEach(function(training){ %>
+                    <% include _training %>
+                <% }) %>
+<p>             
+            </div>
+        
+            <div class="span4">
+                <h4>Europe</h4>
+<p>
+                <% trainings.filter(function(t) {return t.area=="EU"}).forEach(function(training){ %>
+                    <% include _training %>
+                <% }) %>
+<p>             
+            </div>  
+        </section>
+            
+		<iframe src="http://player.vimeo.com/video/55473433" _mce_src="http://player.vimeo.com/video/55473433" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+
     </div>
     
     
@@ -64,24 +75,19 @@
         <span class="text18">
         <% include ../subscribe %></span>
     </div>  
-    
-        <div class="span4">
-        <h3>Event Calendar</h3>
-
-    </div>
         
 </div>
 
 <div class="row"> 
 
-	<div class="span4">
+    <div class="span4">
         <h2>Professional Services</h2>     
         <p>Go from design to implementation with Neo Technology&#39;s professional services organization that can assist in commercial deployments of Neo4j.</p> 
         <p><strong>Training and Services offered:</strong></p>
         <ul>
-        	<li><a href="http://www.neotechnology.com/neo4j-professional-services/" target="_blank">Education and Design Phase</a></li>
-        	<li><a href="http://www.neotechnology.com/neo4j-professional-services/#imp" target="_blank">Implementation Phase</a></li>
-        	<li><a href="http://www.neotechnology.com/neo4j-professional-services/#roll" target="_blank">Rollout and Production Phase</a></li>
+            <li><a href="http://www.neotechnology.com/neo4j-professional-services/" target="_blank">Education and Design Phase</a></li>
+            <li><a href="http://www.neotechnology.com/neo4j-professional-services/#imp" target="_blank">Implementation Phase</a></li>
+            <li><a href="http://www.neotechnology.com/neo4j-professional-services/#roll" target="_blank">Rollout and Production Phase</a></li>
         </ul>
         <p><a href="http://info.neotechnology.com/ContactUs.html" target="_blank">Contact Us &raquo;</a></p>
     </div>

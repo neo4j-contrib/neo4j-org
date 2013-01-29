@@ -1,0 +1,15 @@
+<%= training.date %>: 
+
+<% if (training.url.match("http://")) { %>
+	<a href="<%= training.url %>" target="_blank">
+<% } else { %>
+	<a href="http://info.neotechnology.com/<%= training.url %>" target="_blank">
+<% } %>
+
+<%= training.city %></a> with 
+<%- [].concat( training.presenter ).map(function(presenter) { 
+	return "<a target='_blank' href='http://twitter.com/"+presenter.twitter+"'>"+presenter.name+"</a>";
+	}).join(", ") 
+%>
+at <%= training.location %>
+<br />
