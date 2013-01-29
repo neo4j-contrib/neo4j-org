@@ -87,16 +87,13 @@
     		    <%- next_steps('java','java') %>
               </ul>
          </div>
-        
-          <!--div class="caption">
-              <ul>
-                  <li><a href="/learn/graphdatabase">What is a graph database</a></li>
-                  <li><a href="/install">Install Neo4j</a></li>
-                  <li><a href="/learn/cypher">Introduction to Cypher</a></li>
-                  <li><a href="/develop">Develop an App</a></li>
-              </ul>
-          </div-->
         </div>
+      </div>
+      <div class="related">
+        <h2>Related</h2>
+        <% related('java','java').forEach(function(related) { %>
+            <% include ../partials/_related %>
+        <% }); %>
       </div>
     </aside>
   </div>

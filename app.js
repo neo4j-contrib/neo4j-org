@@ -15,7 +15,10 @@ var express = require('express')
   , munchkin=require("./helpers/munchkin")
   , data=require("./helpers/data")
   , markdown = require("node-markdown").Markdown
-  , rssparser = require('rssparser')
+  , events = require("./helpers/events")
+  , content = require("./helpers/content")
+  , meetup =  require("./helpers/meetup")
+  , paths =  require("./helpers/path")
 
 var app = express();
 
@@ -53,44 +56,6 @@ https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/version
 forwarder.add_console_forward(app,express,http);
 
 app.locals.content = {}
-function load_github_content(name, path, host) {
-    if (!host) host="raw.github.com";
-    https.get({host: host, path: path},
-        function(res) {
-            res.on("data", function(data) {
-                app.locals.content[name] = data.toString();            
-            })
-        })
-}
-var doc_url = "http://docs.neo4j.org/chunked/milestone/"
-function load_learn_content(name, path, host) {
-    var add_attribs='target="_blank" class="manual" ';
-    if (!host) host="learn.neo4j.org";
-    http.get({host: host, path: path},
-        function(res) {
-            res.on("data", function(data) {
-                var content = data.toString();
-                content = content.replace(/<\/?(html|body|!DOCTYPE).*?>/g,"");
-                content = content.replace(/-neo4j-version/g,app.locals.neo4j.version);
-                content = content.replace(/<!\[CDATA\[|\]\]>/g,"");
-                
-                content = content.replace(/((?:href|src)\s*=\s*")([^"]+)/g, function (match, group1, group2) {
-                    console.log(match,group1,group2)
-                    var fixed=group1+doc_url+group2;
-                    if (group2.match("^http")) fixed=match;
-                    else if (group2[0] == "#") fixed=group1+doc_url+group2.substr(1)+".html";
-                    return add_attribs+fixed;
-                })
-                
-                if (app.locals.content[name]) {
-                    var tmp = app.locals.content[name];
-                    content = tmp + content;
-                }
-//                console.log("content:", content);
-                app.locals.content[name] = content;
-            })
-        })
-}
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -116,17 +81,20 @@ ejs.filters.md = function(b) {
    return markdown(b) 
 }; 
 
+ejs.filters.wrap = function(content, tag) {
+    return "<"+tag+">"+content+"</"+tag+">";
+}
+
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
 var rnd = function rnd(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
- var themes = ["aqua"];
-//var themes = ["default","quartum","aqua"];
 app.locals.theme = function() {
-  return themes[rnd(0,themes.length - 1)];
+   return "aqua";
 }
+
 app.locals.drivers=data.drivers;
 app.locals.apps=data.apps;
 app.locals.contributors=data.contributors;
@@ -157,12 +125,10 @@ app.locals({
     }
 });
 
-
-load_github_content('puppet',"/neo4j-contrib/neo4j-puppet/master/README.md")
-load_github_content('ec2_template',"/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md")
-load_learn_content('java_hello_world',"/java-hello-world.html")
-load_learn_content('java_cypher',"/java-cypher.html")
-
+content.load_github_content(app.locals,'puppet',"/neo4j-contrib/neo4j-puppet/master/README.md")
+content.load_github_content(app.locals,'ec2_template',"/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md")
+content.load_learn_content(app.locals,'java_hello_world',"/java-hello-world.html")
+content.load_learn_content(app.locals,'java_cypher',"/java-cypher.html")
 
 function forward(url) {
     return function(req,res) { res.redirect(url); }
@@ -188,24 +154,6 @@ route_get('/index_graph_svg', routes.index_graph_svg);
 route_get('/index_graph_svg2', routes.index_graph_svg2);
 route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 
-route_get('/learn', routes.learn); // path: concepts, best practices, operations
-route_get('/learn_graph', routes.learn_graph); // path: concepts, best practices, operations
-route_get('/learn/neo4j', routes.neo4j); // node:  about Neo4j
-route_get('/learn/training', routes.training); // node: showcase of books about Neo4j and Graph Theory
-route_get('/learn/books', routes.books); // node: showcase of books about Neo4j and Graph Theory
-route_get('/learn/apps', routes.apps); // graph:  showcase of apps built with Neo4j
-route_get('/learn/licensing', routes.license); // node:  Neo4j editions and licensing guide (categorized URL)
-// route_get('/learn/propertygraph', routes.propertygraph); // node:  explanation of property graph
-route_get('/learn/nosql', routes.nosql); // node:  compare to other databases
-route_get('/learn/cypher', routes.cypher); // node:  compare to other databases
-route_get('/develop/visualize', routes.visualize); // node:  compare to other databases
-route_get('/develop', routes.develop); // path: development guides in featured languages
-route_get('/develop/heroku', routes.heroku); // path: heroku deployment
-route_get('/develop/spring', routes.spring); // path: spring data neo4j landing page
-route_get('/develop/ec2', routes.ec2); // path: development guides in featured languages
-route_get('/develop/ec2_detailed', routes.ec2_detailed); // path: development guides in featured languages
-route_get('/develop/example_data', routes.example_data); // path: example data sets
-route_get('/develop/spring', routes.spring); // path: development guides in featured languages
 route_get('/develop/drivers', routes.drivers);
 route_get('/drivers', routes.drivers);
 route_get('/participate', routes.participate); 
@@ -219,7 +167,6 @@ route_get('/test/d3', routes.d3);
 route_get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
 route_get('/events', routes.events)
 
-
 route_get('/marketo',function(req,res) {
     var cookie = req.cookies["_mkto_trk"];
     if (cookie && munchkin) {
@@ -232,68 +179,17 @@ route_get('/marketo',function(req,res) {
     }
 });
 
-function meetup(group,event,fun) {
-    // graphdb-belgium/events/81881472
-    http.get({host: 'api.meetup.com', path: '/oembed?url=http://meetup.com/'+group + (event == null ? "" : "/events/" + event)},
-        function(r) {
-            r.setEncoding('utf8');
-            var content="";
-            r.on("end",function(x) {
-                var json=JSON.parse(content);
-                fun(json);
-            })
-            r.on("data", function(data) {
-                content += data;    
-            })
-        })
-}
-
-
 route_get('/meetup',function(req,res) {
-    meetup(req.query['group'],req.query['event'], function(json) {
+    meetup.oembed(req.query['group'],req.query['event'], function(json) {
         res.send(200,json['html']);
     });
 });
 
-function events(fun, filter) {
-    var calendarUrl='http://www.google.com/calendar/feeds/neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com/public/basic?orderby=starttime&sortorder=ascending&max-results=30&futureevents=true&hl=en';
-    rssparser.parseURL(calendarUrl, { headers: {'Accept-Language':'en'}}, function(err, out){
-        function event_prop(item,name,regexp) {
-            var match = item.summary.match(regexp);
-            item[name]=match == null ? '' : match[1];
-        }
-        var items=out.items.map(function(item) {
-            event_prop(item,'date',/When: (.+?)(\n|<br *\/>)/)
-            event_prop(item,'status',/Event Status: (.+?)(\n|<br *\/>)/)
-            event_prop(item,'location',/Where: (.+?)(\n|<br *\/>)/)
-            event_prop(item,'description',/Event Description: ([\s\S]+)$/)
-            event_prop(item,'page',/Event Description: <a +href="(.+?)".*>.+?<\/a>/)
-            event_prop(item,'page_text',/Event Description: <a +href=".+?".*>(.+?)<\/a>/)
-			item.description = item.description.replace(/^<a +href=".+?".*>.+?<\/a> */,"");
-            if (item.page && item.page.match(/http:\/\/www.google.com\/url\?q=/)) {
-              var url=item.page.replace(/http:\/\/www.google.com\/url\?q=/,"")
-              url=decodeURIComponent(url);
-			  url=url.replace(/&amp;ust=.*$/,"");
-              item.page=url;
-            }
-            var meetup=item.page.match(/http:\/\/(?:www\.)?meetup.com\/(.+)(?:\/events\/(\d+))/);
-            if (meetup){
-				item.meetup_group=meetup[1];
-				item.meetup_event=meetup[2];
-			}
-//            console.log(item)
-            return item;
-        });
-        if (filter) fun(items.filter(filter));
-        else fun(items)
-    });
-}
-
-events(function(items) { app.locals.events = items; }) // todo refresh
+events.events(function(items) { app.locals.events = items; }) // todo refresh
 
 route_get('/events.json',function(req,res) {
     var filter=req.query['filter'];
-    events(function(items) {
+    events.events(function(items) {
         var data = JSON.stringify(items)
         res.send(200,data);
     }, function(item) {
@@ -328,12 +224,18 @@ route_get('/java/cypher', routes.java_cypher);
 
 app.locals.paths={}
 app.locals.paths.java = {
-    java : ["learn_graph","neo4j","cypher","java_cypher","jvm_drivers","java_basics","server"],
+    java : { steps: ["learn_graph","neo4j","cypher","java_cypher","jvm_drivers","java_basics","server"],
+             tags : ["java"], 
+             related : [ { title : "API Javadoc", url : "http://api.neo4j.org/current/", image : "/assets/img/languages/java.jpg" }, 
+                         { title : "Manual: Java Tutorial", url : "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html", image : "/assets/img/languages/java.jpg" },
+                         { title: "Neo4j and last.fm", author: { name: "Niklas Lindblad", twitter: "nlindblad", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }, type:"video", url:"http://vimeo.com/39825129", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }
+                ] }
+,
 //  learn_graph : ["neo4j","java_basics" ],
 //  neo4j : ["cypher","java_basics","server_basics"],
-    jvm_drivers : ["ide","java_basics","java_cypher"],
-    java_cypher : ["cypher","jvm_drivers","ide","example_data"],
-    java_basics : ["java_cypher","jvm_drivers","ide","example_data","spring","server","server_extensions"]
+    jvm_drivers : { steps: ["ide","java_basics","java_cypher"] , tags: ["drivers","jvm","clojure","scala","java","groovy"]},
+    java_cypher : { steps: ["cypher","jvm_drivers","ide","example_data"], tags: ["cypher","console","shell"]},
+    java_basics : { steps: ["java_cypher","jvm_drivers","ide","example_data","spring","server","server_extensions"], tags: ["howto","transaction","graphdb","shutdown","index","java"] }
 }
 // download resources
 route_get('/resources/cypher', forward('/assets/download/Neo4j_CheatSheet_v3.pdf'));
@@ -351,29 +253,16 @@ route_get('/video/*', function(req, res){
     res.redirect('http://watch.neo4j.org/video/'+file);
 });
 
-function next_steps(path, page) {
-    var pages = app.locals.paths[path][page];
-    var urls=[];
-    var mock = { render : function (page,opts) { var dest=urls[urls.length-1];dest.page=page;dest.opts=opts; }, 
-                     url: function (url) {urls.push({url:url});return this;}
-               }
-    for (var i=0;i<pages.length;i++) {
-        var page=pages[i];
-        var route = routes[page];
-//      console.log(page,route ? route.url : "undefined");
-        if (route) {
-            route(null, mock.url(route.url))
-        }
-    }
-    return urls;
-//  console.log(urls)
-}
-
-
 app.locals.next_steps = function(path,page) {
-    return next_steps(path,page).map( function(step) { return "<li><a href='"+step.url+"'>"+step.opts.title+"</a></li>"}).join("\n")
+    return paths.next_steps(app.locals,routes,path,page).map( function(step) { return "<li><a href='"+step.url+"'>"+step.opts.title+"</a></li>"}).join("\n")
 }
-console.log(app.locals.next_steps("java","java"))
+// console.log(app.locals.next_steps("java","java"))
+
+app.locals.related = function(path,page) {
+    return paths.related(app.locals,path,page);
+}
+
+console.log(app.locals.related("java","java"))
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

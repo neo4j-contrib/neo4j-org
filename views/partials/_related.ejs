@@ -1,0 +1,13 @@
+<div class="thumbnail  span2">
+
+    <a href="<%= related['url'] %>">
+        <img src="<%= related['image'] %>" width="200" title="<%= related['title'] %>" alt="picture of <%= related['title'] %>"/>
+    </a>
+
+    <div class="caption">
+        <h5><a href="<%=related['url'] %>"><%= related['title'] %></a></h5>
+		<% if (related['author']) { %>
+			<em>by <a href="<%=related['author']['twitter'] %>" target="_blank"><%=related['author']['name'] %></a></em>
+		<% } %>
+    </div>
+</div>
