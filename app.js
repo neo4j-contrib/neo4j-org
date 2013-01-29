@@ -154,6 +154,31 @@ route_get('/index_graph_svg', routes.index_graph_svg);
 route_get('/index_graph_svg2', routes.index_graph_svg2);
 route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 
+route_get('/', routes.index);
+route_get('/index', routes.index_graph);
+route_get('/index_graph_svg', routes.index_graph_svg);
+route_get('/index_graph_svg2', routes.index_graph_svg2);
+route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
+
+route_get('/learn', routes.learn);
+route_get('/learn_graph', routes.learn_graph); 
+route_get('/learn/neo4j', routes.neo4j); 
+route_get('/learn/training', routes.training); 
+route_get('/learn/books', routes.books); 
+route_get('/learn/apps', routes.apps); 
+route_get('/learn/licensing', routes.license); 
+
+route_get('/learn/nosql', routes.nosql); 
+route_get('/learn/cypher', routes.cypher); 
+route_get('/develop/visualize', routes.visualize); 
+route_get('/develop', routes.develop); 
+route_get('/develop/heroku', routes.heroku); 
+route_get('/develop/spring', routes.spring); 
+route_get('/develop/ec2', routes.ec2); 
+route_get('/develop/ec2_detailed', routes.ec2_detailed); 
+route_get('/develop/example_data', routes.example_data); 
+route_get('/develop/spring', routes.spring); 
+
 route_get('/develop/drivers', routes.drivers);
 route_get('/drivers', routes.drivers);
 route_get('/participate', routes.participate); 
