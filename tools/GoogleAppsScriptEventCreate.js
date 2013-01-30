@@ -26,16 +26,11 @@ function createAllEvents() {
 function createEvent(eventTitle, eventStartTime, description, summary, location, image, url) {
     //Get the calendar
     var cal = CalendarApp.getCalendarsByName('alerts-test')[0];//Change the calendar name
-    //var eventTitle = row[3];
-    //var eventStartTimeDay = row[4];
-    //var eventDuration = row[3];
-    //var time = eventTime.split(':');
-    //  var hour = time[0];
-    //  var min = time[1];
     var eventEndTime = new Date(eventStartTime.valueOf()+3*60*60*1000);
     //Create the events
     cal.createEvent(eventTitle, eventStartTime,eventEndTime ,{description:"Description:"+description + "\n"+
         "Location:"+location + "\n"+
+        "Summary:"+summary + "\n"+
         "Image:"+image.toString() + "\n"+
         "Url:"+url.toString()});
 }
