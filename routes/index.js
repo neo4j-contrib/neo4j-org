@@ -170,6 +170,9 @@ exports.events = function(req, res){
 exports.contributors = function(req, res){
     res.render('participate/contributors', { category: 'contributors', title: 'Contributors' });
 };
+exports.meetup_signup = function(req, res){
+    res.render('participate/meetup_signup', { category: 'contributors', title: 'Meetup Signup' });
+};
 exports.example_data = function(req, res){
     res.render('develop/example_data', { category: 'develop', title: 'Sample Datasets' });
 };

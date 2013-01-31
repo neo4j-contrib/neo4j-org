@@ -186,6 +186,7 @@ route_get('/install', routes.install);
 route_get('/download_thanks', routes.download_thanks);
 route_get('/subscribe_thanks', routes.subscribe_thanks); 
 route_get('/participate/contributors', routes.contributors);
+route_get('/participate/meetup_signup', routes.meetup_signup);
 route_get('/learn/graphdatabase', routes.graphdb);
 route_get('/learn/try', routes.try);
 route_get('/test/d3', routes.d3);
