@@ -37,25 +37,26 @@ function events(fun, filter) {
             item[name]=match == null ? '' : match[1];
         }
         var items=out.items.map(function(item) {
-            event_prop(item,'date',/When: (.+?)(\n|<br *\/>)/)
-            event_prop(item,'status',/Event Status: (.+?)(\n|<br *\/>)/)
-            event_prop(item,'location',/Where: (.+?)(\n|<br *\/>)/)
-            event_prop(item,'description',/Event Description: ([\s\S]+)$/)
-            event_prop(item,'page',/Event Description: <a +href="(.+?)".*>.+?<\/a>/)
-            event_prop(item,'page_text',/Event Description: <a +href=".+?".*>(.+?)<\/a>/)
-            item.description = item.description.replace(/^<a +href=".+?".*>.+?<\/a> */,"");
-            if (item.page && item.page.match(/http:\/\/www.google.com\/url\?q=/)) {
-              var url=item.page.replace(/http:\/\/www.google.com\/url\?q=/,"")
+			item.Title=item.title;
+            event_prop(item,'Start',/When: (.+?)(\n|<br *\/>)/)
+            event_prop(item,'Status',/Event Status: (.+?)(\n|<br *\/>)/)
+            event_prop(item,'Location',/Where: (.+?)(\n|<br *\/>)/)
+            event_prop(item,'Description',/Event Description: ([\s\S]+)$/)
+            event_prop(item,'Url',/Event Description: <a +href="(.+?)".*>.+?<\/a>/)
+            event_prop(item,'UrlText',/Event Description: <a +href=".+?".*>(.+?)<\/a>/)
+            item.Description = item.Description.replace(/^<a +href=".+?".*>.+?<\/a> */,"");
+            if (item.Url && item.Url.match(/http:\/\/www.google.com\/url\?q=/)) {
+              var url=item.Url.replace(/http:\/\/www.google.com\/url\?q=/,"")
               url=decodeURIComponent(url);
               url=url.replace(/&amp;ust=.*$/,"");
-              item.page=url;
+              item.Url=url;
             }
-            var meetup=item.page.match(/http:\/\/(?:www\.)?meetup.com\/(.+)(?:\/events\/(\d+))/);
+            var meetup=item.Url.match(/http:\/\/(?:www\.)?meetup.com\/(.+)(?:\/events\/(\d+))/);
             if (meetup){
-                item.meetup_group=meetup[1];
-                item.meetup_event=meetup[2];
+                item.Group=meetup[1];
+                item.Meetup=meetup[2];
             }
-            // console.log(item)
+//            console.log(item)
             return item;
         });
         if (filter) fun(items.filter(filter));

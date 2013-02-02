@@ -1,3 +1,5 @@
+var http=require('http');
+
 function meetup(group,event,fun) {
     // graphdb-belgium/events/81881472
     http.get({host: 'api.meetup.com', path: '/oembed?url=http://meetup.com/'+group + (event == null ? "" : "/events/" + event)},

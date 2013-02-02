@@ -15,7 +15,8 @@ var express = require('express')
   , munchkin=require("./helpers/munchkin")
   , data=require("./helpers/data")
   , markdown = require("node-markdown").Markdown
-  , events = require("./helpers/events")
+  , calendar = require("./helpers/calendar")
+  , spreadsheet = require("./helpers/spreadsheet")
   , content = require("./helpers/content")
   , meetup =  require("./helpers/meetup")
   , paths =  require("./helpers/path")
@@ -210,12 +211,14 @@ route_get('/meetup',function(req,res) {
         res.send(200,json['html']);
     });
 });
+app.locals.events = [];
 
-events.events(function(items) { app.locals.events = items; }) // todo refresh
+spreadsheet.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length);}) 
+calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length); }) 
 
 route_get('/events.json',function(req,res) {
     var filter=req.query['filter'];
-    events.events(function(items) {
+    calendar.events(function(items) {
         var data = JSON.stringify(items)
         res.send(200,data);
     }, function(item) {

@@ -11,6 +11,9 @@
   },
   "dependencies": {
 	"rssparser" : "0.0.2",
+	"googleclientlogin" : "0.2.5",
+    "hooky-spreadsheets" : "0.0.4",
+	"rssparser" : "0.0.2",
     "soap": "0.2.7",
     "marketo-soap-security": "0.0.2",
     "express": "3.0.0rc5",

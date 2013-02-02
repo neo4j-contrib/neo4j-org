@@ -10,20 +10,25 @@ Event Description: Event Info
 <a href="\&quot;http://www.google.com/url?q=http%3A%2F%2Fsyncconf.com%2F&amp;ust=1359165468136000&amp;usg=AFQjCNHxoMNKtRJSsyuqj9CRGHanxvNHeQ\&quot;" target="\&quot;_blank\&quot;">Event Info</a>
 */
 %>
-		<% if (event['meetup_event']) {%>
-			<div class="meetup" group="<%= event['meetup_group'] %>" event="<%= event['meetup_event'] %>">
-			</div>
-		<% } else { %>
-            <a href="<%= event['link'] %>">
-                <img src="<%= event['logo'] %>" width="300" title="<%= event['title'] %>" alt="<%= event['title'] %> logo"/>
+        <% if (event['Group']) {%>
+            <div class="meetup" group="<%= event['Group'] %>" event="<%= event['Meetup'] %>">
+            </div>
+        <% } else { %>
+            <a target='_blank' href="<%= event['Url'] %>">
+                <img src="<%= event['Image'] || event['Portrait'] ||'/assets/img/logo/webinar.png' %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
             </a>
-	        <div class="caption">
-	            <h5><%= event['title'] %></h5>
-				When: <%= event['date'] %><br/>
-				Where: <%= event['location'] %><br/>
-				Link: <a href="<%= event['page'] %>" target="_blank"><%= event['page_text'] %></a><br/>
-	            <p><%-: event['description'] | truncate_words: 30 %></p>
-	        </div>
-   		<% } %>
+            <div class="caption">
+                <h5><%= event['Title'] %></h5>
+                When: <%= event['Start'] %><br/>
+                Where: <%= event['Location'] %><br/>
+                <% if (event['Presenter']) { %>
+                    <a target='_blank' href="http://twitter.com/<%= event['Twitter'] %>">
+                        <h4><em>with <%= event['Presenter'] %></em></h4>
+                    </a>
+                <% } %>
+                <p><%-: event['Description'] | truncate_words: 30 %></p>
+                <a class="btn" href="<%= event['Url'] %>" target="_blank">Participate </a><br/>
+            </div>
+        <% } %>
     </div>
 </div>

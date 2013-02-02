@@ -22,9 +22,24 @@
 	talk to our engineers or discuss with our customers. There are many Neo4j Meetups, Trainings and Conferences happening everywhere and
 	at any time.</p>
 	
-    <div class="thumbnails events row-fluid">
-
-        <% events.forEach(function(event) { %>
+		
+        <%  var i;
+			while (i<events.length) {
+			%>
+		    	<div class="thumbnails events row-fluid span12">
+			<%
+			    for (var col=0;col<=4 && i+col < events.length;col++) {
+					var event=events[i+col];
+		%>
+		            <% include _event %>
+		<%					
+			    }
+				i+=4;
+				%>
+			    	</div>
+				<%
+			}
+			events.forEach(function(event) { %>
             <% include _event %>
         <% }); %>
 
