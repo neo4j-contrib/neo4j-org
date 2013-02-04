@@ -64,22 +64,23 @@ function events(fun, filter) {
 
 function parseContributors(cells, fun, filter) {
     var header;
-    var items = [];
+    var items = {};
     for (var rowNo in cells.cells) {
         var row = cells.cells[rowNo]
         if (!header) {
+//            console.log("headerÖ", row);
             header = row;
             continue;
-            console.log("parsing", row);
         }
         var item = {};
         for (var colNo in row) {
-            item[header[colNo].value] = row[colNo].value
+            item[header[colNo].value] = row[colNo].value;
         }
-        if (new Date(item.Start) >= now && item.Created && item.Created.length > 0 && (!filter || filter(item))) {
-            item.Title = wrap(item['Type'], " - ") + item['Title'] + wrap(" - ", item['City'])
-            items.push(item);
-        }
+//        if (new Date(item.Start) >= now && item.Created && item.Created.length > 0 && (!filter || filter(item))) {
+//            item.Title = wrap(item['Type'], " - ") + item['Title'] + wrap(" - ", item['City'])
+            items[item.twitter||item.name] = item;
+        
+//        }
     }
     if (filter) fun(items.filter(filter));
     else fun(items)
@@ -95,7 +96,7 @@ function contributors(fun, filter) {
                 console.log("Error retrieving spreadsheet ", err)
             }
             spreadsheet.worksheets[0].cells({
-                range: "A1C1:A59H59"
+                range: "R1C1:R100C8"
             }, function (err, cells) {
                 if (err) {
                     console.log("Error retrieving spreadsheet ", err)

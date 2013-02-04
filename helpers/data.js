@@ -1,8 +1,7 @@
 exports.drivers = {
     anorm_cypher: {
         name: "AnormCypher",
-        author: "Wes Freeman",
-        twitter: "wefreema",
+        authors: ["@wefreema"],
         source: "https://github.com/AnormCypher/AnormCypher",
         docs: "https://github.com/AnormCypher/AnormCypher/blob/master/readme.md#anormcypher",
         url: "http://anormcypher.org",
@@ -13,8 +12,7 @@ exports.drivers = {
     },
     neo4j_rest: {
         url: "http://docs.neo4j.org/chunked/milestone/rest-api.html",
-        author: "Neo4j Team",
-        twitter: "neo4j",
+        authors: ["@neo4j"],
         tags: ["java", "rest"],
         logo: "/assets/img/languages/neo4jrest.png",
         name: "Neo4j REST API",
@@ -22,8 +20,7 @@ exports.drivers = {
     },
     spring_data_neo4j: {
         tags: ["java", "jvm", "rest", "spring"],
-        author: "Neo4j Team",
-        twitter: "neo4j",
+        authors: ["@neo4j"],
         url: "/develop/spring",
         logo: "/assets/img/languages/sdn.png",
         name: "Spring Data Neo4j",
@@ -31,8 +28,7 @@ exports.drivers = {
     },
     neo4j_java: {
         tags: ["jvm", "java"],
-        author: "Neo4j Team",
-        twitter: "neo4j",
+        authors: ["@neo4j"],
         url: "http://docs.neo4j.org/chunked/stable/tutorials-java-embedded.html",
         logo: "/assets/img/languages/embedded.png",
         name: "Java API",
@@ -40,8 +36,7 @@ exports.drivers = {
     },
     neo4j_rb: {
         tags: ["ruby", "jvm"],
-        author: "Andreas Ronge",
-        twitter: "ronge",
+        authors: ["@ronge"],
         url: "https://github.com/andreasronge/neo4j",
         logo: "/assets/img/languages/rails.png",
         name: "neo4j.rb",
@@ -49,8 +44,7 @@ exports.drivers = {
     },
     neo4j_core: {
         tags: ["ruby", "jvm"],
-        author: "Andreas Ronge",
-        twitter: "ronge",
+        authors: ["@ronge"],
         url: "https://github.com/andreasronge/neo4j-core",
         logo: "/assets/img/languages/ruby.png",
         name: "neo4j-core",
@@ -58,8 +52,7 @@ exports.drivers = {
     },
     neography: {
         tags: ["ruby", "rest"],
-        author: "Max de Marzi",
-        twitter: "maxdemarzi",
+        authors: ["@maxdemarzi"],
         url: "https://github.com/maxdemarzi/neography/",
         logo: "/assets/img/languages/ruby.png",
         name: "Neography",
@@ -68,16 +61,14 @@ exports.drivers = {
     neo4jphp: {
         tags: ["php", "rest"],
         url: "https://github.com/jadell/neo4jphp/wiki/Introduction",
-        author: "Josh Adell",
-        twitter: "josh_adell",
+        authors: ["@josh_adell"],
         logo: "/assets/img/languages/php.png",
         name: "Neo4jPHP",
         text: "Neo4jPHP provides an API that is both intuitive and flexible, and it takes advantage of 'under-the -hood' performance enhancements, such as caching and lazy-loading. "
     },
     neo4jclient: {
         tags: ["dotnet", "rest"],
-        author: "Tatham Oddie, Romiko Derbynew",
-        twitter: "readify",
+        authors: ["@tathamoddie", "@romikoderbynew"],
         url: "http://hg.readify.net/neo4jclient/wiki/Home/",
         source: "http://hg.readify.net/neo4jclient/",
         logo: "/assets/img/languages/dotnet.png",
@@ -88,8 +79,7 @@ exports.drivers = {
         tags: ["python", "rest"],
         url: "http://py2neo.org/",
         site: "http://py2neo.org/",
-        author: "Nigel Small",
-        twitter: "techige",
+        authors: ["@technige"],
         logo: "/assets/img/languages/py2neo.png",
         name: "py2neo",
         text: "Py2neo is a simple and pragmatic Python library that provides access to the popular graph database Neo4j via its RESTful web service interface.",
@@ -98,8 +88,7 @@ exports.drivers = {
     },
     neo4j_python: {
         tags: ["python", "jvm"],
-        author: "Neo4j Team",
-        twitter: "neo4j",
+        authors: ["@neo4j"],
         url: "http://pypi.python.org/pypi/neo4j-embedded",
         logo: "/assets/img/languages/python.png",
         name: "Neo4j Python",
@@ -107,8 +96,7 @@ exports.drivers = {
     },
     grails: {
         tags: ["groovy", "grails", "jvm"],
-        author: "Stefan Armbruster",
-        twitter: "darthvader42",
+        authors: ["@darthvader42"],
         url: "http://www.grails.org/plugin/neo4j",
         site: "http://www.grails.org/plugin/neo4j",
         docs: "http://springsource.github.com/grails-data-mapping/neo4j/manual/index.html",
@@ -119,8 +107,7 @@ exports.drivers = {
     },
     node_neo4j: {
         tags: ["js", "rest", "nodejs"],
-        author: "Aseem Kishore, Daniel Gasienica",
-        twitter: "aseemk",
+        authors: ["@aseemk", "@gasi"],
         url: "https://github.com/thingdom/node-neo4j",
         docs: "http://coffeedoc.info/github/thingdom/node-neo4j/",
         source: "https://github.com/thingdom/node-neo4j",
@@ -130,8 +117,7 @@ exports.drivers = {
     },
     neo4js: {
         tags: ["js", "rest", "nodejs"],
-        author: "Neo4j Team",
-        twitter: "neo4j",
+        authors: ["@neo4j"],
         url: "https://github.com/neo4j/neo4js",
         logo: "/assets/img/languages/nodejs.png",
         name: "Neo4js",
@@ -139,16 +125,14 @@ exports.drivers = {
     },
     neocons: {
         tags: ["clojure", "rest", "jvm"],
-        author: "Michael Klishin",
-        twitter: "michaelklishin",
+        authors: ["@michaelklishin"],
         url: "http://clojureneo4j.info/",
         logo: "/assets/img/languages/clojure.png",
         name: "Neocons",
         text: "An idiomatic, feature rich Clojure client which supports (almost) all Neo4J REST API features and is constantly tested against bleeding edge server changes, like the Cypher language improvements. " },
     bulbflow: {
         tags: ["python", "rest"],
-        author: "James Thornton",
-        twitter: "espeed",
+        authors: ["@espeed"],
         url: "http://bulbflow.com/overview/",
         logo: "/assets/img/languages/bulbflow.png",
         name: "Bulbflow",
@@ -156,15 +140,13 @@ exports.drivers = {
     },
     keymaker: {
         tags: ["ruby", "rest"],
-        author: "Rogelio Samour",
-        twitter: "therubymug",
+        authors: ["@therubymug"],
         url: "http://github.com/therubymug/keymaker",
         logo: "/assets/img/languages/ruby.png",
         name: "Keymaker",
         text: "A multi-layer REST API Ruby wrapper for the Neo4j graph database built on top of Faraday." },
     neoid: {
-        author: "Elad Ossadon",
-        twitter: "elado",
+        authors: ["@elado"],
         tags: ["ruby", "rest"],
         url: "https://github.com/elado/neoid",
         logo: "/assets/img/languages/rails.png",
@@ -173,8 +155,7 @@ exports.drivers = {
     },
     neo4django: {
         tags: ["python", "rest", "django"],
-        author: "Matt Luongo",
-        twitter: "mhluongo",
+        authors: ["@mhluongo"],
         url: "https://github.com/scholrly/neo4django",
         logo: "/assets/img/languages/django.png",
         name: "neo4django",
@@ -182,8 +163,7 @@ exports.drivers = {
     },
     neo4j_rest_client: {
         tags: ["python", "rest"],
-        author: "Javier de la Rosa",
-        twitter: "versae",
+        authors: ["@versae"],
         url: "http://readthedocs.org/docs/neo4j-rest-client/en/latest/",
         logo: "/assets/img/languages/python.png",
         source: "https://github.com/versae/neo4j-rest-client",
@@ -192,8 +172,7 @@ exports.drivers = {
     },
     neo4p: {
         tags: ["perl", "rest"],
-        author: "Mark A. Jensen",
-        twitter: "thinkinator",
+        authors: ["@thinkinator"],
         url: "https://metacpan.org/release/REST-Neo4p",
         logo: "/assets/img/languages/perl.png",
         name: "REST::Neo4p",
@@ -201,8 +180,7 @@ exports.drivers = {
     },
     scala: {
         tags: ["scala", "jvm"],
-        author: "Christopher Schmidt",
-        twitter: "fakod",
+        authors: ["@fakod"],
         url: "https://github.com/FaKod/neo4j-scala/",
         logo: "/assets/img/languages/scala.png",
         name: "Neo4j Scala",
@@ -210,8 +188,7 @@ exports.drivers = {
     },
     haskell: {
         tags: ["haskell", "rest"],
-        author: "Sam Anklesaria",
-        twitter: "bogiebro",
+        authors: ["@bogiebro"],
         url: "http://hackage.haskell.org/package/cypher-0.8",
         logo: "/assets/img/languages/haskell.png",
         name: "Haskell Cypher",
@@ -219,8 +196,7 @@ exports.drivers = {
     },
     datanucleus: {
         tags: ["java", "jvm", "jpa"],
-        author: "Andy Jefferson",
-        twitter: "datanucleus",
+        authors: ["@datanucleus"],
         url: "http://www.datanucleus.org/plugins/store.neo4j.html",
         logo: "/assets/img/languages/datanucleus.png",
         name: "DataNucleus Neo4j Plugin",
@@ -229,7 +205,7 @@ exports.drivers = {
     neo4j_go: {
         url: "https://github.com/davemeehan/Neo4j-GO",
         logo: "/assets/img/languages/go.png",
-        author: "Dave Meehan",
+        authors: ["@dmeehan"],
         tags: ["go", "rest"],
         name: "Neo4j GO",
         text: "A Neo4j REST client in the GO language."
@@ -237,6 +213,7 @@ exports.drivers = {
 };
 exports.apps = {
     flavorwocky: {
+        author: "@luannem",
         url: "http://www.flavorwocky.com",
         name: "Flavorwocky",
         logo: "/assets/img/apps/flavorwocky.png",
@@ -246,42 +223,50 @@ exports.apps = {
         site: ""
     },
     neosocial: {
+        author: "@maxdemarzi",
         docs: "http://maxdemarzi.com/2012/08/17/neosocial-connecting-to-facebook-with-neo4j/",
         name: "Neosocial",
         text: "Neosocial: Connecting to Facebook with Neo4j",
         logo: "/assets/img/apps/neosocial.png"
     },
     typology: {
+        author: "@renepickhardt",
         url: "http://typology.de/",
         logo: "/assets/img/apps/typology.png",
         text: "Word typing predictions, based on Neo4j and Google N-Gram data.",
         name: "Typology"
     },
     transportdublin: {
+        author: "@paddydub",
         url: "https://github.com/WhichWay/TransportDublin",
         logo: "/assets/img/apps/TransportDublin.png",
         name: "Transport Dublin",
         text: "A Neo4j & Google Maps based Public Transport Route Planner"
     },
     structr: {
+        author: "@amorgner",
         url: "http://structr.org/home",
         logo: "/assets/img/apps/structr.gif",
         text: "A Content Management System, build on Neo4j.",
-        name: "structr"
+        name: "Structr"
     },
     polymap: {
+        author: "Falko Bräutigam",
         url: "http://polymap.org/polymap3/wiki/Screenshots",
         logo: "/assets/img/apps/polymap.png",
         text: "A web based GIS system running on top of OpenStreetMap and other datasources, integrating with Neo4j Spatial.",
         name: "Polymap"
     },
     frostymug: {
+        author: "@josh_adell",
         url: "http://frostymug.herokuapp.com",
         logo: "/assets/img/apps/frostymug.png",
         text: "A proof-of-concept beer recommendation engine, built by Josh Adell",
         name: "Frosty Mug"
     }
 }
+
+//THIS IS OVERWRITTEN FROM GOOGLE
 exports.contributors = {
     maxdemarzi: {
         url: "http://www.maxdemarzi.com",
@@ -347,28 +332,28 @@ exports.contributors = {
 
 exports.ext_content = {
     rik_belgian_beers1: {
-        author: "Rik van Bruggen",
+        author: "@rvanbruggen",
         name: "Fun with beer and graphs",
         logo: "http://www.travelandbeer.com/wp-content/uploads/2011/05/belgian-beers.jpg",
         url: "http://popchartlab.com/collections/prints/products/the-very-very-many-varieties-of-beer",
         text: "A brief introduction to Neo4j, Belgian beers and import and recommendations."
     },
     popchartlabs_beer: {
-        author: "PopChartLab",
+        author: "@PopChartLab",
         name: "The Beer Pop Chart",
         logo: "http://cdn.shopify.com/s/files/1/0068/6272/products/VVMVOBeerPrint_Main_thumb_a_1024x1024.jpg?358",
         url: "http://popchartlab.com/collections/prints/products/the-very-very-many-varieties-of-beer",
         text: "Chart of the world's most comprehensive beer taxonomy, with 89 varieties of beer with over 200 representative quaffs,"
     },
     trycypher_beer: {
-        author: "The Neo4j team",
+        author: "@neo4j",
         name: "A live sample beer graph",
         logo: "/assets/img/apps/beer-console.png",
         url: "http://console.neo4j.org/?id=beer",
         text: "A small live dataset of Belgian beers in the cypher console"
     },
     beer_rik_screencast: {
-        author: "Rik Van Bruggen",
+        author: "@rvanbruggen",
         name: "Screencast of Neo4j, Gephi and Beer",
         logo: "/assets/img/apps/rik-screencast-beer.png",
         url: "https://vimeo.com/57182040",
@@ -436,22 +421,21 @@ exports.books = {
     }
 }
 exports.trainings = [
-    { date: "Feb 13", url: "0213-siliconvalley-register.html", city: "Silicon Valley", presenter: {name: "David Montag", twitter: "dmontag"}, location: "Quadrus Conference Center", area: "US" },
-    { date: "Feb 20", url: "0220-chicago-register.html", city: "Chicago", presenter: {name: "Max de Marzi", twitter: "maxdemarzi"}, location: "TechNexus", area: "US" },
-    { date: "Feb 26", url: "0226-dc-register.html", city: "Washington, D.C.", presenter: {name: "Max de Marzi", twitter: "maxdemarzi"}, location: "Catalyst Restaurant", area: "US" },
-    { date: "Feb 28", url: "0228-boston-register.html", city: "Boston", presenter: {name: "Max de Marzi", twitter: "maxdemarzi"}, location: "Catalyst Restaurant", area: "US" },
-    { date: "Mar 7", url: "0307-sf-register.html", city: "San Francisco", presenter: { name: "Andreas Kolleger", twitter: "akollegger"}, location: "Mission Bay CC", area: "US" },
-    { date: "Mar 12", url: "0312-la-register.html", city: "Los Angeles", presenter: { name: "Chris Leishman", twitter: "cleishm"}, location: "Working Village", area: "US" },
+    { date: "Feb 13", url: "0213-siliconvalley-register.html", city: "Silicon Valley", presenter: {name: "@dmontag"}, location: "Quadrus Conference Center", area: "US" },
+    { date: "Feb 20", url: "0220-chicago-register.html", city: "Chicago", presenter: {name: "@maxdemarzi", twitter: "maxdemarzi"}, location: "TechNexus", area: "US" },
+    { date: "Feb 26", url: "0226-dc-register.html", city: "Washington, D.C.", presenter: {name: "@maxdemarzi", twitter: "maxdemarzi"}, location: "Catalyst Restaurant", area: "US" },
+    { date: "Feb 28", url: "0228-boston-register.html", city: "Boston", presenter: {name: "@maxdemarzi", twitter: "maxdemarzi"}, location: "Catalyst Restaurant", area: "US" },
+    { date: "Mar 7", url: "0307-sf-register.html", city: "San Francisco", presenter: { name: "@akollegger", twitter: "akollegger"}, location: "Mission Bay CC", area: "US" },
+    { date: "Mar 12", url: "0312-la-register.html", city: "Los Angeles", presenter: { name: "@chrisl", twitter: "cleishm"}, location: "Working Village", area: "US" },
 
-    { date: "Feb 19", url: "0219-munich-register.html", city: "M&uuml;nchen", presenter: { name: "Stefan Armbruster", twitter: "darthvader42"}, location: "comSysto", area: "EU" },
-    { date: "Feb 21", url: "0221-frankfurt-register.html", city: "Frankfurt", presenter: { name: "Stefan Armbruster", twitter: "darthvader42"}, location: "UG Morgner", area: "EU" },
-    { date: "Mar 4", url: "http://qconlondon.com/london-2013/presentation/Neo4j%20Tutorial", city: "London", presenter: [
-        { name: "Ian Robinson", twitter: "iansrobinson"},
-        { name: "Jim Webber", twitter: "jimwebber"}
-    ], location: "QCon London", area: "EU" },
-    { date: "Mar 5", url: "0305-paris-register.html", city: "Paris", presenter: { name: "Stefan Armbruster", twitter: "darthvader42"}, location: "Zenika", area: "EU" },
-    { date: "Mar 5", url: "0305-london-register.html", city: "London", presenter: { name: "Aleksa Vukotic", twitter: "AleksaVukotic", company: "OpenCredo"}, location: "LMG Training & Development", area: "EU"},
-    { date: "Mar 7", url: "0307-amsterdam-register.html", city: "Amsterdam", presenter: { name: "Stefan Armbruster", twitter: "darthvader42"}, location: "Xebia", area: "EU" },
-    { date: "Mar 12", url: "0312-berlin-register.html", city: "Berlin", presenter: { name: "Michael Hunger", twitter: "mesirii"}, location: "betahaus", area: "EU" },
-    { date: "Mar 14", url: "0314-dusseldorf-register.html", city: "D&uuml;sseldorf", presenter: { name: "Stefan Armbruster", twitter: "darthvader42"}, location: "codecentric", area: "EU" }
+    { date: "Feb 19", url: "0219-munich-register.html", city: "M&uuml;nchen", presenter: { name: "@darthvader42", twitter: "darthvader42"}, location: "comSysto", area: "EU" },
+    { date: "Feb 21", url: "0221-frankfurt-register.html", city: "Frankfurt", presenter: { name: "@darthvader42", twitter: "darthvader42"}, location: "UG Morgner", area: "EU" },
+    { date: "Mar 4", url: "http://qconlondon.com/london-2013/presentation/Neo4j%20Tutorial", city: "London", 
+        presenter: [{name:"@iansrobinson"},{name:"@jimwebber"}],
+        location: "QCon London", area: "EU" },
+    { date: "Mar 5", url: "0305-paris-register.html", city: "Paris", presenter: { name: "@darthvader42", twitter: "darthvader42"}, location: "Zenika", area: "EU" },
+    { date: "Mar 5", url: "0305-london-register.html", city: "London", presenter: { name: "@aleksavukotic", twitter: "AleksaVukotic", company: "OpenCredo"}, location: "LMG Training & Development", area: "EU"},
+    { date: "Mar 7", url: "0307-amsterdam-register.html", city: "Amsterdam", presenter: { name: "@darthvader42", twitter: "darthvader42"}, location: "Xebia", area: "EU" },
+    { date: "Mar 12", url: "0312-berlin-register.html", city: "Berlin", presenter: { name: "@mesirii", twitter: "mesirii"}, location: "betahaus", area: "EU" },
+    { date: "Mar 14", url: "0314-dusseldorf-register.html", city: "D&uuml;sseldorf", presenter: { name: "@darthvader42", twitter: "darthvader42"}, location: "codecentric", area: "EU" }
 ]

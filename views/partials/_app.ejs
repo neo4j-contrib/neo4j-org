@@ -5,6 +5,13 @@
             <img src="<%= info['logo'] %>" width="300" title="<%= info['name'] %>" alt="<%= info['name'] %> logo"/>
         </a>
 
+        <% var author = info['author']; %>
+        <% if (author) { %>
+        <% if (author.indexOf('@') == 0) { var contributor = contributors[author.substring(1)];console.log("author",contributor);%>
+        <h4><em>by <a target="_blank" href="http://twitter.com/<%= contributor.twitter %>"><%= contributor.name %></a></em></h4>
+        <%} else { %>
+        <h4><em>by <%= author %></em></h4>
+        <% }} %>
         <div class="caption">
             <h5><%= info['name'] %></h5>
 
