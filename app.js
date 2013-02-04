@@ -215,10 +215,13 @@ route_get('/meetup',function(req,res) {
     });
 });
 app.locals.events = [];
+app.locals.contributors = {};
 
 spreadsheet.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length);}) 
+spreadsheet.contributors(function(items) {  }) 
 calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length); }) 
 
+console.log(app.locals.contributors);
 route_get('/events.json',function(req,res) {
     var filter=req.query['filter'];
     calendar.events(function(items) {
