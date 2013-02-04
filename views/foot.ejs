@@ -7,6 +7,7 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/assets/js/jquery-1.8.1.min.js" type="text/javascript"></script>
+<script src="/assets/js/modernizr.js" type="text/javascript"></script>
 <script src="/assets/js/bootstrap.js" type="text/javascript"></script>
 <script src="/assets/js/bootstrap-lightbox.js" type="text/javascript"></script>
 <script src="/assets/js/bootstrap-transition.js" type="text/javascript"></script>
@@ -58,10 +59,10 @@
     var disqus_shortname = 'neo4jorglive';
     //are we live?
     var disqus_url = window.location;
-    console.log('current URL: ',disqus_url);
+//    console.log('current URL: ',disqus_url);
     var origin = disqus_url.origin;
     if(origin != 'www.neo4j.org') {
-        console.log('this site is not live at ', origin, 'switching to disqus developer mode');
+//        console.log('this site is not live at ', origin, 'switching to disqus developer mode');
         var disqus_developer = 1; // developer mode is on
     }    else {
         var disqus_developer = 0; // developer mode is off

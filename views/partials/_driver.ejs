@@ -5,12 +5,9 @@
         <h5><%= info['name'] %></h5>
     </a>
     <%
-    console.log("authors",info.authors);
     [].concat( info.authors ).map(function(author){
         if (author.indexOf('@') == 0) { 
-            console.log("author", author);
             var contributor = contributors[author.substring(1)];
-            console.log("found",contributor);
     %>
     <h4><em><a target="_blank" href="http://twitter.com/<%= contributor.twitter %>"><%= contributor.name %></a></em></h4>
     <%} else { %>

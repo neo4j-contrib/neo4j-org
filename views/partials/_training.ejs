@@ -7,7 +7,6 @@
 <%= training.city %></a> at <%= training.date %>: 
  with 
 <%- [].concat( training.presenter ).map(function(presenter) {
-            console.log("presenter",presenter);
         if (presenter.name.indexOf('@') == 0) {
             var contributor = contributors[presenter.name.substring(1)];
 	        return "<a target='_blank' href='http://twitter.com/"+contributor.twitter+"'>"+contributor.name+"</a>";
