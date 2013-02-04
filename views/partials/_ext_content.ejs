@@ -1,0 +1,17 @@
+<% var info=ext_content[content] %>
+<div class="span3">
+    <div class="thumbnail ">
+        <a href="<%= info['url'] %>" target="_blank">
+            <img src="<%= info['logo'] %>" width="300" title="<%= info['name'] %>" alt="<%= info['name'] %> logo"/>
+
+            <% if (info['author']) { %>
+            <h4><em>by <%= info['author'] %></em></h4>
+            <% } %>
+            <div class="caption">
+                <h5><%= info['name'] %></h5>
+
+                <p><%- info['text'] %></p>
+            </div>
+        </a>
+    </div>
+</div>

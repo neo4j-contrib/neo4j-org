@@ -101,6 +101,7 @@ app.locals.apps=data.apps;
 app.locals.contributors=data.contributors;
 app.locals.books=data.books;
 app.locals.trainings=data.trainings;
+app.locals.ext_content=data.ext_content;
 
 app.locals.neo4jS = {
     version: "1.9-SNAPSHOT",
@@ -193,6 +194,7 @@ route_get('/learn/try', routes.try);
 route_get('/test/d3', routes.d3);
 route_get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
 route_get('/events', routes.events)
+route_get('/misc/beer', routes.beer)
 
 route_get('/marketo',function(req,res) {
     var cookie = req.cookies["_mkto_trk"];
@@ -260,6 +262,8 @@ app.locals.paths.java = {
                          { title: "Neo4j and last.fm", author: { name: "Niklas Lindblad", twitter: "nlindblad", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }, type:"video", url:"http://vimeo.com/39825129", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }
                 ] }
 ,
+    
+    
 //  learn_graph : ["neo4j","java_basics" ],
 //  neo4j : ["cypher","java_basics","server_basics"],
     jvm_drivers : { steps: ["ide","java_basics","java_cypher"] , tags: ["drivers","jvm","clojure","scala","java","groovy"]},

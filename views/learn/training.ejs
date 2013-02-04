@@ -48,7 +48,7 @@
                 <h4>US</h4>
 <p>
                 <% trainings.filter(function(t) {return t.area=="US"}).forEach(function(training){ %>
-                    <% include _training %>
+                    <% include ../partials/_training %>
                 <% }) %>
 <p>             
             </div>
@@ -57,7 +57,7 @@
                 <h4>Europe</h4>
 <p>
                 <% trainings.filter(function(t) {return t.area=="EU"}).forEach(function(training){ %>
-                    <% include _training %>
+                    <% include ../partials/_training %>
                 <% }) %>
 <p>             
             </div>  

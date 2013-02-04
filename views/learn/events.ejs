@@ -31,7 +31,7 @@
 			    for (var col=0;col<=4 && i+col < events.length;col++) {
 					var event=events[i+col];
 		%>
-		            <% include _event %>
+		            <% include ../partials/_event %>
 		<%					
 			    }
 				i+=4;
@@ -40,7 +40,7 @@
 				<%
 			}
 			events.forEach(function(event) { %>
-            <% include _event %>
+            <% include ../partials/_event %>
         <% }); %>
 
     </div>

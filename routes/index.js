@@ -194,6 +194,10 @@ exports.customers = function(req, res){
   res.render('customers', { category: 'learn', title: 'Customers' });
 };
 
+exports.beer = function(req, res){
+    res.render('misc/beer', { category: 'misc', title: 'Beer' });
+};
+
 
 
 exports.resource = function(req,res) {
