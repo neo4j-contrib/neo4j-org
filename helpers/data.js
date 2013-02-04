@@ -339,7 +339,7 @@ exports.ext_content = {
         text: "A brief introduction to Neo4j, Belgian beers and import and recommendations."
     },
     popchartlabs_beer: {
-        author: "@PopChartLab",
+        author: "@popchartlab",
         name: "The Beer Pop Chart",
         logo: "http://cdn.shopify.com/s/files/1/0068/6272/products/VVMVOBeerPrint_Main_thumb_a_1024x1024.jpg?358",
         url: "http://popchartlab.com/collections/prints/products/the-very-very-many-varieties-of-beer",
