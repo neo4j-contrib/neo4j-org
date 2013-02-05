@@ -63,6 +63,7 @@ app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
+  app.enable('trust proxy');
 //  app.use(express.favicon());
   app.use(function(req, res, next){
       res.locals.path = req.path;
@@ -72,9 +73,9 @@ app.configure(function(){
   });  
   app.use(function(req,res, next) {
 	try {
-		res.locals.region=geoip.region(req.connection.remoteAddress);
+		res.locals.region=geoip.region(req.ip);
 	} catch(e) {
-		console.log("Error getting ip",req.connection.remoteAddress,e)
+		console.log("Error getting ip",req.ip,e)
 		res.locals.region='US';
 	}
 	next();
