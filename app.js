@@ -17,6 +17,12 @@ var express = require('express')
   , content_data=require("./helpers/content_data")
   , track_data=require("./helpers/track_data")
   , markdown = require("node-markdown").Markdown
+  , calendar = require("./helpers/calendar")
+  , spreadsheet = require("./helpers/spreadsheet")
+  , content = require("./helpers/content")
+  , meetup =  require("./helpers/meetup")
+  , paths =  require("./helpers/path")
+  , geoip =  require("./helpers/geoip")
 
 var app = express();
 
@@ -54,23 +60,12 @@ https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/version
 forwarder.add_console_forward(app,express,http);
 
 app.locals.content = {}
-function load_github_content(name, path, host) {
-    if (!host) host="raw.github.com";
-    https.get({host: host, path: path},
-        function(res) {
-            res.on("data", function(data) {
-                app.locals.content[name] = data.toString();            
-            })
-        })
-    
-}
-load_github_content('puppet',"/neo4j-contrib/neo4j-puppet/master/README.md")
-load_github_content('ec2_template',"/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md")
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
+  app.enable('trust proxy');
 //  app.use(express.favicon());
   app.use(function(req, res, next){
       res.locals.path = req.path;
@@ -78,6 +73,15 @@ app.configure(function(){
       res.locals.run_experiment = app.get('env') == 'production' && res.locals.index_page
       next();
   });  
+  app.use(function(req,res, next) {
+	try {
+		res.locals.region=geoip.region(req.ip);
+	} catch(e) {
+		console.log("Error getting ip",req.ip,e)
+		res.locals.region='US';
+	}
+	next();
+  });
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
@@ -91,22 +95,28 @@ ejs.filters.md = function(b) {
    return markdown(b) 
 }; 
 
+ejs.filters.wrap = function(content, tag) {
+    return "<"+tag+">"+content+"</"+tag+">";
+}
+
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
 var rnd = function rnd(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
- var themes = ["aqua"];
-//var themes = ["default","quartum","aqua"];
 app.locals.theme = function() {
-  return themes[rnd(0,themes.length - 1)];
+   return "aqua";
 }
+
 app.locals.drivers=data.drivers;
 app.locals.apps=data.apps;
 app.locals.contributors=data.contributors;
 app.locals.chapters=content_data.chapters;
 app.locals.units=track_data.units;
+app.locals.books=data.books;
+app.locals.trainings=data.trainings;
+app.locals.ext_content=data.ext_content;
 
 app.locals.neo4jS = {
     version: "1.9-SNAPSHOT",
@@ -132,6 +142,10 @@ app.locals({
     }
 });
 
+content.load_github_content(app.locals,'puppet',"/neo4j-contrib/neo4j-puppet/master/README.md")
+content.load_github_content(app.locals,'ec2_template',"/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md")
+content.load_learn_content(app.locals,'java_hello_world',"/java-hello-world.html")
+content.load_learn_content(app.locals,'java_cypher',"/java-cypher.html")
 
 function forward(url) {
     return function(req,res) { res.redirect(url); }
@@ -144,42 +158,61 @@ function forward(url) {
  * - graph: collection of arbitrarily connected nodes
  */
 
+function route_get(url, fun) {
+//  console.log(url);
+    if (fun) fun.url = url;
+    else console.log("Route missing for url: "+url);
+    return app.get(url,fun);
+}
+ 
+route_get('/', routes.index);
+route_get('/index', routes.index_graph);
+route_get('/index_graph_svg', routes.index_graph_svg);
+route_get('/index_graph_svg2', routes.index_graph_svg2);
+route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 
-app.get('/', routes.index);
-app.get('/index', routes.index_graph);
-app.get('/index_graph_svg', routes.index_graph_svg);
-app.get('/index_graph_svg2', routes.index_graph_svg2);
-app.get('/favicon.ico', forward('/assets/ico/favicon.ico'));
+route_get('/', routes.index);
+route_get('/index', routes.index_graph);
+route_get('/index_graph_svg', routes.index_graph_svg);
+route_get('/index_graph_svg2', routes.index_graph_svg2);
+route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 
-app.get('/learn', routes.learn); // path: concepts, best practices, operations
-app.get('/learn_graph', routes.learn_graph); // path: concepts, best practices, operations
-app.get('/learn/neo4j', routes.neo4j); // node:  about Neo4j
-app.get('/learn/apps', routes.apps); // graph:  showcase of apps built with Neo4j
-app.get('/learn/licensing', routes.license); // node:  Neo4j editions and licensing guide (categorized URL)
-app.get('/learn/propertygraph', routes.propertygraph); // node:  explanation of property graph
-app.get('/learn/nosql', routes.nosql); // node:  compare to other databases
-app.get('/learn/cypher', routes.cypher); // node:  compare to other databases
-app.get('/develop/visualize', routes.visualize); // node:  compare to other databases
-app.get('/develop', routes.develop); // path: development guides in featured languages
-app.get('/develop/heroku', routes.heroku); // path: heroku deployment
-app.get('/develop/spring', routes.spring); // path: spring data neo4j landing page
-app.get('/develop/ec2', routes.ec2); // path: development guides in featured languages
-app.get('/develop/ec2_detailed', routes.ec2_detailed); // path: development guides in featured languages
-app.get('/develop/example_data', routes.example_data); // path: example data sets
-app.get('/develop/spring', routes.spring); // path: development guides in featured languages
-app.get('/develop/drivers', routes.drivers);
-app.get('/drivers', routes.drivers);
-app.get('/participate', routes.participate); 
-app.get('/install', routes.install);
-app.get('/download_thanks', routes.download_thanks);
-app.get('/subscribe_thanks', routes.subscribe_thanks); 
-app.get('/participate/contributors', routes.contributors);
-app.get('/learn/graphdatabase', routes.graphdb);
-app.get('/learn/try', routes.try);
-app.get('/test/d3', routes.d3);
-app.get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
+route_get('/learn', routes.learn);
+route_get('/learn_graph', routes.learn_graph); 
+route_get('/learn/neo4j', routes.neo4j); 
+route_get('/learn/training', routes.training); 
+route_get('/learn/books', routes.books); 
+route_get('/learn/apps', routes.apps); 
+route_get('/learn/licensing', routes.license); 
 
-app.get('/marketo',function(req,res) {
+route_get('/learn/nosql', routes.nosql); 
+route_get('/learn/cypher', routes.cypher); 
+route_get('/develop/visualize', routes.visualize); 
+route_get('/develop', routes.develop); 
+route_get('/develop/heroku', routes.heroku); 
+route_get('/develop/spring', routes.spring); 
+route_get('/develop/ec2', routes.ec2); 
+route_get('/develop/ec2_detailed', routes.ec2_detailed); 
+route_get('/develop/example_data', routes.example_data); 
+route_get('/develop/spring', routes.spring); 
+
+route_get('/develop/drivers', routes.drivers);
+route_get('/drivers', routes.drivers);
+route_get('/participate', routes.participate); 
+route_get('/install', routes.install);
+route_get('/download_thanks', routes.download_thanks);
+route_get('/subscribe_thanks', routes.subscribe_thanks); 
+route_get('/participate/contributors', routes.contributors);
+route_get('/participate/meetup_signup', routes.meetup_signup);
+route_get('/participate/meetups', forward("http://neo4j.meetup.com/"));
+route_get('/learn/graphdatabase', routes.graphdb);
+route_get('/learn/try', routes.try);
+route_get('/test/d3', routes.d3);
+route_get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
+route_get('/events', routes.events)
+route_get('/misc/beer', routes.beer)
+
+route_get('/marketo',function(req,res) {
     var cookie = req.cookies["_mkto_trk"];
     if (cookie && munchkin) {
         munchkin.marketo(cookie, function(id) { 
@@ -191,38 +224,81 @@ app.get('/marketo',function(req,res) {
     }
 });
 
+route_get('/meetup',function(req,res) {
+    meetup.oembed(req.query['group'],req.query['event'], function(json) {
+        res.send(200,json['html']);
+    });
+});
+app.locals.events = [];
+app.locals.contributors = {};
+
+
+spreadsheet.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length);}) 
+spreadsheet.contributors(function(items) { app.locals.contributors = items; }); 
+calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length); }) 
+
+console.log(app.locals.contributors);
+route_get('/events.json',function(req,res) {
+    var filter=req.query['filter'];
+    calendar.events(function(items) {
+        var data = JSON.stringify(items)
+        res.send(200,data);
+    }, function(item) {
+        return !filter || item.title.match(filter) || item.summary.match(filter)
+    })
+});
+
 // well known historic URLs redirects
-app.get('/download', routes.install);
-app.get('/about', routes.neo4j);
-app.get('/terms', routes.terms); // terms and conditions
-app.get('/privacy', routes.privacy); // privacy policy
-app.get('/ruby', routes.drivers);
-app.get('/community', routes.participate);
-app.get('/community/feeds', routes.participate);
-app.get('/resources', routes.learn);
-app.get('/forums',forward("http://groups.google.com/group/neo4j"));
-app.get('/nabble',forward("http://groups.google.com/group/neo4j"));
-app.get('/spring', routes.spring);
-app.get('/heroku', routes.heroku);
-app.get('/azure', forward("http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"));
-app.get('/price-list', forward("http://www.neotechnology.com/price-list/"));
-app.get('/bookstore', forward("http://www.neotechnology.com/bookstore/"));
-app.get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
-app.get('/release-notes', routes.release_notes);
-app.get('/customers', routes.customers);
-app.get('/getting-started', routes.develop);
-app.get('/java', routes.java);
+route_get('/download', routes.install);
+route_get('/about', routes.neo4j);
+route_get('/terms', routes.terms); // terms and conditions
+route_get('/privacy', routes.privacy); // privacy policy
+route_get('/ruby', routes.drivers);
+route_get('/community', routes.participate);
+route_get('/community/feeds', routes.participate);
+route_get('/resources', routes.learn);
+route_get('/forums',forward("http://groups.google.com/group/neo4j"));
+route_get('/nabble',forward("http://groups.google.com/group/neo4j"));
+route_get('/spring', routes.spring);
+route_get('/heroku', routes.heroku);
+route_get('/azure', forward("http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"));
+route_get('/price-list', forward("http://www.neotechnology.com/price-list/"));
+route_get('/bookstore', forward("http://www.neotechnology.com/bookstore/"));
+route_get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
+route_get('/release-notes', routes.release_notes);
+route_get('/customers', routes.customers);
+route_get('/getting-started', routes.develop);
+route_get('/java', routes.java);
+route_get('/java/basics', routes.java_basics);
+route_get('/java/cypher', routes.java_cypher);
 
 
+app.locals.paths={}
+app.locals.paths.java = {
+    java : { steps: ["learn_graph","neo4j","cypher","java_cypher","jvm_drivers","java_basics","server"],
+             tags : ["java"], 
+             related : [ { title : "API Javadoc", url : "http://api.neo4j.org/current/", image : "/assets/img/languages/java.jpg" }, 
+                         { title : "Manual: Java Tutorial", url : "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html", image : "/assets/img/languages/java.jpg" },
+                         { title: "Neo4j and last.fm", author: { name: "Niklas Lindblad", twitter: "nlindblad", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }, type:"video", url:"http://vimeo.com/39825129", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }
+                ] }
+,
+    
+    
+//  learn_graph : ["neo4j","java_basics" ],
+//  neo4j : ["cypher","java_basics","server_basics"],
+    jvm_drivers : { steps: ["ide","java_basics","java_cypher"] , tags: ["drivers","jvm","clojure","scala","java","groovy"]},
+    java_cypher : { steps: ["cypher","jvm_drivers","ide","example_data"], tags: ["cypher","console","shell"]},
+    java_basics : { steps: ["java_cypher","jvm_drivers","ide","example_data","spring","server","server_extensions"], tags: ["howto","transaction","graphdb","shutdown","index","java"] }
+}
 // download resources
-app.get('/resources/cypher', forward('/assets/download/Neo4j_CheatSheet_v3.pdf'));
+route_get('/resources/cypher', forward('/assets/download/Neo4j_CheatSheet_v3.pdf'));
 
-app.get('/wp-content/*', routes.resource);
-app.get('/wp-includes/*', routes.resource);
-//app.get('/assets/download/*', routes.resource);
-app.get('/img/*', routes.resource);
-app.get('/highlighter/*', routes.resource);
-app.get('/video/*', function(req, res){
+route_get('/wp-content/*', routes.resource);
+route_get('/wp-includes/*', routes.resource);
+//route_get('/assets/download/*', routes.resource);
+route_get('/img/*', routes.resource);
+route_get('/highlighter/*', routes.resource);
+route_get('/video/*', function(req, res){
     var path = req.path;
     var idx = path.lastIndexOf('/');
     var file = idx > -1 ? path.substr(idx+ 1,path.length) : path;
@@ -230,6 +306,17 @@ app.get('/video/*', function(req, res){
     res.redirect('http://watch.neo4j.org/video/'+file);
 });
 
+app.locals.next_steps = function(path,page) {
+    return paths.next_steps(app.locals,routes,path,page).map( function(step) { return "<li><a href='"+step.url+"'>"+step.opts.title+"</a></li>"}).join("\n")
+}
+// console.log(app.locals.next_steps("java","java"))
+
+app.locals.related = function(path,page) {
+    return paths.related(app.locals,path,page);
+}
+
+console.log(app.locals.related("java","java"))
+console.log(geoip.region('146.52.53.114'))
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });

@@ -1,0 +1,37 @@
+<% include ../head %>
+<div class="container">
+
+    <div role="main" class="row">
+
+
+        <div class="span12">
+            <div class="inner">
+                <h1>Everybody loves beer.</h1>
+
+                <p>There is a high density of beer-loving geeks in the neo4j community. Below are some of
+                    the projects and
+                    resources tht have been developed with or around Neo4j.</p>
+                <blockquote>A traditional relational database may tell you the average
+                    age of everyone in this pub, but
+                    a graph database will tell you who is most likely to buy you a beer. <i>Andreas Kollegger</i></blockquote>
+                <p>
+                    Of course, we are sponsoring beer for the <a href="/participate/meetups">Neo4j Meetups</a>, so drop by!  
+                </p>
+
+                <div class="thumbnails row-fluid">
+
+                    <% ["rik_belgian_beers1","popchartlabs_beer","trycypher_beer","beer_rik_screencast"].forEach(function(content) { %>
+                    <% include ../partials/_ext_content %>
+                    <% }); %>
+
+                    <% ["frostymug"].forEach(function(app) { %>
+                    <% include ../partials/_app %>
+                    <% }); %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../foot %>
+

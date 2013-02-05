@@ -6,15 +6,19 @@ var marketoId = process.env.MARKETO_ID;
 var marketoSecret = process.env.MARKETO_SECRET;
 
 var marketoClient;
-soap.createClient(wsdlUrl, function(err, client) {
-    if (client) {
-        // console.log(client.describe());
-        marketoClient = client;
-    }
-    if (err) {
-        console.log("Error creating soap client for Marketo", err);
-    }
-});
+try {
+    soap.createClient(wsdlUrl, function(err, client) {
+        if (client) {
+            // console.log(client.describe());
+            marketoClient = client;
+        }
+        if (err) {
+            console.log("Error creating soap client for Marketo", err);
+        }
+    });
+} catch(e) {
+	console.log("Error creating soap client for Marketo", e);
+}
 
 function getMarketoLead(cookie, fun) {
     marketoClient.setSecurity(MarketoSecurity(marketoId, marketoSecret));

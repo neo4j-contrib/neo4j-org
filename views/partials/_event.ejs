@@ -1,0 +1,34 @@
+<div class="span3">
+    <div class="thumbnail ">
+<%
+/*
+When: Fri Feb 15, 2013 3:45am to 4:30am PST
+
+Where: Open Venue, 20 Bank Plain, Norwich, Norfolk NR2 4SF\n
+Event Status: confirmed\n
+Event Description: Event Info
+<a href="\&quot;http://www.google.com/url?q=http%3A%2F%2Fsyncconf.com%2F&amp;ust=1359165468136000&amp;usg=AFQjCNHxoMNKtRJSsyuqj9CRGHanxvNHeQ\&quot;" target="\&quot;_blank\&quot;">Event Info</a>
+*/
+%>
+        <% if (event['Group']) {%>
+            <div class="meetup" group="<%= event['Group'] %>" event="<%= event['Meetup'] %>">
+            </div>
+        <% } else { %>
+            <a target='_blank' href="<%= event['Url'] %>">
+                <img src="<%= event['Image'] || event['Portrait'] ||'/assets/img/logo/webinar.png' %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
+            </a>
+            <div class="caption">
+                <h5><%= event['Title'] %></h5>
+                When: <%= event['Start'] %><br/>
+                Where: <%= event['Location'] %><br/>
+                <% if (event['Presenter']) { %>
+                    <a target='_blank' href="http://twitter.com/<%= event['Twitter'] %>">
+                        <h4><em>with <%= event['Presenter'] %></em></h4>
+                    </a>
+                <% } %>
+                <p><%-: event['Description'] | truncate_words: 30 %></p>
+                <a class="btn" href="<%= event['Url'] %>" target="_blank">Participate </a><br/>
+            </div>
+        <% } %>
+    </div>
+</div>

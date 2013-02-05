@@ -46,7 +46,7 @@ exports.learn = function(req, res){
 };
 
 exports.learn_graph = function(req, res){
-    res.render('learn_graph', { category: 'learn', title: 'Learn' });
+    res.render('learn_graph', { category: 'learn', title: 'What is a graph database?' });
 };
 
 
@@ -54,11 +54,19 @@ exports.learn_graph = function(req, res){
  * GET - "learn about neo4j" with an explanation of Neo4j as a graph database
  */
 exports.neo4j = function(req, res){
-  res.render('learn/neo4j', { category: 'learn', title: 'Learn' });
+  res.render('learn/neo4j', { category: 'learn', title: 'What is Neo4j?' });
 };
 
 exports.cypher = function(req, res){
   res.render('learn/cypher', { category: 'learn', title: 'Cypher Tutorial' });
+};
+
+exports.training = function(req, res){
+  res.render('learn/training', { category: 'learn', title: 'Training' });
+};
+
+exports.books = function(req, res){
+  res.render('learn/books', { category: 'learn', title: 'Books' });
 };
 
 exports.visualize = function(req, res){
@@ -109,7 +117,15 @@ exports.develop = function(req, res){
   res.render('develop', { category: 'develop', title: 'Develop' });
 };
 exports.java = function(req, res){
-  res.render('welcome/java', { category: 'welcome', title: 'Neo4j for Java developers' });
+  res.render('paths/java', { category: 'java', title: 'Neo4j for Java developers' });
+};
+
+exports.java_basics = function(req, res){
+  res.render('paths/java/java_basics', { category: 'java', title: 'Start using Neo4j from Java' });
+};
+
+exports.java_cypher = function(req, res){
+    res.render('paths/java/java_cypher', { category: 'java', title: 'Using Cypher from Java' });
 };
 
 
@@ -147,8 +163,15 @@ exports.participate = function(req, res){
   res.render('participate', { category: 'participate', title: 'Participate' });
 };
 
+exports.events = function(req, res){
+  res.render('learn/events', { category: 'participate', title: 'Neo4j related events' });
+};
+
 exports.contributors = function(req, res){
     res.render('participate/contributors', { category: 'contributors', title: 'Contributors' });
+};
+exports.meetup_signup = function(req, res){
+    res.render('participate/meetup_signup', { category: 'contributors', title: 'Meetup Signup' });
 };
 exports.example_data = function(req, res){
     res.render('develop/example_data', { category: 'develop', title: 'Sample Datasets' });
@@ -169,6 +192,10 @@ exports.release_notes = function(req, res){
 };
 exports.customers = function(req, res){
   res.render('customers', { category: 'learn', title: 'Customers' });
+};
+
+exports.beer = function(req, res){
+    res.render('misc/beer', { category: 'misc', title: 'Beer' });
 };
 
 

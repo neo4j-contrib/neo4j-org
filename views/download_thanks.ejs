@@ -85,11 +85,11 @@ $(document).ready(function() {
     }
     $.ajax("/marketo", {
         success: function(id) {
-            console.log("marketo-success",id)
+           // console.log("marketo-success",id)
             updateDownloadLink(id)
         },
         error:function(err) {
-            console.log("marketo-error",err)
+           // console.log("marketo-error",err)
             updateDownloadLink()
     }})
 });
