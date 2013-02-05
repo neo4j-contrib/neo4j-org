@@ -22,7 +22,7 @@
     Your region: <%= region %>
         
         <%  var i=0;
-            var myEvents = events.filter(function(event) { return !event['Area'] || event['Area']==region; });
+            var myEvents = events.filter(function(event) { return !event['Area'] || events['Area']==region; });
             while (i<myEvents.length) {
             %>
                 <div class="thumbnails events row">

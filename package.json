@@ -10,7 +10,7 @@
     "start": "node app"
   },
   "dependencies": {
-	"maxmind-native","0.1.2",
+	"maxmind-native" :"0.1.2",
 	"rssparser" : "0.0.2",
 	"googleclientlogin" : "0.2.5",
     "hooky-spreadsheets" : "0.0.4",
