@@ -335,8 +335,8 @@ ul.hor li {
     bottom: 0;
     font-size: 2em;
     line-height: 0em;
-    margin-bottom: -.18em;
-    color: #f5f5f5;
+    margin-bottom: -.19em;
+    color: #fff;
 }
 
 #lead {
@@ -439,6 +439,10 @@ ul.hor li {
     /*background: #f5f5f5;*/
     background: #fff;
     /*background: rgba(253, 253, 253, .2) url('../img/bg_learn.png');*/
+}
+
+.welcome {
+    width: 60em;
 }
 
 .chapter {

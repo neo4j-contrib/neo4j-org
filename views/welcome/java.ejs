@@ -1,7 +1,9 @@
 <% include ../head %>
 
-        
-        <div id="lead">
+<div id="main" class="mainElement">
+
+    <div class="welcome">
+
           <h1><i class="icon icon-cogs"></i> Neo4j for Java developers.</h1>
 
           <h3>As the 4j indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.</h3>
@@ -23,7 +25,7 @@
             <p>
                 Besides an object oriented approach to the graph database, working with Nodes, Relationships and Paths, it also offers highly customizable
                 high-speed traversal- and graph-algorithm implementations.</p>
-        </div>
+        </div><!-- col left -->
         <div class="col right">
 
             <p>
@@ -37,23 +39,19 @@
         <p>As a JVM developer you are also on the bright side when it comes to pouring large amounts of data into Neo4j. With its non-transactional
         batch-insertion facilities it can ingest millions of nodes and relationships in just seconds.</p> 
 
-        </div>
+        </div><!-- col right -->
         <div class="clear"></div>
   
         <h3>Follow the track we set up for JVM developers:</h3>
-
-        </div><!-- lead -->
 
 
         <ul class="hor menu">
 <% ["jvm", "server_plugins", "java_api", "cypher_java", "neo4j_server"].forEach(function(track_unit) { %><% include _trackUnitHeading %><% }); %>
         </ul>
                 
-            </div>
-        </div>
+        </div><!-- welcome -->
+  
 
-      <div id="main" class="mainElement">
-<% ["jvm", "server_plugins", "java_api", "cypher_java", "neo4j_server"].forEach(function(track_unit) { %><% include _trackUnit %><% }); %>
         </div><!-- #main -->
 
 <!--    <aside class="span4 sidebar">
@@ -84,7 +82,7 @@
             nav.initThumbnails();
 
             nav.init();
-            nav.activate('jvm');
+            //nav.activate('jvm');
             
             $(window).on('resize', function() {
                 nav.resize();

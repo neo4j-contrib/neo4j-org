@@ -5,9 +5,6 @@
                 <ul class="hor menu">
 <% ["graph_concepts", "neo4j_intro", "production"].forEach(function(chapter) { %><% include _chapterHeading %><% }); %>
                 </ul>
-                
-            </div>
-        </div>
 
         <div id="main" class="mainElement">
 <% ["graph_concepts", "neo4j_intro", "production"].forEach(function(chapter) { %><% include _chapter %><% }); %>
@@ -21,8 +18,8 @@
 
             nav.initThumbnails();
 
-            nav.init();
-            nav.activate('graph_concepts');
+            //nav.init();
+            //nav.activate('graph_concepts');
             
             $(window).on('resize', function() {
                 nav.resize();
