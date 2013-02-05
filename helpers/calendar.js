@@ -56,6 +56,7 @@ function events(fun, filter) {
                 item.Group=meetup[1];
                 item.Meetup=meetup[2];
             }
+            event_prop(item,'Area','US') // TODO
 //            console.log(item)
             return item;
         });

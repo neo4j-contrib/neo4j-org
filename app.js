@@ -20,6 +20,7 @@ var express = require('express')
   , content = require("./helpers/content")
   , meetup =  require("./helpers/meetup")
   , paths =  require("./helpers/path")
+  , geoip =  require("./helpers/geoip")
 
 var app = express();
 
@@ -69,6 +70,15 @@ app.configure(function(){
       res.locals.run_experiment = app.get('env') == 'production' && res.locals.index_page
       next();
   });  
+  app.use(function(req,res, next) {
+	try {
+		res.locals.region=geoip.region(req.connection.remoteAddress);
+	} catch(e) {
+		console.log("Error getting ip",req.connection.remoteAddress,e)
+		res.locals.region='US';
+	}
+	next();
+  });
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
@@ -301,7 +311,7 @@ app.locals.related = function(path,page) {
 }
 
 console.log(app.locals.related("java","java"))
-
+console.log(geoip.region('146.52.53.114'))
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
