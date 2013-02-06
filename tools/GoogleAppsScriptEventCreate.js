@@ -16,16 +16,16 @@ function createAllEvents() {
     for(var i=1;i<data.length;i++) {
         var row =data[i];
 //        Logger.log(row);
-        var data={};
+        var item={};
         for(var col=1;col<26;col++) {
             if (labels[col] && labels[col].length>0) {
-                data[labels[col]]=row[col];
+                item[labels[col]]=row[col];
             }
         }
-//        Logger.log(data);
-        if(!row[0] && data['Title']!=null && data['Title'].length > 0) {
+//        Logger.log(item);
+        if(!row[0] && item['Title']!=null && item['Title'].length > 0) {
             Logger.log("creating event for title '%s'", data['Title']);
-            createEvent(data.Title, data.Start, data);
+            createEvent(item.Title, item.Start, item);
             sheet.getRange(i+1,1,1,1).setValue(new Date());
 
         }
@@ -70,7 +70,7 @@ function renderDescription(data,start) {
 function createEvent(title, start, data) {
     //Get the calendar
     var cal = CalendarApp.getCalendarsByName('alerts-test2')[0];//Change the calendar name
-    var end = new Date(start.valueOf()+parseInt(data['Duration'])*60*60*1000);
+    var end = new Date(start.valueOf()+parseInt(data['Duration']||1)*60*60*1000);
     //Create the events
     var desc=renderDescription(data,start);
 //    Logger.log("creating event for title '%s %s %s \n=====\n\n\n%s'", title,start,end,desc);
