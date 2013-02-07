@@ -74,7 +74,7 @@ var i=0;
 						// This is ugly, I know.
 						// See http://stackoverflow.com/questions/11804691/using-interpolation-within-node-js-ejs-includes
 
-						if (related.featured) {
+						if (page.featured && page.featured.length) {
 
 							switch (related.featured.type) {
 								case 'article' : %><% include partials/article/_tile %><%break;

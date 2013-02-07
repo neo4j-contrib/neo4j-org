@@ -50,12 +50,12 @@ exports.pages = {
     tracks : {
         path : "/learn/tracks",
         title : "Tracks",
-        introText : "Neo4j offers you learn tracks with predefined steps.",
+        introText : "(TODO) Follow a track to learn more about Neo4j.",
         featured : {
-            title : "Tracks FTW",
+            title : "Tracks",
             type : "article",
-            thumbnail : "/assets/img/still/emil-explains.jpg",
-            introText : "Emil Eifrem explains the secret behind websites like Twitter, Yelp and Facebook.",
+            thumbnail : "",
+            introText : "The following tracks are available: (TODO)",
             src : "http://player.vimeo.com/video/56040747"
         },
         actionText : "Choose your track &raquo;",
@@ -150,6 +150,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         path : "/develop/drivers",
         title : "Language Drivers",
         introText : "Friends of Neo4j speak many languages, and work in many frameworks.",
+        thumbnail : "/assets/img/still/neo4j_drivers.png",
         featured : null,
         related : ["neo4j_rest","spring_data_neo4j","neo4j_java","neo4j_rb","neography","neo4jphp", "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "bulbflow", "keymaker", "neoid", "neo4django","neo4j_rest_client", "neo4p", "scala","grails","anorm_cypher", "haskell", "datanucleus","neo4j_go"]
     },

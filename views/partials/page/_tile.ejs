@@ -1,12 +1,16 @@
 <div class="item">
-	<% var hasPath = related.path %>
+<%
+	var hasPath = related.path;
+	var image = related.thumbnail ? related.thumbnail : (related.featured && related.featured.thumbnail ? related.featured.thumbnail : '');
+	console.log(image)
+%>
 
     <h3><% if (hasPath) { %><a href="<%= related.path %>"><% } %><%= related.title %><% if (hasPath) { %></a><% } %></h3>
-    <% if (related.img) { %>
-    <a href="<%= related.path %>"><img class="logo" src="<%= related.img %>"></a>
+    <% if (image) { %>
+    <a href="<%= related.path %>"><img class="preview" src="<%= image %>"></a>
     <% } %>
     <div>
-        <p><%- related.introText	 %></p>
+        <p><%- related.introText %></p>
     </div>
     <% if (hasPath) { %><p><a class="btn" href="<%= related.path %>"><%= related.actionText ? related.actionText : 'Learn more &raquo;' %></a></p><% } %>
 
