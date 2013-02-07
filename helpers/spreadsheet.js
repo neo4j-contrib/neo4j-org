@@ -78,8 +78,8 @@ function parseContributors(cells, fun, filter) {
         }
 //        if (new Date(item.Start) >= now && item.Created && item.Created.length > 0 && (!filter || filter(item))) {
 //            item.Title = wrap(item['Type'], " - ") + item['Title'] + wrap(" - ", item['City'])
-            items[item.twitter||item.name] = item;
-        
+        items[item.twitter || item.name] = item;
+
 //        }
     }
     if (filter) fun(items.filter(filter));
@@ -108,5 +108,43 @@ function contributors(fun, filter) {
     googleAuth.login();
 }
 
+
+function parseChannels(data, fun, filter) {
+    console.log("data",data.cells);
+    var sorted = data.cells
+        .map(function (x, i) {
+            return [i, x[0], x[1]]
+        })
+        .splice(1)
+        .sort(function (x, y) {
+            return x[2] < y[2] ? 1 : -1
+        });
+    if (filter) fun(sorted.filter(filter));
+    else fun(sorted);
+}
+
+function channels(fun, filter) {
+    googleAuth.on(GoogleClientLogin.events.login, function () {
+        GoogleSpreadsheets({
+            key: process.env.CHANNELS_SHEET_KEY,
+            auth: googleAuth.getAuthId()
+        }, function (err, spreadsheet) {
+            if (err) {
+                console.log("Error retrieving spreadsheet ", err)
+            }
+            spreadsheet.worksheets[0].cells({
+                range: "R1C1:R10C2"
+            }, function (err, cells) {
+                if (err) {
+                    console.log("Error retrieving spreadsheet ", err)
+                }
+                parseChannels(cells, fun, filter);
+            });
+        });
+    });
+    googleAuth.login();
+}
+
 exports.events = events
 exports.contributors = contributors
+exports.channels = channels

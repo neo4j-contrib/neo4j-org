@@ -231,6 +231,7 @@ app.locals.contributors = {};
 
 spreadsheet.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length);}) 
 spreadsheet.contributors(function(items) { app.locals.contributors = items; }); 
+spreadsheet.channels(function(items) { app.locals.channels = items; }); 
 calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length); }) 
 
 console.log(app.locals.contributors);
