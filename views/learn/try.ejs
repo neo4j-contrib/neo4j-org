@@ -1,58 +1,26 @@
+<div class="featured" class="mainElement">
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        renderConsole("http://console.neo4j.org");
-    });
-</script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            renderConsole("http://console.neo4j.org");
+        });
+    </script>
 
-<div class="container">
+    <div class="slide console">
 
-<div class="main row">
-    <div class="span3 sidebar">
-        <div class="row">
-            <div class="span3 sidebar">
-
-                <div class="summary">
-                    <h2>Live Datasets</h2>
-
-                    <div class="well">
-                        <p>Click to load and play</p>
-                        <ul class="circle">
-                            <li><a onclick="renderConsole('http://console.neo4j.org/r/GoT')">Game of Thrones </a></li>
-                            <li><a onclick="renderConsole('http://console.neo4j.org')">The Matrix</a></li>
-                            <li><a onclick="renderConsole('http://console.neo4j.org/r/complete_graph')"> Complete Graph </a> </li>
-                            <li><a onclick="renderConsole('http://console.neo4j.org/r/find_friends_based_on_similar_tagging')"> Friend of Friends </a></li>
-                            <li><a onclick="renderConsole('http://console.neo4j.org/?id=jmxo8m')">Financial - money laundering</a></li>
-                            <li><a onclick="renderConsole('http://console.neo4j.org/r/beer')">Beer graph</a></li>
-                            <li><a onclick="renderConsole('http://console.neo4j.org/?id=belgium_beer')">Belgian beer</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div class="caption">
+            <h3>Live Datasets</h3>
+            <p>Click to load and play</p>
+                <button class="btn" onclick="renderConsole('http://console.neo4j.org/r/GoT')">Game of Thrones</button>
+                <button class="btn" onclick="renderConsole('http://console.neo4j.org')">The Matrix</button>
+                <button class="btn" onclick="renderConsole('http://console.neo4j.org/r/complete_graph')"> Complete Graph </button>
+                <button class="btn" onclick="renderConsole('http://console.neo4j.org/r/find_friends_based_on_similar_tagging')"> Friend of Friends</button>
+                <button class="btn" onclick="renderConsole('http://console.neo4j.org/?id=jmxo8m')">Money Laundering</button>
+                <button class="btn" onclick="renderConsole('http://console.neo4j.org/r/beer')">Beer Graph</button>
+                <button class="btn" onclick="renderConsole('http://console.neo4j.org/?id=belgium_beer')">Belgian Beer</button>
         </div>
-        <div class="row">
-            <div class="span3 sidebar">
-                <div class="summary">
-                    <h2>More Information</h2>
-
-                    <div class="well">
-                        <ul>
-                            <li><a href="http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html" target="_blank">Cypher Reference</a> </li>
-                            <li><a href="http://neo4j.org/resources/cypher" target="_blank">Cypher Cheat Sheet (PDF)</a> </li>
-                            <li><a href="/learn/cypher">Cypher Query Tutorial</a> </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="clear"></div>
+        <div id="console"></div>
+        <div class="clear"></div>
     </div>
-    <div class="span6">
-        <h2>Try Cypher live on a dataset</h2>
-
-        <div id="console">
-
-        </div>
-    </div>
-</div>
-</div>
-
+</div><!-- featured -->

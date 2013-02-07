@@ -164,7 +164,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
             introText : "Cypher is a graph query language. Easy on the eyes, while expressive and powerful.",
             src : "http://player.vimeo.com/video/50389825"
         },
-        related : ["console", "visualize", "apps"]
+        related : ["try", "visualize", "apps"]
     },
     cloud : {
         path : "/develop/cloud",
@@ -336,14 +336,28 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     try : {
         path : "/learn/try",
         title : "Try",
-        introText : "Try Cypher live on a dataset",
+        introText : "Try Cypher live on a dataset of your choice",
         actionText : "Try live &raquo;",
         featured : {
             title : "Cypher Console",
             type : "_cypher",
             content : ""
         },
-        related : []
+        related : [
+            {
+                title : "Cypher Reference",
+                path : "http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html",
+                introText : "Cypher is a declarative graph query language that allows for expressive and efficient querying and updating of the graph store without having to write traversals through the graph structure in code.",
+                actionText : "Cypher Manual &raquo;"
+            },
+            {
+                title : "Cypher Cheat Sheet (PDF)",
+                path : "/resources/cypher",
+                introText : "Download the Cypher Cheat Sheet as PDF",
+                actionText : "Download PDF &raquo;"
+            },
+            "cypher"
+        ]
     },
     visualize : {
         path : "/develop/visualize",
@@ -355,7 +369,8 @@ Sales, training, and marketing enablement to expand existing and drive new partn
             introText : "",
             content : "TODO: Add content"
         },
-        related : []
+        related : [
+        ]
     },
     apps : {
         path : "/learn/apps",

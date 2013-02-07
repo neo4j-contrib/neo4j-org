@@ -580,6 +580,26 @@ ul.hor li {
     margin: -3px;
 }
 
+.featured .console .caption {
+    width: 56em;
+}
+
+.featured .console #console iframe {
+    margin-top: 6em;
+    width: 56em;
+    height: 32em;
+    display: block;
+}
+
+.featured .console .datasets li {
+    list-style-type: none;
+    border. 
+}
+
+.featured .console {
+    height: 40em;
+}
+
 .related {
     /*padding-top: 1em;*/
     padding-bottom: 2em;
@@ -678,7 +698,6 @@ ul.hor li {
     width: 100%;
     text-align: center;
 }
-
 
 .related .video .introText {
     font-size: .8em;
