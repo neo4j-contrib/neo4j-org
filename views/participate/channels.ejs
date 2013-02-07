@@ -13,9 +13,27 @@
 
 <!-- TODO Ajax callbacks -->
 		<form action="#" method="post">
-		  <input type="submit" value="Send"/>
 	      <div class="thumbnails row-fluid">
 		    <div style="min-width:30px;">&nbsp;</div>
+              <div id="add_channel" class="thumbnail span2" style="height:210px;text-align:right">
+                  Name: <input type="text" style="width:80px;" name="new_name"/><br/>
+                  URL: <input type="text"  style="width:80px;"name="new_url"/><br/>
+                  Logo: <input type="text"  style="width:80px;" name="new_logo"/>
+                  Lang:  
+                  <select  style="width:50px;" name="new_lang">
+                    <option selected="selected" value="en">EN</option>
+                    <option value="de">DE</option>
+                    <option value="cn">CN</option>
+                    <option value="es">ES</option>
+                    <option value="ru">RU</option>
+                    <option value="fr">FR</option>
+                    <option value="it">IT</option>
+                    <option value="se">SE</option>
+                    <option value="pt">PT</option>
+                    <option>--</option>
+                     </select><br/>
+                    <a href="#" class="btn" style="padding: 5px;">Add your suggestion.</a>
+            </div>
           <% channels.forEach(function(info) { %>
 			  <div class="thumbnail  span2" style="height:100px;">
 			    <% if (info['logo']) { %>
@@ -27,35 +45,11 @@
 			    <div class="caption">
 			        <h5><a href="<%= info['url']||'#' %>" target="_blank"><%= info['name'] %></a> 
                         [<%= info['lang']||'en' %>] 
-                        <a class="vote" href="#vote_<%= info.row %>"><%= info['votes'] %>&nbsp;<i class="icon icon-thumbs-up"></i></a></h5>
+                        <a class="vote" href="#vote_<%= info.row %>"><span><%= info['votes'] %></span>&nbsp;<i class="icon icon-thumbs-up"></i></a></h5>
 			    </div>
 			</div>
           <% }); %>
       	  </div>
-		  <h3>Your new suggestions:</h3>
-	      <div class="thumbnails row-fluid">
-		    <div style="min-width:30px;">&nbsp;</div>
-          <% [1,2,3,4,5].forEach(function(i) { %>
-			  <div class="thumbnail span2" style="height:180px;text-align:right">
-			        Name: <input type="text" style="width:80px;" name="new_name_<%= i %>"/><br/>
-			        URL: <input type="text"  style="width:80px;"name="new_url_<%= i %>"/><br/>
-			        Logo: <input type="text"  style="width:80px;" name="new_image_<%= i %>"/>
-			        Lang: <select  style="width:50px;" name="new_lang_<%= i %>">
-			<option selected="selected">EN</option>
-			<option>DE</option>
-			<option>CN</option>
-			<option>ES</option>
-			<option>RU</option>
-			<option>FR</option>
-			<option>IT</option>
-			<option>SE</option>
-			<option>PT</option>
-			<option>--</option>
-			</select>
-			</div>
-          <% }); %>
-      	  </div>
-  		  <input type="submit" value="Send"/>
 		</form>
     </div>
   </div>
@@ -64,11 +58,29 @@
 <% include ../foot %>
 <script type="text/javascript">
     $(document).ready(new function() {
+        $("#add_channel a.btn").click(function() {
+            var name=$("#add_channel input[name=new_name]").val();
+            var url=$("#add_channel input[name=new_url]").val();
+            var logo=$("#add_channel input[name=new_logo]").val();
+            var lang=$("#add_channel select[name=new_lang]").val();
+            console.log(name,url,logo,lang);
+            if (name && url && logo && lang) {
+                $.post("/add_channel?"+encodeURIComponent("name="+name+"&url="+url+"&logo="+logo+"&lang="+lang),function(data,err) {
+                   console.log(data,err);
+                   if (!err) {
+                                               
+                   }
+                });
+            }
+        });
         $("a.vote").click(function() {
             var vote=$(this).attr("href").split("_")[1];
             console.log("Vote",vote);
-            $.post("/vote?row="+vote,function(data,err) {
-               console.log(data,err); 
+            $.post("/vote?row="+vote,function(data,status,err) {
+               console.log(data,status);
+               var votes = $(this).children("span");
+               console.log(votes,votes.html());
+               votes.html(parseInt(votes.html())+1);
             });
         });
     })

@@ -296,7 +296,37 @@ route_get('/wp-includes/*', routes.resource);
 //route_get('/assets/download/*', routes.resource);
 route_get('/img/*', routes.resource);
 route_get('/highlighter/*', routes.resource);
+
 app.post("/vote", function(req,res) {
+    var row=req.param("row");
+    console.log("voted on",row);
+    var options = {
+      host: 'script.google.com',
+      path: process.env.CHANNELS_ENDPOINT+"?voteRow="+parseInt(row),
+      headers: { 'Content-Length': 0 },
+      method: 'POST'
+    };
+    console.log(options);
+    var req2 = https.request(options,function(r) {
+        console.log(r.statusCode);
+/*        r.setEncoding("UTF-8");
+        r.on("data", function(data){
+            console.log(data);
+        })
+        r.on("end", function(data){
+            console.log(data);
+        });
+*/        
+        res.send(r.statusCode);
+    });
+    req2.on('error', function(e) {
+        console.error(e);
+    });
+    // req2.write('');
+    req2.end();
+});
+
+app.post("/add_channel", function(req,res) {
     var row=req.param("row");
     console.log("voted on",row);
     spreadsheet.vote_channel(row, function(res) {
