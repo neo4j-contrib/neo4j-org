@@ -296,6 +296,14 @@ route_get('/wp-includes/*', routes.resource);
 //route_get('/assets/download/*', routes.resource);
 route_get('/img/*', routes.resource);
 route_get('/highlighter/*', routes.resource);
+app.post("/vote", function(req,res) {
+    var row=req.param("row");
+    console.log("voted on",row);
+    spreadsheet.vote_channel(row, function(res) {
+        res.send(200,res);
+    });
+});
+
 route_get('/video/*', function(req, res){
     var path = req.path;
     var idx = path.lastIndexOf('/');

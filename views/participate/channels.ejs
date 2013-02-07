@@ -25,7 +25,9 @@
 			    <% } %>
 
 			    <div class="caption">
-			        <h5><input type="checkbox" name="checkbox_<%= info.row %>"/> <a href="<%= info['url']||'#' %>" target="_blank"><%= info['name'] %></a> [<%= info['lang']||'en' %>] (<%= info['votes'] %>)</h5>
+			        <h5><a href="<%= info['url']||'#' %>" target="_blank"><%= info['name'] %></a> 
+                        [<%= info['lang']||'en' %>] 
+                        <a class="vote" href="#vote_<%= info.row %>"><%= info['votes'] %>&nbsp;<i class="icon icon-thumbs-up"></i></a></h5>
 			    </div>
 			</div>
           <% }); %>
@@ -57,7 +59,17 @@
 		</form>
     </div>
   </div>
-
+ 
 </div>
 <% include ../foot %>
-
+<script type="text/javascript">
+    $(document).ready(new function() {
+        $("a.vote").click(function() {
+            var vote=$(this).attr("href").split("_")[1];
+            console.log("Vote",vote);
+            $.post("/vote?row="+vote,function(data,err) {
+               console.log(data,err); 
+            });
+        });
+    })
+</script>

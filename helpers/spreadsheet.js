@@ -8,6 +8,15 @@ var googleAuth = new GoogleClientLogin({
     accountType: GoogleClientLogin.accountTypes.google
 });
 
+var authId;
+
+googleAuth.on(GoogleClientLogin.events.login, function () {
+    authId = googleAuth.getAuthId()
+});
+googleAuth.login();
+
+// todo handle login once
+
 function wrap(prefix, value, suffix) {
     var str = "";
     if (value) {
@@ -132,6 +141,29 @@ function parseChannels(data, fun) {
 	fun(result);
 }
 
+function vote_channel(row,fun) {
+    googleAuth.on(GoogleClientLogin.events.login, function () {
+        GoogleSpreadsheets({
+            key: process.env.CHANNELS_SHEET_KEY,
+            auth: googleAuth.getAuthId()
+        }, function (err, spreadsheet) {
+            if (err) {
+                console.log("Error retrieving spreadsheet ", err)
+            }
+            spreadsheet.worksheets[0].cells({
+                range: "R1C1:R100C5"
+            }, function (err, cells) {
+                if (err) {
+                    console.log("Error retrieving spreadsheet ", err)
+                } else {
+                    vote(cells, fun);
+                }
+            });
+        });
+    });
+    googleAuth.login();
+}
+
 function channels(fun) {
     googleAuth.on(GoogleClientLogin.events.login, function () {
         GoogleSpreadsheets({
@@ -146,8 +178,9 @@ function channels(fun) {
             }, function (err, cells) {
                 if (err) {
                     console.log("Error retrieving spreadsheet ", err)
+                } else {
+                    parseChannels(cells, fun);
                 }
-                parseChannels(cells, fun);
             });
         });
     });
