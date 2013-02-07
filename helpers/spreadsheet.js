@@ -111,16 +111,15 @@ function contributors(fun, filter) {
 
 function parseChannels(data, fun, filter) {
     console.log("data",data.cells);
-    var sorted = data.cells
-        .map(function (x, i) {
-            return [i, x[0], x[1]]
-        })
-        .splice(1)
-        .sort(function (x, y) {
-            return x[2] < y[2] ? 1 : -1
-        });
+    var result=[];
+    for (var row in data ) {
+        result.push([row,data[row]['1']['value'],data[row]['2']['value']]);
+    }
+
+    console.log("result",result);
+    result = result.splice(1).sort(function(x,y) { return x.votes>y.votes});
     if (filter) fun(sorted.filter(filter));
-    else fun(sorted);
+    else fun(result);
 }
 
 function channels(fun, filter) {
