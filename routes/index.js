@@ -42,7 +42,11 @@ exports.subscribe_thanks = function(req, res){
  * GET - "learn" information with guided tracks
  */
 exports.learn = function(req, res){
-  res.render('learn', { category: 'learn', title: 'Learn' });
+  res.render('page', { category: 'learn', title: 'Learn' });
+};
+
+exports.intro = function(req, res){
+  res.render('page', { category: 'learn', title: 'Intro' });
 };
 
 exports.learn_graph = function(req, res){
@@ -58,7 +62,7 @@ exports.neo4j = function(req, res){
 };
 
 exports.cypher = function(req, res){
-  res.render('learn/cypher', { category: 'learn', title: 'Cypher Tutorial' });
+  res.render('page', { category: 'learn', title: 'Cypher Tutorial' });
 };
 
 exports.training = function(req, res){
@@ -114,10 +118,13 @@ exports.watch = function(req, res){
  * GET - "develop" applications using Neo4j
  */
 exports.develop = function(req, res){
-  res.render('develop', { category: 'develop', title: 'Develop' });
+  res.render('page', { category: 'develop', title: 'Develop' });
 };
 exports.java = function(req, res){
-  res.render('paths/java', { category: 'java', title: 'Neo4j for Java developers' });
+  res.render('page', { category: 'java', title: 'Neo4j for Java developers' });
+};
+exports.ops = function(req, res){
+  res.render('page', { category: 'develop', title: 'Operations' });
 };
 
 exports.java_basics = function(req, res){
@@ -155,12 +162,12 @@ exports.drivers = function(req, res){
   res.render('develop/drivers', { category: 'develop', title: 'Language Drivers' });
 };
 
-exports["try"] = function(req, res){
-  res.render('learn/try', { category: 'learn', title: 'Try Neo4j' });
-}
+// exports["try"] = function(req, res){
+//   res.render('learn/try', { category: 'learn', title: 'Try Neo4j' });
+// }
 
 exports.participate = function(req, res){
-  res.render('participate', { category: 'participate', title: 'Participate' });
+  res.render('page', { category: 'participate', title: 'Participate' });
 };
 
 exports.events = function(req, res){
@@ -206,4 +213,8 @@ exports.resource = function(req,res) {
     var file = idx > -1 ? path.substr(idx+ 1,path.length) : path;
     console.log('got request for ',path,' from ',req.header('Referer'));
     res.redirect('/assets/download/'+file); 
+}
+
+exports.pages = function(req,res) {
+  res.render('page');
 }

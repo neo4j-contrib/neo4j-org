@@ -3,47 +3,48 @@
 */
 var nav = {
 
-	chapters : [],
+	// chapters : [],
 
-	/**
-	*	Initialize all possible navigation elements on this page
-	*/
-	init : function() {
+	// /**
+	// *	Initialize all possible navigation elements on this page
+	// */
+	// init : function() {
 
-		var chapterNav = $('#chapterNav');
+	// 	var chapterNav = $('#chapterNav');
 
-		var links = chapterNav.find('a');
-		$.each(links, function(i, link) {
-			var c = $(link);
-			c.on('click', function() {
-				nav.activate(c.attr('class'));
-			});
-		});
+	// 	var links = chapterNav.find('a');
+	// 	$.each(links, function(i, link) {
+	// 		var c = $(link);
+	// 		c.on('click', function() {
+	// 			nav.activate(c.attr('class'));
+	// 		});
+	// 	});
 
-		var chapters = $('.chapter');
-		$.each(chapters, function(i, chapter) {
-			var c = $(chapter);
-			var chapterName = c.attr('id');
-			nav.chapters.push(chapterName);
-		});
+	// 	var chapters = $('.page');
+	// 	$.each(chapters, function(i, chapter) {
+	// 		var c = $(chapter);
+	// 		var chapterName = c.attr('id');
+	// 		nav.chapters.push(chapterName);
+	// 	});
 
-	},
+	// },
 
 	resize : function() {
 
-		var chapterNav = $('#chapterNav');
+		var chapterNav = $('#secNav');
 
 		var headerWrapper = $('#headerWrapper');
 		var header = $('#header');
 
-		$('#main').css({
-			top: chapterNav.height() - headerWrapper.height() + 14
+		$('.page').css({
+			//top: chapterNav.height() - headerWrapper.height() + 14
+			//top: header.height()
 			//height: $(window).height() - chapterNav.height() + headerWrapper.height() - $('#footer').height() - 7
 		});
 
 		var h1 = $(window).height() - $('#footer').height() - 1;
-		var h2 = $('#main').height() + headerWrapper.height() + chapterNav.height();
-		console.log($('#main').height(), h1, h2);
+		var h2 = $('.page').height() + headerWrapper.height() + chapterNav.height();
+		console.log($('.page').height(), h1, h2);
 
 		$('#footer').css({
 			position: 'absolute',
@@ -54,15 +55,15 @@ var nav = {
 	/**
 	*	Activate the chapter with the given name
 	*/
-	activate : function(chapterName) {
-		$('#chapterNav').find('a').removeClass('active');
-		$('#chapterNav').find('a.' + chapterName).addClass('active');
-		$('.chapter').hide();
-		$('#' + chapterName).show();
+	// activate : function(chapterName) {
+	// 	$('#chapterNav').find('a').removeClass('active');
+	// 	$('#chapterNav').find('a.' + chapterName).addClass('active');
+	// 	$('.page').hide();
+	// 	$('#' + chapterName).show();
 
-        nav.resize();
+ //        nav.resize();
 
-	},
+	// },
 
 	/**
 	* Activate an item in the main menu

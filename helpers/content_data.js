@@ -50,6 +50,30 @@ exports.chapters = {
             }
         ]
     },
+    tracks : {
+        heading : "Learn Tracks",
+        featured : {
+            heading : "Why Graphs",
+            type : "video",
+            thumbnail : "/assets/img/still/emil-explains.jpg",
+            intro : "Emil Eifrem explains the secret behind websites like Twitter, Yelp and Facebook.",
+            src : "http://player.vimeo.com/video/56040747"
+        },
+        related : [
+            {
+                heading : "Neo4j Intro",
+                path : "/learn/neo4j",
+                intro : "Our versioned online manual start with a comprehensive tutorial section, complemented with detailed a reference and live interaction.",
+                actionText : "Study this &raquo;"                
+            },
+            {
+                heading : "Cypher Tutorial",
+                path : "/learn/cypher",
+                intro : "Hands on introduction to the Cypher Query Language",
+                actionText : "Learn it &raquo;"                
+            }
+        ]
+    },
     production : {
         heading : "Going into Production",
         featured : {

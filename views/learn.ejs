@@ -1,13 +1,16 @@
 <% include head %>
+<%
 
-                <div id="lead">From graph concepts to deploying a globe spanning cluster, the path to success starts here.</div>
+    // Define all sub pages here
+    var subPages = ["graph_concepts", "neo4j_intro", "tracks", "production"];
 
-                <ul class="hor menu">
-<% ["graph_concepts", "neo4j_intro", "production"].forEach(function(chapter) { %><% include _chapterHeading %><% }); %>
-                </ul>
+%>
+        <div id="secNav"<!-- second level nav -->
+            <ul class="hor menu"><% subPages.forEach(function(chapter) { %><% include _chapterHeading %><% }); %></ul>
+        </div><!-- second level nav -->
 
         <div id="main" class="mainElement">
-<% ["graph_concepts", "neo4j_intro", "production"].forEach(function(chapter) { %><% include _chapter %><% }); %>
+            <% subPages.forEach(function(chapter) { %><% include _chapter %><% }); %>
         </div><!-- #main -->
 
         <script type="text/javascript">

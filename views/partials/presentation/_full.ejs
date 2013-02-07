@@ -1,0 +1,14 @@
+<div class="featured" class="mainElement">
+    <div class="slide presentation">
+        <div class="caption">
+            <h3><%= page.featured.title %></h3>
+            <%- page.featured.type == 'video' ? '<i class="icon icon-facetime-video"></i>' : '' %><%- page.featured.introText %>
+        </div>
+        <div class="content">
+            <!--iframe src="<%= page.featured.src %>" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe-->
+            <img class="thumbnail" src="<%= page.featured.thumbnail %>" data-src="<%= page.featured.src %>">
+            <%- page.featured.content %>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div><!-- featured -->

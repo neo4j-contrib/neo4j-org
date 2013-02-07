@@ -132,6 +132,7 @@ body, h1, h2, h3, h4 {
     color: #555;
     padding: 0;
     margin: 0;
+    background: #f7f7f7;
 }
 
 h1 {
@@ -269,7 +270,7 @@ ul.hor li {
 }
 
 #headerWrapper {
-    background: #00546a url('../img/header_bg.gif') repeat-x;
+    background: #00546a; /*url('../img/header_bg.gif') repeat-x;*/
     /*border-bottom: 1px solid #c4ced0;*/
     position: fixed;
     top: 0;
@@ -336,7 +337,7 @@ ul.hor li {
     font-size: 2em;
     line-height: 0em;
     margin-bottom: -.19em;
-    color: #fff;
+    color: #f7f7f7;
 }
 
 #lead {
@@ -378,23 +379,26 @@ ul.hor li {
     padding: .5em 0;
 }
 
-#chapterNav {
-    position: absolute;
+#secNav {
+    height: 2.5em;
+    position: fixed;
     width: 100%;
     top: 5em;
+    left: 0;
+    z-index: 2;
     /*min-height: 4.5em;*/
-    background-color: #f5f5f5;
+    background-color: #e5e5e5;
     border-bottom: 1px solid #c4ced0;
 }
 
-#chapterNav ul {
+#secNav ul {
     width: 60em;
     margin: .25em auto 0 auto;
 }
 
-#chapterNav li a,
-#chapterNav li a:visited,
-#chapterNav li a:hover {
+#secNav li a,
+#secNav li a:visited,
+#secNav li a:hover {
     color: #555;
     display: inline-block;
     /*display: none;*/
@@ -403,8 +407,8 @@ ul.hor li {
 }
 
 #chapter li a:active,
-#chapterNav li a.active,
-#chapterNav li a.active:visited {
+#secNav li a.active,
+#secNav li a.active:visited {
     text-shadow: #fff 0 0 .75em;
     color: #00546a;
     border-top: 1px solid #c4ced0;
@@ -418,12 +422,12 @@ ul.hor li {
 }
 
 
-#chapterNav a:hover {
+#secNav a:hover {
     text-decoration: underline;
 }
 
 
-/*#chapterNav h2 {
+/*#secNav h2 {
     width: 100%;
     height: 4em;
     line-height: 1em;
@@ -436,54 +440,58 @@ ul.hor li {
     overflow: auto;
     position: relative;
     padding: 9.5em 0 0 0;
-    /*background: #f5f5f5;*/
-    background: #fff;
-    /*background: rgba(253, 253, 253, .2) url('../img/bg_learn.png');*/
 }
 
 .welcome {
     width: 60em;
 }
 
-.chapter {
+.page {
     position: relative;
     width: 60em;
-    margin: 2em auto 2em auto;
-    background-color: rgba(255, 255, 255, .8);
+    margin: 4em auto 2em auto;
+    /*background-color: #f3f3f3;*/
     /*display: none;*/
-    sborder: 1px solid #c4ced0;
+    /*border: 1px solid #c4ced0;*/
     border-radius: .25em;
     padding: 1em 2em;
 /*    box-shadow: 0px 0px 1em #e0e0e0;
     -webkit-box-shadow: 0px 0px 1em #e0e0e0;
     -moz-box-shadow: 0px 0px 1em #e0e0e0;*/
-    box-shadow: 0px 0px 1em #e5e5e5;
+/*    box-shadow: 0px 0px 1em #e5e5e5;
     -webkit-box-shadow: 0px 0px 1em #e5e5e5;
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
     border: 1px solid #dce7ea;
+*/
 }
 
-.chapter .icon {
+.page .icon {
     margin-right: .4em;
 }
 
-.chapter .thumbnail {
+.page .thumbnail {
     cursor: pointer;
 }
 
-.chapter h1 {
+.page h1 {
     color: #555;
+    margin-top: .25em;
     padding-bottom: .25em ! important;
 }
 
-.chapter h2 {
+.page .introText {
+    color: #555;
+    font-size: 1.5em;
+}
+
+.page h2 {
     color: #555;
     font-size: 2.2em;
     padding-bottom: .25em;
 }
 
-.chapter h2 a,
-.chapter h2 i {
+.page h2 a,
+.page h2 i {
     font-size: 2em  ;
     color: #00546a;
 }
@@ -512,42 +520,46 @@ ul.hor li {
 }
 
 .featured {
-    /*background: #fff;*/
-    padding: 0;
-     /*url('../img/background_2560x1440.png') center 0px no-repeat;*/
-     border-top: 1px solid #dce7ea;
+    padding: 1em;
+    margin: 1em 0;
+    box-shadow: 0px 0px 1em #e5e5e5;
+    -webkit-box-shadow: 0px 0px 1em #e5e5e5;
+    -moz-box-shadow: 0px 0px 1em #e5e5e5;
+    border: 1px solid #dce7ea;
+    background: #fff;
 }
 
 .featured .slide {
     width: 60em;
-    margin: 1.5em auto;
+    margin: .5em;
     position: relative;
     height: 22em;
 }
 
 .featured .slide .thumbnail {
-    width: 40em;
+    width: 38em;
 }
 
 .featured .content {
-    width: 40em;
+    width: 41em;
     float: right;
-    text-align: right;
+    /*text-align: right;*/
 }
 
 .featured .caption {
-    width: 12em;
-    font-size: 1.5em;
+    width: 18em;
+    font-size: 1em;
     line-height: 1.5em;
     position: absolute;
     top: 0;
 }
 
 .featured .caption h3 {
+    background: #fff;
     line-height: 1em;
-    font-size: 1.2em;
+    font-size: 1.75em;
     padding: 0 0 .5em 0;
-    margin: -.2sem 0 0 0;
+    margin: -.2em 0 0 0;
     color: #00546a;
 }
 
@@ -559,7 +571,7 @@ ul.hor li {
 }
 
 .featured .slide img {
-    width: 600px;
+    width: 30em;
 }
 
 .featured .slide img:hover {
@@ -569,7 +581,8 @@ ul.hor li {
 }
 
 .related {
-    padding-top: 1em;
+    /*padding-top: 1em;*/
+    padding-bottom: 2em;
     min-height: 12em;
     /*background-color: #fff;*/
     /*border-bottom: 1px solid #ccc;*/
@@ -585,17 +598,30 @@ ul.hor li {
 
 .related .row {
     width: 60em;
-    height: 14em;
+    height: 16em;
     margin: 0 auto;
-    border-top: 1px solid #dce7ea;
+    /*border-top: 1px solid #dce7ea;*/
     padding-top: 1em;
 }
 
 .related .row .item {
-    width: 19em;
+    width: 17em;
+    height: 19em;
     float: left;
-    padding: .75em 0 0 0;
-    margin-left: 1.5em;
+    padding: 1em;
+    margin-left: 1.29em;
+    box-shadow: 0px 0px 1em #e5e5e5;
+    -webkit-box-shadow: 0px 0px 1em #e5e5e5;
+    -moz-box-shadow: 0px 0px 1em #e5e5e5;
+    border: 1px solid #dce7ea;
+    background: #fff;
+}
+
+.related .row .item:hover {
+    box-shadow: 0px 0px 1em #e0e0e0;
+    -webkit-box-shadow: 0px 0px 1em #e0e0e0;
+    -moz-box-shadow: 0px 0px 1em #e0e0e0;
+    border: 1px solid #cccccc;
 }
 
 .related .row .item:first-child {
@@ -603,11 +629,12 @@ ul.hor li {
 }
 
 .related .row .item div {
-    /* comment in to give the text block of related items the same height height: 7.2em;*/
+    /*height: 4.4em;*/
 }
 
 .related .row .item h3 {
     padding-bottom: .5em;
+    background: #fff;
 }
 
 .related .row .item img {
@@ -618,6 +645,43 @@ ul.hor li {
     width: 8em;
     height: 8em;
     margin: 0 0 1em 4em;
+}
+
+.video .preview {
+    width: 16em;
+    margin: auto;
+    border: 1px solid #a5a5a5;
+}
+
+.related .driver p {
+    font-size: 0.93em;
+    /*font-size: 9pt;*/
+    /*height: 24em ! important;*/
+}
+
+.related .driver img {
+    width: 10em;
+    margin: 0 3em ! important;
+    padding: 0;
+    text-align: center;
+}
+
+.related .driver h4 {
+    background: #fff;
+    padding: 0;
+    margin: .25em 0;
+    font-size: 0.8em;
+}
+
+.related .driver h3 {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+
+.related .video .introText {
+    font-size: .8em;
 }
 
 #linkContainer {
@@ -637,7 +701,7 @@ ul.hor li {
 .linkBlock {
     color: #00546a;
     width: 12em;
-    height: 12em;
+    height: 13.5em;
     float: left;
 }
 
@@ -673,7 +737,7 @@ ul.hor li {
 #footer {
     background-color: #e5e5e5;
     border-top: 1px solid #c4ced0;
-    height: 15em;
+    height: 16em;
 /*    position: absolute;
     z-index: 3;
     bottom: 0;*/

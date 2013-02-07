@@ -1,0 +1,130 @@
+<% include head %>
+
+<%
+var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
+var mainCategory = path.split('/')[1];
+var page = pages[pageName];
+console.log(page);
+
+if (page) {
+%>
+<div class="page"><!-- page -->
+
+<h1><%= page.title %></h1>
+<p class="introText"><%= page.introText %></p>
+
+
+<% if (page.featured) {
+
+                            switch (page.featured.type) {
+                                case 'article' : %><% include partials/article/_full %><%break;
+                                case 'video'   : %><% include partials/video/_full %><%break;
+                                case 'event'   : %><% include partials/event/_full %><%break;
+                                case 'book'    : %><% include partials/book/_full %><%break;
+                                case 'person'  : %><% include partials/person/_full %><%break;
+                                case '_cypher' : %><% include learn/try %><%break;
+                                default        : %><% include partials/default/_full %><%
+                            }
+
+} %>
+<% if (page.related && page.related.length) { 
+
+var i=0;
+%>
+
+                <div class="related" class="mainElement">
+
+                    <div class="row">
+
+						<% page.related.forEach(function(key) { 
+
+						var related = (typeof key == 'object' ? key : pages[key]);
+
+                        // key is no object and no page name, so try driver
+                        if (!related) {
+
+                            i++;
+
+                            var driver = key;
+                            %><% include partials/driver/_tile %><%
+
+                        %><% if (i > 0 && i % 3 == 0) { %>
+                        </div><!-- row -->
+                        <div class="clear"></div>
+                        <div class="row">                        
+                        <% } %>
+
+
+                        <%
+
+                        } else {
+
+						%>
+
+                        <% if (i > 0 && i % 3 == 0) { %>
+						</div><!-- row -->
+                        <div class="clear"></div>
+						<div class="row">                        
+						<% } %>
+
+						<% i++ %>
+
+						<%
+
+						// This is ugly, I know.
+						// See http://stackoverflow.com/questions/11804691/using-interpolation-within-node-js-ejs-includes
+
+						if (related.featured) {
+
+							switch (related.featured.type) {
+								case 'article' : %><% include partials/article/_tile %><%break;
+								case 'video'   : %><% include partials/video/_tile %><%break;
+								case 'event'   : %><% include partials/event/_tile %><%break;
+								case 'book'    : %><% include partials/book/_tile %><%break;
+								case 'person'  : %><% include partials/person/_tile %><%break;
+								default        : %><% include partials/default/_tile %><%
+							}
+						} else {
+                            // Default for overview pages (no featured content)
+                            
+                            %><% include partials/page/_tile %><%
+
+                        }
+
+                        }
+						 %>
+
+
+                        <% }); %>
+
+                    </div><!-- row -->
+                    <div class="clear"></div>
+
+                </div><!-- related -->
+
+<% } %>
+
+</div><!-- page -->
+
+        <script type="text/javascript">
+        <!--
+        $(document).ready(function() {
+
+            nav.activateMain('<%= mainCategory%>', '<%= (mainCategory == 'learn' ? '13.1' : (mainCategory == 'develop' ? '9.8' : '5.7')) %>em');
+
+            nav.initThumbnails();
+            nav.resize();
+            //nav.init();
+            //nav.activate('graph_concepts');
+            
+            //$(window).on('resize', function() {
+            //    nav.resize();
+            //});
+
+        });
+        //-->
+        </script>
+
+<% } %>        
+
+<% include foot %>

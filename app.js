@@ -15,6 +15,7 @@ var express = require('express')
   , munchkin=require("./helpers/munchkin")
   , data=require("./helpers/data")
   , content_data=require("./helpers/content_data")
+  , pages=require("./helpers/pages")
   , track_data=require("./helpers/track_data")
   , markdown = require("node-markdown").Markdown
   , calendar = require("./helpers/calendar")
@@ -117,6 +118,7 @@ app.locals.units=track_data.units;
 app.locals.books=data.books;
 app.locals.trainings=data.trainings;
 app.locals.ext_content=data.ext_content;
+app.locals.pages=pages.pages;
 
 app.locals.neo4jS = {
     version: "1.9-SNAPSHOT",
@@ -177,40 +179,49 @@ route_get('/index_graph_svg', routes.index_graph_svg);
 route_get('/index_graph_svg2', routes.index_graph_svg2);
 route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 
-route_get('/learn', routes.learn);
-route_get('/learn_graph', routes.learn_graph); 
-route_get('/learn/neo4j', routes.neo4j); 
-route_get('/learn/training', routes.training); 
-route_get('/learn/books', routes.books); 
-route_get('/learn/apps', routes.apps); 
-route_get('/learn/licensing', routes.license); 
+Object.keys(pages.pages).forEach(function(pageName) {
+  console.log(pages.pages[pageName].path)
+  route_get(pages.pages[pageName].path, routes.pages);  
+});
 
-route_get('/learn/nosql', routes.nosql); 
-route_get('/learn/cypher', routes.cypher); 
-route_get('/develop/visualize', routes.visualize); 
-route_get('/develop', routes.develop); 
-route_get('/develop/heroku', routes.heroku); 
-route_get('/develop/spring', routes.spring); 
-route_get('/develop/ec2', routes.ec2); 
-route_get('/develop/ec2_detailed', routes.ec2_detailed); 
-route_get('/develop/example_data', routes.example_data); 
-route_get('/develop/spring', routes.spring); 
+// route_get('/learn', routes.pages);
+// route_get('/learn/concepts', routes.pages);
+// route_get('/learn/intro', routes.pages);
+// route_get('/learn_graph', routes.pages); 
+// route_get('/learn/neo4j', routes.pages); 
+// route_get('/learn/get_started', routes.pages); 
+// route_get('/learn/training', routes.pages); 
+// route_get('/learn/books', routes.pages); 
+// route_get('/learn/apps', routes.pages); 
+// route_get('/learn/licensing', routes.pages); 
 
-route_get('/develop/drivers', routes.drivers);
-route_get('/drivers', routes.drivers);
-route_get('/participate', routes.participate); 
-route_get('/install', routes.install);
-route_get('/download_thanks', routes.download_thanks);
-route_get('/subscribe_thanks', routes.subscribe_thanks); 
-route_get('/participate/contributors', routes.contributors);
-route_get('/participate/meetup_signup', routes.meetup_signup);
+// route_get('/learn/nosql', routes.pages); 
+// route_get('/learn/cypher', routes.pages); 
+// route_get('/develop/visualize', routes.pages); 
+// route_get('/develop', routes.pages); 
+// route_get('/develop/ops', routes.pages);
+// route_get('/develop/heroku', routes.pages); 
+// route_get('/develop/spring', routes.pages); 
+// route_get('/develop/ec2', routes.pages); 
+// route_get('/develop/ec2_detailed', routes.pages); 
+// route_get('/develop/example_data', routes.pages); 
+// route_get('/develop/spring', routes.pages); 
+
+route_get('/develop/drivers', routes.pages);
+route_get('/drivers', routes.pages);
+route_get('/participate', routes.pages); 
+route_get('/install', routes.pages);
+route_get('/download_thanks', routes.pages);
+route_get('/subscribe_thanks', routes.pages); 
+route_get('/participate/contributors', routes.pages);
+route_get('/participate/meetup_signup', routes.pages);
 route_get('/participate/meetups', forward("http://neo4j.meetup.com/"));
-route_get('/learn/graphdatabase', routes.graphdb);
-route_get('/learn/try', routes.try);
-route_get('/test/d3', routes.d3);
+route_get('/learn/graphdatabase', routes.pages);
+route_get('/learn/try', routes.pages);
+route_get('/test/d3', routes.pages);
 route_get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
-route_get('/events', routes.events)
-route_get('/misc/beer', routes.beer)
+route_get('/events', routes.pages)
+route_get('/misc/beer', routes.pages)
 
 route_get('/marketo',function(req,res) {
     var cookie = req.cookies["_mkto_trk"];
