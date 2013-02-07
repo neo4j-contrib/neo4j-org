@@ -206,6 +206,7 @@ route_get('/learn/try', routes.try);
 route_get('/test/d3', routes.d3);
 route_get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
 route_get('/events', routes.events)
+route_get('/participate/channels', routes.channels)
 route_get('/misc/beer', routes.beer)
 
 route_get('/marketo',function(req,res) {

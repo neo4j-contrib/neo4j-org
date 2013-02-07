@@ -1,0 +1,63 @@
+<% include ../head %>
+<div class="container">
+
+<!-- Example row of columns -->
+<div role="main" class="row">
+
+
+  <div class="span12">
+    <div class="inner">
+      <h1>Poll of Developer Communication Channels</h1>
+      <p class="lead">Where do you learn new stuff?</p>
+	  <p>We are interested in which communication channels you, but also especially your co-workers, friends and consulting-customer developers use to learn more about technology and software development.</p>
+
+<!-- TODO Ajax callbacks -->
+		<form action="#" method="post">
+		  <input type="submit" value="Send"/>
+	      <div class="thumbnails row-fluid">
+		    <div style="min-width:30px;">&nbsp;</div>
+          <% channels.forEach(function(info) { %>
+			  <div class="thumbnail  span2" style="height:100px;">
+			    <% if (info['logo']) { %>
+			      <a href="<%= info['url'] %>">
+			        <img src="<%= info['logo'] %>" width="100" title="<%= info['name'] %>" alt="logo of <%= info['name'] %>"/>
+			      </a>
+			    <% } %>
+
+			    <div class="caption">
+			        <h5><input type="checkbox" name="checkbox_<%= info.row %>"/> <a href="<%= info['url']||'#' %>" target="_blank"><%= info['name'] %></a> [<%= info['lang']||'en' %>] (<%= info['votes'] %>)</h5>
+			    </div>
+			</div>
+          <% }); %>
+      	  </div>
+		  <h3>Your new suggestions:</h3>
+	      <div class="thumbnails row-fluid">
+		    <div style="min-width:30px;">&nbsp;</div>
+          <% [1,2,3,4,5].forEach(function(i) { %>
+			  <div class="thumbnail span2" style="height:180px;text-align:right">
+			        Name: <input type="text" style="width:80px;" name="new_name_<%= i %>"/><br/>
+			        URL: <input type="text"  style="width:80px;"name="new_url_<%= i %>"/><br/>
+			        Logo: <input type="text"  style="width:80px;" name="new_image_<%= i %>"/>
+			        Lang: <select  style="width:50px;" name="new_lang_<%= i %>">
+			<option selected="selected">EN</option>
+			<option>DE</option>
+			<option>CN</option>
+			<option>ES</option>
+			<option>RU</option>
+			<option>FR</option>
+			<option>IT</option>
+			<option>SE</option>
+			<option>PT</option>
+			<option>--</option>
+			</select>
+			</div>
+          <% }); %>
+      	  </div>
+  		  <input type="submit" value="Send"/>
+		</form>
+    </div>
+  </div>
+
+</div>
+<% include ../foot %>
+

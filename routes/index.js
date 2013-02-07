@@ -198,6 +198,10 @@ exports.beer = function(req, res){
     res.render('misc/beer', { category: 'misc', title: 'Beer' });
 };
 
+exports.channels = function(req, res){
+    res.render('participate/channels', { category: 'participate', title: 'Learning Channels' });
+};
+
 
 
 exports.resource = function(req,res) {

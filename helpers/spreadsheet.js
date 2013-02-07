@@ -109,20 +109,30 @@ function contributors(fun, filter) {
 }
 
 
-function parseChannels(data, fun, filter) {
-    console.log("data",data.cells);
+function parseChannels(data, fun) {
+	data = data.cells
+    // console.log("data",JSON.stringify(data));
     var result=[];
     for (var row in data ) {
-        result.push([row,data[row]['1']['value'],data[row]['2']['value']]);
+	    var votes=data[row]['2']||{};
+        result.push({row:row, 
+	            name: data[row]['1']['value'], 
+	            votes: parseInt(votes['value']||'0'),
+	            url: (data[row]['3']||{})['value'],
+	            logo: (data[row]['4']||{})['value'],
+	            lang: (data[row]['5']||{})['value']
+	    });
     }
-
-    console.log("result",result);
-    result = result.splice(1).sort(function(x,y) { return x.votes>y.votes});
-    if (filter) fun(sorted.filter(filter));
-    else fun(result);
+    result = result.splice(1).sort(function(x,y) { 
+		if (x.votes==y.votes) {
+			return x.name < y.name ? -1 : 1;
+		}
+		return x.votes > y.votes ? -1 : 1
+	});
+	fun(result);
 }
 
-function channels(fun, filter) {
+function channels(fun) {
     googleAuth.on(GoogleClientLogin.events.login, function () {
         GoogleSpreadsheets({
             key: process.env.CHANNELS_SHEET_KEY,
@@ -132,18 +142,17 @@ function channels(fun, filter) {
                 console.log("Error retrieving spreadsheet ", err)
             }
             spreadsheet.worksheets[0].cells({
-                range: "R1C1:R10C2"
+                range: "R1C1:R100C5"
             }, function (err, cells) {
                 if (err) {
                     console.log("Error retrieving spreadsheet ", err)
                 }
-                parseChannels(cells, fun, filter);
+                parseChannels(cells, fun);
             });
         });
     });
     googleAuth.login();
 }
-
 exports.events = events
 exports.contributors = contributors
 exports.channels = channels
