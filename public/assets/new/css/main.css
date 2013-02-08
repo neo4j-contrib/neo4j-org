@@ -600,6 +600,17 @@ ul.hor li {
     height: 40em;
 }
 
+.featured .article {
+    height: 100% ! important;
+}
+
+.featured .article .caption,
+.featured .article .content {
+    float: none ! important;
+    display: block;
+
+}
+
 .related {
     /*padding-top: 1em;*/
     padding-bottom: 2em;
@@ -667,10 +678,17 @@ ul.hor li {
     margin: 0 0 1em 4em;
 }
 
-.video .preview {
-    width: 16em;
+.related .preview {
+    max-width: 16em;
     margin: auto;
     border: 1px solid #a5a5a5;
+}
+
+.related .preview {
+/*    width: 10em;
+    margin: 0 3em ! important;
+/**/    border: none;*/
+    text-align: center;
 }
 
 .related .driver p {

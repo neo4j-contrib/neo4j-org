@@ -1,5 +1,9 @@
 <% var info=drivers[driver] %>
-<div class="span<%= typeof tilespan=='undefined' ? 2 : tilespan %> <%=: info['tags'] | join:' ' %> thumbnail">
+
+<div class="featured" class="mainElement">
+    <div class="slide article">
+        <div class="caption">
+
     <a target="_blank" href="<%= info['url'] %>">
         <img src="<%= info['logo'] %>" title="<%= info['name'] %>" alt="image"/>
         <h5><%= info['name'] %></h5>
@@ -16,6 +20,10 @@
         }
     }).join(", ");
     %>
+
+        </div>
+        <div class="content">
+
     <p><%- info['text'] %></p>
 
     <div style="text-align: center; "><% if (info['site']) { %>
@@ -31,4 +39,8 @@
         <% }
         %>
     </div>
-</div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div><!-- featured -->

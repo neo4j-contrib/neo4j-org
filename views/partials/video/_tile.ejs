@@ -1,13 +1,13 @@
-                        <div class="item video">
-                        	<% var hasPath = related.path %>
+<div class="item video">
+	<% var hasPath = related.path %>
 
-                            <h3><% if (hasPath) { %><a href="<%= related.path %>"><% } %><%= related.title %><% if (hasPath) { %></a><% } %></h3>
-                            <% if (related.featured.thumbnail) { %>
-                            <a href="<%= related.path %>"><img class="preview" src="<%= related.featured.thumbnail %>"></a>
-                            <% } %>
-                            <div>
-                                <p class="introText"><%- related.featured.introText	 %></p>
-                            </div>
-                            <% if (hasPath) { %><p><a class="btn" href="<%= related.path %>"><%= related.actionText ? related.actionText : 'Learn more &raquo;' %></a></p><% } %>
+    <h3><% if (hasPath) { %><a href="<%= related.path %>"><% } %><%= related.title %><% if (hasPath) { %></a><% } %></h3>
+    <% if (related.featured.thumbnail) { %>
+    <a href="<%= related.path %>"><img class="preview" src="<%= related.featured.thumbnail %>"></a>
+    <% } %>
+    <div>
+        <p class="introText"><%- related.featured.introText	 %></p>
+    </div>
+    <% if (hasPath) { %><p><a class="btn" href="<%= related.path %>"><%= related.actionText ? related.actionText : 'Learn more &raquo;' %></a></p><% } %>
 
-                        </div>
+</div>

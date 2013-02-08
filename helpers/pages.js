@@ -56,10 +56,33 @@ exports.pages = {
             type : "article",
             thumbnail : "",
             introText : "The following tracks are available: (TODO)",
-            src : "http://player.vimeo.com/video/56040747"
+            src : "http://player.vimeo.com/video/56040747",
+            content : "<u><li><a href='/java'>Java</a></li></ul>"
         },
         actionText : "Choose your track &raquo;",
         related : ["neo4j", "cypher"]
+    },
+    java : {
+        path : "/java",
+        title : "Neo4j for Java developers.",
+        introText : "As the 4j indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.",
+        featured : {
+            type : "article",
+            content : "<p>Welcome to Neo4j. For a Java or JVM-language developer, Neo4j offers a rich set of integration possibilities. Make sure to have looked at our information on <a href='/learn/graphdatabase'>graph databases</a> and Neo4j in general. You should also check out our graph query language Cypher which makes it very easy to get going regardless of the development platform.</p>\
+<p>Neo4j comes in two flavors. The standalone Neo4j-Server can be installed on any machine and then accessed via its REST API. You can then use whatever REST-library you choose for any JVM language. The dedicated Neo4j drivers go beyond that by offering comprehensive APIs for integrating with graph based applications.</p>\
+<p>But you can also run Neo4j embedded in your JVM process, much like HSQL or Derby. This is great for unit testing, but also for high performance / no-network setups. If you use Neo4j embedded you can use the Neo4j Core-API directly. Besides an object oriented approach to the graph database, working with Nodes, Relationships and Paths, it also offers highly customizable high-speed traversal- and graph-algorithm implementations. You can also choose from any useful wrapping drivers that exist either for specific programming languages or that add interesting functionality.</p>\
+<p>One example is Spring Data Neo4j which integrates tightly with the SpringFramework and offers Object-Graph mapping on top of Neo4j. Just to tease your interest - there are hundreds of open source Neo4j-related ecosystem projects, example applications and tutorials that can spark new ideas and possibilities.</p>\
+<p>As a JVM developer you are also on the bright side when it comes to pouring large amounts of data into Neo4j. With its non-transactional batch-insertion facilities it can ingest millions of nodes and relationships in just seconds.</p>"
+        },
+        related : [
+            {
+                title : "API JavaDoc",
+                path : "http://api.neo4j.org/current/",
+                thumbnail : "/assets/img/languages/java.jpg",
+                introText : "Check out the Java API of the current milestone.",
+                actionText : "Browse JavaDoc &raquo;"
+            }
+        ]
     },
     production : {
         path : "/learn/production",
@@ -292,9 +315,24 @@ Sales, training, and marketing enablement to expand existing and drive new partn
             {
                 title : "Stack Overflow",
                 path : "http://stackoverflow.com/questions/tagged/neo4j",
+                thumbnail : "/assets/img/logo/stackoverflow.png",
                 introText : "Find answers or reach to fellow developers with questions.",
                 actionText : "Ask Neo4j questions &raquo;"
             },
+            {
+                title : "Neo4j Google Group",
+                path : "http://groups.google.com/group/neo4j",
+                thumbnail : "/assets/img/logo/googlegroups.png",
+                introText : "Share your experiences and expertise with fellow graphistas.",
+                actionText : "Join now &raquo;"
+            },
+            {
+                title : "GitHub Issues",
+                path : "http://stackoverflow.com/questions/tagged/neo4j",
+                thumbnail : "/assets/img/logo/github.png",
+                introText : "Encountered an issue with Neo4j? Submit it here.",
+                actionText : "Report issue &raquo;"
+            }
         ]
     },
     neo4j : {
