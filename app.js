@@ -237,7 +237,7 @@ app.locals.updateChannels = function() {
     spreadsheet.channels(function(items) { app.locals.channels = items; });
 }
 app.locals.updateChannels();
-setTimeout(app.locals.updateChannels,30*1000);
+setInterval(app.locals.updateChannels,5*60*1000);
 
 
 calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length); }) 
