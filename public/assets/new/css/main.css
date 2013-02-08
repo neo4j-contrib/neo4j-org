@@ -550,9 +550,10 @@ ul.hor li {
 /****************** featured *******************/
 
 .featured {
-    position: absolute;
+/*    position: absolute;
     top: 9em;
     left: 1em;
+*/
     padding: 1em;
     margin: 1em 0;
     box-shadow: 0px 0px 1em #e5e5e5;
@@ -666,24 +667,28 @@ ul.hor li {
 .trackNav {
     top: 12em;
     position: absolute;
+    width: 12em;
+    height: 100%;
 }
 
 .nextStep {
-    right: -6em;
+    right: -10em;
 }
 
 .prevStep {
-    left: -6em;
+    left: -10em;
 }
 
 .trackNav h3 {
+    overflow: hidden;
+    display: block;
     height: 1em;
     padding: .5em 0 .75em .5em;
     margin-bottom: .25em;
     position: relative;
     white-space: nowrap;
     background: #fafafa;
-    width: 20em ! important;
+    width: 5em;
     border-top: 1px solid #dce7ea;
     border-bottom: 1px solid #dce7ea;
     box-shadow: 0px 0px 1em #e5e5e5;
@@ -700,10 +705,11 @@ ul.hor li {
 
 .nextStep h3 {
     border-right: 1px solid #dce7ea;
-    text-align: right;
+    direction: rtl;
 }
 
 .prevStep h3 {
+    float: right;
     border-left: 1px solid #dce7ea;
 }
 
@@ -711,7 +717,6 @@ ul.hor li {
     box-shadow: 0px 0px 1em #e0e0e0;
     -webkit-box-shadow: 0px 0px 1em #e0e0e0;
     -moz-box-shadow: 0px 0px 1em #e0e0e0;
-    border: 1px solid #ccc;
     background: #fff;
 }
 

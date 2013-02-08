@@ -12,7 +12,7 @@ var prevPage = pages[p];
 <% page.next.forEach(function(p) {
 var nextPage = pages[p];
   %>
-    <h3><a href="<%= nextPage.path %>"><%= nextPage.title %></a> <a href="<%= nextPage.path %>"><i class="icon icon-circle-arrow-right"></i></a></h3>
+    <h3><a href="<%= nextPage.path %>"><i class="icon icon-circle-arrow-right"></i></a> <a href="<%= nextPage.path %>"><%= nextPage.title %></a></h3>
 <%
 });
 %>
@@ -31,29 +31,33 @@ var nextPage = pages[p];
     </div>
 </div><!-- featured -->
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function() {
+
+        $('.prevStep h3')
+
         $('.prevStep h3').on('mouseenter', function() {
             var self = $(this);
             self.animate({
-                left: '-=100',
-            }, 200);
+                width: '80%'
+            }, 100);
         }).on('mouseleave', function() {
             var self = $(this);
             self.animate({
-                left: '+=100',
-            }, 100);
+                width: '5em'
+            }, 200);
         });
 
         $('.nextStep h3').on('mouseenter', function() {
             var self = $(this);
             self.animate({
-                right: '-=100',
-            }, 200);
+                width: '80%'
+            }, 100);
         }).on('mouseleave', function() {
             var self = $(this);
             self.animate({
-                right: '+=100',
-            }, 100);
+                width: '5em'
+            }, 200);
         });
     });
+
 </script>
