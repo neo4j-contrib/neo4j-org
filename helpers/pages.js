@@ -62,10 +62,12 @@ exports.pages = {
     },
     java : {
         path : "/java",
-        title : "Neo4j for Java developers.",
+        title : "Neo4j for Java devs",
         introText : "As the 4j indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.",
+        next : ["jvm"],
+        prev : ["server_plugins"],
         featured : {
-            type : "article",
+            type : "track",
             content : "<p>Welcome to Neo4j. For a Java or JVM-language developer, Neo4j offers a rich set of integration possibilities. Make sure to have looked at our information on <a href='/learn/graphdatabase'>graph databases</a> and Neo4j in general. You should also check out our graph query language Cypher which makes it very easy to get going regardless of the development platform.</p>\
 <p>Neo4j comes in two flavors. The standalone Neo4j-Server can be installed on any machine and then accessed via its REST API. You can then use whatever REST-library you choose for any JVM language. The dedicated Neo4j drivers go beyond that by offering comprehensive APIs for integrating with graph based applications.</p>\
 <p>But you can also run Neo4j embedded in your JVM process, much like HSQL or Derby. This is great for unit testing, but also for high performance / no-network setups. If you use Neo4j embedded you can use the Neo4j Core-API directly. Besides an object oriented approach to the graph database, working with Nodes, Relationships and Paths, it also offers highly customizable high-speed traversal- and graph-algorithm implementations. You can also choose from any useful wrapping drivers that exist either for specific programming languages or that add interesting functionality.</p>\
@@ -84,10 +86,45 @@ exports.pages = {
                 title : "Manual: Java Tutorial",
                 path : "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html",
                 thumbnail : "/assets/img/languages/java.jpg",
-                introText : "In this chapter you will find everything needed — from setting up the environment to doing something useful with your data.",
+                introText : "In tutorial you will find everything needed — from setting up the environment to doing something useful with your data.",
                 actionText : "Go to the manual &raquo;"
             }
         ]
+    },
+    jvm : {
+        path : "/java/jvm",
+        title : "JVM projects",
+        introText : "(TODO) Intro text for JVM projects",
+        next : ["server_plugins"],
+        prev : ["java", "jvm"],
+        featured : {
+            type : "track",
+            content : "<ul><!-- todo replace with tiles -->\
+            <li>Neo4j Spatial offering geospatial functionality on top of the graph</li>\
+            <li>Structr a Java based custom Neo4j backend and CMS frontend</li>\
+            <li>Neoclipse an Eclipse RCP based Neo4j workbench</li> \
+            <li>Graph Collections a set of in-graph representations of typical data structures, like lists, trees etc.</li>\
+            <li>Java Rest Binding which offers a Java API for the Neo4j-Server, built on jersey-client</li>\
+            <li>The Neo4j JDBC driver which allows to run Cypher statements via JDBC and integrates so with all JDBC libraries and tools</li>\
+            <li><a href='https://github.com/alexsmirnov/neo4j-connector'>Neo4j JCA connector</a></li>\
+         </ul>"
+        },
+        related : []
+    },
+    server_plugins : {
+        path : "/java/server_plugins",
+        title : "Server plugins",
+        introText : "(TODO) Intro text server plugins",
+        next : ["java"],
+        prev : ["jvm"],
+        featured : {
+            type : "track",
+            content : "<ul>\
+          <li><a href='https://github.com/neo4j/neo4j-geoff'>Geoff plugin</a> for importing and exporting py2neo's geoff format</li>\
+          <li>Gremlin plugin that offers a tinkerpop-gremlin shell and REST endpoint</li>\
+      </ul>"
+        },
+        related : []
     },
     production : {
         path : "/learn/production",
@@ -343,10 +380,9 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     neo4j : {
         path : "/learn/neo4j",
         title : "What is Neo4j?",
-        introText : "Our versioned online manual start with a comprehensive tutorial section, complemented with detailed a reference and live interaction.",
+        introText : "Our versioned online manual start with a comprehensive tutorial section.",
         actionText : "Study this &raquo;",
         featured : {
-            title : "What is Neo4j?",
             type : "article",
             introText : "Neo4j is a graph database, reliable and fast for managing and querying highly connected data.",
 

@@ -132,6 +132,9 @@ body, h1, h2, h3, h4 {
     color: #555;
     padding: 0;
     margin: 0;
+}
+
+body {
     background: #f7f7f7;
 }
 
@@ -515,11 +518,41 @@ ul.hor li {
 }
 
 .navBtn:hover {
-    color: #222s;
+    color: #222;
     text-shadow: #aaa 0 0 1em;
 }
 
+.page .badge {
+    font-size: .8em;
+    padding: 1em;
+    position: absolute;
+    z-index: 3;
+    background: #fcf0ad;
+    right: 2em;
+    top: 1.5em;
+    box-shadow: 0px 0px 1em #666;
+    -webkit-box-shadow: 0px 0px 1em #666;
+    -moz-box-shadow: 0px 0px 1em #666;
+    /* Firefox */
+    -moz-transform: scale(1) rotate(8deg) translate(50px);
+    /* WebKit */
+    -webkit-transform: scale(1) rotate(8deg) translate(50px);
+    /* Opera */
+    -o-transform: scale(1) rotate(8deg) translate(50px);
+    /* Standard */
+    transform: scale(1) rotate(8deg) translate(50px);    
+}
+
+.page .badge h3 {
+    background: transparent;
+}
+
+/****************** featured *******************/
+
 .featured {
+    position: absolute;
+    top: 9em;
+    left: 1em;
     padding: 1em;
     margin: 1em 0;
     box-shadow: 0px 0px 1em #e5e5e5;
@@ -527,10 +560,11 @@ ul.hor li {
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
     border: 1px solid #dce7ea;
     background: #fff;
+    overflow: auto; /* makes children expand this box to max height */
 }
 
 .featured .slide {
-    width: 60em;
+    width: 58em;
     margin: .5em;
     position: relative;
     height: 22em;
@@ -541,7 +575,7 @@ ul.hor li {
 }
 
 .featured .content {
-    width: 41em;
+    width: 38em;
     float: right;
     /*text-align: right;*/
 }
@@ -555,7 +589,6 @@ ul.hor li {
 }
 
 .featured .caption h3 {
-    background: #fff;
     line-height: 1em;
     font-size: 1.75em;
     padding: 0 0 .5em 0;
@@ -609,7 +642,6 @@ ul.hor li {
 .featured h3,
 .featured h4,
 .featured h5 {
-    background: #fff ! important;
     color: #00546a;
 }
 
@@ -620,30 +652,74 @@ ul.hor li {
     position: relative;
 }
 
-.page .badge {
-    font-size: .8em;
-    padding: 1em;
-    position: absolute;
-    z-index: 3;
-    background: #fcf0ad;
-    right: 2em;
-    top: 1.5em;
-    box-shadow: 0px 0px 1em #666;
-    -webkit-box-shadow: 0px 0px 1em #666;
-    -moz-box-shadow: 0px 0px 1em #666;
-    /* Firefox */
-    -moz-transform: scale(2) rotate(8deg) translate(50px);
-    /* WebKit */
-    -webkit-transform: scale(1.2) rotate(8deg) translate(50px);
-    /* Opera */
-    -o-transform: scale(2) rotate(8deg) translate(50px);
-    /* Standard */
-    transform: scale(2) rotate(8deg) translate(50px);    
+.featured .track .caption {
+    display: none;
 }
 
-.page .badge h3 {
-    background: transparent;
+.featured .track .content {
+    width: 40em;
+    float: left;
 }
+
+/****************** tracks *******************/
+
+.trackNav {
+    top: 12em;
+    position: absolute;
+}
+
+.nextStep {
+    right: -6em;
+}
+
+.prevStep {
+    left: -6em;
+}
+
+.trackNav h3 {
+    height: 1em;
+    padding: .5em 0 .75em .5em;
+    margin-bottom: .25em;
+    position: relative;
+    white-space: nowrap;
+    background: #fafafa;
+    width: 20em ! important;
+    border-top: 1px solid #dce7ea;
+    border-bottom: 1px solid #dce7ea;
+    box-shadow: 0px 0px 1em #e5e5e5;
+    -webkit-box-shadow: 0px 0px 1em #e5e5e5;
+    -moz-box-shadow: 0px 0px 1em #e5e5e5;
+}
+
+.trackNav a,
+.trackNav a:visited,
+.trackNav a:active,
+.trackNav a:hover {
+    color: #00546a;
+}
+
+.nextStep h3 {
+    border-right: 1px solid #dce7ea;
+    text-align: right;
+}
+
+.prevStep h3 {
+    border-left: 1px solid #dce7ea;
+}
+
+.trackNav h3:hover {
+    box-shadow: 0px 0px 1em #e0e0e0;
+    -webkit-box-shadow: 0px 0px 1em #e0e0e0;
+    -moz-box-shadow: 0px 0px 1em #e0e0e0;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.trackNav .icon:hover {
+    text-decoration: none;
+}
+
+/****************** related *******************/
 
 .related {
     /*padding-top: 1em;*/
@@ -699,11 +775,12 @@ ul.hor li {
 
 .related .row .item h3 {
     padding-bottom: .5em;
-    background: #fff;
 }
 
 .related .row .item img {
     margin-bottom: 1em;
+    display: block;
+    margin: auto;
 }
 
 .related .row .item img.logo {
@@ -741,7 +818,6 @@ ul.hor li {
 }
 
 .related .driver h4 {
-    background: #fff;
     padding: 0;
     margin: .25em 0;
     font-size: 0.8em;
@@ -759,6 +835,13 @@ ul.hor li {
 
 .related .link {
     float: right;
+}
+
+/****************** steps *******************/
+
+.steps {
+    float: left;
+    width: 10em;
 }
 
 #linkContainer {
