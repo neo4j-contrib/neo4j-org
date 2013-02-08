@@ -304,7 +304,7 @@ route_get('/wp-includes/*', routes.resource);
 route_get('/img/*', routes.resource);
 route_get('/highlighter/*', routes.resource);
 
-function channelOp(params,res) {
+function channelOp(params,res, onSuccess) {
     var options = {
       host: 'script.google.com',
       path: process.env.CHANNELS_ENDPOINT+"?"+params,
@@ -314,6 +314,9 @@ function channelOp(params,res) {
     console.log(options);
     var req2 = https.request(options,function(r) {
         console.log(r.statusCode);
+        if(onSuccess) {
+            onSuccess();
+        }
         res.send(r.statusCode);
     });
     req2.on('error', function(e) {
@@ -337,7 +340,7 @@ app.post("/add_channel", function(req,res) {
         "&logourl="+encodeURIComponent(logo)+
         "&language="+encodeURIComponent(lang);
     console.log("add_channel",params);
-    channelOp(params,res);
+    channelOp(params,res, app.locals.updateChannels);
 });
 
 route_get('/video/*', function(req, res){

@@ -171,13 +171,13 @@ function channels(fun) {
             auth: googleAuth.getAuthId()
         }, function (err, spreadsheet) {
             if (err) {
-                console.log("Error retrieving spreadsheet ", err)
+                console.log("Channels: Error retrieving spreadsheet ", err)
             }
             spreadsheet.worksheets[0].cells({
                 range: "R1C1:R100C5"
             }, function (err, cells) {
                 if (err) {
-                    console.log("Error retrieving spreadsheet ", err)
+                    console.log("Channels: Error retrieving spreadsheet ", err)
                 } else {
                     parseChannels(cells, fun);
                 }

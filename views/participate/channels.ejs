@@ -84,10 +84,10 @@
             if (name && url && logo && lang) {
                 $.post("/add_channel?"+"name="+encodeURIComponent(name)+"&url="+encodeURIComponent(url)+"&logo="+encodeURIComponent(logo)+"&lang="+encodeURIComponent(lang),function(data,err) {
                    console.log(data,err);
-                   if (!err) {
-                      updateChannels();
-                      document.reload();
-                   }
+                   setTimeout(function(){
+                       window.location.reload();
+                   },1*1000);
+                   
                 });
             }
         });
