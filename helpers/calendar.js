@@ -57,7 +57,8 @@ function events(fun, filter) {
                 item.Meetup=meetup[2];
             }
             event_prop(item,'Area','US') // TODO
-//            console.log(item)
+            // console.log(item)
+			console.log(item['Location']);
             return item;
         });
         if (filter) fun(items.filter(filter));

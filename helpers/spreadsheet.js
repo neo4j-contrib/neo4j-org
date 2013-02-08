@@ -8,6 +8,15 @@ var googleAuth = new GoogleClientLogin({
     accountType: GoogleClientLogin.accountTypes.google
 });
 
+var authId;
+
+googleAuth.on(GoogleClientLogin.events.login, function () {
+    authId = googleAuth.getAuthId()
+});
+googleAuth.login();
+
+// todo handle login once
+
 function wrap(prefix, value, suffix) {
     var str = "";
     if (value) {
@@ -78,8 +87,8 @@ function parseContributors(cells, fun, filter) {
         }
 //        if (new Date(item.Start) >= now && item.Created && item.Created.length > 0 && (!filter || filter(item))) {
 //            item.Title = wrap(item['Type'], " - ") + item['Title'] + wrap(" - ", item['City'])
-            items[item.twitter||item.name] = item;
-        
+        items[item.twitter || item.name] = item;
+
 //        }
     }
     if (filter) fun(items.filter(filter));
@@ -108,5 +117,75 @@ function contributors(fun, filter) {
     googleAuth.login();
 }
 
+
+function parseChannels(data, fun) {
+	data = data.cells
+    // console.log("data",JSON.stringify(data));
+    var result=[];
+    for (var row in data ) {
+	    var votes=data[row]['2']||{};
+        result.push({row:row, 
+	            name: data[row]['1']['value'], 
+	            votes: parseInt(votes['value']||'0'),
+	            url: (data[row]['3']||{})['value'],
+	            logo: (data[row]['4']||{})['value'],
+	            lang: (data[row]['5']||{})['value']
+	    });
+    }
+    result = result.splice(1).sort(function(x,y) { 
+		if (x.votes==y.votes) {
+			return x.name < y.name ? -1 : 1;
+		}
+		return x.votes > y.votes ? -1 : 1
+	});
+	fun(result);
+}
+
+function vote_channel(row,fun) {
+    googleAuth.on(GoogleClientLogin.events.login, function () {
+        GoogleSpreadsheets({
+            key: process.env.CHANNELS_SHEET_KEY,
+            auth: googleAuth.getAuthId()
+        }, function (err, spreadsheet) {
+            if (err) {
+                console.log("Error retrieving spreadsheet ", err)
+            }
+            spreadsheet.worksheets[0].cells({
+                range: "R1C1:R100C5"
+            }, function (err, cells) {
+                if (err) {
+                    console.log("Error retrieving spreadsheet ", err)
+                } else {
+                    vote(cells, fun);
+                }
+            });
+        });
+    });
+    googleAuth.login();
+}
+
+function channels(fun) {
+    googleAuth.on(GoogleClientLogin.events.login, function () {
+        GoogleSpreadsheets({
+            key: process.env.CHANNELS_SHEET_KEY,
+            auth: googleAuth.getAuthId()
+        }, function (err, spreadsheet) {
+            if (err) {
+                console.log("Error retrieving spreadsheet ", err)
+            }
+            spreadsheet.worksheets[0].cells({
+                range: "R1C1:R100C5"
+            }, function (err, cells) {
+                if (err) {
+                    console.log("Error retrieving spreadsheet ", err)
+                } else {
+                    parseChannels(cells, fun);
+                }
+            });
+        });
+    });
+    googleAuth.login();
+}
 exports.events = events
 exports.contributors = contributors
+exports.channels = channels
