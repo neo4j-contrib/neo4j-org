@@ -563,10 +563,10 @@ ul.hor li {
     color: #00546a;
 }
 
-.featured .caption a,
-.featured .caption a:visited,
-.featured .caption a:hover,
-.featured .caption a:active {
+.featured a,
+.featured a:visited,
+.featured a:hover,
+.featured a:active {
     color: #00546a;
 }
 
@@ -585,9 +585,9 @@ ul.hor li {
 }
 
 .featured .console #console iframe {
-    margin-top: 6em;
-    width: 56em;
-    height: 32em;
+    margin-top: 1em;
+    width: 57em;
+    /*height: 32em;*/
     display: block;
 }
 
@@ -597,18 +597,52 @@ ul.hor li {
 }
 
 .featured .console {
-    height: 40em;
+    height: 32em;
 }
 
 .featured .article {
     height: 100% ! important;
+    min-height: 10em;
+}
+
+.featured h2,
+.featured h3,
+.featured h4,
+.featured h5 {
+    background: #fff ! important;
+    color: #00546a;
 }
 
 .featured .article .caption,
 .featured .article .content {
     float: none ! important;
     display: block;
+    position: relative;
+}
 
+.page .badge {
+    font-size: .8em;
+    padding: 1em;
+    position: absolute;
+    z-index: 3;
+    background: #fcf0ad;
+    right: 2em;
+    top: 1.5em;
+    box-shadow: 0px 0px 1em #666;
+    -webkit-box-shadow: 0px 0px 1em #666;
+    -moz-box-shadow: 0px 0px 1em #666;
+    /* Firefox */
+    -moz-transform: scale(2) rotate(8deg) translate(50px);
+    /* WebKit */
+    -webkit-transform: scale(1.2) rotate(8deg) translate(50px);
+    /* Opera */
+    -o-transform: scale(2) rotate(8deg) translate(50px);
+    /* Standard */
+    transform: scale(2) rotate(8deg) translate(50px);    
+}
+
+.page .badge h3 {
+    background: transparent;
 }
 
 .related {
@@ -678,13 +712,15 @@ ul.hor li {
     margin: 0 0 1em 4em;
 }
 
-.related .preview {
-    max-width: 16em;
-    margin: auto;
-    border: 1px solid #a5a5a5;
+.related .introText {
+    font-size: .9em;
 }
 
 .related .preview {
+    max-width: 16em;
+    max-height: 10em;
+    margin: auto;
+    border: 1px solid #a5a5a5;
 /*    width: 10em;
     margin: 0 3em ! important;
 /**/    border: none;*/
@@ -719,6 +755,10 @@ ul.hor li {
 
 .related .video .introText {
     font-size: .8em;
+}
+
+.related .link {
+    float: right;
 }
 
 #linkContainer {

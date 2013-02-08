@@ -52,12 +52,10 @@ exports.pages = {
         title : "Tracks",
         introText : "(TODO) Follow a track to learn more about Neo4j.",
         featured : {
-            title : "Tracks",
             type : "article",
             thumbnail : "",
             introText : "The following tracks are available: (TODO)",
-            src : "http://player.vimeo.com/video/56040747",
-            content : "<u><li><a href='/java'>Java</a></li></ul>"
+            content : "<ul><li><a href='/java'>Java</a></li></ul>"
         },
         actionText : "Choose your track &raquo;",
         related : ["neo4j", "cypher"]
@@ -81,6 +79,13 @@ exports.pages = {
                 thumbnail : "/assets/img/languages/java.jpg",
                 introText : "Check out the Java API of the current milestone.",
                 actionText : "Browse JavaDoc &raquo;"
+            },
+            {
+                title : "Manual: Java Tutorial",
+                path : "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html",
+                thumbnail : "/assets/img/languages/java.jpg",
+                introText : "In this chapter you will find everything needed — from setting up the environment to doing something useful with your data.",
+                actionText : "Go to the manual &raquo;"
             }
         ]
     },
