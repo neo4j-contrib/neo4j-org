@@ -1,6 +1,23 @@
 <% include ../head %>
 <div class="container">
-
+<style type="text/css">
+    #add_channel input {
+       width:80px;
+    }
+    #add_channel select {
+       width:50px;
+    }
+    #add_channel {
+        height:210px;
+        text-align:right
+    }
+    a.vote:hover, a.vote:visited,a.vote:active {
+        text-decoration: none;
+    }
+    a.vote i {
+        vertical-align: baseline;
+    }
+</style>
 <!-- Example row of columns -->
 <div role="main" class="row">
 
@@ -15,12 +32,12 @@
 		<form action="#" method="post">
 	      <div class="thumbnails row-fluid">
 		    <div style="min-width:30px;">&nbsp;</div>
-              <div id="add_channel" class="thumbnail span2" style="height:210px;text-align:right">
-                  Name: <input type="text" style="width:80px;" name="new_name"/><br/>
-                  URL: <input type="text"  style="width:80px;"name="new_url"/><br/>
-                  Logo: <input type="text"  style="width:80px;" name="new_logo"/>
+              <div id="add_channel" class="thumbnail span2">
+                  Name: <input type="text" name="new_name"/><br/>
+                  URL: <input type="text"  name="new_url"/><br/>
+                  Logo: <input type="text" name="new_logo"/>
                   Lang:  
-                  <select  style="width:50px;" name="new_lang">
+                  <select name="new_lang">
                     <option selected="selected" value="en">EN</option>
                     <option value="de">DE</option>
                     <option value="cn">CN</option>
@@ -44,7 +61,7 @@
 
 			    <div class="caption">
 			        <h5><a href="<%= info['url']||'#' %>" target="_blank"><%= info['name'] %></a> 
-                        [<%= info['lang']||'en' %>] 
+                        [<%= info['lang']||'en' %>] <br/>
                         <a class="vote" href="#vote_<%= info.row %>"><span><%= info['votes'] %></span>&nbsp;<i class="icon icon-thumbs-up"></i></a></h5>
 			    </div>
 			</div>
@@ -65,22 +82,26 @@
             var lang=$("#add_channel select[name=new_lang]").val();
             console.log(name,url,logo,lang);
             if (name && url && logo && lang) {
-                $.post("/add_channel?"+encodeURIComponent("name="+name+"&url="+url+"&logo="+logo+"&lang="+lang),function(data,err) {
+                $.post("/add_channel?"+"name="+encodeURIComponent(name)+"&url="+encodeURIComponent(url)+"&logo="+encodeURIComponent(logo)+"&lang="+encodeURIComponent(lang),function(data,err) {
                    console.log(data,err);
                    if (!err) {
-                                               
+                      updateChannels();
+                      document.reload();
                    }
                 });
             }
         });
         $("a.vote").click(function() {
-            var vote=$(this).attr("href").split("_")[1];
+            var link=$(this);
+            var vote=link.attr("href").split("_")[1];
             console.log("Vote",vote);
+            var votes = link.children("span");
+            console.log(votes,votes.html());
+            votes.css({fontSize: "2em"});
             $.post("/vote?row="+vote,function(data,status,err) {
                console.log(data,status);
-               var votes = $(this).children("span");
-               console.log(votes,votes.html());
                votes.html(parseInt(votes.html())+1);
+               votes.animate({fontSize: "1em"},1000);
             });
         });
     })

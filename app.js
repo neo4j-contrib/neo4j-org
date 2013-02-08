@@ -232,7 +232,14 @@ app.locals.contributors = {};
 
 spreadsheet.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length);}) 
 spreadsheet.contributors(function(items) { app.locals.contributors = items; }); 
-spreadsheet.channels(function(items) { app.locals.channels = items; }); 
+app.locals.updateChannels = function() {
+    console.log("Updating Channels");
+    spreadsheet.channels(function(items) { app.locals.channels = items; });
+}
+app.locals.updateChannels();
+setTimeout(app.locals.updateChannels,30*1000);
+
+
 calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length); }) 
 
 console.log(app.locals.contributors);
@@ -297,41 +304,40 @@ route_get('/wp-includes/*', routes.resource);
 route_get('/img/*', routes.resource);
 route_get('/highlighter/*', routes.resource);
 
-app.post("/vote", function(req,res) {
-    var row=req.param("row");
-    console.log("voted on",row);
+function channelOp(params,res) {
     var options = {
       host: 'script.google.com',
-      path: process.env.CHANNELS_ENDPOINT+"?voteRow="+parseInt(row),
+      path: process.env.CHANNELS_ENDPOINT+"?"+params,
       headers: { 'Content-Length': 0 },
       method: 'POST'
     };
     console.log(options);
     var req2 = https.request(options,function(r) {
         console.log(r.statusCode);
-/*        r.setEncoding("UTF-8");
-        r.on("data", function(data){
-            console.log(data);
-        })
-        r.on("end", function(data){
-            console.log(data);
-        });
-*/        
         res.send(r.statusCode);
     });
     req2.on('error', function(e) {
         console.error(e);
     });
-    // req2.write('');
     req2.end();
+}
+app.post("/vote", function(req,res) {
+    var row=req.param("row");
+    console.log("voted on",row);
+    channelOp("voteRow="+parseInt(row),res);
 });
 
 app.post("/add_channel", function(req,res) {
-    var row=req.param("row");
-    console.log("voted on",row);
-    spreadsheet.vote_channel(row, function(res) {
-        res.send(200,res);
-    });
+    var name=req.param("name");
+    var logo=req.param("logo");
+    var url=req.param("url");
+    var lang=req.param("lang");
+    var params="addRow="+encodeURIComponent(name)+
+        "&url="+encodeURIComponent(url)+
+        "&logourl="+encodeURIComponent(logo)+
+        "&language="+encodeURIComponent(lang);
+    console.log("add_channel",params);
+    channelOp(params,res);
 });
 
 route_get('/video/*', function(req, res){
