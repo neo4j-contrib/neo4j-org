@@ -4,13 +4,9 @@
         <a href="<%= info['url'] %>" target="_blank">
             <img src="<%= info['logo'] %>" width="300" title="<%= info['name'] %>" alt="<%= info['name'] %> logo"/>
         </a>
-        <% var author = info['author']; %>
-        <% if (author) { %>
-        <% if (author.indexOf('@') == 0) { var contributor = contributors[author.substring(1)];%>
-        <h4><em>by <a target="_blank" href="http://twitter.com/<%= contributor.twitter %>"><%= contributor.name %></a></em></h4>
-        <%} else { %>
-        <h4><em>by <%= author %></em></h4>
-        <% }} %>
+        <% resolve_authors(info['author']).map(function(author) { %>
+            <h4><em><a target="_blank" href="http://twitter.com/<%= author.twitter %>"><%= author.name %></a></em></h4>
+        <% }).join(", "); %>
 
         <a href="<%= info['url'] %>" target="_blank">
             <div class="caption">

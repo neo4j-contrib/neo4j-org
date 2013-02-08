@@ -239,6 +239,15 @@ app.locals.updateChannels = function() {
 app.locals.updateChannels();
 setInterval(app.locals.updateChannels,5*60*1000);
 
+app.locals.resolve_authors = function(authors) {
+    if (!authors) return [];
+    return [].concat( authors ).filter( function(author) { return !!author }).map(function(author) {
+        if (typeof(author)=='object') author = author['name'];
+        if (author.indexOf('@') == 0) author = author.substring(1);
+        if (app.locals.contributors[author]) return app.locals.contributors[author];
+        return { name : author, twitter: author.match(/\s/) ? "neo4j" : author };
+    });
+}
 
 calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length); }) 
 

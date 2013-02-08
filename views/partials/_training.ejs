@@ -6,14 +6,8 @@
 
 <%= training.city %></a> at <%= training.date %>: 
  with 
-<%- [].concat( training.presenter ).map(function(presenter) {
-        if (presenter.name.indexOf('@') == 0) {
-            var contributor = contributors[presenter.name.substring(1)];
-	        return "<a target='_blank' href='http://twitter.com/"+contributor.twitter+"'>"+contributor.name+"</a>";
-        } else {
-            return "<a target='_blank' href='http://twitter.com/"+presenter.twitter+"'>"+presenter.name+"</a>";
-        }
-	}).join(", ") 
-%>
+        <% resolve_authors(training['presenter']).map(function(author) { %>
+            <a target="_blank" href="http://twitter.com/<%= author.twitter %>"><%= author.name %></a>
+        <% }).join(", "); %>
 at <%= training.location %>
 <br />

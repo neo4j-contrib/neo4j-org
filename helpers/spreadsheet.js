@@ -77,7 +77,6 @@ function parseContributors(cells, fun, filter) {
     for (var rowNo in cells.cells) {
         var row = cells.cells[rowNo]
         if (!header) {
-//            console.log("headerÖ", row);
             header = row;
             continue;
         }
@@ -85,11 +84,8 @@ function parseContributors(cells, fun, filter) {
         for (var colNo in row) {
             item[header[colNo].value] = row[colNo].value;
         }
-//        if (new Date(item.Start) >= now && item.Created && item.Created.length > 0 && (!filter || filter(item))) {
-//            item.Title = wrap(item['Type'], " - ") + item['Title'] + wrap(" - ", item['City'])
-        items[item.twitter || item.name] = item;
-
-//        }
+        var id=item.twitter || item.name;
+        if (id) items[id] = item;
     }
     if (filter) fun(items.filter(filter));
     else fun(items)

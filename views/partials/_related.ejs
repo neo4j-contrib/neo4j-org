@@ -6,8 +6,8 @@
 
     <div class="caption">
         <h5><a href="<%=related['url'] %>"><%= related['title'] %></a></h5>
-		<% if (related['author']) { %>
-			<em>by <a href="<%=related['author']['twitter'] %>" target="_blank"><%=related['author']['name'] %></a></em>
-		<% } %>
+        <% resolve_authors(related['author']).map(function(author) { %>
+            <em><a target="_blank" href="http://twitter.com/<%= author.twitter %>"><%= author.name %></a></em>
+        <% }).join(", "); %>
     </div>
 </div>
