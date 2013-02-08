@@ -129,10 +129,7 @@ function parseChannels(data, fun) {
 	    });
     }
     result = result.splice(1).sort(function(x,y) { 
-		if (x.votes==y.votes) {
-			return x.name < y.name ? -1 : 1;
-		}
-		return x.votes > y.votes ? -1 : 1
+        return x.name < y.name ? -1 : 1;
 	});
 	fun(result);
 }

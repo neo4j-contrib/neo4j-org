@@ -11,11 +11,28 @@
         height:210px;
         text-align:right
     }
+    
     a.vote:hover, a.vote:visited,a.vote:active {
+        display: block;
         text-decoration: none;
+    }
+    a.vote {
+        display: block;
     }
     a.vote i {
         vertical-align: baseline;
+    }
+    .thumbnail {
+        vertical-align: middle;
+        text-align: center;
+        height:100px;
+    }
+    .thumbnail a img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-height: 50px;
+        max-width: 100px;
     }
 </style>
 <!-- Example row of columns -->
@@ -52,16 +69,16 @@
                     <a href="#" class="btn" style="padding: 5px;">Add your suggestion.</a>
             </div>
           <% channels.forEach(function(info) { %>
-			  <div class="thumbnail  span2" style="height:100px;">
+			  <div class="thumbnail  span2">
 			    <% if (info['logo']) { %>
 			      <a href="<%= info['url'] %>">
-			        <img src="<%= info['logo'] %>" width="100" title="<%= info['name'] %>" alt="logo of <%= info['name'] %>"/>
+			        <img src="<%= info['logo'] %>" title="<%= info['name'] %>" alt="logo of <%= info['name'] %>"/>
 			      </a>
 			    <% } %>
-
-			        <h5><a href="<%= info['url']||'#' %>" target="_blank"><%= info['name'] %></a> 
-                        [<%= info['lang']||'en' %>] <br/>
-                        <a class="vote" href="#vote_<%= info.row %>"><span><%= info['votes'] %></span>&nbsp;<i class="icon icon-thumbs-up"></i></a></h5>
+			        <a href="<%= info['url']||'#' %>" target="_blank"><%= info['name'] %></a> 
+                        [<%= info['lang']||'en' %>] 
+                        <a class="vote" href="#vote_<%= info.row %>"><span><%= info['votes'] %></span>&nbsp;<i class="icon icon-thumbs-up"></i></a>
+                    
 			</div>
           <% }); %>
       	  </div>
@@ -96,9 +113,9 @@
             var votes = link.children("span");
             console.log(votes,votes.html());
             votes.css({fontSize: "2em"});
+            votes.html(parseInt(votes.html())+1);
             $.post("/vote?row="+vote,function(data,status,err) {
                console.log(data,status);
-               votes.html(parseInt(votes.html())+1);
                votes.animate({fontSize: "1em"},1000);
             });
         });
