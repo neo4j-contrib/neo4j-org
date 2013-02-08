@@ -26,11 +26,11 @@
         <% }
         if (info['docs']) {
         %>
-        | <a target="_blank" href="<%= info['docs'] %>">Docs</a>
+        <% if (info['site']) { %>|<% } %> <a target="_blank" href="<%= info['docs'] %>">Docs</a>
         <% }
         if (info['source']) {
         %>
-        | <a target="_blank" href="<%= info['source'] %>">Source</a>
+        <% if ((info['site']) || (info['docs'])) { %>|<% } %> <a target="_blank" href="<%= info['source'] %>">Source</a>
         <% }
         %>
     </div>

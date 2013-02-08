@@ -245,7 +245,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     },
     meetups : {
         path : "/participate/events/meetups",
-        title : "Meetups around the world",
+        title : "Meetups around the World",
         introText : "",
         actionText : "Find a meetup &raquo;",
         featured : {
@@ -258,7 +258,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     },
     webinars : {
         path : "/participate/events/webinars",
-        title : "Meetups around the world",
+        title : "Webinars",
         introText : "",
         actionText : "Find a webinar &raquo;",
         featured : {
@@ -271,9 +271,9 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     },
     conferences : {
         path : "/participate/events/conferences",
-        title : "Neo4j at conferences",
+        title : "Neo4j at Conferences",
         introText : "(TODO) intro text neo4j conferences",
-        actionText : "Find a webinar &raquo;",
+        actionText : "Neo4j at conferences &raquo;",
         featured : {
             type : "article",
             title : "GraphConnect 2012",
@@ -316,9 +316,31 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         introText : "Hands on introduction to the Cypher Query Language",
         actionText : "Learn it &raquo;",
         featured : {
-            title : ""
+            title : "Cypher Tutorial",
+            type : "_cypher"
         },
-        related : []
+        related : [
+            "try",
+            {
+                title : "Cypher Reference",
+                path : "http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html",
+                introText : "Cypher is a declarative graph query language that allows for expressive and efficient querying and updating of the graph store without having to write traversals through the graph structure in code.",
+                actionText : "Cypher Manual &raquo;"
+            },
+            {
+                title : "Cypher Cheat Sheet (PDF)",
+                path : "/resources/cypher",
+                introText : "Download the Cypher Cheat Sheet as PDF",
+                actionText : "Download PDF &raquo;"
+            },
+            {
+                title : "Query with Cypher",
+                type : "video",
+                thumbnail : "/assets/img/still/cypher.png",
+                introText : "Cypher is a graph query language. Easy on the eyes, while expressive and powerful.",
+                src : "http://player.vimeo.com/video/50389825"
+            }            
+        ]
     },
     ops : {
         path : "/develop/ops",
@@ -341,7 +363,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         actionText : "Try live &raquo;",
         featured : {
             title : "Cypher Console",
-            type : "_cypher",
+            type : "_try",
             content : ""
         },
         related : [
