@@ -237,7 +237,7 @@ app.locals.updateChannels = function() {
     spreadsheet.channels(function(items) { app.locals.channels = items; });
 }
 app.locals.updateChannels();
-setInterval(app.locals.updateChannels,5*60*1000);
+setInterval(app.locals.updateChannels,60*1000);
 
 app.locals.resolve_authors = function(authors) {
     if (!authors) return [];
