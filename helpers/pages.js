@@ -301,6 +301,16 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         },
         related : ["contributors", "neo_staff", "speakers", "authors"]
     },
+    contributors : {
+        path : "/participate/contributors",
+        title : "Contributors - you rock.",
+        introText : "The Neo4j project is driven by the community. Here are some individuals that you might encounter in the discussion forums or come across their projects.\
+        For a full list of all code contributors, please see <a href='http://docs.neo4j.org/chunked/snapshot/contributors.html'>The official docs.</a>",
+        featured : {
+            type : "_contributors"
+        },
+        related : []
+    },
     events : {
         path : "/events",
         title : "Events",

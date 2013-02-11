@@ -834,7 +834,12 @@ ul.hor li {
     text-align: center;
 }
 
-.related .video .introText {
+.related .person {
+    height: 17.5em ! important;
+}
+
+.related .video .introText,
+.related .person .introText {
     font-size: .8em;
 }
 
