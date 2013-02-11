@@ -18,7 +18,7 @@ exports.pages = {
         title : "Participate",
         introText : "Connect with a friendly, engaging, and ever expanding community online or in person.",
         featured : null,
-        related : ["people", "events", "q_and_a"]
+        related : ["contributors", "events", "q_and_a"]
     },
     graph_concepts : {
         path : "/learn/concepts",
@@ -288,19 +288,19 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         },
         related : ["good-relationships-spring-data", "getting-started-spring"]
     },
-    people : {
-        path : "/participate/people",
-        title : "People around Neo4j",
-        introText : "See who drives Neo4j",
-        featured : {
-            title : "We need you",
-            type : "video",
-            thumbnail : "http://photos3.meetupstatic.com/photos/event/8/3/a/6/600_149253702.jpeg",
-            introText : "(TODO) we need an introductory video about why people matter to Neo4j",
-            src : "http://player.vimeo.com/video/53838744"
-        },
-        related : ["contributors", "neo_staff", "speakers", "authors"]
-    },
+    // people : {
+    //     path : "/participate/people",
+    //     title : "People around Neo4j",
+    //     introText : "See who drives Neo4j",
+    //     featured : {
+    //         title : "We need you",
+    //         type : "video",
+    //         thumbnail : "http://photos3.meetupstatic.com/photos/event/8/3/a/6/600_149253702.jpeg",
+    //         introText : "(TODO) we need an introductory video about why people matter to Neo4j",
+    //         src : "http://player.vimeo.com/video/53838744"
+    //     },
+    //     related : ["contributors", "neo_staff", "speakers", "authors"]
+    // },
     contributors : {
         path : "/participate/contributors",
         title : "Contributors - you rock.",

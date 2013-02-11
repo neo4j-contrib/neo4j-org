@@ -354,10 +354,10 @@ ul.hor li {
     font-weight: 600;
 }
 
-#lead a,
-#lead a:visited,
-#lead a:hover,
-#lead a:active {
+.introText a,
+.introText a:visited,
+.introText a:hover,
+.introText a:active {
     color: #00546a;
 }
 
@@ -616,18 +616,26 @@ ul.hor li {
 
 .featured .console .caption {
     width: 56em;
+    position: relative;
 }
 
 .featured .console #console iframe {
-    margin-top: 1em;
+    margin-top: .5em;
     width: 57em;
     /*height: 32em;*/
-    display: block;
+    /*display: block;*/
+    position: relative;
 }
 
 .featured .console .datasets li {
     list-style-type: none;
     border. 
+}
+
+.featured #console .btn {
+    position: absolute;
+    top: 0;
+    right: 1em;
 }
 
 .featured .console {
