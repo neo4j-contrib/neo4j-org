@@ -1,0 +1,13 @@
+<div class="featured" class="mainElement">
+    <div class="slide image">
+        <div class="caption">
+            <h3><%= page.featured.title %></h3>
+            <%- page.featured.type == 'image' ? '<i class="icon icon-picture"></i>' : '' %><%- page.featured.introText %>
+        </div>
+        <div class="content">
+        	<img class="thumbnail" src="<%= page.featured.thumbnail %>" data-src="<%= page.featured.src %>">
+            <%- page.featured.content %>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div><!-- featured -->

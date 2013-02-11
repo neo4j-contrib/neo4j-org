@@ -474,14 +474,64 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     visualize : {
         path : "/develop/visualize",
         title : "Graph Visualization",
-        introText : "Storing a graph is one thing, but visualizing it creates awe and epiphanies",
+        introText : "Storing a graph is one thing, but visualizing it creates awe and epiphanies.\
+                Graph visualisations are a powerful tool to convey the content of a graph. They can highlight patterns, show clusters and connections.\
+                There are different tools that you can use to visualize the content of a Neo4j graph database.",
         featured : {
-            type : "article",
-            title : "Neo4j Server Web Interface",
-            introText : "",
-            content : "TODO: Add content"
+            type : "_visualize",
+            items : [
+                {
+                    title : "Neo4j Server Web Interface",
+                    type : "image",
+                    introText : "<p>The Data Browser Tab offers a handy visualization of your graph. You can select the nodes to be shown by id,  index lookup or <a href='/learn/cypher'>cypher query</a>. A style editor will adapt the visualization to your needs.</p>\
+                            <p>The Neo4j Server Web Interface was written using arbor.js and canvas.</p>",
+                    thumbnail : "/assets/img/still/server_visualization.jpg",
+                    src : "/assets/img/still/server_visualization.jpg"
+                },
+                {
+                    title : "JavaScript D3.js",
+                    type : "image",
+                    introText : "<p>D3 is the most powerful javascript visualization library which supports a large number of visualizations, many of them are usable for graphs as well, <a href='http://maxdemarzi.com/tag/visualization-2/' target='_blank'>Max De Marzi</a> covered several of the visualizations on his blog.</p>",
+                    thumbnail : "/assets/img/still/d3_network.png",
+                    src : "/assets/img/still/server_visualization.jpg"
+                },
+                {
+                    title : "Gephi",
+                    type : "image",
+                    introText : "<p>The well known Graph visualization tool Gephi has a <a href='http://gephi.org/tag/neo4j/' target='_blank'>plugin for importing Neo4j</a> Databases which can then be visualized and rendered with the full power of Gephi's engines.</p>",
+                    thumbnail : "/assets/img/still/server_visualization.jpg",
+                    src : "http://player.vimeo.com/video/31823202?badge=0&byline=0&portrait=0&title=0"
+                },
+                {
+                    title : "GraphViz",
+                    type : "video",
+                    introText : "<p>Using the GraphViz Exporter it is possible to generate <code>.dot</code> files which can then be rendered as images using graphviz' dot toolchain.\
+          See this <a href='http://blog.neo4j.org/2012/05/graph-this-rendering-your-graph-with.html' target='_blank'>blog post</a> for details.</p>",
+                    thumbnail : "/assets/img/still/server_visualization.jpg",
+                }
+            ]
         },
         related : [
+            {
+                title : "Max De Marzi's Graph Visualization Blog",
+                path : "http://maxdemarzi.com/tag/visualization-2/"
+            },
+            {
+                title : "D3.js visualization",
+                path : "https://github.com/mbostock/d3/wiki/Gallery"
+            },
+            {
+                title : "Gephi",
+                path : "http://gephi.org"
+            },
+            {
+                title : "Neoclipse on GitHub",
+                path : "https://github.com/neo4j/neoclipse"
+            },
+            {
+                title : "A collection of graph visualization options",
+                path : "http://clipboard.com/mesirii/boards/viz"
+            }
         ]
     },
     apps : {
