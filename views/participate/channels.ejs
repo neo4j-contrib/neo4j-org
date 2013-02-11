@@ -75,10 +75,11 @@
 			        <img src="<%= info['logo'] %>" title="<%= info['name'] %>" alt="logo of <%= info['name'] %>"/>
 			      </a>
 			    <% } %>
-			        <a href="<%= info['url']||'#' %>" target="_blank"><%= info['name'] %></a> 
+                  <a class="vote pull-right" href="#vote_<%= info.row %>"><span><%= info['votes'] %></span>&nbsp;<i class="icon icon-thumbs-up"></i></a>
+
+                  <a href="<%= info['url']||'#' %>" target="_blank"><%= info['name'] %></a> 
                         [<%= info['lang']||'en' %>] 
-                        <a class="vote" href="#vote_<%= info.row %>"><span><%= info['votes'] %></span>&nbsp;<i class="icon icon-thumbs-up"></i></a>
-                    
+                        
 			</div>
           <% }); %>
       	  </div>
