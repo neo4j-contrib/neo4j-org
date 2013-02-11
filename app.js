@@ -119,6 +119,7 @@ app.locals.books=data.books;
 app.locals.trainings=data.trainings;
 app.locals.ext_content=data.ext_content;
 app.locals.pages=pages.pages;
+app.locals.content=pages.content;
 
 app.locals.neo4jS = {
     version: "1.9-SNAPSHOT",

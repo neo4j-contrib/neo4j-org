@@ -42,7 +42,7 @@ var i=0;
 
 						<% page.related.forEach(function(key) { 
 
-						var related = (typeof key == 'object' ? key : pages[key]);
+						var related = (typeof key == 'object' ? key : pages[key] || content[key]);
 
                         // key is no object and no page name, so try driver
                         if (!related) {
