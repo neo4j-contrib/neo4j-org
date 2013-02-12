@@ -147,8 +147,8 @@ app.locals({
 
 content.load_github_content(app.locals,'puppet',"/neo4j-contrib/neo4j-puppet/master/README.md")
 content.load_github_content(app.locals,'ec2_template',"/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md")
-content.load_learn_content(app.locals,'java_hello_world',"/java-hello-world.html")
-content.load_learn_content(app.locals,'java_cypher',"/java-cypher.html")
+content.load_learn_content(app.locals,'java_hello_world',"/java-hello-world/index.html")
+content.load_learn_content(app.locals,'java_cypher',"/java-cypher/index.html")
 
 function forward(url) {
     return function(req,res) { res.redirect(url); }
