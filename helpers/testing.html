@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link href="/assets/new/css/normalize.css" rel="stylesheet">
+    <link href="/assets/new/css/main.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
+    <link href="/assets/new/css/font-awesome.css" rel="stylesheet">
+    <link href="/assets/new/css/jquery-ui.css" rel="stylesheet">
+
+    <script src="/assets/new/js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+
+    <script src="//malsup.github.com/jquery.blockUI.js"></script>
+    <script>window.jQuery.blockUI || document.write('<script src="js/vendor/jquery.blockUI.js"><\/script>')</script>
+
+    <script src="//code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-target=".spyme">
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+
+<div id="headerWrapper" class="mainElement">
+    <div id="header">
+        <img id="logo" src="/assets/new/img/logo-white.svg" alt="Neo4j World's Leading Graph Database"> <div class="brand"><a href="/">Neo4j</a></div>
+        <div id="mainNav">
+
+            <ul class="hor menu">
+                <li class="learn"><a href="/learn"><i class="icon icon-book"></i> LEARN</a></li>
+                <li class="develop"><a href="/develop"><i class="icon icon-cogs"></i> DEVELOP</a></li>
+                <li class="participate"><a href="/participate"><i class="icon icon-refresh"></i> PARTICIPATE</a></li>
+                <li><a class="btn btn-install" href="/install"><i class="icon icon-download-alt"></i> INSTALL</a></li>
+                <a href="#" onclick="$('#search').show(function() { $('#search form input').focus()});" id="btn-search" type="button"><i class="icon icon-search"></i></a>
+            </ul>
+
+            <div id="search" onmouseout="$('#search').hide()" style="z-index:100;position:absolute; top:5px;right: 5px; display: none;">
+                <form target="_blank" action="http://google.com/search" method="get"><input type="hidden" name="q" value="site:www.neo4j.org"/><input type="text" name="q" /></form>
+            </div>
+
+            <div id="activePointer"><i class="icon icon-caret-up"></i></div>
+
+        </div><!-- mainNav -->
+    </div><!-- header -->
+</div><!-- headerWrapper -->
+
+
+
+
+
+<div class="page"><!-- page -->
+
+<h1>Java programming basics with Neo4j</h1>
+<p class="introText"></p>
+
+
+<p>The Neo4j Java API is very easy to use. You can interact with the GraphDatabase, Nodes and Relationships directly.            To run more interesting queries or complex operations you can also execute <a href="/java/java_cypher">Cypher</a>        from your program.</p>                                                                 <p>After including Neo4j in your project and <a href="/java/ide">setting up your IDE</a>. See the Hello-World example    below for getting started.   </p>    <h3>Adding the Neo4j dependencies to your project</h3>    <p>If you use Apache Maven, you don’t have to bother with manual downloads. Just add Neo4j to your build, like
+    this:</p>
+    <pre>&lt;dependency&gt;
+ &lt;groupId&gt;org.neo4j&lt;/groupId&gt;
+ &lt;artifactId&gt;neo4j&lt;/artifactId&gt;
+ &lt;version&gt;1.9.M04&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+<p>If you want to use Neo4j Advanced instead, just change the artifactId to <code>neo4j-advanced,</code> or use
+    <code>neo4j-enterprise</code> to use Neo4j Enterprise. For other neo4j versions state the corresponding version in the dependency declaration.</p>
+
+<p>For other build systems use the appropriate the config from <a target="_blank"
+                                                                  href="http://search.maven.org/#artifactdetails%7Corg.neo4j%7Cneo4j%7C1.9.M04%7Cjar">Maven
+    Central</a>.</p>
+<div class="markdown">
+
+
+    <div class="stage">
+        <div class="mid">
+            <h1>Hello World</h1>
+
+            <p>Learn how to create and access nodes and relationships.
+                For information on project setup, see <a target="_blank" class="manual" href="http://docs.neo4j.org/chunked/milestone/tutorials-java-embedded-setup.html">[tutorials-java-embedded-setup]</a>.</p>
+            <p>Remember, from <a target="_blank" class="manual" href="http://docs.neo4j.org/chunked/milestone/what-is-a-graphdb.html">[what-is-a-graphdb]</a>, that a Neo4j graph consist of:</p>
+            <div class="ulist"><ul>
+                <li>
+                    <p>
+                        Nodes that are connected by
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Relationships, with
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Properties on both nodes and relationships.
+                    </p>
+                </li>
+            </ul></div>
+            <p>All relationships have a type.
+                For example, if the graph represents a social network, a relationship type could be <span class="monospaced">KNOWS</span>.
+                If a relationship of the type <span class="monospaced">KNOWS</span> connects two nodes, that probably represents two people that know each other.
+                A lot of the semantics (that is the meaning) of a graph is encoded in the relationship types of the application.
+                And although relationships are directed they are equally well traversed regardless of which direction they are traversed.</p>
+            <div class="admonitionblock">
+                <table><tr>
+                    <td class="icon">
+                        <div class="title">Tip</div>
+                    </td>
+                    <td class="content">The source code of this example is found here:</td>
+                </tr></table>
+            </div>
+        </div><!-- .mid -->
+    </div><!-- .stage -->
+    <div id="_prepare_the_database" class="sect1">
+        <h2>Prepare the database</h2>
+        <div class="sectionbody">
+
+            <p>Relationship types can be created by using an <span class="monospaced">enum</span>.
+                In this example we only need a single relationship type. This is how to
+                define it:</p>
+            <div class="listingblock"><div class="content">
+<pre class="programlisting brush: java">private static enum RelTypes implements RelationshipType
+{
+    KNOWS
+}</pre>
+            </div></div>
+            <p>We also prepare some variables to use:</p>
+            <div class="listingblock"><div class="content">
+<pre class="programlisting brush: java">GraphDatabaseService graphDb;
+Node firstNode;
+Node secondNode;
+Relationship relationship;</pre>
+            </div></div>
+            <p>The next step is to start the database server.
+                Note that if the directory given for the database doesn&#8217;t already exist, it will be created.</p>
+            <div class="listingblock"><div class="content">
+<pre class="programlisting brush: java">graphDb = new GraphDatabaseFactory().newEmbeddedDatabase( DB_PATH );
+registerShutdownHook( graphDb );</pre>
+            </div></div>
+            <p>Note that starting a database server is an expensive operation, so don&#8217;t start up a new instance every time you need to interact with the database!
+                The instance can be shared by multiple threads.
+                Transactions are thread confined.</p>
+            <p>As seen, we register a shutdown hook that will make sure the database shuts down when the JVM exits.
+                Now it&#8217;s time to interact with the database.</p>
+        </div>
+    </div>
+    <div id="_wrap_writes_in_a_transaction" class="sect1">
+        <h2>Wrap writes in a transaction</h2>
+        <div class="sectionbody">
+
+            <p>All writes (creating, deleting and updating any data) have to be performed in a transaction.
+                This is a conscious design decision, since we believe transaction demarcation to be an important part of working with a real enterprise database.
+                Now, transaction handling in Neo4j is very easy:</p>
+            <div class="listingblock"><div class="content">
+<pre class="programlisting brush: java">Transaction tx = graphDb.beginTx();
+try
+{
+    // Updating operations go here
+    tx.success();
+}
+finally
+{
+    tx.finish();
+}</pre>
+            </div></div>
+            <p>For more information on transactions, see <a target="_blank" class="manual" href="http://docs.neo4j.org/chunked/milestone/transactions.html">[transactions]</a> and
+                <a target="_blank" class="manual" href="http://components.neo4j.org/neo4j/1.9-SNAPSHOT/apidocs/org/neo4j/graphdb/Transaction.html">Java API for Transaction</a>.</p>
+        </div>
+    </div>
+    <div id="_create_a_small_graph" class="sect1">
+        <h2>Create a small graph</h2>
+        <div class="sectionbody">
+
+            <p>Now, let&#8217;s create a few nodes.
+                The API is very intuitive.
+                Feel free to have a look at the JavaDocs at <a target="_blank" class="manual" href="http://components.neo4j.org/neo4j/1.9-SNAPSHOT/apidocs/">http://components.neo4j.org/neo4j/1.9-SNAPSHOT/apidocs/</a>.
+                They&#8217;re included in the distribution, as well.
+                Here&#8217;s how to create a small graph consisting of two nodes, connected with one relationship and some properties:</p>
+            <div class="listingblock"><div class="content">
+<pre class="programlisting brush: java">firstNode = graphDb.createNode();
+firstNode.setProperty( "message", "Hello, " );
+secondNode = graphDb.createNode();
+secondNode.setProperty( "message", "World!" );
+
+relationship = firstNode.createRelationshipTo( secondNode, RelTypes.KNOWS );
+relationship.setProperty( "message", "brave Neo4j " );</pre>
+            </div></div>
+            <p>We now have a graph that looks like this:</p>
+            <div class="imageblock dot">
+                <div class="content">
+                    <img target="_blank" class="manual" src="http://docs.neo4j.org/chunked/milestone/images/Hello-World-Graph-java.svg" alt="Hello-World-Graph-java.svg">
+                </div>
+                <div class="title">Figure 1. Hello World Graph</div>
+            </div>
+        </div>
+    </div>
+    <div id="_print_the_result" class="sect1">
+        <h2>Print the result</h2>
+        <div class="sectionbody">
+
+            <p>After we&#8217;ve created our graph, let&#8217;s read from it and print the result.</p>
+            <div class="listingblock"><div class="content">
+<pre class="programlisting brush: java">System.out.print( firstNode.getProperty( "message" ) );
+System.out.print( relationship.getProperty( "message" ) );
+System.out.print( secondNode.getProperty( "message" ) );</pre>
+            </div></div>
+            <p>Which will output:</p>
+            <p>Hello, brave Neo4j World!</p>
+        </div>
+    </div>
+    <div id="_remove_the_data" class="sect1">
+        <h2>Remove the data</h2>
+        <div class="sectionbody">
+
+            <p>In this case we&#8217;ll remove the data before committing:</p>
+            <div class="listingblock"><div class="content">
+<pre class="programlisting brush: java">// let's remove the data
+firstNode.getSingleRelationship( RelTypes.KNOWS, Direction.OUTGOING ).delete();
+firstNode.delete();
+secondNode.delete();</pre>
+            </div></div>
+            <p>Note that deleting a node which still has relationships when the transaction commits will fail.
+                This is to make sure relationships always have a start node and an end node.</p>
+        </div>
+    </div>
+    <div id="_shut_down_the_database_server" class="sect1">
+        <h2>Shut down the database server</h2>
+        <div class="sectionbody">
+
+            <p>Finally, shut down the database server <em>when the application finishes:</em></p>
+            <div class="listingblock"><div class="content">
+                <pre class="programlisting brush: java">graphDb.shutdown();</pre>
+            </div></div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<div class="related" class="mainElement">
+
+    <div class="row">
+
+
+
+
+
+
+
+        <div class="item _page">
+
+
+            <h3><a href="/learn/neo4j">What is Neo4j?</a></h3>
+
+            <div>
+                <p class="introText">Neo4j is a graph database, reliable and fast for managing and querying highly connected data.</p>
+            </div>
+            <a class="link" href="/learn/neo4j">Study this &raquo; &raquo;</a>
+        </div>
+
+
+
+
+
+
+    </div><!-- row -->
+    <div class="clear"></div>
+
+</div><!-- related -->
+
+
+
+</div><!-- page -->
+
+<script type="text/javascript">
+    <!--
+    $(document).ready(function() {
+
+        nav.activateMain('java', '5.7em');
+
+        nav.initThumbnails();
+        nav.resize();
+        //nav.init();
+        //nav.activate('graph_concepts');
+
+        //$(window).on('resize', function() {
+        //    nav.resize();
+        //});
+
+    });
+    //-->
+</script>
+
+
+
+
+<div id="footer" class="mainElement">
+
+    <div id="linkContainer">
+
+        <div class="linkBlock">
+            <ul class="vertical menu">
+                <li class="fheader"><i class="icon icon-book"></i><a href="/learn">Learn</a></li>
+                <li><a href="/learn/graphdatabase">Graph Database</a></li>
+                <li><a href="/learn/neo4j">What is Neo4j</a></li>
+                <li><a href="/learn/cypher">Query Tutorial</a></li>
+                <li><a href="/learn/nosql">NoSQL Data Models</a></li>
+                <li><a href="/learn/apps">Apps Gallery</a></li>
+                <li><a href="http://www.neotechnology.com/customers/" target="_blank">Customers & Use cases</a></li>
+                <li><a href="/learn/books">Books</a></li>
+                <li><a href="/learn/licensing">Licensing Guide</a></li>
+            </ul>
+        </div>
+        <div class="linkBlock">
+            <ul class="vertical menu">
+                <li class="fheader"><i class="icon icon-cogs"></i><a href="/learn">Develop</a></li>
+                <li><a href="/develop#install">Install Neo4j</a></li>
+                <li><a href="/develop#cloud">Cloud</a></li>
+                <li><a href="/learn/try" >Try Live</a></li>
+                <li><a href="/develop/drivers">Language drivers</a></li>
+                <li><a href="/develop/visualize">Visualization</a></li>
+                <li><a href="/develop/example_data">Sample Datasets</a></li>
+                <li><a href="/develop/spring">Spring Data Neo4j</a></li>
+            </ul>
+        </div>
+        <div class="linkBlock">
+            <ul class="vertical menu">
+                <li class="fheader"><i class="icon icon-refresh"></i><a href="/learn">Participate</a></li>
+                <li><a href="/participate/contributors">Contributors</a></li>
+                <li><a href="http://stackoverflow.com/search?q=neo4j" target="_blank">Stack Overflow</a></li>
+                <li><a href="http://neo4j.meetup.com" target="_blank">Meetups</a></li>
+                <li><a href="https://groups.google.com/group/neo4j/" target="_blank">Google Group</a></li>
+                <li><a href="http://www.github.com/neo4j/neo4j" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+        <div class="linkBlock">
+            <ul class="vertical menu">
+                <li class="fheader"><img class="icon" src="/assets/new/img/neo4j-aqua.svg" width="16px" align="left" alt="Neo4j"><a href="/learn">Quick Links</a></li>
+                <li><a href="/install">Install</a></li>
+                <li><a href="http://docs.neo4j.org" target="_blank">Neo4j Manual</a></li>
+                <li><a href="/learn/try" >Try Live</a></li>
+                <li><a href="http://watch.neo4j.org" target="_blank">Videos</a></li>
+            </ul>
+        </div>
+
+        <div class="linkBlock">
+            <ul class="vertical menu connect">
+                <li><a href="http://blog.neo4j.org" target="_blank"><i class="icon-bookmark"></i> Neo4j&nbsp;Blog</a></li>
+                <!-- <li><a href="https://groups.google.com/group/neo4j/" target="_blank"><i class="icon-comments"></i> Google Group</a></li> -->
+                <li><a href="https://twitter.com/neo4j" target="_blank"><i class="icon-twitter"></i>  Twitter</a></li>
+                <li><a href="http://www.linkedin.com/groups?gid=2623939" target="_blank"><i class="icon-linkedin"></i>  LinkedIn</a></li>
+                <li><a href="http://info.neotechnology.com/contactus.html" target="_blank"><i class="icon-phone"></i>  Contact Us</a></li>
+            </ul>
+            <!--<div class="subscribe">
+Please keep me updated about Neo4j events, releases and articles.
+<iframe src="http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html" onload="this.style.visibility = 'visible';" style="border:0;padding: 0;" width="250px" height="100px" frameborder=”0” scrolling="no"></iframe>
+</div>
+
+-->
+        </div>
+
+        <p class="disclaimer">&copy; 2013 <a href="http://neotechnology.com">Neo Technology</a>, Inc.  &nbsp; Graphs are Everywhere.  &nbsp; &nbsp; <a href="/terms" class="legal">Terms</a> | <a href="/privacy" class="legal">Privacy Policy</a></p>
+
+    </div>
+</div>
+
+
+
+<script src="/assets/new/js/plugins.js"></script>
+<script src="/assets/new/js/neo4j.js"></script>
+<script src="/assets/new/js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>
+

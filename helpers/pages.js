@@ -24,13 +24,7 @@ exports.pages = {
         path: "/learn/concepts",
         title: "Graph Concepts",
         introText: null,
-        featured: {
-            title: "Graph DB 101",
-            type: "video",
-            thumbnail: "/assets/img/still/graphdb-intro.png",
-            introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
-            src: "http://player.vimeo.com/video/46886385"
-        },
+        featured: ["content_video_graphdb101"],
         actionText: "Learn more",
         related: [ "graphdatabase", "nosql" ]
     },
@@ -64,8 +58,8 @@ exports.pages = {
         path: "/java",
         title: "Neo4j for Java devs",
         introText: "As the 4j indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.",
-        next: ["java_basics","jvm"],
-        prev : ["server_plugins"],
+        next: ["java_basics", "jvm"],
+        prev: ["server_plugins"],
         featured: {
             type: "track",
             content: "<p>Welcome to Neo4j. For a Java or JVM-language developer, Neo4j offers a rich set of integration possibilities. Make sure to have looked at our information on <a href='/learn/graphdatabase'>graph databases</a> and Neo4j in general. You should also check out our graph query language Cypher which makes it very easy to get going regardless of the development platform.</p>\
@@ -101,17 +95,13 @@ exports.pages = {
         featured: {
             type: "track",
             content: "<p>The Neo4j Java API is very easy to use. You can interact with the GraphDatabase, Nodes and Relationships directly.\
-            To run more interesting queries or complex operations you can also execute <a href=\"/java/java_cypher\">Cypher</a>\
-        from your program.</p>\
-                                                             \
-    <p>After including Neo4j in your project and <a href=\"/java/ide\">setting up your IDE</a>. See the Hello-World example\
-    below for getting started.   </p>\
+            To run more interesting queries or complex operations you can also execute <a href=\"/java/java_cypher\">Cypher</a> from your program.</p>\
+    <p>After including Neo4j in your project and <a href=\"/java/ide\">setting up your IDE</a>. See the Hello-World example below for getting started.</p>\
     <h3>Adding the Neo4j dependencies to your project</h3>\
-    <% include ../download/_embedded_dependency %>      \
-                                                              \
-        <div class=\"markdown\"><%- content.java_hello_world %></div>"
+    <% include ../download/_embedded_dependency %><div class=\"markdown\">\
+    <%- content.java_hello_world %></div>"
 
-        } ,
+        },
         related: ["neo4j"]
 
     },
@@ -120,7 +110,7 @@ exports.pages = {
         title: "JVM projects",
         introText: "(TODO) Intro text for JVM projects",
         next: ["server_plugins"],
-        prev: ["java_basics","jvm"],
+        prev: ["java_basics", "jvm"],
         featured: {
             type: "track",
             content: "<ul><!-- todo replace with tiles -->\
@@ -152,9 +142,10 @@ exports.pages = {
                 thumbnail: "/assets/img/languages/java.jpg",
                 introText: "Neo4j server manual sections",
                 actionText: "Browse the neo4j server manual"
-            }]
+            }
+        ]
     },
-    
+
     production: {
         path: "/learn/production",
         title: "Going into Production",
@@ -172,7 +163,7 @@ exports.pages = {
             {
                 title: "Partners Graph",
                 introText: "Neo Technology works with a large, worldwide partner network which provide local consulting and training services.",
-                path : "http://www.neotechnology.com/partners/"
+                path: "http://www.neotechnology.com/partners/"
             },
 
         ]
@@ -223,13 +214,13 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         path: "/learn/graphdatabase",
         title: "What is a Graph Database?",
         introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way. Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
-        next : [],
-        prev : ["nosql"],
+        next: [],
+        prev: ["nosql"],
         featured: {
-            type : "page",
-            title : "A Graph contains Nodes and Relationships",
-            thumbnail : "/assets/img/propertygraph/graphdb-gve.png",
-            content : "<p>A Graph –[:RECORDS_DATA_IN]–> Nodes –[:WHICH_HAVE]–> Properties.</p>The simplest possible graph is a single Node, a record that has named values referred to as Properties. A Node could start with a single Property and grow to a few million, though that can get a little awkward. At some point it makes sense to distribute the data into multiple nodes, organized with explicit Relationships."
+            type: "page",
+            title: "A Graph contains Nodes and Relationships",
+            thumbnail: "/assets/img/propertygraph/graphdb-gve.png",
+            content: "<p>A Graph –[:RECORDS_DATA_IN]–> Nodes –[:WHICH_HAVE]–> Properties.</p>The simplest possible graph is a single Node, a record that has named values referred to as Properties. A Node could start with a single Property and grow to a few million, though that can get a little awkward. At some point it makes sense to distribute the data into multiple nodes, organized with explicit Relationships."
         },
         actionText: "Learn more &raquo;",
         related: []
@@ -238,12 +229,12 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         path: "/learn/nosql",
         title: "NoSQL Data Models",
         introText: "Understanding data stores for your application.",
-        next : ["graphdatabase"],
-        prev : ["concepts"],
+        next: ["graphdatabase"],
+        prev: ["concepts"],
         featured: {
-            type : "track",
-            introText : "(Neo4j) –[:IS_A]–> (NoSQL Database)",
-            content : "<p><strong>N</strong>ot <strong>o</strong>nly <strong>SQL</strong>, but modern choices which excel at answering different kinds of questions.</p>\
+            type: "track",
+            introText: "(Neo4j) –[:IS_A]–> (NoSQL Database)",
+            content: "<p><strong>N</strong>ot <strong>o</strong>nly <strong>SQL</strong>, but modern choices which excel at answering different kinds of questions.</p>\
     <ul>\
         <li>Average income? Ask an RDBMS\
         <li>Shopping cart? Use a Key-Value Store\
@@ -257,13 +248,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         path: "/learn/get_started",
         title: "Get started with Neo4j",
         introText: "(TODO) Intro text for get started with Neo4j",
-        featured: {
-            title: "Installing Neo4j",
-            type: "video",
-            thumbnail: "/assets/img/still/install.gif",
-            introText: "Peter Neubauer guides through the first steps of downloading and running Neo4j.",
-            src: "http://player.vimeo.com/video/53838744"
-        },
+        featured: ["content_video_installing_neo4j"],
         related: ["intro", "drivers"]
     },
     drivers: {
@@ -361,11 +346,11 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         title: "Contributors - you rock.",
         introText: "The Neo4j project is driven by the community. Here are some individuals that you might encounter in the discussion forums or come across their projects.\
         For a full list of all code contributors, please see <a href='http://docs.neo4j.org/chunked/snapshot/contributors.html'>The official docs.</a>",
-        previewText : "We're very proud to have such an engaged group of contributors to Neo4j and its ecosystem.",
-        actionText : "See our contributors &raquo;",
+        previewText: "We're very proud to have such an engaged group of contributors to Neo4j and its ecosystem.",
+        actionText: "See our contributors &raquo;",
         featured: {
             type: "_contributors",
-            thumbnail : "/assets/new/img/contributors.png"
+            thumbnail: "/assets/new/img/contributors.png"
         },
         related: []
     },
@@ -407,12 +392,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         title: "Neo4j at Conferences",
         introText: "(TODO) intro text neo4j conferences",
         actionText: "Neo4j at conferences",
-        featured: {
-            type: "article",
-            title: "GraphConnect 2012",
-            introText: "(TODO) Introtext GraphConnect 2012",
-            content: "TODO: Content for GraphConnect page"
-        },
+        featured: ["content_article_gc2012"],
         related: ["events", "meetups", "webinars"]
 
     },
@@ -452,7 +432,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         actionText: "Study this &raquo;",
         featured: {
             type: "article",
-            content : "Neo4j is an open-source <a href='/learn/graphdatabase'>graph database</a> supported by <a onclick=\"javascript:pageTracker._trackPageview(\'/outgoing/neotechnology.com/');\" href='http://neotechnology.com/''>Neo Technology</a>.</p>\
+            content: "Neo4j is an open-source <a href='/learn/graphdatabase'>graph database</a> supported by <a onclick=\"javascript:pageTracker._trackPageview(\'/outgoing/neotechnology.com/');\" href='http://neotechnology.com/''>Neo Technology</a>.</p>\
     <p>Neo4j stores data in nodes connected by directed, typed relationships with properties on both, also known as a <a href='/learn/graphdatabase'>Property Graph</a>.</p>\
     <h3>Neo4j is</h3>\
      <ul id='features'>\
@@ -479,15 +459,11 @@ Sales, training, and marketing enablement to expand existing and drive new partn
             "reference_card"
         ]
     },
-    reference_card : {
-        path : "/learn/neo4j/reference_card",
+    reference_card: {
+        path: "/learn/neo4j/reference_card",
         title: "Neo4j Reference Card",
-        thumbnail : "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w587.png",
-        featured : {
-            type : "image",
-            title : "Neo4j Reference Card",
-            src : "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
-        }
+        thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w587.png",
+        featured: ["content_image_neo4j_ref_card"]
     },
     cypher: {
         path: "/learn/cypher",
@@ -549,66 +525,66 @@ Sales, training, and marketing enablement to expand existing and drive new partn
             "cypher"
         ]
     },
-    visualize : {
-        path : "/develop/visualize",
-        title : "Graph Visualization",
-        introText : "Storing a graph is one thing, but visualizing it creates awe and epiphanies.\
+    visualize: {
+        path: "/develop/visualize",
+        title: "Graph Visualization",
+        introText: "Storing a graph is one thing, but visualizing it creates awe and epiphanies.\
                 Graph visualisations are a powerful tool to convey the content of a graph. They can highlight patterns, show clusters and connections.\
                 There are different tools that you can use to visualize the content of a Neo4j graph database.",
-        featured : {
-            type : "_visualize",
-            items : [
+        featured: {
+            type: "_visualize",
+            items: [
                 {
-                    title : "Neo4j Server Web Interface",
-                    type : "image",
-                    introText : "<p>The Data Browser Tab offers a handy visualization of your graph. You can select the nodes to be shown by id,  index lookup or <a href='/learn/cypher'>cypher query</a>. A style editor will adapt the visualization to your needs.</p>\
+                    title: "Neo4j Server Web Interface",
+                    type: "image",
+                    introText: "<p>The Data Browser Tab offers a handy visualization of your graph. You can select the nodes to be shown by id,  index lookup or <a href='/learn/cypher'>cypher query</a>. A style editor will adapt the visualization to your needs.</p>\
                             <p>The Neo4j Server Web Interface was written using arbor.js and canvas.</p>",
-                    thumbnail : "/assets/img/still/server_visualization.jpg",
-                    src : "/assets/img/still/server_visualization.jpg"
+                    thumbnail: "/assets/img/still/server_visualization.jpg",
+                    src: "/assets/img/still/server_visualization.jpg"
                 },
                 {
-                    title : "JavaScript D3.js",
-                    type : "image",
-                    introText : "<p>D3 is the most powerful javascript visualization library which supports a large number of visualizations, many of them are usable for graphs as well, <a href='http://maxdemarzi.com/tag/visualization-2/' target='_blank'>Max De Marzi</a> covered several of the visualizations on his blog.</p>",
-                    thumbnail : "/assets/img/still/d3_network.png",
-                    src : "/assets/img/still/server_visualization.jpg"
+                    title: "JavaScript D3.js",
+                    type: "image",
+                    introText: "<p>D3 is the most powerful javascript visualization library which supports a large number of visualizations, many of them are usable for graphs as well, <a href='http://maxdemarzi.com/tag/visualization-2/' target='_blank'>Max De Marzi</a> covered several of the visualizations on his blog.</p>",
+                    thumbnail: "/assets/img/still/d3_network.png",
+                    src: "/assets/img/still/server_visualization.jpg"
                 },
                 {
-                    title : "Gephi",
-                    type : "image",
-                    introText : "<p>The well known Graph visualization tool Gephi has a <a href='http://gephi.org/tag/neo4j/' target='_blank'>plugin for importing Neo4j</a> Databases which can then be visualized and rendered with the full power of Gephi's engines.</p>",
-                    thumbnail : "/assets/img/still/server_visualization.jpg",
-                    src : "http://player.vimeo.com/video/31823202?badge=0&byline=0&portrait=0&title=0"
+                    title: "Gephi",
+                    type: "image",
+                    introText: "<p>The well known Graph visualization tool Gephi has a <a href='http://gephi.org/tag/neo4j/' target='_blank'>plugin for importing Neo4j</a> Databases which can then be visualized and rendered with the full power of Gephi's engines.</p>",
+                    thumbnail: "/assets/img/still/server_visualization.jpg",
+                    src: "http://player.vimeo.com/video/31823202?badge=0&byline=0&portrait=0&title=0"
                 },
                 {
-                    title : "GraphViz",
-                    type : "video",
-                    introText : "<p>Using the GraphViz Exporter it is possible to generate <code>.dot</code> files which can then be rendered as images using graphviz' dot toolchain.\
+                    title: "GraphViz",
+                    type: "video",
+                    introText: "<p>Using the GraphViz Exporter it is possible to generate <code>.dot</code> files which can then be rendered as images using graphviz' dot toolchain.\
           See this <a href='http://blog.neo4j.org/2012/05/graph-this-rendering-your-graph-with.html' target='_blank'>blog post</a> for details.</p>",
-                    thumbnail : "/assets/img/still/server_visualization.jpg",
+                    thumbnail: "/assets/img/still/server_visualization.jpg",
                 }
             ]
         },
-        related : [
+        related: [
             {
-                title : "Max De Marzi's Graph Visualization Blog",
-                path : "http://maxdemarzi.com/tag/visualization-2/"
+                title: "Max De Marzi's Graph Visualization Blog",
+                path: "http://maxdemarzi.com/tag/visualization-2/"
             },
             {
-                title : "D3.js visualization",
-                path : "https://github.com/mbostock/d3/wiki/Gallery"
+                title: "D3.js visualization",
+                path: "https://github.com/mbostock/d3/wiki/Gallery"
             },
             {
-                title : "Gephi",
-                path : "http://gephi.org"
+                title: "Gephi",
+                path: "http://gephi.org"
             },
             {
-                title : "Neoclipse on GitHub",
-                path : "https://github.com/neo4j/neoclipse"
+                title: "Neoclipse on GitHub",
+                path: "https://github.com/neo4j/neoclipse"
             },
             {
-                title : "A collection of graph visualization options",
-                path : "http://clipboard.com/mesirii/boards/viz"
+                title: "A collection of graph visualization options",
+                path: "http://clipboard.com/mesirii/boards/viz"
             }
         ]
     },
@@ -671,19 +647,44 @@ Sales, training, and marketing enablement to expand existing and drive new partn
 }
 
 exports.content = {
-    content_video_ha : {
+    content_video_ha: {
         title: "High Availability",
         type: "video",
         thumbnail: "/assets/img/still/ha_video.gif",
         introText: "See how to setup a 3-member cluster for the <strong>new Neo4j HA 1.5</strong> running on a single machine.",
         src: "http://player.vimeo.com/video/51906007"
-    }  ,
+    },
     content_video_cypher: {
         title: "Query with Cypher",
         type: "video",
         thumbnail: "/assets/img/still/cypher.png",
         introText: "Cypher is a graph query language. Easy on the eyes, while expressive and powerful.",
         src: "http://player.vimeo.com/video/50389825"
+    },
+    content_video_installing_neo4j: {
+        title: "Installing Neo4j",
+        type: "video",
+        thumbnail: "/assets/img/still/install.gif",
+        introText: "Peter Neubauer guides through the first steps of downloading and running Neo4j.",
+        src: "http://player.vimeo.com/video/53838744"
+    },
+    content_video_graphdb101: {
+        title: "Graph DB 101",
+        type: "video",
+        thumbnail: "/assets/img/still/graphdb-intro.png",
+        introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
+        src: "http://player.vimeo.com/video/46886385"
+    },
+    content_image_neo4j_ref_card: {
+        type: "image",
+        title: "Neo4j Reference Card",
+        src: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
+    },
+    content_article_gc2012: {
+        type: "article",
+        title: "GraphConnect 2012",
+        introText: "(TODO) Introtext GraphConnect 2012",
+        content: "TODO: Content for GraphConnect page"
     }
-    
+
 }
