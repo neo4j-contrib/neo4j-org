@@ -349,43 +349,11 @@ ul.hor li {
     color: #f7f7f7;
 }
 
-#lead {
-    width: 60em;
-    /*min-height: 1.7em;*/
-    margin: 0 auto;
-    padding-top: .5em;
-}
-
-#lead .intro {
-    font-weight: 600;
-}
-
 .introText a,
 .introText a:visited,
 .introText a:hover,
 .introText a:active {
     color: #00546a;
-}
-
-#lead .col {
-    width: 48%;
-    height: 80%;
-}
-
-#lead .left {
-    float: left;
-}
-
-#lead .right {
-    float: right;
-}
-
-#lead .col:first-child {
-    margin-right: 2em;
-}
-
-#lead h3 {
-    padding: .5em 0;
 }
 
 #secNav {
@@ -553,6 +521,45 @@ ul.hor li {
     background: transparent;
 }
 
+.lead {
+    width: 60em;
+    /*min-height: 1.7em;*/
+    margin: 0 auto;
+    padding-top: .5em;
+}
+
+.lead .introText {
+    font-weight: 600;
+}
+
+.lead .col {
+    width: 48%;
+    height: 80%;
+}
+
+.lead .left {
+    float: left;
+}
+
+.lead .right {
+    float: right;
+}
+
+.lead .col:first-child {
+    margin-right: 2em;
+}
+
+.lead h3 {
+    padding: .5em 0;
+}
+
+.lead a,
+.lead a:visited,
+.lead a:hover,
+.lead a:active {
+    color: #00546a;
+}
+
 /****************** featured *******************/
 
 .featured {
@@ -610,11 +617,11 @@ ul.hor li {
     color: #00546a;
 }
 
-.featured .slide img {
-    /*width: 30em;*/
+.featured .slide .thumbnail {
+    width: 37em;
 }
 
-.featured .slide img:hover {
+.featured .slide .thumbnail:hover {
     cursor: pointer;
     border: 3px solid #00546a;
     margin: -3px;
@@ -676,8 +683,14 @@ ul.hor li {
     float: left;
 }
 
-.featured .image .thumbnail {
-    width: 100% ! important;
+.featured .image {
+    overflow: auto;
+    height: 100% ! important;
+    padding: 0;
+}
+
+.featured .image img {
+    width: 57em;
 }
 
 /****************** tracks *******************/
@@ -800,10 +813,9 @@ ul.hor li {
     padding-bottom: .5em;
 }
 
-.related .row .item img {
-    margin-bottom: 1em;
+.related .item img {
     display: block;
-    margin: auto;
+    margin: 0 auto .5em auto;
 }
 
 .related .row .item img.logo {
@@ -814,10 +826,11 @@ ul.hor li {
 
 .related .introText {
     font-size: .9em;
+    margin-bottom: 0;
 }
 
 .related .preview {
-    max-width: 16em;
+    max-width: 17em;
     max-height: 10em;
     margin: auto;
     border: 1px solid #a5a5a5;
@@ -862,6 +875,7 @@ ul.hor li {
 }
 
 .related .link {
+    margin-top: 0;
     float: right;
 }
 

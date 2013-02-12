@@ -4,7 +4,7 @@ exports.pages = {
         title: "Learn",
         introText: "From graph concepts to deploying a globe spanning cluster, the path to success starts here.",
         featured: null,
-        related: ["graph_concepts", "intro", "tracks", "production"]
+        related: ["concepts", "intro", "tracks", "production"]
     },
     develop: {
         path: "/develop",
@@ -20,7 +20,7 @@ exports.pages = {
         featured: null,
         related: ["contributors", "events", "q_and_a"]
     },
-    graph_concepts: {
+    concepts: {
         path: "/learn/concepts",
         title: "Graph Concepts",
         introText: null,
@@ -158,8 +158,7 @@ exports.pages = {
     production: {
         path: "/learn/production",
         title: "Going into Production",
-        introText: "In order to run Neo4j in production scenarios, there are a number of aspects that need to be covered. Here you can find some resources on the different " +
-            "aspects of putting Neo4j into production.",
+        introText: "In order to run Neo4j in production scenarios, there are a number of aspects that need to be covered. Here you find some resources on putting Neo4j into production.",
         featured: {
             title: "Production Secrets",
             type: "video",
@@ -168,7 +167,15 @@ exports.pages = {
             src: "http://player.vimeo.com/video/49485027"
         },
         actionText: "Get the secrets &raquo;",
-        related: ["licensing", "partners"]
+        related: [
+            "licensing",
+            {
+                title: "Partners Graph",
+                introText: "Neo Technology works with a large, worldwide partner network which provide local consulting and training services.",
+                path : "http://www.neotechnology.com/partners/"
+            },
+
+        ]
     },
     licensing: {
         path: "/learn/licensing",
@@ -214,17 +221,35 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     },
     graphdatabase: {
         path: "/learn/graphdatabase",
-        title: "Property Graph",
-        introText: "Neo4j stores data in a Property Graph: nodes + relationships, with properties on both. Leave the schema behind and start focusing on how your data is connected.",
-        featured: null,
+        title: "What is a Graph Database?",
+        introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way. Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
+        next : [],
+        prev : ["nosql"],
+        featured: {
+            type : "page",
+            title : "A Graph contains Nodes and Relationships",
+            thumbnail : "/assets/img/propertygraph/graphdb-gve.png",
+            content : "<p>A Graph –[:RECORDS_DATA_IN]–> Nodes –[:WHICH_HAVE]–> Properties.</p>The simplest possible graph is a single Node, a record that has named values referred to as Properties. A Node could start with a single Property and grow to a few million, though that can get a little awkward. At some point it makes sense to distribute the data into multiple nodes, organized with explicit Relationships."
+        },
         actionText: "Learn more &raquo;",
         related: []
     },
     nosql: {
         path: "/learn/nosql",
-        title: "NoSQL",
-        introText: "You know relational, now consider relationships. Relate the graph model to relational, documents, and other NoSQL stores.",
-        featured: null,
+        title: "NoSQL Data Models",
+        introText: "Understanding data stores for your application.",
+        next : ["graphdatabase"],
+        prev : ["concepts"],
+        featured: {
+            type : "track",
+            introText : "(Neo4j) –[:IS_A]–> (NoSQL Database)",
+            content : "<p><strong>N</strong>ot <strong>o</strong>nly <strong>SQL</strong>, but modern choices which excel at answering different kinds of questions.</p>\
+    <ul>\
+        <li>Average income? Ask an RDBMS\
+        <li>Shopping cart? Use a Key-Value Store\
+        <li>How did you get here? Ask a graph\
+    </ul>"
+        },
         actionText: "Not only SQL &raquo;",
         related: null
     },
@@ -336,8 +361,11 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         title: "Contributors - you rock.",
         introText: "The Neo4j project is driven by the community. Here are some individuals that you might encounter in the discussion forums or come across their projects.\
         For a full list of all code contributors, please see <a href='http://docs.neo4j.org/chunked/snapshot/contributors.html'>The official docs.</a>",
+        previewText : "We're very proud to have such an engaged group of contributors to Neo4j and its ecosystem.",
+        actionText : "See our contributors &raquo;",
         featured: {
-            type: "_contributors"
+            type: "_contributors",
+            thumbnail : "/assets/new/img/contributors.png"
         },
         related: []
     },
@@ -420,14 +448,46 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     neo4j: {
         path: "/learn/neo4j",
         title: "What is Neo4j?",
-        introText: "Our versioned online manual start with a comprehensive tutorial section.",
+        introText: "Neo4j is a graph database, reliable and fast for managing and querying highly connected data.",
         actionText: "Study this &raquo;",
         featured: {
             type: "article",
-            introText: "Neo4j is a graph database, reliable and fast for managing and querying highly connected data.",
-
+            content : "Neo4j is an open-source <a href='/learn/graphdatabase'>graph database</a> supported by <a onclick=\"javascript:pageTracker._trackPageview(\'/outgoing/neotechnology.com/');\" href='http://neotechnology.com/''>Neo Technology</a>.</p>\
+    <p>Neo4j stores data in nodes connected by directed, typed relationships with properties on both, also known as a <a href='/learn/graphdatabase'>Property Graph</a>.</p>\
+    <h3>Neo4j is</h3>\
+     <ul id='features'>\
+        <li><em>intuitive</em>, using a graph model for data representation</li>\
+        <li><em>reliable</em>, with full ACID transactions</li>\
+        <li><em>durable and fast</em>, using a custom disk-based, native storage engine</li>\
+        <li><em>massively scalable</em>, up to several billion nodes/relationships/properties</li>\
+        <li><em>highly-available</em>, when distributed across multiple machines</li>\
+        <li><em>expressive</em>, with a powerful, human readable <a href='/learn/cypher'>graph query language</a></li>\
+        <li><em>fast</em>, with a powerful traversal framework for high-speed graph queries</li>\
+        <li><em>embeddable</em>, with a few small jars</li>\
+        <li><em>simple</em>, accessible by a convenient <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/docs.neo4j.org/chunked/stable/rest-api.html');\" href='http://docs.neo4j.org/chunked/1.8.1/rest-api.html'>REST interface</a> or\
+            an object-oriented Java <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/api.neo4j.org/');\" href='http://api.neo4j.org/1.8.1'>API</a>"
         },
-        related: []
+        related: [
+            "graphdatabase",
+            {
+                title: "Graph DB 101",
+                type: "video",
+                thumbnail: "/assets/img/still/graphdb-intro.png",
+                introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
+                src: "http://player.vimeo.com/video/46886385"
+            },
+            "reference_card"
+        ]
+    },
+    reference_card : {
+        path : "/learn/neo4j/reference_card",
+        title: "Neo4j Reference Card",
+        thumbnail : "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w587.png",
+        featured : {
+            type : "image",
+            title : "Neo4j Reference Card",
+            src : "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
+        }
     },
     cypher: {
         path: "/learn/cypher",

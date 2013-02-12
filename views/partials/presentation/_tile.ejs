@@ -6,8 +6,7 @@
     <a href="<%= item.path %>"><img class="logo" src="<%= item.img %>"></a>
     <% } %>
     <div>
-        <p><%- item.intro %></p>
+        <p class="introText"><%- related.previewText ? related.previewText : related.introText %></p>
     </div>
-    <% if (hasPath) { %><p><a class="btn" href="<%= item.path %>"><%= item.actionText %></a></p><% } %>
-
+    <% if (hasPath) { %><a class="link" href="<%= related.path %>"><%= related.actionText ? related.actionText : 'Learn more &raquo;' %></a><% } %>
 </div>
