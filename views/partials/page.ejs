@@ -1,4 +1,4 @@
-<% include head %>
+<% include ../head %>
 
 <%
 var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
@@ -51,7 +51,7 @@ var i=0;
                             i++;
 
                             var driver = key;
-                            %><% include partials/driver/_tile %><%
+                            %><% include ../partials/driver/_tile %><%
 
                         %><% if (i > 0 && i % 3 == 0) { %>
                         </div><!-- row -->
@@ -82,17 +82,17 @@ var i=0;
 						if (page.featured && page.featured.length) {
 
 							switch (related.featured.type) {
-								case 'article' : %><% include partials/article/_tile %><%break;
-								case 'video'   : %><% include partials/video/_tile %><%break;
-								case 'event'   : %><% include partials/event/_tile %><%break;
-								case 'book'    : %><% include partials/book/_tile %><%break;
-								case 'person'  : %><% include partials/person/_tile %><%break;
-								default        : %><% include partials/default/_tile %><%
+								case 'article' : %><% include ../partials/article/_tile %><%break;
+								case 'video'   : %><% include ../partials/video/_tile %><%break;
+								case 'event'   : %><% include ../partials/event/_tile %><%break;
+								case 'book'    : %><% include ../partials/book/_tile %><%break;
+								case 'person'  : %><% include ../partials/person/_tile %><%break;
+								default        : %><% include ../partials/default/_tile %><%
 							}
 						} else {
                             // Default for overview pages (no featured content)
                             
-                            %><% include partials/page/_tile %><%
+                            %><% include ../partials/page/_tile %><%
 
                         }
 
@@ -132,4 +132,4 @@ var i=0;
 
 <% } %>        
 
-<% include foot %>
+<% include ../foot %>

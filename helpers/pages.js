@@ -31,7 +31,7 @@ exports.pages = {
             introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
             src: "http://player.vimeo.com/video/46886385"
         },
-        actionText: "Learn more &raquo;",
+        actionText: "Learn more",
         related: [ "graphdatabase", "nosql" ]
     },
     intro: {
@@ -57,7 +57,7 @@ exports.pages = {
             introText: "The following tracks are available (more to follow soon!):",
             content: "<ul><li><a href='/java'>Java</a></li></ul>"
         },
-        actionText: "Choose your track &raquo;",
+        actionText: "Choose your track",
         related: ["neo4j", "cypher"]
     },
     java: {
@@ -80,14 +80,14 @@ exports.pages = {
                 path: "http://api.neo4j.org/current/",
                 thumbnail: "/assets/img/languages/java.jpg",
                 introText: "Check out the Java API of the current milestone.",
-                actionText: "Browse JavaDoc &raquo;"
+                actionText: "Browse JavaDoc"
             },
             {
                 title: "Manual: the Java Tutorial",
                 path: "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html",
                 thumbnail: "/assets/img/languages/java.jpg",
-                introText: "In tutorial you will find everything needed — from setting up the environment to doing something useful with your data.",
-                actionText: "Go to the manual &raquo;"
+                introText: "In the tutorial you will find everything needed — from setting up the environment to doing something useful with your data.",
+                actionText: "Go to the manual"
             }
         ]
     },
@@ -101,13 +101,13 @@ exports.pages = {
         featured: {
             type: "track",
             content: "<p>The Neo4j Java API is very easy to use. You can interact with the GraphDatabase, Nodes and Relationships directly.\
-            To run more interesting queries or complex operations you can also execute <a href=\"/paths/java/java_cypher\">Cypher</a>\
+            To run more interesting queries or complex operations you can also execute <a href=\"/java/java_cypher\">Cypher</a>\
         from your program.</p>\
                                                              \
     <p>After including Neo4j in your project and <a href=\"/java/ide\">setting up your IDE</a>. See the Hello-World example\
     below for getting started.   </p>\
     <h3>Adding the Neo4j dependencies to your project</h3>\
-    <% include ../../download/_embedded_dependency %>      \
+    <% include ../download/_embedded_dependency %>      \
                                                               \
         <div class=\"markdown\"><%- content.java_hello_world %></div>"
 
@@ -181,7 +181,7 @@ exports.pages = {
         path: "/learn/licensing",
         title: "Commercial Licensing",
         introText: "Neo4's enterprise editions are provided by Neo Technology for use in commercial, non open-source deployments.",
-        actionText: "Read more &raquo;",
+        actionText: "Read more",
         featured: {
             title: "Pragmatic licensing guide",
             introText: "Understand which license you need and how Neo Technology can help you.",
@@ -203,7 +203,7 @@ exports.pages = {
         title: "Partner Graph",
         //path : "http://www.neotechnology.com/partners/",
         introText: "Neo Technology works with a large, worldwide partner network which provide local consulting and training services.",
-        actionText: "Read more &raquo;",
+        actionText: "Read more",
         featured: {
             title: "Neo4j Partners Graph",
             introText: "The Neo4j Partner Graph provides market differentiation and sustainable revenue opportunities for its members.",
@@ -291,7 +291,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         path: "/develop/cloud",
         title: "Neo4j in the Cloud",
         introText: "Neo4j can be run in various cloud scenarios and on a number of cloud stacks.",
-        actionText: "Neo4j in the Cloud &raquo;",
+        actionText: "Neo4j in the Cloud",
         featured: {
             title: "James Ward on Neo4j",
             type: "video",
@@ -305,7 +305,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         path: "/develop/heroku",
         title: "Neo4j Heroku Add-on",
         introText: "NA managed graph database in the cloud, perfect for getting to know Neo4j.",
-        actionText: "Do it now &raquo;",
+        actionText: "Do it now",
         featured: {
             type: "article",
             title: "Neo4j on Heroku",
@@ -319,7 +319,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     heroku_screencast: {
         path: "/develop/heroku/screencast",
         title: "Screencast: Integrate Neo4j, Heroku and Google Docs",
-        actionText: "Watch this screencast  &raquo;",
+        actionText: "Watch this screencast ",
         featured: {
             type: "video",
             title: "Screencast: Integrate Neo4j, Heroku and Google Docs",
@@ -380,7 +380,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         path: "/participate/events/meetups",
         title: "Meetups around the World",
         introText: "",
-        actionText: "Find a meetup &raquo;",
+        actionText: "Find a meetup",
         featured: {
             type: "article",
             title: "",
@@ -393,7 +393,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         path: "/participate/events/webinars",
         title: "Webinars",
         introText: "",
-        actionText: "Find a webinar &raquo;",
+        actionText: "Find a webinar",
         featured: {
             type: "article",
             title: "",
@@ -406,7 +406,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         path: "/participate/events/conferences",
         title: "Neo4j at Conferences",
         introText: "(TODO) intro text neo4j conferences",
-        actionText: "Neo4j at conferences &raquo;",
+        actionText: "Neo4j at conferences",
         featured: {
             type: "article",
             title: "GraphConnect 2012",
@@ -427,21 +427,21 @@ Sales, training, and marketing enablement to expand existing and drive new partn
                 path: "http://stackoverflow.com/questions/tagged/neo4j",
                 thumbnail: "/assets/img/logo/stackoverflow.png",
                 introText: "Find answers or reach to fellow developers with questions.",
-                actionText: "Ask Neo4j questions &raquo;"
+                actionText: "Ask Neo4j questions"
             },
             {
                 title: "Neo4j Google Group",
                 path: "http://groups.google.com/group/neo4j",
                 thumbnail: "/assets/img/logo/googlegroups.png",
                 introText: "Share your experiences and expertise with fellow graphistas.",
-                actionText: "Join now &raquo;"
+                actionText: "Join now"
             },
             {
                 title: "GitHub Issues",
                 path: "http://stackoverflow.com/questions/tagged/neo4j",
                 thumbnail: "/assets/img/logo/github.png",
                 introText: "Encountered an issue with Neo4j? Submit it here.",
-                actionText: "Report issue &raquo;"
+                actionText: "Report issue"
             }
         ]
     },
@@ -493,7 +493,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         path: "/learn/cypher",
         title: "Cypher Tutorial",
         introText: "Hands on introduction to the Cypher Query Language",
-        actionText: "Learn it &raquo;",
+        actionText: "Learn it",
         featured: {
             title: "Cypher Tutorial",
             type: "_cypher"
@@ -504,13 +504,13 @@ Sales, training, and marketing enablement to expand existing and drive new partn
                 title: "Cypher Reference",
                 path: "http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html",
                 introText: "Cypher is a declarative graph query language that allows for expressive and efficient querying and updating of the graph store without having to write traversals through the graph structure in code.",
-                actionText: "Cypher Manual &raquo;"
+                actionText: "Cypher Manual"
             },
             {
                 title: "Cypher Cheat Sheet (PDF)",
                 path: "/resources/cypher",
                 introText: "Download the Cypher Cheat Sheet as PDF",
-                actionText: "Download PDF &raquo;"
+                actionText: "Download PDF"
             },
             "content_video_cypher"
         ]
@@ -527,7 +527,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         path: "/learn/try",
         title: "Try",
         introText: "Try Cypher live on a dataset of your choice",
-        actionText: "Try live &raquo;",
+        actionText: "Try live",
         featured: {
             title: "Cypher Console",
             type: "_try",
@@ -538,13 +538,13 @@ Sales, training, and marketing enablement to expand existing and drive new partn
                 title: "Cypher Reference",
                 path: "http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html",
                 introText: "Cypher is a declarative graph query language that allows for expressive and efficient querying and updating of the graph store without having to write traversals through the graph structure in code.",
-                actionText: "Cypher Manual &raquo;"
+                actionText: "Cypher Manual"
             },
             {
                 title: "Cypher Cheat Sheet (PDF)",
                 path: "/resources/cypher",
                 introText: "Download the Cypher Cheat Sheet as PDF",
-                actionText: "Download PDF &raquo;"
+                actionText: "Download PDF"
             },
             "cypher"
         ]
@@ -625,26 +625,26 @@ Sales, training, and marketing enablement to expand existing and drive new partn
      title : "POJO to Graph",
      path : "/develop/spring",
      introText : "Simply annotate your Java classes, configure your Spring application, then enjoy the power of object graph mapping.",
-     actionText : "Go ahead &raquo;"
+     actionText : "Go ahead"
      },
      {
      title : "Example App",
      path : "http://blog.neo4j.org/2012/10/using-spring-data-neo4j-for-hubway-data.html",
      introText : "Use Spring Data Neo4j to model and import the <a target='_blank' href='http://hubwaydatachallenge.org/trip-history-data/''>Hubway Challenge</a> dataset, for advanced querying and visualization.",
-     actionText : "Follow along &raquo;"
+     actionText : "Follow along"
      }
      ]
      {
      title : "High Availability",
      path : "http://docs.neo4j.org/chunked/stable/ha-how.html",
      introText : "Master-slave replication in a cluster provides your application with read-scaling and fault tolerance.",
-     actionText : "Read more &raquo;"
+     actionText : "Read more"
      },
      {
      title : "Backups",
      path : "http://docs.neo4j.org/chunked/stable/operations-backup.html",
      introText : "A fundamental operation for any application: back up early, back up often.",
-     actionText : "Read more &raquo;"
+     actionText : "Read more"
      },
      {
      title : "Hardware Sizing",
@@ -658,7 +658,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
      */
 
     //            content: "<p>The Neo4j Java API is very easy to use. You can interact with the GraphDatabase, Nodes and Relationships directly.\
-//            To run more interesting queries or complex operations you can also execute <a href=\"/paths/java/java_cypher\">Cypher</a>\
+//            To run more interesting queries or complex operations you can also execute <a href=\"/java/java_cypher\">Cypher</a>\
 //        from your program.</p>\
 //                                                             \
 //    <p>After including Neo4j in your project and <a href=\"/java/ide\">setting up your IDE</a>. See the Hello-World example\

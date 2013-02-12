@@ -220,5 +220,5 @@ exports.resource = function(req,res) {
 }
 
 exports.pages = function(req,res) {
-  res.render('page');
+  res.render('partials/page');
 }

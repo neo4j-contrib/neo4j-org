@@ -12,7 +12,6 @@
     <div>
         <p class="introText"><%- related.previewText ? related.previewText : related.introText %></p>
     </div>
-    <% if (hasPath) { %><a class="link" href="<%= related.path %>"><%= related.actionText ? related.actionText : 'Learn more &raquo;' %></a><% } %>
-
+    <% if (hasPath) { %><a class="link" href="<%= related.path %>"><%= (related.actionText ? related.actionText : 'Learn more')+' &raquo;' %></a><% } %>
 </div>
 
