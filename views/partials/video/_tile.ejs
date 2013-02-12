@@ -8,6 +8,6 @@
     <div>
         <p class="introText"><%- related.featured.introText	 %></p>
     </div>
-    <% if (hasPath) { %><p><a class="btn" href="<%= related.path %>"><%= related.actionText ? related.actionText : 'Learn more &raquo;' %></a></p><% } %>
+    <% if (hasPath) { %><p><a class="btn" href="<%= related.path %>"><%= (related.actionText ? related.actionText : 'Learn more')+' &raquo;' %></a></p><% } %>
 
 </div>

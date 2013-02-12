@@ -75,13 +75,13 @@ app.configure(function(){
       next();
   });  
   app.use(function(req,res, next) {
-	try {
-		res.locals.region=geoip.region(req.ip);
-	} catch(e) {
-		console.log("Error getting ip",req.ip,e)
-		res.locals.region='US';
-	}
-	next();
+    try {
+        res.locals.region=geoip.region(req.ip);
+    } catch(e) {
+        console.log("Error getting ip",req.ip,e)
+        res.locals.region='US';
+    }
+    next();
   });
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -168,22 +168,40 @@ function route_get(url, fun) {
     return app.get(url,fun);
 }
  
-route_get('/', routes.index);
-route_get('/index', routes.index_graph);
-route_get('/index_graph_svg', routes.index_graph_svg);
-route_get('/index_graph_svg2', routes.index_graph_svg2);
-route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
-
-route_get('/', routes.index);
-route_get('/index', routes.index_graph);
-route_get('/index_graph_svg', routes.index_graph_svg);
-route_get('/index_graph_svg2', routes.index_graph_svg2);
-route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
-
-Object.keys(pages.pages).forEach(function(pageName) {
-  console.log(pages.pages[pageName].path)
-  route_get(pages.pages[pageName].path, routes.pages);  
+fs.readFile("views/partials/page.ejs",function(err,buf) {
+    var template=buf.toString();
+	if (!fs.existsSync('views/ejs')) fs.mkdirSync('views/ejs');
+//  console.log(template,err);
+    for (key in app.locals.pages) {
+        var page=app.locals.pages[key];
+        var featured=page['featured'];
+        if (featured && featured['content'] && featured['content'].match(/<%/)) {
+            // case 'track'            : %><% include partials/track/_full %>
+            var newFile=template.replace(new RegExp(" case '"+featured.type+"' +: %><% include .+? %>"),
+                                         " case '"+featured.type+"' : %>"+featured['content']);
+            var file="ejs/"+page.path.replace(/\//g,"_");
+            var fileName="views/"+file+".ejs";
+            console.log("Routing to special generated page: ",file,fileName,key,page.path,page.title,featured.type);
+            fs.writeFileSync(fileName,newFile);
+            app.get(page.path,function(req,res) { res.render(file, { title: page.title }); });
+        } else {
+          console.log("Default routing to pages: ",page.path)
+          route_get(page.path, routes.pages);  
+        }
+    }
 });
+
+route_get('/', routes.index);
+route_get('/index', routes.index_graph);
+route_get('/index_graph_svg', routes.index_graph_svg);
+route_get('/index_graph_svg2', routes.index_graph_svg2);
+route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
+
+route_get('/', routes.index);
+route_get('/index', routes.index_graph);
+route_get('/index_graph_svg', routes.index_graph_svg);
+route_get('/index_graph_svg2', routes.index_graph_svg2);
+route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 
 // route_get('/learn', routes.pages);
 // route_get('/learn/concepts', routes.pages);
@@ -221,8 +239,8 @@ route_get('/learn/graphdatabase', routes.pages);
 route_get('/learn/try', routes.pages);
 route_get('/test/d3', routes.pages);
 route_get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
-route_get('/events', routes.pages)
-route_get('/misc/beer', routes.pages)
+//route_get('/events', routes.pages)
+//route_get('/misc/beer', routes.pages)
 route_get('/events', routes.events)
 route_get('/participate/channels', routes.channels)
 route_get('/misc/beer', routes.beer)
@@ -291,9 +309,9 @@ route_get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (
 route_get('/release-notes', routes.release_notes);
 route_get('/customers', routes.customers);
 route_get('/getting-started', routes.develop);
-route_get('/java', routes.java);
-route_get('/java/basics', routes.java_basics);
-route_get('/java/cypher', routes.java_cypher);
+//route_get('/java', routes.java);
+//route_get('/java/basics', routes.java_basics);
+//route_get('/java/cypher', routes.java_cypher);
 
 
 app.locals.paths={}

@@ -16,13 +16,13 @@ exports.chapters = {
                 heading : "Property Graph",
                 path : "/learn/graphdatabase",
                 intro : "Neo4j stores data in a Property Graph: nodes + relationships, with properties on both. Leave the schema behind and start focusing on how your data is connected.",
-                actionText : "Learn more &raquo;"                
+                actionText : "Learn more"                
             },
             {
                 heading : "NoSQL",
                 path : "/learn/nosql",
                 intro : "You know relational, now consider relationships. Relate the graph model to relational, documents, and other NoSQL stores.",
-                actionText : "Not only SQL &raquo;"                
+                actionText : "Not only SQL"                
             }
         ]
     },
@@ -40,13 +40,13 @@ exports.chapters = {
                 heading : "Neo4j Intro",
                 path : "/learn/neo4j",
                 intro : "Our versioned online manual start with a comprehensive tutorial section, complemented with detailed a reference and live interaction.",
-                actionText : "Study this &raquo;"                
+                actionText : "Study this"                
             },
             {
                 heading : "Cypher Tutorial",
                 path : "/learn/cypher",
                 intro : "Hands on introduction to the Cypher Query Language",
-                actionText : "Learn it &raquo;"                
+                actionText : "Learn it"                
             }
         ]
     },
@@ -64,13 +64,13 @@ exports.chapters = {
                 heading : "Neo4j Intro",
                 path : "/learn/neo4j",
                 intro : "Our versioned online manual start with a comprehensive tutorial section, complemented with detailed a reference and live interaction.",
-                actionText : "Study this &raquo;"                
+                actionText : "Study this"                
             },
             {
                 heading : "Cypher Tutorial",
                 path : "/learn/cypher",
                 intro : "Hands on introduction to the Cypher Query Language",
-                actionText : "Learn it &raquo;"                
+                actionText : "Learn it"                
             }
         ]
     },
@@ -88,13 +88,13 @@ exports.chapters = {
                 heading : "Licensing Guide",
                 path : "/learn/licensing",
                 intro : "Neo4's enterprise editions are provided by Neo Technology for use in commercial, non open-source deployments.",
-                actionText : "Read more &raquo;"                
+                actionText : "Read more"                
             },
             {
                 heading : "Partner Graph",
                 path : "http://www.neotechnology.com/partners/",
                 intro : "Hands on introduction to the Cypher Query Language",
-                actionText : "Read more &raquo;"                
+                actionText : "Read more"                
             }
         ]
     },
@@ -115,25 +115,25 @@ exports.chapters = {
                 heading : "Install Neo4j",
                 path : "/install",
                 intro : "Install Neo4j on your machine and get started immediately",
-                actionText : "Install now &raquo;"
+                actionText : "Install now"
             },
             {
                 heading : "Language Drivers",
                 path : "/develop/drivers",
                 intro : "Drivers for Neo4j exist in most programming languages.",
-                actionText : "Get yours &raquo;"
+                actionText : "Get yours"
             },
             {
                 heading : "Cypher Tutorial",
                 path : "/learn/cypher",
                 intro : "Hands on introduction to the Cypher Query Language",
-                actionText : "Learn it &raquo;"
+                actionText : "Learn it"
             },
             {
                 heading : "Example Datasets",
                 path : "/develop/example_data",
                 intro : "Use on of our example datasets for some initial graph data.",
-                actionText : "Check them out &raquo;"
+                actionText : "Check them out"
             }
         ]
     },
@@ -151,13 +151,13 @@ exports.chapters = {
                 heading : "Demo Console",
                 path : "/learn/try",
                 intro : "The Neo4j Demo Console allows you to interactively try our Cypher Query Language with different datasets",
-                actionText : "Try live &raquo;"
+                actionText : "Try live"
             },
             {
                 heading : "Visualization",
                 path : "/develop/visualize",
                 intro : "Storing a graph is one thing, but visualizing it creates awe and epiphanies.",
-                actionText : "Learn how &raquo;"
+                actionText : "Learn how"
             },
             {
                 heading : "Apps Gallery",
@@ -181,7 +181,7 @@ exports.chapters = {
                 heading : "Heroku Addon",
                 path : "/develop/heroku",
                 intro : "Neo4j is available on Heroku in a public 'try' plan.",
-                actionText : "Do it now &raquo;"
+                actionText : "Do it now"
             }
         ]
     },
@@ -199,13 +199,13 @@ exports.chapters = {
                 heading : "POJO to Graph",
                 path : "/develop/spring",
                 intro : "Simply annotate your Java classes, configure your Spring application, then enjoy the power of object graph mapping.",
-                actionText : "Go ahead &raquo;"
+                actionText : "Go ahead"
             },
             {
                 heading : "Example App",
                 path : "http://blog.neo4j.org/2012/10/using-spring-data-neo4j-for-hubway-data.html",
                 intro : "Use Spring Data Neo4j to model and import the <a target='_blank' href='http://hubwaydatachallenge.org/trip-history-data/''>Hubway Challenge</a> dataset, for advanced querying and visualization.",
-                actionText : "Follow along &raquo;"
+                actionText : "Follow along"
             }
         ]
     },
@@ -223,13 +223,13 @@ exports.chapters = {
                 heading : "High Availability",
                 path : "http://docs.neo4j.org/chunked/stable/ha-how.html",
                 intro : "Master-slave replication in a cluster provides your application with read-scaling and fault tolerance.",
-                actionText : "Read more &raquo;"
+                actionText : "Read more"
             },
             {
                 heading : "Backups",
                 path : "http://docs.neo4j.org/chunked/stable/operations-backup.html",
                 intro : "A fundamental operation for any application: back up early, back up often.",
-                actionText : "Read more &raquo;"
+                actionText : "Read more"
             },
             {
                 heading : "Hardware Sizing",
@@ -250,21 +250,21 @@ exports.chapters = {
                 path : "http://stackoverflow.com/questions/tagged/neo4j",
                 img : "/assets/img/logo/stackoverflow.png",
                 intro : "Find answers or reach to fellow developers with questions.",
-                actionText : "Ask Neo4j questions &raquo;"
+                actionText : "Ask Neo4j questions"
             },
             {
                 heading : "Neo4j Google Group",
                 path : "http://groups.google.com/group/neo4j",
                 img : "/assets/img/logo/googlegroups.png",
                 intro : "Find answers or reach to fellow developers with questions.",
-                actionText : "Join now &raquo;"
+                actionText : "Join now"
             },
             {
                 heading : "GitHub Issues",
                 path : "http://github.com/neo4j/neo4j/issues",
                 img : "/assets/img/logo/github.png",
                 intro : "Encountered an issue with Neo4j? Submit it here.",
-                actionText : "Report issue &raquo;"
+                actionText : "Report issue"
             }
         ]
     },
@@ -276,28 +276,28 @@ exports.chapters = {
                 path : "http://neo4j.meetup.com",
                 img : "/assets/img/logo/meetup.jpg",
                 intro : "Find answers or reach to fellow developers with questions.",
-                actionText : "Ask Neo4j questions &raquo;"
+                actionText : "Ask Neo4j questions"
             },
             {
                 heading : "Webinars and Events",
                 path : "learn/events",
                 img : "/assets/img/logo/webinar.png",
                 intro : "Learn from the Neo4j community, watch our webinars or see us at special events.",
-                actionText : "Event Calendar &raquo;"
+                actionText : "Event Calendar"
             },
             {
                 heading : "GraphConnect",
                 path : "http://graphconnect.com",
                 img : "/assets/img/logo/github.png",
                 intro : "GraphConnect 2012 conference has been a blast. Keep connected for updates on 2013 events.",
-                actionText : "Attend GraphConnect &raquo;"
+                actionText : "Attend GraphConnect"
             },
             {
                 heading : "Graphistas World Map",
                 path : "/participate/contributors#map",
                 img : "/assets/img/logo/graphmap.png",
                 intro : "Add yourself to the graphistas world map and let it become a smaller place.",
-                actionText : "Add yourself &raquo;"
+                actionText : "Add yourself"
             }
         ]
     },
@@ -309,28 +309,28 @@ exports.chapters = {
                 path : "http://github.com/neo4j/neo4j",
                 img : "/assets/img/logo/github.png",
                 intro : "As an open-source project, Neo4j is hosted on GitHub. Check out the code and please contribute improvements as pull requests.",
-                actionText : "View the Source  &raquo;"
+                actionText : "View the Source "
             },
             {
                 heading : "Contributors",
                 path : "/participate/contributors",
                 img : "/assets/img/logo/stackoverflow.png",
                 intro : "We&#39;re very proud to have such an engaged group of contributors to Neo4j and its ecosystem.",
-                actionText : "See our contributors &raquo;"
+                actionText : "See our contributors"
             },
             {
                 heading : "Contribute to Neo4j.org",
                 path : "http://github.com/neo4j-contrib/neo4j-org",
                 img : "https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png",
                 intro : "Feel free to fork the code for the neo4j.org site on github, to correct, update or extend the information and issue a pull request.",
-                actionText : "Fork Me &raquo;"
+                actionText : "Fork Me"
             },
             {
                 heading : "Contribution Guidelines",
                 path : "http://docs.neo4j.org/chunked/stable/community-contributing.html",
                 img : "",
                 intro : "If you want to contribute, start here.",
-                actionText : "Contribution Guidelines &raquo;"
+                actionText : "Contribution Guidelines"
             },
         ]
     }
