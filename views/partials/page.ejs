@@ -4,7 +4,7 @@
 var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
 var mainCategory = path.split('/')[1];
 var page = pages[pageName];
-console.log(page);
+//console.log(page);
 
 if (page) {
 %>
@@ -16,21 +16,26 @@ if (page) {
 
 <% if (page.featured) {
 
-    var item = page.featured;
-    switch (item.type) {
-        case 'article'          : %><% include ../partials/article/_full %><%break;
-        case 'image'            : %><% include ../partials/image/_full %><%break;
-        case 'video'            : %><% include ../partials/video/_full %><%break;
-        case 'event'            : %><% include ../partials/event/_full %><%break;
-        case 'book'             : %><% include ../partials/book/_full %><%break;
-        case 'person'           : %><% include ../partials/person/_full %><%break;
-        case 'track'            : %><% include ../partials/track/_full %><%break;
-        case '_try'             : %><% include ../learn/try %><%break;
-        case '_cypher'          : %><% include ../learn/cypher %><%break;
-        case '_contributors'    : %><% include ../participate/contributors %><%break;
-        case '_visualize'       : %><% include ../develop/visualize %><%break;
-        default                 : %><% include ../partials/default/_full %><%
-    }
+    console.log(page.featured);
+
+    page.featured.forEach(function(key) { 
+
+        var item = (typeof key == 'object' ? key : pages[key] || content[key]);
+        switch (item.type) {
+            case 'article'          : %><% include ../partials/article/_full %><%break;
+            case 'image'            : %><% include ../partials/image/_full %><%break;
+            case 'video'            : %><% include ../partials/video/_full %><%break;
+            case 'event'            : %><% include ../partials/event/_full %><%break;
+            case 'book'             : %><% include ../partials/book/_full %><%break;
+            case 'person'           : %><% include ../partials/person/_full %><%break;
+            case 'track'            : %><% include ../partials/track/_full %><%break;
+            case '_try'             : %><% include ../learn/try %><%break;
+            case '_cypher'          : %><% include ../learn/cypher %><%break;
+            case '_contributors'    : %><% include ../participate/contributors %><%break;
+            case '_visualize'       : %><% include ../develop/visualize %><%break;
+            default                 : %><% include ../partials/default/_full %><%
+        }
+    });
 
 } %>
 <% if (page.related && page.related.length) { 
