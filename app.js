@@ -24,7 +24,6 @@ var express = require('express')
   , meetup =  require("./helpers/meetup")
   , paths =  require("./helpers/path")
   , geoip =  require("./helpers/geoip")
-  , async = require("async")
 
 var app = express();
 
