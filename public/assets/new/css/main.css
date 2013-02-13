@@ -669,9 +669,17 @@ ul.hor li {
 
 .featured .article .caption,
 .featured .article .content {
-    float: none ! important;
     display: block;
     position: relative;
+}
+
+.featured .article .content {
+    float: left;
+    width: 38em;
+}
+
+.featured .article img {
+    float: right;
 }
 
 .featured .track .caption {

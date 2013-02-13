@@ -233,14 +233,7 @@ exports.pages = {
         introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way. Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
         next: [],
         prev: ["nosql"],
-        featured: [
-            {
-                type: "page",
-                title: "A Graph contains Nodes and Relationships",
-                thumbnail: "/assets/img/propertygraph/graphdb-gve.png",
-                content: "<p>A Graph –[:RECORDS_DATA_IN]–> Nodes –[:WHICH_HAVE]–> Properties.</p>The simplest possible graph is a single Node, a record that has named values referred to as Properties. A Node could start with a single Property and grow to a few million, though that can get a little awkward. At some point it makes sense to distribute the data into multiple nodes, organized with explicit Relationships."
-            }
-        ],
+        featured: ["content_graphdb_graph", "content_graphdb_traversal", "content_graphdb_indexes"],
         actionText: "Learn more",
         related: []
     },
@@ -714,6 +707,25 @@ exports.content = {
         title: "GraphConnect 2012",
         introText: "(TODO) Introtext GraphConnect 2012",
         content: "TODO: Content for GraphConnect page"
+    },
+    content_graphdb_graph : {
+        type: "article",
+        title: "A Graph contains Nodes and Relationships",
+        src: "/assets/img/propertygraph/graphdb-gve.png",
+        content: "<p>A Graph –[:RECORDS_DATA_IN]–> Nodes –[:WHICH_HAVE]–> Properties.</p>The simplest possible graph is a single Node, a record that has named values referred to as Properties. A Node could start with a single Property and grow to a few million, though that can get a little awkward. At some point it makes sense to distribute the data into multiple nodes, organized with explicit Relationships."
+    },
+    content_graphdb_traversal : {
+        type: "article",
+        title: "Query a Graph with a Traversal",
+        introText: "A Traversal –navigates–> a Graph; it –identifies–> Paths –which order–> Nodes.",
+        src: "/assets/img/propertygraph/graphdb-traverse.png",
+        content: "A Traversal is how you query a Graph, navigating from starting Nodes to related Nodes according to an algorithm, finding answers to questions like \“what music do my friends like that I don’t yet own,\” or \“if this power supply goes down, what web services are affected?\”"
+    },
+    content_graphdb_indexes : {
+        type: "article",
+        title: "Indexes Look-up Nodes or Relationships",
+        introText: "An Index –maps from–> Properties –to either–> Nodes or Relationships. It –is a special–> Traversal.",
+        src: "/assets/img/propertygraph/graphdb-index.png",
+        content: "Often, you want to find a specific Node or Relationship according to a Property it has. This special case of Traversal is so common that it is optimized into an Index look-up, for questions like \“find the Account for username master-of-graphs.\”"
     }
-
 }
