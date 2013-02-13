@@ -1,13 +1,13 @@
 <div class="item article">
-	<% var hasPath = related.path %>
+	<% var hasPath = item.path %>
 
-    <h3><% if (hasPath) { %><a href="<%= related.path %>"><% } %><%= related.title %><% if (hasPath) { %></a><% } %></h3>
-    <% if (related.img) { %>
-    <a href="<%= related.path %>"><img class="logo" src="<%= related.img %>"></a>
+    <h3><% if (hasPath) { %><a href="<%= item.path %>"><% } %><%= item.title %><% if (hasPath) { %></a><% } %></h3>
+    <% if (item.img) { %>
+    <a href="<%= item.path %>"><img class="logo" src="<%= item.img %>"></a>
     <% } %>
     <div>
-        <p class="introText"><%- related.previewText ? related.previewText : related.introText %></p>
+        <p class="introText"><%- item.previewText ? item.previewText : item.introText %></p>
     </div>
-	<% if (hasPath) { %><a class="link" href="<%= related.path %>"><%= (related.actionText ? related.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+	<% if (hasPath) { %><a class="link" href="<%= item.path %>"><%= (item.actionText ? items.actionText : 'Learn more')+' &raquo;' %></a><% } %>
 </div>
 

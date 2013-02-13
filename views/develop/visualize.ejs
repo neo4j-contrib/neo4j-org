@@ -10,12 +10,9 @@
     </ul>
 </div>
 
-<% if (page.featured && page.featured.items) {
+<% if (item && item.items) {
 
-  page.featured.items.forEach(function(item) { 
-
-      var page = {};
-      page.featured = item;
+  item.items.forEach(function(item) { 
 
       switch (item.type) {
 

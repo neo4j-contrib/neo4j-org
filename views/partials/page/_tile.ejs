@@ -1,17 +1,17 @@
 <div class="item _page">
 <%
-	var hasPath = related.path;
-	var image = related.thumbnail ? related.thumbnail : (related.featured && related.featured.thumbnail ? related.featured.thumbnail : '');
+	var hasPath = item.path;
+	var image = item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
 	console.log(image)
 %>
 
-    <h3><% if (hasPath) { %><a href="<%= related.path %>"><% } %><%= related.title %><% if (hasPath) { %></a><% } %></h3>
+    <h3><% if (hasPath) { %><a href="<%= item.path %>"><% } %><%= item.title %><% if (hasPath) { %></a><% } %></h3>
     <% if (image) { %>
-    <a href="<%= related.path %>"><img class="preview" src="<%= image %>"></a>
+    <a href="<%= item.path %>"><img class="preview" src="<%= image %>"></a>
     <% } %>
     <div>
-        <p class="introText"><%- related.previewText ? related.previewText : related.introText %></p>
+        <p class="introText"><%- item.previewText ? item.previewText : item.introText %></p>
     </div>
-    <% if (hasPath) { %><a class="link" href="<%= related.path %>"><%= (related.actionText ? related.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+    <% if (hasPath) { %><a class="link" href="<%= item.path %>"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
 </div>
 

@@ -16,20 +16,21 @@ if (page) {
 
 <% if (page.featured) {
 
-                            switch (page.featured.type) {
-                                case 'article'          : %><% include ../partials/article/_full %><%break;
-                                case 'image'            : %><% include ../partials/image/_full %><%break;
-                                case 'video'            : %><% include ../partials/video/_full %><%break;
-                                case 'event'            : %><% include ../partials/event/_full %><%break;
-                                case 'book'             : %><% include ../partials/book/_full %><%break;
-                                case 'person'           : %><% include ../partials/person/_full %><%break;
-                                case 'track'            : %><% include ../partials/track/_full %><%break;
-                                case '_try'             : %><% include ../learn/try %><%break;
-                                case '_cypher'          : %><% include ../learn/cypher %><%break;
-                                case '_contributors'    : %><% include ../participate/contributors %><%break;
-                                case '_visualize'       : %><% include ../develop/visualize %><%break;
-                                default                 : %><% include ../partials/default/_full %><%
-                            }
+    var item = page.featured;
+    switch (item.type) {
+        case 'article'          : %><% include ../partials/article/_full %><%break;
+        case 'image'            : %><% include ../partials/image/_full %><%break;
+        case 'video'            : %><% include ../partials/video/_full %><%break;
+        case 'event'            : %><% include ../partials/event/_full %><%break;
+        case 'book'             : %><% include ../partials/book/_full %><%break;
+        case 'person'           : %><% include ../partials/person/_full %><%break;
+        case 'track'            : %><% include ../partials/track/_full %><%break;
+        case '_try'             : %><% include ../learn/try %><%break;
+        case '_cypher'          : %><% include ../learn/cypher %><%break;
+        case '_contributors'    : %><% include ../participate/contributors %><%break;
+        case '_visualize'       : %><% include ../develop/visualize %><%break;
+        default                 : %><% include ../partials/default/_full %><%
+    }
 
 } %>
 <% if (page.related && page.related.length) { 
@@ -43,10 +44,10 @@ var i=0;
 
 						<% page.related.forEach(function(key) { 
 
-						var related = (typeof key == 'object' ? key : pages[key] || content[key]);
+						item = (typeof key == 'object' ? key : pages[key] || content[key]);
 
                         // key is no object and no page name, so try driver
-                        if (!related) {
+                        if (!item) {
 
                             i++;
 
@@ -79,16 +80,24 @@ var i=0;
 						// This is ugly, I know.
 						// See http://stackoverflow.com/questions/11804691/using-interpolation-within-node-js-ejs-includes
 
-						if (page.featured && page.featured.length) {
+						if (related.featured && related.featured.length) {
 
-							switch (related.featured.type) {
-								case 'article' : %><% include ../partials/article/_tile %><%break;
-								case 'video'   : %><% include ../partials/video/_tile %><%break;
-								case 'event'   : %><% include ../partials/event/_tile %><%break;
-								case 'book'    : %><% include ../partials/book/_tile %><%break;
-								case 'person'  : %><% include ../partials/person/_tile %><%break;
-								default        : %><% include ../partials/default/_tile %><%
-							}
+                            related.featured.forEach(function(key) { 
+
+                                var item = (typeof key == 'object' ? key : content[key]);
+                                console.log(item);
+
+    							switch (item.type) {
+    								case 'article' : %><% include ../partials/article/_tile %><%break;
+    								case 'video'   : %><% include ../partials/video/_tile %><%break;
+    								case 'event'   : %><% include ../partials/event/_tile %><%break;
+    								case 'book'    : %><% include ../partials/book/_tile %><%break;
+    								case 'person'  : %><% include ../partials/person/_tile %><%break;
+    								default        : %><% include ../partials/default/_tile %><%
+    							}
+
+                            });
+
 						} else {
                             // Default for overview pages (no featured content)
                             

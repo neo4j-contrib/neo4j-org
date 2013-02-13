@@ -1,11 +1,11 @@
 <div class="featured" class="mainElement">
     <div class="slide article">
         <div class="caption">
-            <% if (page.featured.title) { %><h3><%= page.featured.title %></h3><% } %>
-            <%- page.featured.introText %>
+            <% if (item.title) { %><h3><%= item.title %></h3><% } %>
+            <%- item.introText %>
         </div>
         <div class="content">
-            <%- page.featured.content %>
+            <%- item.content %>
         </div>
         <div class="clear"></div>
     </div>
