@@ -24,6 +24,7 @@ var express = require('express')
   , meetup =  require("./helpers/meetup")
   , paths =  require("./helpers/path")
   , geoip =  require("./helpers/geoip")
+  , async = require("async")
 
 var app = express();
 
@@ -167,7 +168,9 @@ function route_get(url, fun) {
     else console.log("Route missing for url: "+url);
     return app.get(url,fun);
 }
- 
+
+
+
 fs.readFile("views/partials/page.ejs",function(err,buf) {
     var template=buf.toString();
 	if (!fs.existsSync('views/ejs')) fs.mkdirSync('views/ejs');
@@ -176,9 +179,17 @@ fs.readFile("views/partials/page.ejs",function(err,buf) {
         var page=app.locals.pages[key];
         var featured=page['featured'];
         if (featured && featured['content'] && featured['content'].match(/<%/)) {
+
+            //console.log('use partial for', featured.type, "views/partials/" + featured.type + "/_full.ejs");
             // case 'track'            : %><% include partials/track/_full %>
+
+            var partial = fs.readFileSync("views/partials/" + featured.type + "/_full.ejs");
+            console.log(partial.toString())
+            var newPartial = partial.toString().replace(new RegExp("<%- page.featured.content %>"),
+                                         featured['content']);
+
             var newFile=template.replace(new RegExp(" case '"+featured.type+"' +: %><% include .+? %>"),
-                                         " case '"+featured.type+"' : %>"+featured['content']);
+                                         " case '"+featured.type+"' : %>"+newPartial);
             var file="ejs/"+page.path.replace(/\//g,"_");
             var fileName="views/"+file+".ejs";
             console.log("Routing to special generated page: ",file,fileName,key,page.path,page.title,featured.type);
