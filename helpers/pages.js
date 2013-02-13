@@ -381,7 +381,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     q_and_a: {
         path: "/participate/q_and_a",
         title: "Ask Questions and Share Answers",
-        introText: "(TODO) intro text for this page",
+        introText: "Here you can find some of the resources that give you access to questions, answers and support around Neo4j related questions.",
         featured: null,
         related: [
             {
@@ -470,10 +470,10 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     ops: {
         path: "/develop/ops",
         title: "Operations",
-        introText: "(TBD) How to run Neo4j",
+        introText: "Here you can find some resources related to running Neo4j in different scenarios.",
         actionText: null,
         featured: [],
-        related: ["content_video_ha"]
+        related: ["content_video_ha", "content_video_installing_neo4j"]
     },
     try: {
         path: "/learn/try",
