@@ -164,7 +164,7 @@ exports.pages = {
                 title: "Partners Graph",
                 introText: "Neo Technology works with a large, worldwide partner network which provide local consulting and training services.",
                 path: "http://www.neotechnology.com/partners/"
-            },
+            }
 
         ]
     },
@@ -262,28 +262,16 @@ Sales, training, and marketing enablement to expand existing and drive new partn
     tools: {
         path: "/develop/tools",
         title: "Tools and Resources",
-        introText: "(TBD) Intro Text for tools and resources page",
-        featured: {
-            title: "Query with Cypher",
-            type: "video",
-            thumbnail: "/assets/img/still/cypher.png",
-            introText: "Cypher is a graph query language. Easy on the eyes, while expressive and powerful.",
-            src: "http://player.vimeo.com/video/50389825"
-        },
-        related: ["try", "visualize", "apps"]
+        introText: "There are a lot of tools and resources around Neo4j.",
+        featured: "content_video_cypher",
+        related: ["drivers", "try", "visualize"]
     },
     cloud: {
         path: "/develop/cloud",
         title: "Neo4j in the Cloud",
         introText: "Neo4j can be run in various cloud scenarios and on a number of cloud stacks.",
         actionText: "Neo4j in the Cloud",
-        featured: {
-            title: "James Ward on Neo4j",
-            type: "video",
-            thumbnail: "/assets/img/still/jamesward.jpg",
-            introText: "James Ward shows how to build and deploy a Neo4j based app on heroku.",
-            src: "http://player.vimeo.com/video/53221343"
-        },
+        featured: ["content_video_james_ward_neo4j"],
         related: ["heroku"]
     },
     heroku: {
@@ -319,13 +307,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         title: "Spring Data Neo4j",
         introText: "The best NOSQL database for Spring.",
         actionText: "Go ahead",
-        featured: {
-            title: "Good Relationships",
-            type: "video",
-            thumbnail: "/assets/img/still/sdn-intro.png",
-            introText: "Michael Hunger introduces <a target='_blank' href='http://www.infoq.com/minibooks/good-relationships-spring-data'>Good Relationships</a>, the SDN book.",
-            src: "http://www.youtube.com/embed/heC-8Pq2exQ"
-        },
+        featured: ["content_video_good_relationships"],
         related: ["good-relationships-spring-data", "getting-started-spring"]
     },
     // people : {
@@ -449,13 +431,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
         },
         related: [
             "graphdatabase",
-            {
-                title: "Graph DB 101",
-                type: "video",
-                thumbnail: "/assets/img/still/graphdb-intro.png",
-                introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
-                src: "http://player.vimeo.com/video/46886385"
-            },
+            "content_video_graphdb101",
             "reference_card"
         ]
     },
@@ -561,7 +537,7 @@ Sales, training, and marketing enablement to expand existing and drive new partn
                     type: "video",
                     introText: "<p>Using the GraphViz Exporter it is possible to generate <code>.dot</code> files which can then be rendered as images using graphviz' dot toolchain.\
           See this <a href='http://blog.neo4j.org/2012/05/graph-this-rendering-your-graph-with.html' target='_blank'>blog post</a> for details.</p>",
-                    thumbnail: "/assets/img/still/server_visualization.jpg",
+                    thumbnail: "/assets/img/still/server_visualization.jpg"
                 }
             ]
         },
@@ -654,6 +630,13 @@ exports.content = {
         introText: "See how to setup a 3-member cluster for the <strong>new Neo4j HA 1.5</strong> running on a single machine.",
         src: "http://player.vimeo.com/video/51906007"
     },
+    content_video_good_relationships: {
+        title: "Good Relationships",
+        type: "video",
+        thumbnail: "/assets/img/still/sdn-intro.png",
+        introText: "Michael Hunger introduces <a target='_blank' href='http://www.infoq.com/minibooks/good-relationships-spring-data'>Good Relationships</a>, the SDN book.",
+        src: "http://www.youtube.com/embed/heC-8Pq2exQ"
+    },
     content_video_cypher: {
         title: "Query with Cypher",
         type: "video",
@@ -674,6 +657,13 @@ exports.content = {
         thumbnail: "/assets/img/still/graphdb-intro.png",
         introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
         src: "http://player.vimeo.com/video/46886385"
+    },
+    content_video_james_ward_neo4j: {
+        title: "James Ward on Neo4j",
+        type: "video",
+        thumbnail: "/assets/img/still/jamesward.jpg",
+        introText: "James Ward shows how to build and deploy a Neo4j based app on heroku.",
+        src: "http://player.vimeo.com/video/53221343"
     },
     content_image_neo4j_ref_card: {
         type: "image",
