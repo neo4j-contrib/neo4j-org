@@ -184,7 +184,7 @@ fs.readFile("views/partials/page.ejs",function(err,buf) {
 
             var partial = fs.readFileSync("views/partials/" + featured.type + "/_full.ejs");
             console.log(partial.toString())
-            var newPartial = partial.toString().replace(new RegExp("<%- page.featured.content %>"),
+            var newPartial = partial.toString().replace(new RegExp("<%- item.content %>"),
                                          featured['content']);
 
             var newFile=template.replace(new RegExp(" case '"+featured.type+"' +: %><% include .+? %>"),
