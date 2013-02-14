@@ -167,6 +167,7 @@ p {
 
 a, a:hover, a:active, a:visited {
     text-decoration: none;
+    font-weight: bold;
 }
 
 a:hover {
@@ -642,7 +643,7 @@ ul.hor li {
 
 .featured .console .datasets li {
     list-style-type: none;
-    border. 
+    border: none; 
 }
 
 .featured #console .btn {
@@ -668,22 +669,25 @@ ul.hor li {
 }
 
 .featured .article .caption,
-.featured .article .content {
+.featured .article .content
+.featured .book .caption,
+.featured .book .content
+{
     display: block;
     position: relative;
 }
 
-.featured .article .content {
+.featured .article .content,.featured .book .content {
     float: left;
     width: 38em;
 }
 
-.featured .article img {
+.featured .article img,.featured .book img {
     float: right;
 }
 
 .featured .track .caption {
-    display: none;
+    /*display: none;*/
 }
 
 .featured .track .content {
@@ -691,7 +695,7 @@ ul.hor li {
     float: left;
 }
 
-.featured .image {
+.featured .image,.featured img {
     overflow: auto;
     height: 100% ! important;
     padding: 0;
@@ -844,7 +848,7 @@ ul.hor li {
     border: 1px solid #a5a5a5;
 /*    width: 10em;
     margin: 0 3em ! important;
-/**/    border: none;*/
+/*    border: none;*/
     text-align: center;
 }
 

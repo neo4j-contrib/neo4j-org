@@ -1,13 +1,17 @@
 <div class="featured" class="mainElement">
     <div class="slide article">
-        <div class="caption">
-            <% if (item.title) { %><h3><%= item.title %></h3><% } %>
+       <img src="<%- item.src %>">
+       <div>
+            <div class="caption">
+                <% if (item.title) { %><h3><%= item.title %></h3><% } %>
+            </div>
+           <div class="content">
             <%- item.introText %>
+           </div>
+            <div class="content">
+                <%- item.content %>
+            </div>
         </div>
-        <div class="content">
-            <%- item.content %>
-        </div>
-        <img src="<%- item.src %>">
         <div class="clear"></div>
     </div>
 </div><!-- featured -->

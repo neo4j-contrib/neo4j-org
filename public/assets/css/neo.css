@@ -248,6 +248,9 @@ img.logo {
 .accordion-inner {
   padding:0px;
 }
+a, a:hover, a:active, a:visited {
+  font-weight: bold;  
+}
 
 
 /** download table **/

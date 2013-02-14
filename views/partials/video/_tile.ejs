@@ -7,7 +7,7 @@
 
     <h3><%- link_to(item.path, item.title) %></h3>
     <% if (image) { %>
-    <%- link_to(item.path, '<img class="preview" src="'+image+'" />') %>
+    <%- link_to(item.path, '<img class="thumbnail" src="'+image+'" data-src="'+item.src+'" />') %>
     <% } %>
     <div>
         <p class="introText"><%- item.previewText ? item.previewText : item.introText %></p>

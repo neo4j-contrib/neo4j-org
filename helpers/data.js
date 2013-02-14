@@ -381,8 +381,9 @@ exports.books = {
     },
     nosqldistilled: {
         url: "http://www.amazon.com/gp/product/0321826620/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0321826620&linkCode=as2&tag=neotech05-20",
-        name: "NoSQL Distilled: A Brief Guide to the Emerging World of Polyglot Persistence",
+        name: "NoSQL Distilled",
         author: "Pramod J. Sadalage and Martin Fowler",
+        introText: "A Brief Guide to the Emerging World of Polyglot Persistence",
         price: "List Price: $39.99",
         logo: "/assets/img/books/nosql_distilled.png",
         text: 'Together, Fowler and ThoughtWorks principal consultant Pramod Sadalage thoroughly explain how NoSQL databases work, and why they may often be a superior alternative for Big Data, high-traffic web sites, heavy-duty streaming media delivery, and other demanding environments.'
@@ -413,7 +414,8 @@ exports.books = {
     },
     connected: {
         url: "http://www.amazon.com/gp/product/0316036137/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0316036137&linkCode=as2&tag=neotech05-20",
-        name: "Connected: The Surprising Power of Our Social Networks and How They Shape Our Lives — How Your Friends\' Friends\' Friends Affect Everything You Feel, Think, and Do",
+        name: "Connected",
+        introText: "The Surprising Power of Our Social Networks and How They Shape Our Lives — How Your Friends\' Friends\' Friends Affect Everything You Feel, Think, and Do",
         author: "Nicholas A. Christakis and James H. Fowler",
         price: "List Price: $15.99",
         logo: "/assets/img/books/connected.png",

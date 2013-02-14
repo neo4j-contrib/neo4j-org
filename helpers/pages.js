@@ -23,10 +23,10 @@ exports.pages = {
     concepts: {
         path: "/learn/concepts",
         title: "Graph Concepts",
-        introText: null,
+        introText: "Learn about the graph data model, graph databases and their applicability. See how graph databases related to other NOSQL solutions.",
         featured: ["content_video_graphdb101"],
         actionText: "Learn more",
-        related: [ "graphdatabase", "nosql" ]
+        related: [ "graphdatabase", "nosql","content_image_neo4j_ref_card" ]
     },
     intro: {
         path: "/learn/intro",
@@ -41,32 +41,30 @@ exports.pages = {
                 src: "http://player.vimeo.com/video/56040747"
             }
         ],
-        related: [ "neo4j", "cypher", "tracks" ]
+        related: [ "neo4j", "cypher", "tracks","content_image_neo4j_ref_card" ]
     },
     tracks: {
         path: "/learn/tracks",
         title: "Neo4j learning tracks",
         introText: "This is the starting point for a number of different tracks to learn more about Neo4j. Follow a track that you are interested in to learn more about different aspects of Neo4j.",
-        featured: {
-            type: "article",
-            title: "Java-Track",
-            actionText: "Go Code",
-            path: "/java",
-            thumbnail: "",
-            introText: "The Java track covers the Neo4j Core-API as well as interacting with the Neo4j Server from Java and other JVM languages"
-        },
+        featured: ["java"],
         actionText: "Choose your track",
         related: ["neo4j", "cypher"]
     },
     java: {
         path: "/java",
+        type: "track",
         title: "Neo4j for Java devs",
-        introText: "As the 4j indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.",
+        thumbnail: "/assets/img/languages/java.jpg",
+        introText: "The Java track covers the Neo4j Core-API as well as interacting with the Neo4j Server from Java and other JVM languages",
+        actionText: "Go Code",
         next: ["java_basics", "jvm"],
         prev: ["server_plugins"],
         featured: [
             {
                 type: "track",
+                title: "Java Intro",
+                introText: "As the 4j indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.",
                 content: "<p>Welcome to Neo4j. For a Java or JVM-language developer, Neo4j offers a rich set of integration possibilities. Make sure to have looked at our information on <a href='/learn/graphdatabase'>graph databases</a> and Neo4j in general. You should also check out our graph query language Cypher which makes it very easy to get going regardless of the development platform.</p>\
     <p>Neo4j comes in two flavors. The standalone Neo4j-Server can be installed on any machine and then accessed via its REST API. You can then use whatever REST-library you choose for any JVM language. The dedicated Neo4j drivers go beyond that by offering comprehensive APIs for integrating with graph based applications.</p>\
     <p>But you can also run Neo4j embedded in your JVM process, much like HSQL or Derby. This is great for unit testing, but also for high performance / no-network setups. If you use Neo4j embedded you can use the Neo4j Core-API directly. Besides an object oriented approach to the graph database, working with Nodes, Relationships and Paths, it also offers highly customizable high-speed traversal- and graph-algorithm implementations. You can also choose from any useful wrapping drivers that exist either for specific programming languages or that add interesting functionality.</p>\
@@ -230,11 +228,11 @@ exports.pages = {
         title: "What is a Graph Database?",
         introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way",
         content: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way. Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
-        next: [],
-        prev: ["nosql"],
+        next: ["nosql","neo4j"],
+        prev: [],
         featured: ["content_graphdb_graph", "content_graphdb_traversal", "content_graphdb_indexes"],
         actionText: "Learn more",
-        related: []
+        related: ["cypher"]
     },
     nosql: {
         path: "/learn/nosql",
@@ -278,6 +276,14 @@ exports.pages = {
         introText: "There are a lot of tools and resources around Neo4j.",
         featured: ["content_video_cypher"],
         related: ["drivers", "try", "visualize"]
+    },
+    books: {
+        path: "/learn/books",
+        thumbnail: "/assets/img/books/nosql_distilled.png",
+        title: "Graph Database related Books",
+        introText: "Learn more about Neo4j, Graph Theory and Graph Databases by reading these amazing books!",
+        featured: ["springdata"],
+        related: ["goodrelationships", "nosqldistilled", "sevendatabases", "neo4jinaction", "visualcomplexity", "connected"]
     },
     cloud: {
         path: "/develop/cloud",
@@ -431,6 +437,7 @@ exports.pages = {
         path: "/learn/neo4j",
         title: "What is Neo4j?",
         introText: "Neo4j is a graph database, reliable and fast for managing and querying highly connected data.",
+        thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
         actionText: "Study this",
         featured: [
             {
@@ -466,6 +473,7 @@ exports.pages = {
     cypher: {
         path: "/learn/cypher",
         title: "Cypher Tutorial",
+        thumbnail: "/assets/img/still/cypher_tutorial.gif",
         introText: "Hands on introduction to the Cypher Query Language",
         actionText: "Learn it",
         featured: [
@@ -682,6 +690,7 @@ exports.content = {
     content_video_graphdb101: {
         title: "Graph DB 101",
         type: "video",
+        author: "akollegger",
         thumbnail: "/assets/img/still/graphdb-intro.png",
         introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
         src: "http://player.vimeo.com/video/46886385"
@@ -689,14 +698,17 @@ exports.content = {
     content_video_james_ward_neo4j: {
         title: "James Ward on Neo4j",
         type: "video",
+        author: "_JamesWard",
         thumbnail: "/assets/img/still/jamesward.jpg",
         introText: "James Ward shows how to build and deploy a Neo4j based app on heroku.",
         src: "http://player.vimeo.com/video/53221343"
     },
     content_image_neo4j_ref_card: {
-        type: "image",
+        type: "external",
         title: "Neo4j Reference Card",
-        src: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png"
+        introText: "Visualize the concepts of the graph as a graph, how much more meta can you go?",
+        thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
+        path: "http://visual.ly/whats-graph-database"
     },
     content_article_gc2012: {
         type: "article",

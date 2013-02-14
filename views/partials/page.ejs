@@ -1,12 +1,15 @@
-<% include ../head %>
-
 <%
 console.log(path);
 var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
 var mainCategory = path.split('/')[1];
 var page = pages[pageName];
+var title=page.title;
 console.log(page);
+%>
 
+<% include ../head %>
+<%
+        
 if (page) {
 %>
 <div class="page"><!-- page -->
@@ -18,6 +21,7 @@ if (page) {
 <% 
     var items = [].concat(page.featured);                   
     if (page.featured && items.length) {
+        console.log("featured-items",items);
         items.forEach(function(key) { 
             var item = findItem(key);
             console.log("featured",item);
@@ -25,12 +29,17 @@ if (page) {
         });
    } %>
 
-<% if (page.related && page.related.length) { %>
+<%
+    if (page.related && page.related.length) { 
+      console.log("page-related",page.related);
+%>    
     <div class="related" class="mainElement">
 
             <% chunk(page.related,3).forEach(function(row) { %>
                 <div class="row">
-                <% row.forEach(function(key) { 
+                <% 
+                console.log("related-row",row);
+                row.forEach(function(key) { 
 
                     var item = findItem(key);
                     console.log("related-item",item);

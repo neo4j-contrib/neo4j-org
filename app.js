@@ -227,10 +227,10 @@ fs.readFile("views/partials/page.ejs",function(err,buf) {
             var fileName="views/"+file+".ejs";
             console.log("Routing to special generated page: ",file,fileName,key,page.path,page.title,featured.type);
             fs.writeFileSync(fileName,newFile);
-            app.get(page.path,function(req,res) { res.render(file, { title: page.title }); });
+            app.get(page.path,function(req,res) { res.render(file, { title: page.title||"" }); });
         } else {
-          console.log("Default routing to pages: ",page.path)
-          route_get(page.path, routes.pages);  
+          console.log("Default routing to pages: ",page.path,page.title)
+          app.get(page.path, function(req,res) { res.render('partials/page', { title: page.title||"" }); });  
         }
     }
 });
@@ -418,6 +418,11 @@ app.post("/add_channel", function(req,res) {
         "&language="+encodeURIComponent(lang);
     console.log("add_channel",params);
     channelOp(params,res);
+});
+
+route_get('/*/', function(req, res){
+    var path = req.path.substring(0,req.path.length-1);
+    res.redirect(path);
 });
 
 route_get('/video/*', function(req, res){

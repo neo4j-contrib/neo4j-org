@@ -2,12 +2,13 @@
 console.log("item-tile",item);
 
 switch (item.type) {
-    case 'driver'  : %><% include ../../partials/driver/_tile %><%break;
     case 'article' : %><% include ../../partials/article/_tile %><%break;
+    case 'image'   : %><% include ../../partials/image/_tile %><%break;
     case 'video'   : %><% include ../../partials/video/_tile %><%break;
     case 'event'   : %><% include ../../partials/event/_tile %><%break;
     case 'book'    : %><% include ../../partials/book/_tile %><%break;
     case 'person'  : %><% include ../../partials/person/_tile %><%break;
+    case 'driver'  : %><% include ../../partials/driver/_tile %><%break;
     case 'page'    : %><% include ../../partials/page/_tile %><%break;
     default        : %><% include ../../partials/default/_tile %><%
 }
