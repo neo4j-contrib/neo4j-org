@@ -18,7 +18,7 @@ exports.pages = {
         title: "Participate",
         introText: "Connect with a friendly, engaging, and ever expanding community online or in person.",
         featured: null,
-        related: ["contributors", "events", "q_and_a"]
+        related: ["q_and_a", "contributors", "events"]
     },
     concepts: {
         path: "/learn/concepts",
@@ -47,14 +47,14 @@ exports.pages = {
         path: "/learn/tracks",
         title: "Neo4j learning tracks",
         introText: "This is the starting point for a number of different tracks to learn more about Neo4j. Follow a track that you are interested in to learn more about different aspects of Neo4j.",
-        featured: [
-            {
-                type: "article",
-                thumbnail: "",
-                introText: "The following tracks are available (more to follow soon!):",
-                content: "<ul><li><a href='/java'>Java</a></li></ul>"
-            }
-        ],
+        featured: {
+            type: "article",
+            title: "Java-Track",
+            actionText: "Go Code",
+            path: "/java",
+            thumbnail: "",
+            introText: "The Java track covers the Neo4j Core-API as well as interacting with the Neo4j Server from Java and other JVM languages"
+        },
         actionText: "Choose your track",
         related: ["neo4j", "cypher"]
     },
@@ -161,16 +161,14 @@ exports.pages = {
         path: "/learn/production",
         title: "Going into Production",
         introText: "In order to run Neo4j in production scenarios, there are a number of aspects that need to be covered. Here you find some resources on putting Neo4j into production.",
-        featured: [
-            {
-                title: "Production Secrets",
-                type: "video",
-                thumbnail: "/assets/img/still/secrets.png",
-                introText: "Maybe a day or two before you get featured on Techcrunch, make sure your application is fully production-ready.",
-                src: "http://player.vimeo.com/video/49485027"
-            }
-        ],
-        actionText: "Get the secrets",
+        featured: {
+            title: "Production Secrets",
+            type: "video",
+            thumbnail: "/assets/img/still/secrets.png",
+            introText: "Maybe a day or two before you get featured on Techcrunch, make sure your application is fully production-ready.",
+            src: "http://player.vimeo.com/video/49485027"
+        },
+        actionText: "Go into production",
         related: [
             "licensing",
             {
@@ -230,7 +228,8 @@ exports.pages = {
     graphdatabase: {
         path: "/learn/graphdatabase",
         title: "What is a Graph Database?",
-        introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way. Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
+        introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way",
+        content: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way. Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
         next: [],
         prev: ["nosql"],
         featured: ["content_graphdb_graph", "content_graphdb_traversal", "content_graphdb_indexes"],
@@ -348,19 +347,15 @@ exports.pages = {
         For a full list of all code contributors, please see <a href='http://docs.neo4j.org/chunked/snapshot/contributors.html'>The official docs.</a>",
         previewText: "We're very proud to have such an engaged group of contributors to Neo4j and its ecosystem.",
         actionText: "See our contributors",
-        featured: [
-            {
-                type: "_contributors",
-                thumbnail: "/assets/new/img/contributors.png"
-            }
-        ],
+        thumbnail: "/assets/new/img/contributors.png",
+        type: "_contributors",
         related: []
     },
     events: {
         path: "/events",
         title: "Events",
-        introText: "(TODO) Intro text for events page",
-        featured: null,
+        thumbnail: "/assets/img/logo/meetup.jpg",
+        introText: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
         related: ["meetups", "conferences", "webinars"]
     },
     meetups: {
@@ -406,6 +401,7 @@ exports.pages = {
         path: "/participate/q_and_a",
         title: "Ask Questions and Share Answers",
         introText: "Here you can find some of the resources that give you access to questions, answers and support around Neo4j related questions.",
+        thumbnail: "/assets/img/logo/googlegroups.png",
         featured: null,
         related: [
             {
@@ -700,7 +696,7 @@ exports.content = {
     content_image_neo4j_ref_card: {
         type: "image",
         title: "Neo4j Reference Card",
-        src: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
+        src: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png"
     },
     content_article_gc2012: {
         type: "article",

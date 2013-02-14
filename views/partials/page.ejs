@@ -1,10 +1,11 @@
 <% include ../head %>
 
 <%
+console.log(path);
 var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
 var mainCategory = path.split('/')[1];
 var page = pages[pageName];
-//console.log(page);
+console.log(page);
 
 if (page) {
 %>
@@ -14,112 +15,49 @@ if (page) {
 <p class="introText"><%- page.introText %></p>
 
 
-<% if (page.featured) {
+<% 
+    var items = [].concat(page.featured);                   
+    if (page.featured && items.length) {
+        items.forEach(function(key) { 
+            var item = findItem(key);
+            console.log("featured",item);
+    %> <% include ../partials/item/_full %> <% 
+        });
+   } %>
 
-    console.log(page.featured);
+<% if (page.related && page.related.length) { %>
+    <div class="related" class="mainElement">
 
-    page.featured.forEach(function(key) { 
+            <% chunk(page.related,3).forEach(function(row) { %>
+                <div class="row">
+                <% row.forEach(function(key) { 
 
-        var item = (typeof key == 'object' ? key : pages[key] || content[key]);
-        switch (item.type) {
-            case 'article'          : %><% include ../partials/article/_full %><%break;
-            case 'image'            : %><% include ../partials/image/_full %><%break;
-            case 'video'            : %><% include ../partials/video/_full %><%break;
-            case 'event'            : %><% include ../partials/event/_full %><%break;
-            case 'book'             : %><% include ../partials/book/_full %><%break;
-            case 'person'           : %><% include ../partials/person/_full %><%break;
-            case 'track'            : %><% include ../partials/track/_full %><%break;
-            case '_try'             : %><% include ../learn/try %><%break;
-            case '_cypher'          : %><% include ../learn/cypher %><%break;
-            case '_contributors'    : %><% include ../participate/contributors %><%break;
-            case '_visualize'       : %><% include ../develop/visualize %><%break;
-            default                 : %><% include ../partials/default/_full %><%
-        }
-    });
+                    var item = findItem(key);
+                    console.log("related-item",item);
 
-} %>
-<% if (page.related && page.related.length) { 
+/*
+                    var items = [].concat(item.featured);                   
+                    console.log("item.featured",items);
+                    if (item.featured && items.length) {
+                        items.forEach(function(key) { 
+                            var item = findItem(key);
+                      % > < % include ../partials/item/_tile % > < %
+                        });
+                    } else {
+*/
+                      %> <% include ../partials/item/_tile %> <%
+//                  }
+                });  %> 
 
-var i=0;
-%>
+                </div><!-- row -->
+                <div class="clear"></div>
 
-                <div class="related" class="mainElement">
+         <% }); %>
+                    
+        </div><!-- row -->
+        <div class="clear"></div>
 
-                    <div class="row">
-
-						<% page.related.forEach(function(key) { 
-
-						item = (typeof key == 'object' ? key : pages[key] || content[key]);
-
-                        // key is no object and no page name, so try driver
-                        if (!item) {
-
-                            i++;
-
-                            var driver = key;
-                            %><% include ../partials/driver/_tile %><%
-
-                        %><% if (i > 0 && i % 3 == 0) { %>
-                        </div><!-- row -->
-                        <div class="clear"></div>
-                        <div class="row">                        
-                        <% } %>
-
-
-                        <%
-
-                        } else {
-
-						%>
-
-                        <% if (i > 0 && i % 3 == 0) { %>
-						</div><!-- row -->
-                        <div class="clear"></div>
-						<div class="row">                        
-						<% } %>
-
-						<% i++ %>
-
-						<%
-
-						// This is ugly, I know.
-						// See http://stackoverflow.com/questions/11804691/using-interpolation-within-node-js-ejs-includes
-
-						if (related.featured && related.featured.length) {
-
-                            related.featured.forEach(function(key) { 
-
-                                var item = (typeof key == 'object' ? key : content[key]);
-                                console.log(item);
-
-    							switch (item.type) {
-    								case 'article' : %><% include ../partials/article/_tile %><%break;
-    								case 'video'   : %><% include ../partials/video/_tile %><%break;
-    								case 'event'   : %><% include ../partials/event/_tile %><%break;
-    								case 'book'    : %><% include ../partials/book/_tile %><%break;
-    								case 'person'  : %><% include ../partials/person/_tile %><%break;
-    								default        : %><% include ../partials/default/_tile %><%
-    							}
-
-                            });
-
-						} else {
-                            // Default for overview pages (no featured content)
-                            
-                            %><% include ../partials/page/_tile %><%
-
-                        }
-
-                        }
-						 %>
-
-
-                        <% }); %>
-
-                    </div><!-- row -->
-                    <div class="clear"></div>
-
-                </div><!-- related -->
+    </div><!-- related -->
 
 <% } %>
 
@@ -129,17 +67,9 @@ var i=0;
         <!--
         $(document).ready(function() {
 
-            nav.activateMain('<%= mainCategory%>', '<%= (mainCategory == 'learn' ? '13.1' : (mainCategory == 'develop' ? '9.8' : '5.7')) %>em');
-
+            nav.activateMain('<%= mainCategory%>');
             nav.initThumbnails();
             nav.resize();
-            //nav.init();
-            //nav.activate('graph_concepts');
-            
-            //$(window).on('resize', function() {
-            //    nav.resize();
-            //});
-
         });
         //-->
         </script>

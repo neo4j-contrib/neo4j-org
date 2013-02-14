@@ -2,9 +2,11 @@
 /**
  * Module dependencies.
  */
-
+    
+process.on('uncaughtException', function(err) {console.log("Uncaught Exception",err)});
+    
 var express = require('express')
-  , routes = require('./routes')
+  , routes = require('./routes/routes')
   , http = require('http')
   , https = require('https')
   , path = require('path')
@@ -47,6 +49,46 @@ app.locals({
   } 
 });
 
+app.locals.link_to= function(path,inner) {
+    if (path) return "<a href="+path+" "+(path.match("^http") ? ' target="_blank" ':'')+">"+inner+"</a>";
+    return inner;
+}
+app.locals.chunk = function(arr,size) {
+    var res=[];
+    for (var i=0;i<arr.length/size;i++) {
+        res.push(arr.slice(i*size,(i+1)*size));        
+    }
+    return res;
+}
+
+app.locals.findItem=function(key) {
+    console.log("findItem",key)
+    if (typeof key == 'object') return key;
+    var addType=function(item,type) {
+        if (!item.type) item.type=type;
+        return item;
+    }
+    if (pages.pages[key]) return addType(pages.pages[key],"page");
+    if (pages.content[key]) return addType(pages.content[key],"content");
+    if (data.drivers[key]) return addType(data.drivers[key],"driver");
+    if (data.books[key]) return addType(data.books[key],"book");
+    if (data.contributors[key]) return addType(data.contributors[key],"contributor");
+    if (data.ext_content[key]) return addType(data.ext_content[key],"external");
+    if (data.trainings[key]) return addType(data.trainings[key],"training");
+    if (data.apps[key]) return addType(data.apps[key],"app");
+    return key;
+}
+
+app.locals.render=ejs.render
+app.locals._include=function(path,options) {
+    var content=app.locals._include[path];
+    if (!content) {
+        content=fs.readFileSync("views/"+path+".ejs").toString();
+        app.locals._include[path]=content;
+    }
+    return ejs.render(content, options); 
+}
+
 https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/versions.json"},
     function(res) {
         res.on("data", function(data) {
@@ -56,8 +98,9 @@ https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/version
             temp_update_version(app.locals.versions.milestone,app.locals.neo4j,app.locals.versions.milestone_date);
             temp_update_version(app.locals.versions.snapshot,app.locals.neo4jS);
         })
+    }).on('error', function(err) {
+        console.log("Error retrieving versions ",err);
     })
-
 forwarder.add_console_forward(app,express,http);
 
 app.locals.content = {}
@@ -67,7 +110,7 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   app.enable('trust proxy');
-//  app.use(express.favicon());
+  app.use(express.favicon());
   app.use(function(req, res, next){
       res.locals.path = req.path;
       res.locals.index_page = ['/','/index','/index_graph','/index_graph_svg'].indexOf(req.path) != -1
@@ -154,21 +197,12 @@ function forward(url) {
     return function(req,res) { res.redirect(url); }
 }
 
-/**
- * Page types:
- * - node: content about a single topic
- * - path: guide to related tracks of nodes
- * - graph: collection of arbitrarily connected nodes
- */
-
 function route_get(url, fun) {
 //  console.log(url);
     if (fun) fun.url = url;
     else console.log("Route missing for url: "+url);
     return app.get(url,fun);
 }
-
-
 
 fs.readFile("views/partials/page.ejs",function(err,buf) {
     var template=buf.toString();
@@ -282,8 +316,8 @@ app.locals.updateChannels = function() {
     console.log("Updating Channels");
     spreadsheet.channels(function(items) { app.locals.channels = items; });
 }
-app.locals.updateChannels();
-setInterval(app.locals.updateChannels,5*60*1000);
+//app.locals.updateChannels();
+//setInterval(app.locals.updateChannels,5*60*1000);
 
 
 calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length); }) 
@@ -346,7 +380,7 @@ route_get('/resources/cypher', forward('/assets/download/Neo4j_CheatSheet_v3.pdf
 
 route_get('/wp-content/*', routes.resource);
 route_get('/wp-includes/*', routes.resource);
-//route_get('/assets/download/*', routes.resource);
+route_get('/assets/download/*', routes.resource);
 route_get('/img/*', routes.resource);
 route_get('/highlighter/*', routes.resource);
 
@@ -397,7 +431,6 @@ route_get('/video/*', function(req, res){
 app.locals.next_steps = function(path,page) {
     return paths.next_steps(app.locals,routes,path,page).map( function(step) { return "<li><a href='"+step.url+"'>"+step.opts.title+"</a></li>"}).join("\n")
 }
-// console.log(app.locals.next_steps("java","java"))
 
 app.locals.related = function(path,page) {
     return paths.related(app.locals,path,page);

@@ -5,12 +5,19 @@ var   http = require('http')
 function load_github_content(locals, name, path, host) {
     if (!host) host="raw.github.com";
 	try {
-    https.get({host: host, path: path},
+     var req=https.get({host: host, path: path},
         function(res) {
             res.on("data", function(data) {
                 locals.content[name] = data.toString();            
             })
-        })
+        }, function(err) {
+            console.log("Error during request to ",host,path,err);
+        });
+        req.on('error',function(err) {
+            console.log("Error during request to ",host,path,err);
+        });
+        req.end();
+        
 	} catch(e) {
 		console.log("Error loading content for",name,host,path,e)
 		locals.content[name]="Content from http://"+host+"/"+path+" not loaded!";
@@ -23,7 +30,7 @@ function load_learn_content(locals, name, path, host) {
 	try {
        var add_attribs='target="_blank" class="manual" ';
        if (!host) host="learn.neo4j.org";
-       http.get({host: host, path: path},
+       var req=http.get({host: host, path: path},
        function(res) {
             res.on("data", function(data) {
                 var content = data.toString();
@@ -46,7 +53,11 @@ function load_learn_content(locals, name, path, host) {
                 locals.content[name] = content;
             })
         })
-	} catch(e) {
+        req.on('error',function(err) {
+            console.log("Error during request to ",host,path,err);
+        });
+        req.end();
+    } catch(e) {
 		console.log("Error loading content for",name,host,path,e)
 		locals.content[name]="Content from http://"+host+"/"+path+" not loaded!";
 	}

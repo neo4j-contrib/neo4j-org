@@ -12,7 +12,7 @@ function events2(fun, filter,calendar) {
         "/public/full?alt=json&orderby=starttime&max-results="+results+
         "&singleevents=true&sortorder=ascending&futureevents=true";
 //	console.log(url);
-    http.get({host: 'www.google.com', path: url},
+    var req=http.get({host: 'www.google.com', path: url},
         function(r) {
             r.setEncoding('utf8');
             var content="";
@@ -24,6 +24,11 @@ function events2(fun, filter,calendar) {
                 content += data;    
             })
         })
+    req.on('error',function(err) {
+        console.log("Error during request to ",host,path,err);
+    });
+    req.end();
+    
 }
 
 events2(function(json) {

@@ -68,12 +68,13 @@ var nav = {
 	/**
 	* Activate an item in the main menu
 	*/
-	activateMain : function(label, r) {
+	activateMain : function(category) {
+        var rightAlign = {learn: "13.1em" , develop: "9.8em", participate: "5.7em" };
 		var mainNav = $('#mainNav');
 		$('a', mainNav).removeClass('active');
-        $('.' + label + ' a', mainNav).addClass('active');
+        $('.' + category + ' a', mainNav).addClass('active');
 		$('#activePointer').css({
-              right: r
+              right: rightAlign[category]
          }).show();
 	},
 

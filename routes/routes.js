@@ -171,7 +171,7 @@ exports.participate = function(req, res){
 };
 
 exports.events = function(req, res){
-  res.render('learn/events', { category: 'participate', title: 'Neo4j related events' });
+  res.render('participate/events', { category: 'participate', title: 'Neo4j related events' });
 };
 
 exports.contributors = function(req, res){

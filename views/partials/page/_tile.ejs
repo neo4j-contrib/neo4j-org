@@ -1,17 +1,18 @@
 <div class="item _page">
 <%
 	var hasPath = item.path;
-	var image = item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
+	var image = item.img ? item.img : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
 	console.log(image)
 %>
 
-    <h3><% if (hasPath) { %><a href="<%= item.path %>"><% } %><%= item.title %><% if (hasPath) { %></a><% } %></h3>
+    <h3><%- link_to(item.path, item.title) %></h3>
     <% if (image) { %>
-    <a href="<%= item.path %>"><img class="preview" src="<%= image %>"></a>
+    <%- link_to(item.path, '<img class="preview" src="'+image+'" />') %>
     <% } %>
     <div>
         <p class="introText"><%- item.previewText ? item.previewText : item.introText %></p>
     </div>
-    <% if (hasPath) { %><a class="link" href="<%= item.path %>"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+    <% // todo linkto with classes and skip if no link 
+    if (hasPath) { %><a class="link" href="<%= item.path %>"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
 </div>
 

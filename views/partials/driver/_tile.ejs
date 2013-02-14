@@ -1,4 +1,4 @@
-<% var info=drivers[driver] %>
+<% var info=typeof(item) == 'object' ? item : drivers[item] %>
 
 <div class="item driver">
 
@@ -10,7 +10,8 @@
     <%
     [].concat( info.authors ).map(function(author){
         if (author.indexOf('@') == 0) { 
-            var contributor = contributors[author.substring(1)];
+            var contributor = contributors[author.substring(1)]||{name:author.substring(1)}
+            console.log("contributor",info.name,contributor,author);
     %>
     <h4><em><a target="_blank" href="http://twitter.com/<%= contributor.twitter %>"><%= contributor.name %></a></em></h4>
     <%} else { %>
