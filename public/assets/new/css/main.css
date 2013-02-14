@@ -827,6 +827,7 @@ ul.hor li {
 
 .related .item img {
     display: block;
+    border: none;
     margin: 0 auto .5em auto;
 }
 

@@ -16,13 +16,14 @@ var express = require('express')
   , forwarder=require("./helpers/forwarder")
   , munchkin=require("./helpers/munchkin")
   , data=require("./helpers/data")
-  , content_data=require("./helpers/content_data")
+//  , content_data=require("./helpers/content_data")
+  ,  content=require("./helpers/content")
   , pages=require("./helpers/pages")
   , track_data=require("./helpers/track_data")
   , markdown = require("node-markdown").Markdown
   , calendar = require("./helpers/calendar")
   , spreadsheet = require("./helpers/spreadsheet")
-  , content = require("./helpers/content")
+  , content_loading = require("./helpers/content_loading")
   , meetup =  require("./helpers/meetup")
   , paths =  require("./helpers/path")
   , geoip =  require("./helpers/geoip")
@@ -69,7 +70,7 @@ app.locals.findItem=function(key) {
         return item;
     }
     if (pages.pages[key]) return addType(pages.pages[key],"page");
-    if (pages.content[key]) return addType(pages.content[key],"content");
+    if (content.content[key]) return addType(content.content[key],"content");
     if (data.drivers[key]) return addType(data.drivers[key],"driver");
     if (data.books[key]) return addType(data.books[key],"book");
     if (data.contributors[key]) return addType(data.contributors[key],"contributor");
@@ -88,6 +89,8 @@ app.locals._include=function(path,options) {
     }
     return ejs.render(content, options); 
 }
+
+app.locals.versions={}
 
 https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/versions.json"},
     function(res) {
@@ -156,7 +159,7 @@ app.locals.theme = function() {
 app.locals.drivers=data.drivers;
 app.locals.apps=data.apps;
 app.locals.contributors=data.contributors;
-app.locals.chapters=content_data.chapters;
+// app.locals.chapters=content_data.chapters;
 app.locals.units=track_data.units;
 app.locals.books=data.books;
 app.locals.trainings=data.trainings;
@@ -188,10 +191,10 @@ app.locals({
     }
 });
 
-content.load_github_content(app.locals,'puppet',"/neo4j-contrib/neo4j-puppet/master/README.md")
-content.load_github_content(app.locals,'ec2_template',"/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md")
-content.load_learn_content(app.locals,'java_hello_world',"/java-hello-world/index.html")
-content.load_learn_content(app.locals,'java_cypher',"/java-cypher/index.html")
+content_loading.load_github_content(app.locals,'puppet',"/neo4j-contrib/neo4j-puppet/master/README.md")
+content_loading.load_github_content(app.locals,'ec2_template',"/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md")
+content_loading.load_learn_content(app.locals,'java_hello_world',"/java-hello-world/index.html")
+content_loading.load_learn_content(app.locals,'java_cypher',"/java-cypher/index.html")
 
 function forward(url) {
     return function(req,res) { res.redirect(url); }
@@ -273,7 +276,7 @@ route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 route_get('/develop/drivers', routes.pages);
 route_get('/drivers', routes.pages);
 route_get('/participate', routes.pages); 
-route_get('/install', routes.pages);
+route_get('/install', forward("/download"));
 route_get('/download_thanks', routes.pages);
 route_get('/subscribe_thanks', routes.pages); 
 route_get('/participate/contributors', routes.pages);

@@ -406,9 +406,10 @@ exports.books = {
     },
     visualcomplexity: {
         url: "http://www.amazon.com/gp/product/1568989369/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1568989369&linkCode=as2&tag=neotech05-20",
-        name: "Visual Complexity: Mapping Patterns of Information",
+        name: "Visual Complexity",
         author: "Manuel Lima",
         price: "List Price: $50.00",
+        introText: "Mapping Patterns of Information",
         logo: "/assets/img/books/visual_complexity.png",
         text: 'From representing networks of friends on Facebook to depicting interactions among proteins in a human cell, Visual Complexity presents one hundred of the most interesting examples of information-visualization by the field\'s leading practitioners.'
     },
