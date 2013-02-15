@@ -1,4 +1,4 @@
-
+process.on('uncaughtException',function(err) { delete err['response']; console.log("Uncaught Error",err); })
 /**
  * Module dependencies.
  */
