@@ -363,6 +363,14 @@ exports.ext_content = {
 }
 
 exports.books = {
+    graphdatabases: {
+        url: "http://graphdatabases.com",
+        name: "Graph Databases",
+        author: "Ian Robinson, Jim Webber, Emil Eifrem",
+        price: "Free Download Early Access Version",
+        logo: "/assets/img/books/graph_databases.gif",
+        text: 'Graph Databases is a definitive guide to graph databases and their technological applications. Written by three acclaimed authors in the space.'
+    },
     springdata: {
         url: "http://shop.oreilly.com/product/0636920024767.do",
         name: "Spring Data",
