@@ -1,4 +1,4 @@
-<% include ../head %>
+<% include head %>
 <div class="container">
 
 <div role="main" class="row">
@@ -14,28 +14,27 @@
 
 <div class="thumbnails drivers row-fluid">
     <% ["neo4j_rest","spring_data_neo4j","neo4j_java","neo4j_rb","neography","neo4jphp"].forEach(function(driver) { %>
-        <% include ../partials/_driver %>
+        <% include partials/_driver %>
     <% }); %>
 
 </div>
 <div class="thumbnails drivers row-fluid">
     <% [ "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "bulbflow"].forEach(function(driver) { %>
-        <% include ../partials/_driver %>
+        <% include partials/_driver %>
     <% }); %>
 </div>
 <div class="thumbnails drivers row-fluid">
     <% [ "keymaker", "neoid", "neo4django","neo4j_rest_client", "neo4p", "scala" ].forEach(function(driver) { %>
-        <% include ../partials/_driver %>
+        <% include partials/_driver %>
     <% }); %>
 </div>
 <div class="thumbnails drivers row-fluid">
     <% [ "grails","anorm_cypher", "haskell", "datanucleus","neo4j_go" ].forEach(function(driver) { %>
-        <% include ../partials/_driver %>
+        <% include partials/_driver %>
     <% }); %>
 </div>
 </div>
 </div>
 </div>
 </div>
-<% include ../foot %>
-
+<% include foot %>

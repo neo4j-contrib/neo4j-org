@@ -183,16 +183,15 @@ route_get('/learn/licensing', routes.license);
 
 route_get('/learn/nosql', routes.nosql); 
 route_get('/learn/cypher', routes.cypher); 
-route_get('/develop/visualize', routes.visualize); 
-route_get('/develop', routes.develop); 
-route_get('/develop/heroku', routes.heroku); 
-route_get('/develop/spring', routes.spring); 
-route_get('/develop/ec2', routes.ec2); 
-route_get('/develop/ec2_detailed', routes.ec2_detailed); 
-route_get('/develop/example_data', routes.example_data); 
-route_get('/develop/spring', routes.spring); 
+route_get('/use/visualize', routes.visualize);
+route_get('/use', routes.use);
+route_get('/use/heroku', routes.heroku);
+route_get('/use/spring', routes.spring);
+route_get('/use/ec2', routes.ec2);
+route_get('/use/ec2_detailed', routes.ec2_detailed);
+route_get('/example_data', routes.example_data);
+route_get('/use/spring', routes.spring);
 
-route_get('/develop/drivers', routes.drivers);
 route_get('/drivers', routes.drivers);
 route_get('/participate', routes.participate); 
 route_get('/install', routes.install);
@@ -264,6 +263,14 @@ route_get('/events.json',function(req,res) {
 
 // well known historic URLs redirects
 route_get('/download', forward('/install'));
+route_get('/develop', forward('/use'));
+route_get('/develop/visualize', forward('/use/visualize'));
+route_get('/develop/heroku', forward('/use/heroku'));
+route_get('/develop/spring', forward('/use/spring'));
+route_get('/develop/ec2', forward('/use/ec2'));
+route_get('/develop/ec2_detailed', forward('/use/ec2_detailed'));
+route_get('/develop/example_data', forward('/example_data'));
+route_get('/develop/drivers', forward('/drivers'));
 route_get('/about', forward('/learn/neo4j'));
 route_get('/terms', routes.terms); // terms and conditions
 route_get('/privacy', routes.privacy); // privacy policy
@@ -281,7 +288,7 @@ route_get('/bookstore', forward("http://www.neotechnology.com/bookstore/"));
 route_get('/licensing-guide', forward('/learn/licensing')); // node:  Neo4j licensing guide (well-known URL. redirect?)
 route_get('/release-notes', routes.release_notes);
 route_get('/customers', routes.customers);
-route_get('/getting-started', forward('/develop'));
+route_get('/getting-started', forward('/use'));
 route_get('/java', routes.java);
 route_get('/java/basics', routes.java_basics);
 route_get('/java/cypher', routes.java_cypher);
