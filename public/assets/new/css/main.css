@@ -167,7 +167,6 @@ p {
 
 a, a:hover, a:active, a:visited {
     text-decoration: none;
-    font-weight: bold;
 }
 
 a:hover {
@@ -669,20 +668,21 @@ ul.hor li {
 }
 
 .featured .article .caption,
-.featured .article .content
+.featured .article .content,
 .featured .book .caption,
-.featured .book .content
-{
+.featured .book .content {
     display: block;
     position: relative;
 }
 
-.featured .article .content,.featured .book .content {
+.featured .article .content,
+.featured .book .content {
     float: left;
     width: 38em;
 }
 
-.featured .article img,.featured .book img {
+.featured .article img,
+.featured .book img {
     float: right;
 }
 
@@ -695,7 +695,8 @@ ul.hor li {
     float: left;
 }
 
-.featured .image,.featured img {
+.featured .image,
+.featured img {
     overflow: auto;
     height: 100% ! important;
     padding: 0;
@@ -827,7 +828,6 @@ ul.hor li {
 
 .related .item img {
     display: block;
-    border: none;
     margin: 0 auto .5em auto;
 }
 
@@ -846,7 +846,7 @@ ul.hor li {
     max-width: 17em;
     max-height: 10em;
     margin: auto;
-    border: 1px solid #a5a5a5;
+    border: 1px solid #e5e5e5;
 /*    width: 10em;
     margin: 0 3em ! important;
 /*    border: none;*/
