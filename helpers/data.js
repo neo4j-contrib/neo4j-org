@@ -92,7 +92,7 @@ exports.drivers = {
         url: "http://pypi.python.org/pypi/neo4j-embedded",
         logo: "/assets/img/languages/python.png",
         name: "Neo4j Python",
-        text: "The JVM based Python integration for Neo4j uses JPype. More details in the <a href='http://docs.neo4j.org/chunked/snapshot/python-embedded.html'>Neo4j manual.</a>"
+        text: "The JVM based Python integration for Neo4j uses JPype. More details in the <a href='http://docs.neo4j.org/drivers/python-embedded/snapshot'>Neo4j manual.</a>"
     },
     grails: {
         tags: ["groovy", "grails", "jvm"],
