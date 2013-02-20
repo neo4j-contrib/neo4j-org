@@ -56,6 +56,10 @@ function events(fun, filter) {
                 item.Group=meetup[1];
                 item.Meetup=meetup[2];
             }
+			if (item.Description.match(/Meetup/)) item.Type="Meetup";
+			if (item.Description.match(/(Training|Tutorial)/)) item.Type="Training";
+			if (item.Description.match(/Webinar/)) item.Type="Webinar";
+			if (item.Description.match(/Conference/)) item.Type="Conference";
             event_prop(item,'Area','US') // TODO
             // console.log(item)
 			console.log(item['Location']);
