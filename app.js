@@ -263,25 +263,25 @@ route_get('/events.json',function(req,res) {
 });
 
 // well known historic URLs redirects
-route_get('/download', routes.install);
-route_get('/about', routes.neo4j);
+route_get('/download', forward('/install'));
+route_get('/about', forward('/learn/neo4j'));
 route_get('/terms', routes.terms); // terms and conditions
 route_get('/privacy', routes.privacy); // privacy policy
-route_get('/ruby', routes.drivers);
-route_get('/community', routes.participate);
-route_get('/community/feeds', routes.participate);
-route_get('/resources', routes.learn);
+route_get('/ruby', forward('/develop/drivers'));
+route_get('/community', forward('/participate'));
+route_get('/community/feeds', forward('/participate'));
+route_get('/resources', forward('/learn'));
 route_get('/forums',forward("http://groups.google.com/group/neo4j"));
 route_get('/nabble',forward("http://groups.google.com/group/neo4j"));
-route_get('/spring', routes.spring);
-route_get('/heroku', routes.heroku);
+route_get('/spring', forward('/develop/spring'));
+route_get('/heroku', forward('/develop/heroku'));
 route_get('/azure', forward("http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"));
 route_get('/price-list', forward("http://www.neotechnology.com/price-list/"));
 route_get('/bookstore', forward("http://www.neotechnology.com/bookstore/"));
-route_get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
+route_get('/licensing-guide', forward('/learn/licensing')); // node:  Neo4j licensing guide (well-known URL. redirect?)
 route_get('/release-notes', routes.release_notes);
 route_get('/customers', routes.customers);
-route_get('/getting-started', routes.develop);
+route_get('/getting-started', forward('/develop'));
 route_get('/java', routes.java);
 route_get('/java/basics', routes.java_basics);
 route_get('/java/cypher', routes.java_cypher);
