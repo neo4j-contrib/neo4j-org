@@ -58,18 +58,32 @@ function events(fun, filter) {
             }
 			function assignType(item,content) {
 				if (item.Type) return item;
-				if (content.match(/(Training|Tutorial)/i)) {item.Type="Training"; return item}
+				if (content.match(/(Training|Tutorial|Workshop)/i)) {item.Type="Training"; return item}
 				if (content.match(/Webinar/i)) { item.Type="Webinar"; return item; }
-				if (content.match(/Conference/i)) {item.Type="Conference"; return item;}
+				if (content.match(/(Conference|Sponsorship)/i)) {item.Type="Conference"; return item;}
 				if (content.match(/Meetup/i)) {item.Type="Meetup";return item;}
 				return item;
 			}
 			assignType(assignType(item,item.Title),item.Description);
 			if (!item.Type) item.Type="Conference";
 			
-            event_prop(item,'Area','WORLD') // TODO
+			function assignArea(item, content) {
+				if (!content || !item || item.Type=="Webinar" || item.Area) return item;
+				if (/(Los Angeles|CA|US|USA|Boston|DC|Washington|Valley|Seattle|NY|New York|San Francisco|Dallas|Canada|Vancouver|Montreal)/.test(content)) {
+					 item.Area="US"; return item; }
+				if (/(Denmark|London|Paris|Copenhagen|Rotterdam|Netherlands|Belgium|UK|France|Sweden|Malm|Stockholm|Amsterdam)/.test(content)) {
+					item.Area="EU"; return item; 
+				}
+				if (/(Berlin|DE|Munich|München|Hamburg|Düsseldorf|Zürich|Wien|Frankfurt|Dresden|Österreich|Schweiz|CH|AT)/.test(content)) {
+					item.Area="DE"; return item; 
+				}
+				return item;
+			}
+			assignArea(assignArea(item,item.Location),item.Title);
+			if (!item.Area) item.Area='WORLD';
+			
             //console.log(item)
-			//console.log(item['Location']);
+			console.log(item.Area, item['Location'], item.Title);
             return item;
         });
         if (filter) fun(items.filter(filter));

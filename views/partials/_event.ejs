@@ -1,4 +1,3 @@
-<div class="span3">
 <%
 /*
 When: Fri Feb 15, 2013 3:45am to 4:30am PST
@@ -11,19 +10,23 @@ Event Description: Event Info
 	if (event) {
     if (event['Group']) {
 %>
-    <div class="meetup thumbnail" group="<%= event['Group'] %>" event="<%= event['Meetup'] %>">
+    <div area="<%= event['Area'] %>" class="event meetup thumbnail" group="<%= event['Group'] %>" event="<%= event['Meetup'] %>">
 <% } else { %>
-	<div class="thumbnail ">
+	<div area="<%= event['Area'] %>" class="event thumbnail ">
 <%  }  %>
             <a target='_blank' href="<%= event['Url'] %>">
                 <img src="<%= event['Image'] || event['Portrait'] || {Webinar:'/assets/img/events/neo4j_icon_webinar.png',Training:'/assets/img/events/neo4j_icon_training.png', Meetup: '/assets/img/events/neo4j_icon_meetup.png'}[event.Type] || '/assets/img/events/neo4j_icon_webinar.png' %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
             </a>
             <div class="caption">
-                <h5><%= event['Title'] %></h5>
+                <h5><%- event['Title'] %></h5>
+                <% if (event['Start']) { %>
                 When: <%= event['Start'] %><br/>
 				<hr/>
+                <% } %>
+                <% if (event['Location']) { %>
                 Where: <%= event['Location'] %><br/>
 				<hr/>
+                <% } %>
                 <% if (event['Presenter']) { %>
                     <a target='_blank' href="http://twitter.com/<%= event['Twitter'] %>">
                         <h4><em>with <%= event['Presenter'] %></em></h4>
@@ -34,4 +37,3 @@ Event Description: Event Info
             </div>
         </div>
         <% }  %>
-</div>

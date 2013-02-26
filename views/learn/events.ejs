@@ -19,41 +19,50 @@
     at any time.</p>
     </div>
     
-    Your region: <%= region %>
+    <h3>Events for your region: 
+		<select id="region" style="width:10em;height:1.8em;vertical-align:baseline;">
+		   <option value="WORLD">All</option>
+		   <option value="US">North America</option>
+		   <option value="EU">Europe</option>
+		   <option value="DE">German</option>
+		</select>
+    </h3>
         
         <%  
 			var groupedEvents = {Conference:[],Meetup:[],Webinar:[],Training:[]};
 			for (var i=0;i<events.length;i++) {
 			    var event=events[i];
-				if (!event['Area'] || event['Area']=='WORLD' || events['Area']==region) {
-					groupedEvents[event.Type].push(event);
-				}
+			    if (!event) continue;
+			    var type=event.Type;
+			    if (!groupedEvents[type]) { type="Conference"; event.Type=type;}
+				groupedEvents[type].push(event);
 			}
-			console.log(groupedEvents);
-			var found=true;
-            while (found) {
-            %>
-                <div class="thumbnails events row">
-            <%
-				found=false;
-				for (type in groupedEvents) {
-					var event=groupedEvents[type].splice(0,1)[0];
-					if (event) found=true;
-			        %>
-			             <% include ../partials/_event %>
-			        <%                  
-				}
-                %>
-                    </div>
-                <%
-            }
-         %>
-
+	        %>
+            <div class="thumbnails events row">
+			<% 	for (type in groupedEvents) { %>
+				<div class="span3">
+			    <h3 class="center"><%= type %></h3>
+		        <% groupedEvents[type].forEach(function(event) { %>
+	               <% include ../partials/_event %>
+			    <% }); %>
+			  </div>
+			<% } %>
+			  </div>
     </div>
 </div>
 
 <script type="text/javascript">
 $(document).ready(function() {
+	var region="<%= region %>";
+	$("#region").val(region).change(function() {
+	    region=$(this).val();
+		$(".event").each(function() {
+			var area = $(this).attr("area");
+			if (!area || area=='WORLD' || region=='WORLD' || area==region) $(this).show();
+			else $(this).hide();
+		})
+	})
+	
 /*
     $('div.meetup').each(function() {
         var e=$(this);

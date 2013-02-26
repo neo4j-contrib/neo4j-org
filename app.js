@@ -249,7 +249,7 @@ app.locals.resolve_authors = function(authors) {
     });
 }
 
-calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length); }) 
+calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events",app.locals.events.length); }) 
 
 console.log(app.locals.contributors);
 route_get('/events.json',function(req,res) {
