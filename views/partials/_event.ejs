@@ -16,12 +16,14 @@ Event Description: Event Info
 	<div class="thumbnail ">
 <%  }  %>
             <a target='_blank' href="<%= event['Url'] %>">
-                <img src="<%= event['Image'] || event['Portrait'] || {Webinar:'/assets/img/events/webinar.png',Training:'/assets/img/events/training.png', Meetup: '/assets/img/events/meetup.jpg'}[event.Type] || '/assets/img/events/webinar.png' %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
+                <img src="<%= event['Image'] || event['Portrait'] || {Webinar:'/assets/img/events/webinar.png',Training:'/assets/img/events/training.png', Meetup: '/assets/img/events/meetup.png'}[event.Type] || '/assets/img/events/webinar.png' %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
             </a>
             <div class="caption">
                 <h5><%= event['Title'] %></h5>
                 When: <%= event['Start'] %><br/>
+				<hr/>
                 Where: <%= event['Location'] %><br/>
+				<hr/>
                 <% if (event['Presenter']) { %>
                     <a target='_blank' href="http://twitter.com/<%= event['Twitter'] %>">
                         <h4><em>with <%= event['Presenter'] %></em></h4>
