@@ -3,7 +3,7 @@
  * GET home page.
  */
 exports.index = function(req, res){
-  res.render('index', { category: '', title: 'Learn, Develop, Participate' });
+  res.render('index', { category: '', title: 'Learn, Use, Participate' });
 };
 
 exports.index_graph = function(req, res){
@@ -70,7 +70,7 @@ exports.books = function(req, res){
 };
 
 exports.visualize = function(req, res){
-  res.render('develop/visualize', { category: 'develop', title: 'Graph Visualizations' });
+  res.render('use/visualize', { category: 'use', title: 'Graph Visualizations' });
 };
 
 
@@ -111,10 +111,10 @@ exports.watch = function(req, res){
 
 
 /*
- * GET - "develop" applications using Neo4j
+ * GET - "use" Neo4j
  */
-exports.develop = function(req, res){
-  res.render('develop', { category: 'develop', title: 'Develop' });
+exports.use = function(req, res){
+  res.render('use', { category: 'use', title: 'Use' });
 };
 exports.java = function(req, res){
   res.render('paths/java', { category: 'java', title: 'Neo4j for Java developers' });
@@ -130,29 +130,29 @@ exports.java_cypher = function(req, res){
 
 
 exports.heroku = function(req, res){
-  res.render('develop/heroku', { category: 'develop', title: 'Heroku Add-on' });
+  res.render('use/heroku', { category: 'use', title: 'Heroku Add-on' });
 };
 
 exports.spring = function(req, res){
-    res.render('develop/spring', { category: 'develop', title: 'Spring Data Neo4j' });
+    res.render('use/spring', { category: 'use', title: 'Spring Data Neo4j' });
 };
 
 
 exports.ec2 = function(req, res){
-  res.render('develop/ec2', { category: 'develop', title: 'Easy Neo4j Setup on EC2' });
+  res.render('use/ec2', { category: 'use', title: 'Easy Neo4j Setup on EC2' });
 };
 
 exports.ec2_detailed = function(req, res){
-  res.render('develop/ec2_detailed', { category: 'develop', title: 'Detailed Instructions and Skripts for EC2 setup' });
+  res.render('use/ec2_detailed', { category: 'use', title: 'Detailed Instructions and Skripts for EC2 setup' });
 };
 
 
 exports.spring = function(req, res){
-  res.render('develop/spring', { category: 'develop', title: 'Spring Data Neo4j' });
+  res.render('use/spring', { category: 'use', title: 'Spring Data Neo4j' });
 };
 
 exports.drivers = function(req, res){
-  res.render('develop/drivers', { category: 'develop', title: 'Language Drivers' });
+  res.render('drivers', { category: 'use', title: 'Language Drivers' });
 };
 
 exports["try"] = function(req, res){
@@ -174,11 +174,11 @@ exports.meetup_signup = function(req, res){
     res.render('participate/meetup_signup', { category: 'contributors', title: 'Meetup Signup' });
 };
 exports.example_data = function(req, res){
-    res.render('develop/example_data', { category: 'develop', title: 'Sample Datasets' });
+    res.render('example_data', { category: 'use', title: 'Sample Datasets' });
 };
 
 exports.d3 = function(req, res){
-    res.render('d3', { category: 'develop', title: 'D3 Test' });
+    res.render('d3', { category: 'use', title: 'D3 Test' });
 };
 
 exports.terms = function(req, res){

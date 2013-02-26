@@ -21,7 +21,7 @@ exports.drivers = {
     spring_data_neo4j: {
         tags: ["java", "jvm", "rest", "spring"],
         authors: ["@neo4j"],
-        url: "/develop/spring",
+        url: "/use/spring",
         logo: "/assets/img/languages/sdn.png",
         name: "Spring Data Neo4j",
         text: "Familiar POJO-based development, enabling object-to-graph mapping using annotations. Amazingly simple, with full graph power just a traversal query away."
