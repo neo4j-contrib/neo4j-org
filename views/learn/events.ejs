@@ -21,21 +21,28 @@
     
     Your region: <%= region %>
         
-        <%  var i=0;
-            var myEvents = events.filter(function(event) { 
-				return !event['Area'] || event['Area']=='WORLD' || events['Area']==region; 
-			});
-            while (i<myEvents.length) {
+        <%  
+			var groupedEvents = {Conference:[],Meetup:[],Webinar:[],Training:[]};
+			for (var i=0;i<events.length;i++) {
+			    var event=events[i];
+				if (!event['Area'] || event['Area']=='WORLD' || events['Area']==region) {
+					groupedEvents[event.Type].push(event);
+				}
+			}
+			console.log(groupedEvents);
+			var found=true;
+            while (found) {
             %>
                 <div class="thumbnails events row">
             <%
-                for (var col=0;col<4 && i+col < myEvents.length;col++) {
-                    var event=myEvents[i+col];
-        %>
-                    <% include ../partials/_event %>
-        <%                  
-                }
-                i+=4;
+				found=false;
+				for (type in groupedEvents) {
+					var event=groupedEvents[type].splice(0,1)[0];
+					if (event) found=true;
+			        %>
+			             <% include ../partials/_event %>
+			        <%                  
+				}
                 %>
                     </div>
                 <%
@@ -47,12 +54,14 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
+/*
     $('div.meetup').each(function() {
         var e=$(this);
         $.get("/meetup?group="+e.attr("group")+"&event="+e.attr("event"), function(data,err) {
             e.html(data);
         })
     })
+*/
 })
 </script>
 </div>

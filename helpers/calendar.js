@@ -32,9 +32,9 @@ events2(function(json) {
 function events(fun, filter) {
     var calendarUrl='http://www.google.com/calendar/feeds/neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com/public/basic?orderby=starttime&sortorder=ascending&max-results=30&futureevents=true&hl=en';
     rssparser.parseURL(calendarUrl, { headers: {'Accept-Language':'en'}}, function(err, out){
-        function event_prop(item,name,regexp) {
+        function event_prop(item,name,regexp,type) {
             var match = item.summary.match(regexp);
-            item[name]=match == null ? '' : match[1];
+            item[name]=match == null ? '' : type || match[1];
         }
         var items=out.items.map(function(item) {
 			item.Title=item.title;
@@ -56,13 +56,20 @@ function events(fun, filter) {
                 item.Group=meetup[1];
                 item.Meetup=meetup[2];
             }
-			if (item.Description.match(/Meetup/)) item.Type="Meetup";
-			if (item.Description.match(/(Training|Tutorial)/)) item.Type="Training";
-			if (item.Description.match(/Webinar/)) item.Type="Webinar";
-			if (item.Description.match(/Conference/)) item.Type="Conference";
-            event_prop(item,'Area','US') // TODO
-            // console.log(item)
-			console.log(item['Location']);
+			function assignType(item,content) {
+				if (item.Type) return item;
+				if (content.match(/(Training|Tutorial)/i)) {item.Type="Training"; return item}
+				if (content.match(/Webinar/i)) { item.Type="Webinar"; return item; }
+				if (content.match(/Conference/i)) {item.Type="Conference"; return item;}
+				if (content.match(/Meetup/i)) {item.Type="Meetup";return item;}
+				return item;
+			}
+			assignType(assignType(item,item.Title),item.Description);
+			if (!item.Type) item.Type="Conference";
+			
+            event_prop(item,'Area','WORLD') // TODO
+            //console.log(item)
+			//console.log(item['Location']);
             return item;
         });
         if (filter) fun(items.filter(filter));

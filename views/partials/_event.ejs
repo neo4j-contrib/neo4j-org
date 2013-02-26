@@ -1,5 +1,4 @@
 <div class="span3">
-    <div class="thumbnail ">
 <%
 /*
 When: Fri Feb 15, 2013 3:45am to 4:30am PST
@@ -9,13 +8,15 @@ Event Status: confirmed\n
 Event Description: Event Info
 <a href="\&quot;http://www.google.com/url?q=http%3A%2F%2Fsyncconf.com%2F&amp;ust=1359165468136000&amp;usg=AFQjCNHxoMNKtRJSsyuqj9CRGHanxvNHeQ\&quot;" target="\&quot;_blank\&quot;">Event Info</a>
 */
+	if (event) {
+    if (event['Group']) {
 %>
-        <% if (event['Group']) {%>
-            <div class="meetup" group="<%= event['Group'] %>" event="<%= event['Meetup'] %>">
-            </div>
-        <% } else { %>
+    <div class="meetup thumbnail" group="<%= event['Group'] %>" event="<%= event['Meetup'] %>">
+<% } else { %>
+	<div class="thumbnail ">
+<%  }  %>
             <a target='_blank' href="<%= event['Url'] %>">
-                <img src="<%= event['Image'] || event['Portrait'] ||'/assets/img/logo/webinar.png' %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
+                <img src="<%= event['Image'] || event['Portrait'] || {Webinar:'/assets/img/events/webinar.png',Training:'/assets/img/events/training.png', Meetup: '/assets/img/events/meetup.jpg'}[event.Type] || '/assets/img/events/webinar.png' %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
             </a>
             <div class="caption">
                 <h5><%= event['Title'] %></h5>
@@ -29,6 +30,6 @@ Event Description: Event Info
                 <p><%-: event['Description'] | truncate_words: 30 %></p>
                 <a class="btn" href="<%= event['Url'] %>" target="_blank">Participate </a><br/>
             </div>
-        <% } %>
-    </div>
+        </div>
+        <% }  %>
 </div>
