@@ -54,14 +54,18 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	var region="<%= region %>";
+	
+	function filterByRegion(region) {
+    	$(".event").each(function() {
+    		var area = $(this).attr("area");
+    		if (!area || area=='WORLD' || region=='WORLD' || area==region) $(this).show();
+    		else $(this).hide();
+    	})
+    }
 	$("#region").val(region).change(function() {
-	    region=$(this).val();
-		$(".event").each(function() {
-			var area = $(this).attr("area");
-			if (!area || area=='WORLD' || region=='WORLD' || area==region) $(this).show();
-			else $(this).hide();
-		})
+	    filterByRegion($(this).val());
 	})
+	filterByRegion(region);
 	
 /*
     $('div.meetup').each(function() {
