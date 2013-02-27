@@ -44,7 +44,7 @@
 
             <p class="date"><%= neo4j.date %></p>
             <% if (neo4j.readme) { %>
-            <a href="<%= neo4j.readme %>" class="btn" type="button">Read Me</a></th>
+            <a href="<%= neo4j.readme %>" class="btn" target="_blank" type="button">Announcement</a></th>
             <% } %>
         <td class="os"><h3>Linux/Mac</h3></td>
         <% var platform = "unix" %>
@@ -64,8 +64,10 @@
 
             <p class="date"><%= neo4jGA.date %></p>
             <% if (neo4jGA.readme) { %>
-                <a href="<%= neo4jGA.readme %>" class="btn" type="button">Read Me</a></th>
+                <a href="<%= neo4jGA.readme %>" target="_blank" class="btn" type="button">Announcement</a>
             <% } %>
+            <a href="/release-notes" class="btn" type="button">Release Notes</a>
+        </th>
         <td class="os"><h3>Linux/Mac</h3></td>
         <% var platform = "unix" %>
         <% var version = neo4jGA.version %>
