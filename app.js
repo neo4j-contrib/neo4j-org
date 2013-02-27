@@ -220,17 +220,43 @@ route_get('/marketo',function(req,res) {
         res.send(500);
     }
 });
-
+var meetups = {};
 route_get('/meetup',function(req,res) {
-    meetup.oembed(req.query['group'],req.query['event'], function(json) {
-        res.send(200,json['html']);
+	var group=req.query['group'];
+	var event=req.query['event'];
+	var img=req.query['img'];
+	if (!event && meetups[group]) {
+		if (img) res.redirect(meetups[group]['img']);
+		else res.send(200,meetups[group]['html'])
+		return;
+	}
+    meetup.oembed(group,event, function(json) {
+		var html=json['html'];
+		if (!event) {
+			meetups[group]={html:html};
+			meetups[group]['img']=html.match(/"(https?:\/\/photos.+?(jpeg|jpg|png))"/)[1];
+			if (img) { res.redirect(meetups[group]['img']); return;}
+		}
+        res.send(200,html);
     });
 });
 app.locals.events = [];
 app.locals.contributors = {};
 
 
-spreadsheet.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length);}) 
+calendar.events(function(items) { app.locals.events = items; console.log("events",app.locals.events.length); }) 
+spreadsheet.events(function(items) { 
+	var urls=app.locals.events.map(function(e) {return e['Url'];});
+	items.forEach(function(event) {
+		var idx=urls.indexOf(event['Url']);
+		if (idx == -1) app.locals.events.push(event); 
+		else app.locals.events[idx]=event;
+	})
+	app.locals.events = app.locals.events.sort(function(e1,e2) {
+		return e1.Date.getTime() - e2.Date.getTime();
+	})
+	console.log("events2",app.locals.events.length);
+}) 
 spreadsheet.contributors(function(items) { app.locals.contributors = items; }); 
 app.locals.updateChannels = function() {
     console.log("Updating Channels");
@@ -249,9 +275,6 @@ app.locals.resolve_authors = function(authors) {
     });
 }
 
-calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events",app.locals.events.length); }) 
-
-console.log(app.locals.contributors);
 route_get('/events.json',function(req,res) {
     var filter=req.query['filter'];
     calendar.events(function(items) {
@@ -369,8 +392,6 @@ app.locals.related = function(path,page) {
     return paths.related(app.locals,path,page);
 }
 
-console.log(app.locals.related("java","java"))
-console.log(geoip.region('146.52.53.114'))
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });

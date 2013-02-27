@@ -51,9 +51,11 @@ function events(fun, filter) {
               url=url.replace(/&amp;ust=.*$/,"");
               item.Url=url;
             }
-            var meetup=item.Url.match(/http:\/\/(?:www\.)?meetup.com\/(.+)(?:\/events\/(\d+))/);
+http://seattle.meetup.neo4j.org/events/102039672/
+            var meetup=item.Url.match(/^https?:\/\/(?:www\.)?meetup.com\/(.+)(?:\/events\/(\d+))/) || 
+                       item.Url.match(/^https?:(\/\/\w+)\.meetup.neo4j.org\/(?:events\/(\d+))/);
             if (meetup){
-                item.Group=meetup[1];
+                item.Group=meetup[1].replace(/^\/\//,"graphdb-");
                 item.Meetup=meetup[2];
             }
 			function assignType(item,content) {
@@ -82,8 +84,9 @@ function events(fun, filter) {
 			assignArea(assignArea(item,item.Location),item.Title);
 			if (!item.Area) item.Area='WORLD';
 			
+			item.Date = new Date(Date.parse(item.Start.replace(/(\d)(am|pm|AM|PM)/,"$1 $2").replace(/ (\d) (am|pm|AM|PM)/," $1:00 $2").replace(/\s+to\s+.+?( [A-Z]{2,3})?$/,"$1")));
             //console.log(item)
-			console.log(item.Area, item['Location'], item.Title);
+			console.log(item.Area, item['Location'], item.Title,item.Date,item.Group);
             return item;
         });
         if (filter) fun(items.filter(filter));

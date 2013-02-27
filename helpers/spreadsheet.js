@@ -45,6 +45,7 @@ function parseEvents(cells, fun, filter) {
             item.Title = wrap(item['Type'], " - ") + item['Title'] + wrap(" - ", item['City'])
             items.push(item);
         }
+        item.Date = new Date(item.Start);
     }
     if (filter) fun(items.filter(filter));
     else fun(items)
