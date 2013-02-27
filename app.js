@@ -26,14 +26,14 @@ var app = express();
 
 app.locals({
   neo4j: {
-    version: "1.9.M03",
-    date: "Dec 21, 2012",
-    summary: "Cypher improvements, Gremlin refactoring",
-    readme: "http://blog.neo4j.org/2012/12/neo4j-19m03-released.html"
+    version: "1.9.M04",
+    date: "Jan 22, 2013",
+    summary: "HA Clustering stability",
+    readme: "http://blog.neo4j.org/2013/01/neo4j-milestone-19m04-released.html"
   } 
    ,neo4jGA: {
-    version: "1.8.1"
-   ,date: "Dec 14, 2012"
+    version: "1.8.2"
+   ,date: "Feb 27, 2013"
    ,summary: "General Availability"
    ,readme: "http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html"
   }
