@@ -74,9 +74,9 @@ $(document).ready(function() {
     function updateDownloadLink(marketo_id) {
         var marketo_idnum = marketo_id || 'notread';
         var downloadLink = "http://dist.neo4j.org/neo4j-" + edition + "-" + release + "-" + platform +"." + suffix;
-        if (!release.match("SNAPSHOT")) {
-            downloadLink = "http://download.neo4j.org/artifact?edition=" + edition + "&version=" + release + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
-        }
+//        if (!release.match("SNAPSHOT")) {
+//            downloadLink = "http://download.neo4j.org/artifact?edition=" + edition + "&version=" + release + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
+//        }
 
         $(".downloadLink").attr("href",downloadLink);
         if (testing==null) {
