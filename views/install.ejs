@@ -66,7 +66,7 @@
             <% if (neo4jGA.readme) { %>
                 <a href="<%= neo4jGA.readme %>" target="_blank" class="btn" type="button">Announcement</a>
             <% } %>
-            <a href="/release-notes" class="btn" type="button">Release Notes</a>
+            <a href="/release-notes#<%= neo4jGA.version %>" class="btn" type="button">Release Notes</a>
         </th>
         <td class="os"><h3>Linux/Mac</h3></td>
         <% var platform = "unix" %>
