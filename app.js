@@ -213,35 +213,38 @@ fs.readFile("views/partials/page.ejs", function (err, buf) {
     if (!fs.existsSync('views/ejs')) fs.mkdirSync('views/ejs');
 //  console.log(template,err);
     for (key in app.locals.pages) {
-//        console.log("loading " + key);
-        var page = app.locals.pages[key];
-        var featured = page['featured'];
-        if (featured && featured['content'] && featured['content'].match(/<%/)) {
+
+        console.log("loading " + key);
+        var page=app.locals.pages[key];
+        var featuredArray = page.featured;
+
+        if (featuredArray && featuredArray.length && featuredArray[0].content && featuredArray[0].content.match(/<%/)) {
+
+            // works only for the first featured item
+            var featured = featuredArray[0];
 
             //console.log('use partial for', featured.type, "views/partials/" + featured.type + "/_full.ejs");
             // case 'track'            : %><% include partials/track/_full %>
 
             var partial = fs.readFileSync("views/partials/" + featured.type + "/_full.ejs");
-//            console.log(partial.toString())
+            //console.log(partial.toString())
             var newPartial = partial.toString().replace(new RegExp("<%- item.content %>"),
-                featured['content']);
+                                         featured['content']);
 
-            var newFile = template.replace(new RegExp(" case '" + featured.type + "' +: %><% include .+? %>"),
-                " case '" + featured.type + "' : %>" + newPartial);
-            var file = "ejs/" + page.path.replace(/\//g, "_");
-            var fileName = "views/" + file + ".ejs";
-//            console.log("Routing to special generated page: ", file, fileName, key, page.path, page.title, featured.type);
-            fs.writeFileSync(fileName, newFile);
-            app.get(page.path, function (req, res) {
-                res.render(file, { title: page.title || "" });
-            });
+            var newFile=template.replace(new RegExp("<% include ../partials/item/_full %>"), newPartial);
+            var file="ejs/"+page.path.replace(/\//g,"_");
+            var fileName="views/"+file+".ejs";
+            console.log("Routing to special generated page: ",file,fileName,key,page.path,page.title,featured.type);
+            fs.writeFileSync(fileName,newFile);
+            app.get(page.path,function(req,res) { res.render(file, { title: page.title||"" }); });
+
         } else {
-//            console.log("Default routing to pages: ", page.path, page.title)
-            app.get(page.path, function (req, res) {
-                res.render('partials/page', { title: page.title || "" });
-            });
+          console.log("Default routing to pages: ",page.path,page.title)
+          app.get(page.path, function(req,res) { res.render('partials/page', { title: page.title||"" }); });  
         }
-    }
+
+  }
+
 });
 
 route_get('/', routes.index);
