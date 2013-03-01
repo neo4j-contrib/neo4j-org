@@ -103,5 +103,44 @@ var nextPage = pages[p];
         </script>
 
 <% } %>        
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var featuredTop = $('div.featured').first().offset().top;
+
+        $('.prevStep h3').css({
+            top: featuredTop - 240 + 'px'
+        });
+
+        $('.nextStep h3').css({
+            top: featuredTop - 240 + 'px'
+        });
+
+        $('.prevStep h3').on('mouseenter', function() {
+            var self = $(this);
+            self.animate({
+                width: '80%'
+            }, 100);
+        }).on('mouseleave', function() {
+            var self = $(this);
+            self.animate({
+                width: '5em'
+            }, 200);
+        });
+
+        $('.nextStep h3').on('mouseenter', function() {
+            var self = $(this);
+            self.animate({
+                width: '80%'
+            }, 100);
+        }).on('mouseleave', function() {
+            var self = $(this);
+            self.animate({
+                width: '5em'
+            }, 200);
+        });
+    });
+
+</script>
 
 <% include ../foot %>

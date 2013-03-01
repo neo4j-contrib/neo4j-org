@@ -676,9 +676,10 @@ ul.hor li {
 }
 
 .featured .article .content,
-.featured .book .content {
+.featured .book .content,
+.featured .track .content {
     float: left;
-    width: 38em;
+    width: 57em;
 }
 
 .featured .article img,
@@ -686,13 +687,9 @@ ul.hor li {
     float: right;
 }
 
-.featured .track .caption {
-    /*display: none;*/
-}
-
 .featured .track .content {
-    width: 40em;
-    float: left;
+    /*s*/
+    /*float: left;*/
 }
 
 .featured .image,

@@ -256,7 +256,7 @@ exports.content = {
     tracks: {
         java_intro: {
             type: "track",
-            title: "Java Intro",
+            title: "TODO: Java Intro Text",
             introText: "As the 4j indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.",
             content: "<p>Welcome to Neo4j. For a Java or JVM-language developer, Neo4j offers a rich set of integration possibilities. Make sure to have looked at our information on <a href='/learn/graphdatabase'>graph databases</a> and Neo4j in general. You should also check out our graph query language Cypher which makes it very easy to get going regardless of the development platform.</p>\
     <p>Neo4j comes in two flavors. The standalone Neo4j-Server can be installed on any machine and then accessed via its REST API. You can then use whatever REST-library you choose for any JVM language. The dedicated Neo4j drivers go beyond that by offering comprehensive APIs for integrating with graph based applications.</p>\
