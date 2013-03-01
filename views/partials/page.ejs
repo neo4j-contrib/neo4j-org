@@ -17,6 +17,25 @@ if (page) {
 <h1><%= page.title %></h1>
 <p class="introText"><%- page.introText %></p>
 
+<div class="trackNav prevStep">
+<% (page.prev||[]).forEach(function(p) {
+var prevPage = pages[p];
+  %>
+    <h3><a href="<%= prevPage.path %>"><i class="icon icon-circle-arrow-left"></i></a><a href="<%= prevPage.path %>"><%= prevPage.title %></a></h3>
+<%
+});
+%>
+</div>
+
+<div class="trackNav nextStep">
+<% (page.next||[]).forEach(function(p) {
+var nextPage = pages[p];
+  %>
+    <h3><a href="<%= nextPage.path %>"><i class="icon icon-circle-arrow-right"></i></a> <a href="<%= nextPage.path %>"><%= nextPage.title %></a></h3>
+<%
+});
+%>
+</div>
 
 <% 
     var items = [].concat(page.featured);                   
