@@ -45,7 +45,7 @@ exports.pages = {
         introText: "This is the starting point for a number of different tracks to learn more about Neo4j. Follow a track that you are interested in to learn more about different aspects of Neo4j.",
         featured: null,
         actionText: "Choose your track",
-        related: ["java","cypher"]
+        related: ["java","cypher_track_start"]
     },
     java: {
         path: "/java",
@@ -65,8 +65,8 @@ exports.pages = {
         ]
     },
 
-    cypher: {
-        path: "/tracks/cypher",
+    cypher_track_start: {
+        path: "/tracks/cypher_track_start",
         type: "track",
         title: "The Cypher track",
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
@@ -74,9 +74,9 @@ exports.pages = {
         actionText: "Start",
         next: [],
         prev: [],
-        featured: [
-        ],
-        related: [
+        featured: [],
+        related: [  "cypher"
+
         ]
     },
 
@@ -331,22 +331,22 @@ exports.pages = {
         thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w587.png",
         featured: [content.links.reference_card]
     },
-    // cypher: {
-    //     path: "/learn/cypher",
-    //     title: "Cypher Tutorial",
-    //     thumbnail: "/assets/img/still/cypher_tutorial.gif",
-    //     introText: "Hands on introduction to the Cypher Query Language",
-    //     actionText: "Learn it",
-    //     featured: [
-    //         {
-    //             title: "Cypher Tutorial",
-    //             type: "_cypher"
-    //         }
-    //     ],
-    //     related: [
-    //         "try", content.videos.cypher, content.links.manual_cypher, content.links.cypher_cheat_sheet
-    //     ]
-    // },
+    cypher: {
+         path: "/learn/cypher",
+         title: "Cypher Tutorial",
+         thumbnail: "/assets/img/still/cypher_tutorial.gif",
+         introText: "Hands on introduction to the Cypher Query Language",
+         actionText: "Learn it",
+         featured: [
+             {
+                 title: "Cypher Tutorial",
+                 type: "_cypher"
+             }
+         ],
+         related: [
+             "try", content.videos.cypher, content.links.manual_cypher, content.links.cypher_cheat_sheet
+         ]
+    },
     ops: {
         path: "/develop/ops",
         title: "Operations",
