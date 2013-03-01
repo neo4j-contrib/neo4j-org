@@ -149,6 +149,13 @@ exports.content = {
             introText: "Download the Cypher Cheat Sheet as PDF",
             actionText: "Download PDF"
         },
+        eclipse_maven_neo4j_setup: {
+            title: "Setting up a Neo4j maven project in Eclipse",
+            path: "http://blog.neo4j.org/2012/03/how-to-set-up-maven-project-with-neo4j.html",
+            introText: "A blog post on how to set up a new project with Neoj4 in Java using Eclipse",
+            actionText: "Read the blog",
+            thumbnail: "/assets/img/logo/eclipse.jpg"
+        },
 
         d3: {
             title: "JavaScript D3.js",

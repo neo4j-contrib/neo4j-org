@@ -89,7 +89,7 @@ exports.pages = {
         featured: [
             content.tracks.java_basics
         ],
-        related: ["neo4j"]
+        related: ["neo4j",content.links.eclipse_maven_neo4j_setup,"cypher_track_start"]
 
     },
     jvm: {
