@@ -14,7 +14,15 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-        $('.prevStep h3')
+        var featuredTop = $('div.featured').first().offset().top;
+
+        $('.prevStep h3').css({
+            top: featuredTop - 240 + 'px'
+        });
+
+        $('.nextStep h3').css({
+            top: featuredTop - 240 + 'px'
+        });
 
         $('.prevStep h3').on('mouseenter', function() {
             var self = $(this);
