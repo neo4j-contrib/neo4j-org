@@ -443,6 +443,16 @@ exports.content = {
             name: "Frosty Mug"
         }
     },
+    projects: {
+        neoclipse: {
+            type: "app",
+            author: "@nawroth",
+            url: "https://github.com/neo4j/neoclipse",
+            logo: "/assets/img/apps/neoclipse.png",
+            text: "An Eclipse-RCP based visualization and query tool for Neo4j",
+            name: "Neoclipse"
+        }
+    }   ,
     drivers: {
         anorm_cypher: {
             name: "AnormCypher",

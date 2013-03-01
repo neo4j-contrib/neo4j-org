@@ -95,13 +95,13 @@ exports.pages = {
     jvm: {
         path: "/java/jvm",
         title: "JVM projects",
-        introText: "(TODO) Intro text for JVM projects",
+        introText: "Here you can see a number of components, projects and products that are interesting if you are working on the JVM ecosystem with Neo4j.",
         next: ["server_plugins"],
         prev: ["java_basics"],
         featured: [
             content.tracks.jvm_projects
         ],
-        related: []
+        related: [content.projects.neoclipse]
     },
     server_plugins: {
         path: "/java/server_plugins",
@@ -386,12 +386,13 @@ exports.pages = {
                 items: [
                     content.videos.neo4j_webui,
                     content.links.d3,
+                    content.projects.neoclipse,
                     content.links.gephi,
                     content.videos.graphviz
                 ]
             }
         ],
-        related: [
+        related: [  
             {
                 title: "Max De Marzi's Graph Visualization Blog",
                 path: "http://maxdemarzi.com/tag/visualization-2/"
@@ -419,7 +420,10 @@ exports.pages = {
         title: "Apps Gallery",
         introText: "Built with Neo4j, tripping the graph fantastic.",
         featured: null,
-        related: [content.apps.flavorwocky, content.apps.frostymug, content.apps.polymap, content.apps.neosocial, content.apps.structr]
+        related: [content.apps.flavorwocky, 
+            content.apps.frostymug, content.apps.polymap, 
+            content.apps.neosocial, content.apps.structr, 
+            content.projects.neoclipse]
     }
     /*
      ]
