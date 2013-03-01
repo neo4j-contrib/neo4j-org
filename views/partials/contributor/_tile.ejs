@@ -1,0 +1,11 @@
+<% var info=item;
+console.log("contributor/_tile.ejs")%>
+<div class="item person">
+
+    <a href="<%= info['url'] %>">
+        <img class="preview" src="<%= info['logo'] %>" title="<%= info['name'] %>" alt="picture of <%= info['name'] %>"/>
+    </a>
+            
+    <p class="introText"><%- info['text'] %></p>
+    
+</div>

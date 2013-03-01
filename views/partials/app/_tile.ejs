@@ -1,0 +1,18 @@
+<div class="item book">
+<%
+	var hasPath = item.url;
+	var image = item.logo ? item.logo : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
+	console.log(image)
+%>
+
+    <h3><%- link_to(item.url, item.name) %></h3>
+    <% if (image) { %>
+    <%- link_to(item.url, '<img class="preview" src="'+image+'" />') %>
+    <% } %>
+    <div>
+        <p class="introText"><%- item.introText||item.text.split(" ").slice(0,15).join(" ") %></p>
+    </div>
+    <% 
+    if (hasPath) { %><a class="link" href="<%= item.url %>"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+</div>
+

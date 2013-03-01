@@ -71,12 +71,12 @@ app.locals.findItem=function(key) {
     }
     if (pages.pages[key]) return addType(pages.pages[key],"page");
     if (content.content[key]) return addType(content.content[key],"content");
-    if (data.drivers[key]) return addType(data.drivers[key],"driver");
-    if (data.books[key]) return addType(data.books[key],"book");
+    if (content.content.drivers[key]) return addType(content.content.drivers[key],"driver");
+    if (content.content.books[key]) return addType(content.content.books[key],"book");
     if (data.contributors[key]) return addType(data.contributors[key],"contributor");
     if (data.ext_content[key]) return addType(data.ext_content[key],"external");
     if (data.trainings[key]) return addType(data.trainings[key],"training");
-    if (data.apps[key]) return addType(data.apps[key],"app");
+    if (content.content.apps[key]) return addType(content.content.apps[key],"app");
     return key;
 }
 
@@ -212,6 +212,7 @@ fs.readFile("views/partials/page.ejs",function(err,buf) {
 	if (!fs.existsSync('views/ejs')) fs.mkdirSync('views/ejs');
 //  console.log(template,err);
     for (key in app.locals.pages) {
+        console.log("loading " + key);
         var page=app.locals.pages[key];
         var featured=page['featured'];
         if (featured && featured['content'] && featured['content'].match(/<%/)) {
@@ -279,7 +280,7 @@ route_get('/participate', routes.pages);
 route_get('/install', forward("/download"));
 route_get('/download_thanks', routes.pages);
 route_get('/subscribe_thanks', routes.pages); 
-route_get('/participate/contributors', routes.pages);
+//route_get('/participate/contributors', routes.pages);
 route_get('/participate/meetup_signup', routes.pages);
 route_get('/participate/meetups', forward("http://neo4j.meetup.com/"));
 route_get('/learn/graphdatabase', routes.pages);
@@ -325,7 +326,7 @@ app.locals.updateChannels = function() {
 
 calendar.events(function(items) { app.locals.events = app.locals.events.concat(items); console.log("events2",app.locals.events.length); }) 
 
-console.log(app.locals.contributors);
+//console.log(app.locals.contributors);
 route_get('/events.json',function(req,res) {
     var filter=req.query['filter'];
     calendar.events(function(items) {

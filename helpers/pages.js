@@ -186,15 +186,15 @@ exports.pages = {
         thumbnail: "/assets/img/books/nosql_distilled.png",
         title: "Graph Database related Books",
         introText: "Learn more about Neo4j, Graph Theory and Graph Databases by reading these amazing books!",
-        featured: ["springdata"],
-        related: ["goodrelationships", "nosqldistilled", "sevendatabases", "neo4jinaction", "visualcomplexity", "connected"]
+        featured: [content.books.graphdatabases],
+        related: [content.books.graphdatabases, content.books.goodrelationships, content.books.nosqldistilled, content.books.sevendatabases, content.books.neo4jinaction, content.books.visualcomplexity, content.books.connected]
     },
     cloud: {
         path: "/develop/cloud",
         title: "Neo4j in the Cloud",
         introText: "Neo4j can be run in various cloud scenarios and on a number of cloud stacks.",
         actionText: "Neo4j in the Cloud",
-        featured: ["content_video_james_ward_neo4j"],
+        featured: [content.videos.james_ward_neo4j],
         related: ["heroku"]
     },
     heroku: {
@@ -241,12 +241,12 @@ exports.pages = {
         path: "/participate/contributors",
         title: "Contributors - you rock.",
         introText: "The Neo4j project is driven by the community. Here are some individuals that you might encounter in the discussion forums or come across their projects.\
-        For a full list of all code contributors, please see <a href='http://docs.neo4j.org/chunked/snapshot/contributors.html'>The official docs.</a>",
+        For a full list of all code contributors, please see <a href='http://docs.neo4j.org/chunked/snapshot/contributors.html' target='_blank'>The official docs.</a>",
         previewText: "We're very proud to have such an engaged group of contributors to Neo4j and its ecosystem.",
         actionText: "See our contributors",
         thumbnail: "/assets/new/img/contributors.png",
-        type: "_contributors",
-        related: []
+//        type: "_contributors",
+        related: ["maxdemarzi","mhluongo","ronge","craigtaverner","technige", "pablopareja","espeed","rhetonik"]
     },
     events: {
         path: "/events",
@@ -400,7 +400,7 @@ exports.pages = {
         title: "Apps Gallery",
         introText: "Built with Neo4j, tripping the graph fantastic.",
         featured: null,
-        related: []
+        related: [content.apps.flavorwocky, content.apps.frostymug, content.apps.polymap, content.apps.neosocial, content.apps.structr]
     }
     /*
      ]

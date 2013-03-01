@@ -1,0 +1,10 @@
+<% var info=contributors[contributor] %>
+<div class="item person">
+
+    <a href="<%= info['url'] %>">
+        <img class="preview" src="<%= info['image'] %>" title="<%= info['name'] %>" alt="picture of <%= info['name'] %>"/>
+    </a>
+
+    <h5><a href="http://twitter.com/<%=contributor %>" target="_blank"><%= info['name'] %></a></h5>
+    <p class="introText"><%- info['text'] %></p>
+</div>

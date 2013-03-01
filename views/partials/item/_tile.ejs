@@ -3,6 +3,8 @@ console.log("item-tile",item);
 
 switch (item.type) {
     case 'article' : %><% include ../../partials/article/_tile %><%break;
+    case 'app'     : %><% include ../../partials/app/_tile %><%break;
+    case 'contributor': %><% include ../../partials/contributor/_tile %><%break;
     case 'image'   : %><% include ../../partials/image/_tile %><%break;
     case 'video'   : %><% include ../../partials/video/_tile %><%break;
     case 'event'   : %><% include ../../partials/event/_tile %><%break;
