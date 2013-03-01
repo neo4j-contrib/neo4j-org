@@ -158,7 +158,11 @@ exports.pages = {
         content: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way. Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
         next: ["nosql", "neo4j"],
         prev: [],
-        featured: ["content_graphdb_graph", "content_graphdb_traversal", "content_graphdb_indexes"],
+        featured: [
+            content.articles.graph,
+            content.articles.graphdb_traversal,
+            content.articles.graphdb_indexes
+        ],
         actionText: "Learn more",
         related: ["cypher"]
     },

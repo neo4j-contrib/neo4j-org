@@ -227,7 +227,8 @@ exports.content = {
             introText: "A Traversal –navigates–> a Graph; it –identifies–> Paths –which order–> Nodes.",
             src: "/assets/img/propertygraph/graphdb-traverse.png",
             content: "A Traversal is how you query a Graph, navigating from starting Nodes to related Nodes according to an algorithm, finding answers to questions like \“what music do my friends like that I don’t yet own,\” or \“if this power supply goes down, what web services are affected?\”"
-        }, graphdb_indexes: {
+        },
+        graphdb_indexes: {
             type: "article",
             title: "Indexes Look-up Nodes or Relationships",
             introText: "An Index –maps from–> Properties –to either–> Nodes or Relationships. It –is a special–> Traversal.",
