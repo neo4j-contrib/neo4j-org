@@ -39,13 +39,13 @@ function load_learn_content(locals, name, path, host) {
                 content = content.replace(/<!\[CDATA\[|\]\]>/g,"");
                 
                 content = content.replace(/((?:href|src)\s*=\s*")([^"]+)/g, function (match, group1, group2) {
-//                    console.log(match,group1,group2)
                     var fixed=group1+doc_url+group2;
                     if (group2.match("^http")) fixed=match;
                     else if (group2[0] == "#") fixed=group1+doc_url+group2.substr(1)+".html";
                     return add_attribs+fixed;
                 })
                 
+//                    console.log("data="+content);
                 if (locals.content[name]) {
                     var tmp = locals.content[name];
                     content = tmp + content;

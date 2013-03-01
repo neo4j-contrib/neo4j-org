@@ -78,7 +78,7 @@ exports.pages = {
         related: [  "cypher"
 
         ]
-    },
+    },                                
 
     java_basics: {
         path: "/java/java_basics",
