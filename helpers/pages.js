@@ -4,9 +4,9 @@ exports.pages = {
     learn: {
         path: "/learn",
         title: "Learn",
-        introText: "From graph concepts to deploying a globe spanning cluster, the path to success starts here.",
+        introText: "Below you find a number of useful starting points to learn about neo4j, graph databases and fast development with Neo4j.",
         featured: null,
-        related: ["concepts", "intro", "tracks", "production"]
+        related: [content.books.graphdatabases,"concepts", "intro", "tracks", "production"]
     },
     develop: {
         path: "/develop",
@@ -26,7 +26,7 @@ exports.pages = {
         path: "/learn/concepts",
         title: "Graph Concepts",
         introText: "Learn about the graph data model, graph databases and their applicability. See how graph databases related to other NOSQL solutions.",
-        featured: ["content_video_graphdb101"],
+        featured: [content.videos.graphdb101],
         actionText: "Learn more",
         related: [ "graphdatabase", "nosql", content.links.neo4j_ref_card ]
     },
@@ -43,25 +43,38 @@ exports.pages = {
         path: "/learn/tracks",
         title: "Neo4j learning tracks",
         introText: "This is the starting point for a number of different tracks to learn more about Neo4j. Follow a track that you are interested in to learn more about different aspects of Neo4j.",
-        featured: ["java"],
+        featured: null,
         actionText: "Choose your track",
-        related: ["neo4j", "cypher"]
+        related: ["java","track_cypher"]
     },
     java: {
         path: "/java",
         type: "track",
         title: "Neo4j for Java devs",
         thumbnail: "/assets/img/languages/java.jpg",
-        introText: "The Java track covers the Neo4j Core-API as well as interacting with the Neo4j Server from Java and other JVM languages",
-        actionText: "Go Code",
+        introText: "The Java track covers the Neo4j Core-API as well as interacting with the Neo4j Server from Java and other JVM languages.",
+        actionText: "Start",
         next: ["java_basics", "jvm"],
         prev: ["server_plugins"],
-        featured: [
-            content.tracks.java
-        ],
+        featured: null,
         related: [
             content.links.javadoc,
             content.links.manual
+        ]
+    },
+
+    track_cypher: {
+        path: "/tracks/cypher",
+        type: "track",
+        title: "The Cypher track",
+        thumbnail: "/assets/img/still/cypher_tutorial.gif",
+        introText: "The Cypher track concentrates on the Cypher Graph Query language, making interaction with Neo4j framework independent.",
+        actionText: "Start",
+        next: [],
+        prev: [],
+        featured: [
+        ],
+        related: [
         ]
     },
 

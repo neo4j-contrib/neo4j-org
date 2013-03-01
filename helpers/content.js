@@ -254,7 +254,7 @@ exports.content = {
 
     },
     tracks: {
-        java: {
+        java_intro: {
             type: "track",
             title: "Java Intro",
             introText: "As the 4j indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.",
