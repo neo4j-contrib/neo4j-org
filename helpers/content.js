@@ -173,6 +173,26 @@ exports.content = {
         }
 
     },
+    scientific: {
+        wordnet_using_graphdbs: {
+            type: "article",
+            title: "A New Representation of WordNet® using Graph Databases",
+            path: "http://www.thinkmind.org/index.php?view=article&articleid=dbkda_2013_1_10_30004",
+            author: "Khaled Nagi",
+            img: "http://www.thinkmind.org/images/top_left.gif",
+            introText: "A WordNet® query/import performance analysis using Neo4j and Apache Derby.",
+            actionText: "Read more"
+        },
+        the_graph_traversal_pattern: {
+            type: "article",
+            title: "The Graph Traversal Pattern",
+            path: "http://arxiv.org/abs/1004.1001",
+            author: "Marko Rodriguez, Peter Neubauer",
+//            img: "",
+            introText: " This article discusses the graph traversal pattern and its use in computing.",
+            actionText: "Read more"
+        }
+    }   ,
     articles: {
         meetups: {
             type: "article",

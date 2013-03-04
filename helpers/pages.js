@@ -6,7 +6,7 @@ exports.pages = {
         title: "Learn",
         introText: "Below you find a number of useful starting points to learn about neo4j, graph databases and fast development with Neo4j.",
         featured: null,
-        related: [content.books.graphdatabases,"concepts", "intro", "tracks", "production"]
+        related: [content.books.graphdatabases,"concepts", "intro", "tracks", "production","scientific"]
     },
     develop: {
         path: "/develop",
@@ -29,6 +29,14 @@ exports.pages = {
         featured: [content.videos.graphdb101],
         actionText: "Learn more",
         related: [ "graphdatabase", "nosql", content.links.neo4j_ref_card ]
+    },
+    scientific: {
+        path: "/learn/scientific",
+        title: "Neo4j in the scientific community",
+        introText: "There is a lot of research going on around Graph Databases in general and Neo4j in particular. Below you find some of the more recent works in this field.",
+        featured: null,
+        actionText: "Read more",
+        related: [content.scientific.wordnet_using_graphdbs, content.scientific.the_graph_traversal_pattern]
     },
     intro: {
         path: "/learn/intro",
