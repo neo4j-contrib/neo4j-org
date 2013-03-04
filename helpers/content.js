@@ -194,12 +194,6 @@ exports.content = {
         }
     }   ,
     articles: {
-        meetups: {
-            type: "article",
-            title: "",
-            introText: "(TODO) Introtext meetups",
-            content: "TODO: Content for meetup page"
-        },
         neo4j_on_heroku: {
             type: "article",
             title: "Neo4j on Heroku",
