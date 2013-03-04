@@ -267,12 +267,12 @@ route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
 // route_get('/learn/get_started', routes.pages); 
 // route_get('/learn/training', routes.pages); 
 // route_get('/learn/books', routes.pages); 
-// route_get('/learn/apps', routes.pages); 
+route_get('/learn/apps', routes.pages); 
 // route_get('/learn/licensing', routes.pages); 
 
 // route_get('/learn/nosql', routes.pages); 
 // route_get('/learn/cypher', routes.pages); 
-// route_get('/develop/visualize', routes.pages); 
+route_get('/develop/visualize', routes.pages); 
 // route_get('/develop', routes.pages); 
 // route_get('/develop/ops', routes.pages);
 // route_get('/develop/heroku', routes.pages); 
