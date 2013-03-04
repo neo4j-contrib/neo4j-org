@@ -103,13 +103,13 @@ exports.pages = {
     jvm: {
         path: "/java/jvm",
         title: "JVM projects",
-        introText: "Here you can see a number of components, projects and products that are interesting if you are working on the JVM ecosystem with Neo4j.",
+        introText: "Here you can see a number of components, projects and products that are useful and interesting if you are working on the JVM ecosystem with Neo4j.",
         next: ["server_plugins"],
         prev: ["java_basics"],
         featured: [
-            content.tracks.jvm_projects
+//            content.tracks.jvm_projects
         ],
-        related: [content.projects.neoclipse]
+        related: [content.projects.neoclipse,content.apps.structr, content.projects.spatial, content.projects.jdbc, content.projects.jpa, content.projects.java_rest_binding, content.projects.graph_collections]
     },
     server_plugins: {
         path: "/java/server_plugins",
@@ -118,13 +118,10 @@ exports.pages = {
         next: ["java"],
         prev: ["jvm"],
         featured: [
-            {
-                type: "track",
-                content: "the content"
-            }
+            content.tracks.tracks_server_plugins
         ],
         related: [
-            content.links.manual_server
+            content.links.manual_server, content.projects.spatial, content.projects.gremlin_plugin
         ]
     },
 
@@ -389,16 +386,11 @@ exports.pages = {
                 Graph visualisations are a powerful tool to convey the content of a graph. They can highlight patterns, show clusters and connections.\
                 There are different tools that you can use to visualize the content of a Neo4j graph database.",
         featured: [
-            {
-                type: "_visualize",
-                items: [
                     content.videos.neo4j_webui,
                     content.links.d3,
                     content.projects.neoclipse,
                     content.links.gephi,
                     content.videos.graphviz
-                ]
-            }
         ],
         related: [  
             {

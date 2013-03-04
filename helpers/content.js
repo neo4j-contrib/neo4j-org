@@ -192,7 +192,7 @@ exports.content = {
             introText: " This article discusses the graph traversal pattern and its use in computing.",
             actionText: "Read more"
         }
-    }   ,
+    },
     articles: {
         neo4j_on_heroku: {
             type: "article",
@@ -307,6 +307,14 @@ exports.content = {
         <% include ../download/_embedded_dependency %><div class=\"markdown\">\
         <%- content.java_hello_world %></div>"
         },
+        tracks_server_plugins: {
+            type: "track",
+            content: "Server plugins are a way of extending the Neo4j Server REST API to provide your own functionality. The process of developing a Server plugin " +
+                "is described in the <a href='http://docs.neo4j.org/chunked/milestone/server-plugins.html' target='_blank'>Neo4j Manual Server Plugin Section</a>." +
+                "Please refer to that guide in order to provide your own plugin. "
+        },
+        
+        
         nosql: {
             type: "track",
             introText: "(Neo4j) –[:IS_A]–> (NoSQL Database)",
@@ -465,8 +473,58 @@ exports.content = {
             logo: "/assets/img/apps/neoclipse.png",
             text: "An Eclipse-RCP based visualization and query tool for Neo4j",
             name: "Neoclipse"
+        },
+        spatial: {
+            type: "app",
+            author: "@craigtaverner",
+            url: "https://github.com/neo4j/spatial",
+            logo: "/assets/img/apps/spatial.png",
+            text: "Neo4j Spatial offering geospatial functionality on top of the graph in both embedded and Server-Plugin mode.",
+            name: "Neo4j Spatial"
+        },
+        graph_collections: {
+            type: "app",
+            author: "@peterneubauer",
+            url: "https://github.com/neo4j/graph-collections",
+//            logo: "/assets/img/apps/spatial.png",
+            text: "Graph Collections a set of in-graph representations of typical data structures, like lists, trees etc.",
+            name: "Neo4j Graph-Collections"
+        },
+        java_rest_binding: {
+            type: "app",
+            author: "@mesirii",
+            url: "https://github.com/neo4j/java-rest-binding",
+//            logo: "/assets/img/apps/spatial.png",
+            text: "Java Rest Binding which offers a Java API for the Neo4j-Server, built on jersey-client",
+            name: "Neo4j Java-REST-binding"
+        },
+        jdbc: {
+            type: "app",
+            author: "@rickardoberg",
+            url: "https://github.com/rickardoberg/neo4j-jdbc",
+//            logo: "/assets/img/apps/spatial.png",
+            text: "The Neo4j JDBC driver which allows to run Cypher statements via JDBC and integrates so with all JDBC libraries and tools",
+            name: "Neo4j JDBC driver"
+        }     ,
+        jpa: {
+            type: "app",
+            author: "@alexsmirnov",
+            url: "https://github.com/alexsmirnov/neo4j-connector",
+//            logo: "/assets/img/apps/spatial.png",
+            text: "Neo4j Java EE JPA connector",
+            name: "Neo4j JPA driver"
+        }     ,
+        gremlin_plugin: {
+            type: "app",
+            author: "@peterneubuaer",
+            url: "https://github.com/neo4j-contrib/gremlin-plugin",
+            logo: "https://github.com/tinkerpop/gremlin/raw/master/doc/images/gremlin-logo.png",
+            text: "A Neo4j Server plugin to execute Gremlin queries against the Neo4j REST API.",
+            name: "Neo4j Server Gremlin plugin"
         }
-    }   ,
+        
+
+    },
     drivers: {
         anorm_cypher: {
             name: "AnormCypher",
