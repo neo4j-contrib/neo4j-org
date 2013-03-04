@@ -311,7 +311,20 @@ exports.content = {
             type: "track",
             content: "Server plugins are a way of extending the Neo4j Server REST API to provide your own functionality. The process of developing a Server plugin " +
                 "is described in the <a href='http://docs.neo4j.org/chunked/milestone/server-plugins.html' target='_blank'>Neo4j Manual Server Plugin Section</a>." +
-                "Please refer to that guide in order to provide your own plugin. "
+                "Please refer to that guide in order to provide your own plugin. " +
+                "<pre>" +
+                "{<br/>" +
+            "\"node\" : \"http://localhost:7474/db/data/node\",            <br/>" +
+            "\"node_index\" : \"http://localhost:7474/db/data/index/node\",<br/>"  +
+            "\"relationship_index\" : \"http://localhost:7474/db/data/index/relationship\",<br/>"+
+            "\"reference_node\" : \"http://localhost:7474/db/data/node/0\",                  <br/>"+
+            "\"extensions_info\" : \"http://localhost:7474/db/data/ext\",                      <br/>"+
+            "\"extensions\" : {                                                                  <br/>"+
+            "    \"GetAll\" : {                                                                    <br/>"+
+            "        \"get_all_nodes\" : \"http://localhost:7474/db/data/ext/GetAll/graphdb/get_all_nodes\",<br/>"+
+            "        \"get_all_relationships\" : \"http://localhost:7474/db/data/ext/GetAll/graphdb/getAllRelationships\"<br/>"+
+            "    }"+
+            "}</pre>"
         },
         
         
