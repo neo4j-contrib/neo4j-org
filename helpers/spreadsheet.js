@@ -128,14 +128,18 @@ function parseChannels(data, fun) {
     // console.log("data",JSON.stringify(data));
     var result=[];
     for (var row in data ) {
-	    var votes=data[row]['2']||{};
-        result.push({row:row, 
-	            name: data[row]['1']['value'], 
-	            votes: parseInt(votes['value']||'0'),
-	            url: (data[row]['3']||{})['value'],
-	            logo: (data[row]['4']||{})['value'],
-	            lang: (data[row]['5']||{})['value']
-	    });
+	    try {
+	        var votes=data[row]['2']||{};
+            result.push({row:row, 
+    	            name: data[row]['1']['value'], 
+    	            votes: parseInt(votes['value']||'0'),
+    	            url: (data[row]['3']||{})['value'],
+    	            logo: (data[row]['4']||{})['value'],
+    	            lang: (data[row]['5']||{})['value']
+    	    });
+    	} catch(e) {
+			console.log("Channel error",row,data[row],e);
+		}
     }
     result = result.splice(1).sort(function(x,y) { 
         return x.name < y.name ? -1 : 1;
