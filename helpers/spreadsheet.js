@@ -10,10 +10,14 @@ var googleAuth = new GoogleClientLogin({
 
 var authId;
 
-googleAuth.on(GoogleClientLogin.events.login, function () {
-    authId = googleAuth.getAuthId()
-});
-googleAuth.login();
+exports.googleLogin = function(cb) {
+	googleAuth.on(GoogleClientLogin.events.login, function () {
+	    authId = googleAuth.getAuthId()
+	    console.log("googleAuth",authId);
+		cb();
+	});
+	googleAuth.login();
+}
 
 // todo handle login once
 
@@ -51,10 +55,12 @@ function parseEvents(cells, fun, filter) {
     else fun(items)
 }
 function events(fun, filter) {
-    googleAuth.on(GoogleClientLogin.events.login, function () {
+//	console.log("events","authId",authId)
+	if (!authId) return;
+//    googleAuth.on(GoogleClientLogin.events.login, function () {
         GoogleSpreadsheets({
             key: process.env.EVENTS_SHEET_KEY,
-            auth: googleAuth.getAuthId()
+            auth: authId //googleAuth.getAuthId()
         }, function (err, spreadsheet) {
             if (err) {
                 console.log("Error retrieving spreadsheet ", err)
@@ -68,8 +74,8 @@ function events(fun, filter) {
                 parseEvents(cells, fun, filter);
             });
         });
-    });
-    googleAuth.login();
+//    });
+//    googleAuth.login();
 }
 
 function parseContributors(cells, fun, filter) {
@@ -93,10 +99,12 @@ function parseContributors(cells, fun, filter) {
 }
 
 function contributors(fun, filter) {
-    googleAuth.on(GoogleClientLogin.events.login, function () {
+//	console.log("contributors","authId",authId)
+	if (!authId) return;
+//    googleAuth.on(GoogleClientLogin.events.login, function () {
         GoogleSpreadsheets({
             key: process.env.CONTRIBUTORS_SHEET_KEY,
-            auth: googleAuth.getAuthId()
+            auth: authId // googleAuth.getAuthId()
         }, function (err, spreadsheet) {
             if (err) {
                 console.log("Error retrieving spreadsheet ", err)
@@ -110,8 +118,8 @@ function contributors(fun, filter) {
                 parseContributors(cells, fun, filter);
             });
         });
-    });
-    googleAuth.login();
+//    });
+//    googleAuth.login();
 }
 
 
@@ -136,10 +144,13 @@ function parseChannels(data, fun) {
 }
 
 function vote_channel(row,fun) {
-    googleAuth.on(GoogleClientLogin.events.login, function () {
+//	console.log("vote_channel","authId",authId)
+	if (!authId) return;
+
+//    googleAuth.on(GoogleClientLogin.events.login, function () {
         GoogleSpreadsheets({
             key: process.env.CHANNELS_SHEET_KEY,
-            auth: googleAuth.getAuthId()
+            auth: authId //googleAuth.getAuthId()
         }, function (err, spreadsheet) {
             if (err) {
                 console.log("Error retrieving spreadsheet ", err)
@@ -154,15 +165,17 @@ function vote_channel(row,fun) {
                 }
             });
         });
-    });
-    googleAuth.login();
+//    });
+//    googleAuth.login();
 }
 
 function channels(fun) {
-    googleAuth.on(GoogleClientLogin.events.login, function () {
+//	console.log("channels","authId",authId)
+	if (!authId) return;
+//    googleAuth.on(GoogleClientLogin.events.login, function () {
         GoogleSpreadsheets({
             key: process.env.CHANNELS_SHEET_KEY,
-            auth: googleAuth.getAuthId()
+            auth: authId // googleAuth.getAuthId()
         }, function (err, spreadsheet) {
             if (err) {
                 console.log("Channels: Error retrieving spreadsheet ", err)
@@ -177,8 +190,8 @@ function channels(fun) {
                 }
             });
         });
-    });
-    googleAuth.login();
+//    });
+//    googleAuth.login();
 }
 exports.events = events
 exports.contributors = contributors

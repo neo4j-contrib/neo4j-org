@@ -34,7 +34,7 @@
                     </ul>
                   </div>
                   <div class="span4">
-                    <img src="/assets/img/propertygraph/nosql-space.png" alt="" title="nosql-space" width="351" height="329" />
+                    <img src="<%=asset('img/propertygraph/nosql-space.png')%>" alt="" title="nosql-space" width="351" height="329" />
                   </div>
                 </div>
               </div>
@@ -42,8 +42,8 @@
               <div class="tab-pane" id="rdbms">
                 <h5 class="cypher">(A Graph Database) &ndash;[:transforms_a]&ndash;&gt; (RDBMS)</h5>
                 <div class="row">
-                  <div class="span4"><img src="/assets/img/propertygraph/vs-rdbms.png" alt="" title="vs-rdbms" width="270" height="141" /></div>
-                  <div class="span4"><img src="/assets/img/propertygraph/as-rdbms.png" alt="" title="as-rdbms" width="254" height="289" /></div>
+                  <div class="span4"><img src="<%=asset('img/propertygraph/vs-rdbms.png')%>" alt="" title="vs-rdbms" width="270" height="141" /></div>
+                  <div class="span4"><img src="<%=asset('img/propertygraph/as-rdbms.png')%>" alt="" title="as-rdbms" width="254" height="289" /></div>
                 </div>
                 <p>Topple the stacks of records in a <span class="text18">Relational Database</span> while keeping all the relationships, and you&#8217;ll see a graph. Where an RDBMS 
                 is optimized for aggregated data, Neo4j is optimized for highly connected data.</p>
@@ -52,8 +52,8 @@
               <div class="tab-pane" id="keyvalue">
                 <h5 class="cypher">(A Graph Database) &ndash;[:relates_a]&ndash;&gt; (Key-Value Store)</h5>
                 <div class="row">
-                  <div class="span4"><img src="/assets/img/propertygraph/vs-key-value.png" alt="" title="vs-key-value" width="245" height="76" /></div>
-                  <div class="span4"><img src="/assets/img/propertygraph/as-key-value.png" alt="" title="as-key-value" width="264" height="163" /></div>
+                  <div class="span4"><img src="<%=asset('img/propertygraph/vs-key-value.png')%>" alt="" title="vs-key-value" width="245" height="76" /></div>
+                  <div class="span4"><img src="<%=asset('img/propertygraph/as-key-value.png')%>" alt="" title="as-key-value" width="264" height="163" /></div>
                 </div>
                 <p>A <span class="text18">Key-Value</span> model is great for lookups of simple or even complex values. When the values are themselves interconnected, you&#8217;ve got a 
                 graph. Neo4j lets you traverse quickly among all the connected values.</p>
@@ -62,8 +62,8 @@
               <div class="tab-pane" id="document">
                 <h5 class="cypher">(A Graph Database) &ndash;[:navigates_a]&ndash;&gt; (Document Store)</h5>
                 <div class="row">
-                  <div class="span4"><img src="/assets/img/propertygraph/vs-document.png" alt="" title="vs-document" width="159" height="241" /></div>
-                  <div class="span4"><img src="/assets/img/propertygraph/as-document.png" alt="" title="as-document" width="267" height="232" /></div>
+                  <div class="span4"><img src="<%=asset('img/propertygraph/vs-document.png')%>" alt="" title="vs-document" width="159" height="241" /></div>
+                  <div class="span4"><img src="<%=asset('img/propertygraph/as-document.png')%>" alt="" title="as-document" width="267" height="232" /></div>
                 </div>
                 <p>The container hierarchy of a <span class="text18">Document Database</span> accommodates nice, schema-free data that can easily be represented as a tree. Which is 
                 of course a graph. Refer to other documents (or document elements) within that tree and you have a more expressive representation of the 

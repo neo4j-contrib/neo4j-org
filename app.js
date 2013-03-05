@@ -21,7 +21,7 @@ var express = require('express')
   , meetup =  require("./helpers/meetup")
   , paths =  require("./helpers/path")
   , geoip =  require("./helpers/geoip")
-
+  , asset = require("./helpers/assets.js").asset
 var app = express();
 
 app.locals({
@@ -72,22 +72,24 @@ app.configure(function(){
       next();
   });  
   app.use(function(req,res, next) {
-	try {
-		res.locals.region=geoip.region(req.ip);
-	} catch(e) {
-		console.log("Error getting ip",req.ip,e)
-		res.locals.region='US';
-	}
-	next();
+    try {
+        res.locals.region=geoip.region(req.ip);
+    } catch(e) {
+        console.log("Error getting ip",req.ip,e)
+        res.locals.region='US';
+    }
+    next();
   });
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser('value in relationships'));
-  app.use(express.session());
+//  app.use(express.session());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
+
+app.locals.asset = asset
 
 ejs.filters.md = function(b) { 
    return markdown(b) 
@@ -222,21 +224,21 @@ route_get('/marketo',function(req,res) {
 });
 var meetups = {};
 route_get('/meetup',function(req,res) {
-	var group=req.query['group'];
-	var event=req.query['event'];
-	var img=req.query['img'];
-	if (!event && meetups[group]) {
-		if (img) res.redirect(meetups[group]['img']);
-		else res.send(200,meetups[group]['html'])
-		return;
-	}
+    var group=req.query['group'];
+    var event=req.query['event'];
+    var img=req.query['img'];
+    if (!event && meetups[group]) {
+        if (img) res.redirect(meetups[group]['img']);
+        else res.send(200,meetups[group]['html'])
+        return;
+    }
     meetup.oembed(group,event, function(json) {
-		var html=json['html'];
-		if (!event) {
-			meetups[group]={html:html};
-			meetups[group]['img']=html.match(/"(https?:\/\/photos.+?(jpeg|jpg|png))"/)[1];
-			if (img) { res.redirect(meetups[group]['img']); return;}
-		}
+        var html=json['html'];
+        if (!event) {
+            meetups[group]={html:html};
+            meetups[group]['img']=html.match(/"(https?:\/\/photos.+?(jpeg|jpg|png))"/)[1];
+            if (img) { res.redirect(meetups[group]['img']); return;}
+        }
         res.send(200,html);
     });
 });
@@ -245,25 +247,37 @@ app.locals.contributors = {};
 
 
 calendar.events(function(items) { app.locals.events = items; console.log("events",app.locals.events.length); }) 
-spreadsheet.events(function(items) { 
-	var urls=app.locals.events.map(function(e) {return e['Url'];});
-	items.forEach(function(event) {
-		var idx=urls.indexOf(event['Url']);
-		if (idx == -1) app.locals.events.push(event); 
-		else app.locals.events[idx]=event;
-	})
-	app.locals.events = app.locals.events.sort(function(e1,e2) {
-		return e1.Date.getTime() - e2.Date.getTime();
-	})
-	console.log("events2",app.locals.events.length);
-}) 
-spreadsheet.contributors(function(items) { app.locals.contributors = items; }); 
+
+function updateSpreadsheets() {
+    spreadsheet.events(function(items) { 
+        var urls=app.locals.events.map(function(e) {return e['Url'];});
+        items.forEach(function(event) {
+            var idx=urls.indexOf(event['Url']);
+            if (idx == -1) app.locals.events.push(event); 
+            else app.locals.events[idx]=event;
+        })
+        app.locals.events = app.locals.events.sort(function(e1,e2) {
+            return e1.Date.getTime() - e2.Date.getTime();
+        })
+        console.log("events2",app.locals.events.length);
+    }) 
+
+    spreadsheet.contributors(function(items) { app.locals.contributors = items; }); 
+}
+
 app.locals.updateChannels = function() {
     console.log("Updating Channels");
     spreadsheet.channels(function(items) { app.locals.channels = items; });
 }
+
 app.locals.updateChannels();
+
 setInterval(app.locals.updateChannels,60*1000);
+// regular updates
+
+spreadsheet.googleLogin(updateSpreadsheets);
+
+setInterval(updateSpreadsheets, 3600*1000);
 
 app.locals.resolve_authors = function(authors) {
     if (!authors) return [];
@@ -314,8 +328,8 @@ app.locals.paths={}
 app.locals.paths.java = {
     java : { steps: ["learn_graph","neo4j","cypher","java_cypher","jvm_drivers","java_basics","server"],
              tags : ["java"], 
-             related : [ { title : "API Javadoc", url : "http://api.neo4j.org/current/", image : "/assets/img/languages/java.jpg" }, 
-                         { title : "Manual: Java Tutorial", url : "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html", image : "/assets/img/languages/java.jpg" },
+             related : [ { title : "API Javadoc", url : "http://api.neo4j.org/current/", image : asset("img/languages/java.jpg") }, 
+                         { title : "Manual: Java Tutorial", url : "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html", image : asset("img/languages/java.jpg") },
                          { title: "Neo4j and last.fm", author: { name: "Niklas Lindblad", twitter: "nlindblad", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }, type:"video", url:"http://vimeo.com/39825129", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }
                 ] }
 ,
@@ -328,7 +342,7 @@ app.locals.paths.java = {
     java_basics : { steps: ["java_cypher","jvm_drivers","ide","example_data","spring","server","server_extensions"], tags: ["howto","transaction","graphdb","shutdown","index","java"] }
 }
 // download resources
-route_get('/resources/cypher', forward('/assets/download/Neo4j_CheatSheet_v3.pdf'));
+route_get('/resources/cypher', forward(asset('download/Neo4j_CheatSheet_v3.pdf')));
 
 route_get('/wp-content/*', routes.resource);
 route_get('/wp-includes/*', routes.resource);
