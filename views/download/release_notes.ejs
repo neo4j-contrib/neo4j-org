@@ -19,6 +19,7 @@
         <li>Correction of an isolation issue that could cause the failure of some traversals in the presence of concurrent write transactions.</li>
         <li>Allowing for a greater number of relationship types to be created within a single database. Neo4j now supports 65536 different relationship types.</li>
         <li>Improved store locking to prevent concurrent access of the store by multiple processes.</li>
+        <li>Neo4j server will now use X-Forwarded-Host and X-Forwarded-Proto headers, if present, when generating the URIs contained in responses from the REST API.</li>
     </ul>
 
     <p><strong>It is recommended to upgrade all Neo4j 1.8.1 (and earlier) installations to this release, which is fully backward compatible</strong>. Please see the <a href="http://docs.neo4j.org/chunked/1.8.2/deployment.html">deployment section of the neo4j manual</a> for more detail.</p>
