@@ -313,8 +313,9 @@ exports.content = {
         graph: {
             type: "article",
             title: "A Graph contains Nodes and Relationships",
+            introText: "A Graph –[:RECORDS_DATA_IN]–> Nodes –[:WHICH_HAVE]–> Properties.",
             src: "/assets/img/propertygraph/graphdb-gve.png",
-            content: "<p>A Graph –[:RECORDS_DATA_IN]–> Nodes –[:WHICH_HAVE]–> Properties.</p>The simplest possible graph is a single Node, a record that has named values referred to as Properties. A Node could start with a single Property and grow to a few million, though that can get a little awkward. At some point it makes sense to distribute the data into multiple nodes, organized with explicit Relationships."
+            content: "The simplest possible graph is a single Node, a record that has named values referred to as Properties. A Node could start with a single Property and grow to a few million, though that can get a little awkward. At some point it makes sense to distribute the data into multiple nodes, organized with explicit Relationships."
         },
         graphdb_traversal: {
             type: "article",
@@ -421,7 +422,7 @@ exports.content = {
             name: "Graph Databases",
             author: "Jim Webber, Ian Robinson",
             price: "Early Release Ebook, free",
-            logo: "/assets/img/books/graphdatabases_thumb.png",
+            logo: "/assets/new/img/graphdatabases_v31.png",
             text: '<a href="http://graphdatabases.com">Exclusive early access</a>  to the definitive book on graph databases</em>, published by O&quot;Reilly Media.<br />'
         },
         springdata: {

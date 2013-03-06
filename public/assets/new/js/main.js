@@ -44,7 +44,7 @@ var nav = {
 
 		var h1 = $(window).height() - $('#footer').height() - 1;
 		var h2 = $('.page').height() + headerWrapper.height() + chapterNav.height();
-		console.log($('.page').height(), h1, h2);
+		//console.log($('.page').height(), h1, h2);
 
 		$('#footer').css({
 			position: 'absolute',
