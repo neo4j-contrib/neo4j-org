@@ -249,18 +249,13 @@ app.locals.contributors = {};
 calendar.events(function(items) { app.locals.events = items; console.log("events",app.locals.events.length); }) 
 
 function updateSpreadsheets() {
-    spreadsheet.events(function(items) { 
-        var urls=app.locals.events.map(function(e) {return e['Url'];});
-        items.forEach(function(event) {
-            var idx=urls.indexOf(event['Url']);
-            if (idx == -1) app.locals.events.push(event); 
-            else app.locals.events[idx]=event;
-        })
-        app.locals.events = app.locals.events.sort(function(e1,e2) {
-            return e1.Date.getTime() - e2.Date.getTime();
-        })
-        console.log("events2",app.locals.events.length);
-    }) 
+	calendar.events(function(items) { 
+		app.locals.events = items; console.log("events",app.locals.events.length); 
+
+	    spreadsheet.events(function(items) { 
+			app.locals.events = calendar.mergeEvents(app.locals.events,items);
+	    }) 
+	}) 
 
     spreadsheet.contributors(function(items) { app.locals.contributors = items; }); 
 }

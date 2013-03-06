@@ -50,6 +50,7 @@ function parseEvents(cells, fun, filter) {
             items.push(item);
         }
         item.Date = new Date(item.Start);
+		item.Origin="Spreadsheet";
     }
     if (filter) fun(items.filter(filter));
     else fun(items)

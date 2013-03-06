@@ -71,12 +71,12 @@ http://seattle.meetup.neo4j.org/events/102039672/
 			
 			function assignArea(item, content) {
 				if (!content || !item || item.Type=="Webinar" || item.Area) return item;
-				if (/(Los Angeles|CA|US|USA|Boston|DC|Washington|Valley|Seattle|NY|New York|San Francisco|Dallas|Canada|Vancouver|Montreal)/.test(content)) {
+				if (/(Los Angeles|CA|US|USA|Boston|DC|Washington|Valley|Seattle|NY|New York|San Francisco|Dallas|Canada|Vancouver|Montreal|Philadelphia)/.test(content)) {
 					 item.Area="US"; return item; }
-				if (/(Denmark|London|Paris|Copenhagen|Rotterdam|Netherlands|Belgium|UK|France|Sweden|Malm|Stockholm|Amsterdam)/.test(content)) {
+				if (/(Denmark|London|Paris|United Kingdom|Copenhagen|Rotterdam|Netherlands|Belgium|UK|France|Sweden|Malm|Stockholm|Amsterdam|Sweden)/.test(content)) {
 					item.Area="EU"; return item; 
 				}
-				if (/(Berlin|DE|Munich|München|Hamburg|Düsseldorf|Zürich|Wien|Frankfurt|Dresden|Österreich|Schweiz|CH|AT)/.test(content)) {
+				if (/(Berlin|GmbH|DE|Munich|München|Hamburg|Düsseldorf|Zurich|Zürich|Wien|Frankfurt|Dresden|Österreich|Switzerland|Germany|Schweiz|CH|AT)/.test(content)) {
 					item.Area="DE"; return item; 
 				}
 				return item;
@@ -84,9 +84,11 @@ http://seattle.meetup.neo4j.org/events/102039672/
 			assignArea(assignArea(item,item.Location),item.Title);
 			if (!item.Area) item.Area='WORLD';
 			
-			item.Date = new Date(Date.parse(item.Start.replace(/(\d)(am|pm|AM|PM)/,"$1 $2").replace(/ (\d) (am|pm|AM|PM)/," $1:00 $2").replace(/\s+to\s+.+?( [A-Z]{2,3})?$/,"$1")));
+			var dateStr=item.Start.replace(/(\d)(am|pm|AM|PM)/,"$1 $2").replace(/ (\d{1,2}) (am|pm|AM|PM)/," $1:00 $2").replace(/\s+to\s+.+?( [A-Z]{2,3})?$/,"$1");
+			item.Date = new Date(Date.parse(dateStr));
             //console.log(item)
-			console.log(item.Area, item['Location'], item.Title,item.Date,item.Group);
+			console.log(item.Area, item['Location'], item.Title,dateStr,item.Date,item.Group);
+			item.Origin="Calendar";
             return item;
         });
         if (filter) fun(items.filter(filter));
@@ -94,5 +96,23 @@ http://seattle.meetup.neo4j.org/events/102039672/
     });
 }
 
+function mergeEvents(events,items) {
+	var urls=events.map(function(e) {return e['Url'];});
+    items.forEach(function(event) {
+        var idx=urls.indexOf(event['Url']);
+        if (idx == -1) events.push(event); 
+        else events[idx]=event;
+    })
+    var result = events.sort(function(e1,e2) {
+        return e1.Date.getTime() - e2.Date.getTime();
+    })
+    console.log("events2",result.length);
+	result.forEach(function (e) {
+		console.log(e.Date,e.Title,e.Location,e.Type,e.Origin)
+	})
+	return result;
+}
+
 exports.events=events
 exports.events2=events2
+exports.mergeEvents = mergeEvents
