@@ -56,8 +56,6 @@ exports.pages = {
             "<li>Extract the file into <code>/path/to/neo/data/graph.db</code></li> " +
             "<li>Start the server again</li> " +
             "<li>Open the <a href='http://localhost:7474' target='_blank'>Neo4j Web Interface</a></li>" +
-            "<li>Explore the Data Browser Tab</li>" +
-            "<li>Switch to the Console Tab</li>" +
             "<li>Read about the <a href='/learn/cypher'>Cypher</a> Query Language</li>" +
             "<li>Follow the source links for some example cypher queries</li>" +
             "</ul> " +
@@ -67,12 +65,14 @@ exports.pages = {
         featured: [ content.videos.importing_sample_data],
         actionText: "Get some data",
         related: [
-            content.example_data.dr_who
+             content.example_data.dr_who
             ,content.example_data.fec_2012
             ,content.example_data.heroku_waza_2013
             ,content.example_data.cineasts_small
             ,content.example_data.cineasts_large
             ,content.example_data.hubway
+            ,content.videos.neo4j_webui
+            ,content.links.cypher_cheat_sheet
         ]
     },
     intro: {
@@ -305,7 +305,8 @@ exports.pages = {
         For a full list of all code contributors, please see <a href='http://docs.neo4j.org/chunked/snapshot/contributors.html' target='_blank'>The official docs.</a>",
         previewText: "We're very proud to have such an engaged group of contributors to Neo4j and its ecosystem.",
         actionText: "See our contributors",
-        thumbnail: "/assets/new/img/contributors.png",
+        featured: [content.videos.neo4j_code_2012],
+        thumbnail: "/assets/img/still/neo4j_code_2012.gif",
 //        type: "_contributors",
         related: ["maxdemarzi","mhluongo","ronge","craigtaverner","technige", "pablopareja","espeed","rhetonik"]
     },
@@ -355,9 +356,9 @@ exports.pages = {
         title: "Ask Questions and Share Answers",
         introText: "Here you can find some of the resources that give you access to questions, answers and support around Neo4j related questions.",
         thumbnail: "/assets/img/logo/googlegroups.png",
-        featured: null,
+        featured: [content.links.stack_overflow],
         related: [
-            content.links.stack_overflow, content.links.mailing_list, content.links.github_neo4j
+            content.links.mailing_list, content.links.github_neo4j
         ]
     },
     neo4j: {
