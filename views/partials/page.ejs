@@ -118,8 +118,10 @@ var nextPage = pages[p];
 
         $('.prevStep h3').on('mouseenter', function() {
             var self = $(this);
+            // measure width
+            var w = getTextWidth(self.text(), self.css('fontSize'), self.css('fontWeight'));
             self.animate({
-                width: '80%'
+                width: self.width() + w - 72 + 'px'
             }, 100);
         }).on('mouseleave', function() {
             var self = $(this);
@@ -130,8 +132,10 @@ var nextPage = pages[p];
 
         $('.nextStep h3').on('mouseenter', function() {
             var self = $(this);
+            // measure width
+            var w = getTextWidth(self.text(), self.css('fontSize'), self.css('fontWeight'));
             self.animate({
-                width: '80%'
+                width: self.width() + w - 80 + 'px'
             }, 100);
         }).on('mouseleave', function() {
             var self = $(this);
@@ -140,6 +144,18 @@ var nextPage = pages[p];
             }, 200);
         });
     });
+
+function getTextWidth(text, fs, fw) {
+    $('body').append('<span id="test123" style="font-size:'+fs+';font-weight:' + fw + ';position:absolute;visibility:hidden;padding:0;border:1px solid red;overflow:hidden">' + text + '</span>');
+    var span = $('#test123', $('body'));
+    span.css({
+    });
+    //console.log(span);
+    var w = span.width();
+    span.remove();
+    return w;
+}
+
 
 </script>
 
