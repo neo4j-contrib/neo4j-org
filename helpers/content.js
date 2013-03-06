@@ -88,6 +88,14 @@ exports.content = {
             thumbnail: "/assets/img/still/import_sample_data.gif",
             introText: "Quick guide on how to set up an installed Neo4j server with prepared datasets",
             src: "http://player.vimeo.com/video/53867161"
+        },
+        neo4j_code_2012 : {
+            title: "Contributions to the Neo4j code base",
+            type: "video",
+            author: "systay",
+            thumbnail: "/assets/img/still/neo4j_code_2012.gif",
+            introText: "A visualisation of Neo4j's code base during 2012",
+            src: "http://www.youtube.com/embed/YJKK7ciYRhM"
         }
     },
     links: {
@@ -154,6 +162,7 @@ exports.content = {
         cypher_cheat_sheet: {
             title: "Cypher Cheat Sheet (PDF)",
             path: "/resources/cypher",
+            thumbnail: "/assets/img/still/cypher_refcard.gif",
             introText: "Download the Cypher Cheat Sheet as PDF",
             actionText: "Download PDF"
         },
