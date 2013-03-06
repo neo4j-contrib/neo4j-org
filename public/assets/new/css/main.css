@@ -58,6 +58,7 @@ hr {
 
 img {
     vertical-align: middle;
+    border: none;
 }
 
 /*
@@ -685,6 +686,7 @@ ul.hor li {
 .featured .article img,
 .featured .book img {
     float: right;
+    border: none;
 }
 
 .featured .track .content {
@@ -697,6 +699,7 @@ ul.hor li {
     overflow: auto;
     height: 100% ! important;
     padding: 0;
+    border: none;
 }
 
 .featured .image img {
@@ -826,6 +829,7 @@ ul.hor li {
 .related .item img {
     display: block;
     margin: 0 auto .5em auto;
+    border: none;
 }
 
 .related .row .item img.logo {
@@ -861,6 +865,7 @@ ul.hor li {
     margin: 0 3em ! important;
     padding: 0;
     text-align: center;
+    border: none;
 }
 
 .related .driver h4 {

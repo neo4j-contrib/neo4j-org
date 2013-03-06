@@ -279,8 +279,8 @@ route_get('/develop/visualize', routes.pages);
 // route_get('/develop/spring', routes.pages); 
 // route_get('/develop/ec2', routes.pages); 
 // route_get('/develop/ec2_detailed', routes.pages); 
-// route_get('/develop/example_data', routes.pages); 
-// route_get('/develop/spring', routes.pages); 
+// route_get('/develop/example_data', routes.example_data); 
+route_get('/develop/spring', routes.pages); 
 
 route_get('/develop/drivers', routes.pages);
 route_get('/drivers', routes.pages);
