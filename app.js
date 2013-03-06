@@ -26,10 +26,10 @@ var app = express();
 
 app.locals({
   neo4j: {
-    version: "1.9.M04",
-    date: "Jan 22, 2013",
-    summary: "HA Clustering stability",
-    readme: "http://blog.neo4j.org/2013/01/neo4j-milestone-19m04-released.html"
+    version: "1.9.M05",
+    date: "Mar 06, 2013",
+    summary: "Java 7, HA, Cypher profiling",
+    readme: "http://blog.neo4j.org/2013/03/neo4j-19m05-released-wrapping-up.html"
   } 
    ,neo4jGA: {
     version: "1.8.2"
