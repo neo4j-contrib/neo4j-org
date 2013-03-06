@@ -6,7 +6,7 @@ exports.pages = {
         title: "Learn",
         introText: "Below you find a number of useful starting points to learn about neo4j, graph databases and fast development with Neo4j.",
         featured: null,
-        related: [content.books.graphdatabases,"concepts", "intro", "tracks", "production","scientific"]
+        related: [content.books.graphdatabases, "concepts", "intro", "tracks", "production", "scientific"]
     },
     develop: {
         path: "/develop",
@@ -39,17 +39,17 @@ exports.pages = {
         related: [content.scientific.wordnet_using_graphdbs, content.scientific.the_graph_traversal_pattern]
     },
     /*
-                            <li>Open the <a href='http://localhost:7474' target='_blank'>Neo4j Web Interface</a></li>
-                        <li>Explore the Data Browser Tab</li>
-                        <li>Switch to the Console Tab</li>
-                        <li>Read about the <a href="/learn/cypher">Cypher</a> Query Language</li>
-                        <li>Follow the source links for some example cypher queries</li>
-    
+     <li>Open the <a href='http://localhost:7474' target='_blank'>Neo4j Web Interface</a></li>
+     <li>Explore the Data Browser Tab</li>
+     <li>Switch to the Console Tab</li>
+     <li>Read about the <a href="/learn/cypher">Cypher</a> Query Language</li>
+     <li>Follow the source links for some example cypher queries</li>
+
      */
     example_data: {
         path: "/develop/example_data",
         title: "Example Datasets",
-        introText : "Prepared data sets for you to explore",
+        introText: "Prepared data sets for you to explore",
         content: "<p>The ZIP-Files contain the content of the <code>graph.db</code> directory. To use them:</p>" +
             " <ul> " +
             "<li>Stop your Neo4j server</li> " +
@@ -65,14 +65,14 @@ exports.pages = {
         featured: [ content.videos.importing_sample_data],
         actionText: "Get some data",
         related: [
-             content.example_data.dr_who
-            ,content.example_data.fec_2012
-            ,content.example_data.heroku_waza_2013
-            ,content.example_data.cineasts_small
-            ,content.example_data.cineasts_large
-            ,content.example_data.hubway
-            ,content.videos.neo4j_webui
-            ,content.links.cypher_cheat_sheet
+            content.example_data.dr_who
+            , content.example_data.fec_2012
+            , content.example_data.heroku_waza_2013
+            , content.example_data.cineasts_small
+            , content.example_data.cineasts_large
+            , content.example_data.hubway
+            , content.videos.neo4j_webui
+            , content.links.cypher_cheat_sheet
         ]
     },
     intro: {
@@ -90,7 +90,7 @@ exports.pages = {
         introText: "This is the starting point for a number of different tracks to learn more about Neo4j. Follow a track that you are interested in to learn more about different aspects of Neo4j.",
         featured: null,
         actionText: "Choose your track",
-        related: ["java","cypher_track_start"]
+        related: ["java", "cypher_track_start"]
     },
     java: {
         path: "/java",
@@ -117,13 +117,37 @@ exports.pages = {
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
         introText: "The Cypher track concentrates on the Cypher Graph Query language, making interaction with Neo4j framework independent.",
         actionText: "Start",
-        next: [],
+        next: ["cypher_track_1"],
         prev: [],
         featured: [],
         related: [  "cypher"
 
         ]
-    },                                
+    },
+    cypher_track_1: {
+        path: "/tracks/cypher_track_1",
+        type: "track",
+        title: "1. Intro",
+        thumbnail: "/assets/img/still/cypher_tutorial.gif",
+        introText: null,
+        actionText: "Start",
+        next: ["cypher_track_2"],
+        prev: ["cypher_track_start"],
+        featured: [content.tracks.cypher_tutorial_1],
+        related: []
+    },
+    cypher_track_2: {
+        path: "/tracks/cypher_track_2",
+        type: "track",
+        title: "2. First steps with Cypher",
+        thumbnail: "/assets/img/still/cypher_tutorial.gif",
+        introText: null,
+        actionText: "Start",
+        next: ["tracks"],
+        prev: ["cypher_track_1"],
+        featured: [content.tracks.cypher_tutorial_2],
+        related: []
+    },
 
     java_basics: {
         path: "/java/java_basics",
@@ -134,7 +158,7 @@ exports.pages = {
         featured: [
             content.tracks.java_basics
         ],
-        related: ["neo4j",content.links.eclipse_maven_neo4j_setup,"cypher_track_start"]
+        related: ["neo4j", content.links.eclipse_maven_neo4j_setup, "cypher_track_start"]
 
     },
     jvm: {
@@ -146,7 +170,7 @@ exports.pages = {
         featured: [
 //            content.tracks.jvm_projects
         ],
-        related: [content.projects.neoclipse,content.apps.structr, content.projects.spatial, content.projects.jdbc, content.projects.jpa, content.projects.java_rest_binding, content.projects.graph_collections]
+        related: [content.projects.neoclipse, content.apps.structr, content.projects.spatial, content.projects.jdbc, content.projects.jpa, content.projects.java_rest_binding, content.projects.graph_collections]
     },
     server_plugins: {
         path: "/java/server_plugins",
@@ -334,7 +358,7 @@ exports.pages = {
         featured: [content.videos.neo4j_code_2012],
         thumbnail: "/assets/img/still/neo4j_code_2012.gif",
 //        type: "_contributors",
-        related: ["maxdemarzi","mhluongo","ronge","craigtaverner","technige", "pablopareja","espeed","rhetonik"]
+        related: ["maxdemarzi", "mhluongo", "ronge", "craigtaverner", "technige", "pablopareja", "espeed", "rhetonik"]
     },
     events: {
         path: "/events",
@@ -407,20 +431,20 @@ exports.pages = {
         ]
     },
     cypher: {
-         path: "/learn/cypher",
-         title: "Cypher Tutorial",
-         thumbnail: "/assets/img/still/cypher_tutorial.gif",
-         introText: "Hands on introduction to the Cypher Query Language",
-         actionText: "Learn it",
-         featured: [
-             {
-                 title: "Cypher Tutorial",
-                 type: "_cypher"
-             }
-         ],
-         related: [
-             "try", content.videos.cypher, content.links.manual_cypher, content.links.cypher_cheat_sheet
-         ]
+        path: "/learn/cypher",
+        title: "Cypher Tutorial",
+        thumbnail: "/assets/img/still/cypher_tutorial.gif",
+        introText: "Hands on introduction to the Cypher Query Language",
+        actionText: "Learn it",
+        featured: [
+            {
+                title: "Cypher Tutorial",
+                type: "_cypher"
+            }
+        ],
+        related: [
+            "try", content.videos.cypher, content.links.manual_cypher, content.links.cypher_cheat_sheet
+        ]
     },
     ops: {
         path: "/develop/ops",
@@ -442,7 +466,7 @@ exports.pages = {
                 content: ""
             }
         ],
-        related: [content.links.cypher_cheat_sheet, content.links.manual_cypher,"cypher"
+        related: [content.links.cypher_cheat_sheet, content.links.manual_cypher, "cypher"
         ]
     },
     visualize: {
@@ -452,13 +476,13 @@ exports.pages = {
                 Graph visualisations are a powerful tool to convey the content of a graph. They can highlight patterns, show clusters and connections.\
                 There are different tools that you can use to visualize the content of a Neo4j graph database.",
         featured: [
-                    content.videos.neo4j_webui,
-                    content.links.d3,
-                    content.projects.neoclipse,
-                    content.links.gephi,
-                    content.videos.graphviz
+            content.videos.neo4j_webui,
+            content.links.d3,
+            content.projects.neoclipse,
+            content.links.gephi,
+            content.videos.graphviz
         ],
-        related: [  
+        related: [
             {
                 title: "Max De Marzi's Graph Visualization Blog",
                 path: "http://maxdemarzi.com/tag/visualization-2/"
@@ -486,58 +510,9 @@ exports.pages = {
         title: "Apps Gallery",
         introText: "Built with Neo4j, tripping the graph fantastic.",
         featured: null,
-        related: [content.apps.flavorwocky, 
-            content.apps.frostymug, content.apps.polymap, 
-            content.apps.neosocial, content.apps.structr, 
+        related: [content.apps.flavorwocky,
+            content.apps.frostymug, content.apps.polymap,
+            content.apps.neosocial, content.apps.structr,
             content.projects.neoclipse]
     }
-    /*
-     ]
-     {
-     title : "POJO to Graph",
-     path : "/develop/spring",
-     introText : "Simply annotate your Java classes, configure your Spring application, then enjoy the power of object graph mapping.",
-     actionText : "Go ahead"
-     },
-     {
-     title : "Example App",
-     path : "http://blog.neo4j.org/2012/10/using-spring-data-neo4j-for-hubway-data.html",
-     introText : "Use Spring Data Neo4j to model and import the <a target='_blank' href='http://hubwaydatachallenge.org/trip-history-data/''>Hubway Challenge</a> dataset, for advanced querying and visualization.",
-     actionText : "Follow along"
-     }
-     ]
-     {
-     title : "High Availability",
-     path : "http://docs.neo4j.org/chunked/stable/ha-how.html",
-     introText : "Master-slave replication in a cluster provides your application with read-scaling and fault tolerance.",
-     actionText : "Read more"
-     },
-     {
-     title : "Backups",
-     path : "http://docs.neo4j.org/chunked/stable/operations-backup.html",
-     introText : "A fundamental operation for any application: back up early, back up often.",
-     actionText : "Read more"
-     },
-     {
-     title : "Hardware Sizing",
-     path : "",
-     introText : "<img class='thumbnail' src='/assets/img/still/hardware-sizing.png' alt='Click to View' data-src='http://player.vimeo.com/video/46049647'><br><i class='icon icon-facetime-video'></i>  Roll up your sleeves and pop the hood, let&#39;s tune this engine.",
-     actionText : ""
-     }
-     ]
-     ]
-
-     */
-
-    //            content: "<p>The Neo4j Java API is very easy to use. You can interact with the GraphDatabase, Nodes and Relationships directly.\
-//            To run more interesting queries or complex operations you can also execute <a href=\"/java/java_cypher\">Cypher</a>\
-//        from your program.</p>\
-//                                                             \
-//    <p>After including Neo4j in your project and <a href=\"/java/ide\">setting up your IDE</a>. See the Hello-World example\
-//    below for getting started.   </p>\
-//    <h3>Adding the Neo4j dependencies to your project</h3>\
-//    <% include ../../download/_embedded_dependency %>      \
-//                                                              \
-//        <div class=\"markdown\"><%- content.java_hello_world %></div>"
-
 }

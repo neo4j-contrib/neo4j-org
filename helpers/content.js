@@ -424,6 +424,29 @@ exports.content = {
             <li>Shopping cart? Use a Key-Value Store\
             <li>How did you get here? Ask a graph\
         </ul>"
+        },
+
+        cypher_tutorial_1: {
+            type: "track",
+            introText: "Cypher Tutorial #1",
+            content:  +
+                "<ul>" +
+                "<li>Our example graph consists of <code>movies</code> with an <code>id</code>, <code>year</code> and <code>title</code> and <code>actors</code> with a <code>name</code>.    " +
+                "Actors have an <code>:ACTS_IN</code> relationship to movies, which represents the <code>role</code> they played, the role relationship has also a <code>role</code> attribute.   " +
+                "</li>" +
+                "<li> We encourage you to enter the Cypher statements in the interactive console manually, but you can also click on the code snippets." +
+                "<br/>      Like   this one" +
+                "    < pre > START n = node(*) RETURN \"Hello Graph with \" + count(*) + \" Nodes!\" as welcome; </pre> </li>" +
+                "<li>return a single node, by id (The Matrix) <br/><pre>START movie=node(0) RETURN movie;</pre></li>"+
+                "<img src = \"/assets/img/still/cineasts.gif\" height=\"100\"/>" +
+                "</ul>"
+                
+        },
+        cypher_tutorial_2: {
+            type: "track",
+            introText: "Cypher Tutorial #2",
+            content: "content"
+
         }
 
     },
