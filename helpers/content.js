@@ -19,7 +19,7 @@ exports.content = {
         neo4j_heroku_gdocs: {
             type: "video",
             title: "Screencast: Integrate Neo4j, Heroku and Google Docs",
-            introText: "A screencast about deploying an application using the Neo4j add-on on Heroku to expose a readonly Cypher endpoint. Then integrating with a Google Spreadsheet for querying and rendering of the results. For step by step instructions, code and sample data see here: http://blog.neo4j.org/2011/12/neo4j-labs-heroku-neo4j-and-google.html",
+            introText: "A screencast about <a href='http://blog.neo4j.org/2011/12/neo4j-labs-heroku-neo4j-and-google.html'>deploying an application using the Neo4j add-on on Heroku</a> to expose a readonly Cypher endpoint. Then integrating with a Google Spreadsheet for querying and rendering of the results.",
             thumbnail: "http://vidcaster-media.s3.amazonaws.com/sites/145/videos/67656/freeze/thumbs/120x6816U7J.jpg",
             src: "http://video.neo4j.org/player/U4Yq"
         },
@@ -103,7 +103,7 @@ exports.content = {
             title: "Stack Overflow",
             path: "http://stackoverflow.com/questions/tagged/neo4j",
             thumbnail: "/assets/img/logo/stackoverflow.png",
-            introText: "Find answers or reach to fellow developers with questions.",
+            introText: "For getting answers to concrete questions about API usage, Neo4j configuration, cypher syntax etc. please post to Stack Overflow.",
             actionText: "Ask Neo4j questions"
         },
         mailing_list: {
@@ -271,10 +271,22 @@ exports.content = {
         neo4j_on_heroku: {
             type: "article",
             title: "Neo4j on Heroku",
-            introText: "Neo4j on Heroku",
-            content: "<p>As a platform-as-a-service (PAAS) provider, Heroku offers a quick way from your locally developed app to a managed deployment in the cloud.</p>\
-                <p>The ability of adding different hosted services is crucial for the daily needs of a modern day web-application.</p>\
-                <p>To run a Neo4j graph powered app on Heroku you can easily add the Neo4j Add-on.</p>"
+            thumbnail: "/assets/img/logo/heroku.png",
+            src: "/assets/img/still/neo4j_heroku_addon.gif",
+            introText: "<p>As a platform-as-a-service (PAAS) provider, <a href='http://heroku.com'>Heroku</a> offers a quick way from your locally developed app to a\
+                                     managed deployment in the cloud. The ability of adding different hosted services is crucial for the daily needs of a modern day web-application.\
+                                     To run a Neo4j graph powered app on Heroku you can easily add the <a href='https://devcenter.heroku.com/articles/neo4j'>Neo4j Add-on</a>.\
+                                  </p>",
+            content: "<h3>Add Neo4j to your Heroku Application</h3>\
+                        <p>After installing the <a href='https://toolbelt.heroku.com' target='_blank'>Heroku toolbelt</a>, it is as easy as:\
+            <ol>\
+                <li>Create an application: <code>heroku apps:create your-app-name</code></li>\
+                <li>Add the Neo4j Add-on: <code>heroku addons:add neo4j</code></li>\
+                <li>Open the Neo4j Administration page: <code>heroku addons:open neo4j</code></li>\
+                <li>Show the your app's environment variables: <code>heroku config</code></li>\
+                <li>Use <code>ENV[\"NEO4J_URL\"]</code> or <code>System.getenv(\"NEO4J_URL\")</code> to access the Neo4j Server with one of the <a href=''/develop/drivers'>language drivers</a></li>\
+            </ol>\
+          </p>"
         },
         licensing_guide: {
             title: "Pragmatic licensing guide",

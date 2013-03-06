@@ -261,21 +261,47 @@ exports.pages = {
     heroku: {
         path: "/develop/heroku",
         title: "Neo4j Heroku Add-on",
-        introText: "NA managed graph database in the cloud, perfect for getting to know Neo4j.",
+        thumbnail: "/assets/img/logo/heroku.png",
+        introText: "A managed graph database in the cloud, perfect for getting to know Neo4j.",
         actionText: "Do it now",
         featured: [
             content.articles.neo4j_on_heroku
         ],
-        related: ["heroku_screencast"]
-    },
-    heroku_screencast: {
-        path: "/develop/heroku/screencast",
-        title: "Screencast: Integrate Neo4j, Heroku and Google Docs",
-        actionText: "Watch this screencast ",
-        featured: [
-            content.videos.neo4j_heroku_gdocs
-        ],
-        related: []
+        related: [
+            content.videos.neo4j_heroku_gdocs,
+            {
+                thumbnail:"/assets/img/logo/heroku.png",
+                title: "Heroku Neo4j Add-on",
+                path: "http://addons.heroku.com/neo4j"
+        
+            },
+            {
+                thumbnail:"/assets/img/logo/heroku.png",
+                title: "Heroku devcenter article on Neo4j",
+                path: "http://devcenter.heroku.com/articles/neo4j"
+            },
+            {
+                thumbnail:"/assets/img/logo/github.png",
+                title: "Clone an example Github Herkou template",
+                path: "https://github.com/neo4j/neo4j-heroku-example"
+            },
+            {
+                thumbnail:"/assets/img/contributors/maxdemarzi.jpg",
+                title: "Max De Marzi's Heroku examples",
+                path: "http://maxdemarzi.com/tag/heroku/"
+            },
+            {
+                thumbnail:"/assets/img/neo4j/neo4j_cloud.png",
+                title: "Neo4j Heroku Challenge Applications",
+                path: "http://blog.neo4j.org/2012/03/heroku-challengers-vote-now.html"
+            },
+            {
+                thumbnail:"https://waza.heroku.com/images/layout/waza-bookmark.png",
+                title: "Neo4j at Heroku Waza 2013",
+                path: "http://waza.neo4j.org"
+            },
+            content.videos.james_ward_neo4j
+        ]
     },
     spring_data_neo4j: {
         path: "/spring",

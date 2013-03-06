@@ -692,6 +692,10 @@ ul.hor li {
 .featured .book img {
     float: right;
     margin: 0 1em;
+    border: none;
+    max-width: 55em;
+    max-height: 27em;
+    margin-right: 1em;
 }
 
 .featured .track .content {
