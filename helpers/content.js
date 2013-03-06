@@ -458,7 +458,8 @@ exports.content = {
             author: "Jim Webber, Ian Robinson",
             price: "Early Release Ebook, free",
             logo: "/assets/new/img/graphdatabases_v31.png",
-            text: '<a href="http://graphdatabases.com">Exclusive early access</a>  to the definitive book on graph databases</em>, published by O&quot;Reilly Media.<br />'
+            introText: '<a href="http://graphdatabases.com">Exclusive early access</a>  to the definitive book on graph databases</em>, published by O&quot;Reilly Media.<br />',
+            actionText: 'Download now'    
         },
         springdata: {
             url: "http://shop.oreilly.com/product/0636920024767.do",
@@ -467,7 +468,7 @@ exports.content = {
             author: "Jon Brisbin, Oliver Gierke, Thomas Risberg, Mark Pollack, Michael Hunger",
             price: "Early Release Ebook $23.99",
             logo: "/assets/img/books/spring_data.png",
-            text: 'This book shows you how Spring’s data access framework can help you connect to either non-relational or relational databases, or a combination of the two.'
+            introText: 'This book shows you how Spring’s data access framework can help you connect to either non-relational or relational databases, or a combination of the two.'
         },
         goodrelationships: {
             url: "http://www.lulu.com/shop/michael-hunger-and-david-montag-and-andreas-kollegger/good-relationships-the-spring-data-neo4j-guide-book/paperback/product-20201195.html",
@@ -476,6 +477,7 @@ exports.content = {
             author: "Michael Hunger with Andreas Kolleger and David Montag",
             price: "$9.95",
             logo: "/assets/img/books/good_relationships.png",
+            introText: 'This guide introduces you to Spring Data Neo4j, the integration library for Neo4j and Spring.',
             text: 'With Spring Data, the ever popular Spring Framework has cultivated a new patch of ground, bringing Big Data and NOSQL technology like Neo4j to enterprise developers. This guide introduces you to Spring Data Neo4j, using the fast, powerful and scalable graph database Neo4j to enjoy the benefits of having good relationships in your data.'
         },
         nosqldistilled: {
@@ -495,6 +497,7 @@ exports.content = {
             author: "Eric Redmond and Jim R. Wilson",
             price: "List Price: $35.00",
             logo: "/assets/img/books/seven_databases.png",
+            introText: 'Seven Databases explained in week long whirlwind tours with deep dives and good examples.',
             text: 'Seven Databases in Seven Weeks takes you on a tour of some of the hottest open source databases today. In the tradition of Bruce A. Tate\'s Seven Languages in Seven Weeks, this book goes beyond your basic tutorial to explore the essential concepts at the core each technology.'
         },
         neo4jinaction: {
@@ -504,6 +507,7 @@ exports.content = {
             author: "Jonas Partner and Aleksa Vukotic",
             price: "Ebook - $35.99, Print - $44.99",
             logo: "/assets/img/books/neo4j_in_action.png",
+            introText: 'Neo4j in Action is a comprehensive guide to Neo4j, aimed mainly at application developers and software architects.',
             text: 'Neo4j in Action is a comprehensive guide to Neo4j, aimed mainly at application developers and software architects. This exciting new book by Jonas Partner and Aleksa Vukotic is the first full length book on Neo4j, covering an introduction to Neo4j, application development with Neo4j, and Neo4j in production.'
         },
         visualcomplexity: {

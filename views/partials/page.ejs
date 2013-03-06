@@ -115,6 +115,8 @@ var nextPage = pages[p];
 
     $(document).ready(function() {
 
+        nav.resize();
+        
         var ref = $('#featured_slider');
         var offset = 224;
 
@@ -178,10 +180,10 @@ var nextPage = pages[p];
             
             // control and marker configuration
             showcontrols : true, // show next and prev controls
-            centercontrols : false, // center controls verically
-            nexttext : '<button class="btn">Next</button>', // Text for 'next' button (can use HTML)
-            prevtext : '<button class="btn">Prev</button>', // Text for 'previous' button (can use HTML)
-            showmarkers : false, // Show individual slide markers
+            centercontrols : true, // center controls verically
+            nexttext : '<i class="slider icon-forward"></i>', // Text for 'next' button (can use HTML)
+            prevtext : '<i class="slider icon-backward"></i>', // Text for 'previous' button (can use HTML)
+            showmarkers : true, // Show individual slide markers
             centermarkers : true, // Center markers horizontally
             
             // interaction values

@@ -35,18 +35,23 @@ var nav = {
 
 		var headerWrapper = $('#headerWrapper');
 		var header = $('#header');
+        var page = $('.page');
+        var footer = $('#footer');
 
-		$('.page').css({
+        function h(selector) {
+            return selector.outerHeight(true) || 0;
+        }
+        page.css({
 			//top: chapterNav.height() - headerWrapper.height() + 14
 			//top: header.height()
 			//height: $(window).height() - chapterNav.height() + headerWrapper.height() - $('#footer').height() - 7
 		});
 
-		var h1 = $(window).height() - $('#footer').height() - 1;
-		var h2 = $('.page').height() + headerWrapper.height() + chapterNav.height();
-		//console.log($('.page').height(), h1, h2);
+        var h1 = $(window).height() - h(footer) - 1;
+		var h2 = h(page) + h(chapterNav) + 14; //  + h(headerWrapper)
+		console.log($('.page').height(), h1, h2);
 
-		$('#footer').css({
+		footer.css({
 			position: 'absolute',
 		 	top: Math.max(h1, h2)
 		});

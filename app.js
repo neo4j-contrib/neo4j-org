@@ -280,7 +280,7 @@ route_get('/develop/visualize', routes.pages);
 // route_get('/develop/ec2', routes.pages); 
 // route_get('/develop/ec2_detailed', routes.pages); 
 // route_get('/develop/example_data', routes.example_data); 
-route_get('/develop/spring', routes.pages); 
+// route_get('/develop/spring', routes.pages); 
 
 route_get('/develop/drivers', routes.pages);
 route_get('/drivers', routes.pages);
@@ -366,7 +366,7 @@ route_get('/community/feeds', routes.participate);
 route_get('/resources', routes.learn);
 route_get('/forums', forward("http://groups.google.com/group/neo4j"));
 route_get('/nabble', forward("http://groups.google.com/group/neo4j"));
-route_get('/spring', routes.spring);
+route_get('/spring', forward("/develop/spring"));
 route_get('/heroku', routes.heroku);
 route_get('/azure', forward("http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"));
 route_get('/price-list', forward("http://www.neotechnology.com/price-list/"));
