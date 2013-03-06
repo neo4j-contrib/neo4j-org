@@ -120,7 +120,7 @@ exports.pages = {
         next: ["cypher_track_1"],
         prev: [],
         featured: [],
-        related: [  "cypher"
+        related: [  "cypher","reference_card", content.links.manual_cypher
 
         ]
     },
@@ -129,7 +129,7 @@ exports.pages = {
         type: "track",
         title: "1. Intro",
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
-        introText: null,
+        introText: "",
         actionText: "Start",
         next: ["cypher_track_2"],
         prev: ["cypher_track_start"],
@@ -141,7 +141,7 @@ exports.pages = {
         type: "track",
         title: "2. First steps with Cypher",
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
-        introText: null,
+        introText: "",
         actionText: "Start",
         next: ["tracks"],
         prev: ["cypher_track_1"],
@@ -249,7 +249,7 @@ exports.pages = {
         title: "Get started with Neo4j",
         introText: "(TODO) Intro text for get started with Neo4j",
         featured: ["content_video_installing_neo4j"],
-        related: ["intro", "drivers"]
+        related: ["tracks","intro", "drivers"]
     },
     drivers: {
         path: "/develop/drivers",
