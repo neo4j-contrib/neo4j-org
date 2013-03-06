@@ -111,7 +111,11 @@ var nextPage = pages[p];
 <script type="text/javascript">
     $(document).ready(function() {
 
-        var featuredTop = $('div.featured').first().offset().top;
+        var ref = $('div.featured');
+        if (!ref.length) {
+            ref = $('div.related');
+        }
+        var featuredTop = ref.first().offset().top;
 
         $('.prevStep h3').css({
             top: featuredTop - 240 + 'px'
