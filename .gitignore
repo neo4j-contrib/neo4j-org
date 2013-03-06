@@ -1,3 +1,4 @@
+setup.sh
 views/ejs/*
 .idea
 *.iml

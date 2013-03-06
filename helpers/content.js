@@ -80,6 +80,14 @@ exports.content = {
             thumbnail: "/assets/img/still/graphdb-intro.png",
             introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
             src: "http://player.vimeo.com/video/46886385"
+        },
+        importing_sample_data : {
+            title: "Importing Sample Datasets",
+            type: "video",
+            author: "peterneubauer",
+            thumbnail: "/assets/img/still/import_sample_data.gif",
+            introText: "Quick guide on how to set up an installed Neo4j server with prepared datasets",
+            src: "http://player.vimeo.com/video/53867161"
         }
     },
     links: {
@@ -191,6 +199,63 @@ exports.content = {
 //            img: "",
             introText: " This article discusses the graph traversal pattern and its use in computing.",
             actionText: "Read more"
+        }
+    },
+    example_data: {
+        dr_who: {
+            type: "link",
+            title: "DrWho (0.05MB)",
+            path: "http://github.com/jimwebber/neo4j-tutorial",
+            author: "jimwebber",
+            img: "http://www.neotechnology.com/wp-content/uploads/2012/09/Screen-Shot-2012-09-13-at-12.57.35-PM.png",
+            introText: "The Dr.Who universe of doctors, actors, enemies and props from the Neo4j Koans Tutorial. <a href='http://example-data.neo4j.org/files/drwho.zip' class='icon-download-alt'> </a>",
+            actionText: "Check it out"
+        },
+        fec_2012: {
+            type: "link",
+            title: "Federal Election Commission Campaign Data - (63.91MB)",
+            path: "http://blog.neo4j.org/2012/10/follow-data-fec-campaign-data-challenge.html",
+            author: "akollegger",
+            img: "http://2.bp.blogspot.com/-yz4sG2of89Y/UG4TQ5QsgDI/AAAAAAAAAV8/apaI68-NH5U/s1600/ftd-banner.png",
+            introText: "The 2012 presidential campaign data from our Federal Election Committee Campaign Data Workshop. <a href='http://example-data.neo4j.org/files/fec_data_presidential_2012.zip' class='icon-download-alt'> </a>",
+            actionText: "Follow the Data"
+        },
+        heroku_waza_2013: {
+            type: "link",
+            title: "Twitter Connections Heroku Waza 2013 (0.5MB)",
+            path: "https://waza.neo4j.org/#twitter",
+            author: "mesirii",
+            img: "https://waza.neo4j.org/images/twitter.png",
+            introText: "Inferred Connection Graph from Tweets during Heroku Waza 2013. <a href='http://example-data.neo4j.org/files/heroku_waza_2013.zip' class='icon-download-alt'> </a>",
+            content: "People tweet all the time. There is the obvious social graph that consists of twitter followers. But much more interesting is the implict graph hidden in between the tweets. Mentions, Retweets and shared Hashtags form interesting relationships between people even if they don't follow each other.",
+            actionText: "Discover connections"
+        },
+        cineasts_small: {
+            type: "link",
+            title: "Small Cineasts Movies & Actors (0.14MB)",
+            path: "http://spring.neo4j.org/tutorial",
+            author: "mesirii",
+            img: "/assets/img/spring/cineasts.png",
+            introText: "small dataset of the Spring Data Neo4j Cineasts.net tutorial. <a href='http://example-data.neo4j.org/files/cineasts_39_movies_446_actors.zip' class='icon-download-alt'> </a>",
+            actionText: "Like a Movie"
+        },
+        cineasts_large: {
+            type: "link",
+            title: "Cineasts Movies & Actors (12.3MB)",
+            path: "http://spring.neo4j.org/tutorial",
+            author: "mesirii",
+            img: "/assets/img/spring/cineasts.png",
+            introText: "Full dataset (12k movies, 50k actors) of the Spring Data Neo4j Cineasts.net tutorial. <a href='http://example-data.neo4j.org/files/cineasts_12k_movies_50k_actors.zip' class='icon-download-alt'> </a>",
+            actionText: "Like a Movie"
+        },
+        hubway: {
+            type: "link",
+            title: "Hubway Data Challenge (50MB)",
+            path: "http://blog.neo4j.org/2012/10/using-spring-data-neo4j-for-hubway-data.html",
+            author: "mesirii",
+            img: "http://hubwaydatachallenge.org/static/img/hubway-logo.png",
+            introText: "Hubway is a bike sharing service. The challenge data consists 95 Boston stations and 500k bike rides. <a href='http://example-data.neo4j.org/files/hubway_data_challenge_boston.zip' class='icon-download-alt'> </a>",
+            actionText: "Ride a bike"
         }
     },
     articles: {

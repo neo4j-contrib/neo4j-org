@@ -15,7 +15,12 @@ if (page) {
 <div class="page"><!-- page -->
 
 <h1><%= page.title %></h1>
+    <% if (page.introText) { %>
 <p class="introText"><%- page.introText %></p>
+    <% } %>
+    <% if (page.content) { %>
+<p class="content"><%- page.content %></p>
+    <% } %>
 
 <div class="trackNav prevStep">
 <% (page.prev||[]).forEach(function(p) {

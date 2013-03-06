@@ -38,6 +38,43 @@ exports.pages = {
         actionText: "Read more",
         related: [content.scientific.wordnet_using_graphdbs, content.scientific.the_graph_traversal_pattern]
     },
+    /*
+                            <li>Open the <a href='http://localhost:7474' target='_blank'>Neo4j Web Interface</a></li>
+                        <li>Explore the Data Browser Tab</li>
+                        <li>Switch to the Console Tab</li>
+                        <li>Read about the <a href="/learn/cypher">Cypher</a> Query Language</li>
+                        <li>Follow the source links for some example cypher queries</li>
+    
+     */
+    example_data: {
+        path: "/develop/example_data",
+        title: "Example Datasets",
+        introText : "Prepared data sets for you to explore",
+        content: "<p>The ZIP-Files contain the content of the <code>graph.db</code> directory. To use them:</p>" +
+            " <ul> " +
+            "<li>Stop your Neo4j server</li> " +
+            "<li>Extract the file into <code>/path/to/neo/data/graph.db</code></li> " +
+            "<li>Start the server again</li> " +
+            "<li>Open the <a href='http://localhost:7474' target='_blank'>Neo4j Web Interface</a></li>" +
+            "<li>Explore the Data Browser Tab</li>" +
+            "<li>Switch to the Console Tab</li>" +
+            "<li>Read about the <a href='/learn/cypher'>Cypher</a> Query Language</li>" +
+            "<li>Follow the source links for some example cypher queries</li>" +
+            "</ul> " +
+            "<p> All data sets are compatible with Neo4j version 1.6 and later. </p> " +
+            "<p> You can also point the <a href='http://docs.neo4j.org/chunked/milestone/shell.html' target='_blank'>neo4j-shell</a> to the extracted directory to run cypher-queries directly: </p> " +
+            "<pre>/path/to/neo/bin/neo4j-shell -path /path/to/graph.db</pre>",
+        featured: [ content.videos.importing_sample_data],
+        actionText: "Get some data",
+        related: [
+            content.example_data.dr_who
+            ,content.example_data.fec_2012
+            ,content.example_data.heroku_waza_2013
+            ,content.example_data.cineasts_small
+            ,content.example_data.cineasts_large
+            ,content.example_data.hubway
+        ]
+    },
     intro: {
         path: "/learn/intro",
         title: "Neo4j Introduction",
@@ -240,12 +277,12 @@ exports.pages = {
         ],
         related: []
     },
-    sdn: {
+    spring_data_neo4j: {
         path: "/spring",
         title: "Spring Data Neo4j",
         introText: "The best NOSQL database for Spring.",
         actionText: "Go ahead",
-        featured: [content.videos.good_relationships],
+        featured: [content.videos.good_relationships, content.books.goodrelationships],
         related: ["good-relationships-spring-data", "getting-started-spring"]
     },
     // people : {
@@ -285,7 +322,7 @@ exports.pages = {
         introText: "",
         actionText: "Find a meetup",
         featured: [
-            content.articles.meetups
+            // content.articles.meetups
         ],
         related: ["events", "webinars", "conferences"]
     },
@@ -332,13 +369,15 @@ exports.pages = {
         featured: [
             content.articles.learn
         ],
-        related: ["graphdatabase", content.videos.graphdb101, content.links.reference_card]
+        related: ["graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card]
     },
     reference_card: {
         path: "/learn/neo4j/reference_card",
         title: "Ne4j Reference Card",
         thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w587.png",
-        featured: [content.links.reference_card]
+        featured: [
+            content.links.neo4j_ref_card
+        ]
     },
     cypher: {
          path: "/learn/cypher",
