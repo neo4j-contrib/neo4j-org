@@ -1,4 +1,90 @@
+var render = require('./render');
+
 exports.content = {
+    install:{
+        milestone:{
+            type:"version",
+            title:"Neo4j Milestone Release",
+            version:"1.9.M05",
+            stability:"milestone",
+            date:"Mar 06, 2013",
+            introText:"Java 7, HA, Cypher profiling",
+            path:"http://blog.neo4j.org/2013/03/neo4j-19m05-released-wrapping-up.html"
+        },
+        stable:{
+            type:"version",
+            title:"Neo4j Stable Release",
+            version:"1.8.2",
+            stability:"stable",
+            date:"Feb 27, 2013",
+            introText:"General Availability",
+            path:"http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html"
+        },
+        snapshot:{
+            type:"version",
+            title:"Snapshot Version",
+            stability:"snapshot",
+            version:"1.9-SNAPSHOT",
+            date:"2013",
+            introText:"Unstable Snapshot, for resolution issue verification"
+        },
+        "1_7_2":{
+            type:"version",
+            title:"Neo4j Stable Release 1.7.2",
+            version:"1.7.2",
+            stability:"stable",
+            date:"May 28, 2012"
+        },
+        "1_6_3":{
+            type:"version",
+            stability:"stable",
+            title:"Neo4j Stable Release 1.6.3",
+            version:"1.6.3",
+            date:"May 28, 2012"
+        },
+        "1_5_3":{
+            type:"version",
+            stability:"stable",
+            title:"Neo4j Stable Release 1.5.3",
+            version:"1.5.3",
+            date:"May 24, 2012"
+        },
+        upgrading:{
+            type:"link",
+            title:"Upgrading Docs",
+            introText:"Upgrading from a previous version? Make sure to read the upgrading notes",
+            path:"http://docs.neo4j.org/chunked/milestone/deployment-upgrading.html"
+        },
+        maven: {
+            type: "article",
+            title: "Maven Dependency",
+            content: function(params) { return render.include("download/_embedded_dependency",params); }
+        },
+        debian: {
+            type: "video",
+            title: "Debian - stable",
+            introText: "<p>We provide Debian packages in a repository.<br/>\
+                We <em>sign</em> the packages so you know you're getting the genuine Neo4j packages.\
+                To use the packages, you need to get our signing key first.<br/>  \
+                You also need to configure your system to look for our packages, see the instructions below.\
+                You can safely copy and paste all the commands below into a <strong>root shell</strong> on the target machine.<br/>\
+                <em>Neo4j will be started automatically when your system boots up.</em>  \
+            </p>\
+            ",
+            src: "http://player.vimeo.com/video/57939261",
+            thumbnail: "/assets/img/still/debian_install.png",
+            content: function(params) { return render.include("download/debian",params) }
+        },
+        homebrew: {
+            type:"article",
+            title: "MacOS X - Homebrew - stable",
+            content: "\
+            <p>If you have <a href='http://mxcl.github.com/homebrew/' target='_blank'>homebrew</a> installed, adding Neo4j to your Mac is simple a:</p>\
+                <pre>brew update && brew install neo4j\
+neo4j start</pre>\
+            "
+        }
+    },
     videos: {
 
         neo4j_webui: {

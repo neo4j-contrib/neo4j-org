@@ -1,0 +1,13 @@
+<div class="featured" class="mainElement">
+    <div class="slide version">
+        <div class="caption">
+            <h3><%= item.title %> <%= item.version %></h3>
+            <%- item.introText||item.summary %>
+        </div>
+        <div class="content">
+            <% include _download %> 
+            <a class="link" href="<%= item.path||item.src %>" target="_blank">Read More</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div><!-- featured -->

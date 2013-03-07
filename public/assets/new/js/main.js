@@ -74,7 +74,7 @@ var nav = {
 	* Activate an item in the main menu
 	*/
 	activateMain : function(category) {
-        var rightAlign = {learn: "13.1em" , develop: "9.8em", participate: "5.7em" };
+        var rightAlign = {learn: "13.1em" , develop: "9.8em", participate: "5.7em", install:"2em",download:"2em" };
 		var mainNav = $('#mainNav');
 		$('a', mainNav).removeClass('active');
         $('.' + category + ' a', mainNav).addClass('active');
@@ -95,7 +95,7 @@ var nav = {
 				thumbnail.on('click', function() {
 
 					$.blockUI({
-						message: '<iframe src="' + src + '"" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>',
+						message: '<iframe src="' + src + '?autoplay=1" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>',
 						css : {
 							position: 'fixed',
 							width: '80%',

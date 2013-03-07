@@ -794,7 +794,7 @@ ul.hor li {
 .related {
     /*padding-top: 1em;*/
     padding-bottom: 2em;
-    min-height: 12em;
+    min-height: 6em;
     /*background-color: #fff;*/
     /*border-bottom: 1px solid #ccc;*/
 }
@@ -809,7 +809,7 @@ ul.hor li {
 
 .related .row {
     width: 60em;
-    min-height: 16em;
+    min-height: 6em;
     margin: 0 auto;
     /*border-top: 1px solid #dce7ea;*/
     padding-top: 1em;
@@ -817,7 +817,7 @@ ul.hor li {
 
 .related .row .item {
     width: 16.9em;
-    min-height: 19em;
+    min-height: 6em;
     float: left;
     padding: 1em;
     margin-left: 1.29em;
@@ -1214,4 +1214,19 @@ ul.hor li {
 }
 .bjqs-controls li.bjqs-next a i {
     margin-right: -0.5em;
+}
+
+
+.table-download th, .table-download td {
+  text-align: center;
+  vertical-align: middle;
+  height: 2em;
+}
+table th {
+    font-size: larger;
+}
+.table-download tbody tr:nth-child(odd) td {
+  width: 40%;  
+  border-color: #ccc;
+  background-color: #F9F9F9;
 }

@@ -1,0 +1,24 @@
+<table class="table-download">
+    <thead>
+    <tr>
+        <th>Linux/Mac</th>
+        <th>Windows</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%
+    var platforms={"unix":"Linux/Mac","windows":"Windows"};
+    ["community","advanced","enterprise"].forEach(function(edition) {
+    %>
+    <tr>
+        <%
+        Object.keys(platforms).forEach(function(platform) {
+        %>
+        <td>
+            <a href="<%= edition=='community' ? '/download_thanks':'http://info.neotechnology.com/download-Neo4j.html'%>?edition=<%= edition %>&amp;release=<%= item.version %>&amp;platform=<%= platform %>">
+                <%=: edition | capitalize %> </a></td>
+        <% }) %>
+    </tr>
+    <% }) %>
+    </tbody>
+</table>

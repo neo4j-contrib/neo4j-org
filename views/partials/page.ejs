@@ -1,10 +1,10 @@
 <%
-console.log(path);
+console.log(path,neo4j);
 var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
 var mainCategory = path.split('/')[1];
 var page = pages[pageName];
 var title=page.title;
-console.log(page);
+// console.log(page);
 %>
 
 <% include ../head %>
@@ -19,7 +19,7 @@ if (page) {
 <p class="introText"><%- page.introText %></p>
     <% } %>
     <% if (page.content) { %>
-<p class="content"><%- page.content %></p>
+<p class="content"><%- typeof page.content == "function" ? page.content(locals) : page.content %></p>
     <% } %>
 
 <div class="trackNav prevStep">
@@ -46,30 +46,33 @@ var nextPage = pages[p];
     var items = [].concat(page.featured);                   
     if (page.featured && items.length) {
 
-        console.log("featured-items",items);
+//        console.log("featured-items",items);
     %><% if (items.length > 1) { %><div id="featured_slider"><ul class="bjqs"><% } %><%
             items.forEach(function(key) { 
             var item = findItem(key);
-            console.log("featured",item);
-    %><% if (items.length > 1) { %><li><% } %><% include ../partials/item/_full %><% if (items.length > 1) { %><!/li><% } %><%
+//            console.log("featured",item);
+    %>
+      <% if (items.length > 1) { %><li title="<%= item.title||'' %>"><% } %>
+      <% include ../partials/item/_full %>
+      <% if (items.length > 1) { %></li><% } %><%
         });
     %><% if (items.length > 1) { %></ul></div><% } %><%
    } %>
 
 <%
     if (page.related && page.related.length) { 
-      console.log("page-related",page.related);
+//      console.log("page-related",page.related);
 %>    
     <div class="related" class="mainElement">
 
             <% chunk(page.related,3).forEach(function(row) { %>
                 <div class="row">
                 <% 
-                console.log("related-row",row);
+//                console.log("related-row",row);
                 row.forEach(function(key) { 
 
                     var item = findItem(key);
-                    console.log("related-item",item);
+//                    console.log("related-item",item);
 
 /*
                     var items = [].concat(item.featured);                   
@@ -151,6 +154,7 @@ var nextPage = pages[p];
             }, 200);
         });
 
+        function enableSlider() {
         var featured = $("div.featured");
         // todo doesn't work, always returns null when called from here, works when called later
         var slideHeight = Math.max.apply(null,featured.map(function() { return $(this).height(); }));
@@ -161,7 +165,7 @@ var nextPage = pages[p];
             // width and height need to be provided to enforce consistency
             // if responsive is set to true, these values act as maximum dimensions
             width : Math.max(slideWidth,960), //'58em',
-            height : Math.max(slideHeight, 500), //'30em',
+            height : Math.max(slideHeight, 400), //'30em',
             
             // animation values
             animtype : 'slide', // accepts 'fade' or 'slide'
@@ -182,11 +186,14 @@ var nextPage = pages[p];
             hoverpause : true, // pause the slider on hover
             
             // presentational options
-            //usecaptions : true, // show captions for images using the image title tag
+            usecaptions : false, // show captions for images using the image title tag
             //randomstart : true, // start slider at random slide
             responsive : true // enable responsive capabilities (beta)
         });
-        
+            nav.resize();
+        }
+        setTimeout(enableSlider,500);
+
         var region="<%= region %>";
     	
     	function filterByRegion(region) {

@@ -1,3 +1,4 @@
+var render = require('./render');
 var content = require("./content").content
 
 exports.pages = {
@@ -21,6 +22,63 @@ exports.pages = {
         introText: "Connect with a friendly, engaging, and ever expanding community online or in person.",
         featured: null,
         related: ["q_and_a", "contributors", "events"]
+    },
+    install : {
+        path : "/install",
+        title: "Download and Install Neo4j",
+        introText: "Take Neo4j for a spin. Community, Advanced, and Enterprise are available for your exploration.",
+        content: render.include("download/installation")
+        ,
+        featured: [
+            content.videos.installing_neo4j,
+            content.install.milestone,
+            content.install.stable
+        ],
+        related: [
+            content.install.milestone,
+            content.install.stable,
+            //"graphdatabase",
+            //"develop",
+            //"participate",
+            "other_versions",
+            content.install.upgrading,
+            {
+                type:"link",
+                title: "Detailed Installation Instructions",
+                introText: "For detailed explanations on how to install Neo4j please refer to the Manual",
+                path: "http://docs.neo4j.org/chunked/stable/server-installation.html"
+            },
+            content.install.maven,
+            content.install.debian,
+            content.install.homebrew
+        ]
+    },
+    other_versions: {
+        type: "page",
+        title: "Other Neo4j Versions",
+        introText: "Older, stable Neo4j versions and nightly builds",
+        path: "/download/other_versions",
+        related: [
+            content.install["1_7_2"],
+            content.install["1_6_3"],
+            content.install["1_5_3"],
+            content.install.upgrading,
+            content.install.snapshot
+        ]
+    },    
+    maven: {
+        path: "/download/maven",
+        title: "Maven Dependency",
+        actionText: "Add dependency",
+        introText: "If you want to include Neo4j in the build of your JVM language project (Java,Scala, Groovy, Clojure) just add the correct dependency",
+        featured: [ content.install.maven, content.tracks.java_intro ]
+    },
+    debian: {
+        path: "/download/debian",
+        title: "Debian Installation",
+        actionText: "Install on Debian",
+        introText: "Installing Neo4j on Debian is simple, add our repository and <code>run apt-get install neo4j</code>",
+        featured: [ content.install.debian ]
     },
     concepts: {
         path: "/learn/concepts",

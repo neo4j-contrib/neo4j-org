@@ -17,8 +17,6 @@ var express = require('express')
     , forwarder = require("./helpers/forwarder")
     , munchkin = require("./helpers/munchkin")
     , data = require("./helpers/data")
-    , content = require("./helpers/content")
-    , pages = require("./helpers/pages")
     , track_data = require("./helpers/track_data")
     , markdown = require("node-markdown").Markdown
     , calendar = require("./helpers/calendar")
@@ -27,6 +25,7 @@ var express = require('express')
     , meetup = require("./helpers/meetup")
     , paths = require("./helpers/path")
     , geoip = require("./helpers/geoip")
+    , render = require("./helpers/render")
 
 var app = express();
 
@@ -45,6 +44,9 @@ app.locals({
     }
 });
 
+var content = require("./helpers/content")
+    , pages = require("./helpers/pages")
+
 app.locals.link_to = function (path, inner) {
     if (path) return "<a href=" + path + " " + (path.match("^http") ? ' target="_blank" ' : '') + ">" + inner + "</a>";
     return inner;
@@ -58,7 +60,7 @@ app.locals.chunk = function (arr, size) {
 }
 
 app.locals.findItem = function (key) {
-    console.log("findItem", key)
+    // console.log("findItem", key)
     if (typeof key == 'object') return key;
     var addType = function (item, type) {
         if (!item.type) item.type = type;
@@ -76,14 +78,7 @@ app.locals.findItem = function (key) {
 }
 
 app.locals.render = ejs.render
-app.locals._include = function (path, options) {
-    var content = app.locals._include[path];
-    if (!content) {
-        content = fs.readFileSync("views/" + path + ".ejs").toString();
-        app.locals._include[path] = content;
-    }
-    return ejs.render(content, options);
-}
+app.locals._include = render.include
 
 app.locals.versions = {}
 
@@ -207,6 +202,19 @@ function route_get(url, fun) {
     return app.get(url, fun);
 }
 
+function merge() {
+    var res={};
+    for (i in arguments) {
+        var arg=arguments[i];
+        for (prop in arg) {
+            if (arg.hasOwnProperty(prop)) {
+                res[prop] = arg[prop];  
+            }  
+        }
+    }
+    return res;
+}
+
 fs.readFile("views/partials/page.ejs", function (err, buf) {
     var template = buf.toString();
     if (!fs.existsSync('views/ejs')) fs.mkdirSync('views/ejs');
@@ -217,7 +225,8 @@ fs.readFile("views/partials/page.ejs", function (err, buf) {
         var page=app.locals.pages[key];
         var featuredArray = page.featured;
 
-        if (featuredArray && featuredArray.length && featuredArray[0].content && featuredArray[0].content.match(/<%/)) {
+        if (featuredArray && featuredArray.length && 
+            featuredArray[0].content && typeof featuredArray[0].content == "string" && featuredArray[0].content.match(/<%/)) {
 
             // works only for the first featured item
             var featured = featuredArray[0];
@@ -235,11 +244,19 @@ fs.readFile("views/partials/page.ejs", function (err, buf) {
             var fileName="views/"+file+".ejs";
             console.log("Routing to special generated page: ",file,fileName,key,page.path,page.title,featured.type);
             fs.writeFileSync(fileName,newFile);
-            app.get(page.path,function(req,res) { res.render(file, { title: page.title||"" }); });
+            app.get(page.path,function(req,res) { 
+                var params=merge(app.locals,{ title: page.title||"", locals:app.locals }); 
+                console.log("params",params['neo4j']); 
+                res.render(file, params); 
+            });
 
         } else {
           console.log("Default routing to pages: ",page.path,page.title)
-          app.get(page.path, function(req,res) { res.render('partials/page', { title: page.title||"" }); });  
+          app.get(page.path, function(req,res) { 
+              var params=merge(app.locals,{ title: page.title||"", locals:app.locals }); 
+              console.log("params",params['neo4j']); 
+              res.render('partials/page', params); 
+          });  
         }
 
   }
@@ -284,7 +301,7 @@ route_get('/develop/visualize', routes.pages);
 route_get('/develop/drivers', routes.pages);
 route_get('/drivers', routes.pages);
 route_get('/participate', routes.pages);
-route_get('/install', forward("/download"));
+// route_get('/install', forward("/download"));
 route_get('/download_thanks', routes.pages);
 route_get('/subscribe_thanks', routes.pages);
 //route_get('/participate/contributors', routes.pages);
