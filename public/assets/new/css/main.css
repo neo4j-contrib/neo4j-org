@@ -1207,13 +1207,13 @@ ul.hor li {
     color: white;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
     text-decoration: none;
-    font-size: 2em;
+    font-size: 3em;
 }
 .bjqs-controls li.bjqs-prev a i {
-    margin-left: -0.5em;
+    margin-left: -0.8em;
 }
 .bjqs-controls li.bjqs-next a i {
-    margin-right: -0.5em;
+    margin-right: -0.8em;
 }
 
 
@@ -1229,4 +1229,10 @@ table th {
   width: 40%;  
   border-color: #ccc;
   background-color: #F9F9F9;
+}
+#play-button {
+    height: 20px;
+    padding: 2px;
+    font-size: 16px;
+    position: absolute;
 }

@@ -247,7 +247,6 @@ fs.readFile("views/partials/page.ejs", function (err, buf) {
             fs.writeFileSync(fileName,newFile);
             app.get(page.path,function(req,res) { 
                 var params=merge(app.locals,{ title: page.title||"", locals:app.locals }); 
-                console.log("params",params['neo4j']); 
                 res.render(file, params); 
             });
 
@@ -255,7 +254,7 @@ fs.readFile("views/partials/page.ejs", function (err, buf) {
           console.log("Default routing to pages: ",page.path,page.title)
           app.get(page.path, function(req,res) { 
               var params=merge(app.locals,{ title: page.title||"", locals:app.locals }); 
-              console.log("params",params['neo4j']); 
+              console.log("Rendering",page.title,params);
               res.render('partials/page', params); 
           });  
         }
@@ -289,7 +288,7 @@ route_get('/learn/apps', routes.pages);
 
 // route_get('/learn/nosql', routes.pages); 
 // route_get('/learn/cypher', routes.pages); 
-route_get('/develop/visualize', routes.pages); 
+// route_get('/develop/visualize', routes.pages); 
 // route_get('/develop', routes.pages); 
 // route_get('/develop/ops', routes.pages);
 // route_get('/develop/heroku', routes.pages); 

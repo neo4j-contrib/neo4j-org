@@ -3,10 +3,14 @@
         <div class="caption">
             <h3><%= item.title %> <%= item.version %></h3>
             <%- item.introText||item.summary %>
+            <% include _download %> 
+            <br/>
+            <a class="link" href="<%= item.path||item.src %>" target="_blank">Read More</a>
         </div>
         <div class="content">
-            <% include _download %> 
-            <a class="link" href="<%= item.path||item.src %>" target="_blank">Read More</a>
+            <% if (item.thumbnail) { %>
+                <img class="thumbnail" src="<%= item.thumbnail %>" data-src="<%= item.src %>">
+            <% } %>
         </div>
         <div class="clear"></div>
     </div>

@@ -73,11 +73,6 @@ exports.books = function(req, res){
   res.render('learn/books', { category: 'learn', title: 'Books' });
 };
 
-exports.visualize = function(req, res){
-  res.render('develop/visualize', { category: 'develop', title: 'Graph Visualizations' });
-};
-
-
 /*
  * GET - "Neo4j apps" a showcase of live apps
  */

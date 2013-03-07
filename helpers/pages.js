@@ -14,7 +14,7 @@ exports.pages = {
         title: "Develop",
         introText: "Learn how to develop applications with Neo4j and deploy Server instances.",
         featured: null,
-        related: ["get_started", "drivers", "tools", "cloud", "ops"]
+        related: ["tracks", "drivers", "tools", "cloud", "ops"]
     },
     participate: {
         path: "/participate",
@@ -30,7 +30,7 @@ exports.pages = {
         content: render.include("download/installation")
         ,
         featured: [
-            content.videos.installing_neo4j,
+            // content.videos.installing_neo4j,
             content.install.milestone,
             content.install.stable
         ],
@@ -332,13 +332,6 @@ exports.pages = {
         actionText: "Not only SQL",
         related: null
     },
-    get_started: {
-        path: "/learn/get_started",
-        title: "Get started with Neo4j",
-        introText: "(TODO) Intro text for get started with Neo4j",
-        featured: ["content_video_installing_neo4j"],
-        related: ["tracks","intro", "drivers"]
-    },
     drivers: {
         path: "/develop/drivers",
         title: "Language Drivers",
@@ -524,14 +517,31 @@ exports.pages = {
     },
     cypher: {
         path: "/learn/cypher",
-        title: "Cypher Tutorial",
+        //title: "Cypher Tutorial",
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
-        introText: "Hands on introduction to the Cypher Query Language",
+        //introText: "Hands on introduction to the Cypher Query Language",
+        content : function(params) { return render.include("/learn/cypher_console",params) },
         actionText: "Learn it",
         featured: [
             {
                 title: "Cypher Tutorial",
-                type: "_cypher"
+                type: "article",
+                content: "<h3>Intro</h3>\
+                          <ul>\
+                              <li>Our example graph consists of <code>movies</code> with an <code>id</code>, <code>year</code> and <code>title</code> and <code>actors</code> with a <code>name</code>.\
+                                  Actors have an <code>:ACTS_IN</code> relationship to movies, which represents the\
+                                  <code>role</code> they played, the role relationship has also a <code>role</code> attribute.\
+                              </li>\
+                              <li>We encourage you to enter the Cypher statements in the interactive console manually, but you can also click on the code snippets. <br/>Like this one\
+                                  <pre>START n=node(*) \n\
+RETURN \"Hello Graph with \"+count(*)+\" Nodes!\"\n\
+as welcome;</pre>\
+                              </li>\
+                              <img src='/assets/img/still/cineasts.gif'/>\
+                          </ul>\
+                "
+                // type: "include",
+                // path: "/learn/cypher"
             }
         ],
         related: [
@@ -554,8 +564,8 @@ exports.pages = {
         featured: [
             {
                 title: "Cypher Console",
-                type: "_try",
-                content: ""
+                type: "include",
+                path: "/learn/try"
             }
         ],
         related: [content.links.cypher_cheat_sheet, content.links.manual_cypher, "cypher"

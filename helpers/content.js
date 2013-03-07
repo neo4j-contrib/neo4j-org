@@ -9,7 +9,9 @@ exports.content = {
             stability:"milestone",
             date:"Mar 06, 2013",
             introText:"Java 7, HA, Cypher profiling",
-            path:"http://blog.neo4j.org/2013/03/neo4j-19m05-released-wrapping-up.html"
+            path:"http://blog.neo4j.org/2013/03/neo4j-19m05-released-wrapping-up.html",
+            thumbnail: "/assets/img/still/install.gif",
+            src: "http://player.vimeo.com/video/53838744"
         },
         stable:{
             type:"version",

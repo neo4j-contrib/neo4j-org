@@ -13,8 +13,9 @@ var title=page.title;
 if (page) {
 %>
 <div class="page"><!-- page -->
-
+    <% if (page.title) { %>
 <h1><%= page.title %></h1>
+    <% } %>
     <% if (page.introText) { %>
 <p class="introText"><%- page.introText %></p>
     <% } %>
@@ -187,8 +188,8 @@ var nextPage = pages[p];
             centercontrols : true, // center controls verically
             nexttext : '<i class="slider icon-forward"></i>', // Text for 'next' button (can use HTML)
             prevtext : '<i class="slider icon-backward"></i>', // Text for 'previous' button (can use HTML)
-            showmarkers : false, // Show individual slide markers
-            centermarkers : false, // Center markers horizontally
+            showmarkers : true, // Show individual slide markers
+            centermarkers : true, // Center markers horizontally
             
             // interaction values
             keyboardnav : true, // enable keyboard navigation

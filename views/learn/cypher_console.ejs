@@ -1,0 +1,85 @@
+<div class="badge">
+  <h3>Cypher Tutorial</h3>
+  <p>Cypher is a Graph Query Language</p>
+  <ul>
+    <li>it is human readable and expressive</li>
+    <li>MATCHes patterns in the graph</li>
+    <li>is about the <strong>what</strong> not how</li>
+  </ul>
+  <a id="detachConsole" class="btn">Open Console in new Window</a>
+</div>
+
+<div id="console"></div>
+
+  <script type="text/javascript">
+        function nextTab(elem) {
+          $(elem).find('li.active').removeClass('active')
+            .next().addClass('active')
+            .find('a[data-toggle="tab"]')
+            .click();
+        }
+        function prevTab(elem) {
+          $(elem + ' li.active')
+            .prev()
+            .find('a[data-toggle="tab"]')
+            .click();
+        }
+        function runCypher() {
+            var cypher=$(this).text();
+            if (cypher.indexOf(";")==-1) return;
+            runConsole(cypher);
+        }
+        function addPlayButton() {
+            var play=$('<div id="play-button" class="btn icon-play" title="Run Cypher Query"></div>')
+            $("pre").mouseenter(function() {
+                var pos={top:$(this).position().top+5,
+                         left:$(this).position().left+5}; //+$(this).width()-10
+                play.appendTo($(this)).css(pos) 
+            });
+            $("pre").mouseleave(function() {
+               play.detach() 
+            });
+
+            $("code, pre").click(runCypher);
+            play.click(function() { runCypher($(this).parent()) })
+        }
+
+   $(document).ready(function(){
+
+          startConsole();
+          addPlayButton();
+          $("#tabs").tabs();
+          $("#next-button").click(function() {
+              nextTab("#tabs");
+          })
+
+      $('#detachConsole').on('click', function() {
+
+         var win = window.open('/console?id=cineasts', 'Neo4j Console', 'width=800,height=600,dependent=yes');
+         $('div.console').remove();
+         $(this).remove();
+
+         runConsole = function(cypher) {
+            win.send(cypher);
+         }
+
+      });
+
+
+      });
+
+      function runConsole(cypher) {
+          if (frames['neo4j-console']) {
+            console.log(frames['neo4j-console']);
+              frames['neo4j-console'].send(cypher);
+          }
+      }
+      function startConsole() {
+          if (!frames['neo4j-console']) {
+            var url = "/console?id=cineasts";
+            var iframe = $('<iframe name="neo4j-console" width="100%" height="500" src="'+url+'"/>');
+            $('#console').html(iframe);
+          }
+      }
+
+</script>
