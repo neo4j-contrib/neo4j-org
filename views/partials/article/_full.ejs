@@ -2,14 +2,11 @@
     <div class="slide article">
        <div>
             <div class="caption">
-                <% if (item.title) { %><h3><%= item.title %></h3><% }
-
-                console.log("neo4j",neo4j);
-                %>
+                <% if (item.title) { %><h3><%= item.title %></h3><% } %>
             </div>
-            <img src="<%- item.src %>">
-            <p class="introText"><%- item.introText %></p>
-            <div class="contentText"><%- typeof item.content == "function" ? item.content(locals) : item.content %></div>
+           <% if (item.src) { %><img src="<%- item.src %>"><% } %>
+           <% if (item.introText) { %><p class="introText"><%- item.introText %></p><% } %>
+           <% if (item.content) { %><div class="contentText"><%- typeof item.content == "function" ? item.content(locals) : item.content %></div><% } %>
         </div>
         <div class="clear"></div>
     </div>

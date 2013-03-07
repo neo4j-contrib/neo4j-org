@@ -520,29 +520,15 @@ exports.pages = {
         //title: "Cypher Tutorial",
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
         //introText: "Hands on introduction to the Cypher Query Language",
-        content : function(params) { return render.include("/learn/cypher_console",params) },
+        content : function(params) { return render.include("/cypher/cypher_console",params) },
         actionText: "Learn it",
         featured: [
-            {
-                title: "Cypher Tutorial",
-                type: "article",
-                content: "<h3>Intro</h3>\
-                          <ul>\
-                              <li>Our example graph consists of <code>movies</code> with an <code>id</code>, <code>year</code> and <code>title</code> and <code>actors</code> with a <code>name</code>.\
-                                  Actors have an <code>:ACTS_IN</code> relationship to movies, which represents the\
-                                  <code>role</code> they played, the role relationship has also a <code>role</code> attribute.\
-                              </li>\
-                              <li>We encourage you to enter the Cypher statements in the interactive console manually, but you can also click on the code snippets. <br/>Like this one\
-                                  <pre>START n=node(*) \n\
-RETURN \"Hello Graph with \"+count(*)+\" Nodes!\"\n\
-as welcome;</pre>\
-                              </li>\
-                              <img src='/assets/img/still/cineasts.gif'/>\
-                          </ul>\
-                "
-                // type: "include",
-                // path: "/learn/cypher"
-            }
+            { type:"include", path:"/cypher/cypher_tutorial_1_intro" },
+            { type:"include", path:"/cypher/cypher_tutorial_2_firststeps" },
+            { type:"include", path:"/cypher/cypher_tutorial_3_explore" },
+            { type:"include", path:"/cypher/cypher_tutorial_4_update" },
+            { type:"include", path:"/cypher/cypher_tutorial_5_paths" },
+            { type:"include", path:"/cypher/cypher_tutorial_6_alternatives" }
         ],
         related: [
             "try", content.videos.cypher, content.links.manual_cypher, content.links.cypher_cheat_sheet

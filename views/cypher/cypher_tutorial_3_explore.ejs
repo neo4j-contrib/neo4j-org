@@ -1,0 +1,14 @@
+<div class="featured article">
+<h3>Explore a dataset</h3>
+<ul>
+    <li>some exploratory queries for unknown datasets, <strong>don&#8217;t do that on live production instances</strong></li>
+    <li>Count nodes <br/><pre>START n=node(*)  
+RETURN count(*);</pre></li>
+    <li>Count relationship types <br/><pre>START n=node(*)  
+MATCH n-[r]-&gt;() 
+RETURN type(r), count(*);</pre></li>
+    <li>List all nodes and their relationships<br/><pre>START n=node(*)    
+MATCH n-[r]-&gt;m 
+RETURN n as from, r as `->`, m as to;</pre></li>
+</ul>
+</div>

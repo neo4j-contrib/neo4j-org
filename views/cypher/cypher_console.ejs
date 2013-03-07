@@ -32,8 +32,8 @@
         function addPlayButton() {
             var play=$('<div id="play-button" class="btn icon-play" title="Run Cypher Query"></div>')
             $("pre").mouseenter(function() {
-                var pos={top:$(this).position().top+5,
-                         left:$(this).position().left+5}; //+$(this).width()-10
+                var pos={top:$(this).position().top+$(this).height()/2 -5,
+                         left:$(this).position().left+$(this).width()/3 -5}; //+-10
                 play.appendTo($(this)).css(pos) 
             });
             $("pre").mouseleave(function() {

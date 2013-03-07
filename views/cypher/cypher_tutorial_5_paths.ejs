@@ -1,0 +1,49 @@
+<div class="featured article">
+<h3>Paths everywhere</h3>
+
+<ul>
+<li>same setup as before, with all the added friends and ratings</li>
+<li>lets explore the relationships between the actors</li>
+<li>All other movies that the matrix actors acted in ordered by occurrence
+<br/><pre>START m=<%=tutorial.matrix%>  
+MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie 
+RETURN movie.title, count(*) order by count(*) desc;</pre></li>
+<li>obviously the Matrix trilogy, but also others, let's see which actors
+<br/><pre>START m=<%=tutorial.matrix%> 
+MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie 
+RETURN movie.title, collect(actor.name), 
+count(*) as count 
+ORDER BY count desc;</pre></li>
+<li>what about co-acting, actors that acted together
+<br/><pre>START m=<%=tutorial.matrix%> 
+MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie
+&lt;-[:ACTS_IN]-colleague  
+RETURN actor.name, collect(distinct colleague.name);</pre></li>
+<li>who of those other actors acted most often with anyone from the matrix cast
+<br/><pre>START m=<%=tutorial.matrix%> 
+MATCH m&lt;-[:ACTS_IN]-actor-[:ACTS_IN]-&gt;movie
+&lt;-[:ACTS_IN]-colleague 
+RETURN colleague.name,count(*) 
+ORDER BY count(*) desc LIMIT 10;</pre></li>
+<li>starting with paths, a path is a sequence of nodes and relationships from a start node to an end nod</li>
+<li>we know that Trinity loves Neo, but how many paths exist between their actors; we limit the path length and the query as it exhaustively searches the graph otherwise
+<br/><pre>START neo=<%=tutorial.neo%>, 
+trinity=<%=tutorial.trinity%> 
+MATCH p = neo-[:ACTS_IN*0..5]-trinity  
+RETURN p, length(p) 
+LIMIT 10;</pre></li>
+<li>if that's a lot of data, we just want to look at the names and titles of the nods of this path
+<br/><pre>START neo=<%=tutorial.neo%>, 
+trinity=<%=tutorial.trinity%> 
+MATCH p = neo-[:ACTS_IN*0..5]-trinity  
+RETURN extract(n in nodes(p) : 
+coalesce(n.title?,n.name?)) as `names and titles`, 
+length(p) 
+ORDER BY length(p) LIMIT 10 ;</pre></li>
+<!--li>let's explore connections between more people, we choose some other actor
+<pre>START m=<%=tutorial.matrix%>,other=<%=tutorial.morpheus%>  
+MATCH m&lt;-[:ACTS_IN]-actor,p   
+RETURN colleague.name,count(<em>) order by count(</em>) desc limit 10;</pre>
+</li-->
+</ul>
+</div>
