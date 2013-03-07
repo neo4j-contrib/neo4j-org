@@ -115,7 +115,7 @@ neo4j start</pre>\
             type: "video",
             introText: "<p>Using the GraphViz Exporter it is possible to generate <code>.dot</code> files which can then be rendered as images using graphviz' dot toolchain.\
               See this <a href='http://blog.neo4j.org/2012/05/graph-this-rendering-your-graph-with.html' target='_blank'>blog post</a> for details.</p>",
-            thumbnail: "/assets/img/still/server_visualization.jpg"
+            thumbnail: "http://docs.neo4j.org/chunked/snapshot/images/graphdb-indexes.svg.png"
         },
         neo4j_heroku_gdocs: {
             type: "video",
@@ -293,10 +293,10 @@ neo4j start</pre>\
 
         d3: {
             title: "JavaScript D3.js",
-            type: "image",
             introText: "<p>D3 is the most powerful javascript visualization library which supports a large number of visualizations, many of them are usable for graphs as well, <a href='http://maxdemarzi.com/tag/visualization-2/' target='_blank'>Max De Marzi</a> covered several of the visualizations on his blog.</p>",
             thumbnail: "/assets/img/still/d3_network.png",
-            src: "/assets/img/still/server_visualization.jpg"
+            src: "/assets/img/still/d3_network.png",
+            path: "http://d3js.org/"
         },
         gephi: {
             title: "Gephi",
