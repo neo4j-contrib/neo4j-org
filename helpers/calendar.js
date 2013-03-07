@@ -51,7 +51,7 @@ function events(fun, filter) {
               url=url.replace(/&amp;ust=.*$/,"");
               item.Url=url;
             }
-http://seattle.meetup.neo4j.org/events/102039672/
+            //http://seattle.meetup.neo4j.org/events/102039672/
             var meetup=item.Url.match(/^https?:\/\/(?:www\.)?meetup.com\/(.+)(?:\/events\/(\d+))/) || 
                        item.Url.match(/^https?:(\/\/\w+)\.meetup.neo4j.org\/(?:events\/(\d+))/);
             if (meetup){

@@ -347,8 +347,8 @@ function updateSpreadsheets() {
 			app.locals.events = calendar.mergeEvents(app.locals.events,items);
             app.locals.events.forEach(function(e) { e.type = "event"; })
 //            console.log("events",app.locals.pages.events)
-            app.locals.pages.events.featured = app.locals.events.slice(0,4);
-            app.locals.pages.events.related = app.locals.events.slice(4);
+            //app.locals.pages.events.featured = ["graphconnect","trainings"].concat(app.locals.events.slice(0,4));
+            app.locals.pages.events.related = app.locals.events;
 //            console.log("events",app.locals.pages.events)
 	    }) 
 	}) 

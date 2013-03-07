@@ -1,3 +1,8 @@
+<%
+	var hasPath = item.path;
+	var image = item.img ? item.img : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
+	console.log(image)
+%>
 <div class="featured" class="mainElement">
     <div class="slide default">
         <div class="caption">
@@ -6,7 +11,7 @@
         </div>
         <div class="content">
         	<!--iframe src="<%= item.src %>" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe-->
-        	<img class="thumbnail" src="<%= item.thumbnail %>" data-src="<%= item.src %>">
+            <%- link_to(item.path, '<img class="thumbnail" src="'+image+'" />') %>
             <%- item.content %>
         </div>
         <div class="clear"></div>

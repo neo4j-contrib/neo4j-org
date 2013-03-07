@@ -120,6 +120,22 @@ exports.content = {
             introText: "Encountered an issue with Neo4j? Submit it here.",
             actionText: "Report issue"
         },
+        graphconnect: {
+            type: "link",
+            title: "GraphConnect the Graph Conference",
+            introText: "GraphConnect is the conference to meet developers, users and visionaries present and talk about graph databases and their applications.",
+            thumbnail: "/assets/img/logo/graphconnect.png",
+            img: "/assets/img/logo/graphconnect_large.png",
+            path: "http://graphconnect.com"
+        },
+        tutorials: {
+            type: "link",
+            title: "Neo4j full day tutorials",
+            introText: "Get to know Neo4j at this introductory, full day tutorial covering, graph-databases, use-cases and cypher.",
+            thumbnail: "/assets/img/events/training.png",
+            img: "http://www.neotechnology.com/wp-content/uploads/2013/03/tutorials_0305313.png",
+            path: "http://www.neotechnology.com/2013/01/neo4j-tutorials-going-global/"
+        },
         partners_graph: {
             title: "Partners Graph",
             introText: "Neo Technology works with a large, worldwide partner network which provide local consulting and training services.",
@@ -289,9 +305,12 @@ exports.content = {
           </p>"
         },
         licensing_guide: {
+            type: "article",
             title: "Pragmatic licensing guide",
             introText: "Understand which license you need and how Neo Technology can help you.",
-            type: "article",
+            src: "http://www.jaspersoft.com/sites/all/themes/jaspersoft2/images/big-data-logos/partner-neotechnology.png",
+            path: "http://www.neotechnology.com/price-list/",
+            actionText: "Contact Us",
             content: "<p>Neo4j is commercial software. Proven in production since 2003, powering applications from global collaborative websites to in-house experiments, Neo4j is used in diverse environments.</p>\
     <p><a href='http://neotechnology.com'>Neo Technology</a> makes Neo4j available under a dual-license arrangement that is business friendly and open-source transparent: the Neo Technology Commercial License (NTCL), or the (A)GPLv3. Neo Technology also takes care of Neo4j customer support, (OEM) license agreements, the Partner Network, and more.</p>\
     <p>There are 3 editions of Neo4j:</p>\
@@ -307,6 +326,7 @@ exports.content = {
             title: "Neo4j Partners Graph",
             introText: "The Neo4j Partner Graph provides market differentiation and sustainable revenue opportunities for its members.",
             type: "article",
+            path: "http://www.neotechnology.com/partners/",
             content: "Program Benefits\
                 <ul>\
     <li>Access to Neo4j, the world’s leading graph database and its global community of experts\

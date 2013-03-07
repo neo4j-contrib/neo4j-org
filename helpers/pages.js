@@ -25,6 +25,7 @@ exports.pages = {
     concepts: {
         path: "/learn/concepts",
         title: "Graph Concepts",
+        thumbnail: "/assets/img/propertygraph/graphdb-gve.png",
         introText: "Learn about the graph data model, graph databases and their applicability. See how graph databases related to other NOSQL solutions.",
         featured: [content.videos.graphdb101],
         actionText: "Learn more",
@@ -32,6 +33,7 @@ exports.pages = {
     },
     scientific: {
         path: "/learn/scientific",
+        thumbnail: "/assets/img/logo/scientific.png",
         title: "Neo4j in the scientific community",
         introText: "There is a lot of research going on around Graph Databases in general and Neo4j in particular. Below you find some of the more recent works in this field.",
         featured: null,
@@ -78,6 +80,7 @@ exports.pages = {
     intro: {
         path: "/learn/intro",
         title: "Neo4j Introduction",
+        thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
         introText: "In order to get familiar with Graph Databases, Neo4j and Cypher, start with the following introduction sections.",
         featured: [
             content.videos.why_graphs
@@ -200,11 +203,29 @@ exports.pages = {
     },
     licensing: {
         path: "/learn/licensing",
-        title: "Commercial Licensing",
+        title: "Pragmatic Licensing Guide",
         introText: "Neo4's enterprise editions are provided by Neo Technology for use in commercial, non open-source deployments.",
-        actionText: "Read more",
+        thumbnail: "/assets/img/logo/neotechnology_small.png",
         featured: [content.articles.licensing_guide],
-        related: [content.articles.partner_graph]
+        related: [content.articles.partner_graph,
+            {
+                title: "Neo4j White Papers",
+                thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/02/WP_FTSL-125x160.png",
+                introText: "Whitepapers about Graph Databases, Big Data, Scaling, Licensing and more.",
+                path: "http://www.neotechnology.com/resources/"
+            },
+            {
+                title: "Neo4j Use Cases",
+                thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/01/WP-NetMgmt_sm.png",
+                introText: "Principal uses of Neo4j include social, recommendations, bioinformatics, fraud detection, network management, authorization and access control, content management, and parcel routing, with new ones being added regularly.",
+                path: "http://www.neotechnology.com/neo4j-use-cases/"
+            },
+            {
+                title: "Neo4j Customers",
+                thumbnail: "http://www.neotechnology.com/wp-content/uploads/2012/11/neo4j_customers.png",
+                introText: "From the Fortune 500 to cutting edge startups, our customers depend on Neo4j for insanely high performance queries on massive amounts of connected data. Graphs Are Everywhere!",
+                path: "http://www.neotechnology.com/customers/"
+            }]
     },
     partners: {
         path: "/learn/partners",
@@ -236,7 +257,7 @@ exports.pages = {
     nosql: {
         path: "/learn/nosql",
         title: "NoSQL Data Models",
-        thumbnail: "/assets.neo4j.org/img/propertygraph/nosql-space.png",
+        thumbnail: "/assets/img/propertygraph/nosql-space.png",
         introText: "Understanding data stores for your application.",
         next: ["graphdatabase"],
         prev: ["concepts"],
@@ -372,7 +393,7 @@ exports.pages = {
         thumbnail: "/assets/img/logo/meetup.jpg",
         introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial near you.",
         content: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
-        featured: [],
+        featured: [content.links.graphconnect,content.links.tutorials],
         related: [],
         actionText: "Events are everywhere. Pick one."
     },
@@ -429,7 +450,7 @@ exports.pages = {
         featured: [
             content.articles.learn
         ],
-        related: ["graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card]
+        related: ["graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card,"licensing"]
     },
     reference_card: {
         path: "/learn/neo4j/reference_card",
@@ -494,6 +515,7 @@ exports.pages = {
         related: [
             {
                 title: "Max De Marzi's Graph Visualization Blog",
+                introText: "Max De Marzi presents different ways of visualizing graphs.",
                 path: "http://maxdemarzi.com/tag/visualization-2/"
             },
             {
@@ -507,6 +529,16 @@ exports.pages = {
             {
                 title: "Neoclipse on GitHub",
                 path: "https://github.com/neo4j/neoclipse"
+            },
+            {
+                title: "VivaGraphJS on GitHub",
+                path: "https://github.com/anvaka/VivaGraphJS"
+                // todo yasiv.com some text, pictures etc
+            },
+            {
+                title: "Three.js on GitHub",
+                path: "https://github.com/mrdoob/three.js"
+                // todo max article, neo4waza etc.
             },
             {
                 title: "A collection of graph visualization options",

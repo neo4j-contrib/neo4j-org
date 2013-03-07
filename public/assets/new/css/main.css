@@ -577,6 +577,7 @@ ul.hor li {
     background: #fff;
     overflow: hidden; /* makes children expand this box to max height */
     width: 59em;
+    min-height: 30em;
 }
 
 .featured .slide {
