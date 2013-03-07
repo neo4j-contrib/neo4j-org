@@ -322,27 +322,65 @@ exports.content = {
             introText: "(TODO) Introtext GraphConnect 2012",
             content: "TODO: Content for GraphConnect page"
         },
-        graph: {
-            type: "article",
-            title: "A Graph contains Nodes and Relationships",
-            introText: "A Graph –[:RECORDS_DATA_IN]–> Nodes –[:WHICH_HAVE]–> Properties.",
-            src: "/assets/img/propertygraph/graphdb-gve.png",
-            content: "The simplest possible graph is a single Node, a record that has named values referred to as Properties. A Node could start with a single Property and grow to a few million, though that can get a little awkward. At some point it makes sense to distribute the data into multiple nodes, organized with explicit Relationships."
+        graphdb: {
+            graph: {
+                type: "article",
+                title: "A Graph contains Nodes and Relationships",
+                introText: "A Graph –[:RECORDS_DATA_IN]–> Nodes –[:WHICH_HAVE]–> Properties.",
+                src: "/assets/img/propertygraph/graphdb-gve.png",
+                content: "The simplest possible graph is a single Node, a record that has named values referred to as Properties. A Node could start with a single Property and grow to a few million, though that can get a little awkward. At some point it makes sense to distribute the data into multiple nodes, organized with explicit Relationships."
+            },
+            graphdb_traversal: {
+                type: "article",
+                title: "Query a Graph with a Traversal",
+                introText: "A Traversal –navigates–> a Graph; it –identifies–> Paths –which order–> Nodes.",
+                src: "/assets/img/propertygraph/graphdb-traverse.png",
+                content: "A Traversal is how you query a Graph, navigating from starting Nodes to related Nodes according to an algorithm, finding answers to questions like \“what music do my friends like that I don’t yet own,\” or \“if this power supply goes down, what web services are affected?\”"
+            },
+            graphdb_indexes: {
+                type: "article",
+                title: "Indexes Look-up Nodes or Relationships",
+                introText: "An Index –maps from–> Properties –to either–> Nodes or Relationships. It –is a special–> Traversal.",
+                src: "/assets/img/propertygraph/graphdb-index.png",
+                content: "Often, you want to find a specific Node or Relationship according to a Property it has. This special case of Traversal is so common that it is optimized into an Index look-up, for questions like \“find the Account for username master-of-graphs.\”"
+            }            
         },
-        graphdb_traversal: {
-            type: "article",
-            title: "Query a Graph with a Traversal",
-            introText: "A Traversal –navigates–> a Graph; it –identifies–> Paths –which order–> Nodes.",
-            src: "/assets/img/propertygraph/graphdb-traverse.png",
-            content: "A Traversal is how you query a Graph, navigating from starting Nodes to related Nodes according to an algorithm, finding answers to questions like \“what music do my friends like that I don’t yet own,\” or \“if this power supply goes down, what web services are affected?\”"
-        },
-        graphdb_indexes: {
-            type: "article",
-            title: "Indexes Look-up Nodes or Relationships",
-            introText: "An Index –maps from–> Properties –to either–> Nodes or Relationships. It –is a special–> Traversal.",
-            src: "/assets/img/propertygraph/graphdb-index.png",
-            content: "Often, you want to find a specific Node or Relationship according to a Property it has. This special case of Traversal is so common that it is optimized into an Index look-up, for questions like \“find the Account for username master-of-graphs.\”"
-        },
+        nosql: {
+            nosql: {
+                type: "article",
+                introText: "(Neo4j) –[:IS_A]–> (NoSQL Database)",
+                src: "/assets/img/propertygraph/nosql-space.png",
+                content: "<p><strong>N</strong>ot <strong>o</strong>nly <strong>SQL</strong>, but modern choices which excel at answering different kinds of questions.</p>\
+            <ul>\
+                <li>Average income? Ask an RDBMS\
+                <li>Shopping cart? Use a Key-Value Store\
+                <li>How did you get here? Ask a graph\
+            </ul>"
+            },
+            rdbms: {
+                type: "article",
+                introText: "(A Graph Database) –[:TRANSFORMS_A]–> (RDBMS)",
+                content: "\
+                <div><img src='/assets/img/propertygraph/vs-rdbms.png' alt='' title='vs-rdbms' width='270' height='141' />\
+                <img src='/assets/img/propertygraph/as-rdbms.png' alt='' title='as-rdbms' width='254' height='289' /></div>\
+                <p>Topple the stacks of records in a <strong>Relational Database</strong> while keeping all the relationships, and you’ll see a graph. Where an RDBMS is optimized for aggregated data, Neo4j is optimized for highly connected data.</p>"
+            },
+            keyvalue: {
+                type: "article",
+                introText: "(A Graph Database) –[:RELATES_A]–> (Key-Value Store)",
+                content: "\
+                    <div><img src='/assets/img/propertygraph/vs-key-value.png' alt='' title='vs-key-value' width='245' height='76' /><img src='/assets/img/propertygraph/as-key-value.png' alt='' title='as-key-value' width='264' height='163' /></div>\
+                    <p>A <strong>Key-Value model</strong> is great for lookups of simple or even complex values. When the values are themselves interconnected, you’ve got a graph. Neo4j lets you traverse quickly among all the connected values.</p>\
+                    "
+            },
+            document: {
+                type: "article",
+                introText: "(A Graph Database) –[:NAVIGATES_A]–> (Document Store)",
+                content: "\
+                    <div><img src='/assets/img/propertygraph/vs-document.png' alt='' title='vs-document' width='159' height='241' /><img src='/assets/img/propertygraph/as-document.png' alt='' title='as-document' width='267' height='232' /></div>\
+                    <p>The container hierarchy of a <strong>Document Database</strong> accommodates nice, schema-free data that can easily be represented as a tree. Which is of course a graph. Refer to other documents (or document elements) within that tree and you have a more expressive representation of the same data that you can easily navigate with Neo4j.</p>"
+            }
+        },        
         learn: {
             type: "article",
             content: "Neo4j is an open-source <a href='/learn/graphdatabase'>graph database</a> supported by <a onclick=\"javascript:pageTracker._trackPageview(\'/outgoing/neotechnology.com/');\" href='http://neotechnology.com/''>Neo Technology</a>.</p>\
@@ -414,18 +452,6 @@ exports.content = {
             "}</pre>"
         },
         
-        
-        nosql: {
-            type: "track",
-            introText: "(Neo4j) –[:IS_A]–> (NoSQL Database)",
-            content: "<p><strong>N</strong>ot <strong>o</strong>nly <strong>SQL</strong>, but modern choices which excel at answering different kinds of questions.</p>\
-        <ul>\
-            <li>Average income? Ask an RDBMS\
-            <li>Shopping cart? Use a Key-Value Store\
-            <li>How did you get here? Ask a graph\
-        </ul>"
-        },
-
         cypher_tutorial_1: {
             type: "track",
             introText: "Cypher Tutorial #1",

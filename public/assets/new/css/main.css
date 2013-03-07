@@ -596,6 +596,12 @@ ul.hor li {
     /*text-align: right;*/
 }
 
+.featured .article .contentText img {
+    float: none;
+    display: inline-block;
+    margin-left: 12.5%;
+}
+
 .featured .caption {
     width: 18em;
     font-size: 1em;
@@ -802,7 +808,7 @@ ul.hor li {
 
 .related .row {
     width: 60em;
-    height: 16em;
+    min-height: 16em;
     margin: 0 auto;
     /*border-top: 1px solid #dce7ea;*/
     padding-top: 1em;
@@ -810,7 +816,7 @@ ul.hor li {
 
 .related .row .item {
     width: 16.9em;
-    height: 19em;
+    min-height: 19em;
     float: left;
     padding: 1em;
     margin-left: 1.29em;
@@ -848,8 +854,8 @@ ul.hor li {
 }
 
 .related .row .item img.logo {
-    width: 8em;
-    height: 8em;
+    max-width: 8em;
+    max-height: 8em;
     margin: 0 0 1em 4em;
 }
 

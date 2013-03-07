@@ -1,0 +1,29 @@
+<% var event=item %>
+<div class="featured" class="mainElement" area="<%= event['Area'] %>">
+    <div class="slide event">
+        <div class="caption">
+            <h3><%= item.Title %></h3>
+            <% if (event['Start']) { %>
+            When: <%= event['Start'] %><br/>
+<hr/>
+            <% } %>
+            <% if (event['Location']) { %>
+            Where: <a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['Location'] %></a><br/>
+<hr/>
+            <% } %>
+            <% if (event['Presenter']) { %>
+                <a target='_blank' href="http://twitter.com/<%= event['Twitter'] %>">
+                    <h4><em>with <%= event['Presenter'] %></em></h4>
+                </a>
+            <% } %>
+            <p><%-: event['Description'] | truncate_words: 25 %></p>
+            <a class="btn" href="<%= event['Url'] %>" target="_blank">Participate </a><br/>
+        </div>
+        <div class="content">
+            <a target='_blank' href="<%= event['Url'] %>">
+                <img class="thumbnail" src="<%= event['Image'] || event['Portrait'] || (event['Group'] ? "/meetup?img=true&group="+event['Group']: undefined) || {Webinar:'/assets/img/events/neo4j_icon_webinar.png',Training:'/assets/img/events/neo4j_icon_training.png', Meetup: '/assets/img/events/neo4j_icon_meetup.png'}[event.Type] || '/assets/img/events/neo4j_icon_webinar.png' %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
+            </a>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div><!-- featured -->

@@ -10,10 +10,14 @@ var googleAuth = new GoogleClientLogin({
 
 var authId;
 
-googleAuth.on(GoogleClientLogin.events.login, function () {
-    authId = googleAuth.getAuthId()
-});
-googleAuth.login();
+exports.googleLogin = function(cb) {
+	googleAuth.on(GoogleClientLogin.events.login, function () {
+	    authId = googleAuth.getAuthId()
+	    console.log("googleAuth",authId);
+		cb();
+	});
+	googleAuth.login();
+}
 
 // todo handle login once
 
@@ -45,15 +49,19 @@ function parseEvents(cells, fun, filter) {
             item.Title = wrap(item['Type'], " - ") + item['Title'] + wrap(" - ", item['City'])
             items.push(item);
         }
+        item.Date = new Date(item.Start);
+		item.Origin="Spreadsheet";
     }
     if (filter) fun(items.filter(filter));
     else fun(items)
 }
 function events(fun, filter) {
-    googleAuth.on(GoogleClientLogin.events.login, function () {
+//	console.log("events","authId",authId)
+	if (!authId) return;
+//    googleAuth.on(GoogleClientLogin.events.login, function () {
         GoogleSpreadsheets({
             key: process.env.EVENTS_SHEET_KEY,
-            auth: googleAuth.getAuthId()
+            auth: authId //googleAuth.getAuthId()
         }, function (err, spreadsheet) {
             if (err) {
                 console.log("Error retrieving spreadsheet ", err)
@@ -67,8 +75,8 @@ function events(fun, filter) {
                 parseEvents(cells, fun, filter);
             });
         });
-    });
-    googleAuth.login();
+//    });
+//    googleAuth.login();
 }
 
 function parseContributors(cells, fun, filter) {
@@ -77,7 +85,6 @@ function parseContributors(cells, fun, filter) {
     for (var rowNo in cells.cells) {
         var row = cells.cells[rowNo]
         if (!header) {
-//            console.log("headerÖ", row);
             header = row;
             continue;
         }
@@ -85,21 +92,20 @@ function parseContributors(cells, fun, filter) {
         for (var colNo in row) {
             item[header[colNo].value] = row[colNo].value;
         }
-//        if (new Date(item.Start) >= now && item.Created && item.Created.length > 0 && (!filter || filter(item))) {
-//            item.Title = wrap(item['Type'], " - ") + item['Title'] + wrap(" - ", item['City'])
-        items[item.twitter || item.name] = item;
-
-//        }
+        var id=item.twitter || item.name;
+        if (id) items[id] = item;
     }
     if (filter) fun(items.filter(filter));
     else fun(items)
 }
 
 function contributors(fun, filter) {
-    googleAuth.on(GoogleClientLogin.events.login, function () {
+//	console.log("contributors","authId",authId)
+	if (!authId) return;
+//    googleAuth.on(GoogleClientLogin.events.login, function () {
         GoogleSpreadsheets({
             key: process.env.CONTRIBUTORS_SHEET_KEY,
-            auth: googleAuth.getAuthId()
+            auth: authId // googleAuth.getAuthId()
         }, function (err, spreadsheet) {
             if (err) {
                 console.log("Error retrieving spreadsheet ", err)
@@ -113,8 +119,8 @@ function contributors(fun, filter) {
                 parseContributors(cells, fun, filter);
             });
         });
-    });
-    googleAuth.login();
+//    });
+//    googleAuth.login();
 }
 
 
@@ -123,29 +129,33 @@ function parseChannels(data, fun) {
     // console.log("data",JSON.stringify(data));
     var result=[];
     for (var row in data ) {
-	    var votes=data[row]['2']||{};
-        result.push({row:row, 
-	            name: data[row]['1']['value'], 
-	            votes: parseInt(votes['value']||'0'),
-	            url: (data[row]['3']||{})['value'],
-	            logo: (data[row]['4']||{})['value'],
-	            lang: (data[row]['5']||{})['value']
-	    });
+	    try {
+	        var votes=data[row]['2']||{};
+            result.push({row:row, 
+    	            name: data[row]['1']['value'], 
+    	            votes: parseInt(votes['value']||'0'),
+    	            url: (data[row]['3']||{})['value'],
+    	            logo: (data[row]['4']||{})['value'],
+    	            lang: (data[row]['5']||{})['value']
+    	    });
+    	} catch(e) {
+			console.log("Channel error",row,data[row],e);
+		}
     }
     result = result.splice(1).sort(function(x,y) { 
-		if (x.votes==y.votes) {
-			return x.name < y.name ? -1 : 1;
-		}
-		return x.votes > y.votes ? -1 : 1
+        return x.name < y.name ? -1 : 1;
 	});
 	fun(result);
 }
 
 function vote_channel(row,fun) {
-    googleAuth.on(GoogleClientLogin.events.login, function () {
+//	console.log("vote_channel","authId",authId)
+	if (!authId) return;
+
+//    googleAuth.on(GoogleClientLogin.events.login, function () {
         GoogleSpreadsheets({
             key: process.env.CHANNELS_SHEET_KEY,
-            auth: googleAuth.getAuthId()
+            auth: authId //googleAuth.getAuthId()
         }, function (err, spreadsheet) {
             if (err) {
                 console.log("Error retrieving spreadsheet ", err)
@@ -160,31 +170,33 @@ function vote_channel(row,fun) {
                 }
             });
         });
-    });
-    googleAuth.login();
+//    });
+//    googleAuth.login();
 }
 
 function channels(fun) {
-    googleAuth.on(GoogleClientLogin.events.login, function () {
+//	console.log("channels","authId",authId)
+	if (!authId) return;
+//    googleAuth.on(GoogleClientLogin.events.login, function () {
         GoogleSpreadsheets({
             key: process.env.CHANNELS_SHEET_KEY,
-            auth: googleAuth.getAuthId()
+            auth: authId // googleAuth.getAuthId()
         }, function (err, spreadsheet) {
             if (err) {
-                console.log("Error retrieving spreadsheet ", err)
+                console.log("Channels: Error retrieving spreadsheet ", err)
             }
             spreadsheet.worksheets[0].cells({
                 range: "R1C1:R100C5"
             }, function (err, cells) {
                 if (err) {
-                    console.log("Error retrieving spreadsheet ", err)
+                    console.log("Channels: Error retrieving spreadsheet ", err)
                 } else {
                     parseChannels(cells, fun);
                 }
             });
         });
-    });
-    googleAuth.login();
+//    });
+//    googleAuth.login();
 }
 exports.events = events
 exports.contributors = contributors

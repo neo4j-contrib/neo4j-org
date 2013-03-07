@@ -98,24 +98,9 @@ var nextPage = pages[p];
 <% } %>
 
 </div><!-- page -->
-
-        <script type="text/javascript">
-        <!--
-        $(document).ready(function() {
-
-            nav.activateMain('<%= mainCategory%>');
-            nav.initThumbnails();
-            nav.resize();
-        });
-        //-->
-        </script>
-
-<% } %>        
 <script type="text/javascript">
 
     $(document).ready(function() {
-
-        nav.resize();
         
         var ref = $('#featured_slider');
         var offset = 224;
@@ -166,11 +151,17 @@ var nextPage = pages[p];
             }, 200);
         });
 
+        var featured = $("div.featured");
+        // todo doesn't work, always returns null when called from here, works when called later
+        var slideHeight = Math.max.apply(null,featured.map(function() { return $(this).height(); }));
+        var slideWidth = Math.max.apply(null,featured.map(function() { return $(this).width(); }));
+            
+        console.log('width/height',slideWidth,slideHeight)
         $('#featured_slider').bjqs({
             // width and height need to be provided to enforce consistency
             // if responsive is set to true, these values act as maximum dimensions
-            width : 960, //'58em',
-            height : 500, //'30em',
+            width : Math.max(slideWidth,960), //'58em',
+            height : Math.max(slideHeight, 500), //'30em',
             
             // animation values
             animtype : 'slide', // accepts 'fade' or 'slide'
@@ -183,8 +174,8 @@ var nextPage = pages[p];
             centercontrols : true, // center controls verically
             nexttext : '<i class="slider icon-forward"></i>', // Text for 'next' button (can use HTML)
             prevtext : '<i class="slider icon-backward"></i>', // Text for 'previous' button (can use HTML)
-            showmarkers : true, // Show individual slide markers
-            centermarkers : true, // Center markers horizontally
+            showmarkers : false, // Show individual slide markers
+            centermarkers : false, // Center markers horizontally
             
             // interaction values
             keyboardnav : true, // enable keyboard navigation
@@ -195,6 +186,28 @@ var nextPage = pages[p];
             //randomstart : true, // start slider at random slide
             responsive : true // enable responsive capabilities (beta)
         });
+        
+        var region="<%= region %>";
+    	
+    	function filterByRegion(region) {
+            var elements=$("div[area]");
+            if (elements.length==0) return; 
+        	elements.each(function() {
+        		var area = $(this).attr("area");
+        		if (!area || area=='WORLD' || region=='WORLD' || area==region) $(this).show();
+        		else $(this).hide();
+        	})
+            nav.resize();
+        }
+    	$("#region").val(region).change(function() {
+    	    filterByRegion($(this).val());
+    	})
+//    	filterByRegion(region);
+        
+        nav.activateMain('<%= mainCategory%>');
+        nav.initThumbnails();
+        nav.resize();
+        setTimeout(nav.resize,250)
     });
 
 
@@ -208,5 +221,6 @@ function getTextWidth(text, fs, fw) {
 
 
 </script>
+<% } %>        
 
 <% include ../foot %>

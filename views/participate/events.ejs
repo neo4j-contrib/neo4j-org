@@ -1,5 +1,5 @@
 <% include ../head %>
-<div class="container">
+<div class="page">
 
     <div role="main" class="main row span12">
             <div class="inner">
@@ -12,49 +12,70 @@
     </div>
 
     <div role="main" class="main row span12">
-    <h3>Pernilla / Adam intro</h3>
+    <p>Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial near you.</p>
     
     <p>If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors,
     talk to our engineers or discuss with our customers. There are many Neo4j Meetups, Trainings and Conferences happening everywhere and
     at any time.</p>
-    </div>
     
-    Your region: <%= region %>
+    <h3>Events for your region: 
+		<select id="region" style="width:10em;height:1.8em;vertical-align:baseline;">
+		   <option value="WORLD">All</option>
+		   <option value="US">North America</option>
+		   <option value="EU">Europe</option>
+		   <option value="DE">Germany, Austria, Switzerland</option>
+		</select>
+    </h3>
         
-        <%  var i=0;
-            var myEvents = events.filter(function(event) { 
-				return !event['Area'] || event['Area']=='WORLD' || events['Area']==region; 
-			});
-            while (i<myEvents.length) {
-            %>
-                <div class="thumbnails events row">
-            <%
-                for (var col=0;col<4 && i+col < myEvents.length;col++) {
-                    var event=myEvents[i+col];
-        %>
-                    <% include ../partials/_event %>
-        <%                  
-                }
-                i+=4;
-                %>
-                    </div>
-                <%
-            }
-         %>
-
+        <%  
+			var groupedEvents = {Conference:[],Meetup:[],Webinar:[],Training:[]};
+			for (var i=0;i<events.length;i++) {
+			    var event=events[i];
+			    if (!event) continue;
+			    var type=event.Type;
+			    if (!groupedEvents[type]) { type="Conference"; event.Type=type;}
+				groupedEvents[type].push(event);
+			}
+	        %>
+            <div class="thumbnails events row">
+			<% 	for (type in groupedEvents) { %>
+				<div class="span3">
+			    <h3 class="center"><%= type %></h3>
+		        <% groupedEvents[type].forEach(function(event) { %>
+	               <% include ../partials/_event %>
+			    <% }); %>
+			  </div>
+			<% } %>
+			  </div>
     </div>
 </div>
 
 <script type="text/javascript">
 $(document).ready(function() {
+    var region="<%= region %>";
+	
+	function filterByRegion(region) {
+    	$(".event").each(function() {
+    		var area = $(this).attr("area");
+    		if (!area || area=='WORLD' || region=='WORLD' || area==region) $(this).show();
+    		else $(this).hide();
+    	})
+//        nav.resize();
+    }
+	$("#region").val(region).change(function() {
+	    filterByRegion($(this).val());
+	})
+	filterByRegion(region);
+	
+/*
     $('div.meetup').each(function() {
         var e=$(this);
         $.get("/meetup?group="+e.attr("group")+"&event="+e.attr("event"), function(data,err) {
             e.html(data);
         })
     })
+*/
 })
 </script>
-</div>
     <% include ../foot %>
 

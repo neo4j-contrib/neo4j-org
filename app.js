@@ -17,7 +17,6 @@ var express = require('express')
     , forwarder = require("./helpers/forwarder")
     , munchkin = require("./helpers/munchkin")
     , data = require("./helpers/data")
-//  , content_data=require("./helpers/content_data")
     , content = require("./helpers/content")
     , pages = require("./helpers/pages")
     , track_data = require("./helpers/track_data")
@@ -297,7 +296,7 @@ route_get('/test/d3', routes.pages);
 route_get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
 //route_get('/events', routes.pages)
 //route_get('/misc/beer', routes.pages)
-route_get('/events', routes.events)
+//route_get('/events', routes.events)
 route_get('/participate/channels', routes.channels)
 route_get('/misc/beer', routes.beer)
 
@@ -313,44 +312,80 @@ route_get('/marketo', function (req, res) {
     }
 });
 
-route_get('/meetup', function (req, res) {
-    meetup.oembed(req.query['group'], req.query['event'], function (json) {
-        res.send(200, json['html']);
+var meetups = {};
+route_get('/meetup',function(req,res) {
+    var group=req.query['group'];
+    var event=req.query['event'];
+    var img=req.query['img'];
+    if (!event && meetups[group]) {
+        if (img) res.redirect(meetups[group]['img']);
+        else res.send(200,meetups[group]['html'])
+        return;
+    }
+    meetup.oembed(group,event, function(json) {
+        var html=json['html'];
+        if (!event) {
+            meetups[group]={html:html};
+            meetups[group]['img']=html.match(/"(https?:\/\/photos.+?(jpeg|jpg|png))"/)[1];
+            if (img) { res.redirect(meetups[group]['img']); return;}
+        }
+        res.send(200,html);
     });
 });
+
 app.locals.events = [];
 app.locals.contributors = {};
 
 
-spreadsheet.events(function (items) {
-    app.locals.events = app.locals.events.concat(items);
-    console.log("events2", app.locals.events.length);
-})
-spreadsheet.contributors(function (items) {
-    app.locals.contributors = items;
-});
-app.locals.updateChannels = function () {
+calendar.events(function(items) { app.locals.events = items; console.log("events",app.locals.events.length); }) 
+
+function updateSpreadsheets() {
+	calendar.events(function(items) { 
+		app.locals.events = items; console.log("events",app.locals.events.length); 
+
+	    spreadsheet.events(function(items) { 
+			app.locals.events = calendar.mergeEvents(app.locals.events,items);
+            app.locals.events.forEach(function(e) { e.type = "event"; })
+//            console.log("events",app.locals.pages.events)
+            app.locals.pages.events.featured = app.locals.events.slice(0,4);
+            app.locals.pages.events.related = app.locals.events.slice(4);
+//            console.log("events",app.locals.pages.events)
+	    }) 
+	}) 
+
+    spreadsheet.contributors(function(items) { app.locals.contributors = items; }); 
+}
+
+app.locals.updateChannels = function() {
     console.log("Updating Channels");
-    spreadsheet.channels(function (items) {
-        app.locals.channels = items;
+    spreadsheet.channels(function(items) { app.locals.channels = items; });
+}
+
+app.locals.updateChannels();
+
+setInterval(app.locals.updateChannels,60*1000);
+// regular updates
+
+spreadsheet.googleLogin(updateSpreadsheets);
+
+setInterval(updateSpreadsheets, 3600*1000);
+
+app.locals.resolve_authors = function(authors) {
+    if (!authors) return [];
+    return [].concat( authors ).filter( function(author) { return !!author }).map(function(author) {
+        if (typeof(author)=='object') author = author['name'];
+        if (author.indexOf('@') == 0) author = author.substring(1);
+        if (app.locals.contributors[author]) return app.locals.contributors[author];
+        return { name : author, twitter: author.match(/\s/) ? "neo4j" : author };
     });
 }
-//app.locals.updateChannels();
-//setInterval(app.locals.updateChannels,5*60*1000);
 
-
-calendar.events(function (items) {
-    app.locals.events = app.locals.events.concat(items);
-    console.log("events2", app.locals.events.length);
-})
-
-//console.log(app.locals.contributors);
-route_get('/events.json', function (req, res) {
-    var filter = req.query['filter'];
-    calendar.events(function (items) {
+route_get('/events.json',function(req,res) {
+    var filter=req.query['filter'];
+    calendar.events(function(items) {
         var data = JSON.stringify(items)
-        res.send(200, data);
-    }, function (item) {
+        res.send(200,data);
+    }, function(item) {
         return !filter || item.title.match(filter) || item.summary.match(filter)
     })
 });

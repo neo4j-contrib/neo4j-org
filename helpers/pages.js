@@ -222,12 +222,13 @@ exports.pages = {
         title: "What is a Graph Database?",
         introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way",
         content: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way. Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
+        thumbnail: "/assets/img/propertygraph/graphdb-gve.png",
         next: ["nosql", "neo4j"],
         prev: [],
         featured: [
-            content.articles.graph,
-            content.articles.graphdb_traversal,
-            content.articles.graphdb_indexes
+            content.articles.graphdb.graph,
+            content.articles.graphdb.graphdb_traversal,
+            content.articles.graphdb.graphdb_indexes
         ],
         actionText: "Learn more",
         related: ["cypher"]
@@ -235,11 +236,15 @@ exports.pages = {
     nosql: {
         path: "/learn/nosql",
         title: "NoSQL Data Models",
+        thumbnail: "/assets.neo4j.org/img/propertygraph/nosql-space.png",
         introText: "Understanding data stores for your application.",
         next: ["graphdatabase"],
         prev: ["concepts"],
         featured: [
-            content.tracks.nosql
+            content.articles.nosql.nosql,
+            content.articles.nosql.rdbms,
+            content.articles.nosql.keyvalue,
+            content.articles.nosql.document
         ],
         actionText: "Not only SQL",
         related: null
@@ -363,10 +368,13 @@ exports.pages = {
     },
     events: {
         path: "/events",
-        title: "Events",
+        title: "Neo4j related events",
         thumbnail: "/assets/img/logo/meetup.jpg",
-        introText: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
-        related: ["meetups", "conferences", "webinars"]
+        introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial near you.",
+        content: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
+        featured: [],
+        related: [],
+        actionText: "Events are everywhere. Pick one."
     },
     meetups: {
         path: "/participate/events/meetups",
