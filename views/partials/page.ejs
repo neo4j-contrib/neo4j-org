@@ -43,20 +43,25 @@ var nextPage = pages[p];
 </div>
 
 <% 
-    var items = [].concat(page.featured);                   
+    var items = [].concat(page.featured);
+    var config = page.config || {};
+    var showSlides = items.length > 1 && !config['no_slides'];
     if (page.featured && items.length) {
 
 //        console.log("featured-items",items);
-    %><% if (items.length > 1) { %><div id="featured_slider"><ul class="bjqs"><% } %><%
+    %><% if (showSlides) { %><div id="featured_slider"><ul class="bjqs"><% } %><%
             items.forEach(function(key) { 
             var item = findItem(key);
 //            console.log("featured",item);
     %>
-      <% if (items.length > 1) { %><li title="<%= item.title||'' %>"><% } %>
-      <% include ../partials/item/_full %>
-      <% if (items.length > 1) { %></li><% } %><%
-        });
-    %><% if (items.length > 1) { %></ul></div><% } %><%
+        <% if (showSlides) { %> 
+            <li title="<%= item.title||'' %>">
+            <% include ../partials/item/_full %>
+            </li>
+        <% } else { %>
+            <% include ../partials/item/_full %>
+        <% } }); %>
+        <% if (showSlides) { %></ul></div><% } %><%
    } %>
 
 <%
@@ -75,7 +80,11 @@ var nextPage = pages[p];
 //                    console.log("related-item",item);
 
 /*
-                    var items = [].concat(item.featured);                   
+                    var config = item.config || {};
+                    var items;
+                    if (!config['tile_page']) {
+                        items=[].concat(item.featured);
+                    }
                     console.log("item.featured",items);
                     if (item.featured && items.length) {
                         items.forEach(function(key) { 

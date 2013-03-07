@@ -48,8 +48,8 @@ exports.pages = {
                 introText: "For detailed explanations on how to install Neo4j please refer to the Manual",
                 path: "http://docs.neo4j.org/chunked/stable/server-installation.html"
             },
-            content.install.maven,
-            content.install.debian,
+            "maven",
+            "linux", 
             content.install.homebrew
         ]
     },
@@ -73,12 +73,16 @@ exports.pages = {
         introText: "If you want to include Neo4j in the build of your JVM language project (Java,Scala, Groovy, Clojure) just add the correct dependency",
         featured: [ content.install.maven, content.tracks.java_intro ]
     },
-    debian: {
-        path: "/download/debian",
-        title: "Debian Installation",
-        actionText: "Install on Debian",
-        introText: "Installing Neo4j on Debian is simple, add our repository and <code>run apt-get install neo4j</code>",
-        featured: [ content.install.debian ]
+    linux: {
+        path: "/download/linux",
+        config: { tile_page: true, no_slides:true },
+        title: "Linux Installation",
+        actionText: "Install on Linux",
+        introText: "Installing Neo4j on Linux for instance by using apt or puppet",
+        featured: [ 
+            content.install.debian,
+            content.install.puppet
+        ]
     },
     concepts: {
         path: "/learn/concepts",

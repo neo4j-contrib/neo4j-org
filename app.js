@@ -223,6 +223,7 @@ fs.readFile("views/partials/page.ejs", function (err, buf) {
 
         console.log("loading " + key);
         var page=app.locals.pages[key];
+        var config = page.config || {};
         var featuredArray = page.featured;
 
         if (featuredArray && featuredArray.length && 
@@ -408,7 +409,7 @@ route_get('/events.json',function(req,res) {
 });
 
 // well known historic URLs redirects
-route_get('/download', routes.install);
+route_get('/download', forward("/install"));
 route_get('/about', routes.neo4j);
 route_get('/terms', routes.terms); // terms and conditions
 route_get('/privacy', routes.privacy); // privacy policy

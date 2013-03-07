@@ -1,8 +1,9 @@
 <div class="item _page">
 <%
 	var hasPath = item.path;
-	var image = item.img ? item.img : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
-	console.log(image)
+    var config = page.config || {};
+    var featured = config['tile_page'] ? null : item.featured;
+	var image = item.img ? item.img : item.thumbnail ? item.thumbnail : (featured && featured.thumbnail ? featured.thumbnail : '');
 %>
 
     <h3><%- link_to(item.path, item.title) %></h3>

@@ -75,9 +75,22 @@ exports.content = {
             thumbnail: "/assets/img/still/debian_install.png",
             content: function(params) { return render.include("download/debian",params) }
         },
+        puppet: {
+            type: "article",
+            title: "Install with Puppet",
+            introText: "Setup <strong>only</strong> Neo4j using Puppet <a href='https://github.com/neo4j-contrib/neo4j-puppet/blob/master/README.md' target='_blank'>(source)</a>\
+            ",
+            thumbnail: "http://www.lennu.net/images/blog/2012-11-01/1/1.png",
+            content: function(params) { return render.render(
+                "<blockquote class='external markdown'>\
+                            <%-: content.puppet | md %>\
+                        </blockquote>\
+            ",params) }
+        },
         homebrew: {
             type:"article",
             title: "MacOS X - Homebrew - stable",
+            actionText: "Brew It",
             content: "\
             <p>If you have <a href='http://mxcl.github.com/homebrew/' target='_blank'>homebrew</a> installed, adding Neo4j to your Mac is simple a:</p>\
                 <pre>brew update && brew install neo4j\

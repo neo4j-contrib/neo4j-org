@@ -11,3 +11,5 @@ exports.include = function (path, options) {
     }
     return ejs.render(content, options);
 };
+
+exports.render = ejs.render
