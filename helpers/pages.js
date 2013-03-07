@@ -517,7 +517,7 @@ exports.pages = {
     },
     cypher: {
         path: "/learn/cypher",
-        //title: "Cypher Tutorial",
+        title: "Intro to Cypher - the Neo4j query language",
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
         //introText: "Hands on introduction to the Cypher Query Language",
         content : function(params) { return render.include("/cypher/cypher_console",params) },
@@ -544,7 +544,7 @@ exports.pages = {
     },
     try: {
         path: "/learn/try",
-        title: "Try",
+        title: "Try querying different graphs with Cypher online",
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
         introText: "Try Cypher live on a dataset of your choice",
         actionText: "Try live",

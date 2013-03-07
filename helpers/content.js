@@ -300,9 +300,9 @@ neo4j start</pre>\
         },
         gephi: {
             title: "Gephi",
-            type: "image",
+            type: "video",
             introText: "<p>The well known Graph visualization tool Gephi has a <a href='http://gephi.org/tag/neo4j/' target='_blank'>plugin for importing Neo4j</a> Databases which can then be visualized and rendered with the full power of Gephi's engines.</p>",
-            thumbnail: "/assets/img/still/server_visualization.jpg",
+            thumbnail: "/assets/img/still/gephi_neo4j_plugin.png",
             src: "http://player.vimeo.com/video/31823202?badge=0&byline=0&portrait=0&title=0"
         }
 
