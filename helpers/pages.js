@@ -545,6 +545,7 @@ exports.pages = {
     try: {
         path: "/learn/try",
         title: "Try",
+        thumbnail: "/assets/img/still/cypher_tutorial.gif",
         introText: "Try Cypher live on a dataset of your choice",
         actionText: "Try live",
         featured: [
