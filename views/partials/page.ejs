@@ -105,95 +105,102 @@ var nextPage = pages[p];
 <script type="text/javascript">
 
     $(document).ready(function() {
-        
-        var ref = $('#featured_slider');
-        var offset = 224;
-
-        if (!ref.length) {
-            ref = $('div.featured');
-            offset = 240;
-            if (!ref.length) {
-                ref = $('div.related');
-                offset = 224;
+        var timeout;
+        function init() {
+            clearTimeout(timeout);
+            if ($(".page").height()==0) {
+                timeout=setTimeout(init,250);
             }
+            var ref = $('#featured_slider');
+            var offset = 224;
+    
+            if (!ref.length) {
+                ref = $('div.featured');
+                offset = 240;
+                if (!ref.length) {
+                    ref = $('div.related');
+                    offset = 224;
+                }
+            }
+            var featuredTop = ref.first().offset().top;
+    
+            $('.prevStep h3').css({
+                top: featuredTop - offset + 'px'
+            });
+    
+            $('.nextStep h3').css({
+                top: featuredTop - offset + 'px'
+            });
+    
+            $('.prevStep h3').on('mouseenter', function() {
+                var self = $(this);
+                // measure width
+                var w = getTextWidth(self.text(), self.css('fontSize'), self.css('fontWeight'));
+                self.animate({
+                    width: self.width() + w - 72 + 'px'
+                }, 100);
+            }).on('mouseleave', function() {
+                var self = $(this);
+                self.animate({
+                    width: '5em'
+                }, 200);
+            });
+    
+            $('.nextStep h3').on('mouseenter', function() {
+                var self = $(this);
+                // measure width
+                var w = getTextWidth(self.text(), self.css('fontSize'), self.css('fontWeight'));
+                self.animate({
+                    width: self.width() + w - 80 + 'px'
+                }, 100);
+            }).on('mouseleave', function() {
+                var self = $(this);
+                self.animate({
+                    width: '5em'
+                }, 200);
+            });
+    
+            function enableSlider() {
+            var featured = $("div.featured");
+            // todo doesn't work, always returns null when called from here, works when called later
+            var slideHeight = Math.max.apply(null,featured.map(function() { return $(this).height(); }));
+            var slideWidth = Math.max.apply(null,featured.map(function() { return $(this).width(); }));
+                
+            console.log('width/height',slideWidth,slideHeight)
+            $('#featured_slider').bjqs({
+                // width and height need to be provided to enforce consistency
+                // if responsive is set to true, these values act as maximum dimensions
+                width : Math.max(slideWidth,960), //'58em',
+                height : Math.max(slideHeight, 400), //'30em',
+                
+                // animation values
+                animtype : 'slide', // accepts 'fade' or 'slide'
+                animduration : 450, // how fast the animation are
+                animspeed : 400000, // the delay between each slide
+                // automatic : true, // automatic
+                
+                // control and marker configuration
+                showcontrols : true, // show next and prev controls
+                centercontrols : true, // center controls verically
+                nexttext : '<i class="slider icon-forward"></i>', // Text for 'next' button (can use HTML)
+                prevtext : '<i class="slider icon-backward"></i>', // Text for 'previous' button (can use HTML)
+                showmarkers : true, // Show individual slide markers
+                centermarkers : true, // Center markers horizontally
+                
+                // interaction values
+                keyboardnav : true, // enable keyboard navigation
+                hoverpause : true, // pause the slider on hover
+                
+                // presentational options
+                usecaptions : false, // show captions for images using the image title tag
+                //randomstart : true, // start slider at random slide
+                responsive : true // enable responsive capabilities (beta)
+            });
+                nav.resize();
+            }
+            enableSlider();
+            
         }
-        var featuredTop = ref.first().offset().top;
-
-        $('.prevStep h3').css({
-            top: featuredTop - offset + 'px'
-        });
-
-        $('.nextStep h3').css({
-            top: featuredTop - offset + 'px'
-        });
-
-        $('.prevStep h3').on('mouseenter', function() {
-            var self = $(this);
-            // measure width
-            var w = getTextWidth(self.text(), self.css('fontSize'), self.css('fontWeight'));
-            self.animate({
-                width: self.width() + w - 72 + 'px'
-            }, 100);
-        }).on('mouseleave', function() {
-            var self = $(this);
-            self.animate({
-                width: '5em'
-            }, 200);
-        });
-
-        $('.nextStep h3').on('mouseenter', function() {
-            var self = $(this);
-            // measure width
-            var w = getTextWidth(self.text(), self.css('fontSize'), self.css('fontWeight'));
-            self.animate({
-                width: self.width() + w - 80 + 'px'
-            }, 100);
-        }).on('mouseleave', function() {
-            var self = $(this);
-            self.animate({
-                width: '5em'
-            }, 200);
-        });
-
-        function enableSlider() {
-        var featured = $("div.featured");
-        // todo doesn't work, always returns null when called from here, works when called later
-        var slideHeight = Math.max.apply(null,featured.map(function() { return $(this).height(); }));
-        var slideWidth = Math.max.apply(null,featured.map(function() { return $(this).width(); }));
-            
-        console.log('width/height',slideWidth,slideHeight)
-        $('#featured_slider').bjqs({
-            // width and height need to be provided to enforce consistency
-            // if responsive is set to true, these values act as maximum dimensions
-            width : Math.max(slideWidth,960), //'58em',
-            height : Math.max(slideHeight, 400), //'30em',
-            
-            // animation values
-            animtype : 'slide', // accepts 'fade' or 'slide'
-            animduration : 450, // how fast the animation are
-            animspeed : 400000, // the delay between each slide
-            // automatic : true, // automatic
-            
-            // control and marker configuration
-            showcontrols : true, // show next and prev controls
-            centercontrols : true, // center controls verically
-            nexttext : '<i class="slider icon-forward"></i>', // Text for 'next' button (can use HTML)
-            prevtext : '<i class="slider icon-backward"></i>', // Text for 'previous' button (can use HTML)
-            showmarkers : true, // Show individual slide markers
-            centermarkers : true, // Center markers horizontally
-            
-            // interaction values
-            keyboardnav : true, // enable keyboard navigation
-            hoverpause : true, // pause the slider on hover
-            
-            // presentational options
-            usecaptions : false, // show captions for images using the image title tag
-            //randomstart : true, // start slider at random slide
-            responsive : true // enable responsive capabilities (beta)
-        });
-            nav.resize();
-        }
-        setTimeout(enableSlider,500);
 
         var region="<%= region %>";
     	
@@ -214,8 +221,8 @@ var nextPage = pages[p];
         
         nav.activateMain('<%= mainCategory%>');
         nav.initThumbnails();
-        nav.resize();
-        setTimeout(nav.resize,250)
+        
+        init();
     });
 
 

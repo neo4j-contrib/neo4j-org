@@ -2,24 +2,13 @@
 
 <div class="item driver">
 
-<!--div class="span<%= typeof tilespan=='undefined' ? 2 : tilespan %> <%=: info['tags'] | join:' ' %> thumbnail">-->
     <a target="_blank" href="<%= info['url'] %>">
         <img src="<%= info['logo'] %>" title="<%= info['name'] %>" alt="image"/>
         <h3><%= info['name'] %></h3>
     </a>
-    <%
-    [].concat( info.authors ).map(function(author){
-        if (author.indexOf('@') == 0) { 
-            var contributor = contributors[author.substring(1)]||{name:author.substring(1)}
-            console.log("contributor",info.name,contributor,author);
-    %>
-    <h4><em><a target="_blank" href="http://twitter.com/<%= contributor.twitter %>"><%= contributor.name %></a></em></h4>
-    <%} else { %>
-    <h4><em><%= author %></em></h4>
-    <%
-        }
-    }).join(", ");
-    %>
+    <% resolve_authors(info.authors).map(function(author) { %>
+        <h4><em><a target="_blank" href="http://twitter.com/<%= author.twitter %>"><%= author.name %></a></em></h4>
+    <% }).join(", "); %>
     <p><%- info['text'] %></p>
 
     <div class="outLink"><% if (info['site']) { %>
@@ -35,6 +24,4 @@
         <% }
         %>
     </div>
-<!--/div-->
-
 </div>

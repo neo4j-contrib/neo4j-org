@@ -26,6 +26,7 @@ var express = require('express')
     , paths = require("./helpers/path")
     , geoip = require("./helpers/geoip")
     , render = require("./helpers/render")
+    , videos = require("./helpers/videos")
 
 var app = express();
 
@@ -380,6 +381,26 @@ app.locals.updateChannels = function() {
         console.log("Updated Channels ",app.locals.pages.channels.related.length);
     });
 }
+
+app.locals.videos=[];
+app.locals.pages.videos.related=[];
+videos.load_videos(function(data) {
+    if (!data) return;
+    data.forEach(function(video) {
+        var item = {
+            type: "video",
+            title: video.title,
+            src: "http://player.vimeo.com/video/"+video.id,
+            thumbnail: video.thumbnail_medium
+        };
+        if (video.tags && video.tags.length) item.tags=video.tags;
+        if (video.description && video.description.length) item.introText=video.description;
+        app.locals.videos.push(item);
+        app.locals.pages.videos.related.push(item);
+        console.log(item)
+    });
+    console.log("videos",app.locals.videos.length);
+})
 
 
 setInterval(app.locals.updateChannels,60*1000);

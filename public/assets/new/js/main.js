@@ -99,9 +99,9 @@ var nav = {
 						css : {
 							position: 'fixed',
 							width: '80%',
-							height: '60%',
+							height: '90%',
 							left: '10%',
-							top: '20%',
+							top: '5%',
 							border: 'none',
 							backgroundColor: 'transparent'
 						},

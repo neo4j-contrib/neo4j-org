@@ -27,7 +27,7 @@ exports.pages = {
         path : "/install",
         title: "Download and Install Neo4j",
         introText: "Take Neo4j for a spin. Community, Advanced, and Enterprise are available for your exploration.",
-        content: render.include("download/installation")
+        content: ""// render.include("download/installation")
         ,
         featured: [
             // content.videos.installing_neo4j,
@@ -473,10 +473,19 @@ exports.pages = {
     channels: {
        path: "/participate/channels",
        title: "Poll of Developer Communication Channels",
-       introText: "We are interested in which communication channels you, but also especially your co-workers, friends and consulting-customer developers use to learn more about technology and software development.",
+       introText: "We are interested in which communication channels you, but also especially your co-workers, friends and customer developers use to learn more about technology and software development.",
        content: function(params) { return render.include("/participate/_channels",params); },
        featured: [],
        related: []
+    },
+    videos: {
+        path: "/learn/videos",
+        title: "Neo4j videos, webinars and screencasts",
+        thumbnail: "/assets/img/events/webinar.jpg",
+        introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
+        featured: [],
+        related: [],
+        actionText: "Watch them"
     },
     events: {
         path: "/events",
