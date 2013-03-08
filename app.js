@@ -383,7 +383,6 @@ app.locals.updateChannels = function() {
 }
 
 app.locals.videos=[];
-app.locals.pages.videos.related=[];
 videos.load_videos(function(data) {
     if (!data) return;
     data.forEach(function(video) {
@@ -391,14 +390,36 @@ videos.load_videos(function(data) {
             type: "video",
             title: video.title,
             src: "http://player.vimeo.com/video/"+video.id,
-            thumbnail: video.thumbnail_medium
+            thumbnail: video.thumbnail_medium,
+            img: video.thumbnail_large,
+            duration: video.duration,
+            date: Date.parse(video.upload_date)
         };
         if (video.tags && video.tags.length) item.tags=video.tags;
         if (video.description && video.description.length) item.introText=video.description;
+        if (item.title.match(/GraphConnect|Graph Connect|Intro 2/i)) item.category='graphconnect';
+        if (!item.category && item.title.match(/^[\d/]{3,4}|Intro to|[\d/]{3,4}$|beer|dataset/i)) item.category='webinar';
+        if (!item.category && (item.title.match(/Interview|What is|Testimonial| - |Need a graph database|knows/i) || item.introText && item.introText.match(/Interview/i))) item.category='interview';
+        if (!item.category) item.category='other';
         app.locals.videos.push(item);
-        app.locals.pages.videos.related.push(item);
-        console.log(item)
+//        app.locals.pages.videos.related.push(item);
+        // console.log(item)
+        // todo identify categories, group by category
+        // sort by date
+        // make the last 3 videos featured
     });
+    app.locals.videos = app.locals.videos.sort(function(v1,v2) { return v2.date - v1.date; });
+    ['graphconnect','interview','webinar','other'].forEach(function(category) {
+        var page=app.locals.pages["videos_"+category];
+        page.related=[];
+        app.locals.videos.forEach(function(video) {
+            if (video.category!=category) return;
+            page.related.push(video);
+        });
+        page.featured=page.related.slice(0,4);
+        page.related=page.related.slice(4);
+    })
+    app.locals.pages.videos.featured=app.locals.videos.slice(0,4);
     console.log("videos",app.locals.videos.length);
 })
 

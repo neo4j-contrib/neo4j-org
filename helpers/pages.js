@@ -479,8 +479,58 @@ exports.pages = {
        related: []
     },
     videos: {
+        type:"track",
+        next: ["videos_webinar"],
         path: "/learn/videos",
         title: "Neo4j videos, webinars and screencasts",
+        thumbnail: "/assets/img/events/webinar.png",
+        introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
+        featured: [],
+        related: ["videos_webinar","videos_interview","videos_graphconnect","videos_other"],
+        actionText: "Watch them"
+    },
+    videos_webinar: {
+        type:"track",
+        path: "/learn/videos_webinar",
+        title: "Neo4j webinars",
+        prev: ["videos"],
+        next: ["videos_interview"],
+        thumbnail: "/assets/img/events/webinar.png",
+        introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
+        featured: [],
+        related: [],
+        actionText: "Watch them"
+    },
+    videos_interview: {
+        type:"track",
+        prev: ["videos_webinar"],
+        next: ["videos_graphconnect"],
+        path: "/learn/videos_interview",
+        title: "Neo4j interviews",
+        thumbnail: "/assets/img/events/webinar.png",
+        introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
+        featured: [],
+        related: [],
+        actionText: "Watch them"
+    },
+    videos_graphconnect: {
+        type:"track",
+        prev: ["videos_interview"],
+        next: ["videos_other"],
+        path: "/learn/videos_graphconnect",
+        title: "Neo4j GraphConnect recordings",
+        thumbnail: "/assets/img/logo/graphconnect.png",
+        introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
+        featured: [],
+        related: [],
+        actionText: "Watch them"
+    },
+    videos_other: {
+        type:"track",
+        prev: ["videos_graphconnect"],
+        next: ["videos"],
+        path: "/learn/videos_other",
+        title: "Neo4j related videos",
         thumbnail: "/assets/img/events/webinar.jpg",
         introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
         featured: [],

@@ -1,3 +1,8 @@
+<%
+	var hasPath = item.path;
+	var image = item.img ? item.img : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
+	console.log(image)
+%>
 <div class="featured" class="mainElement">
     <div class="slide video">
         <div class="caption">
@@ -5,7 +10,7 @@
             <%- item.type == 'video' ? '<i class="icon icon-facetime-video"></i>' : '' %><%- item.introText %>
         </div>
         <div class="content">
-        	<img class="thumbnail" src="<%= item.thumbnail %>" data-src="<%= item.src %>">
+        	<img class="thumbnail" src="<%= image %>" data-src="<%= item.src %>">
             <%- typeof item.content == "function" ? item.content(locals) : item.content %>
         </div>
         <div class="clear"></div>
