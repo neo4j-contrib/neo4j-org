@@ -1,0 +1,38 @@
+<% var info = item; 
+   console.log("item-tile",item);
+        
+   if (!info['name']) {
+%>
+<div id="add_channel" class="related item channel">
+  <label for="new_name">Name:</label> <input type="text" id="new_name"/>
+  <label for="new_url">URL:</label>  <input type="text"  id="new_url"/><br/>
+  <label for="new_logo">Logo:</label> <input type="text" id="new_logo"/>
+  <label for="new_lang">Lang:</label>  
+  <select id="new_lang">
+    <option selected="selected" value="en">EN</option>
+    <option value="de">DE</option>
+    <option value="cn">CN</option>
+    <option value="es">ES</option>
+    <option value="ru">RU</option>
+    <option value="fr">FR</option>
+    <option value="it">IT</option>
+    <option value="se">SE</option>
+    <option value="pt">PT</option>
+    <option>--</option>
+     </select><br/>
+    <a href="#" class="btn" style="margin: 2px;">Add your suggestion.</a>
+</div>        
+<% } else { %>
+<div class="related item channel">
+    <% if (info['logo']) { %>
+      <a href="<%= info['url'] %>">
+        <img src="<%= info['logo'] %>" title="<%= info['name'] %>" alt="logo of <%= info['name'] %>"/>
+      </a>
+    <% } %>
+      <a class="vote pull-right" href="#vote_<%= info.row %>"><span><%= info['votes'] %></span>&nbsp;<i class="icon icon-thumbs-up"></i></a>
+
+      <a href="<%= info['url']||'#' %>" target="_blank"><%= info['name'] %></a> 
+            [<%= info['lang']||'en' %>] 
+            
+</div>
+<% } %>

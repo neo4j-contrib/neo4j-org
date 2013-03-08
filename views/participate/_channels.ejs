@@ -1,0 +1,80 @@
+<style type="text/css">
+    #add_channel input,#add_channel select {
+       width:80px;
+       margin: 2px;
+    }
+    #add_channel label {
+        width: 30px;
+    }
+    #add_channel {
+        height:100px;
+        text-align:right
+    }
+    
+    a.vote:hover, a.vote:visited,a.vote:active {
+        display: block;
+        text-decoration: none;
+    }
+    a.vote {
+        display: block;
+    }
+    a.vote i {
+        vertical-align: baseline;
+    }
+    .related.item.channel {
+        vertical-align: middle;
+        text-align: center;
+        height:100px;
+    }
+    .related.item.channel a img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-height: 50px;
+        max-width: 100px;
+    }
+</style>
+
+<script type="text/javascript">
+   
+    $(document).ready(new function() {
+        var timeout;
+        function init() {
+            clearTimeout(timeout);
+            if ($("#add_channel").find("a.btn").length==0) {
+                timeout=setTimeout(init,250);
+                return;
+            }
+            $("#add_channel").find("a.btn").click(function() {
+                var name=$("#new_name").val();
+                var url=$("#new_url").val();
+                var logo=$("#new_logo").val();
+                var lang=$("#new_lang").val();
+                console.log(name,url,logo,lang);
+                if (name && url && logo && lang) {
+                    $.post("/add_channel?"+"name="+encodeURIComponent(name)+"&url="+encodeURIComponent(url)+"&logo="+encodeURIComponent(logo)+"&lang="+encodeURIComponent(lang),function(data,err) {
+                       console.log(data,err);
+                       setTimeout(function(){
+                           window.location.reload();
+                       },1000);
+                       
+                    });
+                }
+            });
+            $("a.vote").click(function() {
+                var link=$(this);
+                var vote=link.attr("href").split("_")[1];
+                console.log("Vote",vote);
+                var votes = link.children("span");
+                console.log(votes,votes.html());
+                votes.css({fontSize: "2em"});
+                votes.html(parseInt(votes.html())+1);
+                $.post("/vote?row="+vote,function(data,status,err) {
+                   console.log(data,status);
+                   votes.animate({fontSize: "1em"},1000);
+                });
+            });
+        }
+        init();
+    })
+</script>

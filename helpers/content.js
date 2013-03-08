@@ -161,6 +161,22 @@ neo4j start</pre>\
             introText: "Cypher is a graph query language. Easy on the eyes, while expressive and powerful.",
             src: "http://player.vimeo.com/video/50389825"
         },
+        cypher_advanced: {
+            title: "Advanced Cypher Webinar",
+            type: "video",
+            thumbnail: "http://b.vimeocdn.com/ts/347/239/347239632_640.jpg",
+            introText: "An introduction to cypher with some advanced queries sprinkled in between.",
+            src: "http://player.vimeo.com/video/50389825",
+            author: "mesirii"
+        },
+        cypher_vs_sql: {
+            title: "Cypher for SQL professionals",
+            type: "video",
+            thumbnail: "http://b.vimeocdn.com/ts/418/834/418834053_640.jpg",
+            introText: "If you come from an SQL background it takes a little time to get used to Cypher, but once you got it, there is no way back.",
+            src: "http://player.vimeo.com/video/60292144",
+            author: "mesirii"
+        },
         james_ward_neo4j: {
             title: "James Ward on Neo4j",
             type: "video",
@@ -803,6 +819,7 @@ neo4j start</pre>\
     },
     drivers: {
         anorm_cypher: {
+            type: "driver",
             name: "AnormCypher",
             authors: ["@wefreema"],
             source: "https://github.com/AnormCypher/AnormCypher",
@@ -814,6 +831,7 @@ neo4j start</pre>\
             tags: ["scala", "rest", "cypher"]
         },
         neo4j_rest: {
+            type: "driver",
             url: "http://docs.neo4j.org/chunked/milestone/rest-api.html",
             authors: ["@neo4j"],
             tags: ["java", "rest"],
@@ -822,6 +840,7 @@ neo4j start</pre>\
             text: "Discoverable, language-neutral data access from anything that can send HTTP requests. You could write a whole application with just bash scripts and curl."
         },
         spring_data_neo4j: {
+            type: "driver",
             tags: ["java", "jvm", "rest", "spring"],
             authors: ["@neo4j"],
             url: "/develop/spring",
@@ -830,6 +849,7 @@ neo4j start</pre>\
             text: "Familiar POJO-based development, enabling object-to-graph mapping using annotations. Amazingly simple, with full graph power just a traversal query away."
         },
         neo4j_java: {
+            type: "driver",
             tags: ["jvm", "java"],
             authors: ["@neo4j"],
             url: "http://docs.neo4j.org/chunked/stable/tutorials-java-embedded.html",
@@ -838,6 +858,7 @@ neo4j start</pre>\
             text: "For intimate access, talk directly to Neo4j&#39;s graph engine directly in your JVM based application. Full feature parity with Neo4j Server, including HA clustering."
         },
         neo4j_rb: {
+            type: "driver",
             tags: ["ruby", "jvm"],
             authors: ["@ronge"],
             url: "https://github.com/andreasronge/neo4j",
@@ -846,6 +867,7 @@ neo4j start</pre>\
             text: "Ruby on Rails? Try coasting along graph paths with Neo4j. Everything you know and love, wrapped with graph glory."
         },
         neo4j_core: {
+            type: "driver",
             tags: ["ruby", "jvm"],
             authors: ["@ronge"],
             url: "https://github.com/andreasronge/neo4j-core",
@@ -854,6 +876,7 @@ neo4j start</pre>\
             text: "For a fast and simple JRuby binding to the embedded Neo4j Java API. This gem is used by neo4j.rb"
         },
         neography: {
+            type: "driver",
             tags: ["ruby", "rest"],
             authors: ["@maxdemarzi"],
             url: "https://github.com/maxdemarzi/neography/",
@@ -862,6 +885,7 @@ neo4j start</pre>\
             text: "For native Ruby access to Neo4j, Neography provides a thin, elegant wrapper around the REST API. "
         },
         neo4jphp: {
+            type: "driver",
             tags: ["php", "rest"],
             url: "https://github.com/jadell/neo4jphp/wiki/Introduction",
             authors: ["@josh_adell"],
@@ -870,6 +894,7 @@ neo4j start</pre>\
             text: "Neo4jPHP provides an API that is both intuitive and flexible, and it takes advantage of 'under-the -hood' performance enhancements, such as caching and lazy-loading. "
         },
         neo4jclient: {
+            type: "driver",
             tags: ["dotnet", "rest"],
             authors: ["@tathamoddie", "@romikoderbynew"],
             url: "http://hg.readify.net/neo4jclient/wiki/Home/",
@@ -879,6 +904,7 @@ neo4j start</pre>\
             text: "A .NET client for Neo4j which supports basic CRUD operations, a fluent Cypher query interface, and indexing operations. "
         },
         py2neo: {
+            type: "driver",
             tags: ["python", "rest"],
             url: "http://py2neo.org/",
             site: "http://py2neo.org/",
@@ -890,6 +916,7 @@ neo4j start</pre>\
             docs: "http://nigelsmall.com/_api/py2neo/"
         },
         neo4j_python: {
+            type: "driver",
             tags: ["python", "jvm"],
             authors: ["@neo4j"],
             url: "http://pypi.python.org/pypi/neo4j-embedded",
@@ -898,6 +925,7 @@ neo4j start</pre>\
             text: "The JVM based Python integration for Neo4j uses JPype. More details in the <a href='http://docs.neo4j.org/chunked/snapshot/python-embedded.html'>Neo4j manual.</a>"
         },
         grails: {
+            type: "driver",
             tags: ["groovy", "grails", "jvm"],
             authors: ["@darthvader42"],
             url: "http://www.grails.org/plugin/neo4j",
@@ -909,6 +937,7 @@ neo4j start</pre>\
             text: "A plugin that integrates the Neo4j graph database into Grails, providing a GORM API onto it"
         },
         node_neo4j: {
+            type: "driver",
             tags: ["js", "rest", "nodejs"],
             authors: ["@aseemk", "@gasi"],
             url: "https://github.com/thingdom/node-neo4j",
@@ -919,6 +948,7 @@ neo4j start</pre>\
             text: "Node.js driver for Neo4j. Cleverly asynchronous, and blazingly fast. "
         },
         neo4js: {
+            type: "driver",
             tags: ["js", "rest", "nodejs"],
             authors: ["@neo4j"],
             url: "https://github.com/neo4j/neo4js",
@@ -927,6 +957,7 @@ neo4j start</pre>\
             text: "Neo4j REST client for JavaScript, used in Neo4j Web-UI, makes use of promises to handle deferred responses. Needs jQuery to run."
         },
         neocons: {
+            type: "driver",
             tags: ["clojure", "rest", "jvm"],
             authors: ["@michaelklishin"],
             url: "http://clojureneo4j.info/",
@@ -934,6 +965,7 @@ neo4j start</pre>\
             name: "Neocons",
             text: "An idiomatic, feature rich Clojure client which supports (almost) all Neo4J REST API features and is constantly tested against bleeding edge server changes, like the Cypher language improvements. " },
         bulbflow: {
+            type: "driver",
             tags: ["python", "rest"],
             authors: ["@espeed"],
             url: "http://bulbflow.com/overview/",
@@ -942,6 +974,7 @@ neo4j start</pre>\
             text: "Bulbs is an open-source Python persistence framework for graph databases and the first piece of a larger Web-development toolkit. It’s like an ORM for graphs. "
         },
         keymaker: {
+            type: "driver",
             tags: ["ruby", "rest"],
             authors: ["@therubymug"],
             url: "http://github.com/therubymug/keymaker",
@@ -949,6 +982,7 @@ neo4j start</pre>\
             name: "Keymaker",
             text: "A multi-layer REST API Ruby wrapper for the Neo4j graph database built on top of Faraday." },
         neoid: {
+            type: "driver",
             authors: ["@elado"],
             tags: ["ruby", "rest"],
             url: "https://github.com/elado/neoid",
@@ -957,6 +991,7 @@ neo4j start</pre>\
             text: "Make your ActiveRecords stored and searchable on Neo4j graph database. With Neoid, queries that would make MySQL crawl become super fast. You get the benefits of Neo4j speed while keeping your schema on your plain old RDBMS. "
         },
         neo4django: {
+            type: "driver",
             tags: ["python", "rest", "django"],
             authors: ["@mhluongo"],
             url: "https://github.com/scholrly/neo4django",
@@ -965,6 +1000,7 @@ neo4j start</pre>\
             text: "neo4django is an Object Graph Mapper (OGM) for Django. Use familiar Django models and queries against Neo4j."
         },
         neo4j_rest_client: {
+            type: "driver",
             tags: ["python", "rest"],
             authors: ["@versae"],
             url: "http://readthedocs.org/docs/neo4j-rest-client/en/latest/",
@@ -974,6 +1010,7 @@ neo4j start</pre>\
             text: "Object-oriented Python library to interact with Neo4j standalone REST server"
         },
         neo4p: {
+            type: "driver",
             tags: ["perl", "rest"],
             authors: ["@thinkinator"],
             url: "https://metacpan.org/release/REST-Neo4p",
@@ -982,6 +1019,7 @@ neo4j start</pre>\
             text: "Works with the Neo4j's REST by using Perl5 objects in a Perl person's favorite way."
         },
         scala: {
+            type: "driver",
             tags: ["scala", "jvm"],
             authors: ["@fakod"],
             url: "https://github.com/FaKod/neo4j-scala/",
@@ -990,6 +1028,7 @@ neo4j start</pre>\
             text: "A Scala wrapper for Neo4j which introduces an intuitive DSL for graph operations."
         },
         haskell: {
+            type: "driver",
             tags: ["haskell", "rest"],
             authors: ["@bogiebro"],
             url: "http://hackage.haskell.org/package/cypher-0.8",
@@ -998,6 +1037,7 @@ neo4j start</pre>\
             text: "Haskell Cypher makes it easy to send cypher commands to neo4j servers over the REST API. Additionally, it allows users to parse haskell datatypes from cypher queries."
         },
         datanucleus: {
+            type: "driver",
             tags: ["java", "jvm", "jpa"],
             authors: ["@datanucleus"],
             url: "http://www.datanucleus.org/plugins/store.neo4j.html",
@@ -1006,6 +1046,7 @@ neo4j start</pre>\
             text: "datanucleus-neo4j provides persistence of Java objects to Neo4j. It builds on top of the basic persistence provided by datanucleus-core."
         },
         neo4j_go: {
+            type: "driver",
             url: "https://github.com/davemeehan/Neo4j-GO",
             logo: "/assets/img/languages/go.png",
             authors: ["@dmeehan"],

@@ -221,7 +221,7 @@ fs.readFile("views/partials/page.ejs", function (err, buf) {
 //  console.log(template,err);
     for (key in app.locals.pages) {
 
-        console.log("loading " + key);
+        // console.log("loading " + key);
         var page=app.locals.pages[key];
         var config = page.config || {};
         var featuredArray = page.featured;
@@ -254,7 +254,6 @@ fs.readFile("views/partials/page.ejs", function (err, buf) {
           console.log("Default routing to pages: ",page.path,page.title)
           app.get(page.path, function(req,res) { 
               var params=merge(app.locals,{ title: page.title||"", locals:app.locals }); 
-              console.log("Rendering",page.title,params);
               res.render('partials/page', params); 
           });  
         }
@@ -314,7 +313,7 @@ route_get('/learn/events', forward("http://www.google.com/calendar/embed?src=neo
 //route_get('/events', routes.pages)
 //route_get('/misc/beer', routes.pages)
 //route_get('/events', routes.events)
-route_get('/participate/channels', routes.channels)
+//route_get('/participate/channels', routes.channels)
 route_get('/misc/beer', routes.beer)
 
 route_get('/marketo', function (req, res) {
@@ -369,26 +368,30 @@ function updateSpreadsheets() {
 //            console.log("events",app.locals.pages.events)
 	    }) 
 	}) 
-
-    spreadsheet.contributors(function(items) { app.locals.contributors = items; }); 
+    spreadsheet.contributors(function(items) { app.locals.contributors = items; });
 }
 
 app.locals.updateChannels = function() {
     console.log("Updating Channels");
-    spreadsheet.channels(function(items) { 
+    spreadsheet.channels(function(items) {
+        items.forEach(function(item) { item.type="channel"; });
         app.locals.channels = items;
-        app.pages.channels.featured = items;
+        app.locals.pages.channels.related = [{type:'channel'}].concat(items);
+        console.log("Updated Channels ",app.locals.pages.channels.related.length);
     });
 }
 
-app.locals.updateChannels();
 
 setInterval(app.locals.updateChannels,60*1000);
 // regular updates
-
-spreadsheet.googleLogin(updateSpreadsheets);
-
 setInterval(updateSpreadsheets, 3600*1000);
+
+spreadsheet.googleLogin(
+    function() {
+        updateSpreadsheets();
+        app.locals.updateChannels();
+    });
+
 
 app.locals.resolve_authors = function(authors) {
     if (!authors) return [];
@@ -412,6 +415,8 @@ route_get('/events.json',function(req,res) {
 
 // well known historic URLs redirects
 route_get('/download', forward("/install"));
+route_get('/tracks/java', forward("/java"));
+route_get('/tracks/cypher', forward("/tracks/cypher_track_start"));
 route_get('/about', routes.neo4j);
 route_get('/terms', routes.terms); // terms and conditions
 route_get('/privacy', routes.privacy); // privacy policy
@@ -468,9 +473,9 @@ function channelOp(params, res) {
         headers: { 'Content-Length': 0 },
         method: 'POST'
     };
-    console.log(options);
+    //console.log(options);
     var req2 = https.request(options, function (r) {
-        console.log(r.statusCode);
+        //console.log(r.statusCode);
         res.send(r.statusCode);
     });
     req2.on('error', function (e) {
@@ -520,8 +525,8 @@ app.locals.related = function (path, page) {
     return paths.related(app.locals, path, page);
 }
 
-console.log(app.locals.related("java", "java"))
-console.log(geoip.region('146.52.53.114'))
+//console.log(app.locals.related("java", "java"))
+//console.log(geoip.region('146.52.53.114'))
 http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
 });

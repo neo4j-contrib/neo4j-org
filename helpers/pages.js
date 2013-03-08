@@ -31,11 +31,11 @@ exports.pages = {
         ,
         featured: [
             // content.videos.installing_neo4j,
-            content.install.milestone,
-            content.install.stable
+            content.install.milestone
+            //,content.install.stable
         ],
         related: [
-            content.install.milestone,
+            // content.install.milestone,
             content.install.stable,
             //"graphdatabase",
             //"develop",
@@ -71,7 +71,8 @@ exports.pages = {
         title: "Maven Dependency",
         actionText: "Add dependency",
         introText: "If you want to include Neo4j in the build of your JVM language project (Java,Scala, Groovy, Clojure) just add the correct dependency",
-        featured: [ content.install.maven, content.tracks.java_intro ]
+        featured: [ content.install.maven ],
+        related: [content.tracks.java_intro]
     },
     linux: {
         path: "/download/linux",
@@ -182,36 +183,63 @@ exports.pages = {
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
         introText: "The Cypher track concentrates on the Cypher Graph Query language, making interaction with Neo4j framework independent.",
         actionText: "Start",
-        next: ["cypher_track_1"],
+        next: ["cypher_track_basics"],
         prev: [],
-        featured: [],
-        related: [  "cypher","reference_card", content.links.manual_cypher
+        featured: [content.videos.cypher],
+        related: [ "reference_card", content.links.cypher_cheat_sheet, content.videos.cypher
 
         ]
     },
-    cypher_track_1: {
-        path: "/tracks/cypher_track_1",
+    cypher_track_basics: {
+        path: "/tracks/cypher_track_basics",
         type: "track",
-        title: "1. Intro",
+        title: "Get Started",
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
-        introText: "",
-        actionText: "Start",
-        next: ["cypher_track_2"],
+        introText: "Get started with Cypher by watching the Video",
+        actionText: "Get Started with Cypher",
+        next: ["cypher"],
         prev: ["cypher_track_start"],
-        featured: [content.tracks.cypher_tutorial_1],
+        featured: [content.videos.cypher],
         related: []
     },
-    cypher_track_2: {
-        path: "/tracks/cypher_track_2",
+    cypher_track_use: {
+        path: "/tracks/cypher_track_use",
         type: "track",
-        title: "2. First steps with Cypher",
+        title: "Use Cypher",
+        thumbnail: "/assets/img/still/cypher_tutorial.gif",
+        introText: "",
+        actionText: "Begin to use Cypher",
+        next: ["cypher_track_develop"],
+        prev: ["cypher","cypher_track_start"],
+        featured: [content.videos.cypher_vs_sql],
+        related: [
+            content.videos.cypher_advanced,
+            content.links.cypher_cheat_sheet
+        // import with cypher
+        // the shell
+        // the rest-cypher
+        // profiling
+        ]
+    },
+    cypher_track_develop: {
+        path: "/tracks/cypher_track_develop",
+        type: "track",
+        title: "Develop with Cypher",
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
         introText: "",
         actionText: "Start",
-        next: ["tracks"],
-        prev: ["cypher_track_1"],
-        featured: [content.tracks.cypher_tutorial_2],
-        related: []
+        next: ["java"],
+        prev: ["cypher_track_use"],
+        featured: [],
+        related: [
+        // import with cypher
+        // the shell
+        // the rest-cypher
+        // profiling
+            content.drivers.anorm_cypher,
+            content.drivers.neography,
+            content.drivers.node_neo4j
+        ]
     },
 
     java_basics: {
@@ -442,6 +470,14 @@ exports.pages = {
 //        type: "_contributors",
         related: ["maxdemarzi", "mhluongo", "ronge", "craigtaverner", "technige", "pablopareja", "espeed", "rhetonik"]
     },
+    channels: {
+       path: "/participate/channels",
+       title: "Poll of Developer Communication Channels",
+       introText: "We are interested in which communication channels you, but also especially your co-workers, friends and consulting-customer developers use to learn more about technology and software development.",
+       content: function(params) { return render.include("/participate/_channels",params); },
+       featured: [],
+       related: []
+    },
     events: {
         path: "/events",
         title: "Neo4j related events",
@@ -516,11 +552,14 @@ exports.pages = {
         ]
     },
     cypher: {
+        type: "track",
         path: "/learn/cypher",
         title: "Intro to Cypher - the Neo4j query language",
         thumbnail: "/assets/img/still/cypher_tutorial.gif",
         //introText: "Hands on introduction to the Cypher Query Language",
         content : function(params) { return render.include("/cypher/cypher_console",params) },
+        prev: ["cypher_track_start"],
+        next: ["cypher_track_develop"],
         actionText: "Learn it",
         featured: [
             { type:"include", path:"/cypher/cypher_tutorial_1_intro" },
