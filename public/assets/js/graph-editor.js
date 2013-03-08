@@ -12,17 +12,25 @@
         .append("svg:svg")
         .attr("class", "graphdiagram");
 
+    var diagram = gd.diagram()
+        .scaling(gd.scaling.centerOrScaleDiagramToFitSvg)
+        .nodeBehaviour(function ( newNodes )
+        {
+            newNodes
+                .call( d3.behavior.drag().on( "drag", drag ).on( "dragend", dragEnd ) )
+                .on( "dblclick", editNode );
+
+        } ).relationshipBehaviour( function ( newRelationships )
+        {
+            newRelationships
+                .on( "dblclick", editRelationship );
+        } );
+
     function draw()
     {
-        bind(graphModel, svg.data([graphModel]), function(newNodes) {
-            newNodes
-                .call(d3.behavior.drag().on("drag", drag ).on("dragend", dragEnd))
-                .on("dblclick", editNode);
-        }, function(newRelationships) {
-            newRelationships
-                .on("dblclick", editRelationship);
-        });
-        gd.scaling.centerOrScaleDiagramToFitSvg(graphModel, svg.data([graphModel]));
+        svg
+            .data([graphModel])
+            .call(diagram);
     }
 
     function save( markup )
@@ -36,7 +44,7 @@
     function findClosestOverlappingNode( node )
     {
         var closestNode = null;
-        var closestDistance = Number.MAX_VALUE;
+        var closestDistance = gd.parameters.radius * graphModel.internalScale();
 
         var allNodes = graphModel.nodeList();
 
@@ -46,7 +54,7 @@
             if ( candidateNode !== node )
             {
                 var candidateDistance = node.distanceTo( candidateNode ) * graphModel.internalScale();
-                if ( candidateDistance < 50 && candidateDistance < closestDistance )
+                if ( candidateDistance < closestDistance )
                 {
                     closestNode = candidateNode;
                     closestDistance = candidateDistance;
@@ -63,18 +71,21 @@
         var node = dragTarget[0][0].__data__;
         if ( !newNode && shiftKey )
         {
-            newNode = graphModel.createNode().x( node.x() ).y( node.y() );
+            newNode = graphModel.createNode().x( node.x() + d3.event.dx).y( node.y() + d3.event.dy);
+            newNode.isNew = true;
             newRelationship = graphModel.createRelationship( node, newNode );
         }
         if ( newNode )
         {
             var connectionNode = findClosestOverlappingNode( newNode );
-            if ( connectionNode )
+            if ( connectionNode && connectionNode != node )
             {
-                newRelationship.end = connectionNode
+                newRelationship.end = connectionNode;
+                newNode.isNew = false;
             } else
             {
                 newRelationship.end = newNode;
+                newNode.isNew = true;
             }
             node = newNode;
         }
@@ -84,40 +95,51 @@
 
     function dragEnd()
     {
-        if ( newNode && newRelationship && newRelationship.end !== newNode )
+        if ( newNode )
         {
-            graphModel.deleteNode( newNode );
+            if ( newRelationship && newRelationship.end !== newNode )
+            {
+                graphModel.deleteNode( newNode );
+            }
+            newNode.isNew = false;
         }
         newNode = null;
         save( formatMarkup() );
         draw();
     }
 
+    d3.select( "#add_node_button" ).on( "click", function ()
+    {
+        graphModel.createNode().x( 0 ).y( 0 );
+        save( formatMarkup() );
+        draw();
+    } );
+
     function editNode()
     {
+        appendModalBackdrop();
+        d3.select( ".modal.pop-up-editor.node" ).classed( "hide", false );
+
         var node = this.__data__;
 
         var editor = d3.select(".pop-up-editor.node");
-
-        d3.selectAll(".modal-appear, .pop-up-editor.node")
-            .style("display", "block");
 
         editor.select("path")
             .attr("d", gd.speechBubblePath({ width: 500, height: 200}, "diagonal",
             gd.parameters.speechBubbleMargin, gd.parameters.speechBubblePadding));
 
-        var labelField = editor.select(".label.editor-field");
-        labelField.node().value = node.label() || "";
-        labelField.node().select();
+        var captionField = editor.select("#node_caption");
+        captionField.node().value = node.label() || "";
+        captionField.node().select();
 
-        var propertiesField = editor.select(".properties-field");
+        var propertiesField = editor.select("#node_properties");
         propertiesField.node().value = node.properties().list().reduce(function(previous, property) {
             return previous + property.key + ": " + property.value + "\n";
         }, "");
 
         function saveChange()
         {
-            node.label( labelField.node().value );
+            node.label( captionField.node().value );
             node.properties().clearAll();
             propertiesField.node().value.split("\n").forEach(function(line) {
                 var tokens = line.split(/: */);
@@ -131,8 +153,7 @@
             });
             save( formatMarkup() );
             draw();
-            d3.selectAll(".modal-appear, .pop-up-editor.node")
-                .style("display", null);
+            cancelModal();
         }
 
         function deleteNode()
@@ -140,13 +161,11 @@
             graphModel.deleteNode(node);
             save( formatMarkup() );
             draw();
-            d3.selectAll(".modal-appear, .pop-up-editor.node")
-                .style("display", null);
+            cancelModal();
         }
 
-        editor.select(".save-button").on("click", saveChange);
-        editor.select(".delete-button").on("click", deleteNode);
-        d3.select( "#modal-container" ).on( "click", saveChange );
+        editor.select("#edit_node_save").on("click", saveChange);
+        editor.select("#edit_node_delete").on("click", deleteNode);
     }
 
     function editRelationship()
@@ -192,16 +211,42 @@
         return markup;
     }
 
+    function cancelModal()
+    {
+        d3.selectAll( ".modal" ).classed( "hide", true );
+        d3.selectAll( ".modal-backdrop" ).remove();
+    }
+
+    d3.selectAll( ".btn.cancel" ).on( "click", cancelModal );
+
+    function appendModalBackdrop()
+    {
+        d3.select( "body" ).append( "div" )
+            .attr( "class", "modal-backdrop" )
+            .on( "click", cancelModal );
+    }
+
     var exportMarkup = function ()
     {
-        d3.selectAll(".modal-appear, .export-markup")
-            .style("display", "block");
-        d3.select( "#modal-container" ).on( "click", useMarkupFromMarkupEditor );
+        appendModalBackdrop();
+        d3.select( ".modal.export-markup" ).classed( "hide", false );
 
         var markup = formatMarkup();
-        d3.select( "textarea.code" )
-            .attr( "rows", markup.split( "\n" ).length )
+        d3.select( ".export-markup .modal-body textarea.code" )
+            .attr( "rows", markup.split( "\n" ).length * 2 )
             .node().value = markup;
+    };
+
+    var showHelp = function ()
+    {
+        // appendModalBackdrop();
+        d3.select( ".modal.help" ).classed( "hide", false );
+    };
+
+    var hideHelp = function ()
+    {
+        // cancelModal();
+        d3.select( ".modal.help" ).classed( "hide", true );
     };
 
     function parseMarkup( markup )
@@ -213,16 +258,22 @@
         return model;
     }
 
-    var useMarkupFromMarkupEditor = function ()
+    var useMarkupFromSelection = function(selection) 
     {
-        var markup = d3.select( "textarea.code" ).node().value;
+        var markup = d3.select( selection ).node().value;
         graphModel = parseMarkup( markup );
         save( markup );
         draw();
-
-        d3.selectAll(".modal-appear, .export-markup")
-            .style("display", null);
+    }
+    var useMarkupFromMarkupEditor = function ()
+    {
+        useMarkupFromSelection( ".export-markup .modal-body textarea.code" );
+        cancelModal();
     };
+    
+    
+
+    d3.select( "#save_markup" ).on( "click", useMarkupFromMarkupEditor );
 
     var exportSvg = function ()
     {
@@ -237,20 +288,63 @@
         } );
     };
 
+    var openConsoleWithCypher = function (evt)
+    {
+        var cypher = d3.select(".export-cypher .modal-body textarea.code").node().value;
+        cypher = cypher.replace(/\n  /g," ");
+        var url="http://console.neo4j.org"+
+            "?init=" + encodeURIComponent(cypher)+
+            "&query=" + encodeURIComponent("start n=node(*) return n");
+        d3.select( "#open_console" )
+                    .attr( "href", url );
+        return true;
+    };
+
+    d3.select( "#open_console" ).on( "click", openConsoleWithCypher );
+
+    var exportCypher = function ()
+    {
+        appendModalBackdrop();
+        d3.select( ".modal.export-cypher" ).classed( "hide", false );
+
+        var statement = gd.cypher(graphModel);
+        d3.select( ".export-cypher .modal-body textarea.code" )
+            .attr( "rows", statement.split( "\n" ).length )
+            .node().value = statement;
+    };
+
     function changeInternalScale() {
         graphModel.internalScale(d3.select("#internalScale").node().value);
         draw();
     }
-    d3.select("#internalScale").node().value = graphModel.internalScale();
-
+    if (d3.select("#internalScale").node()) 
+    {
+        d3.select("#internalScale").node().value = graphModel.internalScale();
+        d3.select("#internalScale" ).on("change", changeInternalScale);
+    }
     d3.select(window).on("resize", draw);
-    d3.select("#internalScale" ).on("change", changeInternalScale);
-    d3.select( "#exportMarkupButton" ).on( "click", exportMarkup );
-    d3.select( "#exportSvgButton" ).on( "click", exportSvg );
+    if (d3.select("#helpButton").node()) 
+    {
+        d3.select( "#helpButton" ).on( "mouseover", showHelp).on( "mouseout", hideHelp );
+    }
+    if (d3.select("#exportMarkupButton").node()) 
+    {
+        d3.select( "#exportMarkupButton" ).on( "click", exportMarkup );
+    }
+    
+    if (d3.select("#exportSvgButton").node()) 
+    {
+        d3.select( "#exportSvgButton" ).on( "click", exportSvg );
+    }
+    if (d3.select("#exportCypherButton").node()) 
+    {
+        d3.select( "#exportCypherButton" ).on( "click", exportCypher );
+    }
     d3.selectAll( ".modal-dialog" ).on( "click", function ()
     {
         d3.event.stopPropagation();
     } );
-
     draw();
+    window.useMarkupFromSelection = useMarkupFromSelection;
+    
 })();

@@ -584,7 +584,7 @@ ul.hor li {
     width: 58em;
     margin: .5em;
     position: relative;
-    height: 22em;
+    height: 30em;
 }
 
 .featured .slide .thumbnail {
@@ -604,7 +604,6 @@ ul.hor li {
 }
 
 .featured .caption {
-    width: 18em;
     font-size: 1em;
     line-height: 1.5em;
     position: absolute;
@@ -679,6 +678,13 @@ ul.hor li {
 .featured h4,
 .featured h5 {
     color: #00546a;
+}
+
+
+.featured .video .caption, 
+.featured .version .caption 
+{
+    width: 18em; 
 }
 
 .featured .article .caption,

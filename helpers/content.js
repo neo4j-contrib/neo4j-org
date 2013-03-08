@@ -20,7 +20,9 @@ exports.content = {
             stability:"stable",
             date:"Feb 27, 2013",
             introText:"General Availability",
-            path:"http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html"
+            path:"http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html",
+            thumbnail: "/assets/img/still/install.gif",
+            src: "http://player.vimeo.com/video/53838744"
         },
         snapshot:{
             type:"version",
@@ -469,7 +471,7 @@ neo4j start</pre>\
         nosql: {
             nosql: {
                 type: "article",
-                introText: "(Neo4j) –[:IS_A]–> (NoSQL Database)",
+                title: "(Neo4j) –[:IS_A]–> (NoSQL Database)",
                 src: "/assets/img/propertygraph/nosql-space.png",
                 content: "<p><strong>N</strong>ot <strong>o</strong>nly <strong>SQL</strong>, but modern choices which excel at answering different kinds of questions.</p>\
             <ul>\
@@ -480,7 +482,7 @@ neo4j start</pre>\
             },
             rdbms: {
                 type: "article",
-                introText: "(A Graph Database) –[:TRANSFORMS_A]–> (RDBMS)",
+                title: "(A Graph Database) –[:TRANSFORMS_A]–> (RDBMS)",
                 content: "\
                 <div><img src='/assets/img/propertygraph/vs-rdbms.png' alt='' title='vs-rdbms' width='270' height='141' />\
                 <img src='/assets/img/propertygraph/as-rdbms.png' alt='' title='as-rdbms' width='254' height='289' /></div>\
@@ -488,7 +490,7 @@ neo4j start</pre>\
             },
             keyvalue: {
                 type: "article",
-                introText: "(A Graph Database) –[:RELATES_A]–> (Key-Value Store)",
+                title: "(A Graph Database) –[:RELATES_A]–> (Key-Value Store)",
                 content: "\
                     <div><img src='/assets/img/propertygraph/vs-key-value.png' alt='' title='vs-key-value' width='245' height='76' /><img src='/assets/img/propertygraph/as-key-value.png' alt='' title='as-key-value' width='264' height='163' /></div>\
                     <p>A <strong>Key-Value model</strong> is great for lookups of simple or even complex values. When the values are themselves interconnected, you’ve got a graph. Neo4j lets you traverse quickly among all the connected values.</p>\
@@ -496,7 +498,7 @@ neo4j start</pre>\
             },
             document: {
                 type: "article",
-                introText: "(A Graph Database) –[:NAVIGATES_A]–> (Document Store)",
+                title: "(A Graph Database) –[:NAVIGATES_A]–> (Document Store)",
                 content: "\
                     <div><img src='/assets/img/propertygraph/vs-document.png' alt='' title='vs-document' width='159' height='241' /><img src='/assets/img/propertygraph/as-document.png' alt='' title='as-document' width='267' height='232' /></div>\
                     <p>The container hierarchy of a <strong>Document Database</strong> accommodates nice, schema-free data that can easily be represented as a tree. Which is of course a graph. Refer to other documents (or document elements) within that tree and you have a more expressive representation of the same data that you can easily navigate with Neo4j.</p>"

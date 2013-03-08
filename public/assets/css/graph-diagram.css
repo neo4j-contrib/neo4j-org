@@ -1,35 +1,35 @@
-body, svg {
+svg {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
-.graph-diagram {
-    -webkit-margin-start: 0;
-    -webkit-margin-end: 0;
-}
-circle.graph-diagram-node {
+circle.node {
     stroke: #00546A;
     stroke-width: 8px;
     fill: white;
 }
 
-circle.graph-diagram-node.highlight {
+circle.node.new {
+    stroke: red;
+}
+
+circle.node.highlight {
     stroke: blue;
 }
 
-circle.graph-diagram-node.lowlight {
+circle.node.lowlight {
     stroke: #555;
 }
 
-path.graph-diagram-relationship, text.graph-diagram-bound-variable, text.graph-diagram-relationship-label, text.speech-bubble-content {
+path.relationship, text.caption, text.type, text.speech-bubble-content, text.caption a {
     stroke: none;
     fill: #00546A;
 }
 
-path.graph-diagram-relationship.highlight, text.graph-diagram-bound-variable.highlight, text.graph-diagram-relationship-label.highlight {
+path.relationship.highlight, text.caption.highlight, text.type.highlight {
     fill: blue;
 }
 
-path.graph-diagram-relationship.lowlight, text.graph-diagram-bound-variable.lowlight, text.graph-diagram-relationship-label.lowlight {
+path.relationship.lowlight, text.caption.lowlight, text.type.lowlight {
     fill: #555;
 }
 
@@ -45,16 +45,15 @@ text.speech-bubble-content {
     -webkit-user-select: none;
     cursor: default;
     alignment-baseline: central;
-    font-size: 50px;
     color: #00546A;
+    font-size: 50px
 }
 
 text.speech-bubble-content.property-key {
     text-anchor: end;
 }
 
-text.graph-diagram-bound-variable, text.graph-diagram-bound-variable-shadow {
-    fill: #00546A;
+text.caption, text.caption-shadow, text.caption a {
     user-select: none;
     -webkit-user-select: none;
     cursor: default;
@@ -63,16 +62,14 @@ text.graph-diagram-bound-variable, text.graph-diagram-bound-variable-shadow {
     font-size: 50px
 }
 
-text.graph-diagram-bound-variable-shadow {
+text.caption-shadow {
     fill: none;
     stroke: white;
     stroke-width: 20px;
     stroke-linejoin: round;
 }
 
-text.graph-diagram-relationship-label {
-    color: #00546A;
-
+text.type {
     user-select: none;
     -webkit-user-select: none;
     cursor: default;

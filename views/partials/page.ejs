@@ -62,7 +62,16 @@ var nextPage = pages[p];
         <% } else { %>
             <% include ../partials/item/_full %>
         <% } }); %>
-        <% if (showSlides) { %></ul></div><% } %><%
+        <% if (showSlides) { %>
+            </ul></div>
+            <ol class="bjqs-markers h-centered" style="left: 0px;">
+                <% items.forEach(function(key) { 
+                   var item = findItem(key);
+                %>
+                <li class="active-marker"><a href="#"><%= item.title %></a></li>
+                <% }) %>
+            </ol>
+        <% } %><%
    } %>
 
 <%
@@ -74,28 +83,10 @@ var nextPage = pages[p];
             <% chunk(page.related,3).forEach(function(row) { %>
                 <div class="row">
                 <% 
-//                console.log("related-row",row);
                 row.forEach(function(key) { 
 
                     var item = findItem(key);
-//                    console.log("related-item",item);
-
-/*
-                    var config = item.config || {};
-                    var items;
-                    if (!config['tile_page']) {
-                        items=[].concat(item.featured);
-                    }
-                    console.log("item.featured",items);
-                    if (item.featured && items.length) {
-                        items.forEach(function(key) { 
-                            var item = findItem(key);
-                      % > < % include ../partials/item/_tile % > < %
-                        });
-                    } else {
-*/
                       %> <% include ../partials/item/_tile %> <%
-//                  }
                 });  %> 
 
                 </div><!-- row -->

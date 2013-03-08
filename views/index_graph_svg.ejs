@@ -19,79 +19,94 @@ fraud detection, resource authorization, network & data center management, and m
         <a href="/install" class="btn btn-large btn-success" type="button"><i class="icon-download-alt"></i> Install</a>
     </div>
 <div class="span6">
-    <figure class="graph-diagram">
-    <svg xmlns="http://www.w3.org/2000/svg" class="graph-diagram pre-sized" width="100%" height="60%" viewBox="-500 -250 1000 300"></svg>
-
-    <ul class="graph-diagram-markup" style="display: none;" data-internal-scale="1.5" data-external-scale="1">
-        <li class="graph-diagram-node" data-node-id="4" data-x="0" data-y="-50" href="/learn/neo4j">
-            <span class="graph-diagram-in-node-caption">Neo4j</span>
-        </li>
-        <li class="graph-diagram-node" data-node-id="0" data-x="0" data-y="-250" href="/install">
-            <span class="graph-diagram-in-node-caption">Install</span>
-        </li>
-
-            <li class="graph-diagram-relationship" data-from="1" data-to="0">
-                <!--<span class="graph-diagram-relationship-type">then</span>-->
-            </li>
-            <li class="graph-diagram-relationship" data-from="0" data-to="4">
-                <span class="graph-diagram-relationship-type">your</span>
-            </li>
-            <li class="graph-diagram-relationship" data-from="0" data-to="3">
-                <!--<span class="graph-diagram-relationship-type">then</span>-->
-            </li>
-            
-        
-        <li class="graph-diagram-node" data-node-id="1" data-x="-250" data-y="0" href="/learn">
-            <span class="graph-diagram-in-node-caption">Learn</span>
-        </li>
-
-            <li class="graph-diagram-relationship" data-from="1" data-to="4">
-                <span class="graph-diagram-relationship-type">about</span>
-            </li>
-            <li class="graph-diagram-relationship" data-from="1" data-to="2">
-                <!--<span class="graph-diagram-relationship-type">then</span>-->
-            </li>
-        
-        <li class="graph-diagram-node" data-node-id="2" data-x="0" data-y="150" href="/develop">
-            <span class="graph-diagram-in-node-caption">Develop</span>
-        </li>
-
-            <li class="graph-diagram-relationship" data-from="2" data-to="3">
-                <!--<span class="graph-diagram-relationship-type">then</span>-->
-            </li>
-            <li class="graph-diagram-relationship" data-from="2" data-to="4">
-                <span class="graph-diagram-relationship-type">with</span>
-            </li>
-
-        <li class="graph-diagram-node" data-node-id="3" data-x="230" data-y="0" href="/participate"><span class="graph-diagram-in-node-caption">Participate</span></li>
-
-            <li class="graph-diagram-relationship" data-from="3" data-to="4">
-                <span class="graph-diagram-relationship-type">in</span>
-            </li>
+    <div id="canvas"></div>
+    </div>
+</div>
+</div>
+<textarea id="data" style="display: none">
+    <ul class="graph-diagram-markup" data-internal-scale="0.88" data-external-scale="2">
+      <li class="node" data-node-id="0" data-x="-3919.419722123577" data-y="-451.70513777299334" href="/learn">
+        <span class="caption">Learn</span>
+      </li>
+      <li class="node" data-node-id="1" data-x="-3306.0503928444596" data-y="-302.9124450683594" href="/participate">
+        <span class="caption">Participate</span>
+      </li>
+      <li class="node" data-node-id="2" data-x="-3592.6693872971978" data-y="-227.13553471998733" href="/participate/contributors">
+        <span class="caption">Contribute</span>
+      </li>
+      <li class="node" data-node-id="3" data-x="-3509.475708007809" data-y="5.412353515625046" href="/develop">
+        <span class="caption">Develop</span>
+      </li>
+      <li class="node" data-node-id="4" data-x="-4228.5688809481535" data-y="-88.23100280761732" href="/learn/graphdatabases">
+        <span class="caption">GraphDatabases</span>
+      </li>
+      <li class="node" data-node-id="5" data-x="-4200.0323153409145" data-y="-384.03535600142055" href="/learn/nosql">
+        <span class="caption">NOSQL</span>
+      </li>
+      <li class="node" data-node-id="6" data-x="-4119.2915371981535" data-y="137.04378856312127" href="/learn/neo4j">
+        <span class="caption">Neo4j</span>
+      </li>
+      <li class="node" data-node-id="8" data-x="-3788.915316495026" data-y="-11.132144581187674" href="/tracks/cypher">
+        <span class="caption">Cypher</span>
+      </li>
+      <li class="node" data-node-id="9" data-x="-3209.0544322620754" data-y="-77.77608143199554" href="http://stackoverflow.com/tagged/neo4j">
+        <span class="caption">StackOverflow</span>
+      </li>
+      <li class="node" data-node-id="10" data-x="-3604.1839710582376" data-y="-400.7141446200283" href="/events">
+        <span class="caption">Meetups</span>
+      </li>
+      <li class="node" data-node-id="11" data-x="-3852.532681551844" data-y="-233.01546131480802" href="/events">
+        <span class="caption">Training</span>
+      </li>
+      <li class="node" data-node-id="12" data-x="-3744.010375976559" data-y="197.1783641468397" href="/drivers">
+        <span class="caption">Drivers</span>
+      </li>
+      <li class="node" data-node-id="13" data-x="-3451.3750379735766" data-y="231.14791349931193" href="/tracks/java">
+        <span class="caption">Java</span>
+      </li>
+      <li class="relationship" data-from="3" data-to="1"></li>
+      <li class="relationship" data-from="0" data-to="4"></li>
+      <li class="relationship" data-from="0" data-to="5"></li>
+      <li class="relationship" data-from="5" data-to="4"></li>
+      <li class="relationship" data-from="4" data-to="6"></li>
+      <li class="relationship" data-from="3" data-to="8"></li>
+      <li class="relationship" data-from="8" data-to="6"></li>
+      <li class="relationship" data-from="1" data-to="9"></li>
+      <li class="relationship" data-from="1" data-to="10"></li>
+      <li class="relationship" data-from="0" data-to="10"></li>
+      <li class="relationship" data-from="0" data-to="11"></li>
+      <li class="relationship" data-from="11" data-to="6"></li>
+      <li class="relationship" data-from="11" data-to="8"></li>
+      <li class="relationship" data-from="11" data-to="3"></li>
+      <li class="relationship" data-from="9" data-to="3"></li>
+      <li class="relationship" data-from="2" data-to="3"></li>
+      <li class="relationship" data-from="2" data-to="1"></li>
+      <li class="relationship" data-from="3" data-to="12"></li>
+      <li class="relationship" data-from="12" data-to="6"></li>
+      <li class="relationship" data-from="12" data-to="8"></li>
+      <li class="relationship" data-from="13" data-to="12"></li>
+      <li class="relationship" data-from="13" data-to="3"></li>
     </ul>
-
-</figure>
-</div>
-</div>
-</div>
+</textarea>
 <script type="text/javascript" src="/assets/js/graph-editor.js"></script>
 <script type="text/javascript">
-    d3.selectAll("figure.graph-diagram").each(function () {
-        var graph = gd.markup.parse(d3.select(this).select("ul.graph-diagram-markup"));
-        var diagramView = d3.select(this).selectAll("svg.graph-diagram").data([graph]);
-
-        diagramView
-                .enter()
-                .append("svg:svg")
-                .attr("class", "graph-diagram");
-
-        bind(graph, diagramView);
-
-        if (!diagramView.classed("pre-sized")) {
-            gd.scaling.sizeSvgToFitDiagram(graph, diagramView);
+    $(document).ready(function() {
+        function updateCanvas() {
+            var canvas = $('#canvas');
+            var diagram = $(".graphdiagram");
+            canvas.height(diagram.height() + 10);
+            canvas.width(diagram.width() + 10);
         }
-    });
-    d3.select(window).on("resize", draw);
+        window.useMarkupFromSelection("#data");
+        updateCanvas();
+        $(window).resize(updateCanvas);
+    })
+//    d3.selectAll("figure.graph-diagram").each(function () {
+//        if (!diagramView.classed("pre-sized")) {
+//            gd.scaling.sizeSvgToFitDiagram(graph, diagramView);
+//        }
+//    });
+//    d3.select(window).on("resize", draw);
 </script>
 
 <% include foot %>

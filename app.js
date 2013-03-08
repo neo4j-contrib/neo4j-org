@@ -375,7 +375,10 @@ function updateSpreadsheets() {
 
 app.locals.updateChannels = function() {
     console.log("Updating Channels");
-    spreadsheet.channels(function(items) { app.locals.channels = items; });
+    spreadsheet.channels(function(items) { 
+        app.locals.channels = items;
+        app.pages.channels.featured = items;
+    });
 }
 
 app.locals.updateChannels();

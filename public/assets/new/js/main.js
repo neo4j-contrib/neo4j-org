@@ -48,8 +48,8 @@ var nav = {
 		});
 
         var h1 = $(window).height() - h(footer) - 1;
-		var h2 = h(page) + h(chapterNav) + 14; //  + h(headerWrapper)
-		console.log($('.page').height(), h1, h2);
+		var h2 = h(page) + h(chapterNav) + h(headerWrapper) + 14; //  +
+		console.log("page",page.height(),page.outerHeight(true), "canvas",$('#canvas').height(),h1, h2);
 
 		footer.css({
 			position: 'absolute',
