@@ -27,7 +27,8 @@ var express = require('express')
     , geoip = require("./helpers/geoip")
     , render = require("./helpers/render")
     , videos = require("./helpers/videos")
-
+    , asset = require("./helpers/assets.js").asset
+    
 var app = express();
 
 app.locals({
@@ -80,7 +81,7 @@ app.locals.findItem = function (key) {
 
 app.locals.render = ejs.render
 app.locals._include = render.include
-
+app.locals.asset = asset
 app.locals.versions = {}
 
 https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/versions.json"},
@@ -271,13 +272,13 @@ route_get('/', routes.index);
 route_get('/index', routes.index_graph);
 route_get('/index_graph_svg', routes.index_graph_svg);
 route_get('/index_graph_svg2', routes.index_graph_svg2);
-route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
+route_get('/favicon.ico', forward(asset('ico/favicon.ico')));
 
 route_get('/', routes.index);
 route_get('/index', routes.index_graph);
 route_get('/index_graph_svg', routes.index_graph_svg);
 route_get('/index_graph_svg2', routes.index_graph_svg2);
-route_get('/favicon.ico', forward('/assets/ico/favicon.ico'));
+route_get('/favicon.ico', forward(asset('ico/favicon.ico')));
 
 // route_get('/learn', routes.pages);
 // route_get('/learn/concepts', routes.pages);
@@ -491,8 +492,8 @@ app.locals.paths.java = {
     java: { steps: ["learn_graph", "neo4j", "cypher", "java_cypher", "jvm_drivers", "java_basics", "server"],
         tags: ["java"],
         related: [
-            { title: "API Javadoc", url: "http://api.neo4j.org/current/", image: "/assets/img/languages/java.jpg" },
-            { title: "Manual: Java Tutorial", url: "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html", image: "/assets/img/languages/java.jpg" },
+            { title: "API Javadoc", url: "http://api.neo4j.org/current/", image: asset("img/languages/java.jpg") },
+            { title: "Manual: Java Tutorial", url: "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html", image: asset("img/languages/java.jpg") },
             { title: "Neo4j and last.fm", author: { name: "Niklas Lindblad", twitter: "nlindblad", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }, type: "video", url: "http://vimeo.com/39825129", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }
         ] },
 
@@ -504,7 +505,7 @@ app.locals.paths.java = {
     java_basics: { steps: ["java_cypher", "jvm_drivers", "ide", "example_data", "spring", "server", "server_extensions"], tags: ["howto", "transaction", "graphdb", "shutdown", "index", "java"] }
 }
 // download resources
-route_get('/resources/cypher', forward('/assets/download/Neo4j_CheatSheet_v3.pdf'));
+route_get('/resources/cypher', forward(asset('download/Neo4j_CheatSheet_v3.pdf')));
 
 route_get('/wp-content/*', routes.resource);
 route_get('/wp-includes/*', routes.resource);

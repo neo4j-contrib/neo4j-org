@@ -1,64 +1,65 @@
+var asset = require("../helpers/assets.js").asset
 
 //THIS IS OVERWRITTEN FROM GOOGLE
 exports.contributors = {
     maxdemarzi: {
         url: "http://www.maxdemarzi.com",
         name: "Max De Marzi",
-        logo: "/assets/img/contributors/maxdemarzi.jpg",
+        logo: asset("img/contributors/maxdemarzi.jpg"),
         text: 'Max is a wizard in graph <a href="http://www.maxdemarzi.com">vizualisations</a>. He works on the popular <a href="https://github.com/maxdemarzi/neography">Neography Ruby Gem</a> for the Neo4j Server'
     },
     mhluongo: {
         url: "http://scholr.ly/",
         name: "Matt Luongo",
-        logo: "/assets/img/contributors/mhluongo.jpg",
+        logo: asset("img/contributors/mhluongo.jpg"),
         text: 'Matt is building awesome technology at <a href="http://scholr.ly/">Scholr.ly</a> in Boston. He is the author of the <a href="https://github.com/scholrly/neo4django/">Neo4django</a> Django bindings for Neo4j'
     },
     ronge: {
         url: "https://github.com/andreasronge/neo4j",
-        logo: "/assets/img/contributors/ronge.jpeg",
+        logo: asset("img/contributors/ronge.jpeg"),
         name: "Andreas Ronge",
         text: 'Andreas is a long time Neo4j contributor and author of the Neo4j <a href="https://github.com/andreasronge/neo4j">JRuby and Rails bindings</a>'
     },
     craigtaverner: {
         name: "Craig Taverner",
         url: "http://www.amanzi.org/",
-        logo: "/assets/img/contributors/craigtaverner.jpg",
+        logo: asset("img/contributors/craigtaverner.jpg"),
         text: 'Craig is a GIS expert and author of the Neo4j <a href="https://github.com/neo4j/spatial">Spatial Plugin</a>'
     },
     technige: {
         url: "http://nigelsmall.com/",
         name: "Nigel Small",
-        logo: "/assets/img/contributors/nigelsmall.jpg",
+        logo: asset("img/contributors/nigelsmall.jpg"),
         text: 'Nigel created <a href="http://nigelsmall.com/geoff">Geoff</a> and is the author of the Neo4j <a href="http://py2neo.org/">Py2neo</a> library'
     },
     tathamoddie: {
         url: "http://blog.tatham.oddie.com.au/",
-        logo: "/assets/img/contributors/tathamoddie.jpg",
+        logo: asset("img/contributors/tathamoddie.jpg"),
         name: "Tatham Oddie",
         text: 'Tatham built the <a href="http://hg.readify.net/neo4jclient/overview">.Net Neo4jClient</a> and deploys <a href="http://blog.tatham.oddie.com.au/2012/06/18/new-talks-neo4j-in-a-net-world-and-youre-in-production-now-what/">Neo4j on Azure</a>'
     },
     pablopareja: {
         name: "Pablo Pareja Tobes",
         url: "http://about.me/pablopareja",
-        logo: "/assets/img/contributors/pabloparejatobes.jpg",
+        logo: asset("img/contributors/pabloparejatobes.jpg"),
         text: 'Pablo is a bioinformatics expert and created <a href="http://bio4j.com/">Bio4j</a>'
     },
     espeed: {
         name: "James Thornton",
-        logo: "/assets/img/contributors/jamesthornton.jpg",
+        logo: asset("img/contributors/jamesthornton.jpg"),
         url: "http://jamesthornton.com/",
         text: 'James is a Python guru who wrote <a href="http://bulbflow.com/">Bulbs</a>, a persistence framework for graph databases'
     },
     rhetonik: {
         name: "Nikhil Lanjewar",
         url: "https://twitter.com/rhetonik",
-        logo: "/assets/img/contributors/nikhillanjewar.jpg",
+        logo: asset("img/contributors/nikhillanjewar.jpg"),
         text: 'Nikhil runs the  <a href="http://www.meetup.com/Neo4j-India/">Neo4j India Meet-up Group</a> and built the  <a href="https://github.com/yournextleap/activerecord-neo4j-adapter">Active Record Neo4j Adapter</a>'
     },
     josh_adell: {
         name: "Josh Adell",
         url: "https://twitter.com/josh_adell",
-        logo: "/assets/img/contributors/josh_adell.jpg",
+        logo: asset("img/contributors/josh_adell.jpg"),
         text: 'Josh is the creator of Neo4j PHP bindings and an active contributor to the Neo4j discussions.'
     }
 }
@@ -81,14 +82,14 @@ exports.ext_content = {
     trycypher_beer: {
         author: "@neo4j",
         name: "A live sample beer graph",
-        logo: "/assets/img/apps/beer-console.png",
+        logo: asset("img/apps/beer-console.png"),
         url: "http://console.neo4j.org/?id=beer",
         text: "A small live dataset of Belgian beers in the cypher console"
     },
     beer_rik_screencast: {
         author: "@rvanbruggen",
         name: "Screencast of Neo4j, Gephi and Beer",
-        logo: "/assets/img/apps/rik-screencast-beer.png",
+        logo: asset("img/apps/rik-screencast-beer.png"),
         url: "https://vimeo.com/57182040",
         text: "Rik shows how easy it is to import data about beers, their attributes and breweries into Neo4j and walks through different ways of exploring, visualizing and querying this very tasty data."
     }

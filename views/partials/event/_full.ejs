@@ -21,7 +21,7 @@
         </div>
         <div class="content">
             <a target='_blank' href="<%= event['Url'] %>">
-                <img class="thumbnail" src="<%= event['Image'] || event['Portrait'] || (event['Group'] ? "/meetup?img=true&group="+event['Group']: undefined) || {Webinar:'/assets/img/events/neo4j_icon_webinar.png',Training:'/assets/img/events/neo4j_icon_training.png', Meetup: '/assets/img/events/neo4j_icon_meetup.png'}[event.Type] || '/assets/img/events/neo4j_icon_webinar.png' %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
+                <img class="thumbnail" src="<%= event['Image'] || event['Portrait'] || (event['Group'] ? "/meetup?img=true&group="+event['Group']: undefined) || {Webinar: asset('img/events/neo4j_icon_webinar.png'),Training:asset('img/events/neo4j_icon_training.png'), Meetup: asset('img/events/neo4j_icon_meetup.png')}[event.Type] || asset('img/events/neo4j_icon_webinar.png') %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
             </a>
         </div>
         <div class="clear"></div>

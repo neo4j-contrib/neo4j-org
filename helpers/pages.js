@@ -1,5 +1,7 @@
 var render = require('./render');
 var content = require("./content").content
+var asset = require("../helpers/assets.js").asset
+
 
 exports.pages = {
     learn: {
@@ -88,7 +90,7 @@ exports.pages = {
     concepts: {
         path: "/learn/concepts",
         title: "Graph Concepts",
-        thumbnail: "/assets/img/propertygraph/graphdb-gve.png",
+        thumbnail: asset("img/propertygraph/graphdb-gve.png"),
         introText: "Learn about the graph data model, graph databases and their applicability. See how graph databases related to other NOSQL solutions.",
         featured: [content.videos.graphdb101],
         actionText: "Learn more",
@@ -96,7 +98,7 @@ exports.pages = {
     },
     scientific: {
         path: "/learn/scientific",
-        thumbnail: "/assets/img/logo/scientific.png",
+        thumbnail: asset("img/logo/scientific.png"),
         title: "Neo4j in the scientific community",
         introText: "There is a lot of research going on around Graph Databases in general and Neo4j in particular. Below you find some of the more recent works in this field.",
         featured: null,
@@ -162,7 +164,7 @@ exports.pages = {
         path: "/java",
         type: "track",
         title: "Neo4j for Java devs",
-        thumbnail: "/assets/img/languages/java.jpg",
+        thumbnail: asset("img/languages/java.jpg"),
         introText: "The Java track covers the Neo4j Core-API as well as interacting with the Neo4j Server from Java and other JVM languages.",
         actionText: "Start",
         next: ["java_basics", "jvm"],
@@ -180,7 +182,7 @@ exports.pages = {
         path: "/tracks/cypher_track_start",
         type: "track",
         title: "The Cypher track",
-        thumbnail: "/assets/img/still/cypher_tutorial.gif",
+        thumbnail: asset("img/still/cypher_tutorial.gif"),
         introText: "The Cypher track concentrates on the Cypher Graph Query language, making interaction with Neo4j framework independent.",
         actionText: "Start",
         next: ["cypher_track_basics"],
@@ -194,7 +196,7 @@ exports.pages = {
         path: "/tracks/cypher_track_basics",
         type: "track",
         title: "Get Started",
-        thumbnail: "/assets/img/still/cypher_tutorial.gif",
+        thumbnail: asset("img/still/cypher_tutorial.gif"),
         introText: "Get started with Cypher by watching the Video",
         actionText: "Get Started with Cypher",
         next: ["cypher"],
@@ -206,7 +208,7 @@ exports.pages = {
         path: "/tracks/cypher_track_use",
         type: "track",
         title: "Use Cypher",
-        thumbnail: "/assets/img/still/cypher_tutorial.gif",
+        thumbnail: asset("img/still/cypher_tutorial.gif"),
         introText: "",
         actionText: "Begin to use Cypher",
         next: ["cypher_track_develop"],
@@ -225,7 +227,7 @@ exports.pages = {
         path: "/tracks/cypher_track_develop",
         type: "track",
         title: "Develop with Cypher",
-        thumbnail: "/assets/img/still/cypher_tutorial.gif",
+        thumbnail: asset("img/still/cypher_tutorial.gif"),
         introText: "",
         actionText: "Start",
         next: ["java"],
@@ -295,7 +297,7 @@ exports.pages = {
         path: "/learn/licensing",
         title: "Pragmatic Licensing Guide",
         introText: "Neo4's enterprise editions are provided by Neo Technology for use in commercial, non open-source deployments.",
-        thumbnail: "/assets/img/logo/neotechnology_small.png",
+        thumbnail: asset("img/logo/neotechnology_small.png"),
         featured: [content.articles.licensing_guide],
         related: [content.articles.partner_graph,
             {
@@ -333,7 +335,7 @@ exports.pages = {
         title: "What is a Graph Database?",
         introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way",
         content: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way. Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
-        thumbnail: "/assets/img/propertygraph/graphdb-gve.png",
+        thumbnail: asset("img/propertygraph/graphdb-gve.png"),
         next: ["nosql", "neo4j"],
         prev: [],
         featured: [
@@ -347,7 +349,7 @@ exports.pages = {
     nosql: {
         path: "/learn/nosql",
         title: "NoSQL Data Models",
-        thumbnail: "/assets/img/propertygraph/nosql-space.png",
+        thumbnail: asset("img/propertygraph/nosql-space.png"),
         introText: "Understanding data stores for your application.",
         next: ["graphdatabase"],
         prev: ["concepts"],
@@ -364,7 +366,7 @@ exports.pages = {
         path: "/develop/drivers",
         title: "Language Drivers",
         introText: "Friends of Neo4j speak many languages, and work in many frameworks.",
-        thumbnail: "/assets/img/still/neo4j_drivers.png",
+        thumbnail: asset("img/still/neo4j_drivers.png"),
         featured: null,
         related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp", "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "bulbflow", "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go"]
     },
@@ -377,7 +379,7 @@ exports.pages = {
     },
     books: {
         path: "/learn/books",
-        thumbnail: "/assets/img/books/nosql_distilled.png",
+        thumbnail: asset("img/books/nosql_distilled.png"),
         title: "Graph Database related Books",
         introText: "Learn more about Neo4j, Graph Theory and Graph Databases by reading these amazing books!",
         featured: [content.books.graphdatabases],
@@ -387,7 +389,7 @@ exports.pages = {
         path: "/develop/cloud",
         title: "Neo4j in the Cloud",
         introText: "Neo4j can be run in various cloud scenarios and on a number of cloud stacks.",
-        thumbnail:"/assets/img/neo4j/neo4j_cloud.png",
+        thumbnail:asset("img/neo4j/neo4j_cloud.png"),
         actionText: "Neo4j in the Cloud",
         featured: [content.videos.james_ward_neo4j],
         related: ["heroku","ec2",content.install.debian]
@@ -433,7 +435,7 @@ exports.pages = {
     heroku: {
         path: "/develop/heroku",
         title: "Neo4j Heroku Add-on",
-        thumbnail: "/assets/img/logo/heroku.png",
+        thumbnail: asset("img/logo/heroku.png"),
         introText: "A managed graph database in the cloud, perfect for getting to know Neo4j.",
         actionText: "Do it now",
         featured: [
@@ -442,28 +444,28 @@ exports.pages = {
         related: [
             content.videos.neo4j_heroku_gdocs,
             {
-                thumbnail:"/assets/img/logo/heroku.png",
+                thumbnail:asset("img/logo/heroku.png"),
                 title: "Heroku Neo4j Add-on",
                 path: "http://addons.heroku.com/neo4j"
         
             },
             {
-                thumbnail:"/assets/img/logo/heroku.png",
+                thumbnail:asset("img/logo/heroku.png"),
                 title: "Heroku devcenter article on Neo4j",
                 path: "http://devcenter.heroku.com/articles/neo4j"
             },
             {
-                thumbnail:"/assets/img/logo/github.png",
+                thumbnail:asset("img/logo/github.png"),
                 title: "Clone an example Github Herkou template",
                 path: "https://github.com/neo4j/neo4j-heroku-example"
             },
             {
-                thumbnail:"/assets/img/contributors/maxdemarzi.jpg",
+                thumbnail:asset("img/contributors/maxdemarzi.jpg"),
                 title: "Max De Marzi's Heroku examples",
                 path: "http://maxdemarzi.com/tag/heroku/"
             },
             {
-                thumbnail:"/assets/img/neo4j/neo4j_cloud.png",
+                thumbnail:asset("img/neo4j/neo4j_cloud.png"),
                 title: "Neo4j Heroku Challenge Applications",
                 path: "http://blog.neo4j.org/2012/03/heroku-challengers-vote-now.html"
             },
@@ -504,7 +506,7 @@ exports.pages = {
         previewText: "We're very proud to have such an engaged group of contributors to Neo4j and its ecosystem.",
         actionText: "See our contributors",
         featured: [content.videos.neo4j_code_2012],
-        thumbnail: "/assets/img/still/neo4j_code_2012.gif",
+        thumbnail: asset("img/still/neo4j_code_2012.gif"),
 //        type: "_contributors",
         related: ["maxdemarzi", "mhluongo", "ronge", "craigtaverner", "technige", "pablopareja", "espeed", "rhetonik"]
     },
@@ -521,7 +523,7 @@ exports.pages = {
         next: ["videos_webinar"],
         path: "/learn/videos",
         title: "Neo4j videos, webinars and screencasts",
-        thumbnail: "/assets/img/events/webinar.png",
+        thumbnail: asset("img/events/webinar.png"),
         introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
         featured: [],
         related: ["videos_webinar","videos_interview","videos_graphconnect","videos_other"],
@@ -533,7 +535,7 @@ exports.pages = {
         title: "Neo4j webinars",
         prev: ["videos"],
         next: ["videos_interview"],
-        thumbnail: "/assets/img/events/webinar.png",
+        thumbnail: asset("img/events/webinar.png"),
         introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
         featured: [],
         related: [],
@@ -545,7 +547,7 @@ exports.pages = {
         next: ["videos_graphconnect"],
         path: "/learn/videos_interview",
         title: "Neo4j interviews",
-        thumbnail: "/assets/img/events/webinar.png",
+        thumbnail: asset("img/events/webinar.png"),
         introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
         featured: [],
         related: [],
@@ -557,7 +559,7 @@ exports.pages = {
         next: ["videos_other"],
         path: "/learn/videos_graphconnect",
         title: "Neo4j GraphConnect recordings",
-        thumbnail: "/assets/img/logo/graphconnect.png",
+        thumbnail: asset("img/logo/graphconnect.png"),
         introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
         featured: [],
         related: [],
@@ -569,7 +571,7 @@ exports.pages = {
         next: ["videos"],
         path: "/learn/videos_other",
         title: "Neo4j related videos",
-        thumbnail: "/assets/img/events/webinar.jpg",
+        thumbnail: asset("img/events/webinar.jpg"),
         introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
         featured: [],
         related: [],
@@ -578,7 +580,7 @@ exports.pages = {
     events: {
         path: "/events",
         title: "Neo4j related events",
-        thumbnail: "/assets/img/logo/meetup.jpg",
+        thumbnail: asset("img/logo/meetup.jpg"),
         introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial near you.",
         content: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
         featured: [content.links.graphconnect,content.links.tutorials],
@@ -623,7 +625,7 @@ exports.pages = {
         path: "/participate/q_and_a",
         title: "Ask Questions and Share Answers",
         introText: "Here you can find some of the resources that give you access to questions, answers and support around Neo4j related questions.",
-        thumbnail: "/assets/img/logo/googlegroups.png",
+        thumbnail: asset("img/logo/googlegroups.png"),
         featured: [content.links.stack_overflow],
         related: [
             content.links.mailing_list, content.links.github_neo4j
@@ -652,7 +654,7 @@ exports.pages = {
         type: "track",
         path: "/learn/cypher",
         title: "Intro to Cypher - the Neo4j query language",
-        thumbnail: "/assets/img/still/cypher_tutorial.gif",
+        thumbnail: asset("img/still/cypher_tutorial.gif"),
         //introText: "Hands on introduction to the Cypher Query Language",
         content : function(params) { return render.include("/cypher/cypher_console",params) },
         prev: ["cypher_track_start"],
@@ -681,7 +683,7 @@ exports.pages = {
     try: {
         path: "/learn/try",
         title: "Try querying different graphs with Cypher online",
-        thumbnail: "/assets/img/still/cypher_tutorial.gif",
+        thumbnail: asset("img/still/cypher_tutorial.gif"),
         introText: "Try Cypher live on a dataset of your choice",
         actionText: "Try live",
         featured: [

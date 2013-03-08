@@ -3,10 +3,10 @@
 <script type="text/javascript">
 //    $("#navigation").hide();
 </script>
-<script type="text/javascript" src="/assets/js/d3.v2.min.js"></script>
-<script type="text/javascript" src="/assets/js/graph-diagram.js"></script>
-<link rel="stylesheet" href="/assets/css/graph-diagram.css" type="text/css">
-<link rel="stylesheet" href="/assets/css/graph-editor.css" type="text/css">
+<script type="text/javascript" src="<%=asset('js/d3.v2.min.js')%>"></script>
+<script type="text/javascript" src="<%=asset('js/graph-diagram.js')%>"></script>
+<link rel="stylesheet" href="<%=asset('css/graph-diagram.css')%>" type="text/css">
+<link rel="stylesheet" href="<%=asset('css/graph-editor.css')%>" type="text/css">
 
 <div class="page"><!-- page -->
 
@@ -101,7 +101,7 @@
       <li class="relationship" data-from="13" data-to="3"></li>
     </ul>
 </textarea>
-<script type="text/javascript" src="/assets/js/graph-editor.js"></script>
+<script type="text/javascript" src="<%=asset('js/graph-editor.js')%>"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         var timeout;

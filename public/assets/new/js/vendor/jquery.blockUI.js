@@ -1,6 +1,6 @@
 /*!
  * jQuery blockUI plugin
- * Version 2.55 (18-JAN-2013)
+ * Version 2.57.0-2013.02.17
  * @requires jQuery v1.7 or later
  *
  * Examples at: http://malsup.com/jquery/block/
@@ -13,15 +13,10 @@
  */
 
 ;(function() {
+/*jshint eqeqeq:false curly:false latedef:false */
 "use strict";
 
 	function setup($) {
-		if (/^1\.(0|1|2)/.test($.fn.jquery)) {
-			/*global alert:true */
-			alert('blockUI requires jQuery v1.3 or later!  You are using v' + $.fn.jquery);
-			return;
-		}
-
 		$.fn._fadeIn = $.fn.fadeIn;
 
 		var noOp = $.noop || function() {};
@@ -29,7 +24,7 @@
 		// this bit is to ensure we don't call setExpression when we shouldn't (with extra muscle to handle
 		// retarded userAgent strings on Vista)
 		var msie = /MSIE/.test(navigator.userAgent);
-		var ie6  = /MSIE 6.0/.test(navigator.userAgent);
+		var ie6  = /MSIE 6.0/.test(navigator.userAgent) && ! /MSIE 8.0/.test(navigator.userAgent);
 		var mode = document.documentMode || 0;
 		// var setExpr = msie && (($.browser.version < 8 && !mode) || mode < 8);
 		var setExpr = $.isFunction( document.createElement('div').style.setExpression );
@@ -79,7 +74,7 @@
 			});
 		};
 
-		$.blockUI.version = 2.55; // 2nd generation blocking at no extra cost!
+		$.blockUI.version = 2.57; // 2nd generation blocking at no extra cost!
 
 		// override these in your code to change the default behavior and style
 		$.blockUI.defaults = {
@@ -479,7 +474,7 @@
 				data.el.style.position = data.position;
 				if (data.parent)
 					data.parent.appendChild(data.el);
-				$(el).removeData('blockUI.history');
+				$el.removeData('blockUI.history');
 			}
 
 			if ($el.data('blockUI.static')) {

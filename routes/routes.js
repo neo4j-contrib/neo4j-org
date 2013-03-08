@@ -1,3 +1,4 @@
+var asset = require("../helpers/assets.js").asset
 
 /*
  * GET home page.
@@ -211,7 +212,7 @@ exports.resource = function(req,res) {
     var idx = path.lastIndexOf('/');
     var file = idx > -1 ? path.substr(idx+ 1,path.length) : path;
     console.log('got request for ',path,' from ',req.header('Referer'));
-    res.redirect('/assets/download/'+file); 
+    res.redirect(asset('/download/'+file)); 
 }
 
 exports.pages = function(req,res) {
