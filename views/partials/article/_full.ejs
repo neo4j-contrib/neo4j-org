@@ -2,7 +2,7 @@
     <div class="slide article">
        <div>
             <div class="caption">
-                <% if (item.title) { %><h3><%= item.title %></h3><% } %>
+                <% if (item.title) { %><h3><%- item.title %></h3><% } %>
             </div>
            <% if (item.src) { %><img src="<%- item.src %>"><% } %>
            <% if (item.introText) { %><p class="introText"><%- item.introText %></p><% } %>

@@ -215,9 +215,22 @@ neo4j start</pre>\
             thumbnail: "/assets/img/still/neo4j_code_2012.gif",
             introText: "A visualisation of Neo4j's code base during 2012",
             src: "http://www.youtube.com/embed/YJKK7ciYRhM"
+        },
+        ec2_setup : {
+            title: "Install Neo4j on EC2",
+            type: "video",
+            author: "peterneubauer",
+            thumbnail: "/assets/img/still/ec2_install.gif",
+            introText: "Peter Neubauer shows how to install Neo4j on EC2.",
+            src: "http://player.vimeo.com/video/58019458"
         }
     },
     links: {
+        ec2_aws_tools : {
+            type: "link",
+            title: "Getting Started Guide on Amazon EC2",
+            path: "http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html"
+        },
         stack_overflow: {
             title: "Stack Overflow",
             path: "http://stackoverflow.com/questions/tagged/neo4j",

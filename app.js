@@ -222,7 +222,7 @@ fs.readFile("views/partials/page.ejs", function (err, buf) {
 //  console.log(template,err);
     for (key in app.locals.pages) {
 
-        // console.log("loading " + key);
+        //console.log("loading " + key);
         var page=app.locals.pages[key];
         var config = page.config || {};
         var featuredArray = page.featured;
@@ -232,16 +232,20 @@ fs.readFile("views/partials/page.ejs", function (err, buf) {
 
             // works only for the first featured item
             var featured = featuredArray[0];
-
-            //console.log('use partial for', featured.type, "views/partials/" + featured.type + "/_full.ejs");
+            if (!featured.type) {
+                console.log("Need type for featured ",featured," for page ",key);
+                break;
+            }
+            // console.log('use partial for', featured.type, "views/partials/" + featured.type + "/_full.ejs");
             // case 'track'            : %><% include partials/track/_full %>
 
             var partial = fs.readFileSync("views/partials/" + featured.type + "/_full.ejs");
-            //console.log(partial.toString())
-            var newPartial = partial.toString().replace(new RegExp("<%- item.content %>"),
+            console.log("partial",partial.toString())
+            var newPartial = partial.toString().replace(new RegExp("<%- .*?item.content %>","g"),
                                          featured['content']);
 
-            var newFile=template.replace(new RegExp("<% include ../partials/item/_full %>"), newPartial);
+            console.log("newPartial",newPartial);
+            var newFile=template.replace(new RegExp("<% include ../partials/item/_full %>","g"), newPartial);
             var file="ejs/"+page.path.replace(/\//g,"_");
             var fileName="views/"+file+".ejs";
             console.log("Routing to special generated page: ",file,fileName,key,page.path,page.title,featured.type);

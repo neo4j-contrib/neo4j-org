@@ -390,7 +390,45 @@ exports.pages = {
         thumbnail:"/assets/img/neo4j/neo4j_cloud.png",
         actionText: "Neo4j in the Cloud",
         featured: [content.videos.james_ward_neo4j],
-        related: ["heroku"]
+        related: ["heroku","ec2",content.install.debian]
+    },
+    ec2: {
+        path: "/develop/ec2",
+        title: "Easy Neo4j on Amazon EC2",
+        introText: "Setup your EC2 instance AND Neo4j using Puppet <a href='https://github.com/neo4j-contrib/neo4j-puppet/blob/master/README.CLOUDFORMATION.md' target='_blank'>(source)</a>",
+        actionText: "Easy Neo4j on Amazon EC2",
+        featured: [{
+            title: "Puppet Setup",
+            type: "article",
+            content: "\
+            <blockquote class='external markdown'>\
+                <%-: content.ec2_template | md %>\
+            </blockquote>"
+        }],
+        related: ["ec2_detailed","develop","drivers",content.links.ec2_aws_tools]
+    },
+    ec2_detailed: {
+        path: "/develop/ec2_detailed",
+        title: "Set up your EC2 instance and Neo4j manually",
+        actionText: "Manual Setup",
+        featured: [{
+            type: "article",
+            title: "Setup <strong>Neo4j only</strong> using Puppet <a href='https://github.com/neo4j-contrib/neo4j-puppet/blob/master/README.md' target='_blank'>(source)</a>",
+            content: "\
+            <blockquote class='external markdown'>\
+                <%-: content.puppet | md %>\
+            </blockquote>"
+        }],
+        related: ["ec2","cloud",content.links.ec2_aws_tools,{
+            type: "include",
+            path: "/develop/_ec2_manual",
+            title: "Manually set up an AWS EC2 instance"
+        },
+            {
+                type:"link",
+                title:"Deploy Neo4j on Eucalyptus",
+                path:"http://blogs.mindspew-age.com/2012/12/04/another-great-example-of-aws-fidelity-neo4j-cloud-init-and-eucalyptus/"
+            }]
     },
     heroku: {
         path: "/develop/heroku",

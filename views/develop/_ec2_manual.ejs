@@ -1,0 +1,116 @@
+<h2  id="manual">Launch an instance to host Neo4j</h2>
+
+<ol>
+    <li>Log in to aws.amazon.com</li>
+    <li>Go to the EC2 Console</li>
+    <li>Click "Launch Instance"</li>
+    <li>Select the "Classic Wizard"</li>
+    <li>"Choose an AMI"
+
+        <ol>
+            <li>Select "Ubuntu Server 12.04.1 LTS" 64-bit</li>
+        </ol>
+    </li>
+    <li>"Instance Details"
+
+        <ol>
+            <li>Instance Type: "m1.large"</li>
+            <li>Availability Zone: "no preference"
+
+                <ul>
+                    <li>just make sure it is any "us-east"</li>
+                </ul>
+            </li>
+            <li>Click "Continue"</li>
+        </ol>
+    </li>
+    <li>Instance Details - Advanced Instance Options
+
+        <ol>
+            <li>Termination Protection: enable</li>
+            <li>Click "Continue"</li>
+        </ol>
+    </li>
+    <li>Instance Details - Storage Device Configuration
+
+        <ol>
+            <li>Click "Edit"</li>
+            <li>Select "EBS Volumes"</li>
+            <li>Volume Size: 40GiB</li>
+            <li>Volume Type: Standard</li>
+            <li>Delete on Termination: disable (!!!)</li>
+            <li>Click "Add"
+                (Note the device path, something like /dev/sdf)
+            </li>
+            <li>Click "Continue"</li>
+        </ol>
+    </li>
+    <li>Instance Details - Add tags
+
+        <ol>
+            <li>Optional, and safe to ignore</li>
+            <li>Click "Continue"</li>
+        </ol>
+    </li>
+    <li>Create Key Pair
+
+        <ol>
+            <li>Choose an existing, or create a new Key Pair</li>
+            <li>be sure to <strong>adjust permissions</strong> of a created PEM file to only be
+                readable by you (e.g. <code>chmod go-rwx keypair.pem</code>)
+            </li>
+            <li>Select "Continue"</li>
+        </ol>
+    </li>
+    <li id="firewall">Configure Firewall
+        <ol>
+            <li>Select "Create a new Security Group"</li>
+            <li>Group Name "Neo4j"</li>
+            <li>Group Description "for remote access to Neo4j database"</li>
+            <li>Port range: 7474</li>
+            <li>(check out Heroku instructions <a
+                    href="https://devcenter.heroku.com/articles/external-services">here</a>)
+            <li>or programmatically <code>$ ec2-authorize Neo4j -P tcp -p 7474 -u 098166147350 -o
+                default</code>
+            </li>
+            <li>Click "Continue"</li>
+        </ol>
+    </li>
+    <li>Review &amp; Launch
+        <ol>
+            <li>Review the settings</li>
+            <li>Click "Launch"</li>
+        </ol>
+    </li>
+</ol>
+
+
+<p>Wait for the instance to launch by monitoring it on the "Instances" dashboard.
+    Once it is running ssh onto the instance like so:
+    <code>ssh -i /path/to/keypair.pem ubuntu@ec2-???-??-???-???.compute-1.amazonaws.com</code></p>
+
+<h2 id="debian">Add Neo4j on Debian/Ubuntu</h2>
+
+<% include ../download/debian %>
+
+<h3>Confirm Neo4j is running locally</h3>
+
+<p><code>curl http://localhost:7474</code></p>
+
+<h3 id="config">Make Neo4j accessible from the outside</h3>
+
+<p>Only do this if it is necessary, for instance when your services accessing Neo4j run on a different host.
+    Make sure to secure the instance by
+    enabling SSL and adding authentication (like the <a
+            href="http://github.com/neo4j-contrib/authentication-extension"
+            target="_blank">authentication-extension</a>.
+</p>
+<ol>
+    <li>Find and open: <code>/path/to/neo4j/conf/neo4j-server.properties</code></li>
+    <li>uncomment the line: <code>#org.neo4j.server.webserver.address=0.0.0.0</code></li>
+    <li>Check that SSL access is enabled: <code>org.neo4j.server.webserver.https.enabled=true</code></li>
+    <li>restart the Neo4j Server: <code>sudo /etc/init.d/neo4j-server restart</code></li>
+    <li>Check if it is accessible from the outside: <code>curl
+        http://ec2-???-??-???-???.compute-1.amazonaws.com:7474</code>
+    </li>
+</ol>
