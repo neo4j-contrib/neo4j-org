@@ -23,7 +23,7 @@ exports.pages = {
         title: "Participate",
         introText: "Connect with a friendly, engaging, and ever expanding community online or in person.",
         featured: null,
-        related: ["q_and_a", "contributors", "events"]
+        related: ["q_and_a", "contributors", "events","beer"]
     },
     install : {
         path : "/install",
