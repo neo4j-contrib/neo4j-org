@@ -584,7 +584,7 @@ exports.pages = {
         content: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
         featured: [content.links.graphconnect,content.links.tutorials],
         related: [],
-        actionText: "Events are everywhere. Pick one."
+        actionText: "Pick your event"
     },
     meetups: {
         path: "/participate/events/meetups",

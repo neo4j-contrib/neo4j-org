@@ -68,14 +68,8 @@ exports.content = {
         debian: {
             type: "video",
             title: "Debian - stable",
-            introText: "<p>We provide Debian packages in a repository.<br/>\
-                We <em>sign</em> the packages so you know you're getting the genuine Neo4j packages.\
-                To use the packages, you need to get our signing key first.<br/>  \
-                You also need to configure your system to look for our packages, see the instructions below.\
-                You can safely copy and paste all the commands below into a <strong>root shell</strong> on the target machine.<br/>\
-                <em>Neo4j will be started automatically when your system boots up.</em>  \
-            </p>\
-            ",
+            introText: "We provide Debian packages in a repository.\
+                We <em>sign</em> the packages so you know you're getting the genuine Neo4j packages.",
             src: "http://player.vimeo.com/video/57939261",
             thumbnail: asset("img/still/debian_install.png"),
             content: function(params) { return render.include("download/debian",params) }
