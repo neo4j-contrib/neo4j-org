@@ -51,10 +51,10 @@ var nav = {
 		var h2 = h(page) + h(chapterNav) + h(headerWrapper) + 14; //  +
 		console.log("page",page.height(),page.outerHeight(true), "canvas",$('#canvas').height(),h1, h2);
 
-		footer.css({
-			position: 'absolute',
-		 	top: Math.max(h1, h2)
-		});
+		// footer.css({
+		// 	position: 'absolute',
+		//  	top: Math.max(h1, h2)
+		// });
 	},
 
 	/**
@@ -74,7 +74,7 @@ var nav = {
 	* Activate an item in the main menu
 	*/
 	activateMain : function(category) {
-        var rightAlign = {learn: "13.1em" , develop: "9.8em", participate: "5.7em", install:"2em",download:"2em" };
+        var rightAlign = {learn: "15em" , develop: "12em", participate: "8.4em", install: "3em", download: "3em" };
 		var mainNav = $('#mainNav');
 		$('a', mainNav).removeClass('active');
         $('.' + category + ' a', mainNav).addClass('active');

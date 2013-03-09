@@ -80,7 +80,7 @@ var nextPage = pages[p];
 %>    
     <div class="related" class="mainElement">
 
-            <% chunk(page.related,3).forEach(function(row) { %>
+            <% chunk(page.related,4).forEach(function(row) { %>
                 <div class="row">
                 <% 
                 row.forEach(function(key) { 
@@ -94,9 +94,6 @@ var nextPage = pages[p];
 
          <% }); %>
                     
-        </div><!-- row -->
-        <div class="clear"></div>
-
     </div><!-- related -->
 
 <% } %>

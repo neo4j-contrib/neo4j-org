@@ -45,9 +45,9 @@ body {
 
 hr {
     display: block;
-    height: 1px;
+    height: .1em;
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: .1em solid #ccc;
     margin: 1em 0;
     padding: 0;
 }
@@ -110,25 +110,73 @@ body {
     font-size: 9pt;
 }
 
-@media (min-width: 800px) and (max-width: 900px) {
+@media (max-width: 700px) {
+    body {
+        font-size: 8pt;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 800px) {
+    body {
+        font-size: 9pt;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+    body {
+        font-size: 9.25pt;
+    }
+}
+
+@media (min-width: 850px) and (max-width: 900px) {
     body {
         font-size: 9.5pt;
     }
 }
 
-@media (min-width: 900px) and (max-width: 1000px) {
+@media (min-width: 900px) and (max-width: 925px) {
+    body {
+        font-size: 9.75pt;
+    }
+}
+
+@media (min-width: 925px) and (max-width: 950px) {
     body {
         font-size: 10pt;
     }
 }
 
-@media (min-width: 1000px) and (max-width: 1080px) {
+@media (min-width: 950px) and (max-width: 975px) {
+    body {
+        font-size: 10.52pt;
+    }
+}
+
+@media (min-width: 975px) and (max-width: 1000px) {
+    body {
+        font-size: 10.5pt;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1025px) {
+    body {
+        font-size: 10.75pt;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1050px) {
     body {
         font-size: 11pt;
     }
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1050px) and (max-width: 1100px) {
+    body {
+        font-size: 11.25pt;
+    }
+}
+
+@media (min-width: 1100px) {
     body {
         font-size: 12pt;
     }
@@ -208,7 +256,7 @@ ul.hor li {
     *line-height: 20px;
     color: #333333;
     text-align: center;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    text-shadow: 0 .1em .1em rgba(255, 255, 255, 0.75);
     vertical-align: middle;
     cursor: pointer;
     background-color: #f5f5f5;
@@ -219,7 +267,7 @@ ul.hor li {
     background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
     background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
     background-repeat: repeat-x;
-    border: 1px solid #bbbbbb;
+    border: .1em solid #bbbbbb;
     *border: 0;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     border-color: #e6e6e6 #e6e6e6 #bfbfbf;
@@ -230,14 +278,14 @@ ul.hor li {
     filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
     filter: progid:dximagetransform.microsoft.gradient(enabled=false);
     *zoom: 1;
-    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: inset 0 .1em 0 rgba(255, 255, 255, 0.2), 0 .1em 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 .1em 0 rgba(255, 255, 255, 0.2), 0 .1em 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 .1em 0 rgba(255, 255, 255, 0.2), 0 .1em 2px rgba(0, 0, 0, 0.05);
 }
 
 .btn-install {
     color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -.1em 0 rgba(0, 0, 0, 0.25);
     background-color: #5bb75b;
     *background-color: #51a351;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
@@ -255,7 +303,7 @@ ul.hor li {
 .btn-action {
     color: #555 ! important;
     font-size: 1em;
-    text-shadow: 0 -1px 0 rgba(255, 255, 255, .25);
+    text-shadow: 0 -.1em 0 rgba(255, 255, 255, .25);
     background-color: #e5e5e5;
     *background-color: #e5e5e5;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e5e5e5), to(#c0c0c0));
@@ -281,7 +329,7 @@ ul.hor li {
 
 #headerWrapper {
     background: #00546a; /*url('../img/header_bg.gif') repeat-x;*/
-    /*border-bottom: 1px solid #c4ced0;*/
+    /*border-bottom: .1em solid #c4ced0;*/
     position: fixed;
     top: 0;
     left: 0;
@@ -366,7 +414,7 @@ ul.hor li {
     z-index: 2;
     /*min-height: 4.5em;*/
     background-color: #e5e5e5;
-    border-bottom: 1px solid #c4ced0;
+    border-bottom: .1em solid #c4ced0;
 }
 
 #secNav ul {
@@ -389,14 +437,14 @@ ul.hor li {
 #secNav li a.active:visited {
     text-shadow: #fff 0 0 .75em;
     color: #00546a;
-    border-top: 1px solid #c4ced0;
-    border-left: 1px solid #c4ced0;
-    border-right: 1px solid #c4ced0;
-/*    border-bottom: 1px solid #f5f5f5;
+    border-top: .1em solid #c4ced0;
+    border-left: .1em solid #c4ced0;
+    border-right: .1em solid #c4ced0;
+/*    border-bottom: .1em solid #f5f5f5;
     background: #f5f5f5;*/
-    border-bottom: 1px solid #fff;
+    border-bottom: .1em solid #fff;
     background: #fff;
-    margin: -1px;
+    margin: -.1em;
 }
 
 
@@ -430,7 +478,7 @@ ul.hor li {
     margin: 4em auto 2em auto;
     /*background-color: #f3f3f3;*/
     /*display: none;*/
-    /*border: 1px solid #c4ced0;*/
+    /*border: .1em solid #c4ced0;*/
     border-radius: .25em;
     padding: 1em 2em;
 /*    box-shadow: 0px 0px 1em #e0e0e0;
@@ -439,7 +487,7 @@ ul.hor li {
 /*    box-shadow: 0px 0px 1em #e5e5e5;
     -webkit-box-shadow: 0px 0px 1em #e5e5e5;
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
-    border: 1px solid #dce7ea;
+    border: .1em solid #dce7ea;
 */
 }
 
@@ -573,7 +621,7 @@ ul.hor li {
     box-shadow: 0px 0px 1em #e5e5e5;
     -webkit-box-shadow: 0px 0px 1em #e5e5e5;
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
-    border: 1px solid #dce7ea;
+    border: .1em solid #dce7ea;
     background: #fff;
     overflow: hidden; /* makes children expand this box to max height */
     width: 59em;
@@ -761,8 +809,8 @@ ul.hor li {
     white-space: nowrap;
     background: #fafafa;
     width: 5em;
-    border-top: 1px solid #dce7ea;
-    border-bottom: 1px solid #dce7ea;
+    border-top: .1em solid #dce7ea;
+    border-bottom: .1em solid #dce7ea;
     box-shadow: 0px 0px 1em #e5e5e5;
     -webkit-box-shadow: 0px 0px 1em #e5e5e5;
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
@@ -776,13 +824,13 @@ ul.hor li {
 }
 
 .nextStep h3 {
-    border-right: 1px solid #dce7ea;
+    border-right: .1em solid #dce7ea;
     direction: rtl;
 }
 
 .prevStep h3 {
     float: right;
-    border-left: 1px solid #dce7ea;
+    border-left: .1em solid #dce7ea;
 }
 
 .trackNav h3:hover {
@@ -803,7 +851,7 @@ ul.hor li {
     padding-bottom: 2em;
     min-height: 6em;
     /*background-color: #fff;*/
-    /*border-bottom: 1px solid #ccc;*/
+    /*border-bottom: .1em solid #ccc;*/
 }
 
 .related a,
@@ -815,23 +863,23 @@ ul.hor li {
 }
 
 .related .row {
-    width: 60em;
+    width: 63em;
     min-height: 6em;
-    margin: 0 auto;
-    /*border-top: 1px solid #dce7ea;*/
+    margin-left: -.5em;
+    /*border-top: .1em solid #dce7ea;*/
     padding-top: 1em;
 }
 
 .related .row .item {
-    width: 16.9em;
+    width: 12.4em;
     min-height: 6em;
     float: left;
     padding: 1em;
-    margin-left: 1.29em;
+    margin: .5em;
     box-shadow: 0px 0px 1em #e5e5e5;
     -webkit-box-shadow: 0px 0px 1em #e5e5e5;
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
-    border: 1px solid #dce7ea;
+    border: .1em solid #dce7ea;
     background: #fff;
 }
 
@@ -839,15 +887,7 @@ ul.hor li {
     box-shadow: 0px 0px 1em #e0e0e0;
     -webkit-box-shadow: 0px 0px 1em #e0e0e0;
     -moz-box-shadow: 0px 0px 1em #e0e0e0;
-    border: 1px solid #cccccc;
-}
-
-.related .row .item:first-child {
-    margin: 0;
-}
-
-.related .row .item div {
-    /*height: 4.4em;*/
+    border: .1em solid #cccccc;
 }
 
 .related .row .item h3 {
@@ -858,7 +898,7 @@ ul.hor li {
     display: block;
     margin: 0 auto .5em auto;
     border: none;
-    max-width: 17em;
+    max-width: 12em;
 }
 
 .related .row .item img.logo {
@@ -876,7 +916,7 @@ ul.hor li {
     max-width: 17em;
     max-height: 10em;
     margin: auto;
-    border: 1px solid #e5e5e5;
+    border: .1em solid #e5e5e5;
 /*    width: 10em;
     margin: 0 3em ! important;
 /*    border: none;*/
@@ -891,7 +931,7 @@ ul.hor li {
 
 .related .driver img {
     width: 10em;
-    margin: 0 3em ! important;
+    margin: 0 1.5em ! important;
     padding: 0;
     text-align: center;
     border: none;
@@ -985,7 +1025,7 @@ ul.hor li {
 
 #footer {
     background-color: #e5e5e5;
-    border-top: 1px solid #c4ced0;
+    border-top: .1em solid #c4ced0;
     height: 16em;
 /*    position: absolute;
     z-index: 3;
@@ -1059,12 +1099,12 @@ ul.hor li {
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
+    height: .1em;
+    margin: -.1em;
     overflow: hidden;
     padding: 0;
     position: absolute;
-    width: 1px;
+    width: .1em;
 }
 
 /*
@@ -1176,7 +1216,7 @@ ul.hor li {
 
     pre,
     blockquote {
-        border: 1px solid #999;
+        border: .1em solid #999;
         page-break-inside: avoid;
     }
 
@@ -1212,7 +1252,7 @@ ul.hor li {
 
 .bjqs-controls li a i {
     color: white;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+    text-shadow: 0 .1em .1em rgba(0, 0, 0, 0.75);
     text-decoration: none;
     font-size: 3em;
 }
