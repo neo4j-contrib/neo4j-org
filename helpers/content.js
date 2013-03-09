@@ -293,7 +293,7 @@ neo4j start</pre>\
             path: "http://docs.neo4j.org/chunked/milestone/server.html",
             thumbnail: asset("img/languages/java.jpg"),
             introText: "Neo4j server manual sections",
-            actionText: "Browse the neo4j server manual"
+            actionText: "Browse the manual"
         },
         manual_cypher: {
             title: "Cypher Reference",

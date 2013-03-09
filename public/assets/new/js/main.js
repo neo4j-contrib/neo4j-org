@@ -1,3 +1,10 @@
+
+$(window).load(function() {
+    nav.resizeRelatedItems();
+    enableSlider();
+});
+
+
 /**
 *	Some helpers for neo4j.org
 */
@@ -94,18 +101,18 @@ function getTextWidth(text, fs, fw) {
     return w;
 }
 
-function enableSlider(width, height) {
+function enableSlider() {
 
     $('#featured_slider').bjqs({
         // width and height need to be provided to enforce consistency
         // if responsive is set to true, these values act as maximum dimensions
-        width : Math.max(width,960), //'58em',
-        height : Math.max(height, 400), //'30em',
+        width : 960,
+        height : 480,
         
         // animation values
         animtype : 'slide', // accepts 'fade' or 'slide'
         animduration : 450, // how fast the animation are
-        animspeed : 400000, // the delay between each slide
+        animspeed : 5000, // the delay between each slide
         // automatic : true, // automatic
         
         // control and marker configuration
@@ -125,6 +132,35 @@ function enableSlider(width, height) {
         //randomstart : true, // start slider at random slide
         responsive : true // enable responsive capabilities (beta)
     });
+
+    var featured = $('div.featured');
+
+    console.log(featured);
+
+     var maxHeight = 0, maxWidth = 0;
+     $.each(featured, function(i, item) {
+
+	// 	maxWidth = Math.max($(this).width());
+     	maxHeight = Math.max(maxHeight, $(this).height());
+     	console.log(maxWidth, maxHeight);
+
+     });
+
+     var offset = 20;
+
+     featured.height(maxHeight);
+
+	//$('#featured_slider').width(maxWidth);
+	$('#featured_slider').height(maxHeight+offset);
+
+ //    $('.bjqs').width(maxWidth);
+     $('.bjqs').height(maxHeight+offset);
+
+ //    $('.bjqs-wrapper').width(maxWidth);
+     $('.bjqs-wrapper').height(maxHeight+offset);
+
+ //    $('.bjqs-slide').width(maxWidth);
+     $('.bjqs-slide').height(maxHeight+offset);
 
     $('.bjqs-markers.h-centered .active-marker a').remove();
 

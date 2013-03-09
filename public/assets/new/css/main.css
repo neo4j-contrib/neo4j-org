@@ -750,7 +750,8 @@ ul.hor li {
 
 .nextStep {
     float: right;
-    margin-left: 1em;
+    margin-left: 2em;
+    margin-right: -1em;
 }
 
 .nextStep i {
