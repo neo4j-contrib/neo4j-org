@@ -821,7 +821,7 @@ neo4j start</pre>\
         }     ,
         gremlin_plugin: {
             type: "app",
-            author: "@peterneubuaer",
+            author: "@peterneubauer",
             url: "https://github.com/neo4j-contrib/gremlin-plugin",
             logo: "https://github.com/tinkerpop/gremlin/raw/master/doc/images/gremlin-logo.png",
             text: "A Neo4j Server plugin to execute Gremlin queries against the Neo4j REST API.",

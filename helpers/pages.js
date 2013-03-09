@@ -16,7 +16,7 @@ exports.pages = {
         title: "Develop",
         introText: "Learn how to develop applications with Neo4j and deploy Server instances.",
         featured: null,
-        related: ["tracks", "drivers", "tools", "cloud", "ops"]
+        related: ["tracks", "drivers", "tools", "cloud", "ops","ruby","dotnet","python"]
     },
     participate: {
         path: "/participate",
@@ -204,7 +204,13 @@ exports.pages = {
         featured: [content.videos.cypher_vs_sql],
         related: [
             content.videos.cypher_advanced,
-            content.links.cypher_cheat_sheet
+            content.links.cypher_cheat_sheet,
+            {
+                type:"video",
+                title:"Got a graph database? Need a Query Language!",
+                introText: "Cypher is a graph query language that is powerful and easy to use, and a unique feature of Neo4j.  Much like SQL, Cypher is a declarative language and is the easiest way to query one’s graph.  Whereas first-generation graph query languages require you to specify exactly how the database will walk the graph, with Cypher you simply tell the database what you want, and the database engine takes care of the low-level details.  This results in less code, improved readability, and faster development cycles.  Cypher has been embraced with great enthusiasm by the Neo4j user community, and is now the preferred language for Neo4j development.",
+                src:"http://vimeo.com/45318365"
+            }
         // import with cypher
         // the shell
         // the rest-cypher
@@ -783,6 +789,7 @@ exports.pages = {
         path: "/develop/ruby",
         title: "Neo4j and Ruby",
         introText: "Neo4j and Ruby have been close friends for a long time. You can use Neo4j embedded via neo4j.rb (JRuby) or Neo4j server via neography and other drivers",
+        thumbnail: asset("img/languages/ruby.png"),
         featured: [{
             type: "video",
             title: "Neo4j: Social Skills for Ruby Developers",
@@ -800,7 +807,70 @@ exports.pages = {
                 thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2012/02/network.png?w=290&h=239",
                 introText: "Examples on how to query, import, export and visualize data in Neo4j using Ruby from Max de Marzi"
             },
-            content.drivers.neo4j_rb,content.drivers.neography,content.drivers.neoid,content.drivers.keymaker, "maxdemarzi","ronge"
+            content.drivers.neo4j_rb,content.drivers.neography,content.drivers.neoid,content.drivers.keymaker, "maxdemarzi","ronge", content.apps.neosocial
+        ]
+    },
+    dotnet : {
+        path: "/develop/dotnet",
+        title: "Neo4j and .net",
+        introText: "Thanks to our partners at readify, the .net story for Neo4j is much better than everyone who sees the 4j suffix would imagine.",
+        thumbnail: asset("img/languages/dotnet.png"),
+        featured: [{
+            type: "video",
+            title: "Neo4j in a .NET world",
+            src: "http://vimeo.com/43676873",
+            thumbnail: asset("img/languages/dotnet.png"),
+            author: "tathamoddie",
+            introText: "<p>Tatham Oddie will be coming from Australia to present at the Neo4j User Group on Neo4j with .NET, and will cover:\
+            <ol><li>the Neo4j client we have built for .NET SyntaxErrorl</li>\
+            <li>hosting it all in Azure</li>\
+            <li>why our queries were 200ms slower in the cloud, and how we fixed it</li></ol>\
+            </p>\
+            <p>Tatham will present a case study, explaining:\
+            <ol><li>what our project is</li>\
+            <li>why we chose a graph db</li>\
+            <li>how we modelled it to start with</li>\
+            <li>how our first attempts at modelling were wrong</li>\
+            <li>what we're doing now</li>\
+            </ol></p>"
+        }],
+        related: [
+            content.drivers.neo4jclient,
+            {
+                type: "link",
+                title: "Neo4j Koans in .net using Neo4jClient",
+                author: "Brian Woodward",
+                path: "https://github.com/doowb/neo4j-dotnet-koans"
+            },
+            "tathamoddie" , // "romikoderbynew" ,
+            {
+                type:"link",
+                title: "Neo4jD–.NET client for Neo4j Graph DB",
+                author: "Sony Arouje",
+                introText: "Last couple of days I was working on a small light weight .NET client for Neo4j.",
+                path: "http://sonyarouje.com/2012/02/03/neo4jd-net-client-for-neo4j-graph-db/"
+            },
+            {
+                type:"link",
+                title: "Neo4j on Azure",
+                path: "http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"
+            }
+        ]},
+    python : {
+        path: "/develop/python",
+        title: "Neo4j and Python",
+        introText: "Python rocks and so does Python and Neo4j. There are many ways of interacting with Neo4j from Python",
+        thumbnail: asset("img/languages/python.png"),
+        featured: [{
+            type: "video",
+            title: "PyCon 2010:Persistent Graphs in Python with Neo4j",
+            src: "http://blip.tv/play/g4VigczNTgI.x?p=1",
+            author: "thobe",
+            img: "http://a.images.blip.tv/Pycon-PyCon2010PersistentGraphsInPythonWithNeo4j140164-779.jpg"
+        }],
+        related: [
+            content.drivers.py2neo,content.drivers.neo4j_rest_client,content.drivers.bulbflow,content.drivers.neo4django,content.drivers.neo4j_python, 
+            "technige" 
         ]
     }
 }
