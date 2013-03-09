@@ -1,13 +1,14 @@
 var rssparser = require('rssparser')
-  , http = require('http')
-  
+    , http = require('http')
+    , spreadsheet = require('./spreadsheet');
+
 
 // curl 'http://www.google.com/calendar/feeds/neopersistence.com_3p7hh97rfcu76paib7l2dp4llo@group.calendar.google.com/public/full?alt=json-in-script&callback=insertAgenda&orderby=starttime&max-results=15&singleevents=true&sortorder=ascending&futureevents=true'
 
 function events2(fun, filter,calendar) {
     // graphdb-belgium/events/81881472
     calendar = calendar || "neopersistence.com_3p7hh97rfcu76paib7l2dp4llo@group.calendar.google.com";
-    var results=1
+    var results = 1;
     var url="/calendar/feeds/"+calendar+
         "/public/full?alt=json&orderby=starttime&max-results="+results+
         "&singleevents=true&sortorder=ascending&futureevents=true";
@@ -16,19 +17,16 @@ function events2(fun, filter,calendar) {
         function(r) {
             r.setEncoding('utf8');
             var content="";
-            r.on("end",function(x) {
-                var json=JSON.parse(content);
+            r.on("end", function (x) {
+                var json = JSON.parse(content);
                 fun(json.feed.entry);
-            })
+            });
             r.on("data", function(data) {
                 content += data;    
             })
         })
 }
 
-events2(function(json) {
-	
-});
 function events(fun, filter) {
     var calendarUrl='http://www.google.com/calendar/feeds/neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com/public/basic?orderby=starttime&sortorder=ascending&max-results=30&futureevents=true&hl=en';
     rssparser.parseURL(calendarUrl, { headers: {'Accept-Language':'en'}}, function(err, out){
@@ -38,15 +36,15 @@ function events(fun, filter) {
         }
         var items=out.items.map(function(item) {
 			item.Title=item.title;
-            event_prop(item,'Start',/When: (.+?)(\n|<br *\/>)/)
-            event_prop(item,'Status',/Event Status: (.+?)(\n|<br *\/>)/)
-            event_prop(item,'Location',/Where: (.+?)(\n|<br *\/>)/)
-            event_prop(item,'Description',/Event Description: ([\s\S]+)$/)
-            event_prop(item,'Url',/Event Description: <a +href="(.+?)".*>.+?<\/a>/)
-            event_prop(item,'UrlText',/Event Description: <a +href=".+?".*>(.+?)<\/a>/)
+            event_prop(item, 'Start', /When: (.+?)(\n|<br *\/>)/);
+            event_prop(item, 'Status', /Event Status: (.+?)(\n|<br *\/>)/);
+            event_prop(item, 'Location', /Where: (.+?)(\n|<br *\/>)/);
+            event_prop(item, 'Description', /Event Description: ([\s\S]+)$/);
+            event_prop(item, 'Url', /Event Description: <a +href="(.+?)".*>.+?<\/a>/);
+            event_prop(item, 'UrlText', /Event Description: <a +href=".+?".*>(.+?)<\/a>/);
             item.Description = item.Description.replace(/^<a +href=".+?".*>.+?<\/a> */,"");
             if (item.Url && item.Url.match(/http:\/\/www.google.com\/url\?q=/)) {
-              var url=item.Url.replace(/http:\/\/www.google.com\/url\?q=/,"")
+              var url = item.Url.replace(/http:\/\/www.google.com\/url\?q=/, "");
               url=decodeURIComponent(url);
               url=url.replace(/&amp;ust=.*$/,"");
               item.Url=url;
@@ -98,14 +96,14 @@ function events(fun, filter) {
 
 function mergeEvents(events,items) {
 	var urls=events.map(function(e) {return e['Url'];});
-    items.forEach(function(event) {
-        var idx=urls.indexOf(event['Url']);
-        if (idx == -1) events.push(event); 
-        else events[idx]=event;
-    })
-    var result = events.sort(function(e1,e2) {
+    items.forEach(function (event) {
+        var idx = urls.indexOf(event['Url']);
+        if (idx == -1) events.push(event);
+        else events[idx] = event;
+    });
+    var result = events.sort(function (e1, e2) {
         return e1.Date.getTime() - e2.Date.getTime();
-    })
+    });
     console.log("events2",result.length);
 //	result.forEach(function (e) {
 //		console.log(e.Date,e.Title,e.Location,e.Type,e.Origin)
@@ -113,6 +111,93 @@ function mergeEvents(events,items) {
 	return result;
 }
 
-exports.events=events
-exports.events2=events2
-exports.mergeEvents = mergeEvents
+function wrap(prefix, value, suffix) {
+    var str = "";
+    if (value) {
+        if (prefix) str = prefix;
+        str += value.toString();
+        if (suffix) str += suffix;
+    }
+    return str;
+}
+
+function parseEvents(cells, fun, filter) {
+    var now = new Date();
+    var header;
+    var items = [];
+    for (var rowNo in cells.cells) {
+        var row = cells.cells[rowNo];
+        if (!header) {
+            header = row;
+            continue;
+        }
+        var item = {};
+        for (var colNo in row) {
+            item[header[colNo].value] = row[colNo].value
+        }
+        if (new Date(item.Start) >= now && item.Created && item.Created.length > 0 && (!filter || filter(item))) {
+            item.Title = wrap(item['Type'], " - ") + item['Title'] + wrap(" - ", item['City']);
+            items.push(item);
+        }
+        item.Date = new Date(item.Start);
+		item.Origin="Spreadsheet";
+    }
+    if (filter) fun(items.filter(filter));
+    else fun(items)
+}
+
+function eventsFromSpreadSheet(fun, filter) {
+    spreadsheet.load(process.env.EVENTS_SHEET_KEY, function (err, spreadsheet) {
+        if (err) {
+            console.log("Error retrieving spreadsheet ", err)
+        }
+        spreadsheet.worksheets[0].cells({
+            range:"R1C1:R100C26"
+        }, function (err, cells) {
+            if (err) {
+                console.log("Error retrieving spreadsheet ", err)
+            }
+            parseEvents(cells, fun, filter);
+        });
+    });
+}
+
+exports.add_events_route = function (path, app) {
+    app.get(path, function (req, res) {
+        var filter = req.query['filter'];
+        events(function (items) {
+            var data = JSON.stringify(items);
+            res.send(200, data);
+        }, function (item) {
+            return !filter || item.title.match(filter) || item.summary.match(filter)
+        })
+    });
+};
+
+
+exports.init = function (app, interval) {
+    function updateEvents() {
+        events(function (items) {
+            app.locals.events = items;
+            console.log("events", app.locals.events.length);
+
+            eventsFromSpreadSheet(function (items) {
+                app.locals.events = mergeEvents(app.locals.events, items);
+                app.locals.events.forEach(function (e) {
+                    e.type = "event";
+                });
+                //app.locals.pages.events.featured = ["graphconnect","trainings"].concat(app.locals.events.slice(0,4));
+                app.locals.pages.events.related = app.locals.events;
+            })
+        })
+    }
+    spreadsheet.googleLogin(function () {
+        updateEvents();
+    });
+
+    // regular updates
+    setInterval(updateEvents, interval);
+};
+
+exports.events = events;
+exports.eventsFromSpreadSheet = eventsFromSpreadSheet;

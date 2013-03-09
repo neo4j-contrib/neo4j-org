@@ -20,51 +20,71 @@ var express = require('express')
     , track_data = require("./helpers/track_data")
     , markdown = require("node-markdown").Markdown
     , calendar = require("./helpers/calendar")
+    , contributors = require("./helpers/contributors")
+    , versions = require("./helpers/versions")
+    , channels = require("./helpers/channels")
     , spreadsheet = require("./helpers/spreadsheet")
     , content_loading = require("./helpers/content_loading")
     , meetup = require("./helpers/meetup")
+    , page_handling = require("./helpers/page_handling")
     , paths = require("./helpers/path")
     , geoip = require("./helpers/geoip")
     , render = require("./helpers/render")
     , videos = require("./helpers/videos")
-    , asset = require("./helpers/assets.js").asset
-    
-var app = express();
-
-app.locals({
-    neo4j: {
-        version: "1.9.M03",
-        date: "Dec 21, 2012",
-        summary: "Cypher improvements, Gremlin refactoring",
-        readme: "http://blog.neo4j.org/2012/12/neo4j-19m03-released.html"
-    }, neo4jGA: {
-        version: "1.8.1", date: "Dec 14, 2012", summary: "General Availability", readme: "http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html"
-    }, neo4jS: {
-        version: "1.9-SNAPSHOT",
-        date: "2013",
-        summary: "Unstable Snapshot, for resolution issue verification"
-    }
-});
+    , asset = require("./helpers/assets.js").asset;
 
 var content = require("./helpers/content")
-    , pages = require("./helpers/pages")
+    , pages = require("./helpers/pages");
 
+var app = express();
+
+// data
+// app.locals.chapters=content_data.chapters;
+app.locals.apps = data.apps;
+app.locals.books = data.books;
+app.locals.pages = pages.pages;
+app.locals.content = content.content;
+// app.locals.contributors = data.contributors;
+app.locals.contributors = {};
+app.locals.drivers = data.drivers;
+app.locals.ext_content = data.ext_content;
+app.locals.trainings = data.trainings;
+app.locals.units = track_data.units;
+
+versions.load(app);
+
+app.locals.events = [];
+app.locals.paths = {};
+
+// functions
+app.locals.asset = asset;
+app.locals._include = render.include;
+app.locals.render = ejs.render;
+
+page_handling.init(app,app.locals.pages);
+
+app.locals.theme = function () {
+    return "aqua";
+};
+
+// helper functions
 app.locals.link_to = function (path, inner) {
     if (path) return "<a href=" + path + " " + (path.match("^http") ? ' target="_blank" ' : '') + ">" + inner + "</a>";
     return inner;
-}
+};
+
 app.locals.chunk = function (arr, size) {
     var res = [];
     for (var i = 0; i < arr.length / size; i++) {
         res.push(arr.slice(i * size, (i + 1) * size));
     }
     return res;
-}
+};
 
 app.locals.findItem = function (key) {
     // console.log("findItem", key)
     if (typeof key == 'object') return key;
-    var addType = function (item, type) {
+    function addType(item, type) {
         if (!item.type) item.type = type;
         return item;
     }
@@ -77,28 +97,80 @@ app.locals.findItem = function (key) {
     if (data.trainings[key]) return addType(data.trainings[key], "training");
     if (content.content.apps[key]) return addType(content.content.apps[key], "app");
     return key;
-}
+};
 
-app.locals.render = ejs.render
-app.locals._include = render.include
-app.locals.asset = asset
-app.locals.versions = {}
+app.locals.resolve_authors = function (authors) {
+    if (!authors) return [];
+    return [].concat(authors).filter(function (author) {
+        return !!author
+    }).map(function (author) {
+        if (typeof(author) == 'object') author = author['name'];
+        if (author.indexOf('@') == 0) author = author.substring(1);
+        if (app.locals.contributors[author]) return app.locals.contributors[author];
+        return { name:author, twitter:author.match(/\s/) ? "neo4j" : author };
+    });
+};
 
-https.get({host: "raw.github.com", path: "/neo4j/current-versions/master/versions.json"},
-    function (res) {
-        res.on("data", function (data) {
-            app.locals.versions = JSON.parse(data) || {};
-            console.log(app.locals.versions);
-            temp_update_version(app.locals.versions.stable, app.locals.neo4jGA, app.locals.versions.stable_date);
-            temp_update_version(app.locals.versions.milestone, app.locals.neo4j, app.locals.versions.milestone_date);
-            temp_update_version(app.locals.versions.snapshot, app.locals.neo4jS);
-        })
-    }).on('error', function (err) {
-        console.log("Error retrieving versions ", err);
-    })
+ejs.filters.md = function (b) {
+    return markdown(b)
+};
+
+ejs.filters.wrap = function (content, tag) {
+    return "<" + tag + ">" + content + "</" + tag + ">";
+};
+
 forwarder.add_console_forward(app, express, http);
 
-app.locals.content = {}
+videos.loadAllVideos(app.locals.pages,app.locals.content,4);
+
+calendar.init(app,3600*1000);
+channels.init(app,60*1000);
+contributors.init(app,3600*1000);
+
+// todo move somewhere else
+app.locals({
+    tutorial: {
+        matrix: 'node:node_auto_index(id="603")',
+        neo: 'node:node_auto_index(name="Keanu Reeves")',
+        trinity: 'node:node_auto_index(name="Carrie-Anne Moss")',
+        me: 'node:node_auto_index(name="Me")',
+        friend: 'node:node_auto_index(name="A Friend")'
+    }
+});
+
+content_loading.load_github_content(app.locals, 'puppet', "/neo4j-contrib/neo4j-puppet/master/README.md");
+content_loading.load_github_content(app.locals, 'ec2_template', "/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md");
+content_loading.load_learn_content(app.locals, 'java_hello_world', "/java-hello-world/index.html");
+content_loading.load_learn_content(app.locals, 'java_cypher', "/java-cypher/index.html");
+
+// paths TODO still needed ?
+app.locals.paths.java = {
+    java:{ steps:["learn_graph", "neo4j", "cypher", "java_cypher", "jvm_drivers", "java_basics", "server"],
+        tags:["java"],
+        related:[
+            { title:"API Javadoc", url:"http://api.neo4j.org/current/", image:asset("img/languages/java.jpg") },
+            { title:"Manual: Java Tutorial", url:"http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html", image:asset("img/languages/java.jpg") },
+            { title:"Neo4j and last.fm", author:{ name:"Niklas Lindblad", twitter:"nlindblad", image:"https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }, type:"video", url:"http://vimeo.com/39825129", image:"https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }
+        ] },
+
+
+//  learn_graph : ["neo4j","java_basics" ],
+//  neo4j : ["cypher","java_basics","server_basics"],
+    jvm_drivers:{ steps:["ide", "java_basics", "java_cypher"], tags:["drivers", "jvm", "clojure", "scala", "java", "groovy"]},
+    java_cypher:{ steps:["cypher", "jvm_drivers", "ide", "example_data"], tags:["cypher", "console", "shell"]},
+    java_basics:{ steps:["java_cypher", "jvm_drivers", "ide", "example_data", "spring", "server", "server_extensions"], tags:["howto", "transaction", "graphdb", "shutdown", "index", "java"] }
+};
+
+app.locals.next_steps = function (path, page) {
+    return paths.next_steps(app.locals, routes, path, page).map(function (step) {
+        return "<li><a href='" + step.url + "'>" + step.opts.title + "</a></li>"
+    }).join("\n")
+};
+app.locals.related = function (path, page) {
+    return paths.related(app.locals, path, page);
+};
+
+/////// APP-CONFIG ///////
 
 app.configure(function () {
     app.set('port', process.env.PORT || 3000);
@@ -108,15 +180,16 @@ app.configure(function () {
     app.use(express.favicon());
     app.use(function (req, res, next) {
         res.locals.path = req.path;
-        res.locals.index_page = ['/', '/index', '/index_graph', '/index_graph_svg'].indexOf(req.path) != -1
-        res.locals.run_experiment = app.get('env') == 'production' && res.locals.index_page
+        var experiment_pages = ['/', '/index', '/index_graph', '/index_graph_svg'];
+        res.locals.index_page = experiment_pages.indexOf(req.path) != -1;
+        res.locals.run_experiment = app.get('env') == 'production' && res.locals.index_page;
         next();
     });
     app.use(function (req, res, next) {
         try {
             res.locals.region = geoip.region(req.ip);
         } catch (e) {
-            console.log("Error getting ip", req.ip, e)
+            console.log("Error getting ip", req.ip, e);
             res.locals.region = 'US';
         }
         next();
@@ -129,68 +202,9 @@ app.configure(function () {
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
 });
-
-ejs.filters.md = function (b) {
-    return markdown(b)
-};
-
-ejs.filters.wrap = function (content, tag) {
-    return "<" + tag + ">" + content + "</" + tag + ">";
-}
-
 app.configure('development', function () {
     app.use(express.errorHandler());
 });
-
-var rnd = function rnd(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-app.locals.theme = function () {
-    return "aqua";
-}
-
-app.locals.drivers = data.drivers;
-app.locals.apps = data.apps;
-app.locals.contributors = data.contributors;
-// app.locals.chapters=content_data.chapters;
-app.locals.units = track_data.units;
-app.locals.books = data.books;
-app.locals.trainings = data.trainings;
-app.locals.ext_content = data.ext_content;
-app.locals.pages = pages.pages;
-app.locals.content = pages.content;
-
-app.locals.neo4jS = {
-    version: "1.9-SNAPSHOT",
-    date: "2013",
-    summary: "Unstable Snapshot, for resolution issue verification"
-}
-
-function temp_update_version(current, data, current_date) {
-    if (current != data.version) {
-        data.version = current;
-        data.date = current_date || "2013";
-        data.readme = "http://blog.neo4j.org";
-    }
-}
-
-app.locals({
-    tutorial: {
-        matrix: 'node:node_auto_index(id="603")',
-        neo: 'node:node_auto_index(name="Keanu Reeves")',
-        trinity: 'node:node_auto_index(name="Carrie-Anne Moss")',
-        me: 'node:node_auto_index(name="Me")',
-        friend: 'node:node_auto_index(name="A Friend")'
-    }
-});
-app.locals.content = {};
-
-content_loading.load_github_content(app.locals, 'puppet', "/neo4j-contrib/neo4j-puppet/master/README.md")
-content_loading.load_github_content(app.locals, 'ec2_template', "/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md")
-content_loading.load_learn_content(app.locals, 'java_hello_world', "/java-hello-world/index.html")
-content_loading.load_learn_content(app.locals, 'java_cypher', "/java-cypher/index.html")
-
 
 function forward(url) {
     return function (req, res) {
@@ -204,306 +218,57 @@ function route_get(url, fun) {
     return app.get(url, fun);
 }
 
-function merge() {
-    var res={};
-    for (i in arguments) {
-        var arg=arguments[i];
-        for (prop in arg) {
-            if (arg.hasOwnProperty(prop)) {
-                res[prop] = arg[prop];  
-            }  
-        }
-    }
-    return res;
-}
+/////// ROUTING ///////
 
-fs.readFile("views/partials/page.ejs", function (err, buf) {
-    var template = buf.toString();
-    if (!fs.existsSync('views/ejs')) fs.mkdirSync('views/ejs');
-//  console.log(template,err);
-    for (key in app.locals.pages) {
-
-        //console.log("loading " + key);
-        var page=app.locals.pages[key];
-        var config = page.config || {};
-        var featuredArray = page.featured;
-
-        if (featuredArray && featuredArray.length && 
-            featuredArray[0].content && typeof featuredArray[0].content == "string" && featuredArray[0].content.match(/<%/)) {
-
-            // works only for the first featured item
-            var featured = featuredArray[0];
-            if (!featured.type) {
-                console.log("Need type for featured ",featured," for page ",key);
-                break;
-            }
-            // console.log('use partial for', featured.type, "views/partials/" + featured.type + "/_full.ejs");
-            // case 'track'            : %><% include partials/track/_full %>
-
-            var partial = fs.readFileSync("views/partials/" + featured.type + "/_full.ejs");
-            console.log("partial",partial.toString())
-            var newPartial = partial.toString().replace(new RegExp("<%- .*?item.content %>","g"),
-                                         featured['content']);
-
-            console.log("newPartial",newPartial);
-            var newFile=template.replace(new RegExp("<% include ../partials/item/_full %>","g"), newPartial);
-            var file="ejs/"+page.path.replace(/\//g,"_");
-            var fileName="views/"+file+".ejs";
-            console.log("Routing to special generated page: ",file,fileName,key,page.path,page.title,featured.type);
-            fs.writeFileSync(fileName,newFile);
-            app.get(page.path,function(req,res) { 
-                var params=merge(app.locals,{ title: page.title||"", locals:app.locals }); 
-                res.render(file, params); 
-            });
-
-        } else {
-          console.log("Default routing to pages: ",page.path,page.title)
-          app.get(page.path, function(req,res) { 
-              var params=merge(app.locals,{ title: page.title||"", locals:app.locals }); 
-              res.render('partials/page', params); 
-          });  
-        }
-
-  }
-
+route_get('/*/', function (req, res) {
+    var path = req.path.substring(0, req.path.length - 1);
+    res.redirect(path);
 });
 
 route_get('/', routes.index);
-route_get('/index', routes.index_graph);
-route_get('/index_graph_svg', routes.index_graph_svg);
-route_get('/index_graph_svg2', routes.index_graph_svg2);
 route_get('/favicon.ico', forward(asset('ico/favicon.ico')));
 
-route_get('/', routes.index);
-route_get('/index', routes.index_graph);
-route_get('/index_graph_svg', routes.index_graph_svg);
-route_get('/index_graph_svg2', routes.index_graph_svg2);
-route_get('/favicon.ico', forward(asset('ico/favicon.ico')));
+route_get('/drivers', forward("/develop/drivers"));
+route_get('/learn/events', forward("/events"));
 
-// route_get('/learn', routes.pages);
-// route_get('/learn/concepts', routes.pages);
-// route_get('/learn/intro', routes.pages);
-// route_get('/learn_graph', routes.pages); 
-// route_get('/learn/neo4j', routes.pages); 
-// route_get('/learn/get_started', routes.pages); 
-// route_get('/learn/training', routes.pages); 
-// route_get('/learn/books', routes.pages); 
-route_get('/learn/apps', routes.pages); 
-// route_get('/learn/licensing', routes.pages); 
-
-// route_get('/learn/nosql', routes.pages); 
-// route_get('/learn/cypher', routes.pages); 
-// route_get('/develop/visualize', routes.pages); 
-// route_get('/develop', routes.pages); 
-// route_get('/develop/ops', routes.pages);
-// route_get('/develop/heroku', routes.pages); 
-// route_get('/develop/spring', routes.pages); 
-// route_get('/develop/ec2', routes.pages); 
-// route_get('/develop/ec2_detailed', routes.pages); 
-// route_get('/develop/example_data', routes.example_data); 
-// route_get('/develop/spring', routes.pages); 
-
-route_get('/develop/drivers', routes.pages);
-route_get('/drivers', routes.pages);
-route_get('/participate', routes.pages);
-// route_get('/install', forward("/download"));
+// TODO
 route_get('/download_thanks', routes.pages);
 route_get('/subscribe_thanks', routes.pages);
-//route_get('/participate/contributors', routes.pages);
-route_get('/participate/meetup_signup', routes.pages);
-route_get('/participate/meetups', forward("http://neo4j.meetup.com/"));
-route_get('/learn/graphdatabase', routes.pages);
-route_get('/learn/try', routes.pages);
-route_get('/test/d3', routes.pages);
-route_get('/learn/events', forward("http://www.google.com/calendar/embed?src=neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com&ctz=America/Los_Angeles"));
-//route_get('/events', routes.pages)
-//route_get('/misc/beer', routes.pages)
-//route_get('/events', routes.events)
-//route_get('/participate/channels', routes.channels)
-route_get('/misc/beer', routes.beer)
+route_get('/participate/meetup_signup', routes.meetup_signup);
+route_get('/participate/meetups', forward("http://neo4j.meetup.com/")); // TODO
 
-route_get('/marketo', function (req, res) {
-    var cookie = req.cookies["_mkto_trk"];
-    if (cookie && munchkin) {
-        munchkin.marketo(cookie, function (id) {
-            if (id) res.send(200, "" + id);
-            else res.send(404, "Unknown");
-        })
-    } else {
-        res.send(500);
-    }
-});
+route_get('/terms', routes.terms); // terms and conditions
+route_get('/privacy', routes.privacy); // privacy policy
+route_get('/release-notes', routes.release_notes); // TODO
 
-var meetups = {};
-route_get('/meetup',function(req,res) {
-    var group=req.query['group'];
-    var event=req.query['event'];
-    var img=req.query['img'];
-    if (!event && meetups[group]) {
-        if (img) res.redirect(meetups[group]['img']);
-        else res.send(200,meetups[group]['html'])
-        return;
-    }
-    meetup.oembed(group,event, function(json) {
-        var html=json['html'];
-        if (!event) {
-            meetups[group]={html:html};
-            meetups[group]['img']=html.match(/"(https?:\/\/photos.+?(jpeg|jpg|png))"/)[1];
-            if (img) { res.redirect(meetups[group]['img']); return;}
-        }
-        res.send(200,html);
-    });
-});
-
-app.locals.events = [];
-app.locals.contributors = {};
-
-
-calendar.events(function(items) { app.locals.events = items; console.log("events",app.locals.events.length); }) 
-
-function updateSpreadsheets() {
-	calendar.events(function(items) { 
-		app.locals.events = items; console.log("events",app.locals.events.length); 
-
-	    spreadsheet.events(function(items) { 
-			app.locals.events = calendar.mergeEvents(app.locals.events,items);
-            app.locals.events.forEach(function(e) { e.type = "event"; })
-//            console.log("events",app.locals.pages.events)
-            //app.locals.pages.events.featured = ["graphconnect","trainings"].concat(app.locals.events.slice(0,4));
-            app.locals.pages.events.related = app.locals.events;
-//            console.log("events",app.locals.pages.events)
-	    }) 
-	}) 
-    spreadsheet.contributors(function(items) { app.locals.contributors = items; });
-}
-
-app.locals.updateChannels = function() {
-    console.log("Updating Channels");
-    spreadsheet.channels(function(items) {
-        items.forEach(function(item) { item.type="channel"; });
-        app.locals.channels = items;
-        app.locals.pages.channels.related = [{type:'channel'}].concat(items);
-        console.log("Updated Channels ",app.locals.pages.channels.related.length);
-    });
-}
-
-app.locals.videos=[];
-videos.load_videos(function(data) {
-    if (!data) return;
-    data.forEach(function(video) {
-        var item = {
-            type: "video",
-            title: video.title,
-            src: "http://player.vimeo.com/video/"+video.id,
-            thumbnail: video.thumbnail_medium,
-            img: video.thumbnail_large,
-            duration: video.duration,
-            date: Date.parse(video.upload_date)
-        };
-        if (video.tags && video.tags.length) item.tags=video.tags;
-        if (video.description && video.description.length) item.introText=video.description;
-        if (item.title.match(/GraphConnect|Graph Connect|Intro 2/i)) item.category='graphconnect';
-        if (!item.category && item.title.match(/^[\d/]{3,4}|Intro to|[\d/]{3,4}$|beer|dataset/i)) item.category='webinar';
-        if (!item.category && (item.title.match(/Interview|What is|Testimonial| - |Need a graph database|knows/i) || item.introText && item.introText.match(/Interview/i))) item.category='interview';
-        if (!item.category) item.category='other';
-        app.locals.videos.push(item);
-//        app.locals.pages.videos.related.push(item);
-        // console.log(item)
-        // todo identify categories, group by category
-        // sort by date
-        // make the last 3 videos featured
-    });
-    app.locals.videos = app.locals.videos.sort(function(v1,v2) { return v2.date - v1.date; });
-    ['graphconnect','interview','webinar','other'].forEach(function(category) {
-        var page=app.locals.pages["videos_"+category];
-        page.related=[];
-        app.locals.videos.forEach(function(video) {
-            if (video.category!=category) return;
-            page.related.push(video);
-        });
-        page.featured=page.related.slice(0,4);
-        page.related=page.related.slice(4);
-    })
-    app.locals.pages.videos.featured=app.locals.videos.slice(0,4);
-    console.log("videos",app.locals.videos.length);
-})
-
-
-setInterval(app.locals.updateChannels,60*1000);
-// regular updates
-setInterval(updateSpreadsheets, 3600*1000);
-
-spreadsheet.googleLogin(
-    function() {
-        updateSpreadsheets();
-        app.locals.updateChannels();
-    });
-
-
-app.locals.resolve_authors = function(authors) {
-    if (!authors) return [];
-    return [].concat( authors ).filter( function(author) { return !!author }).map(function(author) {
-        if (typeof(author)=='object') author = author['name'];
-        if (author.indexOf('@') == 0) author = author.substring(1);
-        if (app.locals.contributors[author]) return app.locals.contributors[author];
-        return { name : author, twitter: author.match(/\s/) ? "neo4j" : author };
-    });
-}
-
-route_get('/events.json',function(req,res) {
-    var filter=req.query['filter'];
-    calendar.events(function(items) {
-        var data = JSON.stringify(items)
-        res.send(200,data);
-    }, function(item) {
-        return !filter || item.title.match(filter) || item.summary.match(filter)
-    })
-});
+route_get('/misc/beer', routes.beer);
 
 // well known historic URLs redirects
+route_get('/getting-started', forward("/develop"));
 route_get('/download', forward("/install"));
 route_get('/tracks/java', forward("/java"));
 route_get('/tracks/cypher', forward("/tracks/cypher_track_start"));
-route_get('/about', routes.neo4j);
-route_get('/terms', routes.terms); // terms and conditions
-route_get('/privacy', routes.privacy); // privacy policy
-route_get('/ruby', routes.drivers);
-route_get('/community', routes.participate);
-route_get('/community/feeds', routes.participate);
-route_get('/resources', routes.learn);
+route_get('/about', forward("/learn/neo4j"));
+route_get('/ruby', forward("/learn/drivers"));
+
+route_get('/community', forward("/participate"));
+route_get('/community/feeds', forward("/participate")); //TODO
+route_get('/resources', forward("/learn"));
 route_get('/forums', forward("http://groups.google.com/group/neo4j"));
 route_get('/nabble', forward("http://groups.google.com/group/neo4j"));
 route_get('/spring', forward("/develop/spring"));
-route_get('/heroku', routes.heroku);
-route_get('/azure', forward("http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"));
+route_get('/heroku', forward("/develop/heroku"));
+route_get('/azure', forward("http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html")); // TODO
+route_get('/licensing-guide', forward("/learn/licensing"));
+route_get('/bookstore', forward("/learn/books"));
+
 route_get('/price-list', forward("http://www.neotechnology.com/price-list/"));
-route_get('/bookstore', forward("http://www.neotechnology.com/bookstore/"));
-route_get('/licensing-guide', routes.license); // node:  Neo4j licensing guide (well-known URL. redirect?)
-route_get('/release-notes', routes.release_notes);
-route_get('/customers', routes.customers);
-route_get('/getting-started', routes.develop);
-//route_get('/java', routes.java);
-//route_get('/java/basics', routes.java_basics);
-//route_get('/java/cypher', routes.java_cypher);
+route_get('/customers', forward("http://www.neotechnology.com/customers/"));
 
+munchkin.add_route('/marketo',app);
+meetup.add_route("/meetup",app);
+calendar.add_events_route('/events.json', app);
 
-app.locals.paths = {}
-app.locals.paths.java = {
-    java: { steps: ["learn_graph", "neo4j", "cypher", "java_cypher", "jvm_drivers", "java_basics", "server"],
-        tags: ["java"],
-        related: [
-            { title: "API Javadoc", url: "http://api.neo4j.org/current/", image: asset("img/languages/java.jpg") },
-            { title: "Manual: Java Tutorial", url: "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html", image: asset("img/languages/java.jpg") },
-            { title: "Neo4j and last.fm", author: { name: "Niklas Lindblad", twitter: "nlindblad", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }, type: "video", url: "http://vimeo.com/39825129", image: "https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }
-        ] },
-
-
-//  learn_graph : ["neo4j","java_basics" ],
-//  neo4j : ["cypher","java_basics","server_basics"],
-    jvm_drivers: { steps: ["ide", "java_basics", "java_cypher"], tags: ["drivers", "jvm", "clojure", "scala", "java", "groovy"]},
-    java_cypher: { steps: ["cypher", "jvm_drivers", "ide", "example_data"], tags: ["cypher", "console", "shell"]},
-    java_basics: { steps: ["java_cypher", "jvm_drivers", "ide", "example_data", "spring", "server", "server_extensions"], tags: ["howto", "transaction", "graphdb", "shutdown", "index", "java"] }
-}
 // download resources
 route_get('/resources/cypher', forward(asset('download/Neo4j_CheatSheet_v3.pdf')));
 
@@ -513,47 +278,8 @@ route_get('/assets/download/*', routes.resource);
 route_get('/img/*', routes.resource);
 route_get('/highlighter/*', routes.resource);
 
-function channelOp(params, res) {
-    var options = {
-        host: 'script.google.com',
-        path: process.env.CHANNELS_ENDPOINT + "?" + params,
-        headers: { 'Content-Length': 0 },
-        method: 'POST'
-    };
-    //console.log(options);
-    var req2 = https.request(options, function (r) {
-        //console.log(r.statusCode);
-        res.send(r.statusCode);
-    });
-    req2.on('error', function (e) {
-        console.error(e);
-    });
-    req2.end();
-}
-app.post("/vote", function (req, res) {
-    var row = req.param("row");
-    console.log("voted on", row);
-    channelOp("voteRow=" + parseInt(row), res);
-});
 
-app.post("/add_channel", function (req, res) {
-    var name = req.param("name");
-    var logo = req.param("logo");
-    var url = req.param("url");
-    var lang = req.param("lang");
-    var params = "addRow=" + encodeURIComponent(name) +
-        "&url=" + encodeURIComponent(url) +
-        "&logourl=" + encodeURIComponent(logo) +
-        "&language=" + encodeURIComponent(lang);
-    console.log("add_channel", params);
-    channelOp(params, res);
-});
-
-route_get('/*/', function (req, res) {
-    var path = req.path.substring(0, req.path.length - 1);
-    res.redirect(path);
-});
-
+// todo redirect to our video content page
 route_get('/video/*', function (req, res) {
     var path = req.path;
     var idx = path.lastIndexOf('/');
@@ -562,20 +288,6 @@ route_get('/video/*', function (req, res) {
     res.redirect('http://watch.neo4j.org/video/' + file);
 });
 
-app.locals.next_steps = function (path, page) {
-    return paths.next_steps(app.locals, routes, path, page).map(function (step) {
-        return "<li><a href='" + step.url + "'>" + step.opts.title + "</a></li>"
-    }).join("\n")
-}
-
-app.locals.related = function (path, page) {
-    return paths.related(app.locals, path, page);
-}
-
-//console.log(app.locals.related("java", "java"))
-//console.log(geoip.region('146.52.53.114'))
 http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
 });
-
-

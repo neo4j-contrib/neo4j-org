@@ -2,7 +2,6 @@ var render = require('./render');
 var content = require("./content").content
 var asset = require("../helpers/assets.js").asset
 
-
 exports.pages = {
     learn: {
         path: "/learn",
@@ -571,7 +570,7 @@ exports.pages = {
         next: ["videos"],
         path: "/learn/videos_other",
         title: "Neo4j related videos",
-        thumbnail: asset("img/events/webinar.jpg"),
+        thumbnail: asset("img/events/webinar.png"),
         introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
         featured: [],
         related: [],

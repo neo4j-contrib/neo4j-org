@@ -47,5 +47,18 @@ function extractId(result) {
     }
     return null;
 }
+exports.add_route = function(path,app) {
+    app.get(path, function (req, res) {
+        var cookie = req.cookies["_mkto_trk"];
+        if (cookie) {
+            exports.marketo(cookie, function (id) {
+                if (id) res.send(200, "" + id);
+                else res.send(404, "Unknown");
+            })
+        } else {
+            res.send(500);
+        }
+    });
+}
 
 exports.marketo=marketoId && marketoSecret ? getMarketoLead : function(cookie,fun) { return fun() };
