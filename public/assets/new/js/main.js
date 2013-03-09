@@ -1,86 +1,39 @@
 /**
-*	Global navigation model for neo4j.org
+*	Some helpers for neo4j.org
 */
 var nav = {
 
-	// chapters : [],
-
-	// /**
-	// *	Initialize all possible navigation elements on this page
-	// */
-	// init : function() {
-
-	// 	var chapterNav = $('#chapterNav');
-
-	// 	var links = chapterNav.find('a');
-	// 	$.each(links, function(i, link) {
-	// 		var c = $(link);
-	// 		c.on('click', function() {
-	// 			nav.activate(c.attr('class'));
-	// 		});
-	// 	});
-
-	// 	var chapters = $('.page');
-	// 	$.each(chapters, function(i, chapter) {
-	// 		var c = $(chapter);
-	// 		var chapterName = c.attr('id');
-	// 		nav.chapters.push(chapterName);
-	// 	});
-
-	// },
-
-	resize : function() {
-
-		var chapterNav = $('#secNav');
-
-		var headerWrapper = $('#headerWrapper');
-		var header = $('#header');
-        var page = $('.page');
-        var footer = $('#footer');
-
-        function h(selector) {
-            return selector.outerHeight(true) || 0;
-        }
-        page.css({
-			//top: chapterNav.height() - headerWrapper.height() + 14
-			//top: header.height()
-			//height: $(window).height() - chapterNav.height() + headerWrapper.height() - $('#footer').height() - 7
+	/**
+	* Resize all related items to fit nicely in a row
+	*/
+	resizeRelatedItems : function() {
+		$.each($('.related .row'), function(i, r) {
+			var row = $(this);
+			var maxHeight = 0;
+			$.each($('.item', row), function(j, item) {
+				console.log(item);
+				maxHeight = Math.max(maxHeight, $(item).height());
+				console.log(maxHeight);
+			});
+			$('.item', row).height(maxHeight);
+			maxHeight = 0;
 		});
-
-        var h1 = $(window).height() - h(footer) - 1;
-		var h2 = h(page) + h(chapterNav) + h(headerWrapper) + 14; //  +
-		console.log("page",page.height(),page.outerHeight(true), "canvas",$('#canvas').height(),h1, h2);
-
-		// footer.css({
-		// 	position: 'absolute',
-		//  	top: Math.max(h1, h2)
-		// });
 	},
 
-	/**
-	*	Activate the chapter with the given name
-	*/
-	// activate : function(chapterName) {
-	// 	$('#chapterNav').find('a').removeClass('active');
-	// 	$('#chapterNav').find('a.' + chapterName).addClass('active');
-	// 	$('.page').hide();
-	// 	$('#' + chapterName).show();
-
- //        nav.resize();
-
-	// },
 
 	/**
 	* Activate an item in the main menu
 	*/
 	activateMain : function(category) {
-        var rightAlign = {learn: "15em" , develop: "12em", participate: "8.4em", install: "3em", download: "3em" };
-		var mainNav = $('#mainNav');
-		$('a', mainNav).removeClass('active');
-        $('.' + category + ' a', mainNav).addClass('active');
-		$('#activePointer').css({
-              right: rightAlign[category]
-         }).show();
+        var rightAlign = { learn: "14em", java: "14em", develop: "11em", participate: "7em", install: "2.5em", download: "2.5em" };
+        if (rightAlign[category]) {
+			var mainNav = $('#mainNav');
+			$('a', mainNav).removeClass('active');
+	        $('.' + category + ' a', mainNav).addClass('active');
+			$('#activePointer').css({
+	              right: rightAlign[category]
+	         }).show();
+		}
 	},
 
 	/**
@@ -132,4 +85,48 @@ var nav = {
 	}
 }
 
+
+function getTextWidth(text, fs, fw) {
+    $('body').append('<span id="test_width_item" style="font-size:'+fs+';font-weight:' + fw + ';position:absolute;visibility:hidden;padding:0;border:1px solid red;overflow:hidden">' + text + '</span>');
+    var span = $('#test_width_item', $('body'));
+    var w = span.width();
+    span.remove();
+    return w;
+}
+
+function enableSlider(width, height) {
+
+    $('#featured_slider').bjqs({
+        // width and height need to be provided to enforce consistency
+        // if responsive is set to true, these values act as maximum dimensions
+        width : Math.max(width,960), //'58em',
+        height : Math.max(height, 400), //'30em',
+        
+        // animation values
+        animtype : 'slide', // accepts 'fade' or 'slide'
+        animduration : 450, // how fast the animation are
+        animspeed : 400000, // the delay between each slide
+        // automatic : true, // automatic
+        
+        // control and marker configuration
+        showcontrols : true, // show next and prev controls
+        centercontrols : true, // center controls verically
+        nexttext : '<i class="slider icon-forward"></i>', // Text for 'next' button (can use HTML)
+        prevtext : '<i class="slider icon-backward"></i>', // Text for 'previous' button (can use HTML)
+        showmarkers : false, // Show individual slide markers
+        centermarkers : false, // Center markers horizontally
+        
+        // interaction values
+        keyboardnav : true, // enable keyboard navigation
+        hoverpause : true, // pause the slider on hover
+        
+        // presentational options
+        usecaptions : false, // show captions for images using the image title tag
+        //randomstart : true, // start slider at random slide
+        responsive : true // enable responsive capabilities (beta)
+    });
+
+    $('.bjqs-markers.h-centered .active-marker a').remove();
+
+}
 

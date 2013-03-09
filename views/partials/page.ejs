@@ -16,6 +16,26 @@ if (page) {
     <% if (page.title) { %>
 <h1><%= page.title %></h1>
     <% } %>
+
+
+<% (page.prev||[]).forEach(function(p) {
+var prevPage = pages[p];
+  %>
+    <div class="btn trackNav prevStep"><a href="<%= prevPage.path %>"><i class="icon icon-circle-arrow-left"></i></a><a href="<%= prevPage.path %>"><%= prevPage.title %></a></div>
+<%
+});
+%>
+
+<% (page.next||[]).forEach(function(p) {
+var nextPage = pages[p];
+  %>
+    <div class="btn trackNav nextStep"><a href="<%= nextPage.path %>"><%= nextPage.title %></a> <a href="<%= nextPage.path %>"><i class="icon icon-circle-arrow-right"></i></a></div>
+<%
+});
+%>
+
+<div class="clear"></div>
+
     <% if (page.introText) { %>
 <p class="introText"><%- page.introText %></p>
     <% } %>
@@ -23,25 +43,7 @@ if (page) {
 <p class="content"><%- typeof page.content == "function" ? page.content(locals) : page.content %></p>
     <% } %>
 
-<div class="trackNav prevStep">
-<% (page.prev||[]).forEach(function(p) {
-var prevPage = pages[p];
-  %>
-    <h3><a href="<%= prevPage.path %>"><i class="icon icon-circle-arrow-left"></i></a><a href="<%= prevPage.path %>"><%= prevPage.title %></a></h3>
-<%
-});
-%>
-</div>
 
-<div class="trackNav nextStep">
-<% (page.next||[]).forEach(function(p) {
-var nextPage = pages[p];
-  %>
-    <h3><a href="<%= nextPage.path %>"><i class="icon icon-circle-arrow-right"></i></a> <a href="<%= nextPage.path %>"><%= nextPage.title %></a></h3>
-<%
-});
-%>
-</div>
 
 <% 
     var items = [].concat(page.featured);
@@ -101,6 +103,21 @@ var nextPage = pages[p];
 </div><!-- page -->
 <script type="text/javascript">
 
+    $(window).load(function() {
+        nav.resizeRelatedItems();
+
+        var featured = $("div.featured");
+        
+        // todo doesn't work, always returns null when called from here, works when called later
+        var slideHeight = Math.max.apply(null,featured.map(function() { return $(this).height(); }));
+        var slideWidth = Math.max.apply(null,featured.map(function() { return $(this).width(); }));
+            
+        console.log('width/height',slideWidth, slideHeight);
+
+        enableSlider(slideWidth, slideHeight);
+
+    });
+
     $(document).ready(function() {
         var timeout;
         function init() {
@@ -120,82 +137,6 @@ var nextPage = pages[p];
                 }
             }
             var featuredTop = ref.first().offset().top;
-    
-            $('.prevStep h3').css({
-                top: featuredTop - offset + 'px'
-            });
-    
-            $('.nextStep h3').css({
-                top: featuredTop - offset + 'px'
-            });
-    
-            $('.prevStep h3').on('mouseenter', function() {
-                var self = $(this);
-                // measure width
-                var w = getTextWidth(self.text(), self.css('fontSize'), self.css('fontWeight'));
-                self.animate({
-                    width: self.width() + w - 72 + 'px'
-                }, 100);
-            }).on('mouseleave', function() {
-                var self = $(this);
-                self.animate({
-                    width: '5em'
-                }, 200);
-            });
-    
-            $('.nextStep h3').on('mouseenter', function() {
-                var self = $(this);
-                // measure width
-                var w = getTextWidth(self.text(), self.css('fontSize'), self.css('fontWeight'));
-                self.animate({
-                    width: self.width() + w - 80 + 'px'
-                }, 100);
-            }).on('mouseleave', function() {
-                var self = $(this);
-                self.animate({
-                    width: '5em'
-                }, 200);
-            });
-    
-            function enableSlider() {
-            var featured = $("div.featured");
-            // todo doesn't work, always returns null when called from here, works when called later
-            var slideHeight = Math.max.apply(null,featured.map(function() { return $(this).height(); }));
-            var slideWidth = Math.max.apply(null,featured.map(function() { return $(this).width(); }));
-                
-            console.log('width/height',slideWidth,slideHeight)
-            $('#featured_slider').bjqs({
-                // width and height need to be provided to enforce consistency
-                // if responsive is set to true, these values act as maximum dimensions
-                width : Math.max(slideWidth,960), //'58em',
-                height : Math.max(slideHeight, 400), //'30em',
-                
-                // animation values
-                animtype : 'slide', // accepts 'fade' or 'slide'
-                animduration : 450, // how fast the animation are
-                animspeed : 400000, // the delay between each slide
-                // automatic : true, // automatic
-                
-                // control and marker configuration
-                showcontrols : true, // show next and prev controls
-                centercontrols : true, // center controls verically
-                nexttext : '<i class="slider icon-forward"></i>', // Text for 'next' button (can use HTML)
-                prevtext : '<i class="slider icon-backward"></i>', // Text for 'previous' button (can use HTML)
-                showmarkers : true, // Show individual slide markers
-                centermarkers : true, // Center markers horizontally
-                
-                // interaction values
-                keyboardnav : true, // enable keyboard navigation
-                hoverpause : true, // pause the slider on hover
-                
-                // presentational options
-                usecaptions : false, // show captions for images using the image title tag
-                //randomstart : true, // start slider at random slide
-                responsive : true // enable responsive capabilities (beta)
-            });
-                nav.resize();
-            }
-            enableSlider();
             
         }
 
@@ -221,15 +162,6 @@ var nextPage = pages[p];
         
         init();
     });
-
-
-function getTextWidth(text, fs, fw) {
-    $('body').append('<span id="test_width_item" style="font-size:'+fs+';font-weight:' + fw + ';position:absolute;visibility:hidden;padding:0;border:1px solid red;overflow:hidden">' + text + '</span>');
-    var span = $('#test_width_item', $('body'));
-    var w = span.width();
-    span.remove();
-    return w;
-}
 
 
 </script>
