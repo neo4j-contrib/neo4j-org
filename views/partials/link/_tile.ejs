@@ -1,0 +1,21 @@
+<div class="item default">
+<%
+	var hasPath = item.path;
+	var image = item.img ? item.img : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
+	console.log(image)
+%>
+
+    <h3><%- link_to(item.path, item.title) %></h3>
+    <% if (image) { %>
+    <%- link_to(item.path, '<img class="preview" src="'+image+'" />') %>
+    <% } %>
+    <% resolve_authors(item.authors||item.author).map(function(author) { %>
+        <h4><em><a target="_blank" href="http://twitter.com/<%= author.twitter %>"><%= author.name %></a></em></h4>
+    <% }).join(", "); %>
+    <div>
+        <p class="introText"><%- item.previewText ? item.previewText : item.introText %></p>
+    </div>
+    <% // todo linkto with classes and skip if no link 
+    if (hasPath) { %><a class="link" href="<%= item.path %>"><%- (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+</div>
+

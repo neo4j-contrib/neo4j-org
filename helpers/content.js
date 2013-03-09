@@ -933,9 +933,10 @@ neo4j start</pre>\
             tags: ["python", "jvm"],
             authors: ["@neo4j"],
             url: "http://pypi.python.org/pypi/neo4j-embedded",
+            docs: "http://docs.neo4j.org/drivers/python-embedded/snapshot/",
             logo: asset("img/languages/python.png"),
-            name: "Neo4j Python",
-            text: "The JVM based Python integration for Neo4j uses JPype. More details in the <a href='http://docs.neo4j.org/chunked/snapshot/python-embedded.html'>Neo4j manual.</a>"
+            name: "Neo4j Python", 
+            text: "The JVM based Python integration for Neo4j uses JPype. More details in the <a href='http://docs.neo4j.org/drivers/python-embedded/snapshot/'>Neo4j manual.</a>"
         },
         grails: {
             type: "driver",
@@ -1088,3 +1089,11 @@ exports.video = function(id) {
         return exports.content.videos[id.toString()];
     }
 };
+exports.findItem = function(key) {
+    
+}
+exports.lookup = function(id) {
+    return function() {
+        return findItem(id);
+    }
+}

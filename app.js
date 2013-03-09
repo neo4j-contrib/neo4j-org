@@ -81,7 +81,7 @@ app.locals.chunk = function (arr, size) {
     return res;
 };
 
-app.locals.findItem = function (key) {
+function findItem(key) {
     // console.log("findItem", key)
     if (typeof key == 'function') key = key();
     if (typeof key == 'object') return key;
@@ -94,12 +94,16 @@ app.locals.findItem = function (key) {
     if (content.content[key]) return addType(content.content[key], "content");
     if (content.content.drivers[key]) return addType(content.content.drivers[key], "driver");
     if (content.content.books[key]) return addType(content.content.books[key], "book");
+    if (app.locals.contributors[key]) return addType(app.locals.contributors[key], "contributor");
     if (data.contributors[key]) return addType(data.contributors[key], "contributor");
     if (data.ext_content[key]) return addType(data.ext_content[key], "external");
     if (data.trainings[key]) return addType(data.trainings[key], "training");
     if (content.content.apps[key]) return addType(content.content.apps[key], "app");
+    if (content.content.links[key]) return addType(content.content.drivers[key], "link");
+    if (content.content.videos[key]) return addType(content.content.drivers[key], "video");
     return key;
-};
+}
+app.locals.findItem = findItem;
 
 app.locals.resolve_authors = function (authors) {
     if (!authors) return [];

@@ -3,7 +3,7 @@ console.log("contributor/_tile.ejs")%>
 <div class="item person">
 
     <a href="<%= info['url'] %>">
-        <img class="preview" src="<%= info['logo'] %>" title="<%= info['name'] %>" alt="picture of <%= info['name'] %>"/>
+        <img class="preview" src="<%= info['logo']||info['image']||'http://api.twitter.com/1/users/profile_image?screen_name='+key+'&size=bigger' %>" title="<%= info['name'] %>" alt="picture of <%= info['name'] %>"/>
     </a>
     <h5><a href="http://twitter.com/<%=key %>" target="_blank"><%= info['name'] %></a></h5>
             

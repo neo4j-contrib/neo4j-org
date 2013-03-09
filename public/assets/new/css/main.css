@@ -682,7 +682,8 @@ ul.hor li {
 
 
 .featured .video .caption, 
-.featured .version .caption 
+.featured .version .caption, 
+.featured .default .caption 
 {
     width: 18em; 
 }
