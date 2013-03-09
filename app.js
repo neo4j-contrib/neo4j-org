@@ -83,7 +83,9 @@ app.locals.chunk = function (arr, size) {
 
 app.locals.findItem = function (key) {
     // console.log("findItem", key)
+    if (typeof key == 'function') key = key();
     if (typeof key == 'object') return key;
+    
     function addType(item, type) {
         if (!item.type) item.type = type;
         return item;

@@ -55,7 +55,8 @@ exports.loadAllVideos = function(pages, content, nr_featured) {
 
     function makeAvailableAsContent() {
         all_videos.forEach(function (video) {
-            content.videos[video.id] = video;
+            content.videos[video.id.toString()] = video;
+            content.videos[video.title] = video;
             console.log(video.id,video.category,video.title);
         })
     }

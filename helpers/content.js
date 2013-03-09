@@ -104,7 +104,6 @@ neo4j start</pre>\
         }
     },
     videos: {
-
         neo4j_webui: {
             title: "Neo4j Server Web Interface",
             type: "video",
@@ -1067,6 +1066,25 @@ neo4j start</pre>\
             tags: ["go", "rest"],
             name: "Neo4j GO",
             text: "A Neo4j REST client in the GO language."
+        },
+        kundera: {
+            type: "driver",
+            url: "https://github.com/impetus-opensource/Kundera",
+            forum: "http://groups.google.com/group/kundera-discuss",
+            source: "https://github.com/impetus-opensource/Kundera",
+            docs: "https://github.com/impetus-opensource/Kundera/wiki/Graph-Database-Support",
+            examples: "http://github.com/impetus-opensource/Kundera-Examples",
+            logo: "http://mail.varindia.com/images/Impetus_Logo.gif",
+            authors: ["Amresh Amry"],
+            tags: ["jvm","jpa"],
+            name: "Kundera",
+            text: "Kundera is a JPA 2.0 compliant, object-datastore mapping library for NoSQL datastores."
         }
     }
 }
+exports.video = function(id) { 
+    return function() {
+        console.log(id,exports.content.videos[id.toString()]);
+        return exports.content.videos[id.toString()];
+    }
+};

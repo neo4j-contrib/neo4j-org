@@ -1,5 +1,6 @@
 var render = require('./render');
 var content = require("./content").content
+var video = require("./content").video
 var asset = require("../helpers/assets.js").asset
 
 exports.pages = {
@@ -184,24 +185,12 @@ exports.pages = {
         thumbnail: asset("img/still/cypher_tutorial.gif"),
         introText: "The Cypher track concentrates on the Cypher Graph Query language, making interaction with Neo4j framework independent.",
         actionText: "Start",
-        next: ["cypher_track_basics"],
+        next: ["cypher_track_use"],
         prev: [],
         featured: [content.videos.cypher],
-        related: [ "reference_card", content.links.cypher_cheat_sheet, content.videos.cypher
+        related: [ "reference_card", content.links.cypher_cheat_sheet, content.videos.cypher, video('Interview: Michael Hunger discusses Cypher transition from SQL')
 
         ]
-    },
-    cypher_track_basics: {
-        path: "/tracks/cypher_track_basics",
-        type: "track",
-        title: "Get Started",
-        thumbnail: asset("img/still/cypher_tutorial.gif"),
-        introText: "Get started with Cypher by watching the Video",
-        actionText: "Get Started with Cypher",
-        next: ["cypher"],
-        prev: ["cypher_track_start"],
-        featured: [content.videos.cypher],
-        related: []
     },
     cypher_track_use: {
         path: "/tracks/cypher_track_use",
@@ -288,8 +277,9 @@ exports.pages = {
         actionText: "Go into production",
         related: [
             "licensing",
+            video('0607 - High Availability with Neo4j'),
+            "ops",
             content.links.partners_graph
-
         ]
     },
     licensing: {
@@ -367,7 +357,7 @@ exports.pages = {
         introText: "Friends of Neo4j speak many languages, and work in many frameworks.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
         featured: null,
-        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp", "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "bulbflow", "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go"]
+        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp", "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "bulbflow", "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go","kundera"]
     },
     tools: {
         path: "/develop/tools",
@@ -637,9 +627,9 @@ exports.pages = {
         thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
         actionText: "Study this",
         featured: [
-            content.articles.learn
+            content.articles.learn,video('Ian Robinson  - What is a Graph Database? What is Neo4j?')
         ],
-        related: ["graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card,"licensing"]
+        related: ["graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card,"licensing","neo4j_server"]
     },
     reference_card: {
         path: "/learn/neo4j/reference_card",
@@ -676,8 +666,8 @@ exports.pages = {
         title: "Operations",
         introText: "Here you can find some resources related to running Neo4j in different scenarios.",
         actionText: null,
-        featured: null,
-        related: [content.videos.ha, content.videos.installing_neo4j]
+        featured: [video('0607 - High Availability with Neo4j')],
+        related: [content.videos.ha, content.videos.installing_neo4j, content.videos.production_secrets,video('0719 - Hardware Sizing with Neo4j'),"production"]
     },
     try: {
         path: "/learn/try",
@@ -695,6 +685,41 @@ exports.pages = {
         related: [content.links.cypher_cheat_sheet, content.links.manual_cypher, "cypher"
         ]
     },
+    neo4j_server : {
+        path: "/tracks/neo4j_server",
+        type: "page",
+        title: "Neo4j Server",
+        introText: "Neo4j comes as standalone server. Easy to download and start. It has an accessible Web-UI and a comprehensive REST-API. Neo4j-Server is also available at Heroku and for cloud setup. The drivers for non-JVM languages all work with the Neo4j-Server",
+        featured: [content.videos.neo4j_webui],
+        related: [
+            "install",
+            "heroku",
+            { 
+                type:"link",
+                introText: "The tabs of the Web-UI quickly described in the manual.",
+                title: "Manual: Web-UI",
+                path: "http://docs.neo4j.org/chunked/milestone/tools-webadmin.html" 
+            },
+            { 
+                type:"link",
+                introText: "Detailed description and usage of the Neo4j-Server REST-API, Cypher-Endpoint and REST-Batch-Insertion",
+                title: "Manual: REST-API & Cypher",
+                path: "http://docs.neo4j.org/chunked/milestone/rest-api.html" 
+            },
+            "drivers",
+            // java example rest-api from manual
+            // java-rest-binding
+            // extensions, setup
+            // remoting protocol
+            "cloud",
+            { 
+                type:"link",
+                title: "Manual: Neo4j-Server",
+                introText: "Components, installation and other aspects of the Neo4j Server documented in the manual.",
+                path: "http://docs.neo4j.org/chunked/milestone/server.html" 
+            }
+        ]
+    },
     visualize: {
         path: "/develop/visualize",
         title: "Graph Visualization",
@@ -703,6 +728,7 @@ exports.pages = {
                 There are different tools that you can use to visualize the content of a Neo4j graph database.",
         featured: [
             content.videos.neo4j_webui,
+            video('GraphConnect 2012: Visualizing Graphs-Max De Marzi'),
             content.links.d3,
             content.projects.neoclipse,
             content.links.gephi,
@@ -751,5 +777,30 @@ exports.pages = {
             content.apps.frostymug, content.apps.polymap,
             content.apps.neosocial, content.apps.structr,
             content.projects.neoclipse]
+    },
+    
+    ruby : {
+        path: "/develop/ruby",
+        title: "Neo4j and Ruby",
+        introText: "Neo4j and Ruby have been close friends for a long time. You can use Neo4j embedded via neo4j.rb (JRuby) or Neo4j server via neography and other drivers",
+        featured: [{
+            type: "video",
+            title: "Neo4j: Social Skills for Ruby Developers",
+            src: "https://vimeo.com/36391029",
+            author: "PrasannaPendse",
+            content: "Ruby developers tend to be a lonely bunch. Slumped over a Mac in a dimly lit corner of a warehouse turned open-workspace. Unable to approach new people and introduce yourself. Unable to have a conversation that doesn't devolve into an opinionated debate. Social skills are limited to what you learned from Manga. Unfortunately, you can't use those in real life. Yet, one day, someone shows up and asks if you can build 'em a \"social site\" - you know, friends, activity feeds, jealousy. And privacy settings. \"Me?\", you think. \"You want ME to build you a SOCIAL site?\" Go ahead. Reach for that bottle of Neo4J. Its time to celebrate!",
+            thumbnail: "http://b.vimeocdn.com/ps/104/778/1047786_75.jpg",
+            img: "http://b.vimeocdn.com/ts/249/596/249596808_640.jpg"
+        }],
+        related: [
+            {
+                type:"link",
+                path: "http://maxdemarzi.com/tag/ruby/",
+                title: "Ruby examples by Max de Marzi",
+                thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2012/02/network.png?w=290&h=239",
+                introText: "Examples on how to query, import, export and visualize data in Neo4j using Ruby from Max de Marzi"
+            },
+            content.drivers.neo4j_rb,content.drivers.neography,content.drivers.neoid,content.drivers.keymaker, "maxdemarzi","ronge"
+        ]
     }
 }
