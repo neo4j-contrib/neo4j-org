@@ -643,7 +643,7 @@ exports.pages = {
     },
     reference_card: {
         path: "/learn/neo4j/reference_card",
-        title: "Ne4j Reference Card",
+        title: "Neo4j Reference Card",
         thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w587.png",
         featured: [
             content.links.neo4j_ref_card
