@@ -16,7 +16,7 @@ exports.pages = {
         title: "Develop",
         introText: "Learn how to develop applications with Neo4j and deploy Server instances.",
         featured: null,
-        related: ["tracks", "drivers", "tools", "cloud", "ops","ruby","dotnet","python"]
+        related: ["tracks", "drivers", "tools", "cloud", "ops","ruby","dotnet","python","scala","php","clojure"]
     },
     participate: {
         path: "/participate",
@@ -873,6 +873,46 @@ exports.pages = {
             "technige" 
         ]
     },
+    php : {
+        path: "/develop/php",
+        title: "Neo4j and Php",
+        introText: "The easy web language can access Neo4j via the the Neo4j Server or Remote APIs",
+        thumbnail: asset("img/languages/php.png"),
+        featured: [video('1025 - Neo4j at Seth Godin\'s Squidoo')],
+        related: [
+            content.drivers.neo4jphp,content.apps.frostymug,"josh_adell",
+            {
+                type: "link",
+                authors: ["josh_adell","Christophe Willems"],
+                path: "https://github.com/neoxygen",
+                title: "NeoXygen: A collection of Neo4j related PHP project repositories"
+            },
+            {
+                type: "link",
+                authors: ["josh_adell"],
+                path: "http://blog.everymansoftware.com/2011/11/development-setup-for-neo4j-and-php.html",
+                title: "Development Setup for Neo4j and PHP"
+            },
+            {
+                type:"link",
+                path: "https://github.com/lphuberdeau/Neo4j-PHP-OGM",
+                title: "Neo4j-PHP-OGM - A doctrine2 style library to access neo4j graphs",
+                introText: "The Neo4j PHP Object Graph Mapper is an object management layer built on top of everyman/neo4jphp. It allows manipulation of data inside the Neo4j graph database through the REST connectors.\
+                The library is also based on Doctrine\\Common and borrows significantly from the excellent Doctrine\\ORM design.",
+                author: {name:"Louis-Philippe Huberdeau",twitter:"lphuberdeau"}
+            },
+            {
+                type:"link",
+                path: "https://github.com/kwattro/KwattroNeo4jOGMBundle",
+                title: "A Object Graph Mapper for Symfony",
+                introText: "This bundle lets you make use of the Neo4j Graph Database REST API inside your symfony applications.\
+                It is momently a WIP as it relies on the Neo4j-PHP-OGM from lphuberdeau that gives integration with Doctrine Common.\
+                My main focus is momently the User Management integrated with FOSUB and Neo4j, I will come on this bundle later.\
+                Contributions for adding compiler to configuration and travis love would be really appreciated !",
+                author: {name:"Christophe Willemsen",twitter:"ikwattro"}
+            }
+        ]
+    },
     scala : {
         path: "/develop/scala",
         title: "Neo4j and Scala",
@@ -914,10 +954,48 @@ exports.pages = {
             },
             {
                 type:"link",
+                path:"http://ahalmeida.com/2011/09/06/how-neo4j-uses-scalas-parser-combinator-cyphers-internals-part-1/",
+                title:"How Neo4j uses Scala’s Parser Combinator: Cypher’s internals",
+                author: "adrianoalmeida7"
+            },
+            {
+                type:"link",
                 author:"fakod",
                 path:"http://blog.fakod.eu/2010/10/04/neo4j-example-written-in-scala/",
                 title: "Neo4j Example written in Scala"
             }
         ]
-    }
+    },
+    clojure : {
+        path: "/develop/clojure",
+        title: "Neo4j with Clojure",
+        introText: "Clojure is a great language and fits very well with the graph concepts and lazy evaluation",
+        thumbnail: asset("img/languages/clojure.png"),
+        featured: [  
+                    {
+                        type:"link",
+                        path:"http://clojureneo4j.info/articles/getting_started.html",
+                        img:"http://clojurewerkz.org/assets/images/clojurewerkz_logo_big.png",
+                        title:"Getting Started with Neocons and Neo4j",
+                        introText: "<p>This guide combines an overview of Neocons with a quick tutorial that helps you to get started with it. It should take about 15 minutes to read and study the provided code examples. This guide covers:\
+                        <ul><li>Features of Neocons</li>\
+                        <li>Clojure and Neo4J Server version requirements</li>\
+                        <li>How to add Neocons dependency to your project</li>\
+                        <li>A very brief introduction to graph databases and theory</li>\
+                        <li>Basic operations (creating nodes and relationships, fetching nodes, using Cypher queries, traversing graph paths)</li>\
+                        </ul></p>",
+                        author: "michaelklishin"
+                    }],
+        related: [
+            content.drivers.neocons,
+            {
+                type:"link",
+                path:"http://blog.opal.io/post/41701508265/loading-dbpedia-into-neo4j-with-clojure",
+                title:"Loading DBPedia into Neo4j with Clojure",
+                introText: "This article describes how to load over 82 million relationships from the DBPedia datasets into Neo4j with Clojure.",
+                author: "opal_io"
+            },
+            "michaelklishin" 
+        ]
+    }    
 }
