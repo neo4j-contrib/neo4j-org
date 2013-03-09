@@ -478,8 +478,9 @@
                     // + 2 to account for clones
                     gotoslide = key + 2;
                 }
-
-                var marker = $('<li><a href="#">'+ slidenum +'</a></li>');
+                var caption = ($(slide).is('[title]') ? $(slide) :$(slide).find('[title]')).first().attr('title');
+                
+                var marker = $('<li><a href="#">'+ ((caption && caption.length) ? caption : slidenum) +'</a></li>');
 
                 // set the first marker to be active
                 if(slidenum === state.currentslide){ marker.addClass('active-marker'); }
@@ -561,12 +562,7 @@
 
             $.each($slides, function (key, slide) {
 
-                var caption = $(slide).children('img:first-child').attr('title');
-
-                // Account for images wrapped in links
-                if(!caption){
-                    caption = $(slide).children('a').find('img:first-child').attr('title');
-                }
+                var caption = ($(slide).is('[title]') ? $(slide) :$(slide).find('[title]')).first().attr('title');
 
                 if (caption) {
                     caption = $('<p class="bjqs-caption">' + caption + '</p>');
