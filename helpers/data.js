@@ -66,34 +66,37 @@ exports.contributors = {
 
 exports.ext_content = {
     rik_belgian_beers1: {
+        type: "video",
         author: "@rvanbruggen",
-        name: "Fun with beer and graphs",
-        logo: "http://www.travelandbeer.com/wp-content/uploads/2011/05/belgian-beers.jpg",
-        url: "http://popchartlab.com/collections/prints/products/the-very-very-many-varieties-of-beer",
-        text: "A brief introduction to Neo4j, Belgian beers and import and recommendations."
+        title: "Fun with beer and graphs",
+        thumbnail: "http://www.travelandbeer.com/wp-content/uploads/2011/05/belgian-beers.jpg",
+        src: "http://player.vimeo.com/video/57182040",
+        introText: "A brief introduction to Neo4j, Belgian beers and import and recommendations."
     },
     popchartlabs_beer: {
         author: "@popchartlab",
-        name: "The Beer Pop Chart",
-        logo: "http://cdn.shopify.com/s/files/1/0068/6272/products/VVMVOBeerPrint_Main_thumb_a_1024x1024.jpg?358",
-        url: "http://popchartlab.com/collections/prints/products/the-very-very-many-varieties-of-beer",
-        text: "Chart of the world's most comprehensive beer taxonomy, with 89 varieties of beer with over 200 representative quaffs,"
+        type: "link",
+        title: "The Beer Pop Chart",
+        thumbnail: "http://cdn.shopify.com/s/files/1/0068/6272/products/VVMVOBeerPrint_Main_thumb_a_1024x1024.jpg?358",
+        path: "http://popchartlab.com/collections/prints/products/the-very-very-many-varieties-of-beer",
+        introText: "Chart of the world's most comprehensive beer taxonomy, with 89 varieties of beer with over 200 representative quaffs,"
     },
     trycypher_beer: {
         author: "@neo4j",
-        name: "A live sample beer graph",
-        logo: asset("img/apps/beer-console.png"),
-        url: "http://console.neo4j.org/?id=beer",
-        text: "A small live dataset of Belgian beers in the cypher console"
+        type: "link",
+        title: "A live sample beer graph",
+        thumbnail: asset("img/apps/beer-console.png"),
+        path: "http://console.neo4j.org/?id=beer",
+        introText: "A small live dataset of Belgian beers in the cypher console"
     },
     beer_rik_screencast: {
+        type:"video",
         author: "@rvanbruggen",
-        name: "Screencast of Neo4j, Gephi and Beer",
-        logo: asset("img/apps/rik-screencast-beer.png"),
-        url: "https://vimeo.com/57182040",
-        text: "Rik shows how easy it is to import data about beers, their attributes and breweries into Neo4j and walks through different ways of exploring, visualizing and querying this very tasty data."
+        title: "Screencast of Neo4j, Gephi and Beer",
+        thumbnail: asset("img/apps/rik-screencast-beer.png"),
+        src: "http://player.vimeo.com/video/57182040",
+        introText: "Rik shows how easy it is to import data about beers, their attributes and breweries into Neo4j and walks through different ways of exploring, visualizing and querying this very tasty data."
     }
-
 }
 
 exports.trainings = [

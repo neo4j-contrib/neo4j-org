@@ -87,6 +87,7 @@ function findItem(key) {
     if (typeof key == 'object') return key;
     
     function addType(item, type) {
+        console.log(item,type);
         if (!item.type) item.type = type;
         return item;
     }
@@ -247,7 +248,7 @@ route_get('/terms', routes.terms); // terms and conditions
 route_get('/privacy', routes.privacy); // privacy policy
 route_get('/release-notes', routes.release_notes); // TODO
 
-route_get('/misc/beer', routes.beer);
+// route_get('/misc/beer', routes.beer);
 
 // well known historic URLs redirects
 route_get('/getting-started', forward("/develop"));

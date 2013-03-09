@@ -997,5 +997,16 @@ exports.pages = {
             },
             "michaelklishin" 
         ]
-    }    
+    },
+    beer: {
+        path: "/misc/beer",
+        thumbnail: "http://www.travelandbeer.com/wp-content/uploads/2011/05/belgian-beers.jpg",
+        title: "Everyone loves beer.",
+        introText: "Beer is at the core of software development, a good part of Neo4j runs on it.",
+        content: "<p>There is a high density of beer-loving geeks in the neo4j community. Below are some of the projects and resources tht have been developed with or around Neo4j.</p>\
+        <blockquote>A traditional relational database may tell you the average age of everyone in this pub, but a graph database will tell you who is most likely to buy you a beer. <i>Andreas Kollegger</i></blockquote>\
+        <p>Of course, we are sponsoring beer for the <a href='/participate/meetups'>Neo4j Meetups</a>, so drop by!</p>",
+        featured: ["rik_belgian_beers1"],
+        related: ["popchartlabs_beer","trycypher_beer","beer_rik_screencast","frostymug"]
+    }
 }
