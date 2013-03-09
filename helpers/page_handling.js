@@ -25,6 +25,9 @@ exports.init = function(app,pages) {
             var config = page.config || {};
             var featuredArray = page.featured;
     
+            if (!page['thumbnail']) {
+                console.log("### page without thumbnail",key,page['title']);
+            }
             if (featuredArray && featuredArray.length && 
                 featuredArray[0].content && typeof featuredArray[0].content == "string" && featuredArray[0].content.match(/<%/)) {
     
@@ -54,7 +57,7 @@ exports.init = function(app,pages) {
                 });
     
             } else {
-              console.log("Default routing to pages: ",page.path,page.title)
+              // console.log("Default routing to pages: ",page.path,page.title)
               app.get(page.path, function(req,res) { 
                   var params=merge(app.locals,{ title: page.title||"", locals:app.locals }); 
                   res.render('partials/page', params); 

@@ -369,6 +369,7 @@ exports.pages = {
         path: "/develop/tools",
         title: "Tools and Resources",
         introText: "There are a lot of tools and resources around Neo4j.",
+        thumbnail: asset("img/still/cypher.png"),
         featured: [content.videos.cypher],
         related: ["drivers", "try", "visualize"]
     },
@@ -394,9 +395,11 @@ exports.pages = {
         title: "Easy Neo4j on Amazon EC2",
         introText: "Setup your EC2 instance AND Neo4j using Puppet <a href='https://github.com/neo4j-contrib/neo4j-puppet/blob/master/README.CLOUDFORMATION.md' target='_blank'>(source)</a>",
         actionText: "Easy Neo4j on Amazon EC2",
+        thumbnail: "http://tctechcrunch2011.files.wordpress.com/2012/12/aws-logo-640.jpg?w=200",
         featured: [{
             title: "Puppet Setup",
             type: "article",
+            thumbnail: "http://blog.netways.de/wp-content/uploads/2010/04/Puppet_Logo.png",
             content: "\
             <blockquote class='external markdown'>\
                 <%-: content.ec2_template | md %>\
@@ -408,6 +411,7 @@ exports.pages = {
         path: "/develop/ec2_detailed",
         title: "Set up your EC2 instance and Neo4j manually",
         actionText: "Manual Setup",
+        thumbnail: "http://tctechcrunch2011.files.wordpress.com/2012/12/aws-logo-640.jpg?w=200",
         featured: [{
             type: "article",
             title: "Setup <strong>Neo4j only</strong> using Puppet <a href='https://github.com/neo4j-contrib/neo4j-puppet/blob/master/README.md' target='_blank'>(source)</a>",
@@ -672,6 +676,7 @@ exports.pages = {
         title: "Operations",
         introText: "Here you can find some resources related to running Neo4j in different scenarios.",
         actionText: null,
+        thumbnail: asset("img/still/secrets.png"),
         featured: [video('0607 - High Availability with Neo4j')],
         related: [content.videos.ha, content.videos.installing_neo4j, content.videos.production_secrets,video('0719 - Hardware Sizing with Neo4j'),"production"]
     },
@@ -729,6 +734,7 @@ exports.pages = {
     visualize: {
         path: "/develop/visualize",
         title: "Graph Visualization",
+        thumbnail: asset("img/still/d3_network.png"),
         introText: "Storing a graph is one thing, but visualizing it creates awe and epiphanies.\
                 Graph visualisations are a powerful tool to convey the content of a graph. They can highlight patterns, show clusters and connections.\
                 There are different tools that you can use to visualize the content of a Neo4j graph database.",
