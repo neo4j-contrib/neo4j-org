@@ -1,6 +1,9 @@
 
 $(window).load(function() {
     nav.resizeRelatedItems();
+});
+
+$(document).ready(function() {
     enableSlider();
 });
 
@@ -162,7 +165,7 @@ function enableSlider() {
  //    $('.bjqs-slide').width(maxWidth);
      $('.bjqs-slide').height(maxHeight+offset);
 
-    // $('.bjqs-markers.h-centered .active-marker a').remove();
+    $('.bjqs-markers.h-centered a').addClass('btn');
 
 }
 
