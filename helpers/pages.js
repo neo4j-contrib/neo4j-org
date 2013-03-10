@@ -161,7 +161,7 @@ exports.pages = {
         related: ["java", "cypher_track_start"]
     },
     java: {
-        path: "/java",
+        path: "/develop/java",
         type: "track",
         title: "Neo4j for Java devs",
         thumbnail: asset("img/languages/java.jpg"),
