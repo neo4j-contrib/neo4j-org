@@ -113,15 +113,15 @@ function enableSlider() {
         animtype : 'slide', // accepts 'fade' or 'slide'
         animduration : 450, // how fast the animation are
         animspeed : 5000, // the delay between each slide
-        // automatic : true, // automatic
+        automatic : false, // automatic
         
         // control and marker configuration
         showcontrols : true, // show next and prev controls
         centercontrols : true, // center controls verically
         nexttext : '<i class="slider icon-forward"></i>', // Text for 'next' button (can use HTML)
         prevtext : '<i class="slider icon-backward"></i>', // Text for 'previous' button (can use HTML)
-        showmarkers : false, // Show individual slide markers
-        centermarkers : false, // Center markers horizontally
+        showmarkers : true, // Show individual slide markers
+        centermarkers : true, // Center markers horizontally
         
         // interaction values
         keyboardnav : true, // enable keyboard navigation
@@ -162,7 +162,7 @@ function enableSlider() {
  //    $('.bjqs-slide').width(maxWidth);
      $('.bjqs-slide').height(maxHeight+offset);
 
-    $('.bjqs-markers.h-centered .active-marker a').remove();
+    // $('.bjqs-markers.h-centered .active-marker a').remove();
 
 }
 

@@ -1014,5 +1014,48 @@ exports.pages = {
         <p>Of course, we are sponsoring beer for the <a href='/participate/meetups'>Neo4j Meetups</a>, so drop by!</p>",
         featured: ["rik_belgian_beers1"],
         related: ["popchartlabs_beer","trycypher_beer","beer_rik_screencast","frostymug"]
+    },
+    import : {
+        path : "/develop/import",
+        title: "Importing data into Neo4j",
+        introText: "The first thing you need to get started is to import data from various sources into Neo4j. Fortunately there are a number of ways to do that.",
+        content: "If you have your data in a relational database, spreadsheet or somewhere else, you want to get in into the graph database. Although you can point and click in the <a href='/develop/server'>Web-UI</a> or script a bit in the <a href='/develop/shell'>shell</a>, the easiest way by far is to generate <a href='/learn/cypher'>Cypher</a> statements and import them via the shell (<code>cat insert.cql | neo4j-shell -path /path/to/db</code>), use the <a href='/develop/tools/jdbc'>JDBC-Driver</a> or pump them through the Batch-REST-API.<br/>You can also import CSV files with a tool or <a href='/develop/tools/gephi'>Gephi</a> or write a custom <a href='/develop/import/batch-insert'>Batch-Inserter</a> in a JVM language to do high performance imports.",
+        featured: [],
+        /*
+        Currently you can at least generate cypher statements (much like sql-inserts) and pipe them into a neo4j-shell, like this:
+        
+        cat insert.cql | neo4j-shell -path /path/to/db
+        
+        Or paste them into the web-UI-shell.
+        
+        You can generate the cypher queries from something simple like a spreadsheet: http://blog.neo4j.org/2013/03/importing-data-into-neo4j-spreadsheet.html
+        
+        Or from any scripting language (I did this for instance from ruby or node.js) just using string operations.
+        
+        For importing csv files I wrote an importer a while ago: https://github.com/jexp/batch-import
+        Which Max described a while back: http://maxdemarzi.com/2012/02/28/batch-importer-part-1/
+        He also has another great presentation on ETL into Neo4j: http://slideshare.net/maxdemarzi/etl-into-neo4j
+         */
+        related: [{
+            type:"link",
+            title:"",
+            path:""
+        }]
+    },
+    neo4j_shell : {
+        path: "/develop/shell",
+        title: "The awesome Neo4j Shell",
+        introText: "",
+        content: "",
+        featured: [],
+        related: []
+    },
+    import_shell: {
+        path: "/develop/import/shell",
+        title: "Import and export with the Neo4j-Shell",
+        introText: "",
+        content: "",
+        featured: [],
+        related: []
     }
 }
