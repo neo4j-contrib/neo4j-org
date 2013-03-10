@@ -1019,30 +1019,40 @@ exports.pages = {
         path : "/develop/import",
         title: "Importing data into Neo4j",
         introText: "The first thing you need to get started is to import data from various sources into Neo4j. Fortunately there are a number of ways to do that.",
-        content: "If you have your data in a relational database, spreadsheet or somewhere else, you want to get in into the graph database. Although you can point and click in the <a href='/develop/server'>Web-UI</a> or script a bit in the <a href='/develop/shell'>shell</a>, the easiest way by far is to generate <a href='/learn/cypher'>Cypher</a> statements and import them via the shell (<code>cat insert.cql | neo4j-shell -path /path/to/db</code>), use the <a href='/develop/tools/jdbc'>JDBC-Driver</a> or pump them through the Batch-REST-API.<br/>You can also import CSV files with a tool or <a href='/develop/tools/gephi'>Gephi</a> or write a custom <a href='/develop/import/batch-insert'>Batch-Inserter</a> in a JVM language to do high performance imports.",
-        featured: [],
-        /*
-        Currently you can at least generate cypher statements (much like sql-inserts) and pipe them into a neo4j-shell, like this:
-        
-        cat insert.cql | neo4j-shell -path /path/to/db
-        
-        Or paste them into the web-UI-shell.
-        
-        You can generate the cypher queries from something simple like a spreadsheet: http://blog.neo4j.org/2013/03/importing-data-into-neo4j-spreadsheet.html
-        
-        Or from any scripting language (I did this for instance from ruby or node.js) just using string operations.
-        
-        For importing csv files I wrote an importer a while ago: https://github.com/jexp/batch-import
-        Which Max described a while back: http://maxdemarzi.com/2012/02/28/batch-importer-part-1/
-        He also has another great presentation on ETL into Neo4j: http://slideshare.net/maxdemarzi/etl-into-neo4j
-         */
-        related: [{
-            type:"link",
-            title:"",
-            path:""
-        }]
+        content: "If you have your data in a relational database, spreadsheet or somewhere else, you want to get in into the graph database. " +
+            "Although you can point and click in the <a href='/develop/server'>Web-UI</a> or script a bit in the <a href='/develop/shell'>shell</a>, " +
+            "the easiest way by far is to generate <a href='/track/cypher'>Cypher</a> statements and import them via the shell " +
+            "(<code>cat insert.cql | neo4j-shell -path /path/to/db</code>), use the <a href='/develop/tools/jdbc'>JDBC-Driver</a> " +
+            "or pump them through the Batch-REST-API.<br/>You can also import CSV files with a tool or <a href='/develop/tools/gephi'>Gephi</a> " +
+            "or write a custom <a href='/develop/import/batch-insert'>Batch-Inserter</a> in a JVM language to do high performance imports.",
+        featured: [{
+            type: "video",
+            title: "ETL into Neo4j",
+            author: "maxdemarzi",
+            introText: "In this presentation, Max explains several ways of importing data into Neo4j",
+            src: "http://de.slideshare.net/slideshow/embed_code/13143642",
+            thumbnail: "http://image.slidesharecdn.com/etlintoneo4j-120531001746-phpapp02/95/slide-1-728.jpg?1338442853"
+        }],
+        related:[
+            {
+                type:"link",
+                title:"Importing data into Neo4j - the spreadsheet way",
+                path:"http://blog.neo4j.org/2013/03/importing-data-into-neo4j-spreadsheet.html",
+                author:"rvanbruggen",
+                thumbnail:"https://lh3.googleusercontent.com/hkoYal89xuVDMvXY8BuE7dN0IM5svowOJr9cURxT3vN_ThzxSambyj1DE-6fQlSIoEcqw2IUgg5xj8c-CJv8dHgKovjA1hMjljsMgImH963u0LrDxP07AzIRow",
+                introText:"A spreadsheet and some formulas building cypher queries are one of the simplest ways of getting data into Neo4j. If even a sales-guy like Rik can do it, you can too"
+            },
+            {
+                type:"link",
+                title:"CSV-Batch-Importer",
+                path:"http://maxdemarzi.com/2012/02/28/batch-importer-part-1/",
+                author:["maxdemarzi","mesirii"],
+                thumbnail:"http://maxdemarzidotcom.files.wordpress.com/2012/02/matrix.jpg?w=200",
+                introText:"Michael wrote a <a href='https://github.com/jexp/batch-import'>batch importer</a> to load csv data quickly. I’m going to walk you through getting your data out of tables and into nodes and edges."
+            }
+        ]
     },
-    neo4j_shell : {
+    shell : {
         path: "/develop/shell",
         title: "The awesome Neo4j Shell",
         introText: "",
@@ -1053,6 +1063,23 @@ exports.pages = {
     import_shell: {
         path: "/develop/import/shell",
         title: "Import and export with the Neo4j-Shell",
+        introText: "",
+        content: "",
+        featured: [],
+        related: []
+    },
+    "batch-insert": {
+        path: "/develop/import/batch-insert",
+        title: "High performance imports with the non-transactional Batch-Inserter API's",
+        introText: "",
+        content: "",
+        featured: [],
+        related: []
+    },
+    jdbc: {
+        path: "/develop/tools/jdbc",
+        title: "Easy integration in Java applications and tools with the JDBC driver",
+        author: ["rickardoberg","mesirii"],
         introText: "",
         content: "",
         featured: [],
