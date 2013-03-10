@@ -1,13 +1,18 @@
 <div class="featured" class="mainElement">
     <div class="slide version">
         <div class="caption">
-            <h3><%= item.title %> <%= item.version %></h3>
+            <h3><%= item.title %></h3>
             <%- item.introText||item.summary %>
             <% include _download_table %> 
             <br/>
             <p>Download and unzip. <br/>From the folder start Neo4j Server <br/>on Linux/Mac with <code>bin/neo4j start</code> from a terminal.<br/> On Win use <code>bin\Neo4j.bat start</code><br/> or double-click.<br/>
                Open <a href="http://localhost:7474" target="_blank"><code>http://localhost:7474</code></a> for the Web UI.</p>
-            <a class="link" href="<%= item.path||item.src %>" target="_blank">Read More</a>
+            <% if (item.stability=="stable") { %>
+                <a href="/release-notes#<%= item.version %>" target="_blank">Release Notes &raquo;</a>
+            <% } %>
+            <% if (item.path||item.src) { %>
+                <a class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>
+            <% } %>
         </div>
         <div class="content">
             <% if (item.thumbnail) { %>

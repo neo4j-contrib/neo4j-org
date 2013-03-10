@@ -1,9 +1,14 @@
 <div class="item version">
-    <h3><%= item.title %> <%= item.version %></h3>
+    <h3><%= item.title %></h3>
     <div>
         <p class="introText"><%- item.previewText || item.introText || item.summary %></p>
     </div>
     <% include _download_table %> 
+    <% if (item.stability=="stable") { %>
+    <a href="/release-notes#<%= item.version %>" target="_blank">Release Notes &raquo;</a>
+    <% } %>
+    <% if (item.path||item.src) { %>
     <a class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>
+    <% } %>
 </div>
 

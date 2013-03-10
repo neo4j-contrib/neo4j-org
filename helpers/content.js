@@ -5,7 +5,7 @@ exports.content = {
     install:{
         milestone:{
             type:"version",
-            title:"Neo4j Milestone Release",
+            title:"Neo4j Milestone Release 1.9.M05",
             version:"1.9.M05",
             stability:"milestone",
             date:"Mar 06, 2013",
@@ -16,7 +16,7 @@ exports.content = {
         },
         stable:{
             type:"version",
-            title:"Neo4j Stable Release",
+            title:"Neo4j Stable Release 1.8.2",
             version:"1.8.2",
             stability:"stable",
             date:"Feb 27, 2013",
@@ -27,7 +27,7 @@ exports.content = {
         },
         snapshot:{
             type:"version",
-            title:"Snapshot Version",
+            title:"Snapshot Version 1.9-SNAPSHOT",
             stability:"snapshot",
             version:"1.9-SNAPSHOT",
             date:"2013",
@@ -38,21 +38,24 @@ exports.content = {
             title:"Neo4j Stable Release 1.7.2",
             version:"1.7.2",
             stability:"stable",
-            date:"May 28, 2012"
+            date:"May 28, 2012",
+            path: "http://blog.neo4j.org/2012/04/neo4j-17-ga-bastutrask-bank-released.html"
         },
         "1_6_3":{
             type:"version",
             stability:"stable",
             title:"Neo4j Stable Release 1.6.3",
             version:"1.6.3",
-            date:"May 28, 2012"
+            date:"May 28, 2012",
+            path: "http://blog.neo4j.org/2012/01/released-neo4j-16-ga-jorn-kniv.html"
         },
         "1_5_3":{
             type:"version",
             stability:"stable",
             title:"Neo4j Stable Release 1.5.3",
             version:"1.5.3",
-            date:"May 24, 2012"
+            date:"May 24, 2012",
+            path: "http://blog.neo4j.org/2011/10/announcing-neo4j-boden-bord-15-ga.html"
         },
         upgrading:{
             type:"link",
