@@ -252,7 +252,7 @@ route_get('/release-notes', routes.release_notes); // TODO
 
 // well known historic URLs redirects
 route_get('/getting-started', forward("/develop"));
-route_get('/download', forward("/install"));
+route_get('/install', forward("/download"));
 route_get('/tracks/java', forward("/develop/java"));
 route_get('/java', forward("/develop/java"));
 route_get('/tracks/cypher', forward("/tracks/cypher_track_start"));

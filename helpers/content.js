@@ -90,6 +90,7 @@ exports.content = {
             type:"article",
             title: "MacOS X - Homebrew - stable",
             actionText: "Brew It",
+            introText: "Installing the stable version of Neo4j on a Mac with homebrew is really simple.",
             content: "\
             <p>If you have <a href='http://mxcl.github.com/homebrew/' target='_blank'>homebrew</a> installed, adding Neo4j to your Mac is simple a:</p>\
                 <pre>brew update && brew install neo4j\

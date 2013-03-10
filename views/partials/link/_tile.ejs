@@ -2,7 +2,6 @@
 <%
 	var hasPath = item.path;
 	var image = item.img ? item.img : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
-	console.log(image)
 %>
 
     <h3><%- link_to(item.path, item.title) %></h3>

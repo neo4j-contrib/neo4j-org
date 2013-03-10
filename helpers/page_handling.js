@@ -37,15 +37,15 @@ exports.init = function(app,pages) {
                     console.log("Need type for featured ",featured," for page ",key);
                     break;
                 }
-                // console.log('use partial for', featured.type, "views/partials/" + featured.type + "/_full.ejs");
+                console.log('use partial for', featured.type, "views/partials/" + featured.type + "/_full.ejs");
                 // case 'track'            : %><% include partials/track/_full %>
     
                 var partial = fs.readFileSync("views/partials/" + featured.type + "/_full.ejs");
-                // console.log("partial",partial.toString())
+//                console.log("partial",partial.toString())
                 var newPartial = partial.toString().replace(new RegExp("<%- .*?item.content %>","g"),
                                              featured['content']);
     
-                // console.log("newPartial",newPartial);
+//                console.log("newPartial",newPartial);
                 var newFile=template.replace(new RegExp("<% include ../partials/item/_full %>","g"), newPartial);
                 var file="ejs/"+page.path.replace(/\//g,"_");
                 var fileName="views/"+file+".ejs";

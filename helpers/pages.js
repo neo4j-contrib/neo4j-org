@@ -25,20 +25,25 @@ exports.pages = {
         featured: null,
         related: ["q_and_a", "contributors", "events","beer"]
     },
-    install : {
-        path : "/install",
+    download : {
+        path : "/download",
         title: "Download and Install Neo4j",
         introText: "Take Neo4j for a spin. Community, Advanced, and Enterprise are available for your exploration.",
         content: ""// render.include("download/installation")
         ,
         featured: [
+            {
+                type: "include",
+                title: "Neo4j Releases",
+                path: "/partials/version/_main"
+            }
             // content.videos.installing_neo4j,
-            content.install.milestone
+            // content.install.milestone
             //,content.install.stable
         ],
         related: [
             // content.install.milestone,
-            content.install.stable,
+            // content.install.stable,
             //"graphdatabase",
             //"develop",
             //"participate",
@@ -703,7 +708,7 @@ exports.pages = {
         introText: "Neo4j comes as standalone server. Easy to download and start. It has an accessible Web-UI and a comprehensive REST-API. Neo4j-Server is also available at Heroku and for cloud setup. The drivers for non-JVM languages all work with the Neo4j-Server",
         featured: [content.videos.neo4j_webui],
         related: [
-            "install",
+            "download",
             "heroku",
             { 
                 type:"link",

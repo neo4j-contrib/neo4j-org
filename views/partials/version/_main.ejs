@@ -1,0 +1,26 @@
+<div class="featured" class="mainElement">
+    <div class="slide version">
+        <div class="caption">
+            <% var item=content.install.milestone %>
+            <h3><%= item.title %> <%= item.version %></h3>
+            <% include /version/_download_table %> 
+            <div style="text-align: right;"><a style="display: inline-block;text-align: right;" class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a></div>
+            
+            <% var item=content.install.stable %>
+            <br/>
+            <h3><%= item.title %> <%= item.version %></h3>
+            <% include /version/_download_table %>
+            <div style="text-align: right;"><a class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a></div>
+
+        </div>
+        <div class="content">
+            <% if (item.thumbnail) { %>
+                <img class="thumbnail" src="<%= item.thumbnail %>" data-src="<%= item.src %>">
+            <% } %>
+            <h3>After the Download</h3>
+            <p>Unzip and change to the folder. From there start Neo4j Server <br/>on Linux/Mac with <code>bin/neo4j start</code> from a terminal.<br/> On Win use <code>bin\Neo4j.bat start</code> or double-click.<br/>
+               Open <a href="http://localhost:7474" target="_blank"><code>http://localhost:7474</code></a> for the Web UI.</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div><!-- featured -->
