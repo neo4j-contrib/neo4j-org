@@ -16,7 +16,7 @@ Event Description: Event Info
 	<div area="<%= event['Area'] %>" class="event item ">
 <%  }  %>
             <a target='_blank' href="<%= event['Url'] %>">
-                <img class="thumbnail" src="<%= event['Image'] || event['Portrait'] || (event['Group'] ? '/meetup?img=true&group='+event['Group']: undefined) || {Webinar:asset('img/events/neo4j_icon_webinar.png'),Training:asset('img/events/neo4j_icon_training.png'), Meetup: asset('img/events/neo4j_icon_meetup.png')}[event.Type] || asset('img/events/neo4j_icon_webinar.png') %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
+                <img class="thumbnail" src="<%= event['Image'] || event['Portrait'] || (event['Group'] ? '/api/meetup?img=true&group='+event['Group']: undefined) || {Webinar:asset('img/events/neo4j_icon_webinar.png'),Training:asset('img/events/neo4j_icon_training.png'), Meetup: asset('img/events/neo4j_icon_meetup.png')}[event.Type] || asset('img/events/neo4j_icon_webinar.png') %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
             </a>
             <div class="caption">
                 <h3><%- event['Title'] %></h3>

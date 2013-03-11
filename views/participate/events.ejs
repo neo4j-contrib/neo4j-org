@@ -70,7 +70,7 @@ $(document).ready(function() {
 /*
     $('div.meetup').each(function() {
         var e=$(this);
-        $.get("/meetup?group="+e.attr("group")+"&event="+e.attr("event"), function(data,err) {
+        $.get("/api/meetup?group="+e.attr("group")+"&event="+e.attr("event"), function(data,err) {
             e.html(data);
         })
     })

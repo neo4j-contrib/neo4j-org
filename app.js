@@ -254,10 +254,10 @@ route_get('/release-notes', routes.release_notes); // TODO
 route_get('/getting-started', forward("/develop"));
 route_get('/install', forward("/download"));
 route_get('/tracks/java', forward("/develop/java"));
-route_get('/java', forward("/develop/java"));
 route_get('/tracks/cypher', forward("/tracks/cypher_track_start"));
 route_get('/about', forward("/learn/neo4j"));
-route_get('/ruby', forward("/learn/drivers"));
+route_get('/java', forward("/develop/java"));
+route_get('/ruby', forward("/develop/ruby"));
 
 route_get('/community', forward("/participate"));
 route_get('/community/feeds', forward("/participate")); //TODO
@@ -273,9 +273,9 @@ route_get('/bookstore', forward("/learn/books"));
 route_get('/price-list', forward("http://www.neotechnology.com/price-list/"));
 route_get('/customers', forward("http://www.neotechnology.com/customers/"));
 
-munchkin.add_route('/marketo',app);
-meetup.add_route("/meetup",app);
-calendar.add_events_route('/events.json', app);
+munchkin.add_route('/api/marketo',app);
+meetup.add_route("/api/meetup",app);
+calendar.add_events_route('/api/events.json', app);
 
 // download resources
 route_get('/resources/cypher', forward(asset('download/Neo4j_CheatSheet_v3.pdf')));

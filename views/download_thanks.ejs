@@ -83,7 +83,7 @@ $(document).ready(function() {
             window.location = downloadLink;
         }
     }
-    $.ajax("/marketo", {
+    $.ajax("/api/marketo", {
         success: function(id) {
            // console.log("marketo-success",id)
             updateDownloadLink(id)
