@@ -497,8 +497,6 @@ ul.hor li {
 }
 
 .badge {
-    width: 15em;
-    height: 15em;
     overflow: hidden;
     font-size: .9em;
     padding: 1em;
