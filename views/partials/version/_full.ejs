@@ -8,7 +8,7 @@
             <p>Download and unzip. <br/>From the folder start Neo4j Server <br/>on Linux/Mac with <code>bin/neo4j start</code> from a terminal.<br/> On Win use <code>bin\Neo4j.bat start</code><br/> or double-click.<br/>
                Open <a href="http://localhost:7474" target="_blank"><code>http://localhost:7474</code></a> for the Web UI.</p>
             <% if (item.stability=="stable") { %>
-                <a href="/release-notes#<%= item.version %>" target="_blank">Release Notes &raquo;</a>
+                <a href="/release-notes#<%= item.version %>">Release Notes &raquo;</a>
             <% } %>
             <% if (item.path||item.src) { %>
                 <a class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>

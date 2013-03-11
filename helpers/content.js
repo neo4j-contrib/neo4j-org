@@ -532,6 +532,7 @@ neo4j start</pre>\
             }
         },        
         learn: {
+            title: "What is Neo4j?",
             type: "article",
             content: "Neo4j is an open-source <a href='/learn/graphdatabase'>graph database</a> supported by <a onclick=\"javascript:pageTracker._trackPageview(\'/outgoing/neotechnology.com/');\" href='http://neotechnology.com/''>Neo Technology</a>.</p>\
         <p>Neo4j stores data in nodes connected by directed, typed relationships with properties on both, also known as a <a href='/learn/graphdatabase'>Property Graph</a>.</p>\
@@ -802,12 +803,13 @@ neo4j start</pre>\
             name: "Neo4j Java-REST-binding"
         },
         jdbc: {
-            type: "app",
+            type: "link",
             author: "@rickardoberg",
-            url: "https://github.com/rickardoberg/neo4j-jdbc",
+            path: "https://github.com/rickardoberg/neo4j-jdbc",
+            thumbnail: "http://akamaicovers.oreilly.com/images/9780596004576/cat.gif",
 //            logo: asset("img/apps/spatial.png"),
-            text: "The Neo4j JDBC driver which allows to run Cypher statements via JDBC and integrates so with all JDBC libraries and tools",
-            name: "Neo4j JDBC driver"
+            content: "The Neo4j JDBC driver which allows to run Cypher statements via JDBC and integrates so with all JDBC libraries and tools",
+            title: "Neo4j JDBC driver"
         }     ,
         jpa: {
             type: "app",

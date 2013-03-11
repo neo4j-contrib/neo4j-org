@@ -264,7 +264,7 @@ exports.pages = {
         featured: [
 //            content.tracks.jvm_projects
         ],
-        related: [content.projects.neoclipse, content.apps.structr, content.projects.spatial, content.projects.jdbc, content.projects.jpa, content.projects.java_rest_binding, content.projects.graph_collections]
+        related: [content.projects.neoclipse, content.apps.structr, content.projects.spatial, content.projects.jdbc, content.projects.jpa, content.drivers.neo4j_rest, content.projects.graph_collections]
     },
     server_plugins: {
         path: "/java/server_plugins",
@@ -299,7 +299,9 @@ exports.pages = {
         introText: "Neo4's enterprise editions are provided by Neo Technology for use in commercial, non open-source deployments.",
         thumbnail: asset("img/logo/neotechnology_small.png"),
         featured: [content.articles.licensing_guide],
-        related: [content.articles.partner_graph,
+        related: [
+            content.books.graphdatabases,
+            content.articles.partner_graph,
             {
                 title: "Neo4j White Papers",
                 thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/02/WP_FTSL-125x160.png",
@@ -425,16 +427,23 @@ exports.pages = {
                 <%-: content.puppet | md %>\
             </blockquote>"
         }],
-        related: ["ec2","cloud",content.links.ec2_aws_tools,{
-            type: "include",
-            path: "/develop/_ec2_manual",
-            title: "Manually set up an AWS EC2 instance"
-        },
+        related: ["ec2","cloud",content.links.ec2_aws_tools,
+            , "ec2_manual",
             {
                 type:"link",
                 title:"Deploy Neo4j on Eucalyptus",
                 path:"http://blogs.mindspew-age.com/2012/12/04/another-great-example-of-aws-fidelity-neo4j-cloud-init-and-eucalyptus/"
             }]
+    },
+    ec2_manual : {
+        type: "page",
+        path: "/develop/ec2_manual",
+        title: "Manually set up an AWS EC2 instance",
+        featured:[ {
+                type: "include",
+                path: "/develop/_ec2_manual",
+                title: "Manually set up an AWS EC2 instance"
+            } ]
     },
     heroku: {
         path: "/develop/heroku",
@@ -665,12 +674,12 @@ exports.pages = {
         next: ["cypher_track_develop"],
         actionText: "Learn it",
         featured: [
-            { type:"include", path:"/cypher/cypher_tutorial_1_intro" },
-            { type:"include", path:"/cypher/cypher_tutorial_2_firststeps" },
-            { type:"include", path:"/cypher/cypher_tutorial_3_explore" },
-            { type:"include", path:"/cypher/cypher_tutorial_4_update" },
-            { type:"include", path:"/cypher/cypher_tutorial_5_paths" },
-            { type:"include", path:"/cypher/cypher_tutorial_6_alternatives" }
+            { type:"include", title:"Intro",path:"/cypher/cypher_tutorial_1_intro" },
+            { type:"include", title:"First Steps",path:"/cypher/cypher_tutorial_2_firststeps" },
+            { type:"include", title:"Explore the graph",path:"/cypher/cypher_tutorial_3_explore" },
+            { type:"include", title:"Update the graph",path:"/cypher/cypher_tutorial_4_update" },
+            { type:"include", title:"Work with paths",path:"/cypher/cypher_tutorial_5_paths" },
+            { type:"include", title:"Alternative Setups",path:"/cypher/cypher_tutorial_6_alternatives" }
         ],
         related: [
             "try", content.videos.cypher, content.links.manual_cypher, content.links.cypher_cheat_sheet
@@ -1054,7 +1063,18 @@ exports.pages = {
                 author:["maxdemarzi","mesirii"],
                 thumbnail:"http://maxdemarzidotcom.files.wordpress.com/2012/02/matrix.jpg?w=200",
                 introText:"Michael wrote a <a href='https://github.com/jexp/batch-import'>batch importer</a> to load csv data quickly. I’m going to walk you through getting your data out of tables and into nodes and edges."
-            }
+            },
+            {
+                type:"link",
+                title:"REST-Batch-API",
+                path:"http://docs.neo4j.org/chunked/milestone/rest-api-batch-ops.html",
+                author:["nawroth","jakewins","mesirii"],
+                thumbnail:"",
+                introText:"Use the REST-Batch API with cypher statements to insert data into Neo4j remotely and quickly. Make sure to use parameters in the cypher statements",
+                content: "TODO syntax example"
+            },
+            "jdbc"
+            
         ]
     },
     shell : {
@@ -1087,7 +1107,7 @@ exports.pages = {
         author: ["rickardoberg","mesirii"],
         introText: "",
         content: "",
-        featured: [],
+        featured: [content.projects.jdbc],
         related: []
     }
 }

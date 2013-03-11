@@ -104,12 +104,12 @@ exports.channels = channels
 
 exports.init = function(app,interval) {
     app.locals.updateChannels = function() {
-        console.log("Updating Channels");
+        //console.log("Updating Channels");
         channels(function(items) {
             items.forEach(function(item) { item.type="channel"; });
             app.locals.channels = items;
             app.locals.pages.channels.related = [{type:'channel'}].concat(items);
-            console.log("Updated Channels ",app.locals.pages.channels.related.length);
+            //console.log("Updated Channels ",app.locals.pages.channels.related.length);
         });
     }
     
