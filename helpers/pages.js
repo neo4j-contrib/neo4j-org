@@ -335,8 +335,8 @@ exports.pages = {
     graphdatabase: {
         path: "/learn/graphdatabase",
         title: "What is a Graph Database?",
-        introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way",
-        content: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way. Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
+        introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way.",
+        content: "Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
         thumbnail: asset("img/propertygraph/graphdb-gve.png"),
         next: ["nosql", "neo4j"],
         prev: [],
