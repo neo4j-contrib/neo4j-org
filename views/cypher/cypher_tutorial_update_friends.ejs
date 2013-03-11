@@ -2,26 +2,11 @@
 <h3>Updating the graph</h3>
 
 <ul>
-    <li>we will add ourselves, friends and ratings</li>
-    <li>add a node for yourself and 
-return it, let's say your name is "Me" <br/><pre>CREATE me={name: "Me"} 
-RETURN me;</pre>
-    </li>
-    <li>let's check if the node is there: <br/><pre>START me=<%=tutorial.me%>  
-RETURN me.name;</pre></li>
-    <li>I want to rate a movie <br/><pre>START me=<%=tutorial.me%>, movie=<%=tutorial.matrix%> 
-CREATE me-[:RATED {stars : 5, comment : "I love that movie!"}]-&gt;movie;</pre></li>
-    <li>which movies did I rate <br/><pre>START me=<%=tutorial.me%> 
-MATCH me-[r:RATED]-&gt;movie 
-RETURN r.stars,
-        r.comment,movie.title;</pre></li>
-    <li>we need a friend <br/><pre>CREATE friend={name: "A Friend"} 
-RETURN friend;</pre></li>
+    <li>we need a friend <br/><pre>CREATE friend={name: "A Friend"} RETURN friend;</pre></li>
     <li>add our friendship idempotently, so we can re-run the query without adding it several times, we return the
         relationship to check that it has not been created several times
         <br/><pre>START me=<%=tutorial.me%>, friend=<%=tutorial.friend%> 
-CREATE UNIQUE me-[r:FRIEND]-&gt;friend 
-RETURN r;</pre></li>
+CREATE UNIQUE me-[r:FRIEND]-&gt;friend RETURN r;</pre></li>
     <li>rerun the query</li>
     <li>update our friendship with a <code>since</code> property
         <br/><pre>START me=<%=tutorial.me%>, friend=<%=tutorial.friend%>  
