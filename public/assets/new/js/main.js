@@ -1,34 +1,34 @@
 
 $(window).load(function() {
-    nav.resizeRelatedItems();
+    resizeRelatedItems();
 });
 
 $(document).ready(function() {
-    enableSlider();
+  	enableSlider();
 });
+
+/**
+* Resize all related items to fit nicely in a row
+*/
+function resizeRelatedItems() {
+	$.each($('.related .row'), function(i, r) {
+		var row = $(this);
+		var maxHeight = 0;
+		$.each($('.item', row), function(j, item) {
+			console.log(item);
+			maxHeight = Math.max(maxHeight, $(item).height());
+			console.log(maxHeight);
+		});
+		$('.item', row).height(maxHeight);
+		maxHeight = 0;
+	});
+}
 
 
 /**
 *	Some helpers for neo4j.org
 */
 var nav = {
-
-	/**
-	* Resize all related items to fit nicely in a row
-	*/
-	resizeRelatedItems : function() {
-		$.each($('.related .row'), function(i, r) {
-			var row = $(this);
-			var maxHeight = 0;
-			$.each($('.item', row), function(j, item) {
-				console.log(item);
-				maxHeight = Math.max(maxHeight, $(item).height());
-				console.log(maxHeight);
-			});
-			$('.item', row).height(maxHeight);
-			maxHeight = 0;
-		});
-	},
 
 
 	/**
@@ -136,36 +136,38 @@ function enableSlider() {
         responsive : true // enable responsive capabilities (beta)
     });
 
-    var featured = $('div.featured');
+	if ($('.bjqs-wrapper').length) {
 
-    console.log(featured);
+	    var featured = $('div.featured');
 
-     var maxHeight = 0, maxWidth = 0;
-     $.each(featured, function(i, item) {
+	    //console.log(featured);
 
-	// 	maxWidth = Math.max($(this).width());
-     	maxHeight = Math.max(maxHeight, $(this).height());
-     	console.log(maxWidth, maxHeight);
+	     var maxHeight = 0, maxWidth = 0;
+	     $.each(featured, function(i, item) {
 
-     });
+		// 	maxWidth = Math.max($(this).width());
+	     	maxHeight = Math.max(maxHeight, $(this).height());
+	     	console.log(maxWidth, maxHeight);
 
-     var offset = 20;
+	     });
 
-     featured.height(maxHeight);
+	     var offset = 20;
 
-	//$('#featured_slider').width(maxWidth);
-	$('#featured_slider').height(maxHeight+offset);
+	     featured.height(maxHeight);
 
- //    $('.bjqs').width(maxWidth);
-     $('.bjqs').height(maxHeight+offset);
+		//$('#featured_slider').width(maxWidth);
+		$('#featured_slider').height(maxHeight+offset);
 
- //    $('.bjqs-wrapper').width(maxWidth);
-     $('.bjqs-wrapper').height(maxHeight+offset);
+	 //    $('.bjqs').width(maxWidth);
+	     $('.bjqs').height(maxHeight+offset);
 
- //    $('.bjqs-slide').width(maxWidth);
-     $('.bjqs-slide').height(maxHeight+offset);
+	 //    $('.bjqs-wrapper').width(maxWidth);
+	     $('.bjqs-wrapper').height(maxHeight+offset);
 
-    $('.bjqs-markers.h-centered a').addClass('btn');
+	 //    $('.bjqs-slide').width(maxWidth);
+	     $('.bjqs-slide').height(maxHeight+offset);
 
+	    $('.bjqs-markers.h-centered a').addClass('btn');
+	}
 }
 
