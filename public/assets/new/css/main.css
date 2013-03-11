@@ -1251,3 +1251,14 @@ pre {
   /*white-space: pre-wrap;*/
 }
 
+a code,
+a:visited code,
+a:active code,
+a:hover code,
+a pre,
+a:visited pre,
+a:active pre,
+a:hover pre {
+    font-weight: bold ! important;
+}
+
