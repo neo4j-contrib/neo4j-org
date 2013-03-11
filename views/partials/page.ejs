@@ -3,13 +3,22 @@
 var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
 var mainCategory = path.split('/')[1];
 var page = pages[pageName];
+var badge = page.badge;
+
+//badge = '<h2>Foo</h2><p class="introText">Bar</p><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p><p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>s';
+
+
 var title=page.title;
 // console.log(page);
 %>
 
 <% include ../head %>
+<% if (badge) { %>
+    <div class="badge">
+        <%- badge %>
+    </div>
+<% } %>
 <%
-        
 if (page) {
 %>
 <div class="page"><!-- page -->

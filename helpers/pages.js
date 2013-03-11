@@ -685,7 +685,15 @@ exports.pages = {
         ],
         related: [
             "try", content.videos.cypher, content.links.manual_cypher, content.links.cypher_cheat_sheet
-        ]
+        ],
+        badge : "<h3>Cypher Tutorial</h3>\
+  <p>Cypher is a Graph Query Language</p>\
+  <ul>\
+    <li>it is human readable and expressive</li>\
+    <li>MATCHes patterns in the graph</li>\
+    <li>is about the <strong>what</strong> not how</li>\
+  </ul>\
+  <a id=\"detachConsole\" class=\"btn\">Open Console in new Window</a>"
     },
     ops: {
         path: "/develop/ops",
