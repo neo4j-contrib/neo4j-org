@@ -557,7 +557,11 @@ ul.hor li {
 .lead a,
 .lead a:visited,
 .lead a:hover,
-.lead a:active {
+.lead a:active,
+.page .content a,
+.page .content a:visited,
+.page .content a:hover,
+.page .content a:active {
     color: #00546a;
     font-weight: 600;
 }
@@ -783,6 +787,7 @@ ul.hor li {
 .related a:active {
     font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif;
     color: #00546a;
+    font-weight: 600;
 }
 
 .related .row {
