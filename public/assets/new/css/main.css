@@ -577,12 +577,12 @@ ul.hor li {
     border: .1em solid #dce7ea;
     background: #fff;
     overflow: hidden; /* makes children expand this box to max height */
-    width: 59em;
+    width: 57em;
     min-height: 30em;
 }
 
 .featured .slide {
-    width: 58em;
+    width: 56em;
     margin: .5em;
     position: relative;
     height: 30em;
@@ -1219,3 +1219,30 @@ table th {
     font-size: 16px;
     position: absolute;
 }
+
+pre,
+code {
+    page-break-inside: avoid;
+    color: #00546A;
+    padding: 0 3px 2px;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    font-size: 12px;
+    -webkit-border-radius: 2px;
+       -moz-border-radius: 2px;
+            border-radius: 2px;
+    background-color: #f5f5f5;
+    white-space: pre;
+}
+
+pre {
+  border: 1px solid #999;
+  display: block;
+  max-width: 65em;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  /*line-height: 20px;*/
+  word-break: break-all;
+  word-wrap: break-word;
+  /*white-space: pre-wrap;*/
+}
+

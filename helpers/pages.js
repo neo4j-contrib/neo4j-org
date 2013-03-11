@@ -674,12 +674,14 @@ exports.pages = {
         next: ["cypher_track_develop"],
         actionText: "Learn it",
         featured: [
-            { type:"include", title:"Intro",path:"/cypher/cypher_tutorial_1_intro" },
-            { type:"include", title:"First Steps",path:"/cypher/cypher_tutorial_2_firststeps" },
-            { type:"include", title:"Explore the graph",path:"/cypher/cypher_tutorial_3_explore" },
-            { type:"include", title:"Update the graph",path:"/cypher/cypher_tutorial_4_update" },
-            { type:"include", title:"Work with paths",path:"/cypher/cypher_tutorial_5_paths" },
-            { type:"include", title:"Alternative Setups",path:"/cypher/cypher_tutorial_6_alternatives" }
+            { type:"include", title:"Intro",path:"/cypher/cypher_tutorial_intro" },
+            { type:"include", title:"First Steps",path:"/cypher/cypher_tutorial_firststeps" },
+            { type:"include", title:"Explore the graph",path:"/cypher/cypher_tutorial_explore" },
+            { type:"include", title:"Update the graph",path:"/cypher/cypher_tutorial_update" },
+            { type:"include", title:"Add some friends",path:"/cypher/cypher_tutorial_update_friends" },
+            { type:"include", title:"Work with paths",path:"/cypher/cypher_tutorial_advanced_matches" },
+            { type:"include", title:"Work with paths",path:"/cypher/cypher_tutorial_paths" },
+            { type:"include", title:"Alternative Setups",path:"/cypher/cypher_tutorial_alternatives" }
         ],
         related: [
             "try", content.videos.cypher, content.links.manual_cypher, content.links.cypher_cheat_sheet
