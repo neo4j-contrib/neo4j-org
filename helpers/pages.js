@@ -789,18 +789,21 @@ exports.pages = {
             {
                 title: "VivaGraphJS on GitHub",
                 path: "https://github.com/anvaka/VivaGraphJS" ,
-                thumbnail:"http://www2.research.att.com/~yifanhu/GALLERY/GRAPHS/GIF_THUMBNAIL/Bai@bfwa398.gif"
+                thumbnail:"http://www2.research.att.com/~yifanhu/GALLERY/GRAPHS/GIF_THUMBNAIL/Bai@bfwa398.gif",
+                introText:"VivaGraphJS is a free graph drawing library for JavaScript."
                 // todo yasiv.com some text, pictures etc
             },
             {
                 title: "Three.js on GitHub",
                 path: "https://github.com/mrdoob/three.js",
-                thumbnail:"http://mrdoob.github.com/three.js/files/examples/webgl_buffergeometry_lines.png"
+                thumbnail:"http://mrdoob.github.com/three.js/files/examples/webgl_buffergeometry_lines.png",
+                introText:"The aim of the project is to create a lightweight 3D library with a very low level of complexity",
                 // todo max article, neo4waza etc.
             },
             {
                 title: "A collection of graph visualization options",
                 path: "http://clipboard.com/mesirii/boards/viz",
+                introText: "Michael Hunger has a nice collection on interesting projects in the visualisation space.",
                 thumbnail:"http://d2g1zjdg4phkb4.cloudfront.net/IiVRi9fidoad7M4g5KflUrgx3Tg="
             },
             content.articles.jdbc
