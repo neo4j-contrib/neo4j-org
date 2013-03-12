@@ -23,7 +23,7 @@ exports.pages = {
         title: "Participate",
         introText: "Connect with a friendly, engaging, and ever expanding community online or in person.",
         featured: null,
-        related: ["q_and_a", "channels","contributors", "events","beer"]
+        related: ["q_and_a", "channels","contributors", "events","graphistas_map","beer"]
     },
     download : {
         path : "/download",
@@ -257,7 +257,7 @@ exports.pages = {
         next: ["jvm"],
         prev: ["java"],
         featured: [
-            content.tracks.java_basics
+            content.tracks.tracks_java_basics
         ],
         related: ["neo4j", content.links.eclipse_maven_neo4j_setup, "cypher_track_start"]
 
@@ -269,7 +269,6 @@ exports.pages = {
         next: ["server_plugins"],
         prev: ["java_basics"],
         featured: [
-//            content.tracks.jvm_projects
         ],
         related: [content.projects.neoclipse, content.apps.structr, content.projects.spatial, content.projects.jdbc, content.projects.jpa, content.drivers.neo4j_rest, content.projects.graph_collections]
     },
@@ -635,9 +634,10 @@ exports.pages = {
     conferences: {
         path: "/participate/events/conferences",
         title: "Neo4j at Conferences",
-        introText: "(TODO) intro text neo4j conferences",
+        introText: "There is a lot of interest in graph databases and Neo4j. here are some of the conferences where you can learn and " +
+            "talk more about Neo4j.",
         actionText: "Neo4j at conferences",
-        featured: ["content_article_gc2012"],
+        featured: [content.links.graphconnect],
         related: ["events", "meetups", "webinars"]
 
     },
@@ -1125,6 +1125,17 @@ exports.pages = {
         introText: "",
         content: "",
         featured: [content.projects.jdbc],
+        related: []
+    } ,
+
+    graphistas_map: {
+        path: "/participate/graphistas_map",
+        thumbnail: asset("img/still/graphistas_map.png"),
+        title: "The Graphistas map - add yourself!",
+        author: ["rickardoberg","mesirii"],
+        introText: '<p>Go to the <a target="_blank" href="https://maps.google.com/maps/ms?ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=215787240736307886514.00049e70e573cbd8a91e5&amp;t=m&amp;ll=24.527135,-20.039062&amp;spn=123.963155,225&amp;z=2&amp;source=embed" style="text-align:left">map edit page</a>. Then zoom to your place, hit the red "Edit" button and then place a landmark, add your info and a icon from the google selection. Click the "Done", when you\'re satisfied.</p>',
+        content: '<iframe width="100%" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=215787240736307886514.00049e70e573cbd8a91e5&amp;t=m&amp;ll=24.527135,-20.039062&amp;spn=123.963155,225&amp;z=2&amp;output=embed"></iframe>',
+        featured: [],
         related: []
     }
 }
