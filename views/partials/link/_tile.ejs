@@ -1,10 +1,10 @@
 <div class="item default">
 <%
-	var hasPath = item.path;
+	var hasPath = item.url;
 	var image = item.img ? item.img : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
 %>
 
-    <h3><%- link_to(item.path, item.title) %></h3>
+    <h3><%- link_to(item.url, item.title) %></h3>
     <% if (image) { %>
     <%- link_to(item.path, '<img class="preview" src="'+image+'" />') %>
     <% } %>
@@ -12,9 +12,9 @@
         <h4><em><a target="_blank" href="http://twitter.com/<%= author.twitter %>"><%= author.name %></a></em></h4>
     <% }).join(", "); %>
     <div>
-        <p class="introText"><%- item.previewText ? item.previewText : item.introText %></p>
+        <p class="introText"><%- item.introText ? item.introText : "" %></p>
     </div>
     <% // todo linkto with classes and skip if no link 
-    if (hasPath) { %><a class="link" href="<%= item.path %>"><%- (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+    if (hasPath) { %><a class="link" href="<%= item.url %>"><%- (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
 </div>
 

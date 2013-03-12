@@ -227,7 +227,7 @@ neo4j start</pre>\
         ec2_aws_tools : {
             type: "link",
             title: "Getting Started Guide on Amazon EC2",
-            path: "http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html"
+            url: "http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html"
         },
         stack_overflow: {
             title: "Stack Overflow",
@@ -256,7 +256,7 @@ neo4j start</pre>\
             introText: "GraphConnect is the conference to meet developers, users and visionaries present and talk about graph databases and their applications.",
             thumbnail: asset("img/logo/graphconnect.png"),
             img: asset("img/logo/graphconnect_large.png"),
-            path: "http://graphconnect.com"
+            url: "http://graphconnect.com"
         },
         tutorials: {
             type: "link",
@@ -264,7 +264,7 @@ neo4j start</pre>\
             introText: "Get to know Neo4j at this introductory, full day tutorial covering, graph-databases, use-cases and cypher.",
             thumbnail: asset("img/events/training.png"),
             img: "http://www.neotechnology.com/wp-content/uploads/2013/03/tutorials_0305313.png",
-            path: "http://www.neotechnology.com/2013/01/neo4j-tutorials-going-global/"
+            url: "http://www.neotechnology.com/2013/01/neo4j-tutorials-going-global/"
         },
         partners_graph: {
             title: "Partners Graph",
@@ -340,7 +340,7 @@ neo4j start</pre>\
         wordnet_using_graphdbs: {
             type: "article",
             title: "A New Representation of WordNet® using Graph Databases",
-            path: "http://www.thinkmind.org/index.php?view=article&articleid=dbkda_2013_1_10_30004",
+            url: "http://www.thinkmind.org/index.php?view=article&articleid=dbkda_2013_1_10_30004",
             author: "Khaled Nagi",
             img: "http://www.thinkmind.org/images/top_left.gif",
             introText: "A WordNet® query/import performance analysis using Neo4j and Apache Derby.",
@@ -360,7 +360,7 @@ neo4j start</pre>\
         dr_who: {
             type: "link",
             title: "DrWho (0.05MB)",
-            path: "http://github.com/jimwebber/neo4j-tutorial",
+            url: "http://github.com/jimwebber/neo4j-tutorial",
             author: "jimwebber",
             img: "http://www.neotechnology.com/wp-content/uploads/2012/09/Screen-Shot-2012-09-13-at-12.57.35-PM.png",
             introText: "The Dr.Who universe of doctors, actors, enemies and props from the Neo4j Koans Tutorial. <a href='http://example-data.neo4j.org/files/drwho.zip' class='icon-download-alt'> </a>",
@@ -369,7 +369,7 @@ neo4j start</pre>\
         fec_2012: {
             type: "link",
             title: "Federal Election Commission Campaign Data - (63.91MB)",
-            path: "http://blog.neo4j.org/2012/10/follow-data-fec-campaign-data-challenge.html",
+            url: "http://blog.neo4j.org/2012/10/follow-data-fec-campaign-data-challenge.html",
             author: "akollegger",
             img: "http://2.bp.blogspot.com/-yz4sG2of89Y/UG4TQ5QsgDI/AAAAAAAAAV8/apaI68-NH5U/s1600/ftd-banner.png",
             introText: "The 2012 presidential campaign data from our Federal Election Committee Campaign Data Workshop. <a href='http://example-data.neo4j.org/files/fec_data_presidential_2012.zip' class='icon-download-alt'> </a>",
@@ -378,17 +378,17 @@ neo4j start</pre>\
         heroku_waza_2013: {
             type: "link",
             title: "Twitter Connections Heroku Waza 2013 (0.5MB)",
-            path: "https://waza.neo4j.org/#twitter",
+            url: "https://waza.neo4j.org/#twitter",
             author: "mesirii",
             img: "https://waza.neo4j.org/images/twitter.png",
             introText: "Inferred Connection Graph from Tweets during Heroku Waza 2013. <a href='http://example-data.neo4j.org/files/heroku_waza_2013.zip' class='icon-download-alt'> </a>",
-            content: "People tweet all the time. There is the obvious social graph that consists of twitter followers. But much more interesting is the implict graph hidden in between the tweets. Mentions, Retweets and shared Hashtags form interesting relationships between people even if they don't follow each other.",
+            introText: "People tweet all the time. There is the obvious social graph that consists of twitter followers. But much more interesting is the implict graph hidden in between the tweets. Mentions, Retweets and shared Hashtags form interesting relationships between people even if they don't follow each other.",
             actionText: "Discover connections"
         },
         cineasts_small: {
             type: "link",
             title: "Small Cineasts Movies & Actors (0.14MB)",
-            path: "http://spring.neo4j.org/tutorial",
+            url: "http://spring.neo4j.org/tutorial",
             author: "mesirii",
             img: asset("img/spring/cineasts.png"),
             introText: "small dataset of the Spring Data Neo4j Cineasts.net tutorial. <a href='http://example-data.neo4j.org/files/cineasts_39_movies_446_actors.zip' class='icon-download-alt'> </a>",
@@ -397,7 +397,7 @@ neo4j start</pre>\
         cineasts_large: {
             type: "link",
             title: "Cineasts Movies & Actors (12.3MB)",
-            path: "http://spring.neo4j.org/tutorial",
+            url: "http://spring.neo4j.org/tutorial",
             author: "mesirii",
             img: asset("img/spring/cineasts.png"),
             introText: "Full dataset (12k movies, 50k actors) of the Spring Data Neo4j Cineasts.net tutorial. <a href='http://example-data.neo4j.org/files/cineasts_12k_movies_50k_actors.zip' class='icon-download-alt'> </a>",
@@ -406,7 +406,7 @@ neo4j start</pre>\
         hubway: {
             type: "link",
             title: "Hubway Data Challenge (50MB)",
-            path: "http://blog.neo4j.org/2012/10/using-spring-data-neo4j-for-hubway-data.html",
+            url: "http://blog.neo4j.org/2012/10/using-spring-data-neo4j-for-hubway-data.html",
             author: "mesirii",
             img: "http://hubwaydatachallenge.org/static/img/hubway-logo.png",
             introText: "Hubway is a bike sharing service. The challenge data consists 95 Boston stations and 500k bike rides. <a href='http://example-data.neo4j.org/files/hubway_data_challenge_boston.zip' class='icon-download-alt'> </a>",
@@ -805,19 +805,19 @@ neo4j start</pre>\
         jdbc: {
             type: "link",
             author: "@rickardoberg",
-            path: "https://github.com/rickardoberg/neo4j-jdbc",
+            url: "https://github.com/rickardoberg/neo4j-jdbc",
             thumbnail: "http://akamaicovers.oreilly.com/images/9780596004576/cat.gif",
 //            logo: asset("img/apps/spatial.png"),
-            content: "The Neo4j JDBC driver which allows to run Cypher statements via JDBC and integrates so with all JDBC libraries and tools",
+            introText: "The Neo4j JDBC driver which allows to run Cypher statements via JDBC and integrates so with all JDBC libraries and tools",
             title: "Neo4j JDBC driver"
         }     ,
         jpa: {
-            type: "app",
+            type: "link",
             author: "@alexsmirnov",
             url: "https://github.com/alexsmirnov/neo4j-connector",
-//            logo: asset("img/apps/spatial.png"),
-            text: "Neo4j Java EE JPA connector",
-            name: "Neo4j JPA driver"
+            thumbnail: asset("img/languages/java.jpg"),
+            introText: "Standard JCA 1.6 connector, that can be installed on any Java EE 6 compatible server.",
+            title: "Neo4j JPA driver"
         }     ,
         gremlin_plugin: {
             type: "app",
