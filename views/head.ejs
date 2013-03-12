@@ -30,6 +30,22 @@
         
         <script src="//code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
         <script src="<%=asset('new/js/vendor/bjqs-1.3.js')%>"></script>
+        
+        <!--Kissmetrics-->
+        <script type="text/javascript">
+            var _kmq = _kmq || [];
+            var _kmk = _kmk || '89e0c3f498cf8bb140fe5d9e4814b3262ba3b499';
+            function _kms(u){
+                setTimeout(function(){
+                    var d = document, f = d.getElementsByTagName('script')[0],
+                            s = d.createElement('script');
+                    s.type = 'text/javascript'; s.async = true; s.src = u;
+                    f.parentNode.insertBefore(s, f);
+                }, 1);
+            }
+            _kms('//i.kissmetrics.com/i.js');
+            _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
+        </script>
     </head>
 
     <body data-spy="scroll" data-target=".spyme">
