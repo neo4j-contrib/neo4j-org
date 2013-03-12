@@ -4,10 +4,11 @@
    if (!info['name']) {
 %>
 <div id="add_channel" class="related item channel">
-  <label for="new_name">Name:</label> <input type="text" id="new_name"/> <br/>
-  <label for="new_url">URL:</label>  <input type="text"  id="new_url"/><br/>
-  <label for="new_logo">Logo:</label> <input type="text" id="new_logo"/><br/>
-  <label for="new_lang">Lang:</label>  
+<table>
+  <tr><td><label for="new_name">Name:</label></td><td><input type="text" id="new_name"/></td></tr>
+  <tr><td><label for="new_url">URL:</label></td><td><input type="text"  id="new_url"/></td></tr>
+  <tr><td><label for="new_logo">Logo:</label></td><td><input type="text" id="new_logo"/></td></tr>
+  <tr><td><label for="new_lang">Lang:</label></td><td>
   <select id="new_lang">
     <option selected="selected" value="en">EN</option>
     <option value="de">DE</option>
@@ -19,8 +20,9 @@
     <option value="se">SE</option>
     <option value="pt">PT</option>
     <option>--</option>
-     </select><br/>
-    <a href="#" class="btn" style="margin: 2px;">Add your suggestion.</a>
+     </select></td></tr>
+</table>
+<a href="#" class="btn" style="margin: 2px;">Add your suggestion.</a>
 </div>        
 <% } else { %>
 <div class="related item channel">

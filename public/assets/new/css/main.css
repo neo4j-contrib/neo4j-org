@@ -911,6 +911,58 @@ ul.hor li {
     right: 1em;
 }
 
+#add_channel {
+}
+
+#add_channel input, #add_channel select {
+   width: 12em;
+   margin: .1em;
+   border: 1px inset #ccc;
+}
+
+#add_channel label {
+    width: 3em;
+    text-align: left ! important;
+}
+#add_channel {
+    height: 7em;
+}
+
+#add_channel table {
+    font-size: .8em;
+    border-collapse: collapse;
+    margin-bottom: .3em;
+}
+
+#add_channel table td:first-child {
+    text-align: left;
+    width: 4em;
+}
+
+a.vote:hover, a.vote:visited,a.vote:active {
+    display: block;
+    text-decoration: none;
+}
+a.vote {
+    display: block;
+}
+
+a.vote i {
+    vertical-align: baseline;
+}
+.related.item.channel {
+    vertical-align: middle;
+    text-align: center;
+    height: 7em;
+}
+.related.item.channel a img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 4em;
+    max-width: 10em;
+}
+
 /****************** steps *******************/
 
 .steps {
