@@ -150,23 +150,13 @@ content_loading.load_github_content(app.locals, 'ec2_template', "/neo4j-contrib/
 content_loading.load_learn_content(app.locals, 'java_hello_world', "/java-hello-world/index.html");
 content_loading.load_learn_content(app.locals, 'java_cypher', "/java-cypher/index.html");
 
-// paths TODO still needed ?
-app.locals.paths.java = {
-    java:{ steps:["learn_graph", "neo4j", "cypher", "java_cypher", "jvm_drivers", "java_basics", "server"],
-        tags:["java"],
-        related:[
-            { title:"API Javadoc", url:"http://api.neo4j.org/current/", image:asset("img/languages/java.jpg") },
-            { title:"Manual: Java Tutorial", url:"http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html", image:asset("img/languages/java.jpg") },
-            { title:"Neo4j and last.fm", author:{ name:"Niklas Lindblad", twitter:"nlindblad", image:"https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }, type:"video", url:"http://vimeo.com/39825129", image:"https://d2tjdh98vh6jzp.cloudfront.net/wordpress/wp-content/uploads/498ab52745c50e9f5940f07e83bdde93.jpg" }
-        ] },
-
 
 //  learn_graph : ["neo4j","java_basics" ],
 //  neo4j : ["cypher","java_basics","server_basics"],
-    jvm_drivers:{ steps:["ide", "java_basics", "java_cypher"], tags:["drivers", "jvm", "clojure", "scala", "java", "groovy"]},
-    java_cypher:{ steps:["cypher", "jvm_drivers", "ide", "example_data"], tags:["cypher", "console", "shell"]},
-    java_basics:{ steps:["java_cypher", "jvm_drivers", "ide", "example_data", "spring", "server", "server_extensions"], tags:["howto", "transaction", "graphdb", "shutdown", "index", "java"] }
-};
+//    jvm_drivers:{ steps:["ide", "java_basics", "java_cypher"], tags:["drivers", "jvm", "clojure", "scala", "java", "groovy"]},
+//    java_cypher:{ steps:["cypher", "jvm_drivers", "ide", "example_data"], tags:["cypher", "console", "shell"]},
+//    java_basics:{ steps:["java_cypher", "jvm_drivers", "ide", "example_data", "spring", "server", "server_extensions"], tags:["howto", "transaction", "graphdb", "shutdown", "index", "java"] }
+//};
 
 app.locals.next_steps = function (path, page) {
     return paths.next_steps(app.locals, routes, path, page).map(function (step) {
@@ -184,7 +174,7 @@ app.configure(function () {
     app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs');
     app.enable('trust proxy');
-    app.use(express.favicon());
+    app.use(express.favicon(__dirname + '/public/assets/ico/favicon.ico', { maxAge: 2592000000 }));
     app.use(function (req, res, next) {
         res.locals.path = req.path;
         var experiment_pages = ['/', '/index', '/index_graph', '/index_graph_svg'];
@@ -233,7 +223,6 @@ route_get('/*/', function (req, res) {
 });
 
 route_get('/', routes.index);
-route_get('/favicon.ico', forward(asset('ico/favicon.ico')));
 
 route_get('/drivers', forward("/develop/drivers"));
 route_get('/learn/events', forward("/events"));
@@ -297,5 +286,6 @@ route_get('/video/*', function (req, res) {
 });
 
 http.createServer(app).listen(app.get('port'), function () {
+    
     console.log("Express server listening on port " + app.get('port'));
 });
