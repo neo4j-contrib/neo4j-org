@@ -781,34 +781,29 @@ exports.pages = {
             {
                 title: "Max De Marzi's Graph Visualization Blog",
                 introText: "Max De Marzi presents different ways of visualizing graphs.",
-                path: "http://maxdemarzi.com/tag/visualization-2/"
+                path: "http://maxdemarzi.com/tag/visualization-2/",
+                thumbnail:"http://maxdemarzidotcom.files.wordpress.com/2012/04/threed2.jpg?w=1160&h=336"
             },
-            {
-                title: "D3.js visualization",
-                path: "https://github.com/mbostock/d3/wiki/Gallery"
-            },
-            {
-                title: "Gephi",
-                path: "http://gephi.org"
-            },
-            {
-                title: "Neoclipse on GitHub",
-                path: "https://github.com/neo4j/neoclipse"
-            },
+            content.links.d3,content.links.gephi,
+            content.projects.neoclipse,
             {
                 title: "VivaGraphJS on GitHub",
-                path: "https://github.com/anvaka/VivaGraphJS"
+                path: "https://github.com/anvaka/VivaGraphJS" ,
+                thumbnail:"http://www2.research.att.com/~yifanhu/GALLERY/GRAPHS/GIF_THUMBNAIL/Bai@bfwa398.gif"
                 // todo yasiv.com some text, pictures etc
             },
             {
                 title: "Three.js on GitHub",
-                path: "https://github.com/mrdoob/three.js"
+                path: "https://github.com/mrdoob/three.js",
+                thumbnail:"http://mrdoob.github.com/three.js/files/examples/webgl_buffergeometry_lines.png"
                 // todo max article, neo4waza etc.
             },
             {
                 title: "A collection of graph visualization options",
-                path: "http://clipboard.com/mesirii/boards/viz"
-            }
+                path: "http://clipboard.com/mesirii/boards/viz",
+                thumbnail:"http://d2g1zjdg4phkb4.cloudfront.net/IiVRi9fidoad7M4g5KflUrgx3Tg="
+            },
+            content.articles.jdbc
         ]
     },
     apps: {

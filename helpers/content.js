@@ -414,6 +414,13 @@ neo4j start</pre>\
         }
     },
     articles: {
+        jdbc:{
+            type:"type",
+            title: "Neo4j JDBC tools integration",
+            thumbnail: "https://s3-eu-west-1.amazonaws.com/tiq-solutions/tumblr/pics/QVScriptNeo4j_Search_All_Roles_Spock.png",
+            introText:"With the Cypher JDBC driver, a lot of tools can be easily integrated with Neo4j.",
+            path: "http://blog.neo4j.org/2012/07/cypher-jdbc-tools-testing-results.html"
+        },
         neo4j_on_heroku: {
             type: "article",
             title: "Neo4j on Heroku",
