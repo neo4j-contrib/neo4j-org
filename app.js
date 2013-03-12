@@ -151,12 +151,6 @@ content_loading.load_learn_content(app.locals, 'java_hello_world', "/java-hello-
 content_loading.load_learn_content(app.locals, 'java_cypher', "/java-cypher/index.html");
 
 
-//  learn_graph : ["neo4j","java_basics" ],
-//  neo4j : ["cypher","java_basics","server_basics"],
-//    jvm_drivers:{ steps:["ide", "java_basics", "java_cypher"], tags:["drivers", "jvm", "clojure", "scala", "java", "groovy"]},
-//    java_cypher:{ steps:["cypher", "jvm_drivers", "ide", "example_data"], tags:["cypher", "console", "shell"]},
-//    java_basics:{ steps:["java_cypher", "jvm_drivers", "ide", "example_data", "spring", "server", "server_extensions"], tags:["howto", "transaction", "graphdb", "shutdown", "index", "java"] }
-//};
 
 app.locals.next_steps = function (path, page) {
     return paths.next_steps(app.locals, routes, path, page).map(function (step) {
