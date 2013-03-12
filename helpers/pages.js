@@ -190,7 +190,7 @@ exports.pages = {
         thumbnail: asset("img/still/cypher_tutorial.gif"),
         introText: "The Cypher track concentrates on the Cypher Graph Query language, making interaction with Neo4j framework independent.",
         actionText: "Start",
-        next: ["cypher_track_use"],
+        next: ["cypher","cypher_track_use"],
         prev: [],
         featured: [content.videos.cypher],
         related: [ "reference_card", content.links.cypher_cheat_sheet, content.videos.cypher, video('Interview: Michael Hunger discusses Cypher transition from SQL')
@@ -230,13 +230,20 @@ exports.pages = {
         introText: "",
         actionText: "Start",
         next: ["java"],
-        prev: ["cypher_track_use"],
-        featured: [],
+        prev: ["cypher_track_use","cypher"],
+        featured: [
+            // demo app
+            // how to use cypher from java
+        ],
         related: [
         // import with cypher
         // the shell
         // the rest-cypher
         // profiling
+        // demo apps
+            "shell",
+            content.videos.neo4j_webui,
+            "import",
             content.drivers.anorm_cypher,
             content.drivers.neography,
             content.drivers.node_neo4j
@@ -666,12 +673,12 @@ exports.pages = {
     cypher: {
         type: "track",
         path: "/learn/cypher",
-        title: "Intro to Cypher - the Neo4j query language",
+        title: "Learn Cypher - the Neo4j query language",
         thumbnail: asset("img/still/cypher_tutorial.gif"),
         //introText: "Hands on introduction to the Cypher Query Language",
         content : function(params) { return render.include("/cypher/cypher_console",params) },
         prev: ["cypher_track_start"],
-        next: ["cypher_track_develop"],
+        next: ["cypher_track_use"],
         actionText: "Learn it",
         featured: [
             { type:"include", title:"Intro",path:"/cypher/cypher_tutorial_intro" },
@@ -1045,7 +1052,7 @@ exports.pages = {
         introText: "The first thing you need to get started is to import data from various sources into Neo4j. Fortunately there are a number of ways to do that.",
         content: "If you have your data in a relational database, spreadsheet or somewhere else, you want to get in into the graph database. " +
             "Although you can point and click in the <a href='/develop/server'>Web-UI</a> or script a bit in the <a href='/develop/shell'>shell</a>, " +
-            "the easiest way by far is to generate <a href='/track/cypher'>Cypher</a> statements and import them via the shell " +
+            "the easiest way by far is to generate <a href='/tracks/cypher'>Cypher</a> statements and import them via the shell " +
             "(<code>cat insert.cql | neo4j-shell -path /path/to/db</code>), use the <a href='/develop/tools/jdbc'>JDBC-Driver</a> " +
             "or pump them through the Batch-REST-API.<br/>You can also import CSV files with a tool or <a href='/develop/tools/gephi'>Gephi</a> " +
             "or write a custom <a href='/develop/import/batch-insert'>Batch-Inserter</a> in a JVM language to do high performance imports.",
