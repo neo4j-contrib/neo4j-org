@@ -25,7 +25,7 @@ $.each(types, function(i, type) {
 			var obj = objects[key];
 			obj.name = key;
 			var json = JSON.stringify(obj);
-			console.log(obj);
+			console.log("doImport "+ obj);
 		    $.ajax({
 		        url: rootUrl + type,
 		        //headers: headers,

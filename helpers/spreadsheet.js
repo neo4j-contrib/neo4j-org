@@ -13,7 +13,7 @@ var authId;
 exports.googleLogin = function(cb) {
 	googleAuth.on(GoogleClientLogin.events.login, function () {
 	    authId = googleAuth.getAuthId()
-	    console.log("googleAuth",authId);
+//	    console.log("googleAuth",authId);
 		cb();
 	});
 	googleAuth.login();

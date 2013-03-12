@@ -35,7 +35,7 @@ exports.load = function (app) {
                 return;
             }
             locals.versions = JSON.parse(body) || {};
-            console.log(locals.versions);
+//            console.log(locals.versions);
             temp_update_version(locals.versions.stable, locals.neo4jGA, locals.versions.stable_date);
             temp_update_version(locals.versions.milestone, locals.neo4j, locals.versions.milestone_date);
             temp_update_version(locals.versions.snapshot, locals.neo4jS);
