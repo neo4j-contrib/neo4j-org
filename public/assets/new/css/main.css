@@ -497,7 +497,7 @@ ul.hor li {
 }
 
 .badge {
-    overflow: hidden;
+    /*overflow: hidden;*/
     font-size: .9em;
     padding: 1em;
     position: absolute;
@@ -516,6 +516,16 @@ ul.hor li {
     -o-transform: scale(1) rotate(10deg);
     /* Standard */
     transform: scale(1) rotate(10deg);
+}
+
+.badge .close img {
+    cursor: pointer;
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    z-index: 4;
+    right: -.5em;
+    top: -.5em;
 }
 
 .badge h3 {

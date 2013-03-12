@@ -5,6 +5,11 @@ $(window).load(function() {
 
 $(document).ready(function() {
   	enableSlider();
+
+  	$('.badge .close').on('click', function(button) {
+  		$('.badge').fadeOut();
+  	});
+
 });
 
 /**
