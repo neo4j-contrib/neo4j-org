@@ -214,7 +214,8 @@ exports.pages = {
                 type:"video",
                 title:"Got a graph database? Need a Query Language!",
                 introText: "Cypher is a graph query language that is powerful and easy to use, and a unique feature of Neo4j.  Much like SQL, Cypher is a declarative language and is the easiest way to query one’s graph.  Whereas first-generation graph query languages require you to specify exactly how the database will walk the graph, with Cypher you simply tell the database what you want, and the database engine takes care of the low-level details.  This results in less code, improved readability, and faster development cycles.  Cypher has been embraced with great enthusiasm by the Neo4j user community, and is now the preferred language for Neo4j development.",
-                src:"http://vimeo.com/45318365"
+                thumbnail: asset("img/still/got_a_graph_talk.png"),
+                src:"http://player.vimeo.com/video/45318365"
             }
         // import with cypher
         // the shell
