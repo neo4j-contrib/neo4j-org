@@ -315,7 +315,7 @@ neo4j start</pre>\
         eclipse_maven_neo4j_setup: {
             title: "Setting up a Neo4j maven project in Eclipse",
             path: "http://blog.neo4j.org/2012/03/how-to-set-up-maven-project-with-neo4j.html",
-            introText: "A blog post on how to set up a new project with Neoj4 in Java using Eclipse",
+            introText: "A blog post on how to set up a new project with Neo4j in Java using Eclipse",
             actionText: "Read the blog",
             thumbnail: asset("img/logo/eclipse.jpg")
         },
@@ -561,8 +561,8 @@ neo4j start</pre>\
     tracks: {
         java_intro: {
             type: "track",
-            title: "TODO: Java Intro Text",
-            introText: "As the 4j indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.",
+            title: "Neo4j for Java developers - Intro",
+            introText: "As the \"4j\" indicates, Neo4j is a paradise for JVM developers. Welcome to the journey.",
             content: "<p>Welcome to Neo4j. For a Java or JVM-language developer, Neo4j offers a rich set of integration possibilities. Make sure to have looked at our information on <a href='/learn/graphdatabase'>graph databases</a> and Neo4j in general. You should also check out our graph query language Cypher which makes it very easy to get going regardless of the development platform.</p>\
     <p>Neo4j comes in two flavors. The standalone Neo4j-Server can be installed on any machine and then accessed via its REST API. You can then use whatever REST-library you choose for any JVM language. The dedicated Neo4j drivers go beyond that by offering comprehensive APIs for integrating with graph based applications.</p>\
     <p>But you can also run Neo4j embedded in your JVM process, much like HSQL or Derby. This is great for unit testing, but also for high performance / no-network setups. If you use Neo4j embedded you can use the Neo4j Core-API directly. Besides an object oriented approach to the graph database, working with Nodes, Relationships and Paths, it also offers highly customizable high-speed traversal- and graph-algorithm implementations. You can also choose from any useful wrapping drivers that exist either for specific programming languages or that add interesting functionality.</p>\
