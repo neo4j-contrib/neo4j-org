@@ -380,7 +380,7 @@ neo4j start</pre>\
             title: "Twitter Connections Heroku Waza 2013 (0.5MB)",
             url: "https://waza.neo4j.org/#twitter",
             author: "mesirii",
-            img: "https://waza.neo4j.org/images/twitter.png",
+            img: "http://waza.neo4j.org/images/twitter.png",
             introText: "Inferred Connection Graph from Tweets during Heroku Waza 2013. <a href='http://example-data.neo4j.org/files/heroku_waza_2013.zip' class='icon-download-alt'> </a>",
             introText: "People tweet all the time. There is the obvious social graph that consists of twitter followers. But much more interesting is the implict graph hidden in between the tweets. Mentions, Retweets and shared Hashtags form interesting relationships between people even if they don't follow each other.",
             actionText: "Discover connections"
