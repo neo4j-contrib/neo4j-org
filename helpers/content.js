@@ -643,7 +643,7 @@ neo4j start</pre>\
             price: "Early Release Ebook, free",
             logo: asset("new/img/graphdatabases_v31.png"),
             introText: '<a href="http://graphdatabases.com">Exclusive early access</a>  to the definitive book on graph databases</em>, published by O&quot;Reilly Media.<br />',
-            actionText: 'Download now'    
+            actionText: 'Download ebook now'
         },
         springdata: {
             url: "http://shop.oreilly.com/product/0636920024767.do",
