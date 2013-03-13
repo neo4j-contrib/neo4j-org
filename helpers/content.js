@@ -146,10 +146,10 @@ neo4j start</pre>\
             src: "http://player.vimeo.com/video/51906007"
         },
         good_relationships: {
-            title: "Good Relationships",
+            title: "Introduction to Spring Data Neo4j",
             type: "video",
             thumbnail: asset("img/still/sdn-intro.png"),
-            introText: "Michael Hunger introduces <a target='_blank' href='http://www.infoq.com/minibooks/good-relationships-spring-data'>Good Relationships</a>, the SDN book.",
+            introText: "Michael Hunger introduces Spring Data Neo4j the Neo4j integration for the Springframework - Spring Data project.",
             src: "http://www.youtube.com/embed/heC-8Pq2exQ"
         },
         cypher: {
@@ -658,6 +658,7 @@ neo4j start</pre>\
             url: "http://www.lulu.com/shop/michael-hunger-and-david-montag-and-andreas-kollegger/good-relationships-the-spring-data-neo4j-guide-book/paperback/product-20201195.html",
             type: "book",
             name: "Good Relationships",
+            title: "Good Relationships",
             author: "Michael Hunger with Andreas Kolleger and David Montag",
             price: "$9.95",
             logo: asset("img/books/good_relationships.png"),

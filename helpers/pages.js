@@ -502,18 +502,68 @@ exports.pages = {
         introText: "The best NOSQL database for Spring.",
         actionText: "Go ahead",
         featured: [content.videos.good_relationships, content.books.goodrelationships],
-        related: ["good-relationships-spring-data", "getting-started-spring",
+        related: [ 
+            {
+                title: "Spring Data Neo4j Resources",
+                type: "article",
+                introText: "<ul>\
+                    <li><a href='http://spring.neo4j.org/notes' target='_blank'>Developer Notes</a></li>\
+                    <li><a href='http://spring.neo4j.org/docs' target='_blank'>Reference documentation</a></li>\
+                    <li><a href='http://spring.neo4j.org/issues' target='_blank'>Issue Tracker</a></li>\
+                    <li><a href='http://spring.neo4j.org/discussions' target='_blank'>Spring Forum</a></li>\
+                    <li><a href='http://spring.neo4j.org/build' target='_blank'>Build Status</a></li>\
+                    <li><a href='http://spring.neo4j.org/api' target='_blank'>API JavaDoc</a></li>\
+                    </ul>\
+                    "
+            },
 			{
-                thumbnail:"",
+                thumbnail:"http://www.springsource.org/files/imagefield_thumbs/project/images/Project_Data.png",
                 title: "Spring Data Neo4j page on springsoure.org",
                 path: "http://springsource.org/spring-data/neo4j"
             }	,
 			{
+                type: "link",
                 thumbnail:"",
                 title: "Importing Data for SDN using Batch-Inserter",
 				author: "Tero Paananen",
                 path: "http://code.paananen.fi/2012/04/05/neo4j-batchinserter-and-spring-data-for-neo4j/"
-            }
+            }	,
+			{
+                type: "link",
+                thumbnail:"http://1.bp.blogspot.com/-1wuzYs5eO1A/T3UQSaOrTnI/AAAAAAAAATY/OKRFYhWP_EY/s320/scala_with_sdn.png",
+                title: "Using Spring Data Neo4j from Scala",
+				author: "Jan Machacek",
+                path: "http://blog.neo4j.org/2012/03/spring-data-neo4j-from-scala.html"
+            } ,{
+                type: "link",
+                thumbnail:"http://skillsmatter.com/custom/images/skills-matter_150x60_logo_2010.gif",
+                title: "Connecting to Neo4j using Spring Data",
+                introText: "Anirvan shows building a 'User Management System' using Spring Data Neo4j.",
+                author:"Anirvan Chakraborty",
+                path: "http://skillsmatter.com/podcast/java-jee/akka-scala-spring"
+            } ,{
+                type: "link",
+                thumbnail:"http://skydingo.com/blog/wp-content/uploads/2011/12/abstract_graph-300x261.png",
+                title: "Domain Modeling using SDN",
+                introText: "Willie uses SDN to build the configuration management database, he details the modeling process and describes in details the thinking and the code written for that.",
+                author:"Willie Wheeler",
+                path: "http://www.javacodegeeks.com/2012/01/domain-modeling-with-spring-data-neo4j.html"
+            },{
+                type: "article",
+                thumbnail:"http://springinpractice.com/wp-content/uploads/2008/08/sip-cover-small1.jpg",
+                title: "Cypher query examples when using Spring Data Neo4j",
+                introText: "This post shows how to perform various sample <a target='_blank' href='http://springinpractice.com/2012/03/06/neo4j-1-6-1-cypher-query-examples-when-using-spring-data-neo4j-2-0/'>Cypher queries</a> when using Neo4j and Spring Data Neo4j (SDN).\
+                Here I show how to <a target='_blank' href='http://springinpractice.com/2011/12/28/initializing-lazy-loaded-collections-with-spring-data-neo4j/'>initialize lazy-loaded collections</a> with Spring Data Neo4j\
+                ",
+                author:"Willie Wheeler",
+                path: ""
+            },{
+                type: "link",
+                title: "Graph Analysis with Scala and Spring Data Neo4j",
+                author:"Hendy Irawan",
+                path: "http://scala-enterprise.blogspot.ca/2011/12/graph-analysis-with-scala-and-spring.html"
+            } ,
+            content.example_data.hubway
 		]
 
     },
