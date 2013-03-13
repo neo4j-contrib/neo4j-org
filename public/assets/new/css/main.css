@@ -600,11 +600,16 @@ ul.hor li {
     width: 56em;
     margin: .5em;
     position: relative;
-    height: 30em;
+    min-height: 20em;
+    overflow-y: visible;
 }
 
 .featured .slide .thumbnail {
-    width: 38em;
+    max-width: 37em;
+    min-width: 25em;
+    max-height: 25em;
+    display: inline-block;
+    margin: 1em;
 }
 
 .featured .content {
@@ -641,14 +646,10 @@ ul.hor li {
     font-weight: 600;
 }
 
-.featured .slide .thumbnail {
-    width: 37em;
-}
-
 .featured .slide .thumbnail:hover {
     cursor: pointer;
-    border: 3px solid #00546a;
-    margin: -3px;
+    border: 0.2em solid #00546a;
+    margin: 0.8em;
 }
 
 .featured .console .caption {

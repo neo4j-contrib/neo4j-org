@@ -1,106 +1,26 @@
-<% include ../head %>
+<p>Together with <a href="http://twitter.com/peterbell" target="_blank">Peter Bell</a> we developed a hands-on, fully
+    day training course to learn the basics of using a graph database like Neo4j. After the training you should feel
+    familiar enough to get started with your own development project using it.</p>
 
-<div class="container">
+<p><strong>We cover these topics:</strong>
+<ul>
+    <li>Introduction to Neo4j</li>
+    <li>Overview of our Cypher graph query language</li>
+    <li>Several real-world use-cases</li>
+    <li>Social use cases including recommendations</li>
+    <li>Permissions modeling</li>
+    <li>Other case studies in real world domains</li>
+    <li>Hands-on session with Cypher</li>
+    <li>Opportunity to consult on current projects, possible implementations and proof of concepts</li>
+</ul>
+</p>
+<p>You won't need any previous experience with Neo4j, NOSQL databases or specific development languages, but you will
+    need your own laptop with <a href="/install" target="_blank">Neo4j installed</a>.</p>
 
+<p>We hosted a the first training in New York City with Peter Bell. It was wildly successful. Attendees’ feedback
+    included:</p>
 
-<div class="main row">
-
-    <div class="row">       
-        <div class="span12">
-            <div class="inner">
-                <div id="apps" class="hero-unit path">
-               <h2><a><i class="icon icon-book"></i> <%= title %></a></h2>
-               <p class="lead">Get connected with Neo4j experts in trainings at your office and at events across the globe!</p></div>
-            </div>                               
-        </div>    
-    </div>
-    
-    <div class="row">
-        <div class="span8">
-         <h2>Neo4j Trainings</h2>       
-         <h4>Get productive with Neo4j with a Graph Database Training</h4>
-         <p>Together with <a href="http://twitter.com/peterbell" target="_blank">Peter Bell</a> we developed a hands-on, fully day training course to learn the basics of using a graph database like Neo4j. After the training you should feel familiar enough to get started with your own development project using it.</p>
-
-         <p><strong>We cover these topics:</strong>
-         <ul>
-            <li>Introduction to Neo4j</li>
-            <li>Overview of our Cypher graph query language</li>
-            <li>Several real-world use-cases</li> 
-            <li>Social use cases including recommendations</li> 
-            <li>Permissions modeling</li>
-            <li>Other case studies in real world domains</li>
-            <li>Hands-on session with Cypher</li>
-            <li>Opportunity to consult on current projects, possible implementations and proof of concepts </li>
-         </ul>   
-        </p>
-        <p>You won't need any previous experience with Neo4j, NOSQL databases or specific development languages, but you will need your own laptop with <a href="/install" target="_blank">Neo4j installed</a>.</p>
-
-        <p>We hosted a the first training in New York City with Peter Bell. It was wildly successful. Attendees’ feedback included:</p>
-
-        <blockquote>“Excellent high-level overview that also provided insight into technical details”<br/>
-        “Great jump-start to the subject matter”<br/>
-        “Real queries, real results shown”</blockquote>
-        
-         <h4>Upcoming Trainings</h4>    
-         <section class="row">
-<!-- todo pull the data off the event stream -->
-            <div class="span4">
-                <h4>US</h4>
-<p>
-                <% trainings.filter(function(t) {return t.area=="US"}).forEach(function(training){ %>
-                    <% include ../partials/_training %>
-                <% }) %>
-<p>             
-            </div>
-        
-            <div class="span4">
-                <h4>Europe</h4>
-<p>
-                <% trainings.filter(function(t) {return t.area=="EU"}).forEach(function(training){ %>
-                    <% include ../partials/_training %>
-                <% }) %>
-<p>             
-            </div>  
-        </section>
-            
-		<iframe src="http://player.vimeo.com/video/55473433" _mce_src="http://player.vimeo.com/video/55473433" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-
-    </div>
-    
-    
-    
-    <div class="span4">
-        <h3>Stay Connected</h3>
-        <img src="<%=asset('img/neo4j/neo4j-news.gif')%>" align="left" style="margin-right: 10px;">
-        <span class="text18">
-        <% include ../subscribe %></span>
-    </div>  
-        
-</div>
-
-<div class="row"> 
-
-    <div class="span4">
-        <h2>Professional Services</h2>     
-        <p>Go from design to implementation with Neo Technology&#39;s professional services organization that can assist in commercial deployments of Neo4j.</p> 
-        <p><strong>Training and Services offered:</strong></p>
-        <ul>
-            <li><a href="http://www.neotechnology.com/neo4j-professional-services/" target="_blank">Education and Design Phase</a></li>
-            <li><a href="http://www.neotechnology.com/neo4j-professional-services/#imp" target="_blank">Implementation Phase</a></li>
-            <li><a href="http://www.neotechnology.com/neo4j-professional-services/#roll" target="_blank">Rollout and Production Phase</a></li>
-        </ul>
-        <p><a href="http://info.neotechnology.com/ContactUs.html" target="_blank">Contact Us &raquo;</a></p>
-    </div>
-    
-    <div class="span4">
-        <h2>Partner Graph</h2>
-        <p>Neo4j partners provide business process design, implementation expertise, application best practices and consulting to every size Neo customer in all industries.</p>
-        <p><a href="http://www.neotechnology.com/neo4j-professional-services/" target="_blank">Learn more &raquo;</a></p>
-    </div>
-
-</div>
-
-
-</div>
-<% include ../foot %>
-
+<blockquote>“Excellent high-level overview that also provided insight into technical details”<br/>
+    “Great jump-start to the subject matter”<br/>
+    “Real queries, real results shown”
+</blockquote>

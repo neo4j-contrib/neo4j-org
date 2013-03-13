@@ -181,13 +181,17 @@ exports.init = function (app, interval) {
             app.locals.events = items;
             console.log("events", app.locals.events.length);
 
+            var mapping = {Meetup: "meetups",Webinar:"webinars",Conference:"conferences",Training:"trainings"};
             eventsFromSpreadSheet(function (items) {
                 app.locals.events = mergeEvents(app.locals.events, items);
                 app.locals.events.forEach(function (e) {
                     e.type = "event";
+                    console.log(e.Type,mapping[e.Type]);
+                    app.locals.pages[mapping[e.Type]].related.push(e);
                 });
                 //app.locals.pages.events.featured = ["graphconnect","trainings"].concat(app.locals.events.slice(0,4));
-                app.locals.pages.events.related = app.locals.events;
+                app.locals.pages.events.related = ["meetups","webinars","trainings","conferences"].concat(app.locals.events);
+                
             })
         })
     }

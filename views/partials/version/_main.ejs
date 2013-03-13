@@ -1,22 +1,20 @@
 <div class="featured" class="mainElement">
     <div class="slide version">
-        <div class="caption">
-            <% var item=content.install.milestone %>
-            <h3><%= item.title %></h3>
-            <% include /version/_download_table %> 
-            <div style="text-align: right;">
-                <a style="display: inline-block;text-align: right;" class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>
-            </div>
-            
+        <div class="caption">            
             <% var item=content.install.stable %>
-            <br/>
             <h3><%= item.title %></h3>
             <% include /version/_download_table %>
             <div style="text-align: right;">
                 <a href="/release-notes#<%= item.version %>">Release Notes &raquo;</a>
                 <a class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>
             </div>
-
+            <br/>
+            <% var item=content.install.milestone %>
+            <h3><%= item.title %></h3>
+            <% include /version/_download_table %> 
+            <div style="text-align: right;">
+                <a style="display: inline-block;text-align: right;" class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>
+            </div>
         </div>
         <div class="content">
             <% if (item.thumbnail) { %>

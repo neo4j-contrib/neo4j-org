@@ -667,42 +667,82 @@ exports.pages = {
         introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial near you.",
         content: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
         featured: [content.links.graphconnect,content.links.tutorials],
-        related: [],
+        related: ["meetups","webinars","trainings","conferences"],
         actionText: "Pick your event"
     },
     meetups: {
         path: "/participate/events/meetups",
+        thumbnail: asset("img/logo/meetup.jpg"),
         title: "Meetups around the World",
-        introText: "",
+        introText: "Neo4j meetups are worldwide. Make a connection or start a new group.",
+        prev: ["events"],
+        next: ["webinars"],
         actionText: "Find a meetup",
         featured: [
-            // content.articles.meetups
+            {
+                title:"Neo4j worldwide Meetups",
+                thumbnail: asset("img/still/meetups_world.gif"),
+                path: "http://neo4j.meetup.com"
+            }
         ],
-        related: ["events", "webinars", "conferences"]
+        related: []
     },
     webinars: {
         path: "/participate/events/webinars",
         title: "Webinars",
-        introText: "",
+        prev: ["meetups"],
+        next: ["trainings"],
+        thumnail: asset("img/events/meetup.png"),
+        introText: "Neo4j webinars give you hands on expert information either directly from Neo Technology or from our partners and users.",
         actionText: "Find a webinar",
         featured: [
             {
                 type: "article",
-                title: "",
-                introText: "(TODO) Introtext webinars",
-                content: "TODO: Content for webinars page"
+                title: "Neo4j Webinars",
+                introText: "Neo4j webinars give you hands on expert information either directly from Neo Technology or from our partners and users."
+                // content: ""
             }
         ],
-        related: ["events", "meetups", "conferences"]
+        related: []
+    },
+    trainings: {
+        path: "/participate/events/trainings",
+        title: "Get productive with Neo4j with a Graph Database Training",
+        thumbnail: asset("img/events/training.png"),
+        img: "http://www.neotechnology.com/wp-content/uploads/2013/03/tutorials_0305313.png",
+        prev: ["webinars"],
+        next: ["conferences"],
+// TODO move to a related in content and use in participate
+//        badge: "<h3>Stay Connected</h3>\
+//                <img src='"+asset('img/neo4j/neo4j-news.gif')+"' style='float:left'>\
+//            <div style='max-width: 20em'>\
+//            Please keep me updated about Neo4j events, releases and articles.\
+//            <iframe src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' onload='this.style.visibility = 'visible';' style='border:0;padding: 0;' width='180px' height='50px' frameborder='0' scrolling='no'></iframe>\
+//            </div>",
+        introText: "Get connected with Neo4j experts in trainings at your office and at events across the globe!",
+//        content: function(params) { return render.include("/learn/training",params) },
+        actionText: "Neo4j at conferences",
+        featured: [
+            {title: "About Neo4j Tutorials",
+             type: "video",
+             path: "http://player.vimeo.com/video/55473433",
+             thumbnail: "",
+             introText: function(params) { return render.include("/learn/training",params) }
+            }
+        ],
+        related: ["partners","licensing"]
+
     },
     conferences: {
         path: "/participate/events/conferences",
         title: "Neo4j at Conferences",
+        prev: ["trainings"],
+        next: ["events"],
         introText: "There is a lot of interest in graph databases and Neo4j. here are some of the conferences where you can learn and " +
             "talk more about Neo4j.",
         actionText: "Neo4j at conferences",
         featured: [content.links.graphconnect],
-        related: ["events", "meetups", "webinars"]
+        related: []
 
     },
     q_and_a: {
