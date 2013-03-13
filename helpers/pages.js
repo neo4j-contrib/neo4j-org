@@ -502,7 +502,20 @@ exports.pages = {
         introText: "The best NOSQL database for Spring.",
         actionText: "Go ahead",
         featured: [content.videos.good_relationships, content.books.goodrelationships],
-        related: ["good-relationships-spring-data", "getting-started-spring"]
+        related: ["good-relationships-spring-data", "getting-started-spring",
+			{
+                thumbnail:"",
+                title: "Spring Data Neo4j page on springsoure.org",
+                path: "http://springsource.org/spring-data/neo4j"
+            }	,
+			{
+                thumbnail:"",
+                title: "Importing Data for SDN using Batch-Inserter",
+				author: "Tero Paananen",
+                path: "http://code.paananen.fi/2012/04/05/neo4j-batchinserter-and-spring-data-for-neo4j/"
+            }
+		]
+
     },
     // people : {
     //     path : "/participate/people",
@@ -797,7 +810,7 @@ exports.pages = {
                 title: "Three.js on GitHub",
                 path: "https://github.com/mrdoob/three.js",
                 thumbnail:"http://mrdoob.github.com/three.js/files/examples/webgl_buffergeometry_lines.png",
-                introText:"The aim of the project is to create a lightweight 3D library with a very low level of complexity",
+                introText:"The aim of the project is to create a lightweight 3D library with a very low level of complexity"
                 // todo max article, neo4waza etc.
             },
             {

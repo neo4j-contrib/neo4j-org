@@ -37,7 +37,7 @@ exports.init = function(app,pages) {
                     console.log("Need type for featured ",featured," for page ",key);
                     break;
                 }
-                console.log('use partial for', featured.type, "views/partials/" + featured.type + "/_full.ejs");
+//                console.log('use partial for', featured.type, "views/partials/" + featured.type + "/_full.ejs");
                 // case 'track'            : %><% include partials/track/_full %>
     
                 var partial = fs.readFileSync("views/partials/" + featured.type + "/_full.ejs");
@@ -49,15 +49,17 @@ exports.init = function(app,pages) {
                 var newFile=template.replace(new RegExp("<% include ../partials/item/_full %>","g"), newPartial);
                 var file="ejs/"+page.path.replace(/\//g,"_");
                 var fileName="views/"+file+".ejs";
-                console.log("Routing to special generated page: ",file,fileName,key,page.path,page.title,featured.type);
                 fs.writeFileSync(fileName,newFile);
-                app.get(page.path,function(req,res) { 
-                    var params=merge(app.locals,{ title: page.title||"", locals:app.locals }); 
-                    res.render(file, params); 
-                });
+                console.log("Routing to special generated page: ",file,fileName,key,page.path,page.title,featured.type);
+                app.get(page.path,function(file,path,title) {
+                    return function(req,res) {
+                        var params=merge(app.locals,{ title: title||"", locals:app.locals });
+                        res.render(file, params);
+                    };
+                }(file,page.path,page.title));
     
             } else {
-              // console.log("Default routing to pages: ",page.path,page.title)
+              console.log("Default routing to pages: ",page.path,page.title)
               app.get(page.path, function(req,res) { 
                   var params=merge(app.locals,{ title: page.title||"", locals:app.locals }); 
                   res.render('partials/page', params); 
