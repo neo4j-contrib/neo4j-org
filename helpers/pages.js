@@ -1130,7 +1130,7 @@ exports.pages = {
         path: "/participate/graphistas_map",
         thumbnail: asset("img/still/graphistas_map.png"),
         title: "The Graphistas map - add yourself!",
-        author: ["rickardoberg","mesirii"],
+        author: ["mesirii"],
         introText: '<p>Go to the <a target="_blank" href="https://maps.google.com/maps/ms?ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=215787240736307886514.00049e70e573cbd8a91e5&amp;t=m&amp;ll=24.527135,-20.039062&amp;spn=123.963155,225&amp;z=2&amp;source=embed" style="text-align:left">map edit page</a>. Then zoom to your place, hit the red "Edit" button and then place a landmark, add your info and a icon from the google selection. Click the "Done", when you\'re satisfied.</p>',
         content: '<iframe width="100%" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=215787240736307886514.00049e70e573cbd8a91e5&amp;t=m&amp;ll=24.527135,-20.039062&amp;spn=123.963155,225&amp;z=2&amp;output=embed"></iframe>',
         featured: [],
