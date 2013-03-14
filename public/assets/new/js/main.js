@@ -4,7 +4,7 @@ $(window).load(function() {
 });
 
 $(document).ready(function() {
-  	enableSlider();
+  	enableBxSlider();
 
   	$('.badge .close').on('click', function(button) {
   		$('.badge').fadeOut();
@@ -109,70 +109,9 @@ function getTextWidth(text, fs, fw) {
     return w;
 }
 
-function enableSlider() {
-
-    $('#featured_slider').bjqs({
-        // width and height need to be provided to enforce consistency
-        // if responsive is set to true, these values act as maximum dimensions
-        width : 960,
-        height : 480,
-        
-        // animation values
-        animtype : 'slide', // accepts 'fade' or 'slide'
-        animduration : 450, // how fast the animation are
-        animspeed : 5000, // the delay between each slide
-        automatic : false, // automatic
-        
-        // control and marker configuration
-        showcontrols : true, // show next and prev controls
-        centercontrols : true, // center controls verically
-        nexttext : '<i class="slider icon-forward"></i>', // Text for 'next' button (can use HTML)
-        prevtext : '<i class="slider icon-backward"></i>', // Text for 'previous' button (can use HTML)
-        showmarkers : true, // Show individual slide markers
-        centermarkers : true, // Center markers horizontally
-        
-        // interaction values
-        keyboardnav : true, // enable keyboard navigation
-        hoverpause : true, // pause the slider on hover
-        
-        // presentational options
-        usecaptions : false, // show captions for images using the image title tag
-        //randomstart : true, // start slider at random slide
-        responsive : true // enable responsive capabilities (beta)
-    });
-
-	if ($('.bjqs-wrapper').length) {
-
-	    var featured = $('div.featured');
-
-	    //console.log(featured);
-
-	     var maxHeight = 0, maxWidth = 0;
-	     $.each(featured, function(i, item) {
-
-		// 	maxWidth = Math.max($(this).width());
-	     	maxHeight = Math.max(maxHeight, $(this).height());
-	     	console.log(maxWidth, maxHeight);
-
-	     });
-
-	     var offset = 20;
-
-	     featured.height(maxHeight);
-
-		//$('#featured_slider').width(maxWidth);
-		$('#featured_slider').height(maxHeight+offset);
-
-	 //    $('.bjqs').width(maxWidth);
-	     $('.bjqs').height(maxHeight+offset);
-
-	 //    $('.bjqs-wrapper').width(maxWidth);
-	     $('.bjqs-wrapper').height(maxHeight+offset);
-
-	 //    $('.bjqs-slide').width(maxWidth);
-	     $('.bjqs-slide').height(maxHeight+offset);
-
-	    $('.bjqs-markers.h-centered a').addClass('btn');
-	}
+function enableBxSlider() {
+	$('.bxslider').bxSlider({
+		//captions: true,
+		adaptiveHeight: true
+	});
 }
-

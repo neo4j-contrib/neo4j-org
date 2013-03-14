@@ -355,7 +355,7 @@ ul.hor li {
 
 #header {
     height: 5em;
-    width: 60em;
+    width: 62em;
     margin: 0 auto;
     background: transparent;
     position: relative;
@@ -381,7 +381,7 @@ ul.hor li {
 
 #mainNav {
     position: absolute;
-    right: 0;
+    right: 1em;
     bottom: .5em;
     margin: 1.5em 0 0 0;
     font-size: 1.2em;
@@ -434,9 +434,9 @@ ul.hor li {
 }
 
 .page {
-    width: 60em;
+    width: 62em;
     position: relative;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     border-radius: .25em;
     padding-bottom: 1em;
 }
@@ -592,7 +592,7 @@ ul.hor li {
     border: .1em solid #dce7ea;
     background: #fff;
     overflow: hidden; /* makes children expand this box to max height */
-    width: 57em;
+    width: 59em;
     min-height: 30em;
 }
 
@@ -657,12 +657,19 @@ ul.hor li {
     position: relative;
 }
 
+#console iframe {
+    width: 61em;
+    position: relative;
+    border: .1em solid #ccc;
+}
+
+#console iframe button {
+
+}
+
 .featured .console #console iframe {
     margin-top: .5em;
-    width: 57em;
-    /*height: 32em;*/
-    /*display: block;*/
-    position: relative;
+    width: 58em;
 }
 
 .featured .console .datasets li {
@@ -747,8 +754,15 @@ ul.hor li {
     width: 57em;
 }
 
-#featured_slider {
-    margin: -1em 0 2em 0;
+.bxslider .featured {
+    box-shadow: none ! important;
+    -webkit-box-shadow: none ! important;
+    -moz-box-shadow: none ! important;
+    border: none ! important;
+    margin-top: 0 ! important;
+    padding-top: 0 ! important;
+    margin-bottom: .5em ! important;
+    min-height: 0 ! important;
 }
 
 /****************** tracks *******************/
@@ -767,8 +781,7 @@ ul.hor li {
 
 .nextStep {
     float: right;
-    margin-left: 2em;
-    margin-right: -1em;
+    margin-right: 1em;
 }
 
 .nextStep i {
@@ -974,15 +987,20 @@ a.vote i {
 /****************** link blocks *******************/
 
 #linkContainer {
-    width: 60em;
+    width: 62em;
     margin: 0 auto;
     padding: 1em 0 0 0;
 }
 
 .linkBlock li.fheader .icon {
-    margin-left: -1.41em;
-    margin-right: .1em;
+    width: 1em;
+    margin-left: -1.3em;
+    margin-right: .3em;
     vertical-align: middle;
+}
+
+.linkBlock li.fheader img.icon {
+    margin-top: .15em;
 }
 
 .linkBlock {

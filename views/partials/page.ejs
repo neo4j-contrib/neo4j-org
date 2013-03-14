@@ -58,7 +58,7 @@ var nextPage = pages[p];
     if (page.featured && items.length) {
 
 //        console.log("featured-items",items);
-    %><% if (showSlides) { %><div id="featured_slider"><ul class="bjqs"><% } %><%
+    %><% if (showSlides) { %><ul class="bxslider"><% } %><%
             items.forEach(function(key) { 
             var item = findItem(key);
 //            console.log("featured",item);
@@ -71,7 +71,7 @@ var nextPage = pages[p];
             <% include ../partials/item/_full %>
         <% } }); %>
         <% if (showSlides) { %>
-            </ul></div>
+            </ul>
         <% } %><%
    } %>
 
