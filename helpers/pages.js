@@ -1207,9 +1207,43 @@ exports.pages = {
                 introText:"Use the REST-Batch API with cypher statements to insert data into Neo4j remotely and quickly. Make sure to use parameters in the cypher statements",
                 content: "TODO syntax example"
             },
-            "jdbc"
-            
+            "jdbc",
+            "geoff"
         ]
+    },
+    geoff : {
+        title:"Geoff",
+        path:"/develop/python/geoff",
+        author:["technige"],
+        thumbnail:asset("img/languages/py2neo.png"),
+        introText:"Geoff is a declarative notation for representing graph data within concise human-readable text, designed specifically with Neo4j in mind. ",
+        content: "The format has been built to allow independent subgraphs to be represented outside of a graph database environment in such a way that they may be stored, transmitted and imported easily and efficiently. The basic elements which make up the Geoff format - subgraphs, rules and descriptors - are well defined but there exist several container representations which serve different purposes; commonly, either delimited text or a form of JSON is used.",
+        featured: [
+            {
+                title: "Hello, Subgraph - Alice & Bob",
+                type: "article",
+                path: "http://nigelsmall.com/geoff/hello-subgraph",
+                introText: "Subgraphs are the primary structures used within Geoff to hold collections of data. These are simply standalone pieces of graph data consisting of nodes and relationships. The following diagram shows a subgraph which illustrates a relationship between the ubiquitous Alice and Bob",
+                content: "<pre>\
+(A) {\"name\": \"Alice\"}\n\
+(B) {\"name\": \"Bob\"}\n\
+(A)-[:KNOWS]->(B)\n\
+                    </pre>"
+            }
+        ],
+        related: [
+            {
+                type: "link",
+                introText: "Geoff is a declarative notation for representing graph data within concise human-readable text, designed specifically with Neo4j in mind. The format has been built to allow independent subgraphs to be represented outside of a graph database environment in such a way that they may be stored, transmitted and imported easily and efficiently.",
+                path:"http://nigelsmall.com/geoff",
+                title: "Geoff Documentation"
+            },
+            {
+                type: "link",
+                introText: "XML data can easily be converted into a graph. Simply load paste the XML data into the left-hand side, convert into both Geoff and a Cypher CREATE statement, then view the results in the Neo4j console.",
+                path:"http://nigelsmall.com/xml2graph",
+                title: "XML to Graph converter"
+            }]
     },
     shell : {
         path: "/develop/shell",

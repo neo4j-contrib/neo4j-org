@@ -31,7 +31,8 @@ var express = require('express')
     , geoip = require("./helpers/geoip")
     , render = require("./helpers/render")
     , videos = require("./helpers/videos")
-    , asset = require("./helpers/assets.js").asset;
+    , asset = require("./helpers/assets.js").asset
+    , twitter = require("./helpers/twitter.js");
 
 var content = require("./helpers/content")
     , pages = require("./helpers/pages");
@@ -55,13 +56,12 @@ versions.load(app);
 
 app.locals.events = [];
 app.locals.paths = {};
+app.locals.tweets = [];
 
 // functions
 app.locals.asset = asset;
 app.locals._include = render.include;
 app.locals.render = ejs.render;
-
-page_handling.init(app,app.locals.pages);
 
 app.locals.theme = function () {
     return "aqua";
@@ -87,7 +87,6 @@ function findItem(key) {
     if (typeof key == 'object') return key;
     
     function addType(item, type) {
-        console.log(item,type);
         if (!item.type) item.type = type;
         return item;
     }
@@ -255,6 +254,11 @@ route_get('/bookstore', forward("/learn/books"));
 
 route_get('/price-list', forward("http://www.neotechnology.com/price-list/"));
 route_get('/customers', forward("http://www.neotechnology.com/customers/"));
+
+page_handling.init(app,app.locals.pages);
+
+twitter.load_tweets(app,10*60*1000);
+twitter.add_tweet_route("/api/tweets",app);
 
 munchkin.add_route('/api/marketo',app);
 meetup.add_route("/api/meetup",app);
