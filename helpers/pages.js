@@ -1006,6 +1006,13 @@ exports.pages = {
                 path: "http://sonyarouje.com/2012/02/03/neo4jd-net-client-for-neo4j-graph-db/"
             },
             {
+                type: "link",
+                path: "http://blogs.microsoft.co.il/blogs/erix99/archive/2013/03/05/using-c-to-connect-with-neo4j-graph-database-part-1.aspx",
+                title: "Using C# to connect to Neo4j Part 1",
+                introText: "Ariel discusses the options connecting to Neo4j from C# using code examples for the different approaches.",
+                author: "Ariel Rabinovich"
+            },
+            {
                 type:"link",
                 title: "Neo4j on Azure",
                 path: "http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"
