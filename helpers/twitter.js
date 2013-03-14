@@ -2,7 +2,7 @@ var request=require('request');
 
 function tweets(cb) {
     var query="from:neo4j OR from:neo4jDE OR from:neo4jFR OR @Neo4j OR #neo4j";
-    var url = "http://search.twitter.com/search.json?lang=en&rpp=100&page=1&q="+query;
+    var url = "http://search.twitter.com/search.json?lang=en&rpp=100&page=1&q="+encodeURIComponent(query);
     request(url,function(err,res,body) {
         if (err) {
             console.log("Error retrieving tweets",err);
