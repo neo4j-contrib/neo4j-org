@@ -33,8 +33,8 @@ exports.pages = {
     },
     download_thanks: {
         path: "/download_thanks",
-        title: "Thank you for downloading Neo4j",
-        introText: "Take Neo4j for a spin. Community, Advanced, and Enterprise are available for your exploration.",
+        title: "Here you go!",
+        introText: "",
         content: function (params) {
             return render.include("download_thanks", params);
         },
