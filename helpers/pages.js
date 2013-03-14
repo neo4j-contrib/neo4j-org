@@ -672,7 +672,8 @@ exports.pages = {
         thumbnail: asset("img/logo/meetup.jpg"),
         introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial near you.",
         content: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
-        featured: [content.links.graphconnect,content.links.tutorials],
+        badge: "<h3>GraphConnect<br/>Graph Conference</h3><a href='http://graphconnect.com' target='_blank'><img src='"+asset("img/logo/graphconnect.png")+"'></a> ",
+        featured: [], // content.links.graphconnect,content.links.tutorials
         related: ["meetups","webinars","trainings","conferences"],
         actionText: "Pick your event"
     },
@@ -736,7 +737,7 @@ exports.pages = {
              introText: function(params) { return render.include("/learn/training",params) }
             }
         ],
-        related: ["partners","licensing"]
+        related: [] //"partners","licensing"
 
     },
     conferences: {

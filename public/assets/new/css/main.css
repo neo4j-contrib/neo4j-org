@@ -504,7 +504,8 @@ ul.hor li {
     z-index: 3;
     background: #fcf0ad;
     right: 2em;
-    top: 4em;
+    top: 12em;
+    /*top: 4em;*/
     box-shadow: 0px 0px 1em #666;
     -webkit-box-shadow: 0px 0px 1em #666;
     -moz-box-shadow: 0px 0px 1em #666;
