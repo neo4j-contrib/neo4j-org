@@ -3,7 +3,7 @@ var express = require('express')
 
 exports.add_console_forward=function(app) {
 
-    var target = process.env.NEO4J_CONSOLE || "console-test.neo4j.org:80"
+    var target = process.env.NEO4J_CONSOLE || "console.neo4j.org:80"
     var host =  target.split(":")[0];
     var port = target.split(":")[1];
 
