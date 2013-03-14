@@ -63,10 +63,6 @@ app.locals.asset = asset;
 app.locals._include = render.include;
 app.locals.render = ejs.render;
 
-twitter.load_tweets(app,10*60*1000);
-twitter.add_tweet_route("/api/tweets",app);
-page_handling.init(app,app.locals.pages);
-
 app.locals.theme = function () {
     return "aqua";
 };
@@ -259,6 +255,11 @@ route_get('/bookstore', forward("/learn/books"));
 
 route_get('/price-list', forward("http://www.neotechnology.com/price-list/"));
 route_get('/customers', forward("http://www.neotechnology.com/customers/"));
+
+page_handling.init(app,app.locals.pages);
+
+twitter.load_tweets(app,10*60*1000);
+twitter.add_tweet_route("/api/tweets",app);
 
 munchkin.add_route('/api/marketo',app);
 meetup.add_route("/api/meetup",app);

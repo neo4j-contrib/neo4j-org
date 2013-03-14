@@ -59,7 +59,7 @@
             if (!tweet) {
                reloadTweets(); return;  
             }
-            var twitter = $("#twitter");
+            var twitter = $("#twitter_bar");
             twitter.find("a img").attr("src",tweet['profile_image_url']);
             twitter.find("a").attr("href","http://twitter.com/"+tweet['from_user']);
             twitter.find("a span").text(tweet['from_user_name']);
@@ -69,7 +69,7 @@
         setInterval(nextTweet,10*1000);
     })
 </script>    
-<div id="twitter">
+<div id="twitter_bar">
     <a href="" target="_blank"><img width="24" src=""/><span></span></a>: <span class="text"></span>
 </div>    
 <% include foot %>

@@ -1061,7 +1061,7 @@ a.vote i {
 
 
 
-#twitter {
+#twitter_bar {
     width: 100%;
     background: #00546a;
     padding-left: 10%;padding-right: 10%; 
@@ -1069,13 +1069,13 @@ a.vote i {
     padding-bottom: 2px;
 }
 
-#twitter,#twitter a {
+#twitter_bar,#twitter_bar a {
    color: white;
 }
-#twitter .text {
+#twitter_bar .text {
     font-size: 0.9em;
 }
-#twitter img {
+#twitter_bar img {
     -webkit-border-radius: .1em;
        -moz-border-radius: .1em;
             border-radius: .1em;

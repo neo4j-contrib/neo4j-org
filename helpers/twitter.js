@@ -11,7 +11,6 @@ function tweets(cb) {
         var json = JSON.parse(body);
         var tweets = json["results"];
         tweets.forEach(function(tweet) {
-           tweet.created_date = Date.parse(tweet.created_at);
            tweet.rendered=tweet.text
                .replace(/(https?:\/\/\S+)/g,"<a target='_blank' href='$1'>$1</a>")
                .replace(/@(\w+)/g,"<a target='_blank' href='http://twitter.com/$1'>@$1</a>")
