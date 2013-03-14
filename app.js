@@ -31,7 +31,8 @@ var express = require('express')
     , geoip = require("./helpers/geoip")
     , render = require("./helpers/render")
     , videos = require("./helpers/videos")
-    , asset = require("./helpers/assets.js").asset;
+    , asset = require("./helpers/assets.js").asset
+    , twitter = require("./helpers/twitter.js");
 
 var content = require("./helpers/content")
     , pages = require("./helpers/pages");
@@ -55,12 +56,15 @@ versions.load(app);
 
 app.locals.events = [];
 app.locals.paths = {};
+app.locals.tweets = [];
 
 // functions
 app.locals.asset = asset;
 app.locals._include = render.include;
 app.locals.render = ejs.render;
 
+twitter.load_tweets(app,10*60*1000);
+twitter.add_tweet_route("/api/tweets",app);
 page_handling.init(app,app.locals.pages);
 
 app.locals.theme = function () {

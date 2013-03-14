@@ -43,6 +43,35 @@
 
 </div><!-- page -->
     
+<script type="text/javascript">
+    var tweets=[];
+    $(document).ready(function(){
+        function nextTweet() {
+            function reloadTweets() {
+                $.ajax("/api/tweets",{
+                    success: function(data) {
+                        tweets=data;
+                        if (tweets.length) nextTweet();
+                    }
+                })                
+            }
+            var tweet = tweets.shift();
+            if (!tweet) {
+               reloadTweets(); return;  
+            }
+            var twitter = $("#twitter");
+            twitter.find("a img").attr("src",tweet['profile_image_url']);
+            twitter.find("a").attr("href","http://twitter.com/"+tweet['from_user']);
+            twitter.find("a span").text(tweet['from_user_name']);
+            twitter.find("span.text").html(tweet['rendered']);
+        }
+        nextTweet();
+        setInterval(nextTweet,10*1000);
+    })
+</script>    
+<div id="twitter">
+    <a href="" target="_blank"><img width="24" src=""/><span></span></a>: <span class="text"></span>
+</div>    
 <% include foot %>
         
 <textarea id="data" style="display: none">
