@@ -10,4 +10,5 @@
         </div>
         <div class="clear"></div>
     </div>
+    <% if (item.path) { %><a class="link action" href="<%= item.path %>" target="_blank"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
 </div><!-- featured -->

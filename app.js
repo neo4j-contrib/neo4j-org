@@ -87,7 +87,6 @@ function findItem(key) {
     if (typeof key == 'object') return key;
     
     function addType(item, type) {
-        console.log(item,type);
         if (!item.type) item.type = type;
         return item;
     }

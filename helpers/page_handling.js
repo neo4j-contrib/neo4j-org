@@ -15,6 +15,13 @@ exports.init = function(app,pages) {
     }
     
     fs.readFile("views/partials/page.ejs", function (err, buf) {
+        function addRoute(file,path,title) {
+            app.get(page.path, function (req, res) {
+                var params = merge(app.locals, { path:path, title:title || "", locals:app.locals });
+                res.render(file, params);
+            });
+        }
+        
         var template = buf.toString();
         if (!fs.existsSync('views/ejs')) fs.mkdirSync('views/ejs');
     //  console.log(template,err);
@@ -51,21 +58,11 @@ exports.init = function(app,pages) {
                 var fileName="views/"+file+".ejs";
                 fs.writeFileSync(fileName,newFile);
                 console.log("Routing to special generated page: ",file,fileName,key,page.path,page.title,featured.type);
-                app.get(page.path,function(file,path,title) {
-                    return function(req,res) {
-                        var params=merge(app.locals,{ title: title||"", locals:app.locals });
-                        res.render(file, params);
-                    };
-                }(file,page.path,page.title));
-    
+                addRoute(file,page.path,page.title);
             } else {
-              console.log("Default routing to pages: ",page.path,page.title)
-              app.get(page.path, function(req,res) { 
-                  var params=merge(app.locals,{ title: page.title||"", locals:app.locals }); 
-                  res.render('partials/page', params); 
-              });  
+                console.log("Default routing to pages: ",page.path,page.title)
+                addRoute('partials/page',page.path,page.title);
             }
-    
       }
     });
 }
