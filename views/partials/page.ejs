@@ -54,7 +54,7 @@ var nextPage = pages[p];
 <% 
     var items = [].concat(page.featured);
     var config = page.config || {};
-    var showSlides = items.length > 1 && !config['no_slides'];
+    var showSlides = !config['no_slides'];
     if (page.featured && items.length) {
 
 //        console.log("featured-items",items);

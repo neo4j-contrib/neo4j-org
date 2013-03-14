@@ -202,16 +202,18 @@ exports.init = function (app, interval) {
             app.locals.events = items;
             console.log("events", app.locals.events.length);
 
-            var mapping = {Meetup: "meetups",Webinar:"webinars",Conference:"conferences",Training:"trainings"};
             eventsFromSpreadSheet(function (items) {
                 app.locals.events = mergeEvents(app.locals.events, items);
+                var eventByType = {Meetup: [],Webinar:[],Conference:[],Training:[]};
                 app.locals.events.forEach(function (e) {
                     e.type = "event";
-                    app.locals.pages[mapping[e.Type]].related.push(e);
+                    eventByType[e.Type].push(e);
                 });
-                //app.locals.pages.events.featured = ["graphconnect","trainings"].concat(app.locals.events.slice(0,4));
                 app.locals.pages.events.related = ["meetups","webinars","trainings","conferences"].concat(app.locals.events);
-                
+                app.locals.pages.meetups.related = eventByType.Meetup;
+                app.locals.pages.webinars.related = eventByType.Webinar;
+                app.locals.pages.conferences.related = eventByType.Conference;
+                app.locals.pages.trainings.related = eventByType.Training;
             })
         })
     }
