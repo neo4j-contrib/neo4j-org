@@ -259,6 +259,7 @@ route_get('/customers', forward("http://www.neotechnology.com/customers/"));
 munchkin.add_route('/api/marketo',app);
 meetup.add_route("/api/meetup",app);
 calendar.add_events_route('/api/events.json', app);
+calendar.add_ics_route('/api/event.ics', app);
 
 // download resources
 route_get('/resources/cypher', forward(asset('download/Neo4j_CheatSheet_v3.pdf')));

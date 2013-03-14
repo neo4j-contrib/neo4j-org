@@ -21,11 +21,11 @@ Event Description: Event Info
             <div class="caption">
                 <h3><%- event['Title'] %></h3>
                 <% if (event['Start']) { %>
-                When: <%= event['Start'] %><br/>
+                <%= event['Start'] %><br/>
 				<hr/>
                 <% } %>
                 <% if (event['Location']) { %>
-                Where: <a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['Location'] %></a><br/>
+                <a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['Location'] %></a><br/>
 				<hr/>
                 <% } %>
                 <% if (event['Presenter']) { %>
@@ -33,8 +33,11 @@ Event Description: Event Info
                         <h4><em>with <%= event['Presenter'] %></em></h4>
                     </a>
                 <% } %>
+            </div>
+            <div class="introText">
                 <p><%-: event['Description'] | truncate_words: 30 %></p>
-                <a class="btn" href="<%= event['Url'] %>" target="_blank">Participate </a><br/>
+                <a class="link" style="left: 1em;" href="/api/event.ics?title=<%- encodeURIComponent(event['Title']) %>" target="_blank"><i class="icon-calendar"></i></a><br/>
+                <a class="link" href="<%= event['Url'] %>" target="_blank">Participate &raquo;</a><br/>
             </div>
         </div>
         <% }  %>

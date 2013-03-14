@@ -35,6 +35,7 @@ function events(fun, filter) {
             item[name]=match == null ? '' : type || match[1];
         }
         var items=out.items.map(function(item) {
+			item.Id=item.id;
 			item.Title=item.title;
             event_prop(item, 'Start', /When: (.+?)(\n|<br *\/>)/);
             event_prop(item, 'Status', /Event Status: (.+?)(\n|<br *\/>)/);
@@ -84,6 +85,10 @@ function events(fun, filter) {
 			
 			var dateStr=item.Start.replace(/(\d)(am|pm|AM|PM)/,"$1 $2").replace(/ (\d{1,2}) (am|pm|AM|PM)/," $1:00 $2").replace(/\s+to\s+.+?( [A-Z]{2,3})?$/,"$1");
 			item.Date = new Date(Date.parse(dateStr));
+			if (item.End) {
+                var dateStr=item.End.replace(/(\d)(am|pm|AM|PM)/,"$1 $2").replace(/ (\d{1,2}) (am|pm|AM|PM)/," $1:00 $2").replace(/\s+to\s+.+?( [A-Z]{2,3})?$/,"$1");
+			    item.EndDate = new Date(Date.parse(dateStr));
+            }
             // console.log(item)
 			// console.log(item.Area, item['Location'], item.Title,dateStr,item.Date,item.Group);
 			item.Origin="Calendar";
@@ -174,6 +179,22 @@ exports.add_events_route = function (path, app) {
     });
 };
 
+exports.add_ics_route = function (path, app) {
+    app.get(path, function (req, res) {
+        var title = req.query['title'];
+        var found = app.locals.events.filter(function(event) {
+            return (event.Title == title);
+        });
+        if (found.length) {
+            res.type("text/calendar");
+            var event = found[0];
+            res.set('Content-Disposition', 'attachment; filename="' + event['Title'] + '.ics"');
+            res.send(200, to_ics(event));
+        }  
+        else res.send(404, "No event with title " + title + " found.")
+    });
+};
+
 
 exports.init = function (app, interval) {
     function updateEvents() {
@@ -203,5 +224,40 @@ exports.init = function (app, interval) {
     setInterval(updateEvents, interval);
 };
 
+ function to_ics(event) {
+     function pad(n) { return n.toString().length == 1 ? '0' + n : n; }
+     function format(d) {
+         if (typeof d == 'string') d=new Date(d);
+         return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T'
+         	    + pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + 'Z'
+     }
+     function entry(name,value,type) {
+         if (!value) return null;
+         if (type=="TEXT") return name+';CHARSET=utf-8:' + value.replace(/\n/g,"\\n");
+         if (type=="DATE") return name+';VALUE=DATE:' + format(value);
+         return name+":"+value;
+     }
+
+     var result = [
+           entry('BEGIN', 'VCALENDAR')
+         , entry('BEGIN', 'VEVENT')
+         , entry('UID', event.Id)
+         , entry('CATEGORIES', event.Type)
+         , entry('ORGANIZER:MAILTO', 'events@neo4j.org')
+         , entry('DTSTAMP', event.Date, "DATE")
+         , entry('DTSTART', event.Date, "DATE")
+         , entry('DTEND', event.EndDate, "DATE")
+         , entry('SUMMARY', event.Title, "TEXT")
+         , entry('LOCATION', event.Location, "TEXT")
+         , entry('DESCRIPTION', event.Description, "TEXT")
+         , entry('URL', event.Url)
+         , entry('END', 'VEVENT')
+         , entry('END', 'VCALENDAR')
+     ];
+
+     return result.filter(function(e) { return e!=null;}).join("\n");
+}
+
+exports.to_ics = to_ics;
 exports.events = events;
 exports.eventsFromSpreadSheet = eventsFromSpreadSheet;

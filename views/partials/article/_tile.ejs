@@ -8,6 +8,6 @@
     <div>
         <p class="introText"><%- item.previewText ? item.previewText : item.introText %></p>
     </div>
-	<% if (hasPath) { %><a class="link" href="<%= item.path %>" target="_blank"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+	<% if (hasPath) { %><a class="link action" href="<%= item.path %>" target="_blank"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
 </div>
 

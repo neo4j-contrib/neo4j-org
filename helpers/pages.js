@@ -673,7 +673,7 @@ exports.pages = {
     meetups: {
         path: "/participate/events/meetups",
         thumbnail: asset("img/logo/meetup.jpg"),
-        title: "Meetups around the World",
+        title: "Worldwide Meetups",
         introText: "Neo4j meetups are worldwide. Make a connection or start a new group.",
         prev: ["events"],
         next: ["webinars"],
@@ -690,11 +690,11 @@ exports.pages = {
     webinars: {
         path: "/participate/events/webinars",
         title: "Webinars",
-        prev: ["meetups"],
+        prev: ["meetups","events"],
         next: ["trainings"],
-        thumnail: asset("img/events/meetup.png"),
+        thumbnail: asset("img/events/webinar.png"),
         introText: "Neo4j webinars give you hands on expert information either directly from Neo Technology or from our partners and users.",
-        actionText: "Find a webinar",
+        actionText: "Register for a webinar",
         featured: [
             {
                 type: "article",
@@ -707,10 +707,10 @@ exports.pages = {
     },
     trainings: {
         path: "/participate/events/trainings",
-        title: "Get productive with Neo4j with a Graph Database Training",
+        title: "Trainings",
         thumbnail: asset("img/events/training.png"),
         img: "http://www.neotechnology.com/wp-content/uploads/2013/03/tutorials_0305313.png",
-        prev: ["webinars"],
+        prev: ["webinars","events"],
         next: ["conferences"],
 // TODO move to a related in content and use in participate
 //        badge: "<h3>Stay Connected</h3>\
@@ -719,9 +719,9 @@ exports.pages = {
 //            Please keep me updated about Neo4j events, releases and articles.\
 //            <iframe src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' onload='this.style.visibility = 'visible';' style='border:0;padding: 0;' width='180px' height='50px' frameborder='0' scrolling='no'></iframe>\
 //            </div>",
-        introText: "Get connected with Neo4j experts in trainings at your office and at events across the globe!",
+        introText: "Get productive with Neo4j with a Graph Database Training. Meet an expert from Neo Technology or one of our partners for a full day training event in your city.",
 //        content: function(params) { return render.include("/learn/training",params) },
-        actionText: "Neo4j at conferences",
+        actionText: "Find trainings near you",
         featured: [
             {title: "About Neo4j Tutorials",
              type: "video",
@@ -740,6 +740,7 @@ exports.pages = {
         next: ["events"],
         introText: "There is a lot of interest in graph databases and Neo4j. here are some of the conferences where you can learn and " +
             "talk more about Neo4j.",
+        thumbnail: asset("img/logo/graphconnect.png"),
         actionText: "Neo4j at conferences",
         featured: [content.links.graphconnect],
         related: []

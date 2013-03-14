@@ -13,6 +13,6 @@
         <p class="introText"><%- item.introText||item.text.split(" ").slice(0,15).join(" ") %></p>
     </div>
     <% 
-    if (hasPath) { %><a class="link" href="<%= item.url %>"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+    if (hasPath) { %><a class="link action" href="<%= item.url %>"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
 </div>
 
