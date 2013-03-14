@@ -207,7 +207,6 @@ exports.init = function (app, interval) {
                 app.locals.events = mergeEvents(app.locals.events, items);
                 app.locals.events.forEach(function (e) {
                     e.type = "event";
-                    console.log(e.Type,mapping[e.Type]);
                     app.locals.pages[mapping[e.Type]].related.push(e);
                 });
                 //app.locals.pages.events.featured = ["graphconnect","trainings"].concat(app.locals.events.slice(0,4));

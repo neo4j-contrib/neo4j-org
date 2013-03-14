@@ -23,7 +23,13 @@ exports.pages = {
         title: "Participate",
         introText: "Connect with a friendly, engaging, and ever expanding community online or in person.",
         featured: null,
-        related: ["q_and_a", "channels","contributors", "events","graphistas_map","beer"]
+        related: ["q_and_a","contributors", "events",
+            {
+                type: "include",
+                title: "@Neo4j Tweets",
+                path: "/participate/twitter"
+            }, "channels","graphistas_map","beer"
+        ]
     },
     download : {
         path : "/download",
@@ -753,7 +759,15 @@ exports.pages = {
         thumbnail: asset("img/logo/googlegroups.png"),
         featured: [content.links.stack_overflow],
         related: [
-            content.links.mailing_list, content.links.github_neo4j
+            content.links.mailing_list, content.links.github_neo4j,
+            {
+                title: "FAQ",
+                introText: "There are FAQ's in several places:<ul>\
+                    <li><a href='http://docs.neo4j.org/chunked/milestone/questions.html' target='_blank'>FAQ in the Manual</a></li>\
+                    <li><a href='http://github.com/simpsonjulian/neo4j-faq/blob/master/README.md#neo4j-faq' target='_blank'>Julian Simpson</a></li>\
+                    <li><a href='http://stackoverflow.com/questions/tagged/neo4j?sort=faq&pagesize=50' target='_blank'>frequent questions on StackOverflow</a></li>\
+                    </ul>"
+            }
         ]
     },
     neo4j: {
