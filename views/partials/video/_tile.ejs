@@ -5,14 +5,13 @@
 
 %>
 
-    <h3><a href="<%= item.src %>" target="_blank"><i class="icon-facetime-video"></i> <%- link_to(item.path, item.title) %></a></h3>
+    <h3><i class="icon-facetime-video"></i> <%- lightbox_link(item.src, item.title) %></h3>
     <% if (image) { %>
     <%- link_to(item.path, '<img class="thumbnail" src="'+image+'" data-src="'+item.src+'" />') %>
     <% } %>
     <div>
         <p class="introText"><%-: (item.previewText ? item.previewText : (item.introText?item.introText:'')) | truncate_words: 25 %></p>
     </div>
-    <% // todo linkto with classes and skip if no link 
-    if (hasPath) { %><a class="link action" href="<%= item.path %>"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+    <%- lightbox_link(item.src, (item.actionText || 'Watch the video') + ' &raquo;','link action') %>
 </div>
 

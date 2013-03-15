@@ -70,12 +70,12 @@ function events(fun, filter) {
 			
 			function assignArea(item, content) {
 				if (!content || !item || item.Type=="Webinar" || item.Area) return item;
-				if (/(Los Angeles|CA|US|USA|Boston|DC|Washington|Valley|Seattle|NY|New York|San Francisco|Dallas|Canada|Vancouver|Montreal|Philadelphia)/.test(content)) {
+				if (/\b(Los Angeles|Austin|CA|US|USA|Boston|DC|Washington|Valley|Seattle|NY|New York|San Francisco|Dallas|Canada|Vancouver|Montreal|Philadelphia)\b/.test(content)) {
 					 item.Area="US"; return item; }
-				if (/(Denmark|London|Paris|United Kingdom|Copenhagen|Rotterdam|Netherlands|Belgium|UK|France|Sweden|Malm|Stockholm|Amsterdam|Sweden)/.test(content)) {
+				if (/\b(Denmark|London|Paris|United Kingdom|Copenhagen|Rotterdam|Netherlands|Belgium|UK|France|Sweden|Malm|Stockholm|Amsterdam|Sweden)\b/.test(content)) {
 					item.Area="EU"; return item; 
 				}
-				if (/(Berlin|GmbH|DE|Munich|München|Hamburg|Düsseldorf|Zurich|Zürich|Wien|Frankfurt|Dresden|Österreich|Switzerland|Germany|Schweiz|CH|AT)/.test(content)) {
+				if (/\b(Berlin|GmbH|DE|Munich|München|Hamburg|Düsseldorf|Zurich|Zürich|Wien|Frankfurt|Dresden|Österreich|Switzerland|Germany|Schweiz|CH|AT)\b/.test(content)) {
 					item.Area="DE"; return item; 
 				}
 				return item;
@@ -204,16 +204,35 @@ exports.init = function (app, interval) {
 
             eventsFromSpreadSheet(function (items) {
                 app.locals.events = mergeEvents(app.locals.events, items);
-                var eventByType = {Meetup: [],Webinar:[],Conference:[],Training:[]};
+                var eventPages = {
+                    Meetup: { events: [], page: "meetups"}, 
+                    Webinar:{ events: [], page: "webinars"},
+                    Conference:{ events: [], page: "conferences"},
+                    Training:{ events: [], page: "trainings"}};
                 app.locals.events.forEach(function (e) {
                     e.type = "event";
-                    eventByType[e.Type].push(e);
+                    eventPages[e.Type].events.push(e);
                 });
                 app.locals.pages.events.related = ["meetups","webinars","trainings","conferences"].concat(app.locals.events);
-                app.locals.pages.meetups.related = eventByType.Meetup;
-                app.locals.pages.webinars.related = eventByType.Webinar;
-                app.locals.pages.conferences.related = eventByType.Conference;
-                app.locals.pages.trainings.related = eventByType.Training;
+                Object.keys(eventPages).forEach(function(type) {
+                    var eventsPerType = eventPages[type].events;
+                    var pageName = eventPages[type].page;
+                    var page = app.locals.pages[pageName];
+                    page.related = eventsPerType; 
+                    if (type == "Webinar") return;
+                    ["US","EU","DE"].forEach(function(area) {
+                        var events = eventsPerType.filter(function(event) { 
+                            console.log(event.area,event.title);
+                            return event.Area == area;
+                        });
+                        var p = app.locals.pages[pageName+"_"+area];
+                        console.log(pageName+"_"+area,p);
+                        p.title=page.title + " (" + area + ")";
+                        p.actionText = page.actionText; p.introText = page.introText; 
+                        p.thumbnail = page.thumbnail; p.image = page.image; p.featured = page.featured;
+                        p.prev = page.prev; p.prev = page.next; p.related = events
+                    });
+                });
             })
         })
     }

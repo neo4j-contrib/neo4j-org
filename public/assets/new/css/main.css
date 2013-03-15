@@ -573,7 +573,11 @@ ul.hor li {
 .page .content a,
 .page .content a:visited,
 .page .content a:hover,
-.page .content a:active {
+.page .content a:active,
+.page .introText a,
+.page .introText a:visited,
+.page .introText a:hover,
+.page .introText a:active {
     color: #00546a;
     font-weight: 600;
 }

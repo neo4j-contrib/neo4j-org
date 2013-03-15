@@ -55,7 +55,7 @@ var nav = {
 	*	Initialize all thumbnails
 	*/
 	initThumbnails : function() {
-		$.each($('.thumbnail'), function(i, tn) {
+		$.each($('[data-src]'), function(i, tn) {
 			var thumbnail = $(tn);
 			var src = thumbnail.attr('data-src');
 
@@ -71,6 +71,7 @@ var nav = {
 							left: '10%',
 							top: '5%',
 							border: 'none',
+                            "z-index": 10000,
 							backgroundColor: 'transparent'
 						},
 						fadeIn: 25
@@ -94,6 +95,7 @@ var nav = {
 			            });
 				    }); 
 
+                    return false;
 				})
 			}
 		});

@@ -68,8 +68,12 @@ app.locals.theme = function () {
 };
 
 // helper functions
-app.locals.link_to = function (path, inner) {
-    if (path) return "<a href=" + path + " " + (path.match("^http") ? ' target="_blank" ' : '') + ">" + inner + "</a>";
+app.locals.link_to = function (path, inner,css) {
+    if (path) return "<a class='"+(css||"")+"' href='" + path + "' " + (path.match("^http") ? ' target="_blank" ' : '') + ">" + inner + "</a>";
+    return inner;
+};
+app.locals.lightbox_link = function (path, inner,css) {
+    if (path) return "<a class='"+(css||"")+"' data-src='" + path + "' href='" + path + "' target='_blank' >" + inner + "</a>";
     return inner;
 };
 
