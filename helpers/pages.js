@@ -936,10 +936,8 @@ exports.pages = {
         featured: [
             content.videos.neo4j_webui,
             video('GraphConnect 2012: Visualizing Graphs-Max De Marzi'),
-            content.links.d3,
-            content.projects.neoclipse,
-            content.links.gephi,
-            content.videos.graphviz
+            content.links.linkurious,
+            content.links.keylines
         ],
         related: [
             {
@@ -948,6 +946,8 @@ exports.pages = {
                 path: "http://maxdemarzi.com/tag/visualization-2/",
                 thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2012/04/threed2.jpg?w=1160&h=336"
             },
+            content.links.linkurious,
+            content.links.keylines,
             content.links.d3,
             content.links.gephi,
             content.projects.neoclipse,

@@ -1,7 +1,7 @@
 <div class="item default">
 <%
 	var hasPath = item.path;
-	var image = item.img ? item.img : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
+	var image = item.thumbnail ? item.thumbnail : item.img ? item.img : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
 
 %>
 

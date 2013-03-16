@@ -329,6 +329,30 @@ neo4j start</pre>\
             src: asset("img/still/d3_network.png"),
             path: "http://d3js.org/"
         },
+        linkurious: {
+            title: "Linkurio.us Neo4j Graph Visualization",
+            introText: "Neo4j Partner Linkurious helps you make sense of your graph data through a simple web-based interface based on an open-source back-end that connects to your Neo4j Database.",
+            content: "\
+            <h3>Connect</h3><p>Our Open Source backend indexes your graph so you can connect with it on Linkurious and get started in minutes. When it is done, launch the web application of Linkurious.</p>\
+            <h3>Search</h3><p>Typing any keyword in the search bar brings up all the related data in one step. We provide a console for advanced queries so you can be as broad or as specific as you want.</p>\
+            <h3>Explore</h3><p>By focusing on the items related to your search, visualizing and exploring your graph has never been easier. Dig further in any direction using the connected nodes and make sense of your data.</p>\
+            ",
+            thumbnail: "http://linkurio.us/wp-content/uploads/2012/11/linkurious-239x60-tr.png",
+            img: "http://linkurio.us/wp-content/uploads/2012/11/linkurious-screenshot-22-halo.jpg",
+            path: "http://linkurio.us/"
+        },
+        keylines: {
+            title: "Keylines Neo4j Graph Visualization",
+            introText: "KeyLines is a JavaScript toolkit for visualizing networks. It works in all major browsers, and on all platforms, including the iPad. It uses HTML5 but also works on old versions of Internet Explorer.",
+            content: "\
+            <h3>How does it work?</h3><p>KeyLines will integrate into existing web applications easily and with very little effort.<br/>How and where you get the data is up to you. KeyLines does the job of rendering it and responding to user interactions like clicking, touching, moving nodes, etc. You bind to these events to customize what happens.<br/>Your data stays under your control at all times: KeyLines is self-contained and needs no external connections.</p>\
+            <h3>What kind of data?</h3><p>KeyLines can work on any kind of network - all you need is data with nodes and links.</p>\
+            \
+            ",
+            thumbnail: "http://keylines.com/Keylines-logo-tex-tagline-medium.png",
+            img: "http://keylines.com/im/product/KeyLinesNeo4j.png",
+            path: "http://keylines.com/neo4j"
+        },
         gephi: {
             title: "Gephi",
             type: "video",
