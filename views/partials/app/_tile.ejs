@@ -5,7 +5,7 @@
 
 %>
 
-    <h3><%- link_to(item.url, item.name) %></h3>
+    <h3 id="<%= item.key || key %>"><%- link_to(item.url, item.name) %></h3>
     <% if (image) { %>
     <%- link_to(item.url, '<img class="preview" src="'+image+'" />') %>
     <% } %>

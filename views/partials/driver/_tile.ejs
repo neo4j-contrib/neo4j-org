@@ -4,7 +4,7 @@
 
     <a target="_blank" href="<%= info['url'] %>">
         <img src="<%= info['logo'] %>" title="<%= info['name'] %>" alt="image"/>
-        <h3><%= info['name'] %></h3>
+        <h3 id="<%= item.key || key %>"><%= info['name'] %></h3>
     </a>
     <% resolve_authors(info.authors).map(function(author) { %>
         <h4><em><a target="_blank" href="http://twitter.com/<%= author.twitter %>"><%= author.name %></a></em></h4>

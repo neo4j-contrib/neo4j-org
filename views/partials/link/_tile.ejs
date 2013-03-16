@@ -4,7 +4,7 @@
 	var image = item.img ? item.img : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
 %>
 
-    <h3><%- link_to(url, item.title) %></h3>
+    <h3 id="<%= item.key || key %>"><%- link_to(url, item.title) %></h3>
     <% if (image) { %>
     <%- link_to(url, '<img class="preview" src="'+image+'" />') %>
     <% } %>

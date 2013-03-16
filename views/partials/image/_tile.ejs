@@ -1,7 +1,7 @@
 <div class="item video">
 	<% var hasPath = item.path %>
 
-    <h3><% if (hasPath) { %><a href="<%= item.path %>"><% } %><%= item.title %><% if (hasPath) { %></a><% } %></h3>
+    <h3 id="<%= item.key || key %>"><% if (hasPath) { %><a href="<%= item.path %>"><% } %><%= item.title %><% if (hasPath) { %></a><% } %></h3>
     <% if (item.featured.thumbnail) { %>
     <a href="<%= item.path %>"><img class="preview" src="<%= item.featured.thumbnail %>"></a>
     <% } %>

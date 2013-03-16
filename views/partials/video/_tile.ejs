@@ -5,7 +5,7 @@
 
 %>
 
-    <h3><i class="icon-facetime-video"></i> <%- lightbox_link(item.src, item.title) %></h3>
+    <h3 id="<%= item.key || key %>"><i class="icon-facetime-video"></i> <%- lightbox_link(item.src, item.title) %></h3>
     <% if (image) { %>
     <%- link_to(item.path, '<img class="thumbnail" src="'+image+'" data-src="'+item.src+'" />') %>
     <% } %>

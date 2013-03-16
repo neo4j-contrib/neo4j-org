@@ -230,6 +230,7 @@ neo4j start</pre>\
             url: "http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html"
         },
         stack_overflow: {
+            key: "stack_overflow",
             title: "Stack Overflow",
             path: "http://stackoverflow.com/questions/tagged/neo4j",
             thumbnail: asset("img/logo/stackoverflow.png"),
@@ -237,6 +238,7 @@ neo4j start</pre>\
             actionText: "Ask Neo4j questions"
         },
         mailing_list: {
+            key: "mailing_list",
             title: "Neo4j Google Group",
             path: "http://groups.google.com/group/neo4j",
             thumbnail: asset("img/logo/googlegroups.png"),
@@ -246,6 +248,7 @@ neo4j start</pre>\
             actionText: "Join now"
         },
         github_neo4j: {
+            key: "github_neo4j",
             title: "GitHub Issues",
             path: "http://stackoverflow.com/questions/tagged/neo4j",
             thumbnail: asset("img/logo/github.png"),

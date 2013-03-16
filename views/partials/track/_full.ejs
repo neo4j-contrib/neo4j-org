@@ -1,6 +1,6 @@
 <div class="featured" class="mainElement">
     <div class="slide track">
-        <% if (item.title) { %><h3><%= item.title %></h3><% } %>
+        <% if (item.title) { %><h3 id="<%= item.key || key %>"><%= item.title %></h3><% } %>
         <%- item.introText %>
         <div class="content">
             <%- item.content %>

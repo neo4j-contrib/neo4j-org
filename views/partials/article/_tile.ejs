@@ -1,7 +1,7 @@
 <div class="item article">
 	<% var hasPath = item.path %>
 
-    <h3><% if (hasPath) { %><a href="<%= item.path %>" target="_blank"><% } %><%= item.title %><% if (hasPath) { %></a><% } %></h3>
+    <h3 id="<%= item.key || key %>"><% if (hasPath) { %><a href="<%= item.path %>" target="_blank"><% } %><%= item.title %><% if (hasPath) { %></a><% } %></h3>
     <% if (item.img) { %>
     <a href="<%= item.path %>" target="_blank"><img class="logo" src="<%= item.img %>"></a>
     <% } %>

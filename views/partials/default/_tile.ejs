@@ -1,11 +1,10 @@
-<div class="item default">
 <%
 	var hasPath = item.path;
 	var image = item.thumbnail ? item.thumbnail : item.img ? item.img : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
-
 %>
+<div class="item default">
 
-    <h3><%- link_to(item.path, item.title) %></h3>
+    <h3 id="<%= item.key || key %>"><%- link_to(item.path, item.title) %></h3>
     <% if (image) { %>
     <%- link_to(item.path, '<img class="preview" src="'+image+'" />') %>
     <% } %>
