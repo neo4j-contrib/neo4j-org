@@ -239,6 +239,7 @@ exports.pages = {
         related: [
             content.videos.cypher_advanced,
             content.links.cypher_cheat_sheet,
+            content.links.wes_cypher,
             {
                 type: "video",
                 title: "Got a graph database? Need a Query Language!",
@@ -888,7 +889,7 @@ exports.pages = {
                 path: "/learn/try"
             }
         ],
-        related: [content.links.cypher_cheat_sheet, content.links.manual_cypher, "cypher"
+        related: [content.links.cypher_cheat_sheet, content.links.manual_cypher, "cypher", content.links.wes_cypher
         ]
     },
     neo4j_server: {

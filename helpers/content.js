@@ -234,6 +234,13 @@ neo4j start</pre>\
         }
     },
     links: {
+        wes_cypher: {
+            type : "link",
+            title : "Wes Freeman's Cypher Tutorials and Commentary",
+            author : "wefreema",
+            url: "http://wes.skeweredrook.com/cypher/",
+            introText: "Wes' Cypher page with introductory articles, links to resources and the 'Ask Wes' section."
+        },
         ec2_aws_tools : {
             type: "link",
             title: "Getting Started Guide on Amazon EC2",
