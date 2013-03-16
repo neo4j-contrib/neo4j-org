@@ -1383,3 +1383,6 @@ a:hover pre {
     font-weight: bold ! important;
 }
 
+text.caption a:hover {
+    cursor: pointer;
+}
