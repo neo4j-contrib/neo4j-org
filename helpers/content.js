@@ -33,6 +33,16 @@ exports.content = {
             date:"2013",
             introText:"Unstable Snapshot, for resolution issue verification"
         },
+        "2_0_M01":{
+            type:"version",
+            title:"Milestone Version 2.0-M01",
+            stability:"milestone",
+            version:"2.0-M01",
+            date:"2013",
+            introText:"Node Labels, Integrated Index, ",
+            path:"http://blog.neo4j.org"
+            // todo src with label intro video
+        },
         "1_7_2":{
             type:"version",
             title:"Neo4j Stable Release 1.7.2",

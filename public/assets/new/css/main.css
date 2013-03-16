@@ -709,6 +709,22 @@ ul.hor li {
     color: #00546a;
 }
 
+.featured .version a .icon-download-alt,
+.related  .version a ,
+.related  .version td  {
+    font-size: 0.9em;
+}
+
+.related .notes {
+    position: absolute;
+    bottom: .65em;
+    left: 1em;
+}
+
+.related  .version td ,
+.featured .version td {
+    text-align: right;
+}
 
 .featured .video .caption, 
 .featured .version .caption, 
