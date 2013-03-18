@@ -282,16 +282,16 @@ gd = {};
             var xScale = diagramExtent.width / viewDimensions.width;
             var yScale = diagramExtent.height / viewDimensions.height;
             var scaleFactor = xScale < 1 && yScale < 1 ? 1 : (xScale > yScale ? xScale : yScale);
-
-            return {
+            var box = {
                 x: ((diagramExtent.width - viewDimensions.width * scaleFactor) / 2) + diagramExtent.x,
                 y: ((diagramExtent.height - viewDimensions.height * scaleFactor) / 2) + diagramExtent.y,
                 width: viewDimensions.width * scaleFactor,
                 height: viewDimensions.height * scaleFactor
             };
+            return box;
         };
 
-        scaling.centerOrScaleDiagramToFitSvg = function(graph, view) {
+        scaling.centerOrScaleeDiagramToFitSvg = function(graph, view) {
             var svgElement = view.node();
             var viewDimensions = {
                 width: svgElement.clientWidth,
@@ -299,14 +299,12 @@ gd = {};
             };
             var diagramExtent = smallestContainingBox( graph );
             var box = scaling.centeredOrScaledViewBox( viewDimensions, diagramExtent );
-
             view
                 .attr("viewBox", [box.x, box.y, box.width, box.height].join( " " ));
         };
 
         scaling.sizeSvgToFitDiagram = function(graph, view) {
             var box = smallestContainingBox( graph );
-
             view
                 .attr("viewBox", [box.x, box.y, box.width, box.height].join( " " ))
                 .attr("width", box.width * graph.externalScale())
@@ -644,7 +642,7 @@ gd = {};
     {
         var nodeBehaviour = function() {};
         var relationshipBehaviour = function() {};
-        var scaling = gd.scaling.sizeSvgToFitDiagram;
+        var scaling_fun = gd.scaling.sizeSvgToFitDiagram;
 
         var diagram = function ( selection )
         {
@@ -846,7 +844,7 @@ gd = {};
                     })
                     .text(function(property) { return property.valueText; });
 
-                scaling( model, view );
+                scaling_fun( model, view );
             } );
         };
 

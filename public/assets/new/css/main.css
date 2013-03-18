@@ -408,11 +408,12 @@ ul.hor li {
 #activePointer {
     position: absolute;
     display: none;
-    bottom: 0;
+    bottom: -0.15em;
     font-size: 2em;
-    line-height: 0em;
+    line-height: 0.3em;
     margin-bottom: -.19em;
     color: #f7f7f7;
+    z-index: 9999;
 }
 
 .page a,
