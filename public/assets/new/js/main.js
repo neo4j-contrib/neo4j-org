@@ -20,9 +20,9 @@ function resizeRelatedItems() {
 		var row = $(this);
 		var maxHeight = 0;
 		$.each($('.item', row), function(j, item) {
-			console.log(item);
+//			console.log(item);
 			maxHeight = Math.max(maxHeight, $(item).height());
-			console.log(maxHeight);
+//			console.log(maxHeight);
 		});
 		$('.item', row).height(maxHeight);
 		maxHeight = 0;

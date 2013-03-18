@@ -10,5 +10,20 @@ if (!d.getElementById(id)) {
     js.src = "//platform.twitter.com/widgets.js";
     fjs.parentNode.insertBefore(js, fjs);
 }
-}(document, "script", "twitter-wjs");</script>
+}(document, "script", "twitter-wjs");
+
+$(document).ready(function() {
+   function styleTwitterWidget() {
+       var iframe=$("#twitter-widget-0");
+       if (!iframe.length) {
+           console.log("styleTwitterWidget","timeout");
+           setTimeout(styleTwitterWidget,250);
+       } else {
+           iframe.attr("style","border: none; max-width: 100%;");
+           console.log("styleTwitterWidget",iframe.attr("style"));
+       }
+   }
+   styleTwitterWidget();
+})
+</script>
 </div>
