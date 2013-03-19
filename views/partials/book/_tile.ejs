@@ -1,7 +1,7 @@
 <div class="item book">
 <%
 	var hasPath = item.url;
-	var image = item.logo ? item.logo : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
+	var image = item.thumbnail ? item.thumbnail : item.logo ? item.logo :  (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
 
 %>
 
