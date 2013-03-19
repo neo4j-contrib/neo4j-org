@@ -308,8 +308,15 @@ neo4j start</pre>\
             actionText: "Browse JavaDoc"
         },
         manual: {
+            title: "The Neo4j Manual",
+            path: "http://docs.neo4j.org/chunked/milestone",
+            // thumbnail: ,
+            introText: "The Neo4j Manual is the comprehensive resource for detailed information about Neo4j. You will find everything, from tutorials to extensive reference documentation on every aspect of the database.",
+            actionText: "Go to the manual"
+        },
+        manual_java: {
             title: "Manual: the Java Tutorial",
-            path: "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html",
+            path: "http://docs.neo4j.org/chunked/milestone/tutorials-java-embedded.html",
             thumbnail: asset("img/languages/java.jpg"),
             introText: "In the tutorial you will find everything needed — from setting up the environment to doing something useful with your data.",
             actionText: "Go to the manual"
@@ -589,7 +596,7 @@ neo4j start</pre>\
             type: "article",
             content: "Neo4j is an open-source <a href='/learn/graphdatabase'>graph database</a> supported by <a onclick=\"javascript:pageTracker._trackPageview(\'/outgoing/neotechnology.com/');\" href='http://neotechnology.com/''>Neo Technology</a>.</p>\
         <p>Neo4j stores data in nodes connected by directed, typed relationships with properties on both, also known as a <a href='/learn/graphdatabase'>Property Graph</a>.</p>\
-        <h3>Neo4j is</h3>\
+        <h3>Main features</h3>\
          <ul id='features'>\
             <li><em>intuitive</em>, using a graph model for data representation</li>\
             <li><em>reliable</em>, with full ACID transactions</li>\
@@ -600,7 +607,9 @@ neo4j start</pre>\
             <li><em>fast</em>, with a powerful traversal framework for high-speed graph queries</li>\
             <li><em>embeddable</em>, with a few small jars</li>\
             <li><em>simple</em>, accessible by a convenient <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/docs.neo4j.org/chunked/stable/rest-api.html');\" href='http://docs.neo4j.org/chunked/1.8.1/rest-api.html'>REST interface</a> or\
-                an object-oriented Java <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/api.neo4j.org/');\" href='http://api.neo4j.org/1.8.1'>API</a>"
+                an object-oriented Java <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/api.neo4j.org/');\" href='http://api.neo4j.org/1.8.1'>API</a></li>\
+                </ul>",
+            src: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png"
         }
 
     },
@@ -831,6 +840,15 @@ neo4j start</pre>\
             logo: asset("img/apps/neoclipse.png"),
             text: "An Eclipse-RCP based visualization and query tool for Neo4j",
             name: "Neoclipse"
+        },
+        neo4j_org: {
+            type: "app",
+            author: "@mesirii",
+            url: "https://github.com/neo4j-contrib/neo4j-org",
+            logo: asset("img/logo/forkme.png"),
+            introText: "The source code of this neo4j.org website on Github. Feel free to chip in and provide corrections, new shiny stuff and improvements!",
+            name: "Neo4j-org",
+            actionText: "Fork and Contribute"
         },
         spatial: {
             type: "app",

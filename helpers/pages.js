@@ -9,14 +9,14 @@ exports.pages = {
         title: "Learn",
         introText: "Below you find a number of useful starting points to learn about neo4j, graph databases and fast development with Neo4j.",
         featured: null,
-        related: [content.books.graphdatabases, "concepts", "intro", "tracks", "production", "scientific"]
+        related: [content.books.graphdatabases, "neo4j", "tracks", "production", "scientific"]
     },
     develop: {
         path: "/develop",
         title: "Develop",
         introText: "Learn how to develop applications with Neo4j and deploy Server instances.",
         featured: null,
-        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "ruby", "dotnet", "python", "scala", "php", "clojure"]
+        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java","spring","ruby", "dotnet", "python", "scala", "php", "clojure"]
     },
     participate: {
         path: "/participate",
@@ -28,7 +28,7 @@ exports.pages = {
                 type: "include",
                 title: "@Neo4j Tweets",
                 path: "/participate/twitter"
-            }, "channels", "graphistas_map", "beer"
+            }, "channels", "graphistas_map", "beer", content.projects.neo4j_org
         ]
     },
     download_thanks: {
@@ -121,15 +121,6 @@ exports.pages = {
             content.install.puppet
         ]
     },
-    concepts: {
-        path: "/learn/concepts",
-        title: "Graph Concepts",
-        thumbnail: asset("img/propertygraph/graphdb-gve.png"),
-        introText: "Learn about the graph data model, graph databases and their applicability. See how graph databases related to other NOSQL solutions.",
-        featured: [content.videos.graphdb101],
-        actionText: "Learn more",
-        related: [ "graphdatabase", "nosql", content.links.neo4j_ref_card ]
-    },
     scientific: {
         path: "/learn/scientific",
         thumbnail: asset("img/logo/scientific.png"),
@@ -176,16 +167,6 @@ exports.pages = {
             , content.links.cypher_cheat_sheet
         ]
     },
-    intro: {
-        path: "/learn/intro",
-        title: "Neo4j Introduction",
-        thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
-        introText: "In order to get familiar with Graph Databases, Neo4j and Cypher, start with the following introduction sections.",
-        featured: [
-            content.videos.why_graphs
-        ],
-        related: [ "neo4j", "cypher", "tracks", content.links.neo4j_ref_card ]
-    },
     tracks: {
         path: "/learn/tracks",
         title: "Neo4j learning tracks",
@@ -208,7 +189,7 @@ exports.pages = {
         ],
         related: [
             content.links.javadoc,
-            content.links.manual
+            content.links.manual_java
         ]
     },
 
@@ -375,23 +356,27 @@ exports.pages = {
         introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way.",
         content: "Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
         thumbnail: asset("img/propertygraph/graphdb-gve.png"),
-        next: ["nosql", "neo4j"],
-        prev: [],
+        //next: ["nosql", "neo4j"],
+        //prev: [],
         featured: [
+            content.videos.why_graphs,
             content.articles.graphdb.graph,
             content.articles.graphdb.graphdb_traversal,
             content.articles.graphdb.graphdb_indexes
         ],
         actionText: "Learn more",
-        related: ["cypher"]
+        related: [
+            content.books.graphdatabases,
+            "neo4j",
+            content.videos.graphdb101,"cypher","nosql"]
     },
     nosql: {
         path: "/learn/nosql",
         title: "NoSQL Data Models",
         thumbnail: asset("img/propertygraph/nosql-space.png"),
         introText: "Understanding data stores for your application.",
-        next: ["graphdatabase"],
-        prev: ["concepts"],
+        //next: ["graphdatabase"],
+        //prev: ["concepts"],
         featured: [
             content.articles.nosql.nosql,
             content.articles.nosql.rdbms,
@@ -399,7 +384,7 @@ exports.pages = {
             content.articles.nosql.document
         ],
         actionText: "Not only SQL",
-        related: null
+        related: ["graphdatabase","neo4j"]
     },
     drivers: {
         path: "/develop/drivers",
@@ -536,8 +521,9 @@ exports.pages = {
     spring: {
         path: "/develop/spring",
         title: "Spring Data Neo4j",
-        introText: "The best NOSQL database for Spring.",
+        introText: "Spring Data Neo4j was the founding project of Spring Data and integrates Neo4j very well with the Spring Framework.",
         actionText: "Go ahead",
+        thumbnail: asset("img/languages/sdn.png"),
         featured: [content.videos.good_relationships, content.books.goodrelationships],
         related: [
             {
@@ -635,13 +621,15 @@ exports.pages = {
     },
     channels: {
         path: "/participate/channels",
-        title: "Poll of Developer Communication Channels",
+        thumbnail: asset("img/logo/survey.png"),
+        title: "How do you learn?",
         introText: "We are interested in which communication channels you, but also especially your co-workers, friends and customer developers use to learn more about technology and software development.",
         content: function (params) {
             return render.include("/participate/_channels", params);
         },
         featured: [],
-        related: []
+        related: [],
+        actionText: "Participate in survey"
     },
     videos: {
         type: "track",
@@ -823,7 +811,7 @@ exports.pages = {
         featured: [
             content.articles.learn, video('Ian Robinson  - What is a Graph Database? What is Neo4j?')
         ],
-        related: ["graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "licensing", "neo4j_server"]
+        related: [content.videos.why_graphs,"graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "nosql","licensing", content.links.manual, "neo4j_server"]
     },
     reference_card: {
         path: "/learn/neo4j/reference_card",
@@ -894,6 +882,7 @@ exports.pages = {
     },
     neo4j_server: {
         path: "/tracks/neo4j_server",
+        thumbnail: asset("img/still/webadmin.png"),
         type: "page",
         title: "Neo4j Server",
         introText: "Neo4j comes as standalone server. Easy to download and start. It has an accessible Web-UI and a comprehensive REST-API. Neo4j-Server is also available at Heroku and for cloud setup. The drivers for non-JVM languages all work with the Neo4j-Server",
@@ -1230,7 +1219,9 @@ exports.pages = {
         <blockquote>A traditional relational database may tell you the average age of everyone in this pub, but a graph database will tell you who is most likely to buy you a beer. <i>Andreas Kollegger</i></blockquote>\
         <p>Of course, we are sponsoring beer for the <a href='/participate/meetups'>Neo4j Meetups</a>, so drop by!</p>",
         featured: ["rik_belgian_beers1"],
-        related: ["popchartlabs_beer", "trycypher_beer", "beer_rik_screencast", "frostymug"]
+        related: ["popchartlabs_beer", "trycypher_beer", "beer_rik_screencast", "frostymug"],
+        actionText: "Grab a beer"
+
     },
     import: {
         path: "/develop/import",
@@ -1359,6 +1350,7 @@ exports.pages = {
         introText: '<p>Go to the <a target="_blank" href="https://maps.google.com/maps/ms?ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=215787240736307886514.00049e70e573cbd8a91e5&amp;t=m&amp;ll=24.527135,-20.039062&amp;spn=123.963155,225&amp;z=2&amp;source=embed" style="text-align:left">map edit page</a>. Then zoom to your place, hit the red "Edit" button and then place a landmark, add your info and a icon from the google selection. Click the "Done", when you\'re satisfied.</p>',
         content: '<iframe width="100%" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=215787240736307886514.00049e70e573cbd8a91e5&amp;t=m&amp;ll=24.527135,-20.039062&amp;spn=123.963155,225&amp;z=2&amp;output=embed"></iframe>',
         featured: [],
-        related: []
+        related: [],
+        actionText : "Add yourself"
     }
 }

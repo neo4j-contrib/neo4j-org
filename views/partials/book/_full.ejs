@@ -4,7 +4,7 @@
 
         <div>
             <div class="caption">
-                <h3 id="<%= item.key || key %>"><%= item.name %></h3>
+                <a href="<%= item.url %>" target="_blank"><h3 id="<%= item.key || key %>"><%= item.name %></h3>  </a>
 
                 <p class="introText"><%- item.introText %></p>
             </div>
@@ -13,5 +13,8 @@
             </div>
         </div>
         <div class="clear"></div>
+
+        <a href="<%= item.url %>" target="_blank">Go to the book page >></a>
     </div>
+    
 </div><!-- featured -->

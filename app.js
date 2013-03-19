@@ -80,7 +80,8 @@ app.locals.lightbox_link = function (path, inner,css) {
 app.locals.chunk = function (arr, size) {
     var res = [];
     for (var i = 0; i < arr.length / size; i++) {
-        res.push(arr.slice(i * size, (i + 1) * size));
+        var items = arr.slice(i * size, (i + 1) * size);
+        res.push(items);
     }
     return res;
 };
@@ -246,6 +247,8 @@ route_get('/java', forward("/develop/java"));
 route_get('/ruby', forward("/develop/ruby"));
 
 route_get('/community', forward("/participate"));
+route_get('/learn/intro', forward("/learn"));
+route_get('/learn/concepts', forward("/learn"));
 route_get('/community/feeds', forward("/participate")); //TODO
 route_get('/resources', forward("/learn"));
 route_get('/forums', forward("http://groups.google.com/group/neo4j"));

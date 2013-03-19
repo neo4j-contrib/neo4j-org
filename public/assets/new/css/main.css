@@ -1197,11 +1197,14 @@ a.vote i {
 #twitter_bar {
     width: 100%;
     background: #00546a;
-    padding-left: 10%;padding-right: 10%; 
     padding-top: 2px;
     padding-bottom: 2px;
 }
 
+#twitter_bar div {
+    width: 62em;
+    margin: 0 auto;
+}
 #twitter_bar,#twitter_bar a {
    color: white;
 }

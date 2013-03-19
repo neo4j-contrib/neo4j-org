@@ -222,7 +222,7 @@ exports.init = function (app, interval) {
                     if (type == "Webinar") return;
                     ["US","EU","DE"].forEach(function(area) {
                         var events = eventsPerType.filter(function(event) { 
-                            console.log(event.area,event.title);
+                            console.log(event.Area,event.title);
                             return event.Area == area;
                         });
                         var p = app.locals.pages[pageName+"_"+area];
