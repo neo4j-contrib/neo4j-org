@@ -841,6 +841,14 @@ neo4j start</pre>\
             text: "An Eclipse-RCP based visualization and query tool for Neo4j",
             name: "Neoclipse"
         },
+        neo4j_org: {
+            type: "app",
+            author: "@mesirii",
+            url: "https://github.com/neo4j-contrib/neo4j-org",
+            logo: asset("img/logo/forkme.png"),
+            introText: "The source code of this neo4j.org website on Github. Feel free to chip in and provide corrections, new shiny stuff and improvements!",
+            name: "Neo4j-org"
+        },
         spatial: {
             type: "app",
             author: "@craigtaverner",

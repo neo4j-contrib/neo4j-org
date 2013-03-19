@@ -28,7 +28,7 @@ exports.pages = {
                 type: "include",
                 title: "@Neo4j Tweets",
                 path: "/participate/twitter"
-            }, "channels", "graphistas_map", "beer"
+            }, "channels", "graphistas_map", "beer", content.projects.neo4j_org
         ]
     },
     download_thanks: {
@@ -621,6 +621,7 @@ exports.pages = {
     },
     channels: {
         path: "/participate/channels",
+        thumbnail: asset("img/logo/survey.png"),
         title: "Poll of Developer Communication Channels",
         introText: "We are interested in which communication channels you, but also especially your co-workers, friends and customer developers use to learn more about technology and software development.",
         content: function (params) {
