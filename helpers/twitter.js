@@ -12,7 +12,7 @@ function tweets(cb) {
         var tweets = json["results"];
         tweets.forEach(function(tweet) {
            tweet.rendered=tweet.text
-               .replace(/(https?:\/\/\S+)/g,"<a target='_blank' href='$1'>$1</a>")
+               .replace(/(https?:\/\/\S+)/g,"<a target='_blank' href='$1'>\(link\)</a>")
                .replace(/@(\w+)/g,"<a target='_blank' href='http://twitter.com/$1'>@$1</a>")
                .replace(/#(\w+)/g,"<a target='_blank' href='https://twitter.com/search?src=hash&q=%23$1'>#$1</a>");  
         });
