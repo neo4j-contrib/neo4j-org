@@ -9,6 +9,12 @@ $(document).ready(function() {
   		$('.badge').fadeOut();
   	});
 
+	$('#mobileMenu').on('click', function(){
+		var self = $(this);
+		$('#mobileNav').slideToggle('fast');
+		self.toggleClass('active');
+	});
+
 });
 
 /**

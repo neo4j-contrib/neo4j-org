@@ -554,11 +554,36 @@ ul.hor li {
     font-size: 2em;
     font-family: 'Open Sans', Helvetica, sans-serif;
     font-weight: bold;
-    color: #fff;   
+    color: #fff;
 }
 
-#mobileMenu ul {
+#mobileMenu.active {
+    text-shadow: #fff 0 0 .75em;
+}
+
+#mobileNav {
     display: none;
+    background: #e5e5e5;
+    width: 100%;
+    padding: 0 0 0 2.5em;
+    margin: 0;
+}
+
+#mobileNav li {
+    list-style-type: none;
+    /*border-top: 1px solid #00546a;*/
+    padding: .5em 0;
+    margin: 0;
+}
+
+#mobileNav a,
+#mobileNav a:visited,
+#mobileNav a:active,
+#mobileNav a:hover {
+    font-size: 2em;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: bold;
+    color: #00546a ! important;
 }
 
 #mainNav {
