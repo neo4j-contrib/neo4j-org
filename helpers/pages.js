@@ -16,7 +16,7 @@ exports.pages = {
         title: "Develop",
         introText: "Learn how to develop applications with Neo4j and deploy Server instances.",
         featured: null,
-        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "ruby", "dotnet", "python", "scala", "php", "clojure"]
+        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java","spring","ruby", "dotnet", "python", "scala", "php", "clojure"]
     },
     participate: {
         path: "/participate",
@@ -521,6 +521,7 @@ exports.pages = {
         title: "Spring Data Neo4j",
         introText: "The best NOSQL database for Spring.",
         actionText: "Go ahead",
+        thumbnail: asset("img/languages/sdn.png"),
         featured: [content.videos.good_relationships, content.books.goodrelationships],
         related: [
             {
@@ -806,7 +807,7 @@ exports.pages = {
         featured: [
             content.articles.learn, video('Ian Robinson  - What is a Graph Database? What is Neo4j?')
         ],
-        related: [content.videos.why_graphs,"graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "nosql","licensing", "neo4j_server"]
+        related: [content.videos.why_graphs,"graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "nosql","licensing", content.links.manual, "neo4j_server"]
     },
     reference_card: {
         path: "/learn/neo4j/reference_card",
@@ -877,6 +878,7 @@ exports.pages = {
     },
     neo4j_server: {
         path: "/tracks/neo4j_server",
+        thumbnail: asset("img/still/webadmin.png"),
         type: "page",
         title: "Neo4j Server",
         introText: "Neo4j comes as standalone server. Easy to download and start. It has an accessible Web-UI and a comprehensive REST-API. Neo4j-Server is also available at Heroku and for cloud setup. The drivers for non-JVM languages all work with the Neo4j-Server",
