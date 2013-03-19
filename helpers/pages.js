@@ -9,7 +9,7 @@ exports.pages = {
         title: "Learn",
         introText: "Below you find a number of useful starting points to learn about neo4j, graph databases and fast development with Neo4j.",
         featured: null,
-        related: [content.books.graphdatabases, "concepts", "intro", "tracks", "production", "scientific"]
+        related: [content.books.graphdatabases, "neo4j", "tracks", "production", "scientific"]
     },
     develop: {
         path: "/develop",
@@ -121,15 +121,6 @@ exports.pages = {
             content.install.puppet
         ]
     },
-    concepts: {
-        path: "/learn/concepts",
-        title: "Graph Concepts",
-        thumbnail: asset("img/propertygraph/graphdb-gve.png"),
-        introText: "Learn about the graph data model, graph databases and their applicability. See how graph databases related to other NOSQL solutions.",
-        featured: [content.videos.graphdb101],
-        actionText: "Learn more",
-        related: [ "graphdatabase", "nosql", content.links.neo4j_ref_card ]
-    },
     scientific: {
         path: "/learn/scientific",
         thumbnail: asset("img/logo/scientific.png"),
@@ -175,16 +166,6 @@ exports.pages = {
             , content.videos.neo4j_webui
             , content.links.cypher_cheat_sheet
         ]
-    },
-    intro: {
-        path: "/learn/intro",
-        title: "Neo4j Introduction",
-        thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
-        introText: "In order to get familiar with Graph Databases, Neo4j and Cypher, start with the following introduction sections.",
-        featured: [
-            content.videos.why_graphs
-        ],
-        related: [ "neo4j", "cypher", "tracks", content.links.neo4j_ref_card ]
     },
     tracks: {
         path: "/learn/tracks",
@@ -375,23 +356,25 @@ exports.pages = {
         introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way.",
         content: "Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
         thumbnail: asset("img/propertygraph/graphdb-gve.png"),
-        next: ["nosql", "neo4j"],
-        prev: [],
+        //next: ["nosql", "neo4j"],
+        //prev: [],
         featured: [
+            content.videos.why_graphs,
             content.articles.graphdb.graph,
             content.articles.graphdb.graphdb_traversal,
             content.articles.graphdb.graphdb_indexes
         ],
         actionText: "Learn more",
-        related: ["cypher"]
+        related: ["neo4j",
+            content.videos.graphdb101,,"cypher","nosql", content.books.graphdatabases]
     },
     nosql: {
         path: "/learn/nosql",
         title: "NoSQL Data Models",
         thumbnail: asset("img/propertygraph/nosql-space.png"),
         introText: "Understanding data stores for your application.",
-        next: ["graphdatabase"],
-        prev: ["concepts"],
+        //next: ["graphdatabase"],
+        //prev: ["concepts"],
         featured: [
             content.articles.nosql.nosql,
             content.articles.nosql.rdbms,
@@ -399,7 +382,7 @@ exports.pages = {
             content.articles.nosql.document
         ],
         actionText: "Not only SQL",
-        related: null
+        related: ["graphdatabase","neo4j"]
     },
     drivers: {
         path: "/develop/drivers",
@@ -823,7 +806,7 @@ exports.pages = {
         featured: [
             content.articles.learn, video('Ian Robinson  - What is a Graph Database? What is Neo4j?')
         ],
-        related: ["graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "licensing", "neo4j_server"]
+        related: [content.videos.why_graphs,"graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "nosql","licensing", "neo4j_server"]
     },
     reference_card: {
         path: "/learn/neo4j/reference_card",

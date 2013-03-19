@@ -246,6 +246,8 @@ route_get('/java', forward("/develop/java"));
 route_get('/ruby', forward("/develop/ruby"));
 
 route_get('/community', forward("/participate"));
+route_get('/learn/intro', forward("/learn"));
+route_get('/learn/concepts', forward("/learn"));
 route_get('/community/feeds', forward("/participate")); //TODO
 route_get('/resources', forward("/learn"));
 route_get('/forums', forward("http://groups.google.com/group/neo4j"));

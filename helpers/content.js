@@ -589,7 +589,7 @@ neo4j start</pre>\
             type: "article",
             content: "Neo4j is an open-source <a href='/learn/graphdatabase'>graph database</a> supported by <a onclick=\"javascript:pageTracker._trackPageview(\'/outgoing/neotechnology.com/');\" href='http://neotechnology.com/''>Neo Technology</a>.</p>\
         <p>Neo4j stores data in nodes connected by directed, typed relationships with properties on both, also known as a <a href='/learn/graphdatabase'>Property Graph</a>.</p>\
-        <h3>Neo4j is</h3>\
+        <h3>Main features</h3>\
          <ul id='features'>\
             <li><em>intuitive</em>, using a graph model for data representation</li>\
             <li><em>reliable</em>, with full ACID transactions</li>\
@@ -600,7 +600,9 @@ neo4j start</pre>\
             <li><em>fast</em>, with a powerful traversal framework for high-speed graph queries</li>\
             <li><em>embeddable</em>, with a few small jars</li>\
             <li><em>simple</em>, accessible by a convenient <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/docs.neo4j.org/chunked/stable/rest-api.html');\" href='http://docs.neo4j.org/chunked/1.8.1/rest-api.html'>REST interface</a> or\
-                an object-oriented Java <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/api.neo4j.org/');\" href='http://api.neo4j.org/1.8.1'>API</a>"
+                an object-oriented Java <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/api.neo4j.org/');\" href='http://api.neo4j.org/1.8.1'>API</a></li>\
+                </ul>\
+                <a href='http://visual.ly/whats-graph-database'><img src='http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png'/></a> "
         }
 
     },
