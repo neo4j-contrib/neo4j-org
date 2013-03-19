@@ -115,6 +115,11 @@ body {
         font-size: 11pt;
     }
 
+    .badge img {
+        max-width: 6em ! important;
+        max-height: 6em ! important;
+    }
+
     .featured, .introText, #linkContainer {
         max-width: 290px;
     }
@@ -166,6 +171,11 @@ body {
 
     body {
         font-size: 13pt;
+    }
+
+    .badge img {
+        max-width: 7em ! important;
+        max-height: 7em ! important;
     }
 
     .introText, #linkContainer {
@@ -452,7 +462,6 @@ ul.hor li {
     display: none;
     position: absolute;
     width: 1em;
-    display: block ! important;
     right: 0;
     bottom: .5em;
     margin: 1.5em 0 0 0;
