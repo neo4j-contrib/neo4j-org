@@ -231,6 +231,11 @@ body {
         /*border: 1px solid #fff;*/
     }
 
+    .featured {
+        width: 507px ! important;
+        margin-bottom: 1em ! important;
+    }
+
     .featured .slide .thumbnail:hover {
         border: 1px solid #00546a ! important;
         margin: -1px ! important;
@@ -250,7 +255,7 @@ body {
 
     .related .item {
         width: 226px ! important;
-        margin: 0 ! important;
+        margin: .5em 0 ! important;
     }
 
     .related .item:nth-child(even) {
@@ -264,6 +269,7 @@ body {
 
     .related .row {
         margin: 0 ! important;
+        padding-top: 0 ! important;
     }
 
     #mainNav {
