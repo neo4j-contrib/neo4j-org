@@ -109,37 +109,106 @@ body {
     font-size: 9pt;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
+
     body {
-        font-size: 4.5pt;
+        font-size: 11pt;
     }
+
+    .featured, .introText, #linkContainer {
+        max-width: 290px;
+    }
+
+    .related {
+        font-size: 1.5em;
+    }
+
+    .related .item {
+        max-width: 320px ! important;
+        margin-right: 0 ! important;
+    }
+
+    #header, .page, .related, .related .row {
+        max-width: 320px ! important;
+        padding: 0;
+    }
+
+    #mainNav {
+        display: none;
+    }
+
+    #mobileMenu {
+        width: 1em;
+        display: block ! important;
+    }
+
+    #footer {
+        font-size: 1.25em;
+        width: 100%;
+    }
+
+    .linkBlock {
+        margin-left: -13px;
+
+    }
+
+    .linkBlock .connect {
+        margin-left: -4px;
+    }
+
+    .disclaimer {
+        margin-left: -12px;
+    }
+
 }
 
-@media (min-width: 400px) and (max-width: 500px) {
+@media (min-width: 480px) and (max-width: 780px) {
+
     body {
-        font-size: 5pt;
+        font-size: 13pt;
     }
+
+    .introText, #linkContainer {
+        max-width: 500px;
+    }
+
+    #header, .page, .related, .related .row {
+        max-width: 540px ! important
+    }
+
+    #mainNav {
+        display: none;
+    }
+
+    #mobileMenu {
+        width: 2em;
+        display: block ! important;
+    }
+
+    #footer {
+        width: 100%;
+    }
+
+    .linkBlock {
+        width: 11em ! important;
+        margin-left: .25em;
+    }
+
+    .linkBlock:nth-child(odd) {
+        margin-right: 4.25em;       
+    }
+
+    .linkBlock .connect {
+        margin-left: -5px;
+    }
+
+    .disclaimer {
+        margin-left: 2px;
+    }
+
 }
 
-@media (min-width: 500px) and (max-width: 600px) {
-    body {
-        font-size: 6pt;
-    }
-}
-
-@media (min-width: 600px) and (max-width: 700px) {
-    body {
-        font-size: 7pt;
-    }
-}
-
-@media (min-width: 700px) and (max-width: 800px) {
-    body {
-        font-size: 8pt;
-    }
-}
-
-@media (min-width: 800px) and (max-width: 850px) {
+@media (min-width: 780px) and (max-width: 850px) {
     body {
         font-size: 9pt;
     }
@@ -377,6 +446,24 @@ ul.hor li {
     float: left;
     width: 3em;
     margin: .75em 0 0 0;
+}
+
+#mobileMenu {
+    display: none;
+    position: absolute;
+    width: 1em;
+    display: block ! important;
+    right: 0;
+    bottom: .5em;
+    margin: 1.5em 0 0 0;
+    font-size: 2em;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: bold;
+    color: #fff;   
+}
+
+#mobileMenu ul {
+    display: none;
 }
 
 #mainNav {
@@ -1076,7 +1163,8 @@ a.vote i {
 #footer {
     background-color: #e5e5e5;
     border-top: .1em solid #c4ced0;
-    height: 15.9em;
+    /*height: 15.9em;*/
+    overflow: hidden;
 }
 
 #footer .disclaimer {
@@ -1099,7 +1187,12 @@ a.vote i {
     text-decoration: underline;
 }
 
+#footer .disclaimer .nbr {
+    white-space: nowrap;
+}
 
+
+/****************** Twitter bar *******************/
 
 #twitter_bar {
     width: 100%;

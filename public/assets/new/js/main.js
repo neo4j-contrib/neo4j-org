@@ -1,4 +1,3 @@
-
 $(window).load(function() {
     resizeRelatedItems();
 });
