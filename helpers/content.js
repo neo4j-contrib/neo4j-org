@@ -847,7 +847,8 @@ neo4j start</pre>\
             url: "https://github.com/neo4j-contrib/neo4j-org",
             logo: asset("img/logo/forkme.png"),
             introText: "The source code of this neo4j.org website on Github. Feel free to chip in and provide corrections, new shiny stuff and improvements!",
-            name: "Neo4j-org"
+            name: "Neo4j-org",
+            actionText: "Fork and Contribute"
         },
         spatial: {
             type: "app",

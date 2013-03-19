@@ -622,13 +622,14 @@ exports.pages = {
     channels: {
         path: "/participate/channels",
         thumbnail: asset("img/logo/survey.png"),
-        title: "Poll of Developer Communication Channels",
+        title: "How do you learn?",
         introText: "We are interested in which communication channels you, but also especially your co-workers, friends and customer developers use to learn more about technology and software development.",
         content: function (params) {
             return render.include("/participate/_channels", params);
         },
         featured: [],
-        related: []
+        related: [],
+        actionText: "Participate in survey"
     },
     videos: {
         type: "track",
@@ -1218,7 +1219,9 @@ exports.pages = {
         <blockquote>A traditional relational database may tell you the average age of everyone in this pub, but a graph database will tell you who is most likely to buy you a beer. <i>Andreas Kollegger</i></blockquote>\
         <p>Of course, we are sponsoring beer for the <a href='/participate/meetups'>Neo4j Meetups</a>, so drop by!</p>",
         featured: ["rik_belgian_beers1"],
-        related: ["popchartlabs_beer", "trycypher_beer", "beer_rik_screencast", "frostymug"]
+        related: ["popchartlabs_beer", "trycypher_beer", "beer_rik_screencast", "frostymug"],
+        actionText: "Grab a beer"
+
     },
     import: {
         path: "/develop/import",
@@ -1347,6 +1350,7 @@ exports.pages = {
         introText: '<p>Go to the <a target="_blank" href="https://maps.google.com/maps/ms?ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=215787240736307886514.00049e70e573cbd8a91e5&amp;t=m&amp;ll=24.527135,-20.039062&amp;spn=123.963155,225&amp;z=2&amp;source=embed" style="text-align:left">map edit page</a>. Then zoom to your place, hit the red "Edit" button and then place a landmark, add your info and a icon from the google selection. Click the "Done", when you\'re satisfied.</p>',
         content: '<iframe width="100%" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=215787240736307886514.00049e70e573cbd8a91e5&amp;t=m&amp;ll=24.527135,-20.039062&amp;spn=123.963155,225&amp;z=2&amp;output=embed"></iframe>',
         featured: [],
-        related: []
+        related: [],
+        actionText : "Add yourself"
     }
 }
