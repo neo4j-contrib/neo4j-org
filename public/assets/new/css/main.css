@@ -109,7 +109,7 @@ body {
     font-size: 9pt;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 540px) {
 
     body {
         font-size: 11pt;
@@ -121,7 +121,38 @@ body {
     }
 
     .featured, .introText, #linkContainer {
-        max-width: 290px;
+        max-width: 288px;
+    }
+
+    .featured .slide {
+        max-width: 290px ! important;
+    }
+
+    .featured .slide .caption {
+        position: relative;
+    }
+
+    .featured .slide .content,
+    .featured .slide .thumbnail {
+        width: 280px ! important;
+        min-width: 0 ! important;
+        float: left;
+        margin: 0 ! important;
+        position: relative;
+        /*border: 1px solid #fff;*/
+    }
+
+    .featured .slide .thumbnail:hover {
+        border: 1px solid #00546a ! important;
+        margin: -1px ! important;
+    }
+
+    .featured .article {
+        width: 280px ! important;
+    }
+
+    .featured .article img {
+        float: none ! important;
     }
 
     .related {
@@ -167,7 +198,7 @@ body {
 
 }
 
-@media (min-width: 480px) and (max-width: 780px) {
+@media (min-width: 541px) and (max-width: 780px) {
 
     body {
         font-size: 13pt;
@@ -182,8 +213,57 @@ body {
         max-width: 500px;
     }
 
+    .featured .slide {
+        max-width: 480px ! important;
+    }
+
+    .featured .slide .caption {
+        position: relative;
+    }
+
+    .featured .slide .content,
+    .featured .slide .thumbnail {
+        width: 470px ! important;
+        min-width: 0 ! important;
+        float: left;
+        margin: 0 ! important;
+        position: relative;
+        /*border: 1px solid #fff;*/
+    }
+
+    .featured .slide .thumbnail:hover {
+        border: 1px solid #00546a ! important;
+        margin: -1px ! important;
+    }
+
+    .featured .article {
+        width: 470px ! important;
+    }
+
+    .featured .article img {
+        float: none ! important;
+    }
+
+    .related {
+     /*   font-size: 1.5em;*/
+    }
+
+    .related .item {
+        width: 226px ! important;
+        margin: 0 ! important;
+    }
+
+    .related .item:nth-child(even) {
+        margin-left: 18px ! important;
+        margin-right: -4px ! important;
+    }
+
     #header, .page, .related, .related .row {
-        max-width: 540px ! important
+        width: 540px ! important;
+    }
+
+    .related .row {
+        margin: 0 ! important;
     }
 
     #mainNav {
@@ -711,7 +791,7 @@ ul.hor li {
     min-width: 25em;
     max-height: 25em;
     display: inline-block;
-    margin: 1em;
+    margin: 1.0em;
 }
 
 .featured .content {
@@ -750,8 +830,8 @@ ul.hor li {
 
 .featured .slide .thumbnail:hover {
     cursor: pointer;
-    border: 0.2em solid #00546a;
-    margin: 0.8em;
+    border: .2em solid #00546a;
+    margin: .8em;
 }
 
 .featured .console .caption {
