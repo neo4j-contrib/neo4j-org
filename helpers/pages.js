@@ -519,7 +519,7 @@ exports.pages = {
     spring: {
         path: "/develop/spring",
         title: "Spring Data Neo4j",
-        introText: "The best NOSQL database for Spring.",
+        introText: "Spring Data Neo4j was the founding project of Spring Data and integrates Neo4j very well with the Spring Framework.",
         actionText: "Go ahead",
         thumbnail: asset("img/languages/sdn.png"),
         featured: [content.videos.good_relationships, content.books.goodrelationships],
