@@ -80,7 +80,8 @@ app.locals.lightbox_link = function (path, inner,css) {
 app.locals.chunk = function (arr, size) {
     var res = [];
     for (var i = 0; i < arr.length / size; i++) {
-        res.push(arr.slice(i * size, (i + 1) * size));
+        var items = arr.slice(i * size, (i + 1) * size);
+        res.push(items);
     }
     return res;
 };

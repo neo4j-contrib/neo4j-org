@@ -189,7 +189,7 @@ exports.pages = {
         ],
         related: [
             content.links.javadoc,
-            content.links.manual
+            content.links.manual_java
         ]
     },
 
@@ -365,8 +365,10 @@ exports.pages = {
             content.articles.graphdb.graphdb_indexes
         ],
         actionText: "Learn more",
-        related: ["neo4j",
-            content.videos.graphdb101,,"cypher","nosql", content.books.graphdatabases]
+        related: [
+            content.books.graphdatabases,
+            "neo4j",
+            content.videos.graphdb101,"cypher","nosql"]
     },
     nosql: {
         path: "/learn/nosql",

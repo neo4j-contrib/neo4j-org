@@ -77,14 +77,14 @@ var nextPage = pages[p];
 
 <%
     if (page.related && page.related.length) { 
-//      console.log("page-related",page.related);
+      console.log("page-related",page.related);
 %>    
     <div class="related" class="mainElement">
 
             <% chunk(page.related,4).forEach(function(row) { %>
                 <div class="row">
-                <% 
-                row.forEach(function(key) { 
+                <%
+                row.forEach(function(key) {
 
                     var item = findItem(key);
                     if (typeof(key)!="string") key="";

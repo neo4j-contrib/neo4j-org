@@ -308,8 +308,15 @@ neo4j start</pre>\
             actionText: "Browse JavaDoc"
         },
         manual: {
+            title: "The Neo4j Manual",
+            path: "http://docs.neo4j.org/chunked/milestone",
+            // thumbnail: ,
+            introText: "The Neo4j Manual is the comprehensive resource for detailed information about Neo4j. You will find everything, from tutorials to extensive reference documentation on every aspect of the database.",
+            actionText: "Go to the manual"
+        },
+        manual_java: {
             title: "Manual: the Java Tutorial",
-            path: "http://docs.neo4j.org/chunked/snapshot/tutorials-java-embedded.html",
+            path: "http://docs.neo4j.org/chunked/milestone/tutorials-java-embedded.html",
             thumbnail: asset("img/languages/java.jpg"),
             introText: "In the tutorial you will find everything needed — from setting up the environment to doing something useful with your data.",
             actionText: "Go to the manual"
@@ -601,8 +608,8 @@ neo4j start</pre>\
             <li><em>embeddable</em>, with a few small jars</li>\
             <li><em>simple</em>, accessible by a convenient <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/docs.neo4j.org/chunked/stable/rest-api.html');\" href='http://docs.neo4j.org/chunked/1.8.1/rest-api.html'>REST interface</a> or\
                 an object-oriented Java <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/api.neo4j.org/');\" href='http://api.neo4j.org/1.8.1'>API</a></li>\
-                </ul>\
-                <a href='http://visual.ly/whats-graph-database'><img src='http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png'/></a> "
+                </ul>",
+            src: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png"
         }
 
     },
