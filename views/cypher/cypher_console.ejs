@@ -2,18 +2,6 @@
 <div id="console"></div>
 
   <script type="text/javascript">
-        function nextTab(elem) {
-          $(elem).find('li.active').removeClass('active')
-            .next().addClass('active')
-            .find('a[data-toggle="tab"]')
-            .click();
-        }
-        function prevTab(elem) {
-          $(elem + ' li.active')
-            .prev()
-            .find('a[data-toggle="tab"]')
-            .click();
-        }
         function runCypher() {
             var cypher=$(this).text();
             if (cypher.indexOf(";")==-1) return;
@@ -38,10 +26,6 @@
 
           startConsole();
           addPlayButton();
-          $("#tabs").tabs();
-          $("#next-button").click(function() {
-              nextTab("#tabs");
-          })
 
       $('#detachConsole').on('click', function() {
 

@@ -11,7 +11,7 @@ $(document).ready(function(){
 });
 
 function renderConsole(url) {
-    $('#console').html('<a class="btn" href="'+url+'" target="_blank">Open in new Window</a><iframe width="800" height="400" src="'+url+'"/>');
+    $('#console').html('<a class="btn" href="'+url+'" target="_blank">Open in new Window</a><iframe width="800" height="400" scrolling="yes" src="'+url+'"></iframe>');
 }
 
 function lightbox(id, url) {

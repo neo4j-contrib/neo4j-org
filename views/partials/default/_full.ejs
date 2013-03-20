@@ -14,6 +14,8 @@
             <%- link_to(item.path, '<img class="thumbnail" src="'+image+'" />') %>
             <%- typeof item.content == "function" ? item.content(locals) : item.content %>
         </div>
+
         <div class="clear"></div>
     </div>
+    <% if (item.path) { %><a class="link action" href="<%= item.path %>" target="_blank"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
 </div><!-- featured -->
