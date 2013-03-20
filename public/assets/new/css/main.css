@@ -115,6 +115,10 @@ body {
         font-size: 11pt;
     }
 
+    #twitter_bar div {
+        width: 280px ! important;
+    }
+
     .badge img {
         max-width: 6em ! important;
         max-height: 6em ! important;
@@ -181,6 +185,7 @@ body {
     #footer {
         font-size: 1.25em;
         width: 100%;
+        height: 1360px ! important;
     }
 
     .linkBlock {
@@ -204,6 +209,14 @@ body {
         font-size: 13pt;
     }
 
+    .lead .col:nth-child(even) {
+        display: none;
+    }
+
+    #twitter_bar div {
+        width: 500px ! important;
+    }
+
     .badge img {
         max-width: 7em ! important;
         max-height: 7em ! important;
@@ -214,7 +227,7 @@ body {
     }
 
     .featured .slide {
-        max-width: 480px ! important;
+        max-width: 500px ! important;
     }
 
     .featured .slide .caption {
@@ -283,6 +296,7 @@ body {
 
     #footer {
         width: 100%;
+        height: 780px ! important;
     }
 
     .linkBlock {
@@ -1274,6 +1288,7 @@ a.vote i {
     height: auto ! important;
     height: 100%;
     margin: 0 auto -16em;
+    /*overflow: hidden;*/
 }
 
 .push {
@@ -1283,13 +1298,14 @@ a.vote i {
 #footer {
     background-color: #e5e5e5;
     border-top: .1em solid #c4ced0;
-    /*height: 15.9em;*/
+    height: 15.9em;
     overflow: hidden;
 }
 
 #footer .disclaimer {
     float: left;
     font-size: .8em;
+    width: 100%;
 }
 
 #footer .disclaimer,
@@ -1316,25 +1332,35 @@ a.vote i {
 
 #twitter_bar {
     width: 100%;
-    background: #00546a;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    /*background: #00546a;*/
+    padding: 2em 0;
 }
 
 #twitter_bar div {
+    color: #333;
     width: 62em;
     margin: 0 auto;
+    /*background: url('//twitter.com/images/resources/twitter-bird-16x16.png') #e5e5e5 no-repeat .5em .5em;*/
+    background: url('/assets/new/img/twitter-bird-light-bgs-32x32.png') #fff no-repeat .25em .25em;
+    border: .1em solid #9EBDCD;
+    padding-left: 2em;
+    border-radius: .25em;
 }
-#twitter_bar,#twitter_bar a {
-   color: white;
+
+#twitter_bar,
+#twitter_bar a,
+#twitter_bar a:visited,
+#twitter_bar a:active,
+#twitter_bar a:hover {
+   color: #00546a;
 }
+
 #twitter_bar .text {
-    font-size: 0.9em;
+    /*font-size: 0.9em;*/
 }
+
 #twitter_bar img {
-    -webkit-border-radius: .1em;
-       -moz-border-radius: .1em;
-            border-radius: .1em;
+    margin: .5em;
 }
 
 
