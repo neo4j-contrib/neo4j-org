@@ -7,14 +7,14 @@ exports.pages = {
     learn: {
         path: "/learn",
         title: "Learn",
-        introText: "Below you find a number of useful starting points to learn about neo4j, graph databases and fast development with Neo4j.",
+        introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
         featured: [content.videos.graphdb101,content.books.graphdatabases,content.videos.why_graphs],
         related: ["graphdatabase","neo4j", "nosql","tracks", "cypher","production", "licensing",content.links.manual,"scientific"]
     },
     develop: {
         path: "/develop",
         title: "Develop",
-        introText: "Learn how to develop applications with Neo4j and deploy Server instances.",
+        introText: "Find what you need to develop applications with Neo4j in a variety of languages and deployment scenarios.",
         featured: null,
         related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java","spring","ruby", "dotnet", "python", "scala", "php", "clojure"]
     },
@@ -33,8 +33,8 @@ exports.pages = {
     },
     download_thanks: {
         path: "/download_thanks",
-        title: "Here you go!",
-        introText: "",
+        title: "Neo4j is downloading, you are almost there",
+        introText: "Your download should have started, if not please click the button. Meanwhile enjoy the video or other content on the site.",
         content: function (params) {
             return render.include("_download_thanks", params);
         },
@@ -78,6 +78,7 @@ exports.pages = {
             //"participate",
             "other_versions",
             content.install.upgrading,
+            "licensing",
             {
                 type: "link",
                 title: "Detailed Installation Instructions",
