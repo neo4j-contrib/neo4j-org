@@ -13,7 +13,7 @@
                 var url=$("#new_url").val();
                 var logo=$("#new_logo").val();
                 var lang=$("#new_lang").val();
-                console.log(name,url,logo,lang);
+                //console.log(name,url,logo,lang);
                 if (name && url && logo && lang) {
                     $.post("/add_channel?"+"name="+encodeURIComponent(name)+"&url="+encodeURIComponent(url)+"&logo="+encodeURIComponent(logo)+"&lang="+encodeURIComponent(lang),function(data,err) {
                        console.log(data,err);
@@ -27,13 +27,13 @@
             $("a.vote").click(function() {
                 var link=$(this);
                 var vote=link.attr("href").split("_")[1];
-                console.log("Vote",vote);
+                // console.log("Vote",vote);
                 var votes = link.children("span");
-                console.log(votes,votes.html());
+                //console.log(votes,votes.html());
                 votes.css({fontSize: "2em"});
                 votes.html(parseInt(votes.html())+1);
                 $.post("/vote?row="+vote,function(data,status,err) {
-                   console.log(data,status);
+                   //console.log(data,status);
                    votes.animate({fontSize: "1em"},1000);
                 });
             });

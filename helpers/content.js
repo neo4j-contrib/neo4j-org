@@ -304,7 +304,7 @@ neo4j start</pre>\
             type: "external",
             title: "Neo4j Reference Card",
             introText: "Visualize the concepts of the graph as a graph, how much more meta can you go?",
-            thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
+            thumbnail: asset('img/neo4j/visually_refcard_small.gif'),
             path: "http://visual.ly/whats-graph-database"
         },
         javadoc: {
@@ -637,7 +637,7 @@ neo4j start</pre>\
             <li><em>simple</em>, accessible by a convenient <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/docs.neo4j.org/chunked/stable/rest-api.html');\" href='http://docs.neo4j.org/chunked/1.8.1/rest-api.html'>REST interface</a> or\
                 an object-oriented Java <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/api.neo4j.org/');\" href='http://api.neo4j.org/1.8.1'>API</a></li>\
                 </ul>",
-            src: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png"
+            src: asset('img/neo4j/visually_refcard.gif')
         }
 
     },
@@ -1189,7 +1189,7 @@ neo4j start</pre>\
 }
 exports.video = function(id) { 
     return function() {
-        console.log(id,exports.content.videos[id.toString()]);
+        // console.log(id,exports.content.videos[id.toString()]);
         return exports.content.videos[id.toString()];
     }
 };

@@ -226,7 +226,7 @@ exports.init = function (app, interval) {
                             return event.Area == area;
                         });
                         var p = app.locals.pages[pageName+"_"+area];
-                        console.log(pageName+"_"+area,p);
+                        // console.log(pageName+"_"+area,p);
                         p.title=page.title + " (" + area + ")";
                         p.actionText = page.actionText; p.introText = page.introText; 
                         p.thumbnail = page.thumbnail; p.image = page.image; p.featured = page.featured;

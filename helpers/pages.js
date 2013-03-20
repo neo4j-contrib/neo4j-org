@@ -817,7 +817,7 @@ exports.pages = {
         path: "/learn/neo4j",
         title: "What is Neo4j?",
         introText: "Neo4j is a graph database, reliable and fast for managing and querying highly connected data.",
-        thumbnail: "http://thumbnails.visually.netdna-cdn.com/whats-a-graph-database_502918e97645c_w1051.png",
+        thumbnail: asset('img/neo4j/visually_refcard_small.gif'),
         actionText: "Study this",
         featured: [
             content.articles.learn, video('Ian Robinson  - What is a Graph Database? What is Neo4j?')

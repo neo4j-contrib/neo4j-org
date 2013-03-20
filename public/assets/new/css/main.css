@@ -95,11 +95,11 @@ textarea {
    ========================================================================== */
 @font-face {
         font-family: 'OfficinaSerifStd-Bold';
-        src: url('../font/officinaserifstd-bold.eot');
-        src: url('../font/officinaserifstd-bold.eot?#iefix') format('embedded-opentype'),
-                 url('../font/officinaserifstd-bold.woff') format('woff'),
-                 url('../font/officinaserifstd-bold.ttf') format('truetype'),
-                 url('../font/officinaserifstd-bold.svg#officinaserifstd-bold') format('svg');
+        src: url('http://assets.neo4j.org/new/font/officinaserifstd-bold.eot');
+        src: url('http://assets.neo4j.org/new/font/officinaserifstd-bold.eot?#iefix') format('embedded-opentype'),
+                 url('http://assets.neo4j.org/new/font/officinaserifstd-bold.woff') format('woff'),
+                 url('http://assets.neo4j.org/new/font/officinaserifstd-bold.ttf') format('truetype'),
+                 url('http://assets.neo4j.org/new/font/officinaserifstd-bold.svg#officinaserifstd-bold') format('svg');
         font-weight: normal;
         font-style: normal;
 }

@@ -1,21 +1,21 @@
 /** fonts for Firefox, Chrome,Safari ok **/
 @font-face {
   font-family: 'OfficinaSerifStdBold';
-  src: url('../font/officinaserifstd-bold.eot');
-  src: url('../font/officinaserifstd-bold.eot?#iefix') format('embedded-opentype'),
-  url('../font/officinaserifstd-bold.woff') format('woff'),
-  url('../font/officinaserifstd-bold.ttf') format('truetype'),
-  url('../font/officinaserifstd-bold.svg#48') format('svg');
+  src: url('http://assets.neo4j.org/font/officinaserifstd-bold.eot');
+  src: url('http://assets.neo4j.org/font/officinaserifstd-bold.eot?#iefix') format('embedded-opentype'),
+  url('http://assets.neo4j.org/font/officinaserifstd-bold.woff') format('woff'),
+  url('http://assets.neo4j.org/font/officinaserifstd-bold.ttf') format('truetype'),
+  url('http://assets.neo4j.org/font/officinaserifstd-bold.svg#48') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
  font-family: 'OfficinaSerifStd';
-  src: url('../font/officinaserif.eot');
-  src: url('../font/officinaserif.eot?#iefix') format('embedded-opentype'),
-  url('../font/officinaserif.woff') format('woff'),
-  url('../font/officinaserif.ttf') format('truetype'),
-  url('../font/officinaserif.svg#48') format('svg');
+  src: url('http://assets.neo4j.org/font/officinaserif.eot');
+  src: url('http://assets.neo4j.org/font/officinaserif.eot?#iefix') format('embedded-opentype'),
+  url('http://assets.neo4j.org/font/officinaserif.woff') format('woff'),
+  url('http://assets.neo4j.org/font/officinaserif.ttf') format('truetype'),
+  url('http://assets.neo4j.org/font/officinaserif.svg#48') format('svg');
   font-weight: normal;
   font-style: normal;
 }
