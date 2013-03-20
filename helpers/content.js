@@ -201,6 +201,7 @@ neo4j start</pre>\
             src: "http://player.vimeo.com/video/53838744"
         },
         graphdb101: {
+            key : "graphdb101",
             title: "Graph DB 101",
             type: "video",
             author: "akollegger",
@@ -719,6 +720,7 @@ neo4j start</pre>\
     },
     books: {
         graphdatabases: {
+            key: "graphdatabases",
             type: "book",
             url: "http://graphdatabases.com",
             name: "Graph Databases",

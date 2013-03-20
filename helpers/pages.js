@@ -8,7 +8,7 @@ exports.pages = {
         path: "/learn",
         title: "Learn",
         introText: "Below you find a number of useful starting points to learn about neo4j, graph databases and fast development with Neo4j.",
-        featured: [content.books.graphdatabases,content.videos.why_graphs,content.videos.graphdb101],
+        featured: [content.videos.graphdb101,content.books.graphdatabases,content.videos.why_graphs],
         related: ["graphdatabase","neo4j", "nosql","tracks", "cypher","production", "licensing",content.links.manual,"scientific"]
     },
     develop: {
@@ -419,7 +419,7 @@ exports.pages = {
         title: "Graph Database related Books",
         introText: "Learn more about Neo4j, Graph Theory and Graph Databases by reading these amazing books!",
         featured: [content.books.graphdatabases],
-        related: [content.books.graphdatabases, content.books.springdata,content.books.goodrelationships, content.books.nosqldistilled, content.books.sevendatabases, content.books.neo4jinaction, content.books.visualcomplexity, content.books.connected]
+        related: [content.books.springdata,content.books.goodrelationships, content.books.nosqldistilled, content.books.sevendatabases, content.books.neo4jinaction, content.books.visualcomplexity, content.books.connected]
     },
     cloud: {
         path: "/develop/cloud",
@@ -1226,7 +1226,7 @@ exports.pages = {
         thumbnail: "http://www.travelandbeer.com/wp-content/uploads/2011/05/belgian-beers.jpg",
         title: "Everyone loves beer.",
         introText: "Beer is at the core of software development, a good part of Neo4j runs on it.",
-        content: "<p>There is a high density of beer-loving geeks in the neo4j community. Below are some of the projects and resources tht have been developed with or around Neo4j.</p>\
+        content: "<p>There is a high density of beer-loving geeks in the neo4j community. Below are some of the projects and resources that have been developed with or around Neo4j.</p>\
         <blockquote>A traditional relational database may tell you the average age of everyone in this pub, but a graph database will tell you who is most likely to buy you a beer. <i>Andreas Kollegger</i></blockquote>\
         <p>Of course, we are sponsoring beer for the <a href='/participate/meetups'>Neo4j Meetups</a>, so drop by!</p>",
         featured: ["rik_belgian_beers1"],
