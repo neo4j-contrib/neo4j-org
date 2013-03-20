@@ -8,8 +8,8 @@ exports.pages = {
         path: "/learn",
         title: "Learn",
         introText: "Below you find a number of useful starting points to learn about neo4j, graph databases and fast development with Neo4j.",
-        featured: null,
-        related: [content.books.graphdatabases, "neo4j", "tracks", "production", "scientific"]
+        featured: [content.books.graphdatabases,content.videos.why_graphs,content.videos.graphdb101],
+        related: ["graphdatabase","neo4j", "nosql","tracks", "cypher","production", "licensing",content.links.manual,"scientific"]
     },
     develop: {
         path: "/develop",
