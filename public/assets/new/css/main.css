@@ -1168,6 +1168,13 @@ ul.hor li {
     right: 1em;
 }
 
+.related .item iframe {
+    min-width: 12.5em ! important;
+    width: 12.5em ! important;
+}
+
+/****************** channel *******************/
+
 #add_channel {
 }
 
