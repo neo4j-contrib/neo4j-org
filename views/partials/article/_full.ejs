@@ -4,7 +4,7 @@
             <div class="caption">
                 <% if (item.title) { %><h3 id="<%= item.key || key %>"><%- item.title %></h3><% } %>
             </div>
-           <% if (item.src) { %><a href="<%= item.url||item.path %>" target="_blank"><img src="<%- item.src %>"></a><% } %>
+           <% if (item.src) { %><%- link_to(item.url||item.path, '<img src="'+item.src+'" />') %><% } %>
            <% if (item.introText) { %><p class="introText"><%- item.introText %></p><% } %>
            <% if (item.content) { %><div class="contentText"><%- typeof item.content == "function" ? item.content(locals) : item.content %></div><% } %>
         </div>
