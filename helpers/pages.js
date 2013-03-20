@@ -36,7 +36,7 @@ exports.pages = {
         title: "Here you go!",
         introText: "",
         content: function (params) {
-            return render.include("download_thanks", params);
+            return render.include("_download_thanks", params);
         },
         featured:[ content.videos.installing_neo4j],
         related: [
