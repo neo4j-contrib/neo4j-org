@@ -339,6 +339,7 @@ neo4j start</pre>\
             title: "Cypher Reference",
             path: "http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html",
             introText: "Cypher is a declarative graph query language that allows for expressive and efficient querying and updating of the graph store without having to write traversals through the graph structure in code.",
+            thumbnail: asset("img/logo/cypher_small.gif"),
             actionText: "Cypher Manual"
         },
         cypher_cheat_sheet: {
