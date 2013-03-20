@@ -268,7 +268,7 @@ neo4j start</pre>\
             thumbnail: asset("img/logo/googlegroups.png"),
             introText: "Share your experiences and expertise with fellow graphistas. " +
                 "Visit these groups for <a href='http://groups.google.com/group/neo4jfr' target='_blank'>French</a> " +
-                "and <a href='http://groups.google.com/group/neo4jes target='_blank''>Spanish</a> postings.",
+                "and <a href='http://groups.google.com/group/neo4jes' target='_blank'>Spanish</a> postings.",
             actionText: "Join now"
         },
         github_neo4j: {

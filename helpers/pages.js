@@ -509,7 +509,7 @@ exports.pages = {
             {
                 thumbnail: asset("img/logo/github.png"),
                 title: "Clone an example Github Herkou template",
-                path: "https://github.com/neo4j/neo4j-heroku-example"
+                path: "https://github.com/neo4j-contrib/neo4j-heroku-seeds"
             },
             {
                 thumbnail: asset("img/contributors/maxdemarzi.jpg"),

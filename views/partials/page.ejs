@@ -1,5 +1,5 @@
 <%
-console.log(path,neo4j);
+//console.log(path);
 var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
 var mainCategory = path.split('/')[1];
 var page = pages[pageName];
@@ -11,7 +11,7 @@ var title=page.title;
 <% include ../head %>
 <% if (badge) { %>
     <div class="badge">
-        <div class="close"><img src="/assets/new/img/close_button.png"></div>
+        <div class="close"><img src="<%=asset('new/img/close_button.png')%>"></div>
         <%- badge %>
     </div>
 <% } %>
@@ -57,7 +57,6 @@ var nextPage = pages[p];
     var showSlides = items.length > 1 && !config['no_slides'];
     if (page.featured && items.length) {
 
-//        console.log("featured-items",items);
     %><% if (showSlides) { %><ul class="bxslider"><% } %><%
             items.forEach(function(key) { 
             var item = findItem(key);
@@ -77,8 +76,7 @@ var nextPage = pages[p];
 
 <%
     if (page.related && page.related.length) { 
-      console.log("page-related",page.related);
-%>    
+%>
     <div class="related" class="mainElement">
 
             <% chunk(page.related,4).forEach(function(row) { %>
