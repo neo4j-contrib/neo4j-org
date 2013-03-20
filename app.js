@@ -172,7 +172,7 @@ app.configure(function () {
     app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs');
     app.enable('trust proxy');
-    app.use(express.favicon(asset("ico/favicon.ico"), { maxAge: 2592000000 }));
+    app.use(express.favicon(__dirname + '/public/assets/ico/favicon.ico', { maxAge: 2592000000 }));
     app.use(function (req, res, next) {
         res.locals.path = req.path;
         var experiment_pages = ['/', '/index', '/index_graph', '/index_graph_svg'];
