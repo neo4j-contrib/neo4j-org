@@ -241,6 +241,13 @@ neo4j start</pre>\
             url: "http://wes.skeweredrook.com/cypher/",
             introText: "Wes' Cypher page with introductory articles, links to resources and the 'Ask Wes' section."
         },
+        mark_cypher: {
+            type : "link",
+            title : "Mark Needhams collection of using Cypher for real world problems",
+            author : "markhneedham",
+            url: "http://www.markhneedham.com/blog/tag/cypher/",
+            introText: "Mark uses use-cases from mapping colleagues and projects to football games and stadiums to explain different aspects of Cypher in a very descriptive manner."
+        },
         ec2_aws_tools : {
             type: "link",
             title: "Getting Started Guide on Amazon EC2",
@@ -332,6 +339,7 @@ neo4j start</pre>\
             title: "Cypher Reference",
             path: "http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html",
             introText: "Cypher is a declarative graph query language that allows for expressive and efficient querying and updating of the graph store without having to write traversals through the graph structure in code.",
+            thumbnail: asset("img/logo/cypher_small.gif"),
             actionText: "Cypher Manual"
         },
         cypher_cheat_sheet: {
@@ -498,11 +506,12 @@ neo4j start</pre>\
             type: "article",
             title: "Pragmatic licensing guide",
             introText: "Understand which license you need and how Neo Technology can help you.",
-            src: "http://www.jaspersoft.com/sites/all/themes/jaspersoft2/images/big-data-logos/partner-neotechnology.png",
+            src: asset("img/still/cover-commercial-license.png"),
+            url: "http://info.neotechnology.com/commercial-license.html",
             path: "http://www.neotechnology.com/price-list/",
-            actionText: "Contact Us",
+            actionText: "Neo4j Editions",
             content: "<p>Neo4j is commercial software. Proven in production since 2003, powering applications from global collaborative websites to in-house experiments, Neo4j is used in diverse environments.</p>\
-    <p><a href='http://neotechnology.com'>Neo Technology</a> makes Neo4j available under a dual-license arrangement that is business friendly and open-source transparent: the Neo Technology Commercial License (NTCL), or the (A)GPLv3. Neo Technology also takes care of Neo4j customer support, (OEM) license agreements, the Partner Network, and more.</p>\
+    <p><a href='http://neotechnology.com' target='_blank'>Neo Technology</a> makes Neo4j available under a dual-license arrangement that is business friendly and open-source transparent: the Neo Technology Commercial License (NTCL), or the (A)GPLv3. Neo Technology also takes care of Neo4j customer support, (OEM) license agreements, the Partner Network, and more.</p>\
     <p>There are 3 editions of Neo4j:</p>\
     <ul>\
     <li><b>Neo4j Community</b>, a High Performance, fully ACID transactional graph database\
@@ -510,6 +519,25 @@ neo4j start</pre>\
     <li><b>Neo4j Enterprise</b> includes Online Backup, High Availability Clustering, and Advanced Monitoring\
     </ul>\
     <p>Commercial Licenses include the permission to integrate the enterprise editions in closed-source software products, service and support by Neo Technology.</p>"
+        },
+        licensing_guide_which: {
+            type: "article",
+            title: "Which license is right for you?",
+            introText: "That depends on how you're using Neo4j.",
+            src: "http://www.jaspersoft.com/sites/all/themes/jaspersoft2/images/big-data-logos/partner-neotechnology.png",
+            path: "http://www.neotechnology.com/price-list/",
+            actionText: "Neo4j Editions",
+            content: "\
+            <h4>You build Closed Source, Business-Essential Online Applications</h4>\
+            <p>If you&#39;re using Neo4j to build closed-source online applications that are central to your business, then you&#39;ll want to talk to us about commercial licensing of <strong>Neo4j Advanced or Enterprise editions</strong>. These offer the monitoring, backup and high-availability features you&#39;ll need to be successful  &#8211; not to mention access to support from our top engineering team.</p>\
+            <p>If you don&#39;t need any of the reliability features in the Advanced or Enterprise editions, then you&#39;re free to use the Community edition of Neo4j Server under a GPL license &#8211; which means you can use it anywhere i.e. similarly to MySQL. Used in this way, only changes you make to the Neo4j software itself should be open-sourced and shared with the community.</p>\
+            <h4>You want to embed Neo4j as an OEM component in your Closed Source software</h4>\
+            <p>Neo4j is a great choice when you need to include a graph database service in your packaged software product. We can make Neo4j available to use in these situations under our commercial OEM licensing &#8211; <a href='http://neotechnology.com/contactus/'>contact us</a> for details.</p>\
+            <h4>You are Testing or Evaluating Neo4j</h4>\
+            <p>All editions of Neo4j are available for <a href='/download'>download</a> and can be used under open source licenses &#8211; perfect for testing and evaluating Neo4j before you&#39;ve released your code or made your new online service available to your customers.</p>\
+            <h4>You are developing Open Source Software</h4>\
+            <p>We love open source development, so you are free to use all Neo4j components for your open source, public domain project under either the GPL (for Community edition) or the AGPL (for Advanced and Enterprise editions).</p>\
+            "
         },
 
         partner_graph: {
@@ -699,7 +727,7 @@ neo4j start</pre>\
             logo: asset("img/books/graphdatabases_v31.gif"),
             thumbnail: asset("img/books/graphdatabases_small.gif"),
             introText: '<a href="http://graphdatabases.com">Exclusive early access</a>  to the definitive book on graph databases</em>, published by O&quot;Reilly Media.<br />',
-            actionText: 'Download ebook now'
+            actionText: 'Get your free e-book'
         },
         springdata: {
             url: "http://shop.oreilly.com/product/0636920024767.do",

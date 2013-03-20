@@ -398,15 +398,15 @@ h1 {
     font-size: 3em;
 }
 
-h2 {
+h2,.page .markdown h1 {
     font-size: 2em;
 }
 
-h3 {
+h3,.page .markdown h2 {
     font-size: 1.3em;
 }
 
-h4 {
+h4,.page .markdown h3 {
     font-size: 1em;
 }
 
@@ -1122,7 +1122,7 @@ ul.hor li {
 
 
 .related .driver p {
-    font-size: 0.83em;
+    /*font-size: 0.83em;*/
     /*font-size: 9pt;*/
     /*height: 24em ! important;*/
     margin: .25em 0;
@@ -1139,7 +1139,7 @@ ul.hor li {
 .related .driver h4 {
     padding: 0;
     margin: .25em 0;
-    font-size: 0.8em;
+    /*font-size: 0.8em;*/
 }
 
 .related .driver h3 {
@@ -1348,7 +1348,7 @@ a.vote i {
     width: 62em;
     margin: 0 auto;
     /*background: url('//twitter.com/images/resources/twitter-bird-16x16.png') #e5e5e5 no-repeat .5em .5em;*/
-    background: url('/assets/new/img/twitter-bird-light-bgs-32x32.png') #fff no-repeat .25em .25em;
+    /*background: url('/assets/new/img/twitter-bird-light-bgs-32x32.png') #fff no-repeat .25em .25em;*/
     border: .1em solid #9EBDCD;
     padding-left: 2em;
     border-radius: .25em;

@@ -9,6 +9,7 @@
     <% if (image) { %>
     <%- link_to(item.url, '<img class="preview" src="'+image+'" />') %>
     <% } %>
+    <h4><em><%= item.author %></em></h4>
     <div>
         <p class="introText"><%- item.introText||item.text.split(" ").slice(0,15).join(" ") %></p>
     </div>

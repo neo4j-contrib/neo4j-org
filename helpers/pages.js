@@ -197,7 +197,7 @@ exports.pages = {
         path: "/tracks/cypher_track_start",
         type: "track",
         title: "The Cypher track",
-        thumbnail: asset("img/still/cypher_tutorial.gif"),
+        thumbnail: asset("img/logo/cypher_small.gif"),
         introText: "The Cypher track concentrates on the Cypher Graph Query language, making interaction with Neo4j framework independent.",
         actionText: "Start",
         next: ["cypher", "cypher_track_use"],
@@ -211,7 +211,7 @@ exports.pages = {
         path: "/tracks/cypher_track_use",
         type: "track",
         title: "Use Cypher",
-        thumbnail: asset("img/still/cypher_tutorial.gif"),
+        thumbnail: asset("img/logo/cypher_small.gif"),
         introText: "",
         actionText: "Begin to use Cypher",
         next: ["cypher_track_develop"],
@@ -238,7 +238,7 @@ exports.pages = {
         path: "/tracks/cypher_track_develop",
         type: "track",
         title: "Develop with Cypher",
-        thumbnail: asset("img/still/cypher_tutorial.gif"),
+        thumbnail: asset("img/logo/cypher_small.gif"),
         introText: "",
         actionText: "Start",
         next: ["java"],
@@ -248,6 +248,7 @@ exports.pages = {
             // how to use cypher from java
         ],
         related: [
+            content.links.mark_cypher,
             // import with cypher
             // the shell
             // the rest-cypher
@@ -316,10 +317,15 @@ exports.pages = {
         title: "Pragmatic Licensing Guide",
         introText: "Neo4's enterprise editions are provided by Neo Technology for use in commercial, non open-source deployments.",
         thumbnail: asset("img/logo/neotechnology_small.png"),
-        featured: [content.articles.licensing_guide],
+        featured: [content.articles.licensing_guide,content.articles.licensing_guide_which],
         related: [
             content.books.graphdatabases,
-            content.articles.partner_graph,
+            {
+                title: "Contact Neo Technology",
+                thumbnail: asset("img/logo/neotechnology_small.png"),
+                introText: "A Neo Technology representative can help you to determine how to proceed to a production deployment of Neo4j.",
+                path: "http://neotechnology.com/contactus/"
+            },
             {
                 title: "Neo4j White Papers",
                 thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/02/WP_FTSL-125x160.png",
@@ -327,6 +333,7 @@ exports.pages = {
                 path: "http://www.neotechnology.com/resources/"
             },
             {
+                key: "use-cases",
                 title: "Neo4j Use Cases",
                 thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/01/WP-NetMgmt_sm.png",
                 introText: "Principal uses of Neo4j include social, recommendations, bioinformatics, fraud detection, network management, authorization and access control, content management, and parcel routing, with new ones being added regularly.",
@@ -337,7 +344,9 @@ exports.pages = {
                 thumbnail: "http://www.neotechnology.com/wp-content/uploads/2012/11/neo4j_customers.png",
                 introText: "From the Fortune 500 to cutting edge startups, our customers depend on Neo4j for insanely high performance queries on massive amounts of connected data. Graphs Are Everywhere!",
                 path: "http://www.neotechnology.com/customers/"
-            }]
+            },
+            content.articles.partner_graph
+        ]
     },
     partners: {
         path: "/learn/partners",
@@ -359,23 +368,23 @@ exports.pages = {
         //next: ["nosql", "neo4j"],
         //prev: [],
         featured: [
-            content.videos.why_graphs,
             content.articles.graphdb.graph,
             content.articles.graphdb.graphdb_traversal,
-            content.articles.graphdb.graphdb_indexes
+            content.articles.graphdb.graphdb_indexes,
+            content.videos.why_graphs
         ],
         actionText: "Learn more",
         related: [
             content.books.graphdatabases,
             "neo4j",
-            content.videos.graphdb101,"cypher","nosql"]
+            content.videos.graphdb101,"cypher_track_start","nosql"]
     },
     nosql: {
         path: "/learn/nosql",
         title: "NoSQL Data Models",
         thumbnail: asset("img/propertygraph/nosql-space.png"),
         introText: "Understanding data stores for your application.",
-        //next: ["graphdatabase"],
+        // next: ["graphdatabase"],
         //prev: ["concepts"],
         featured: [
             content.articles.nosql.nosql,
@@ -384,7 +393,7 @@ exports.pages = {
             content.articles.nosql.document
         ],
         actionText: "Not only SQL",
-        related: ["graphdatabase","neo4j"]
+        related: ["graphdatabase","neo4j","cypher_track_start","licensing"]
     },
     drivers: {
         path: "/develop/drivers",
@@ -408,7 +417,7 @@ exports.pages = {
         title: "Graph Database related Books",
         introText: "Learn more about Neo4j, Graph Theory and Graph Databases by reading these amazing books!",
         featured: [content.books.graphdatabases],
-        related: [content.books.graphdatabases, content.books.goodrelationships, content.books.nosqldistilled, content.books.sevendatabases, content.books.neo4jinaction, content.books.visualcomplexity, content.books.connected]
+        related: [content.books.graphdatabases, content.books.springdata,content.books.goodrelationships, content.books.nosqldistilled, content.books.sevendatabases, content.books.neo4jinaction, content.books.visualcomplexity, content.books.connected]
     },
     cloud: {
         path: "/develop/cloud",
@@ -1311,10 +1320,30 @@ exports.pages = {
     shell: {
         path: "/develop/shell",
         title: "The awesome Neo4j Shell",
-        introText: "",
+        introText: "Neo4j's shell allows you to issue Cypher statements, export and import subgraphs navigate and update the graph using a set of commands that remind of a unix shell. It is available both on the command line and in the Neo4j-Server web-ui.",
         content: "",
         featured: [],
-        related: []
+        related: [
+        {
+            type:"link",
+            author: "duanenickull",
+            title:"Duane explains the Neo4j-Shell",
+            path: "http://technoracle.blogspot.de/2012/04/neo4j-installing-running-and-shell.html",
+            introText: "In a detailed walkthrough Duane shows how to download and install Neo4j and explains how to use the shell to create nodes and relationships"
+        },
+        {
+            type:"link",
+            title:"Neo4j-Shell in the Manual",
+            path: "http://docs.neo4j.org/chunked/milestone/shell.html",
+            introText: "The manual describes how to use the shell, lists the individual commands and also explains how to extend it with your own commands."
+        },
+        {
+            type:"link",
+            title:"A sample shell session",
+            introText: "This session shows how to navigate in the shell, set properties and create nodes and relationships.",
+            path: "http://docs.neo4j.org/chunked/milestone/shell-sample-session.html"
+        }
+        ]
     },
     import_shell: {
         path: "/develop/import/shell",
