@@ -188,6 +188,8 @@ exports.pages = {
             content.tracks.java_intro
         ],
         related: [
+            "spring",
+            "neo4j_server",
             content.links.javadoc,
             content.links.manual_java
         ]
