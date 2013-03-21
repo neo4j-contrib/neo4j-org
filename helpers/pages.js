@@ -8,7 +8,7 @@ exports.pages = {
         path: "/learn",
         title: "Learn",
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
-        featured: [content.videos.graphdb101,content.books.graphdatabases,content.videos.why_graphs],
+        featured: [content.books.graphdatabases,content.videos.graphdb101,content.videos.why_graphs],
         related: ["graphdatabase","neo4j", "nosql","tracks", "cypher","production", "licensing",content.links.manual,"scientific"]
     },
     develop: {
