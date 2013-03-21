@@ -212,7 +212,17 @@ exports.resource = function(req,res) {
     var idx = path.lastIndexOf('/');
     var file = idx > -1 ? path.substr(idx+ 1,path.length) : path;
     console.log('got request for ',path,' from ',req.header('Referer'));
-    res.redirect(asset('/download/'+file)); 
+    res.redirect(301,asset('download/'+file)); 
+}
+exports.assets = function(req,res,next) {
+    var path = req.path;
+    if (path.indexOf("/assets") != 0 || path.indexOf("main.js")!=-1 || path.indexOf("main.css")!=-1) {
+       return next();
+    }
+    var idx = path.indexOf('/',1);
+    var file = idx > -1 ? path.substr(idx+ 1,path.length) : path;
+    console.log('got request for ',path,' from ',req.header('Referer'));
+    res.redirect(301,asset(file)); 
 }
 
 exports.pages = function(req,res) {
