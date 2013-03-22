@@ -126,7 +126,7 @@ exports.pages = {
         path: "/learn/scientific",
         thumbnail: asset("img/logo/scientific.png"),
         title: "Neo4j in the scientific community",
-        introText: "There is a lot of research going on around Graph Databases in general and Neo4j in particular. Below you find some of the more recent works in this field.",
+        introText: "There is a lot of research going on around Graph Databases in general and Neo4j in particular. Below you will find some of the more recent works in this field.",
         featured: null,
         actionText: "Read more",
         related: [content.scientific.wordnet_using_graphdbs, content.scientific.the_graph_traversal_pattern]
@@ -305,7 +305,7 @@ exports.pages = {
     production: {
         path: "/learn/production",
         title: "Going into Production",
-        introText: "In order to run Neo4j in production scenarios, there are a number of aspects that need to be covered. Here you find some resources on putting Neo4j into production.",
+        introText: "In order to run Neo4j in production scenarios, there are a number of aspects that need to be covered. Here you will find some resources on putting Neo4j into production.",
         featured: content.videos.production_secrets,
         actionText: "Go into production",
         related: [
@@ -318,7 +318,7 @@ exports.pages = {
     licensing: {
         path: "/learn/licensing",
         title: "Pragmatic Licensing Guide",
-        introText: "Neo4's enterprise editions are provided by Neo Technology for use in commercial, non open-source deployments.",
+        introText: "Neo4j's enterprise editions are provided by Neo Technology for use in commercial, non open-source deployments.",
         thumbnail: asset("img/logo/neotechnology_small.png"),
         featured: [content.articles.licensing_guide,content.articles.licensing_guide_which],
         related: [
