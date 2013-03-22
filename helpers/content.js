@@ -207,7 +207,7 @@ neo4j start</pre>\
             author: "akollegger",
             thumbnail: asset("img/still/graphdb-intro.png"),
             introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
-            src: "http://player.vimeo.com/video/46886385"
+            src: "http://player.vimeo.com/video/50787208"
         },
         importing_sample_data : {
             title: "Importing Sample Datasets",
