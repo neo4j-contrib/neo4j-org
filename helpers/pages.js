@@ -9,7 +9,16 @@ exports.pages = {
         title: "Learn",
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
         featured: [content.books.graphdatabases,content.videos.graphdb101,content.videos.why_graphs],
-        related: ["graphdatabase","neo4j", "nosql","tracks", "cypher","production", "licensing",content.links.manual,"scientific"]
+        related: ["graphdatabase","neo4j", "nosql","tracks", "cypher","production", "licensing",content.links.manual,"scientific"
+            ,
+                        {
+                            type: "video",
+                            title: "Skillsmatter Test",
+                            introText: "Skillsmatter Test",
+                            thumbnail: asset("img/still/got_a_graph_talk.png"),
+                            src: "http://player.vimeo.com/video/60684252"
+                        }
+        ]
     },
     learn_graphdb: {
         path: "/learn_graphdb",
