@@ -45,7 +45,9 @@ exports.subscribe_thanks = function(req, res){
 exports.learn = function(req, res){
   res.render('page', { category: 'learn', title: 'Learn' });
 };
-
+exports.learn_graphdb = function(req, res){
+  res.render('learn_graphdb', { category: 'learn', title: 'Learn' });
+};
 exports.intro = function(req, res){
   res.render('page', { category: 'learn', title: 'Intro' });
 };
