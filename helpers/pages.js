@@ -9,16 +9,7 @@ exports.pages = {
         title: "Learn",
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
         featured: [content.books.graphdatabases,content.videos.graphdb101,content.videos.why_graphs],
-        related: ["graphdatabase","neo4j", "nosql","tracks", "cypher","production", "licensing",content.links.manual,"scientific"
-            ,
-                        {
-                            type: "video",
-                            title: "Skillsmatter Test",
-                            introText: "Skillsmatter Test",
-                            thumbnail: asset("img/still/got_a_graph_talk.png"),
-                            src: "http://player.vimeo.com/video/60684252"
-                        }
-        ]
+        related: ["graphdatabase","neo4j", "nosql","tracks", "cypher","production", "licensing",content.links.manual,"scientific"]
     },
     learn_graphdb: {
         path: "/learn_graphdb",
@@ -1400,5 +1391,106 @@ exports.pages = {
         featured: [],
         related: [],
         actionText : "Add yourself"
+    },
+    spatial: {
+        path: "/develop/spatial",
+        thumbnail: "",
+        title: "Neo4j Spatial - Spatial Search and GIS Integration",
+        author: ["peterneubauer","craigtaverner"],
+        introText: "Neo4j Spatial is a library of utilities for Neo4j that faciliates the enabling of spatial operations on data.",
+        content: "In particular you can add spatial indexes to already located data, and perform spatial operations on the data like searching for data within specified regions or within a specified distance of a point of interest. In addition classes are provided to expose the data to geotools and thereby to geotools enabled applications like geoserver and uDig.",
+        featured: [
+            {
+                type: "video",
+                src: "http://www.youtube.com/watch?v=I0bTa5Kp7Wg",
+                introText: "With the newly released Neo4j Spatial, any data can be adapted to complex queries with geographic components like \"Select all streets in the Municipality of NYC where at least 2 of my friends are walking right now.\"<br/>\
+                The talk will demonstrate the important benefits of modeling geodata in a graph, the main components needed to expose data to geo stacks like map servers, and explain how the Open Street Map dataset is modeled in Neo4j. I will show how using Neo4j unlocks the full potential of the OSM data far beyond just rendering maps.<br/>\
+                There will also be some cool examples of Neo4j Spatial, from Telecomms network planning, Web-based AJAX GIS systems, topology editing and routing to REST and Web Feature Service endpoints, all in a single stack.",
+                thumbnail: "http://image.slidesharecdn.com/2011-07-oscon-110730111234-phpapp02/95/slide-1-728.jpg?1312350195",
+                author: ["peterneubauer"],
+                title: "Neo4j Spatial - Geo Data for the Rest of Us"
+
+            },
+            {
+                type: "link",
+                thumbnail: "https://lh6.googleusercontent.com/-MNE5dXgAZlw/TXP4SoXwlbI/AAAAAAAAA_o/J0Zos7BFnPM/s570/neo4j-spatial-text2.png",
+                title: "Neo4j Spatial Part 1 - Finding things close to other things",
+                author: "craigtaverner",
+                introText : "Geography is a natural domain for graphs and graph databases, the Neo4j Spatial project has been providing early access releases enabling a wide range of convenient and powerful geographic capabilities in the Neo4j database.",
+                path: "http://blog.neo4j.org/2011/03/neo4j-spatial-part1-finding-things.html"
+            }
+        ],
+        related: [
+            {
+                type:"link",
+                title: "Neo4j Spatial on GitHub",
+                introText: "Neo4j Spatial is an open-source library of utilities for Neo4j that faciliates the enabling of spatial operations on data. Besides basic spatial search it also integrates with geoserver and uDig.",
+                author: ["peterneubauer","craigtaverner","amorgner"],
+                thumbnail: asset("img/logo/github.png"),
+                path: "http://github.com/neo4j/spatial"
+            },
+            {
+                type:"link",
+                title: "Running along the graph using Neo4J Spatial and Gephi",
+                introText: "Could there be a correlation between my average pace and my distance from home? In order to come up with answers to these questions, I will import my running data into a Neo4J Spatial datastore.",
+                content: "Neo4J Spatial extends the Neo4J Graph Database with the necessary tools and utilities to store and query spatial data in your graph models. For visualizing my running data, I will make use of Gephi, an open-source visualization and manipulation tool that allows users to interactively browse and explore graphs.",
+                author: "dsuvee",
+                thumbnail: "http://datablend.be/wp-content/uploads/geo5.jpg",
+                path: "http://datablend.be/?p=1255"
+            },
+            {
+                type:"video",
+                author: "craigtaverner",
+                title: "Geoprocessing with Neo4j-Spatial and OSM",
+                introText: "Geographic data is naturally structured like a graph, and topological analyses view GIS data as graphs, but until now no-one has tried to make use of a real graph database as the backing store for a GIS. The developers of Neo4j have added features to the popular open source graph database to provide for support for spatial indexing, storage and topology. In addition to these core components, there are a number of useful utilities for importing and exporting data from other popular data sources, and enabling the use of this database in well known libraries and applications in the open source GIS environment. <br/>There are <a href='http://de.slideshare.net/search/slideshow?searchfrom=header&q=%22neo4j+spatial%22'>several presentations around Neo4j Spatial</a>",
+                thumbnail: "http://image.slidesharecdn.com/neo4j-spatial-foss4g-2011-120225120453-phpapp01/95/slide-1-728.jpg?1330193431",
+                path: "http://slideshare.net/craigtaverner/geoprocessing-with-neo4jspatial-and-osm-11747942"
+            },
+            {
+                type:"link",
+                title: "Neo4j Spatial Ruby Gem",
+                tags: ["ruby","spatial"],
+                author: "craigtaverner",
+                introText: "The Neo4j-Spatial.rb wrapper allows you to access Neo4j-Spatial features from the convenience of the Ruby scripting language.",
+                thumbnail: asset("img/languages/ruby.png"),
+                path: "https://rubygems.org/gems/neo4j-spatial"
+            },
+            {
+                type:"link",
+                title: "Clojure/Java Interop – Importing neo4j spatial data",
+                tags: ["clojure","spatial"],
+                introText: "I wrote a post about a week ago where I described how I’d <a href='http://www.markhneedham.com/blog/2013/03/10/neo4jcypher-finding-football-stadiums-near-a-city-using-spatial/' target='_blank'>added football stadiums to my football graph</a> using neo4j spatial and after I’d done that I wanted to put it into my import script along with the rest of the data. That worked reasonably well but I thought it’d be interesting to see what the above code would look like if it was written in clojure instead.",
+                author: "markhneedham",
+                thumbnail: asset("img/languages/clojure.png"),
+                path: "http://www.markhneedham.com/blog/2013/03/17/clojurejava-interop-importing-neo4j-spatial-data/"
+            },
+            {
+                type:"link",
+                title: "Neo4j Spatial Scala wrapper library",
+                tags: ["scala","spatial"],
+                author: "fakod",
+                thumbnail: asset("img/languages/scala.png"),
+                path: "https://github.com/FaKod/neo4j-spatial-scala"
+            },
+            {
+                type:"link",
+                title: "Neo4j Spatial Starter Project",
+                tags: ["intro","java","spatial"],
+                author: "rhetonik",
+                introText: "Start off with Neo4j spatial by importing an OSM file. This project aims at a single command for setting up neo4j-spatial followed by an OSM import.",
+                thumbnail: asset("img/languages/java.jpg"),
+                path: "https://github.com/neo4j-india/neo4j-spatial-starters"
+            },
+            {
+                type:"link",
+                title: "Neo4j Spatial Support in Spring Data Neo4j",
+                tags: ["sdn","java","spatial"],
+                introText: "Spring Data Neo4j supports Spatial extensions via the Neo4j Spatial index provider. It offers automatic spatial indexing and method for finding entities in spatial geometries.",
+                author: "mesirii",
+                thumbnail: asset("img/languages/sdn.png"),
+                path: "http://static.springsource.org/spring-data/data-graph/snapshot-site/reference/html/#d5e1074"
+            }
+
+        ]
     }
 }
