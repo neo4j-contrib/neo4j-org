@@ -881,14 +881,6 @@ neo4j start</pre>\
             name: "Neo4j-org",
             actionText: "Fork and Contribute"
         },
-        spatial: {
-            type: "app",
-            author: "@craigtaverner",
-            url: "https://github.com/neo4j/spatial",
-            logo: asset("img/apps/spatial.png"),
-            text: "Neo4j Spatial offering geospatial functionality on top of the graph in both embedded and Server-Plugin mode.",
-            name: "Neo4j Spatial"
-        },
         graph_collections: {
             type: "app",
             author: "@peterneubauer",

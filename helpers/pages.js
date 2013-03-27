@@ -23,7 +23,7 @@ exports.pages = {
         title: "Develop",
         introText: "Find what you need to develop applications with Neo4j in a variety of languages and deployment scenarios.",
         featured: null,
-        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java","spring","ruby", "dotnet", "python", "scala", "php", "clojure"]
+        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java","spring","ruby", "spatial","dotnet", "python", "scala", "php", "clojure"]
     },
     participate: {
         path: "/participate",
@@ -293,7 +293,7 @@ exports.pages = {
         prev: ["java_basics"],
         featured: [
         ],
-        related: [content.projects.neoclipse, content.apps.structr, content.projects.spatial, content.projects.jdbc, content.projects.jpa, content.drivers.neo4j_rest, content.projects.graph_collections]
+        related: [content.projects.neoclipse, content.apps.structr, "spatial", content.projects.jdbc, content.projects.jpa, content.drivers.neo4j_rest, content.projects.graph_collections]
     },
     server_plugins: {
         path: "/java/server_plugins",
@@ -1394,7 +1394,7 @@ exports.pages = {
     },
     spatial: {
         path: "/develop/spatial",
-        thumbnail: "",
+        thumbnail: asset("img/apps/spatial.png"),
         title: "Neo4j Spatial - Spatial Search and GIS Integration",
         author: ["peterneubauer","craigtaverner"],
         introText: "Neo4j Spatial is a library of utilities for Neo4j that faciliates the enabling of spatial operations on data.",
