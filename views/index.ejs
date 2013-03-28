@@ -38,7 +38,7 @@
 
 </div><!-- page -->
 <div id="twitter_bar">
-    <div><a href="" target="_blank"><img width="24" src=""/><span></span></a>: <span class="text"></span></div>
+    <div><a class="twitter_user" href="" target="_blank"><img width="24" src=""/><span></span></a>: <span class="text"></span> - <a class="twitter_date" href="" target="_blank"></a></div>
 </div>    
     
 <script type="text/javascript">
@@ -57,11 +57,18 @@
             if (!tweet) {
                reloadTweets(); return;  
             }
+            var seconds = (new Date() - Date.parse(tweet['created_at'])) / 1000;
+            var time = seconds + "s ago";
+            if (seconds > 3600 * 24) time = (seconds / 3600 / 24).toFixed() + "d ago";
+            else if (seconds > 3600 ) time = (seconds / 3600 ).toFixed() + "h ago";
+            else if (seconds > 60) time = (seconds / 60 ).toFixed() + "m ago";
             var twitter = $("#twitter_bar div");
-            twitter.find("a img").attr("src",tweet['profile_image_url']);
-            twitter.find("a").attr("href","http://twitter.com/"+tweet['from_user']);
-            twitter.find("a span").text(tweet['from_user_name']);
+            twitter.find("a.twitter_user img").attr("src",tweet['profile_image_url']);
+            twitter.find("a.twitter_user").attr("href","http://twitter.com/"+tweet['from_user']);
+            twitter.find("a.twitter_user span").text(tweet['from_user_name']);
             twitter.find("span.text").html(tweet['rendered']);
+            twitter.find("a.twitter_date").html(time);
+            twitter.find("a.twitter_date").attr("href","http://twitter.com/"+tweet['from_user']+"/status/"+tweet['id_str']);;
         }
         nextTweet();
         setInterval(nextTweet,10*1000);
