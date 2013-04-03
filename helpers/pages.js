@@ -73,11 +73,12 @@ exports.pages = {
                 title: "Neo4j Releases",
                 path: "/partials/version/_main"
             }
-            // content.videos.installing_neo4j,
+            //content.videos.installing_neo4j,
             // content.install.milestone
             //,content.install.stable
         ],
         related: [
+             //content.videos.installing_neo4j,
             // content.install.milestone,
             // content.install.stable,
             //"graphdatabase",

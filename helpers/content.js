@@ -40,8 +40,9 @@ exports.content = {
             version:"2.0.0-M01",
             date:"2013",
             introText:"Node Labels, Integrated Index, ",
-            path:"http://blog.neo4j.org"
-            // todo src with label intro video
+            path:"http://blog.neo4j.org",
+            thumbnail: asset("img/still/install.gif"),
+            src: "http://player.vimeo.com/video/53838744"
         },
         "1_7_2":{
             type:"version",
