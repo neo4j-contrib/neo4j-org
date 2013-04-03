@@ -1005,8 +1005,9 @@ neo4j start</pre>\
             type: "driver",
             tags: ["dotnet", "rest"],
             authors: ["@tathamoddie", "@romikoderbynew"],
-            url: "http://hg.readify.net/neo4jclient/wiki/Home/",
-            source: "http://hg.readify.net/neo4jclient/",
+            url: "http://nuget.org/packages/Neo4jClient",
+            source: "http://hg.readify.net/neo4jclient/src",
+            docs: "http://hg.readify.net/neo4jclient/wiki"
             logo: asset("img/languages/dotnet.png"),
             name: "Neo4jClient",
             text: "A .NET client for Neo4j which supports basic CRUD operations, a fluent Cypher query interface, and indexing operations. "
