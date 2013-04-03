@@ -15,6 +15,13 @@
             <div style="text-align: right;">
                 <a style="display: inline-block;text-align: right;" class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>
             </div>
+            <% var item=content.install.preview %>
+            <h3><%= item.title %></h3>
+            <% include _download_table %>
+            <div style="text-align: right;">
+                <a style="display: inline-block;text-align: right;" class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>
+            </div>
+            
         </div>
         <div class="content">
             <% if (item.thumbnail) { %>

@@ -818,7 +818,7 @@ ul.hor li {
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
     border: .1em solid #dce7ea;
     background: #fff;
-    overflow: hidden; /* makes children expand this box to max height */
+    overflow: scroll; /* makes children expand this box to max height */
     width: 59em;
     min-height: 30em;
 }
