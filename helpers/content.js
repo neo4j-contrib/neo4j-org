@@ -33,13 +33,13 @@ exports.content = {
             date:"2013",
             introText:"Unstable Snapshot, for resolution issue verification"
         },
-        preview:{
+        "2_0_0_M01":{
             type:"version",
             title:"Preview Version 2.0.0-M01",
             stability:"preview",
             version:"2.0.0-M01",
             date:"2013",
-            introText:"Node Labels, Integrated Index, ",
+            introText:"Node Labels, automatic indexes, highly cool and unstable. Don't try this at work!",
             path:"http://blog.neo4j.org",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
