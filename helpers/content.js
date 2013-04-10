@@ -426,7 +426,7 @@ neo4j start</pre>\
             url: "http://github.com/jimwebber/neo4j-tutorial",
             author: "jimwebber",
             img: "http://www.neotechnology.com/wp-content/uploads/2012/09/Screen-Shot-2012-09-13-at-12.57.35-PM.png",
-            introText: "The Dr.Who universe of doctors, actors, enemies and props from the Neo4j Koans Tutorial. <a href='http://example-data.neo4j.org/files/drwho.zip' class='icon-download-alt'> </a>",
+            introText: "The Dr.Who universe of doctors, actors, enemies and props from the Neo4j Koans Tutorial. <a href='http://example-data.neo4j.org/files/drwho.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Check it out"
         },
         fec_2012: {
@@ -435,7 +435,7 @@ neo4j start</pre>\
             url: "http://blog.neo4j.org/2012/10/follow-data-fec-campaign-data-challenge.html",
             author: "akollegger",
             img: "http://2.bp.blogspot.com/-yz4sG2of89Y/UG4TQ5QsgDI/AAAAAAAAAV8/apaI68-NH5U/s1600/ftd-banner.png",
-            introText: "The 2012 presidential campaign data from our Federal Election Committee Campaign Data Workshop. <a href='http://example-data.neo4j.org/files/fec_data_presidential_2012.zip' class='icon-download-alt'> </a>",
+            introText: "The 2012 presidential campaign data from our Federal Election Committee Campaign Data Workshop. <a href='http://example-data.neo4j.org/files/fec_data_presidential_2012.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Follow the Data"
         },
         heroku_waza_2013: {
@@ -444,7 +444,7 @@ neo4j start</pre>\
             url: "https://waza.neo4j.org/#twitter",
             author: "mesirii",
             img: "http://waza.neo4j.org/images/twitter.png",
-            introText: "Inferred Connection Graph from Tweets during Heroku Waza 2013. <a href='http://example-data.neo4j.org/files/heroku_waza_2013.zip' class='icon-download-alt'> </a>",
+            introText: "Inferred Connection Graph from Tweets during Heroku Waza 2013. <a href='http://example-data.neo4j.org/files/heroku_waza_2013.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
 //            introText: "People tweet all the time. There is the obvious social graph that consists of twitter followers. But much more interesting is the implict graph hidden in between the tweets. Mentions, Retweets and shared Hashtags form interesting relationships between people even if they don't follow each other.",
             actionText: "Discover connections"
         },
@@ -454,7 +454,7 @@ neo4j start</pre>\
             url: "http://spring.neo4j.org/tutorial",
             author: "mesirii",
             img: asset("img/spring/cineasts.png"),
-            introText: "small dataset of the Spring Data Neo4j Cineasts.net tutorial. <a href='http://example-data.neo4j.org/files/cineasts_39_movies_446_actors.zip' class='icon-download-alt'> </a>",
+            introText: "small dataset of the Spring Data Neo4j Cineasts.net tutorial. <a href='http://example-data.neo4j.org/files/cineasts_39_movies_446_actors.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Like a Movie"
         },
         cineasts_large: {
@@ -463,7 +463,7 @@ neo4j start</pre>\
             url: "http://spring.neo4j.org/tutorial",
             author: "mesirii",
             img: asset("img/spring/cineasts.png"),
-            introText: "Full dataset (12k movies, 50k actors) of the Spring Data Neo4j Cineasts.net tutorial. <a href='http://example-data.neo4j.org/files/cineasts_12k_movies_50k_actors.zip' class='icon-download-alt'> </a>",
+            introText: "Full dataset (12k movies, 50k actors) of the Spring Data Neo4j Cineasts.net tutorial. <a href='http://example-data.neo4j.org/files/cineasts_12k_movies_50k_actors.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Like a Movie"
         },
         hubway: {
@@ -472,7 +472,7 @@ neo4j start</pre>\
             url: "http://blog.neo4j.org/2012/10/using-spring-data-neo4j-for-hubway-data.html",
             author: "mesirii",
             img: "http://hubwaydatachallenge.org/static/img/hubway-logo.png",
-            introText: "Hubway is a bike sharing service. The challenge data consists 95 Boston stations and 500k bike rides. <a href='http://example-data.neo4j.org/files/hubway_data_challenge_boston.zip' class='icon-download-alt'> </a>",
+            introText: "Hubway is a bike sharing service. The challenge data consists 95 Boston stations and 500k bike rides. <a href='http://example-data.neo4j.org/files/hubway_data_challenge_boston.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Ride a bike"
         }
     },
