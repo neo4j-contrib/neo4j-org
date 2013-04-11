@@ -317,6 +317,23 @@ exports.pages = {
                 introText: "Release blog for 2.0.0-M01 discussing the reasoning behind labels and potential applications."
             },
             {
+                type: "article",
+                path: "http://docs.neo4j.org/chunked/preview/what-is-a-graphdb.html",
+                title: "Manual: Labels and Indexes",
+                author: ["systay","jakewins","boggle","tinwelint"],
+                introText: "All major Neo4j API's can handle labels:<ul>\
+                    <li>General: <a href='http://docs.neo4j.org/chunked/preview/graphdb-neo4j-schema.html'>schema</a></li>\
+                    <li>Cypher: <a href='http://docs.neo4j.org/chunked/preview/query-match.html#match-match-with-labels'>match</a>,\
+                                <a href='http://docs.neo4j.org/chunked/preview/introduction-pattern.html#_labels'>patterns</a>,\
+                                <a href='http://docs.neo4j.org/chunked/preview/query-where.html#where-filter-on-node-label'>where</a>,\
+                                <a href='http://docs.neo4j.org/chunked/preview/query-create.html#create-create-node-and-add-labels'>create</a>,\
+                                <a href='http://docs.neo4j.org/chunked/preview/query-function.html#_collection_functions'>functions</a>,\
+                                <a href='http://docs.neo4j.org/chunked/preview/query-schema-index.html'>indexes</a></li>\
+                    <li>REST: <a href='http://docs.neo4j.org/chunked/preview/rest-api-node-labels.html'>labels</a>, <a href='http://docs.neo4j.org/chunked/preview/rest-api-schema-indexes.html'>indexes</a></li>\
+                    <li>Core: <a href='http://docs.neo4j.org/chunked/preview/tutorials-java-embedded-new-index.html'>example</a>, <a href='http://docs.neo4j.org/chunked/preview/rest-api-schema-indexes.html'>indexes</a></li>\
+                    </ul>"
+            },
+            {
                 type: "link",
                 path: "http://wes.skeweredrook.com/cypher-it-doesnt-all-start-with-the-start/",
                 title: "Cypher: It doesn't all start with the START (in Neo4j 2.0!)",
