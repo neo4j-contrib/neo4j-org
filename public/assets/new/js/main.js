@@ -67,8 +67,9 @@ var nav = {
 			if (src) {
 				thumbnail.on('click', function() {
 
+                    var url=src.indexOf("?")!=-1 ? src : src + "?autoplay=1";
 					$.blockUI({
-						message: '<iframe src="' + src + '?autoplay=1" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>',
+						message: '<iframe src="' + url + '" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>',
 						css : {
 							position: 'fixed',
 							width: '80%',
@@ -148,7 +149,7 @@ function lightbox(id, url) {
         iframe.before('<div class="lightbox-header"> <button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button> </div>');
     }
     lightbox.on('show', function () {
-        url+="?badge=0&title=0&portrait=0&autoplay=1&rel=0&byline=0";
+        if (url.indexOf("?")==-1) url += "?badge=0&title=0&portrait=0&autoplay=1&rel=0&byline=0";
         iframe.attr("src",url).attr("height",$(window).height() / 1.2).attr("width",$(window).width() / 1.2);
     }).on('hide', function () {
         iframe.removeAttr("src");

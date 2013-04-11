@@ -236,6 +236,16 @@ neo4j start</pre>\
         }
     },
     links: {
+        gatling: {
+                type: "link",
+                thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2013/02/neo4j_loves_gatling.gif?w=200",
+                img: "http://maxdemarzidotcom.files.wordpress.com/2013/02/neo4j_loves_gatling.gif?w=580",
+                path: "http://maxdemarzi.com/2013/02/14/neo4j-and-gatling-sitting-in-a-tree-performance-t-e-s-t-ing/",
+                title: "Neo4j and Gatling sitting in a tree, performance testing",
+                author: "maxdemarzi",
+                introText: "Max De Marzi explains how to use the Scala based load testing tool Gatling to test a Neo4j Server."
+
+        },
         wes_cypher: {
             type : "link",
             title : "Wes Freeman's Cypher Tutorials and Commentary",

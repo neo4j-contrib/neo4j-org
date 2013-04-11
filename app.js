@@ -227,6 +227,7 @@ route_get('/*/', function (req, res) {
 });
 
 route_get('/', routes.index);
+route_get('/search', routes.search);
 
 route_get('/drivers', forward("/develop/drivers"));
 route_get('/learn/events', forward("/events"));

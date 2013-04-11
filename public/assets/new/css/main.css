@@ -626,6 +626,18 @@ ul.hor li {
     text-decoration: none;   
 }
 
+.bigsearch {
+    width: 10em ! important;
+}
+
+#q {
+    width: 5em;
+    font-size: 0.9em;
+    -webkit-border-radius: .25em;
+       -moz-border-radius: .25em;
+            border-radius: .25em;
+}
+
 #activePointer {
     position: absolute;
     display: none;

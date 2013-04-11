@@ -10,12 +10,18 @@
                         <li class="develop"><a href="/develop"><i class="icon icon-cogs"></i> DEVELOP</a></li>
                         <li class="participate"><a href="/participate"><i class="icon icon-refresh"></i> PARTICIPATE</a></li>
                         <li><a class="btn btn-install" href="/install"><i class="icon icon-download-alt"></i> DOWNLOAD</a></li>
-                        <a href="#" onclick="$('#search').show(function() { $('#search form input').focus()});" id="btn-search" type="button"><i class="icon icon-search"></i></a>
+                        <li>
+                            <form id="searchbox_010469570773660073342:bxbnq3_xncc" action="/search" method="get">
+                              <input value="010469570773660073342:bxbnq3_xncc" name="cx" type="hidden"/>
+                              <input value="FORID:11" name="cof" type="hidden"/>
+                              <input id="q" name="q" type="text" placeholder="search site ..." onfocus="$(this).select();$(this).addClass('bigsearch');" onblur="$(this).removeClass('bigsearch');" />
+                              <a href="#" onclick="$(this).parent().submit()" id="btn-search" type="button"><i class="icon icon-search"></i></a>
+                            </form>
+                        </li>
+
                     </ul>
 
-                    <div id="search" onmouseout="$('#search').hide()" style="z-index:100;position:absolute; top:5px;right: 5px; display: none;">
-                        <form target="_blank" action="http://google.com/search" method="get"><input type="hidden" name="q" value="site:www.neo4j.org"/><input type="text" name="q" /></form>
-                    </div>
+
 
                     <div id="activePointer" style="overflow: hidden; margin-bottom: -0.25em"><i class="icon icon-caret-up"></i></div>
 
@@ -28,4 +34,3 @@
               <!--li>Search</li-->
             </ul>
         </div><!-- headerWrapper -->
-                

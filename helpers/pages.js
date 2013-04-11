@@ -274,7 +274,64 @@ exports.pages = {
             content.drivers.node_neo4j
         ]
     },
-
+    test : {
+        path: "/develop/test",
+        title: "Testing with Neo4j",
+        introText: "Testing with Databases is always a challenge, there are some ways and tools to make testing easier with Neo4j.",
+        featured: [
+            content.links.gatling
+        ],
+        related: [{
+            type: "link",
+            title: "NoSQL-Unit for testing Neo4j and Spring Data Neo4j",
+            author: "alexsotob",
+            path: "https://github.com/lordofthejars/nosql-unit#neo4j-engine",
+            introText: "Blog posts about using <a href='http://www.lordofthejars.com/2012/08/nosqlunit-032-released.html'>NOSQL-Unit with Neo4j</a>" +
+                " and <a href='http://www.lordofthejars.com/2013/03/testing-spring-data-neo4j-applications.html'>Testing Spring Data Neo4j applications</a>"
+        },
+        {
+            type: "link",
+            title: "Manual: Basic Unit Testing Neo4j",
+            author: "nawroth",
+            path: "http://docs.neo4j.org/chunked/stable/tutorials-java-unit-testing.html",
+            introText: "Short tutorial on how to unit-test embedded Neo4j applications."
+        }]
+    },
+    labels : {
+        path: "/develop/labels",
+        title: "New: Labels and Indexes",
+        introText: "A big new feature in Neo4j 2.0 are node labels and real, automatic indexes. Here you can quickly get an update on this extension of the property graph model.",
+        featured: [{
+            type: "video",
+            thumbnail: "https://dl.dropboxusercontent.com/u/14493611/Public%20Labels%20Presentation.png",
+            introText: "Short presentation about labels and indexes.",
+            src: "https://docs.google.com/presentation/d/14-_0rzxQAPgnk5HlqswaDT7QEuPgdvDpLZcbpb1puQU/embed?start=false&loop=false&delayms=3000",
+            title: "Labels and Indexes in Neo4j 2.0"
+        }],
+        related: [
+            {
+                type: "link",
+                path: "http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
+                title: "Nodes are people too",
+                author: ["akollegger","prathle"],
+                introText: "Release blog for 2.0.0-M01 discussing the reasoning behind labels and potential applications."
+            },
+            {
+                type: "link",
+                path: "http://wes.skeweredrook.com/cypher-it-doesnt-all-start-with-the-start/",
+                title: "Cypher: It doesn't all start with the START (in Neo4j 2.0!)",
+                author: ["wefreema"],
+                introText: "Extensive post about how labels affect future Cypher queries"
+            },
+            {
+                type: "link",
+                path: "http://jexp.de/blog/2013/04/cool-first-neo4j-2-0-milestone-now-with-labels-and-real-indexes/",
+                title: "Cool first Neo4j 2.0 milestone – Now with Labels and “real” Indexes",
+                author: ["mesirii"],
+                introText: "Introducing labels in the cineasts domain model, and featuring a screencast upgrading cineasts to use labels instead of indexes."
+            }
+        ]
+    },
     java_basics: {
         path: "/java/java_basics",
         title: "Java programming basics with Neo4j",
@@ -1178,12 +1235,7 @@ exports.pages = {
                 title: "Neo4j and Spray JSON",
                 author: "Jan Machacek"
             },
-            {
-                type: "link",
-                path: "http://maxdemarzi.com/2013/02/14/neo4j-and-gatling-sitting-in-a-tree-performance-t-e-s-t-ing/",
-                title: "Neo4j and Gatling sitting in a tree, performance testing",
-                author: "maxdemarzi"
-            },
+            content.links.gatling,
             {
                 type: "link",
                 path: "http://ahalmeida.com/2011/09/06/how-neo4j-uses-scalas-parser-combinator-cyphers-internals-part-1/",
