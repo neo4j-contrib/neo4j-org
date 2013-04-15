@@ -10,7 +10,7 @@ exports.content = {
             stability:"milestone",
             date:"Apr 30, 2013",
             introText:"Release Candidate with incremental changes",
-            path:"http://blog.neo4j.org/2013/04/almost-done-neo4j-19rc1.html",
+            path:"http://blog.neo4j.org/2013/04/almost-there-neo4j-19rc1.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
