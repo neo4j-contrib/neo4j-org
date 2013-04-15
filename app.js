@@ -69,9 +69,14 @@ app.locals.theme = function () {
 
 // helper functions
 app.locals.link_to = function (path, inner,css) {
-    if (path) return "<a class='"+(css||"")+"' href='" + path + "' " + (path.match("^http") ? ' target="_blank" ' : '') + ">" + inner + "</a>";
+    if (path) {
+	    // var tracking = ' onclick="javascript:_gaq.push([\'_trackEvent\',\'outbound-article\',\''+path+'\']);"';
+	    var tracking = ' onclick="javascript:_gaq.push([\'_trackPageview\',\''+path+'\']);" ';
+		return '<a class="'+(css||"")+'" href="' +path+ '" ' + (path.match("^http") ? ' target="_blank" '+tracking : '') + ">" +inner+ "</a>";
+	}
     return inner;
 };
+
 app.locals.lightbox_link = function (path, inner,css) {
     if (path) return "<a class='"+(css||"")+"' data-src='" + path + "' href='" + path + "' target='_blank' >" + inner + "</a>";
     return inner;
@@ -223,6 +228,11 @@ function route_get(url, fun) {
 
 route_get('/*/', function (req, res) {
     var path = req.path.substring(0, req.path.length - 1);
+
+	var i = req.url.indexOf('?');
+	if (i != -1) {
+		path += req.url.substr(i)	
+	}
     res.redirect(path);
 });
 

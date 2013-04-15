@@ -5,10 +5,10 @@ exports.content = {
     install:{
         milestone:{
             type:"version",
-            title:"Neo4j Milestone Release 1.9.M05",
-            version:"1.9.M05",
+            title:"Neo4j Milestone Release 1.9.RC1",
+            version:"1.9.RC1",
             stability:"milestone",
-            date:"Mar 06, 2013",
+            date:"Apr 15, 2013",
             introText:"Java 7, HA, Cypher profiling",
             path:"http://blog.neo4j.org/2013/03/neo4j-19m05-released-wrapping-up.html",
             thumbnail: asset("img/still/install.gif"),
@@ -634,7 +634,7 @@ neo4j start</pre>\
         learn: {
             title: "What is Neo4j?",
             type: "article",
-            content: "Neo4j is an open-source <a href='/learn/graphdatabase'>graph database</a> supported by <a onclick=\"javascript:pageTracker._trackPageview(\'/outgoing/neotechnology.com/');\" href='http://neotechnology.com/''>Neo Technology</a>.</p>\
+            content: "Neo4j is an open-source <a href='/learn/graphdatabase'>graph database</a> supported by <a  href='http://neotechnology.com/'>Neo Technology</a>.</p>\
         <p>Neo4j stores data in nodes connected by directed, typed relationships with properties on both, also known as a <a href='/learn/graphdatabase'>Property Graph</a>.</p>\
         <h3>Main features</h3>\
          <ul id='features'>\
@@ -646,8 +646,8 @@ neo4j start</pre>\
             <li><em>expressive</em>, with a powerful, human readable <a href='/learn/cypher'>graph query language</a></li>\
             <li><em>fast</em>, with a powerful traversal framework for high-speed graph queries</li>\
             <li><em>embeddable</em>, with a few small jars</li>\
-            <li><em>simple</em>, accessible by a convenient <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/docs.neo4j.org/chunked/stable/rest-api.html');\" href='http://docs.neo4j.org/chunked/1.8.1/rest-api.html'>REST interface</a> or\
-                an object-oriented Java <a onclick=\"javascript:pageTracker._trackPageview('/outgoing/api.neo4j.org/');\" href='http://api.neo4j.org/1.8.1'>API</a></li>\
+            <li><em>simple</em>, accessible by a convenient <a href='http://docs.neo4j.org/chunked/milestone/rest-api.html'>REST interface</a> or\
+                an object-oriented Java <a href='http://api.neo4j.org/1.8.1'>API</a></li>\
                 </ul>",
             src: asset('img/neo4j/visually_refcard.gif')
         }
