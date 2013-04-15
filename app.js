@@ -71,7 +71,7 @@ app.locals.theme = function () {
 app.locals.link_to = function (path, inner,css) {
     if (path) {
 	    // var tracking = ' onclick="javascript:_gaq.push([\'_trackEvent\',\'outbound-article\',\''+path+'\']);"';
-	    var tracking = ' onclick="javascript:_gaq.push([\'_trackPageview\',\''+path+'\']);" ';
+	    var tracking = ' onclick="javascript:_gaq.push([\'_trackEvent\',\'outbound-neo4j\',\''+path+'\']);" ';
 		return '<a class="'+(css||"")+'" href="' +path+ '" ' + (path.match("^http") ? ' target="_blank" '+tracking : '') + ">" +inner+ "</a>";
 	}
     return inner;

@@ -134,6 +134,9 @@ $(document).ready(function(){
         }
         lightbox(lb.attr("id"),url);
     });
+    $("a[href^=http]").attr("target","_blank").click(function() {
+		_gaq.push(['_trackEvent','outbound-neo4j',$(this).attr("href")]);
+	});
 });
 
 function renderConsole(url) {

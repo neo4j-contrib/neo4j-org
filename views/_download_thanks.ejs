@@ -39,6 +39,8 @@ $(document).ready(function() {
             downloadLink = "http://download.neo4j.org/artifact?edition=" + edition + "&version=" + release + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
         }
 
+		_gaq.push(['_trackEvent','neo4j-download',downloadLink]);
+		
         $(".downloadLink").attr("href",downloadLink);
         if (testing==null) {
             window.location = downloadLink;
