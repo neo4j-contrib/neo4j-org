@@ -9,8 +9,8 @@ exports.content = {
             version:"1.9.RC1",
             stability:"milestone",
             date:"Apr 15, 2013",
-            introText:"Java 7, HA, Cypher profiling",
-            path:"http://blog.neo4j.org/2013/03/neo4j-19m05-released-wrapping-up.html",
+            introText:"Release Candidate with incremental changes",
+            path:"http://blog.neo4j.org/2013/04/almost-done-neo4j-19rc1.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
