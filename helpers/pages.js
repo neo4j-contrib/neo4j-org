@@ -4,6 +4,24 @@ var video = require("./content").video
 var asset = require("../helpers/assets.js").asset
 
 exports.pages = {
+    index_test : {
+       path : "/index_test",
+       config: { tile_page: true, no_slides: true },
+       featured: [
+           content.videos.strata,
+           content.install.download_button,
+           content.books.graphdatabases,
+           content.videos.graphdb101,
+           "cypher_track_start",
+           "events",
+           "develop",
+           {"title":"Newsletter signup"},
+           "participate",
+           "graphistas_map"
+       ],
+       related: [
+       ]
+    },
     learn: {
         path: "/learn",
         title: "Learn",
@@ -210,7 +228,7 @@ exports.pages = {
         type: "track",
         title: "The Cypher track",
         thumbnail: asset("img/logo/cypher_small.gif"),
-        introText: "The Cypher track concentrates on the Cypher Graph Query language, making interaction with Neo4j framework independent.",
+        introText: "This path explores the incredible usefulness of the Cypher Graph Query language, which allows you work with Neo4j in an expressive and powerful way across all APIs.",
         actionText: "Start",
         next: ["cypher", "cypher_track_use"],
         prev: [],

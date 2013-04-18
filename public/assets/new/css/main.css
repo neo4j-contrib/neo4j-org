@@ -138,8 +138,10 @@ body {
 
     .featured .slide .content,
     .featured .slide .thumbnail {
-        width: 280px ! important;
-        min-width: 0 ! important;
+        min-width: 100% ! important;
+        height: auto ! important;
+        /*width: 280px ! important;*/
+        /*min-width: 0 ! important;*/
         float: left;
         margin: 0 ! important;
         position: relative;
@@ -236,8 +238,11 @@ body {
 
     .featured .slide .content,
     .featured .slide .thumbnail {
-        width: 470px ! important;
-        min-width: 0 ! important;
+        min-width: 100% ! important;
+        height: auto ! important;
+        
+        /*width: 470px ! important;*/
+        /*min-width: 0 ! important;*/
         float: left;
         margin: 0 ! important;
         position: relative;
@@ -832,7 +837,7 @@ ul.hor li {
     background: #fff;
     overflow: none; /* makes children expand this box to max height */
     width: 59em;
-    min-height: 30em;
+    height: auto;
 }
 
 .featured .slide {
@@ -844,9 +849,11 @@ ul.hor li {
 }
 
 .featured .slide .thumbnail {
-    max-width: 37em;
-    min-width: 25em;
-    max-height: 25em;
+    min-width: 100%;
+    height: auto;
+    /*max-width: 37em;*/
+    /*min-width: 25em;*/
+    /*max-height: 25em;*/
     display: inline-block;
     margin: 1.0em;
 }

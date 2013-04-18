@@ -1,0 +1,23 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        var version="1.9.RC1";
+        var edition="community";
+        var browserPlatform = navigator.platform.toUpperCase();
+        var os=browserPlatform.indexOf("WIN")!=-1 ? "Windows" : browserPlatform.indexOf("MAC")!=-1 ? "Mac" : "Unix";
+        var platform = os == "Windows" ? "windows" : "unix";
+        var link = $("#download_link");
+        link.attr("href","/download_thanks?edition="+edition+"&release="+version+"&platform="+(platform||"unix"))
+        link.find("[name=caption]").text("Neo4j "+version+" "+edition+" edition for "+os);
+    });
+</script>
+<div class="featured" class="mainElement">
+    <div class="slide download">
+
+<div style="vertical-align:middle;text-align:center;width:60%;" class="btn btn-install">
+    <a style="color: #ffffff" id="download_link" href="/download_thanks?edition=community&platform=unix">
+        <span style="font-size: 3em;"><i class="icon-download-alt"></i> Download Neo4j Server</span><br/>
+        <span name="caption">Neo4j </span>
+    </a>
+</div>
+</div>
+</div>

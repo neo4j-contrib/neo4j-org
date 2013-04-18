@@ -3,6 +3,10 @@ var asset = require("../helpers/assets.js").asset
 
 exports.content = {
     install:{
+        download_button: {
+            type: "include",
+            path: "partials/version/_download_button"
+        },
         milestone:{
             type:"version",
             title:"Neo4j Milestone Release 1.9.RC1",
@@ -209,6 +213,15 @@ neo4j start</pre>\
             thumbnail: asset("img/still/graphdb-intro.png"),
             introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
             src: "http://player.vimeo.com/video/50787208"
+        },
+        strata: {
+            key : "strata",
+            title: "Intro to Graph Databases, Emil Eifrem interviewed at Strata 2013",
+            type: "video",
+            author: "emileifrem",
+            thumbnail: "/assets/img/still/emil_strata_2013.gif",
+            introText: "Our CEO Emil Eifrem explains Graph Databases, Neo4j and the bigger NOSQL landscape",
+            src: "http://www.youtube.com/embed/GVkTBNgRrfw"
         },
         importing_sample_data : {
             title: "Importing Sample Datasets",
@@ -740,6 +753,10 @@ neo4j start</pre>\
             logo: asset("img/books/graphdatabases_v31.gif"),
             thumbnail: asset("img/books/graphdatabases_small.gif"),
             introText: '<a href="http://graphdatabases.com">Exclusive early access</a>  to the definitive book on graph databases</em>, published by O&quot;Reilly Media.<br />',
+            text: "Graph Databases, published by O’Reilly Media, discusses the problems that are well aligned with graph databases, " +
+                "with examples drawn from practical, real-world use cases. This book also looks at the ecosystem of complementary technologies, " +
+                "highlighting what differentiates graph databases from other database technologies, both relational and NOSQL. Graph Databases " +
+                "is written by Ian Robinson, Jim Webber, and Emil Eifrém, graph experts and enthusiasts at Neo Technology, creators of Neo4j.",
             actionText: 'Get your free e-book'
         },
         springdata: {

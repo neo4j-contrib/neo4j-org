@@ -1,0 +1,214 @@
+<% include head %>
+
+<script type="text/javascript">
+//    $("#navigation").hide();
+</script>
+<script type="text/javascript" src="<%=asset('js/d3.v2.min.js')%>"></script>
+<script type="text/javascript" src="<%=asset('js/graph-diagram.min.js')%>"></script>
+<link rel="stylesheet" href="<%=asset('css/graph-diagram.css')%>" type="text/css">
+<link rel="stylesheet" href="<%=asset('css/graph-editor.css')%>" type="text/css">
+
+<div class="badge">
+    <a href="http://graphdatabases.com" target="_blank"><img style="width: 12em; height: 12em" src="http://www.neotechnology.com/wp-content/uploads/2013/03/gd_neo4jweb.png"/></a>
+</div>
+        
+<div class="page"><!-- page -->
+
+    <h1>The World&#39;s Leading Graph Database</h1>
+    <p class="introText">Neo4j is an open-source, high-performance, enterprise-grade NOSQL graph database.</p>
+
+    <div id="canvas"></div>    
+    
+    <div class="lead">
+
+      <div class="col left">
+      <p>Neo4j is a robust (fully ACID) transactional <a href="/learn/graphdatabase">property graph</a> database. Due to its
+      graph data model, Neo4j is highly agile and blazing fast. For connected data
+      operations, <a href="/learn/neo4j">Neo4j</a> runs a thousand times faster than relational databases.</p>
+      </div>
+
+      <div class="col right">
+      <p>More than 20 of the Global 2000, hundreds of startups and thousands of community
+      members <a href="/develop">use Neo4j</a> in a wide variety of use cases such as social applications,
+      recommendation engines, fraud detection, resource authorization, network &
+      data center management and much more.</p>
+      </div>
+
+    </div><!-- lead -->
+
+    <div class="clear"></div>
+
+    <div class="featured" class="mainElement">
+        <div class="slide version">
+            <!--div class="content">
+                <img class="thumbnail" src="http://assets.neo4j.org/img/still/install.gif" data-src="http://player.vimeo.com/video/53838744">
+            </div>
+
+            <div class="">
+                <h3>Neo4j Server Download - Milestone Release 1.9.RC1</h3>
+
+                <p>Download and unzip. <br/>From the folder start Neo4j Server <br/>on Linux/Mac with <code>bin/neo4j
+                    start</code> from a terminal.<br/> On Win use <code>bin\Neo4j.bat start</code><br/> or double-click.<br/>
+                    Open <a href="http://localhost:7474" target="_blank"><code>http://localhost:7474</code></a> for the Web UI.</p>
+
+                <a class="link" href="http://blog.neo4j.org/2013/04/almost-there-neo4j-19rc1.html" target="_blank">Read More &raquo;</a>
+            </div-->
+            <div style="vertical-align:middle;text-align:center;">
+                <a style="width:60%;height:1em;font-size: 5em;color: #ffffff" id="download_link" href="/download_thanks?edition=community&release=1.9.RC1&platform=unix" class="btn btn-install">Download</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="featured" class="mainElement">
+        <div class="slide">
+            <a href="http://graphdatabases.com" target="_blank"><img src="http://assets.neo4j.org/img/books/graphdatabases_v31.gif" data-src="http://graphdatabases.com"></a>
+    
+            <div>
+                <div class="caption">
+                    <a href="http://graphdatabases.com" target="_blank"><h3 id="graphdatabases">Graph Databases</h3>  </a>
+    
+                    <h3><em>Jim Webber, Ian Robinson</em></h3>
+    
+                    <p class="introText"><a href="http://graphdatabases.com">Exclusive early access</a>  to the definitive book on graph databases</em>, published by O&quot;Reilly Media.<br /></p>
+                </div>
+                <div class="content">
+                    
+                </div>
+            </div>
+            <div class="clear"></div>
+    
+            <a class="link action" href="http://graphdatabases.com">Get your free e-book &raquo;</a>
+        </div>
+        
+    </div><!-- featured -->
+    
+    
+</div><!-- page -->
+<div id="twitter_bar">
+    <div><a class="twitter_user" href="" target="_blank"><img width="24" src=""/><span></span></a>: <span class="text"></span> - <a class="twitter_date" href="" target="_blank"></a></div>
+</div>    
+    
+<script type="text/javascript">
+    var tweets=[];
+    $(document).ready(function(){
+        function nextTweet() {
+            function reloadTweets() {
+                $.ajax("/api/tweets",{
+                    success: function(data) {
+                        tweets=data;
+                        if (tweets.length) nextTweet();
+                    }
+                })                
+            }
+            var tweet = tweets.shift();
+            if (!tweet) {
+               reloadTweets(); return;  
+            }
+            var seconds = (new Date() - Date.parse(tweet['created_at'])) / 1000;
+            var time = seconds + "s ago";
+            if (seconds > 3600 * 24) time = (seconds / 3600 / 24).toFixed() + "d ago";
+            else if (seconds > 3600 ) time = (seconds / 3600 ).toFixed() + "h ago";
+            else if (seconds > 60) time = (seconds / 60 ).toFixed() + "m ago";
+            var twitter = $("#twitter_bar div");
+            twitter.find("a.twitter_user img").attr("src",tweet['profile_image_url']);
+            twitter.find("a.twitter_user").attr("href","http://twitter.com/"+tweet['from_user']);
+            twitter.find("a.twitter_user span").text(tweet['from_user_name']);
+            twitter.find("span.text").html(tweet['rendered']);
+            twitter.find("a.twitter_date").html(time);
+            twitter.find("a.twitter_date").attr("href","http://twitter.com/"+tweet['from_user']+"/status/"+tweet['id_str']);;
+        }
+        nextTweet();
+        setInterval(nextTweet,10*1000);
+    })
+</script>    
+<% include foot %>
+        
+<textarea id="data" style="display: none">
+    <ul class="graph-diagram-markup" data-internal-scale="0.88" data-external-scale="2">
+      <li class="node" data-node-id="0" data-x="-3919.419722123577" data-y="-451.70513777299334" href="/learn">
+        <span class="caption">Learn</span>
+      </li>
+      <li class="node" data-node-id="1" data-x="-3306.0503928444596" data-y="-302.9124450683594" href="/participate">
+        <span class="caption">YOU</span>
+      </li>
+      <li class="node" data-node-id="2" data-x="-3592.6693872971978" data-y="-227.13553471998733" href="/participate">
+        <span class="caption">Community</span>
+      </li>
+      <li class="node" data-node-id="3" data-x="-3509.475708007809" data-y="5.412353515625046" href="/develop">
+        <span class="caption">Develop</span>
+      </li>
+      <li class="node" data-node-id="4" data-x="-4228.5688809481535" data-y="-88.23100280761732" href="/learn/graphdatabase">
+        <span class="caption">GraphDatabases</span>
+      </li>
+      <li class="node" data-node-id="5" data-x="-4200.0323153409145" data-y="-384.03535600142055" href="/learn/nosql">
+        <span class="caption">NOSQL</span>
+      </li>
+      <li class="node" data-node-id="6" data-x="-4119.2915371981535" data-y="137.04378856312127" href="/learn/neo4j">
+        <span class="caption">Neo4j</span>
+      </li>
+      <li class="node" data-node-id="8" data-x="-3788.915316495026" data-y="-11.132144581187674" href="/tracks/cypher">
+        <span class="caption">Cypher</span>
+      </li>
+      <li class="node" data-node-id="9" data-x="-3209.0544322620754" data-y="-77.77608143199554" href="/participate/q_and_a#stack_overflow">
+        <span class="caption">Questions</span>
+      </li>
+      <li class="node" data-node-id="10" data-x="-3604.1839710582376" data-y="-400.7141446200283" href="/participate/events/meetups">
+        <span class="caption">Meetups</span>
+      </li>
+      <li class="node" data-node-id="11" data-x="-3852.532681551844" data-y="-233.01546131480802" href="/participate/events/trainings">
+        <span class="caption">Training</span>
+      </li>
+      <li class="node" data-node-id="12" data-x="-3744.010375976559" data-y="197.1783641468397" href="/drivers">
+        <span class="caption">Drivers</span>
+      </li>
+      <li class="node" data-node-id="13" data-x="-3451.3750379735766" data-y="231.14791349931193" href="/download">
+        <span class="caption">Download</span>
+      </li>
+      <li class="relationship" data-from="3" data-to="1"></li>
+      <li class="relationship" data-from="0" data-to="4"></li>
+      <li class="relationship" data-from="0" data-to="5"></li>
+      <li class="relationship" data-from="5" data-to="4"></li>
+      <li class="relationship" data-from="4" data-to="6"></li>
+      <li class="relationship" data-from="3" data-to="8"></li>
+      <li class="relationship" data-from="8" data-to="6"></li>
+      <li class="relationship" data-from="1" data-to="9"></li>
+      <li class="relationship" data-from="1" data-to="10"></li>
+      <li class="relationship" data-from="0" data-to="10"></li>
+      <li class="relationship" data-from="0" data-to="11"></li>
+      <li class="relationship" data-from="11" data-to="6"></li>
+      <li class="relationship" data-from="11" data-to="8"></li>
+      <li class="relationship" data-from="11" data-to="3"></li>
+      <li class="relationship" data-from="9" data-to="3"></li>
+      <li class="relationship" data-from="2" data-to="3"></li>
+      <li class="relationship" data-from="2" data-to="1"></li>
+      <li class="relationship" data-from="3" data-to="12"></li>
+      <li class="relationship" data-from="12" data-to="6"></li>
+      <li class="relationship" data-from="12" data-to="8"></li>
+      <li class="relationship" data-from="13" data-to="12"></li>
+      <li class="relationship" data-from="13" data-to="3"></li>
+    </ul>
+</textarea>
+<script type="text/javascript" src="<%=asset('js/graph-editor.min.js')%>"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var timeout;
+        function updateCanvas() {
+            var h=$(".graphdiagram").height();
+            var w=$(".graphdiagram").width();
+            if (w < h ) { w = 3*h; }
+            $('#canvas').height(h);
+            $('#canvas').width(w);
+
+            // console.log("updateCanvas","width",$(".graphdiagram").width(),$(".graphdiagram").outerWidth(),"height",$(".graphdiagram").height())
+            // resizeRelatedItems();
+            //clearTimeout(timeout);
+            //timeout = setTimeout(nav.resize,2000);
+        }
+        window.useMarkupFromSelection("#data");
+        updateCanvas();
+        $(window).resize(updateCanvas);
+        var os = navigator.platform.toUpperCase().indexOf("WIN")==-1 ? "unix" : "windows";
+        $("#download_link").attr("href","/download_thanks?edition=community&release=1.9.RC1&platform="+(os||"unix"))
+    });
+</script>
