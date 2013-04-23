@@ -4,44 +4,46 @@ var video = require("./content").video
 var asset = require("../helpers/assets.js").asset
 
 exports.pages = {
-    index_test : {
-       path : "/index_test",
-       config: { tile_page: true, no_slides: true },
-       featured: [
-           content.videos.strata,
-           content.install.download_button,
-           content.books.graphdatabases,
-           content.videos.graphdb101,
-           "cypher_track_start",
-           "events",
-           "develop",
-           {"title":"Newsletter signup"},
-           "participate",
-           "graphistas_map"
-       ],
-       related: [
-       ]
+    index_test: {
+        path: "/index_test",
+        config: { tile_page: true, no_slides: true },
+        content: function (params) {
+            return render.include("partials/version/_index_test_head", params);
+        },
+        featured: [
+            content.videos.strata,
+            content.books.graphdatabases,
+            content.videos.graphdb101,
+            "cypher_track_start",
+            "events",
+            "develop",
+            {"title": "Newsletter signup"},
+            "participate",
+            "graphistas_map"
+        ],
+        related: [
+        ]
     },
     learn: {
         path: "/learn",
         title: "Learn",
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
-        featured: [content.books.graphdatabases,content.videos.graphdb101,content.videos.why_graphs],
-        related: ["graphdatabase","neo4j", "nosql","tracks", "cypher","production", "licensing",content.links.manual,"scientific"]
+        featured: [content.books.graphdatabases, content.videos.graphdb101, content.videos.why_graphs],
+        related: ["graphdatabase", "neo4j", "nosql", "tracks", "cypher", "production", "licensing", content.links.manual, "scientific"]
     },
     learn_graphdb: {
         path: "/learn_graphdb",
         title: "Learn",
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
-        featured: [content.videos.graphdb101,content.books.graphdatabases,content.videos.why_graphs],
-        related: ["graphdatabase","neo4j", "nosql","tracks", "cypher","production", "licensing",content.links.manual,"scientific"]
+        featured: [content.videos.graphdb101, content.books.graphdatabases, content.videos.why_graphs],
+        related: ["graphdatabase", "neo4j", "nosql", "tracks", "cypher", "production", "licensing", content.links.manual, "scientific"]
     },
     develop: {
         path: "/develop",
         title: "Develop",
         introText: "Find what you need to develop applications with Neo4j in a variety of languages and deployment scenarios.",
         featured: null,
-        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java","spring","ruby", "spatial","dotnet", "python", "scala", "php", "clojure"]
+        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java", "spring", "ruby", "spatial", "dotnet", "python", "scala", "php", "clojure"]
     },
     participate: {
         path: "/participate",
@@ -63,9 +65,9 @@ exports.pages = {
         content: function (params) {
             return render.include("_download_thanks", params);
         },
-        featured:[ content.videos.installing_neo4j],
+        featured: [ content.videos.installing_neo4j],
         related: [
-           
+
             "other_versions",
             content.install.upgrading,
             {
@@ -96,7 +98,7 @@ exports.pages = {
             //,content.install.stable
         ],
         related: [
-             //content.videos.installing_neo4j,
+            //content.videos.installing_neo4j,
             // content.install.milestone,
             // content.install.stable,
             //"graphdatabase",
@@ -292,53 +294,57 @@ exports.pages = {
             content.drivers.node_neo4j
         ]
     },
-    test : {
+    test: {
         path: "/develop/test",
         title: "Testing with Neo4j",
         introText: "Testing with Databases is always a challenge, there are some ways and tools to make testing easier with Neo4j.",
         featured: [
             content.links.gatling
         ],
-        related: [{
-            type: "link",
-            title: "NoSQL-Unit for testing Neo4j and Spring Data Neo4j",
-            author: "alexsotob",
-            path: "https://github.com/lordofthejars/nosql-unit#neo4j-engine",
-            introText: "Blog posts about using <a href='http://www.lordofthejars.com/2012/08/nosqlunit-032-released.html'>NOSQL-Unit with Neo4j</a>" +
-                " and <a href='http://www.lordofthejars.com/2013/03/testing-spring-data-neo4j-applications.html'>Testing Spring Data Neo4j applications</a>"
-        },
-        {
-            type: "link",
-            title: "Manual: Basic Unit Testing Neo4j",
-            author: "nawroth",
-            path: "http://docs.neo4j.org/chunked/stable/tutorials-java-unit-testing.html",
-            introText: "Short tutorial on how to unit-test embedded Neo4j applications."
-        }]
+        related: [
+            {
+                type: "link",
+                title: "NoSQL-Unit for testing Neo4j and Spring Data Neo4j",
+                author: "alexsotob",
+                path: "https://github.com/lordofthejars/nosql-unit#neo4j-engine",
+                introText: "Blog posts about using <a href='http://www.lordofthejars.com/2012/08/nosqlunit-032-released.html'>NOSQL-Unit with Neo4j</a>" +
+                    " and <a href='http://www.lordofthejars.com/2013/03/testing-spring-data-neo4j-applications.html'>Testing Spring Data Neo4j applications</a>"
+            },
+            {
+                type: "link",
+                title: "Manual: Basic Unit Testing Neo4j",
+                author: "nawroth",
+                path: "http://docs.neo4j.org/chunked/stable/tutorials-java-unit-testing.html",
+                introText: "Short tutorial on how to unit-test embedded Neo4j applications."
+            }
+        ]
     },
-    labels : {
+    labels: {
         path: "/develop/labels",
         title: "New: Labels and Indexes",
         introText: "A big new feature in Neo4j 2.0 are node labels and real, automatic indexes. Here you can quickly get an update on this extension of the property graph model.",
-        featured: [{
-            type: "video",
-            thumbnail: "https://dl.dropboxusercontent.com/u/14493611/Public%20Labels%20Presentation.png",
-            introText: "Short presentation about labels and indexes.",
-            src: "https://docs.google.com/presentation/d/14-_0rzxQAPgnk5HlqswaDT7QEuPgdvDpLZcbpb1puQU/embed?start=false&loop=false&delayms=3000",
-            title: "Labels and Indexes in Neo4j 2.0"
-        }],
+        featured: [
+            {
+                type: "video",
+                thumbnail: "https://dl.dropboxusercontent.com/u/14493611/Public%20Labels%20Presentation.png",
+                introText: "Short presentation about labels and indexes.",
+                src: "https://docs.google.com/presentation/d/14-_0rzxQAPgnk5HlqswaDT7QEuPgdvDpLZcbpb1puQU/embed?start=false&loop=false&delayms=3000",
+                title: "Labels and Indexes in Neo4j 2.0"
+            }
+        ],
         related: [
             {
                 type: "link",
                 path: "http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
                 title: "Nodes are people too",
-                author: ["akollegger","prathle"],
+                author: ["akollegger", "prathle"],
                 introText: "Release blog for 2.0.0-M01 discussing the reasoning behind labels and potential applications."
             },
             {
                 type: "article",
                 path: "http://docs.neo4j.org/chunked/preview/what-is-a-graphdb.html",
                 title: "Manual: Labels and Indexes",
-                author: ["systay","jakewins","boggle","tinwelint"],
+                author: ["systay", "jakewins", "boggle", "tinwelint"],
                 introText: "All major Neo4j API's can handle labels:<ul>\
                     <li>General: <a href='http://docs.neo4j.org/chunked/preview/graphdb-neo4j-schema.html'>schema</a></li>\
                     <li>Cypher: <a href='http://docs.neo4j.org/chunked/preview/query-match.html#match-match-with-labels'>match</a>,\
@@ -421,7 +427,7 @@ exports.pages = {
         title: "Pragmatic Licensing Guide",
         introText: "Neo4j's enterprise editions are provided by Neo Technology for use in commercial, non open-source deployments.",
         thumbnail: asset("img/logo/neotechnology_small.png"),
-        featured: [content.articles.licensing_guide,content.articles.licensing_guide_which],
+        featured: [content.articles.licensing_guide, content.articles.licensing_guide_which],
         related: [
             content.books.graphdatabases,
             {
@@ -481,7 +487,7 @@ exports.pages = {
         related: [
             content.books.graphdatabases,
             "neo4j",
-            content.videos.graphdb101,"cypher_track_start","nosql"]
+            content.videos.graphdb101, "cypher_track_start", "nosql"]
     },
     nosql: {
         path: "/learn/nosql",
@@ -497,7 +503,7 @@ exports.pages = {
             content.articles.nosql.document
         ],
         actionText: "Not only SQL",
-        related: ["graphdatabase","neo4j","cypher_track_start","licensing"]
+        related: ["graphdatabase", "neo4j", "cypher_track_start", "licensing"]
     },
     drivers: {
         path: "/develop/drivers",
@@ -521,7 +527,7 @@ exports.pages = {
         title: "Graph Database related Books",
         introText: "Learn more about Neo4j, Graph Theory and Graph Databases by reading these amazing books!",
         featured: [content.books.graphdatabases],
-        related: [content.books.springdata,content.books.goodrelationships, content.books.nosqldistilled, content.books.sevendatabases, content.books.neo4jinaction, content.books.visualcomplexity, content.books.connected]
+        related: [content.books.springdata, content.books.goodrelationships, content.books.nosqldistilled, content.books.sevendatabases, content.books.neo4jinaction, content.books.visualcomplexity, content.books.connected]
     },
     cloud: {
         path: "/develop/cloud",
@@ -875,15 +881,15 @@ exports.pages = {
         ],
         related: []  //"partners","licensing"
     },
-    trainings_US : { path: "/participate/events/trainings_US" },
-    trainings_EU : { path: "/participate/events/trainings_EU" },
-    trainings_DE : { path: "/participate/events/trainings_DE" },
-    conferences_US : { path: "/participate/events/conferences_US" },
-    conferences_EU : { path: "/participate/events/conferences_EU" },
-    conferences_DE : { path: "/participate/events/conferences_DE" },
-    meetups_US : { path: "/participate/events/meetups_US" },
-    meetups_EU : { path: "/participate/events/meetups_EU" },
-    meetups_DE : { path: "/participate/events/meetups_DE" },
+    trainings_US: { path: "/participate/events/trainings_US" },
+    trainings_EU: { path: "/participate/events/trainings_EU" },
+    trainings_DE: { path: "/participate/events/trainings_DE" },
+    conferences_US: { path: "/participate/events/conferences_US" },
+    conferences_EU: { path: "/participate/events/conferences_EU" },
+    conferences_DE: { path: "/participate/events/conferences_DE" },
+    meetups_US: { path: "/participate/events/meetups_US" },
+    meetups_EU: { path: "/participate/events/meetups_EU" },
+    meetups_DE: { path: "/participate/events/meetups_DE" },
     conferences: {
         path: "/participate/events/conferences",
         title: "Neo4j at Conferences",
@@ -924,7 +930,7 @@ exports.pages = {
         featured: [
             content.articles.learn, video('Ian Robinson  - What is a Graph Database? What is Neo4j?')
         ],
-        related: [content.videos.why_graphs,"graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "nosql","licensing", content.links.manual, "neo4j_server"]
+        related: [content.videos.why_graphs, "graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "nosql", "licensing", content.links.manual, "neo4j_server"]
     },
     reference_card: {
         path: "/learn/neo4j/reference_card",
@@ -1423,25 +1429,25 @@ exports.pages = {
         content: "",
         featured: [],
         related: [
-        {
-            type:"link",
-            author: "duanenickull",
-            title:"Duane explains the Neo4j-Shell",
-            path: "http://technoracle.blogspot.de/2012/04/neo4j-installing-running-and-shell.html",
-            introText: "In a detailed walkthrough Duane shows how to download and install Neo4j and explains how to use the shell to create nodes and relationships"
-        },
-        {
-            type:"link",
-            title:"Neo4j-Shell in the Manual",
-            path: "http://docs.neo4j.org/chunked/milestone/shell.html",
-            introText: "The manual describes how to use the shell, lists the individual commands and also explains how to extend it with your own commands."
-        },
-        {
-            type:"link",
-            title:"A sample shell session",
-            introText: "This session shows how to navigate in the shell, set properties and create nodes and relationships.",
-            path: "http://docs.neo4j.org/chunked/milestone/shell-sample-session.html"
-        }
+            {
+                type: "link",
+                author: "duanenickull",
+                title: "Duane explains the Neo4j-Shell",
+                path: "http://technoracle.blogspot.de/2012/04/neo4j-installing-running-and-shell.html",
+                introText: "In a detailed walkthrough Duane shows how to download and install Neo4j and explains how to use the shell to create nodes and relationships"
+            },
+            {
+                type: "link",
+                title: "Neo4j-Shell in the Manual",
+                path: "http://docs.neo4j.org/chunked/milestone/shell.html",
+                introText: "The manual describes how to use the shell, lists the individual commands and also explains how to extend it with your own commands."
+            },
+            {
+                type: "link",
+                title: "A sample shell session",
+                introText: "This session shows how to navigate in the shell, set properties and create nodes and relationships.",
+                path: "http://docs.neo4j.org/chunked/milestone/shell-sample-session.html"
+            }
         ]
     },
     import_shell: {
@@ -1479,13 +1485,13 @@ exports.pages = {
         content: '<iframe width="100%" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=215787240736307886514.00049e70e573cbd8a91e5&amp;t=m&amp;ll=24.527135,-20.039062&amp;spn=123.963155,225&amp;z=2&amp;output=embed"></iframe>',
         featured: [],
         related: [],
-        actionText : "Add yourself"
+        actionText: "Add yourself"
     },
     spatial: {
         path: "/develop/spatial",
         thumbnail: asset("img/apps/spatial.png"),
         title: "Neo4j Spatial - Spatial Search and GIS Integration",
-        author: ["peterneubauer","craigtaverner"],
+        author: ["peterneubauer", "craigtaverner"],
         introText: "Neo4j Spatial is a library of utilities for Neo4j that faciliates the enabling of spatial operations on data.",
         content: "In particular you can add spatial indexes to already located data, and perform spatial operations on the data like searching for data within specified regions or within a specified distance of a point of interest. In addition classes are provided to expose the data to geotools and thereby to geotools enabled applications like geoserver and uDig.",
         featured: [
@@ -1505,21 +1511,21 @@ exports.pages = {
                 thumbnail: "https://lh6.googleusercontent.com/-MNE5dXgAZlw/TXP4SoXwlbI/AAAAAAAAA_o/J0Zos7BFnPM/s570/neo4j-spatial-text2.png",
                 title: "Neo4j Spatial Part 1 - Finding things close to other things",
                 author: "craigtaverner",
-                introText : "Geography is a natural domain for graphs and graph databases, the Neo4j Spatial project has been providing early access releases enabling a wide range of convenient and powerful geographic capabilities in the Neo4j database.",
+                introText: "Geography is a natural domain for graphs and graph databases, the Neo4j Spatial project has been providing early access releases enabling a wide range of convenient and powerful geographic capabilities in the Neo4j database.",
                 path: "http://blog.neo4j.org/2011/03/neo4j-spatial-part1-finding-things.html"
             }
         ],
         related: [
             {
-                type:"link",
+                type: "link",
                 title: "Neo4j Spatial on GitHub",
                 introText: "Neo4j Spatial is an open-source library of utilities for Neo4j that faciliates the enabling of spatial operations on data. Besides basic spatial search it also integrates with geoserver and uDig.",
-                author: ["peterneubauer","craigtaverner","amorgner"],
+                author: ["peterneubauer", "craigtaverner", "amorgner"],
                 thumbnail: asset("img/logo/github.png"),
                 path: "http://github.com/neo4j/spatial"
             },
             {
-                type:"link",
+                type: "link",
                 title: "Running along the graph using Neo4J Spatial and Gephi",
                 introText: "Could there be a correlation between my average pace and my distance from home? In order to come up with answers to these questions, I will import my running data into a Neo4J Spatial datastore.",
                 content: "Neo4J Spatial extends the Neo4J Graph Database with the necessary tools and utilities to store and query spatial data in your graph models. For visualizing my running data, I will make use of Gephi, an open-source visualization and manipulation tool that allows users to interactively browse and explore graphs.",
@@ -1528,7 +1534,7 @@ exports.pages = {
                 path: "http://datablend.be/?p=1255"
             },
             {
-                type:"video",
+                type: "video",
                 author: "craigtaverner",
                 title: "Geoprocessing with Neo4j-Spatial and OSM",
                 introText: "Geographic data is naturally structured like a graph, and topological analyses view GIS data as graphs, but until now no-one has tried to make use of a real graph database as the backing store for a GIS. The developers of Neo4j have added features to the popular open source graph database to provide for support for spatial indexing, storage and topology. In addition to these core components, there are a number of useful utilities for importing and exporting data from other popular data sources, and enabling the use of this database in well known libraries and applications in the open source GIS environment. <br/>There are <a href='http://de.slideshare.net/search/slideshow?searchfrom=header&q=%22neo4j+spatial%22'>several presentations around Neo4j Spatial</a>",
@@ -1536,44 +1542,44 @@ exports.pages = {
                 path: "http://slideshare.net/craigtaverner/geoprocessing-with-neo4jspatial-and-osm-11747942"
             },
             {
-                type:"link",
+                type: "link",
                 title: "Neo4j Spatial Ruby Gem",
-                tags: ["ruby","spatial"],
+                tags: ["ruby", "spatial"],
                 author: "craigtaverner",
                 introText: "The Neo4j-Spatial.rb wrapper allows you to access Neo4j-Spatial features from the convenience of the Ruby scripting language.",
                 thumbnail: asset("img/languages/ruby.png"),
                 path: "https://rubygems.org/gems/neo4j-spatial"
             },
             {
-                type:"link",
+                type: "link",
                 title: "Clojure/Java Interop – Importing neo4j spatial data",
-                tags: ["clojure","spatial"],
+                tags: ["clojure", "spatial"],
                 introText: "I wrote a post about a week ago where I described how I’d <a href='http://www.markhneedham.com/blog/2013/03/10/neo4jcypher-finding-football-stadiums-near-a-city-using-spatial/' target='_blank'>added football stadiums to my football graph</a> using neo4j spatial and after I’d done that I wanted to put it into my import script along with the rest of the data. That worked reasonably well but I thought it’d be interesting to see what the above code would look like if it was written in clojure instead.",
                 author: "markhneedham",
                 thumbnail: asset("img/languages/clojure.png"),
                 path: "http://www.markhneedham.com/blog/2013/03/17/clojurejava-interop-importing-neo4j-spatial-data/"
             },
             {
-                type:"link",
+                type: "link",
                 title: "Neo4j Spatial Scala wrapper library",
-                tags: ["scala","spatial"],
+                tags: ["scala", "spatial"],
                 author: "fakod",
                 thumbnail: asset("img/languages/scala.png"),
                 path: "https://github.com/FaKod/neo4j-spatial-scala"
             },
             {
-                type:"link",
+                type: "link",
                 title: "Neo4j Spatial Starter Project",
-                tags: ["intro","java","spatial"],
+                tags: ["intro", "java", "spatial"],
                 author: "rhetonik",
                 introText: "Start off with Neo4j spatial by importing an OSM file. This project aims at a single command for setting up neo4j-spatial followed by an OSM import.",
                 thumbnail: asset("img/languages/java.jpg"),
                 path: "https://github.com/neo4j-india/neo4j-spatial-starters"
             },
             {
-                type:"link",
+                type: "link",
                 title: "Neo4j Spatial Support in Spring Data Neo4j",
-                tags: ["sdn","java","spatial"],
+                tags: ["sdn", "java", "spatial"],
                 introText: "Spring Data Neo4j supports Spatial extensions via the Neo4j Spatial index provider. It offers automatic spatial indexing and method for finding entities in spatial geometries.",
                 author: "mesirii",
                 thumbnail: asset("img/languages/sdn.png"),

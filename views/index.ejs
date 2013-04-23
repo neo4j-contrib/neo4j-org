@@ -3,8 +3,6 @@
 <script type="text/javascript">
 //    $("#navigation").hide();
 </script>
-<script type="text/javascript" src="<%=asset('js/d3.v2.min.js')%>"></script>
-<script type="text/javascript" src="<%=asset('js/graph-diagram.min.js')%>"></script>
 <link rel="stylesheet" href="<%=asset('css/graph-diagram.css')%>" type="text/css">
 <link rel="stylesheet" href="<%=asset('css/graph-editor.css')%>" type="text/css">
 
@@ -76,89 +74,4 @@
 </script>    
 <% include foot %>
         
-<textarea id="data" style="display: none">
-    <ul class="graph-diagram-markup" data-internal-scale="0.88" data-external-scale="2">
-      <li class="node" data-node-id="0" data-x="-3919.419722123577" data-y="-451.70513777299334" href="/learn">
-        <span class="caption">Learn</span>
-      </li>
-      <li class="node" data-node-id="1" data-x="-3306.0503928444596" data-y="-302.9124450683594" href="/participate">
-        <span class="caption">YOU</span>
-      </li>
-      <li class="node" data-node-id="2" data-x="-3592.6693872971978" data-y="-227.13553471998733" href="/participate">
-        <span class="caption">Community</span>
-      </li>
-      <li class="node" data-node-id="3" data-x="-3509.475708007809" data-y="5.412353515625046" href="/develop">
-        <span class="caption">Develop</span>
-      </li>
-      <li class="node" data-node-id="4" data-x="-4228.5688809481535" data-y="-88.23100280761732" href="/learn/graphdatabase">
-        <span class="caption">GraphDatabases</span>
-      </li>
-      <li class="node" data-node-id="5" data-x="-4200.0323153409145" data-y="-384.03535600142055" href="/learn/nosql">
-        <span class="caption">NOSQL</span>
-      </li>
-      <li class="node" data-node-id="6" data-x="-4119.2915371981535" data-y="137.04378856312127" href="/learn/neo4j">
-        <span class="caption">Neo4j</span>
-      </li>
-      <li class="node" data-node-id="8" data-x="-3788.915316495026" data-y="-11.132144581187674" href="/tracks/cypher">
-        <span class="caption">Cypher</span>
-      </li>
-      <li class="node" data-node-id="9" data-x="-3209.0544322620754" data-y="-77.77608143199554" href="/participate/q_and_a#stack_overflow">
-        <span class="caption">Questions</span>
-      </li>
-      <li class="node" data-node-id="10" data-x="-3604.1839710582376" data-y="-400.7141446200283" href="/participate/events/meetups">
-        <span class="caption">Meetups</span>
-      </li>
-      <li class="node" data-node-id="11" data-x="-3852.532681551844" data-y="-233.01546131480802" href="/participate/events/trainings">
-        <span class="caption">Training</span>
-      </li>
-      <li class="node" data-node-id="12" data-x="-3744.010375976559" data-y="197.1783641468397" href="/drivers">
-        <span class="caption">Drivers</span>
-      </li>
-      <li class="node" data-node-id="13" data-x="-3451.3750379735766" data-y="231.14791349931193" href="/download">
-        <span class="caption">Download</span>
-      </li>
-      <li class="relationship" data-from="3" data-to="1"></li>
-      <li class="relationship" data-from="0" data-to="4"></li>
-      <li class="relationship" data-from="0" data-to="5"></li>
-      <li class="relationship" data-from="5" data-to="4"></li>
-      <li class="relationship" data-from="4" data-to="6"></li>
-      <li class="relationship" data-from="3" data-to="8"></li>
-      <li class="relationship" data-from="8" data-to="6"></li>
-      <li class="relationship" data-from="1" data-to="9"></li>
-      <li class="relationship" data-from="1" data-to="10"></li>
-      <li class="relationship" data-from="0" data-to="10"></li>
-      <li class="relationship" data-from="0" data-to="11"></li>
-      <li class="relationship" data-from="11" data-to="6"></li>
-      <li class="relationship" data-from="11" data-to="8"></li>
-      <li class="relationship" data-from="11" data-to="3"></li>
-      <li class="relationship" data-from="9" data-to="3"></li>
-      <li class="relationship" data-from="2" data-to="3"></li>
-      <li class="relationship" data-from="2" data-to="1"></li>
-      <li class="relationship" data-from="3" data-to="12"></li>
-      <li class="relationship" data-from="12" data-to="6"></li>
-      <li class="relationship" data-from="12" data-to="8"></li>
-      <li class="relationship" data-from="13" data-to="12"></li>
-      <li class="relationship" data-from="13" data-to="3"></li>
-    </ul>
-</textarea>
-<script type="text/javascript" src="<%=asset('js/graph-editor.min.js')%>"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        var timeout;
-        function updateCanvas() {
-            var h=$(".graphdiagram").height();
-            var w=$(".graphdiagram").width();
-            if (w < h ) { w = 3*h; }
-            $('#canvas').height(h);
-            $('#canvas').width(w);
-
-            // console.log("updateCanvas","width",$(".graphdiagram").width(),$(".graphdiagram").outerWidth(),"height",$(".graphdiagram").height())
-            // resizeRelatedItems();
-            //clearTimeout(timeout);
-            //timeout = setTimeout(nav.resize,2000);
-        }
-        window.useMarkupFromSelection("#data");
-        updateCanvas();
-        $(window).resize(updateCanvas);
-    });
-</script>
+<% include graph %>
