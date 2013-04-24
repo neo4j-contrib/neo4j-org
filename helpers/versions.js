@@ -7,14 +7,14 @@ exports.load = function (app) {
 
     locals({
         neo4j:{
-            version:"1.9.M03",
+            version:"1.9.RC1",
             date:"Dec 21, 2012",
             summary:"Cypher improvements, Gremlin refactoring",
             readme:"http://blog.neo4j.org/2012/12/neo4j-19m03-released.html"
         }, neo4jGA:{
             version:"1.8.1", date:"Dec 14, 2012", summary:"General Availability", readme:"http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html"
         }, neo4jP:{
-            version:"2.0.0-M01", date:"Apr 03, 2013", summary:"Preview", readme:"http://blog.neo4j.org"
+            version:"2.0.0-M02", date:"Apr 22, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html"
         }, neo4jS:{
             version:"1.9-SNAPSHOT",
             date:"2013",

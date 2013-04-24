@@ -44,6 +44,17 @@ exports.content = {
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
+        "2_0_0_M02":{
+            type:"version",
+            title:"Neo4j Preview 2.0.0-M02",
+            stability:"preview",
+            version:"2.0.0-M02",
+            date:"2013",
+            introText:"Node Labels, automatic indexes, transactional Cypher HTTP, highly cool and unstable. Don't try this at work!",
+            path:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
+            thumbnail: asset("img/still/install.gif"),
+            src: "http://player.vimeo.com/video/53838744"
+        },
         "1_7_2":{
             type:"version",
             title:"Neo4j Stable Release 1.7.2",

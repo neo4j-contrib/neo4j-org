@@ -84,7 +84,7 @@ exports.pages = {
             //"graphdatabase",
             //"develop",
             //"participate",
-            content.install["2_0_0_M01"],
+            content.install["2_0_0_M02"],
             "other_versions",
             content.install.upgrading,
             "licensing",
