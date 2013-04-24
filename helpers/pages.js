@@ -8,18 +8,29 @@ exports.pages = {
         path: "/index_test",
         config: { tile_page: true, no_slides: true },
         content: function (params) {
-            return render.include("partials/version/_index_test_head", params);
+            return render.include("partials/_index_test", params);
         },
         featured: [
-            content.videos.strata,
-            content.books.graphdatabases,
-            content.videos.graphdb101,
-            "cypher_track_start",
-            "events",
-            "develop",
-            {"title": "Newsletter signup"},
-            "participate",
-            "graphistas_map"
+            "index_test_block1"
+//            content.books.graphdatabases,
+//            content.videos.graphdb101,
+//            "cypher_track_start",
+//            "events",
+//            "develop",
+//            {"title": "Newsletter signup"},
+//            "participate",
+        ],
+        related: [
+        ]
+    },
+
+    index_test_block1: {
+        path: "/index_test",
+        config: { tile_page: true, no_slides: true },
+        content: function (params) {
+            return render.include("partials/landing_blocks/block_what", params);
+        },
+        featured: [
         ],
         related: [
         ]

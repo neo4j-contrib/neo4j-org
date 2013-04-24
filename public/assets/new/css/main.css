@@ -775,7 +775,7 @@ ul.hor li {
 .lead {
     width: 60em;
     /*min-height: 1.7em;*/
-    height: 7em;
+    /*height: 7em;*/
     padding: 0;
     margin: 2em 0 1em 0;
 }
