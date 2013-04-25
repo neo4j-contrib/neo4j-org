@@ -11,7 +11,10 @@ exports.pages = {
             return render.include("partials/_index_test", params);
         },
         featured: [
-            "index_test_block1"
+            "index_test_block_what",
+            "index_test_block_where",
+            "index_test_block_how",
+            "index_test_block_menu"
 //            content.books.graphdatabases,
 //            content.videos.graphdb101,
 //            "cypher_track_start",
@@ -24,11 +27,44 @@ exports.pages = {
         ]
     },
 
-    index_test_block1: {
+    index_test_block_what: {
         path: "/index_test",
         config: { tile_page: true, no_slides: true },
         content: function (params) {
             return render.include("partials/landing_blocks/block_what", params);
+        },
+        featured: [
+        ],
+        related: [
+        ]
+    },
+    index_test_block_how: {
+        path: "/index_test",
+        config: { tile_page: true, no_slides: true },
+        content: function (params) {
+            return render.include("partials/landing_blocks/block_how", params);
+        },
+        featured: [
+        ],
+        related: [
+        ]
+    },
+    index_test_block_where: {
+        path: "/index_test",
+        config: { tile_page: true, no_slides: true },
+        content: function (params) {
+            return render.include("partials/landing_blocks/block_where", params);
+        },
+        featured: [
+        ],
+        related: [
+        ]
+    },
+    index_test_block_menu: {
+        path: "/index_test",
+        config: { tile_page: true, no_slides: true },
+        content: function (params) {
+            return render.include("partials/landing_blocks/block_menu", params);
         },
         featured: [
         ],

@@ -586,3 +586,9 @@ section {
     background-color: yellow;
     font-weight: bold;
 }
+
+.navlogo {
+    background: url("http://localhost:3000//assets/img/logo/neo4j_front_logo.png") top left no-repeat;
+    width: 100%;
+    height: 100%;
+}
