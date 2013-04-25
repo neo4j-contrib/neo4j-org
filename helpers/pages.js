@@ -11,10 +11,13 @@ exports.pages = {
             return render.include("partials/_index_test", params);
         },
         featured: [
-            "index_test_block_what",
+            "neo4j",
+//            "apps",
+//            "index_test_block_what",
             "index_test_block_where",
-            "index_test_block_how",
-            "index_test_block_menu"
+            content.videos.cypher,
+//            "index_test_block_how",
+//            "index_test_block_menu"
 //            content.books.graphdatabases,
 //            content.videos.graphdb101,
 //            "cypher_track_start",
@@ -28,7 +31,7 @@ exports.pages = {
     },
 
     index_test_block_what: {
-        path: "/index_test",
+        path: "/index_test_block_what",
         config: { tile_page: true, no_slides: true },
         content: function (params) {
             return render.include("partials/landing_blocks/block_what", params);
@@ -39,7 +42,7 @@ exports.pages = {
         ]
     },
     index_test_block_how: {
-        path: "/index_test",
+        path: "/index_test_block_how",
         config: { tile_page: true, no_slides: true },
         content: function (params) {
             return render.include("partials/landing_blocks/block_how", params);
@@ -50,8 +53,12 @@ exports.pages = {
         ]
     },
     index_test_block_where: {
-        path: "/index_test",
+        path: "/index_test_block_where",
         config: { tile_page: true, no_slides: true },
+        title: "Where is Neo4j used?",
+        introText: "<p>Neo4j is used in a lot of different settings, from fincancial, spatial and social applications " +
+            "to datacenters and TelCo backend systems.</p><p>Check out sample applications and some of the community projects to find something " +
+            "that is interesting to your problem domain.</p>",
         content: function (params) {
             return render.include("partials/landing_blocks/block_where", params);
         },
