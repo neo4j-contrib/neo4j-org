@@ -5,10 +5,10 @@ exports.content = {
     install:{
         milestone:{
             type:"version",
-            title:"Neo4j Milestone Release 1.9.RC1",
-            version:"1.9.RC1",
+            title:"Neo4j Milestone Release 1.9.RC2",
+            version:"1.9.RC2",
             stability:"milestone",
-            date:"Apr 15, 2013",
+            date:"Apr 30, 2013",
             introText:"Release Candidate with incremental changes",
             path:"http://blog.neo4j.org/2013/04/almost-done-neo4j-19rc1.html",
             thumbnail: asset("img/still/install.gif"),
