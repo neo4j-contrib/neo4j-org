@@ -194,6 +194,14 @@ neo4j start</pre>\
             introText: "Cypher is a graph query language. Easy on the eyes, while expressive and powerful.",
             src: "http://player.vimeo.com/video/50389825"
         },
+        cypher_console: {
+            title: "Introduction to the Cypher Console",
+            type: "video",
+            author: "peterneubauer",
+            thumbnail: asset("img/still/cypher_console_in_5_mins.gif"),
+            introText: "A five minute introduction to the versatile <a href='http://console.neo4j.org' target='_blank'>console.neo4j.org</a> cypher console which can be used for exploration, sharing, testing, bug reporting and much more.",
+            src: "http://player.vimeo.com/video/56097037"
+        },
         cypher_sublime: {
             title: "Installing Sublime Text support for Cypher and Neo4j",
             type: "video",
@@ -1239,6 +1247,19 @@ neo4j start</pre>\
             tags: ["jvm","jpa"],
             name: "Kundera",
             text: "Kundera is a JPA 2.0 compliant, object-datastore mapping library for NoSQL datastores."
+        },
+        neo4j_js: {
+            type: "driver",
+            url: "https://github.com/bretcope/neo4j-js",
+            forum: "https://github.com/bretcope/neo4j-js/issues",
+            source: "https://github.com/bretcope/neo4j-js",
+            docs: "https://github.com/bretcope/neo4j-js/blob/master/docs/Documentation.md",
+            examples: "https://github.com/bretcope/neo4j-js#usage",
+            logo: asset("img/languages/nodejs.png"),
+            authors: ["Bret Copeland"],
+            tags: ["rest","javascript"],
+            name: "Neo4j-js",
+            text: "A Node.js (pure JavaScript) client library for accessing neo4j databases with batch support."
         }
     }
 }

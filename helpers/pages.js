@@ -82,6 +82,8 @@ exports.pages = {
             //"participate",
             content.install["2_0_0_M02"],
             "other_versions",
+            "linux",
+            "windows",
             content.install.upgrading,
             "licensing",
             {
@@ -91,7 +93,6 @@ exports.pages = {
                 path: "http://docs.neo4j.org/chunked/stable/server-installation.html"
             },
             "maven",
-            "linux",
             content.install.homebrew
         ]
     },
@@ -226,7 +227,7 @@ exports.pages = {
         actionText: "Start",
         next: ["cypher", "cypher_track_use"],
         prev: [],
-        featured: [content.videos.cypher],
+        featured: [content.videos.cypher,content.videos.cypher_console],
         related: [ "reference_card", content.links.cypher_cheat_sheet, content.videos.cypher, 
             video('Interview: Michael Hunger discusses Cypher transition from SQL'),
             content.videos.cypher_sublime
@@ -314,7 +315,16 @@ exports.pages = {
         path: "/develop/labels",
         title: "New: Labels and Indexes",
         introText: "A big new feature in Neo4j 2.0 are node labels and real, automatic indexes. Here you can quickly get an update on this extension of the property graph model.",
-        featured: [{
+        featured: [
+        {
+            type: "video",
+            thumbnail: asset("img/still/Neo4j-2.0-Screencast-Title.jpg"),
+            introText: "Screencast about labels and indexes and how to evolve a pre 2.0 dataset (cineasts) to use them.",
+            author: "mesirii",
+            src: "http://player.vimeo.com/video/63707662",
+            title: "Screencast on using labels and indexes"
+        },
+        {
             type: "video",
             thumbnail: "https://dl.dropboxusercontent.com/u/14493611/Public%20Labels%20Presentation.png",
             introText: "Short presentation about labels and indexes.",
@@ -359,6 +369,20 @@ exports.pages = {
                 title: "Cool first Neo4j 2.0 milestone – Now with Labels and “real” Indexes",
                 author: ["mesirii"],
                 introText: "Introducing labels in the cineasts domain model, and featuring a screencast upgrading cineasts to use labels instead of indexes."
+            },
+            {
+                type: "link",
+                path: "http://jexp.de/blog/2013/05/on-creating-a-mapdb-schema-index-provider-for-neo4j-2-0/",
+                title: "Creating a MapDB Schema Index Provider for Neo4j 2.0",
+                author: ["mesirii"],
+                introText: "Neo4j 2.0 introduced the concept of real automatic indexes with a new underlying indexing subsystem SPI. So I thought it would be really helpful to try it out and provide a faster indexing implementation than the default lucene one. I chose <a href='http://mapdb.org/'>MapDB</a> for it and the results are <a href='https://github.com/jexp/neo4j-mapdb-index'>here on github</a>."
+            },
+            {
+                type: "video",
+                src : "http://player.vimeo.com/video/61876938",
+                title: "Screencast Labels and Indexes",
+                author: ["Mattias Persson"],
+                introText: "Quick Console session to show off labels and indexes."
             }
         ]
     },
@@ -500,7 +524,7 @@ exports.pages = {
         introText: "Friends of Neo4j speak many languages, and work in many frameworks.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
         featured: null,
-        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp", "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "bulbflow", "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go", "kundera"]
+        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp", "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "bulbflow", "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go", "kundera","neo4j_js"]
     },
     tools: {
         path: "/develop/tools",
@@ -1188,6 +1212,45 @@ exports.pages = {
         related: [
             content.drivers.py2neo, content.drivers.neo4j_rest_client, content.drivers.bulbflow, content.drivers.neo4django, content.drivers.neo4j_python,
             "technige"
+        ]
+    },
+    javascript: {
+        path: "/develop/javascript",
+        title: "Neo4j and Javascript",
+        introText: "Javascript and friends are the new love-child of developers. That's why people love to use Neo4j from Node.js and the browser.",
+        thumbnail: asset("img/languages/javascript.png"),
+        featured: [
+            {
+                type: "video",
+                title: "Node.js to Heroku with Neo4j",
+                src: "http://www.youtube.com/embed/S_dJaxOeccU",
+                author: "Johnny Luu",
+                img: asset("img/still/nodejs_heroku_neo4j.gif"),
+                introText: "Johnny Luu walks through the steps of creating a Node.js application that uses the Heroku Neo4j Addon"
+            }
+        ],
+        related: [
+            content.drivers.node_neo4j, 
+            content.drivers.neo4js,
+            {
+                type: "link",
+                path: "http://aseemk.com/talks/neo4j-with-nodejs",
+                thumbnail: "http://aseemk.com/images/neo4j-lessons-learned/thingdom-graph1.jpg",
+                title: "Graph all the things",
+                introText: "Aseem shares his insights in using Neo4j with Node.js",
+                author: "aseemk"
+            },
+            content.drivers.neo4j_js,
+            {
+                type: "link",
+                path: "http://maxdemarzi.com/tag/javascript/",
+                thumbnail: asset("img/apps/neosocial.png"),
+                title: "Graph Visualizations with Javascript",
+                introText: "Max De Marzi uses Javascript to visualize a plenthora of graph use cases with Neo4j",
+                author: "maxdemarzi"
+            },
+            "visualize"
+            
         ]
     },
     php: {
