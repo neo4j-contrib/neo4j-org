@@ -23,7 +23,7 @@ exports.pages = {
         title: "Develop",
         introText: "Find what you need to develop applications with Neo4j in a variety of languages and deployment scenarios.",
         featured: null,
-        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java","spring","ruby", "spatial","dotnet", "python", "scala", "php", "clojure"]
+        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java","javascript","spring","ruby", "spatial","dotnet", "python", "scala", "php", "clojure"]
     },
     participate: {
         path: "/participate",
