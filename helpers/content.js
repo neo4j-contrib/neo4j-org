@@ -2,7 +2,12 @@ var render = require('./render');
 var asset = require("../helpers/assets.js").asset
 
 exports.content = {
-    install:{
+    install: { 
+        releases: {
+            type:"include",
+            title:"Neo4j Releases",
+            path:"/partials/version/_main"
+        },
         milestone:{
             type:"version",
             title:"Neo4j Milestone Release 1.9.RC2",
@@ -89,6 +94,14 @@ exports.content = {
             type: "article",
             title: "Maven Dependency",
             content: function(params) { return render.include("download/_embedded_dependency",params); }
+        },
+        windows: {
+            type: "video",
+            title: "Windows 8 Installation",
+            author: "peterneubauer",
+            introText: "Installing Neo4j on Windows 8 requires a few steps which are outlined in this video.",
+            src: "http://player.vimeo.com/video/63158030",
+            thumbnail: asset("img/still/neo4j_install_windows8.gif")
         },
         debian: {
             type: "video",
@@ -181,6 +194,14 @@ neo4j start</pre>\
             introText: "Cypher is a graph query language. Easy on the eyes, while expressive and powerful.",
             src: "http://player.vimeo.com/video/50389825"
         },
+        cypher_sublime: {
+            title: "Installing Sublime Text support for Cypher and Neo4j",
+            type: "video",
+            thumbnail: asset("img/still/cypher.png"),
+            introText: "This is a small walkthrough to install 2 very useful Sublime Text 2 plugins by <a href='http://twitter.com/kollhof'>@kollhof</a> and <a href='http://twitter.com/sqlcook'>@sqlcook</a> when working with Neo4j.",
+            src: "http://player.vimeo.com/video/64886333",
+            author: "peterneubauer"
+        },
         cypher_advanced: {
             title: "Advanced Cypher Webinar",
             type: "video",
@@ -256,6 +277,23 @@ neo4j start</pre>\
                 author: "maxdemarzi",
                 introText: "Max De Marzi explains how to use the Scala based load testing tool Gatling to test a Neo4j Server."
 
+        },
+        install_windows: {
+            type: "link",
+            title: "How to Install Neo4j on Windows - Avoiding the Pitfalls",
+            author: "jongallant",
+            path: "http://blog.jongallant.com/2013/03/install-neo4j-windows.html"
+        },
+        azure_vs2012: {
+            type: "link",
+            title: "How to deploy Neo4j to Azure with Visual Studio 2012 - A step-by-step guide.",
+            author: "jongallant",
+            path: "http://blog.jongallant.com/2013/03/neo4j-azure-vs2012.html"
+        },
+        azure:{
+            type:"link",
+            title:"Neo4j on Azure",
+            path:"http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"
         },
         wes_cypher: {
             type : "link",

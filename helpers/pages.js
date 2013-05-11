@@ -68,11 +68,7 @@ exports.pages = {
         content: ""// render.include("download/installation")
         ,
         featured: [
-            {
-                type: "include",
-                title: "Neo4j Releases",
-                path: "/partials/version/_main"
-            }
+            content.install.releases
             //content.videos.installing_neo4j,
             // content.install.milestone
             //,content.install.stable
@@ -129,6 +125,22 @@ exports.pages = {
         featured: [
             content.install.debian,
             content.install.puppet
+        ]
+    },
+    windows: {
+        path: "/download/windows",
+        title: "Windows Installation",
+        actionText: "Install on Windows",
+        introText: "Installing Neo4j on Windows from scratch is just a few steps away",
+        featured: [
+            content.install.windows,             
+            content.install.releases
+        ],
+        related: [
+            content.links.install_windows,
+            content.links.azure_vs2012,
+            "dotnet",
+            content.drivers.neo4jclient
         ]
     },
     scientific: {
@@ -215,8 +227,9 @@ exports.pages = {
         next: ["cypher", "cypher_track_use"],
         prev: [],
         featured: [content.videos.cypher],
-        related: [ "reference_card", content.links.cypher_cheat_sheet, content.videos.cypher, video('Interview: Michael Hunger discusses Cypher transition from SQL')
-
+        related: [ "reference_card", content.links.cypher_cheat_sheet, content.videos.cypher, 
+            video('Interview: Michael Hunger discusses Cypher transition from SQL'),
+            content.videos.cypher_sublime
         ]
     },
     cypher_track_use: {
@@ -512,7 +525,7 @@ exports.pages = {
         thumbnail: asset("img/neo4j/neo4j_cloud.png"),
         actionText: "Neo4j in the Cloud",
         featured: [content.videos.james_ward_neo4j],
-        related: ["heroku", "ec2", content.install.debian]
+        related: ["heroku", "ec2", content.install.debian, content.links.azure_vs2012]
     },
     ec2: {
         path: "/develop/ec2",
@@ -1131,6 +1144,8 @@ exports.pages = {
         ],
         related: [
             content.drivers.neo4jclient,
+            content.install.windows,
+            content.links.install_windows,
             {
                 type: "link",
                 title: "Neo4j Koans in .net using Neo4jClient",
@@ -1152,11 +1167,9 @@ exports.pages = {
                 introText: "Ariel discusses the options connecting to Neo4j from C# using code examples for the different approaches.",
                 author: "Ariel Rabinovich"
             },
-            {
-                type: "link",
-                title: "Neo4j on Azure",
-                path: "http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"
-            }
+            content.links.azure_vs2012 ,
+            content.links.azure
+            
         ]},
     python: {
         path: "/develop/python",

@@ -257,6 +257,8 @@ route_get('/release-notes', routes.release_notes); // TODO
 // well known historic URLs redirects
 route_get('/getting-started', forward("/develop"));
 route_get('/install', forward("/download"));
+route_get('/install/linux', forward("/download/linux"));
+route_get('/install/windows', forward("/download/windows"));
 route_get('/tracks/java', forward("/develop/java"));
 route_get('/tracks/cypher', forward("/tracks/cypher_track_start"));
 route_get('/about', forward("/learn/neo4j"));
