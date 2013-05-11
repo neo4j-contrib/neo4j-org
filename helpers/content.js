@@ -362,7 +362,7 @@ neo4j start</pre>\
         github_neo4j: {
             key: "github_neo4j",
             title: "GitHub Issues",
-            path: "http://stackoverflow.com/questions/tagged/neo4j",
+            path: "http://github.com/neo4j/neo4j/issues",
             thumbnail: asset("img/logo/github.png"),
             introText: "Encountered an issue with Neo4j? Submit it here.",
             actionText: "Report issue"
