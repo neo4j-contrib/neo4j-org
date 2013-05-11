@@ -375,7 +375,7 @@ exports.pages = {
                 path: "http://jexp.de/blog/2013/05/on-creating-a-mapdb-schema-index-provider-for-neo4j-2-0/",
                 title: "Creating a MapDB Schema Index Provider for Neo4j 2.0",
                 author: ["mesirii"],
-                introText: "Neo4j 2.0 introduced the concept of real automatic indexes with a new underlying indexing subsystem SPI. So I thought it would be really helpful to try it out and provide a faster indexing implementation than the default lucene one. I chose <a href='http://mapdb.org/'>MapDB</a> for it and the results are <a href='https://github.com/jexp/neo4j-mapdb-index'>here on github</a>."
+                introText: "Neo4j 2.0 introduced the concept of real automatic indexes with a new underlying indexing subsystem SPI. So I thought it would be really helpful to try it out and provide a faster indexing implementation than the default lucene one. I chose <a href='http://www.mapdb.org/'>MapDB</a> for it and the results are <a href='https://github.com/jexp/neo4j-mapdb-index'>here on github</a>."
             },
             {
                 type: "video",
