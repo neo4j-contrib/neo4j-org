@@ -134,6 +134,15 @@ exports.content = {
                 <pre>brew update && brew install neo4j\
 neo4j start</pre>\
             "
+        },
+        chef: {
+            type:"video",
+            title: "Install Neo4j-server with Chef",
+            author: {"twitter":"mulpat","name":"Patrick Mulder","github":"https://github.com/mulderp"},
+            actionText: "Cook it",
+            introText: "Patrick Mulder shows how to setup an automatic installation of <a href='http://thinkingonthinking.com/An-experiment-with-Vagrant-and-Neo4J/' target='_blank'>Neo4j-Server with Chef and Vagrant</a> and hosts the <a href='https://github.com/mulderp/chef-neo4j' target='_blank'>cookbook on github</a><>",
+            src: "http://player.vimeo.com/video/55085049",
+            path: "http://thinkingonthinking.com/An-experiment-with-Vagrant-and-Neo4J/"
         }
     },
     videos: {
@@ -286,21 +295,31 @@ neo4j start</pre>\
                 introText: "Max De Marzi explains how to use the Scala based load testing tool Gatling to test a Neo4j Server."
 
         },
+        start_with_neo4j_neo4jclient: {
+            type: "link",
+            title: "Beginning with Neo4j and Neo4jClient",
+            introText: "I will try my best to include everything necessary to get started with Neo4j, Windows and c# using Neo4jClient.",
+            author: "CameronJTinker",
+            path: "http://www.cameronjtinker.com/post/2013/01/04/Beginning-with-Neo4j-and-Neo4jClient.aspx"
+        },
         install_windows: {
             type: "link",
             title: "How to Install Neo4j on Windows - Avoiding the Pitfalls",
+            introText: "Installing Neo4j on Windows is pretty straightforward, but the Neo4j installation instructions for Windows are lacking. So Jon wrote an improved how-to.",
             author: "jongallant",
             path: "http://blog.jongallant.com/2013/03/install-neo4j-windows.html"
         },
         azure_vs2012: {
             type: "link",
             title: "How to deploy Neo4j to Azure with Visual Studio 2012 - A step-by-step guide.",
+            introText: "There were a lot of time consuming hurdles, so I thought I’d save you some time and do a very detailed post to help you get from nothing to a fully functioning Neo4j deployment on Azure. ",
             author: "jongallant",
             path: "http://blog.jongallant.com/2013/03/neo4j-azure-vs2012.html"
         },
         azure:{
             type:"link",
             title:"Neo4j on Azure",
+            introText: "In this blog post we will show that it is no problem at all to host a sophisticated and complex server product such as the Neo4j graph database server on Window Azure. Since Neo4j has a remote API over HTTP you can easily connect to the server from your applications.",
             path:"http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"
         },
         wes_cypher: {
@@ -882,6 +901,18 @@ neo4j start</pre>\
             docs: "",
             site: ""
         },
+        route_planner: {
+            type: "app",
+            author: {"twitter":"@hasCode","name":"Micha Kops"},
+            url: "http://www.hascode.com/2012/01/neo4j-graph-database-tutorial-how-to-build-a-route-planner-and-other-examples/",
+            name: "How to build a Route Planner",
+            logo: asset("img/apps/flavorwocky.png"),
+            text: "Often in the life of developer’s life there is a scenario where using a relational database tends to get complicated or sometimes even slow – especially when there are fragments with multiple relationships or multiple connections present. " +
+                " A possible solution might be to switch from a relational database to a graph database – and – neo4j is our tool of choice here. In the following tutorial we’re going to implement several examples to demonstrate the strengths of a graph database .. from a route planner to a social graph.",
+            source: "https://bitbucket.org/hascode/neo4j-tutorial",
+            docs: "",
+            site: ""
+        },
         neosocial: {
             type: "app",
             author: "@maxdemarzi",
@@ -1017,7 +1048,7 @@ neo4j start</pre>\
         },
         spring_data_neo4j: {
             type: "driver",
-            tags: ["java", "jvm", "rest", "spring"],
+            tags: ["java", "jvm", "rest", "spring","ogm"],
             authors: ["@neo4j"],
             url: "/develop/spring",
             logo: asset("img/languages/sdn.png"),
@@ -1035,7 +1066,7 @@ neo4j start</pre>\
         },
         neo4j_rb: {
             type: "driver",
-            tags: ["ruby", "jvm"],
+            tags: ["ruby", "jvm","ogm"],
             authors: ["@ronge"],
             url: "https://github.com/andreasronge/neo4j",
             logo: asset("img/languages/rails.png"),
@@ -1092,6 +1123,18 @@ neo4j start</pre>\
             source: "https://github.com/nigelsmall/py2neo",
             docs: "http://nigelsmall.com/_api/py2neo/"
         },
+        neomodel: {
+            type: "driver",
+            tags: ["python", "rest","ogm"],
+            url: "https://github.com/robinedwards/neomodel",
+            site: "http://skillsmatter.com/podcast/nosql/case-study-how-sharehoods-created-neomodel-along-the-way",
+            authors: ["@robsmoniker"],
+            logo: "https://raw.github.com/robinedwards/neomodel/master/art/neomodel-148.png",
+            name: "neomodel",
+            text: "An Object Graph Mapper (OGM) for the neo4j graph database built on top of py2neo",
+            source: "https://github.com/robinedwards/neomodel",
+            docs: "https://github.com/robinedwards/neomodel/blob/master/README.rst"
+        },
         neo4j_python: {
             type: "driver",
             tags: ["python", "jvm"],
@@ -1104,7 +1147,7 @@ neo4j start</pre>\
         },
         grails: {
             type: "driver",
-            tags: ["groovy", "grails", "jvm"],
+            tags: ["groovy", "grails", "jvm","ogm"],
             authors: ["@darthvader42"],
             url: "http://www.grails.org/plugin/neo4j",
             site: "http://www.grails.org/plugin/neo4j",
@@ -1147,7 +1190,7 @@ neo4j start</pre>\
             text: "An idiomatic, feature rich Clojure client which supports (almost) all Neo4J REST API features and is constantly tested against bleeding edge server changes, like the Cypher language improvements. " },
         bulbflow: {
             type: "driver",
-            tags: ["python", "rest"],
+            tags: ["python", "rest","ogm"],
             authors: ["@espeed"],
             url: "http://bulbflow.com/overview/",
             logo: asset("img/languages/bulbflow.png"),
@@ -1165,7 +1208,7 @@ neo4j start</pre>\
         neoid: {
             type: "driver",
             authors: ["@elado"],
-            tags: ["ruby", "rest"],
+            tags: ["ruby", "rest","ogm"],
             url: "https://github.com/elado/neoid",
             logo: asset("img/languages/rails.png"),
             name: "Neoid",
@@ -1173,7 +1216,7 @@ neo4j start</pre>\
         },
         neo4django: {
             type: "driver",
-            tags: ["python", "rest", "django"],
+            tags: ["python", "rest", "django","ogm"],
             authors: ["@mhluongo"],
             url: "https://github.com/scholrly/neo4django",
             logo: asset("img/languages/django.png"),
@@ -1219,7 +1262,7 @@ neo4j start</pre>\
         },
         datanucleus: {
             type: "driver",
-            tags: ["java", "jvm", "jpa"],
+            tags: ["java", "jvm", "jpa","ogm"],
             authors: ["@datanucleus"],
             url: "http://www.datanucleus.org/plugins/store.neo4j.html",
             logo: asset("img/languages/datanucleus.png"),
@@ -1244,7 +1287,7 @@ neo4j start</pre>\
             examples: "http://github.com/impetus-opensource/Kundera-Examples",
             logo: "http://mail.varindia.com/images/Impetus_Logo.gif",
             authors: ["Amresh Amry"],
-            tags: ["jvm","jpa"],
+            tags: ["jvm","jpa","ogm"],
             name: "Kundera",
             text: "Kundera is a JPA 2.0 compliant, object-datastore mapping library for NoSQL datastores."
         },

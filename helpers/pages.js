@@ -122,11 +122,15 @@ exports.pages = {
         config: { tile_page: true, no_slides: true },
         title: "Linux Installation",
         actionText: "Install on Linux",
-        introText: "Installing Neo4j on Linux for instance by using apt or puppet",
+        introText: "Installing Neo4j on Linux for instance by using apt, puppet or chef.",
         featured: [
             content.install.debian,
             content.install.puppet
+        ],
+        related: [
+            content.install.chef
         ]
+
     },
     windows: {
         path: "/download/windows",
@@ -139,6 +143,7 @@ exports.pages = {
         ],
         related: [
             content.links.install_windows,
+            content.links.start_with_neo4j_neo4jclient,
             content.links.azure_vs2012,
             "dotnet",
             content.drivers.neo4jclient
@@ -406,7 +411,7 @@ exports.pages = {
         prev: ["java_basics"],
         featured: [
         ],
-        related: [content.projects.neoclipse, content.apps.structr, "spatial", content.projects.jdbc, content.projects.jpa, content.drivers.neo4j_rest, content.projects.graph_collections]
+        related: [content.projects.neoclipse, content.apps.structr, "spatial", content.projects.jdbc, content.projects.jpa, content.drivers.neo4j_rest, content.projects.graph_collections, content.apps.route_planner]
     },
     server_plugins: {
         path: "/java/server_plugins",
@@ -524,7 +529,7 @@ exports.pages = {
         introText: "Friends of Neo4j speak many languages, and work in many frameworks.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
         featured: null,
-        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp", "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "bulbflow", "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go", "kundera","neo4j_js"]
+        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp", "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "bulbflow", "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go", "kundera","neo4j_js","neomodel"]
     },
     tools: {
         path: "/develop/tools",
@@ -682,6 +687,13 @@ exports.pages = {
                 title: "Importing Data for SDN using Batch-Inserter",
                 author: "Tero Paananen",
                 path: "http://code.paananen.fi/2012/04/05/neo4j-batchinserter-and-spring-data-for-neo4j/"
+            }    ,
+            {
+                type: "link",
+                thumbnail: "",
+                title: "Bootstrapping Neo4j With Spring-Data – Without XML",
+                author: {"name":"Jochen Mader","twitter":"@codepitbull"},
+                path: "http://codepitbull.wordpress.com/2013/05/12/bootstrapping-neo4j-with-spring-data-without-xml/"
             }    ,
             {
                 type: "link",
@@ -1170,9 +1182,11 @@ exports.pages = {
             content.drivers.neo4jclient,
             content.install.windows,
             content.links.install_windows,
+            content.links.start_with_neo4j_neo4jclient,
             {
                 type: "link",
                 title: "Neo4j Koans in .net using Neo4jClient",
+                introText: "Brian converted the <a href='https://github.com/jimwebber/neo4j-tutorial' target='_blank'>Neo4j Dr.Who Koans</a> by Jim Webber and Ian Robinson to c# so that you can have an enjoyable learning experience in .net",
                 author: "Brian Woodward",
                 path: "https://github.com/doowb/neo4j-dotnet-koans"
             },
@@ -1203,14 +1217,26 @@ exports.pages = {
         featured: [
             {
                 type: "video",
+                title: "How Sharehoods created NeoModel along the way",
+                src: "http://player.vimeo.com/video/62812358",
+                introText: "In this <a href='http://skillsmatter.com/podcast/nosql/case-study-how-sharehoods-created-neomodel-along-the-way'>SkillsMatter Neo4j User-Group</a> talk, Sharehoods Head of Technology Robin Edwards will explain why and how Neo4j is used at this exciting tech startup. Robin will also give a whirlwind tour of neomodel, a new Python framework for neo4j and its integration with the Django stack.",
+                author: "Robin Edwards",
+                img: "https://raw.github.com/robinedwards/neomodel/master/art/neomodel-300.png"
+            },
+            {
+                type: "video",
                 title: "PyCon 2010:Persistent Graphs in Python with Neo4j",
                 src: "http://blip.tv/play/g4VigczNTgI.x?p=1",
+                introText: "",
                 author: "thobe",
                 img: "http://a.images.blip.tv/Pycon-PyCon2010PersistentGraphsInPythonWithNeo4j140164-779.jpg"
             }
         ],
         related: [
-            content.drivers.py2neo, content.drivers.neo4j_rest_client, content.drivers.bulbflow, content.drivers.neo4django, content.drivers.neo4j_python,
+            content.drivers.py2neo, content.drivers.neo4j_rest_client,
+            content.drivers.neomodel,
+            content.drivers.neo4django, content.drivers.neo4j_python,
+            content.drivers.bulbflow,
             "technige"
         ]
     },
@@ -1611,6 +1637,7 @@ exports.pages = {
                 thumbnail: asset("img/languages/clojure.png"),
                 path: "http://www.markhneedham.com/blog/2013/03/17/clojurejava-interop-importing-neo4j-spatial-data/"
             },
+            content.apps.route_planner,
             {
                 type:"link",
                 title: "Neo4j Spatial Scala wrapper library",
