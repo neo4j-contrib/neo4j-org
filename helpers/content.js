@@ -1173,7 +1173,7 @@ neo4j start</pre>\
             tags: ["js", "rest", "nodejs"],
             authors: ["@neo4j"],
             url: "https://github.com/neo4j/neo4js",
-            logo: asset("img/languages/nodejs.png"),
+            logo: asset("img/languages/js.gif"),
             name: "Neo4js",
             text: "Neo4j REST client for JavaScript, used in Neo4j Web-UI, makes use of promises to handle deferred responses. Needs jQuery to run."
         },
@@ -1298,7 +1298,7 @@ neo4j start</pre>\
             source: "https://github.com/bretcope/neo4j-js",
             docs: "https://github.com/bretcope/neo4j-js/blob/master/docs/Documentation.md",
             examples: "https://github.com/bretcope/neo4j-js#usage",
-            logo: asset("img/languages/nodejs.png"),
+            logo: asset("img/languages/js.gif"),
             authors: ["Bret Copeland"],
             tags: ["rest","javascript"],
             name: "Neo4j-js",

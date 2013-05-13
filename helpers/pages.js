@@ -849,7 +849,7 @@ exports.pages = {
         path: "/participate/events/meetups",
         thumbnail: asset("img/logo/meetup.jpg"),
         title: "Worldwide Meetups",
-        introText: "Neo4j meetups are worldwide. Make a connection or start a new group. <br/>Find the next meetup events in <a href='/participate/events/meetups_US'>the US</a>, <a href='/participate/events/meetups_EU'>Europe</a> or <a href='/participate/events/meetups_DE'>German</a>.",
+        introText: "Neo4j meetups are worldwide. Make a connection or start a new group. <br/>Find the next meetup events in <a href='/participate/events/meetups_US'>the US</a>, or in Europe in <a href='/participate/events/meetups_EU'>English</a> or <a href='/participate/events/meetups_DE'>German</a>.",
         prev: ["events"],
         next: ["webinars"],
         actionText: "Find a meetup",
@@ -890,7 +890,7 @@ exports.pages = {
 //            <iframe src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' onload='this.style.visibility = 'visible';' style='border:0;padding: 0;' width='180px' height='50px' frameborder='0' scrolling='no'></iframe>\
 //            </div>",
         introText: "Get productive with Neo4j with a Graph Database Training. Meet an expert from Neo Technology or one of our partners for a full day training event in your city.\
-        <br/>Find the next trainings in <a href='/participate/events/trainings_US'>the US</a>, <a href='/participate/events/trainings_EU'>Europe</a> or <a href='/participate/events/trainings_DE'>German</a>.\
+        <br/>Find the next trainings in <a href='/participate/events/trainings_US'>the US</a>, or in Europe in <a href='/participate/events/trainings_EU'>English</a> or <a href='/participate/events/trainings_DE'>German</a>.\
         ",
         actionText: "Find trainings near you",
         featured: [
@@ -921,7 +921,7 @@ exports.pages = {
         prev: ["trainings"],
         next: ["events"],
         introText: "There is a lot of interest in graph databases and Neo4j. here are some of the conferences where you can learn and " +
-            "talk more about Neo4j. <br/>Find the next conference talks in <a href='/participate/events/conferences_US'>the US</a>, <a href='/participate/events/conferences_EU'>Europe</a> or <a href='/participate/events/conferences_DE'>German</a>.",
+            "talk more about Neo4j. <br/>Find the next conference talks in <a href='/participate/events/conferences_US'>the US</a>, or in Europe in <a href='/participate/events/conferences_EU'>English</a> or <a href='/participate/events/conferences_DE'>German</a>.",
         thumbnail: asset("img/logo/graphconnect.png"),
         actionText: "Neo4j at conferences",
         featured: [content.links.graphconnect],
@@ -1244,7 +1244,7 @@ exports.pages = {
         path: "/develop/javascript",
         title: "Neo4j and Javascript",
         introText: "Javascript and friends are the new love-child of developers. That's why people love to use Neo4j from Node.js and the browser.",
-        thumbnail: asset("img/languages/javascript.png"),
+        thumbnail: asset("img/languages/js.gif"),
         featured: [
             {
                 type: "video",
