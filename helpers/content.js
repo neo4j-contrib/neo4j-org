@@ -8,18 +8,37 @@ exports.content = {
             title:"Neo4j Releases",
             path:"/partials/version/_main"
         },
-        milestone:{
+        stable: {
             type:"version",
-            title:"Neo4j Milestone Release 1.9.RC2",
-            version:"1.9.RC2",
-            stability:"milestone",
-            date:"Apr 30, 2013",
-            introText:"Release Candidate with incremental changes",
+            title:"Neo4j Stable Release 1.9",
+            version:"1.9",
+            stability:"stable",
+            date:"May 20, 2013",
+            introText:"General Availability",
             path:"http://blog.neo4j.org/2013/04/almost-there-neo4j-19rc1.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
-        stable:{
+        snapshot:{
+            type:"version",
+            title:"Snapshot Version 2.0-SNAPSHOT",
+            stability:"snapshot",
+            version:"2.0-SNAPSHOT",
+            date:"2013",
+            introText:"Unstable Snapshot, for resolution issue verification"
+        },
+        "milestone":{
+            type:"version",
+            title:"Neo4j Milestone 2.0.0-M02",
+            stability:"milestone",
+            version:"2.0.0-M02",
+            date:"Apr 22, 2013",
+            introText:"Node Labels, automatic indexes, transactional Cypher HTTP.",
+            path:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
+            thumbnail: asset("img/still/install.gif"),
+            src: "http://player.vimeo.com/video/53838744"
+        },
+        "1_8_2": {
             type:"version",
             title:"Neo4j Stable Release 1.8.2",
             version:"1.8.2",
@@ -27,36 +46,6 @@ exports.content = {
             date:"Feb 27, 2013",
             introText:"General Availability",
             path:"http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html",
-            thumbnail: asset("img/still/install.gif"),
-            src: "http://player.vimeo.com/video/53838744"
-        },
-        snapshot:{
-            type:"version",
-            title:"Snapshot Version 1.9-SNAPSHOT",
-            stability:"snapshot",
-            version:"1.9-SNAPSHOT",
-            date:"2013",
-            introText:"Unstable Snapshot, for resolution issue verification"
-        },
-        "2_0_0_M01":{
-            type:"version",
-            title:"Neo4j Preview 2.0.0-M01",
-            stability:"preview",
-            version:"2.0.0-M01",
-            date:"2013",
-            introText:"Node Labels, automatic indexes, highly cool and unstable. Don't try this at work!",
-            path:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
-            thumbnail: asset("img/still/install.gif"),
-            src: "http://player.vimeo.com/video/53838744"
-        },
-        "2_0_0_M02":{
-            type:"version",
-            title:"Neo4j Preview 2.0.0-M02",
-            stability:"preview",
-            version:"2.0.0-M02",
-            date:"2013",
-            introText:"Node Labels, automatic indexes, transactional Cypher HTTP, highly cool and unstable. Don't try this at work!",
-            path:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
@@ -295,6 +284,15 @@ neo4j start</pre>\
                 introText: "Max De Marzi explains how to use the Scala based load testing tool Gatling to test a Neo4j Server."
 
         },
+        spring_heroku_james_ward : {
+            type: "link",
+            title: "Graphs in the Cloud: Spring + Neo4j on Heroku",
+            introText: "I began by deploying a copy of the Spring MVC + Hibernate template app. Then I made a few modifications to the app to switch the persistence from JPA to Spring Data Neo4j.",
+            author: {name: "James Ward", twitter: "_JamesWard"},
+            github: "https://github.com/jamesward/hello-java-spring-neo4j",
+            path: "http://www.jamesward.com/2012/05/14/graphs-in-the-cloud-spring-neo4j-on-heroku",
+            src: "http://video.neo4j.org/player/DNgFF"
+        },
         start_with_neo4j_neo4jclient: {
             type: "link",
             title: "Beginning with Neo4j and Neo4jClient",
@@ -321,6 +319,13 @@ neo4j start</pre>\
             title:"Neo4j on Azure",
             introText: "In this blog post we will show that it is no problem at all to host a sophisticated and complex server product such as the Neo4j graph database server on Window Azure. Since Neo4j has a remote API over HTTP you can easily connect to the server from your applications.",
             path:"http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"
+        },
+        mapdb_index: {
+            type: "link",
+            path: "http://jexp.de/blog/2013/05/on-creating-a-mapdb-schema-index-provider-for-neo4j-2-0/",
+            title: "Creating a MapDB Schema Index Provider for Neo4j 2.0",
+            author: ["mesirii"],
+            introText: "Neo4j 2.0 introduced the concept of real automatic indexes with a new underlying indexing subsystem SPI. So I thought it would be really helpful to try it out and provide a faster indexing implementation than the default lucene one. I chose <a href='http://www.mapdb.org/'>MapDB</a> for it and the results are <a href='https://github.com/jexp/neo4j-mapdb-index'>here on github</a>."
         },
         wes_cypher: {
             type : "link",
@@ -384,9 +389,18 @@ neo4j start</pre>\
             url: "http://www.neotechnology.com/2013/01/neo4j-tutorials-going-global/"
         },
         partners_graph: {
+            type: "link",
             title: "Partners Graph",
+            thumbnail: asset("img/logo/neotechnology_small.png"),
             introText: "Neo Technology works with a large, worldwide partner network which provide local consulting and training services.",
             path: "http://www.neotechnology.com/partners/"
+        },
+        neotech_services: {
+            type: "link",
+            title: "Consulting Services",
+            thumbnail: asset("img/logo/neotechnology_small.png"),
+            introText: "We offer a variety of consulting services around Neo4j through our network of professional partners. Services range from setup and operations support, data modeling consulting, performance tuning to proof of concept development",
+            path: "http://www.neotechnology.com/neo4j-professional-services/"
         },
         neo4j_ref_card: {
             type: "external",
@@ -612,7 +626,7 @@ neo4j start</pre>\
             type: "article",
             title: "Which license is right for you?",
             introText: "That depends on how you're using Neo4j.",
-            src: "http://www.jaspersoft.com/sites/all/themes/jaspersoft2/images/big-data-logos/partner-neotechnology.png",
+            src: asset("img/logo/neotechnology_small.png"),
             path: "http://www.neotechnology.com/price-list/",
             actionText: "Neo4j Editions",
             content: "\
@@ -632,6 +646,7 @@ neo4j start</pre>\
             title: "Neo4j Partners Graph",
             introText: "The Neo4j Partner Graph provides market differentiation and sustainable revenue opportunities for its members.",
             type: "article",
+            src: asset("img/logo/neotechnology_small.png"),
             path: "http://www.neotechnology.com/partners/",
             content: "Program Benefits\
                 <ul>\

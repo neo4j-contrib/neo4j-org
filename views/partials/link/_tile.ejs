@@ -14,7 +14,11 @@
     <div>
         <p class="introText"><%- item.introText ? item.introText : "" %></p>
     </div>
-    <% // todo linkto with classes and skip if no link 
+    <% // todo linkto with classes and skip if no link
     if (url) { %><a target="_blank" class="link action" href="<%= url %>"><%- (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+
+    <% if (item['github']) { %>
+       <a target="_blank" class="github" href="<%= item['github'] %>">GitHub</a>
+    <% } %>
 </div>
 

@@ -967,6 +967,12 @@ ul.hor li {
     width: 18em; 
 }
 
+.featured .slide a.action  {
+    position: absolute;
+    bottom: 0.25em;
+    left: 0.25em;
+}
+
 .featured .article .caption,
 .featured .article .content,
 .featured .book .caption,
@@ -1178,6 +1184,23 @@ ul.hor li {
     position: absolute;
     bottom: .65em;
     right: 1em;
+}
+.related .item .github {
+    position: absolute;
+    bottom: .65em;
+    left: 1em;
+}
+
+.related .item a:hover.like  {
+    text-decoration: none;
+}
+
+.related .item .like {
+    position: absolute;
+    top: .25em;
+    right: 0.25em;
+
+    display: none;
 }
 
 .related .item iframe {

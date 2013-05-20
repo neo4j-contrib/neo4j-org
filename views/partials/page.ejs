@@ -86,8 +86,9 @@ var nextPage = pages[p];
 
                     var item = findItem(key);
                     if (typeof(key)!="string") key="";
-                      %> <% include ../partials/item/_tile %> <%
-                });  %> 
+                      %>
+                    <% include ../partials/item/_tile %>
+                <% }); %>
 
                 </div><!-- row -->
                 <div class="clear"></div>

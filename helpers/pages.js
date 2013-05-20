@@ -80,7 +80,7 @@ exports.pages = {
             //"graphdatabase",
             //"develop",
             //"participate",
-            content.install["2_0_0_M02"],
+            // content.install["2_0_0_M02"],
             "other_versions",
             "linux",
             "windows",
@@ -102,6 +102,7 @@ exports.pages = {
         introText: "Older, stable Neo4j versions and nightly builds",
         path: "/download/other_versions",
         related: [
+            content.install["1_8_2"],
             content.install["1_7_2"],
             content.install["1_6_3"],
             content.install["1_5_3"],
@@ -375,13 +376,7 @@ exports.pages = {
                 author: ["mesirii"],
                 introText: "Introducing labels in the cineasts domain model, and featuring a screencast upgrading cineasts to use labels instead of indexes."
             },
-            {
-                type: "link",
-                path: "http://jexp.de/blog/2013/05/on-creating-a-mapdb-schema-index-provider-for-neo4j-2-0/",
-                title: "Creating a MapDB Schema Index Provider for Neo4j 2.0",
-                author: ["mesirii"],
-                introText: "Neo4j 2.0 introduced the concept of real automatic indexes with a new underlying indexing subsystem SPI. So I thought it would be really helpful to try it out and provide a faster indexing implementation than the default lucene one. I chose <a href='http://www.mapdb.org/'>MapDB</a> for it and the results are <a href='https://github.com/jexp/neo4j-mapdb-index'>here on github</a>."
-            },
+            content.links.mapdb_index,
             {
                 type: "video",
                 src : "http://player.vimeo.com/video/61876938",
@@ -435,6 +430,7 @@ exports.pages = {
         actionText: "Go into production",
         related: [
             "licensing",
+            content.links.neotech_services,
             video('0607 - High Availability with Neo4j'),
             "ops",
             content.links.partners_graph
@@ -448,6 +444,7 @@ exports.pages = {
         featured: [content.articles.licensing_guide,content.articles.licensing_guide_which],
         related: [
             content.books.graphdatabases,
+            content.links.neotech_services,
             {
                 title: "Contact Neo Technology",
                 thumbnail: asset("img/logo/neotechnology_small.png"),
@@ -680,28 +677,55 @@ exports.pages = {
                 thumbnail: "http://www.springsource.org/files/imagefield_thumbs/project/images/Project_Data.png",
                 title: "Spring Data Neo4j page on springsoure.org",
                 path: "http://springsource.org/spring-data/neo4j"
-            }    ,
+            },
             {
                 type: "link",
                 thumbnail: "",
                 title: "Importing Data for SDN using Batch-Inserter",
                 author: "Tero Paananen",
                 path: "http://code.paananen.fi/2012/04/05/neo4j-batchinserter-and-spring-data-for-neo4j/"
-            }    ,
+            },
+            {
+                type: "link",
+                thumbnail: "",
+                title: "Spring MVC 3.1 - Implement CRUD with Spring Data Neo4j (5 part series)",
+                introText: "In this tutorial, we will create a simple CRUD web-application using Spring 3.1 and Neo4j.",
+                github: "https://github.com/krams915/spring-neo4j-tutorial",
+                author: "Mark Serrano",
+                path: "http://krams915.blogspot.mx/2012/03/spring-mvc-31-implement-crud-with_3045.html"
+            },
+            content.links.spring_heroku_james_ward,
             {
                 type: "link",
                 thumbnail: "",
                 title: "Bootstrapping Neo4j With Spring-Data – Without XML",
                 author: {"name":"Jochen Mader","twitter":"@codepitbull"},
                 path: "http://codepitbull.wordpress.com/2013/05/12/bootstrapping-neo4j-with-spring-data-without-xml/"
-            }    ,
+            },
+            {
+                type: "link",
+                thumbnail: asset("img/logo/github.png"),
+                title: "Tutorial & repository for a Spring Data Neo4j eclipse project setup",
+                introText: "We decided to provide a very brief how-to guide including a base project skeleton preventing you from these setup issues and instead of this start coding immediately - enjoy!",
+                author: {"name":"Florian Müller","twitter":"@kiteflo"},
+                path: "https://github.com/kiteflo/neo4jSpringEclipseSkeleton"
+            },
             {
                 type: "link",
                 thumbnail: "http://1.bp.blogspot.com/-1wuzYs5eO1A/T3UQSaOrTnI/AAAAAAAAATY/OKRFYhWP_EY/s320/scala_with_sdn.png",
                 title: "Using Spring Data Neo4j from Scala",
                 author: "Jan Machacek",
                 path: "http://blog.neo4j.org/2012/03/spring-data-neo4j-from-scala.html"
-            } ,
+            },
+            {
+                type: "link",
+                thumbnail: "",
+                github: "http://tomasmuller.com.br/2013/04/28/playframework-with-spring-data-neo4j/",
+                introText: "Sample application/template for using Play with SDN and deploying to Heroku or self hosted capistrano.",
+                title: "PlayFramework with Spring Data Neo4j ",
+                author: {name:"Tomás Augusto Müller", twitter:"tomasmuller"},
+                path: "https://github.com/tomasmuller/playframework-neo4j-template#playframework-spring-data-neo4j-template"
+            },
             {
                 type: "link",
                 thumbnail: "http://skillsmatter.com/custom/images/skills-matter_150x60_logo_2010.gif",
@@ -709,7 +733,7 @@ exports.pages = {
                 introText: "Anirvan shows building a 'User Management System' using Spring Data Neo4j.",
                 author: "Anirvan Chakraborty",
                 path: "http://skillsmatter.com/podcast/java-jee/akka-scala-spring"
-            } ,
+            },
             {
                 type: "link",
                 thumbnail: "http://skydingo.com/blog/wp-content/uploads/2011/12/abstract_graph-300x261.png",
@@ -1006,7 +1030,52 @@ exports.pages = {
         actionText: null,
         thumbnail: asset("img/still/secrets.png"),
         featured: [video('0607 - High Availability with Neo4j')],
-        related: [content.videos.ha, content.videos.installing_neo4j, content.videos.production_secrets, video('0719 - Hardware Sizing with Neo4j'), "production"]
+        related: [content.videos.ha, content.videos.installing_neo4j, content.videos.production_secrets, video('0719 - Hardware Sizing with Neo4j'), "production",content.install.windows,content.install.chef]
+    },
+    internals : {
+        path: "/develop/internals",
+        title: "Neo4j Internals",
+        introText: "You might have wondered how Neo4j works internally, here are some answers",
+        featured: [
+            {
+                title: "Neo4j Internals Presentation",
+                type: "video",
+                author: {name:"Tobias Lindaaker",twitter:"thobe"},
+                thumbnail: "",
+                introText: "Tobias explains the internals of Neo4j in this insightful talk at the <a href='http://skillsmatter.com/event/nosql/neo4j-internals'>SkillsMatter Neo4j User Group</a> (<a href='http://slideshare.net/thobe/an-overview-of-neo4j-internals'>slides are here</a>)",
+                src: "http://player.vimeo.com/video/35666463"
+            }
+        ],
+        related: [
+            {
+                type: "link",
+                introText: "Detailed description of configuration options and implementation details for caches, memory mapped io, property store compression and performance hints.",
+                title: "Neo4j Manual on internal Configuration and Performance",
+                path: "http://docs.neo4j.org/chunked/milestone/embedded-configuration.html"
+            },
+            {
+                type: "link",
+                introText: "Chris dives deeply into each of the aspects of the Neo4j Kernel",
+                title: "Chris Giorans Neo4j Internals Blog Series",
+                author: {name:"Chris Gioran",twitter:"digitalstain"},
+                path: "http://digitalstain.blogspot.de/2010/10/inside-neo4j-hello-world.html"
+            },
+            {
+                type: "link",
+                introText: "Neo4j saves space by encoding property values efficiently, this post explains how.",
+                author: {name:"Chris Gioran",twitter:"digitalstain"},
+                title: "Inside the Property Store",
+                path: "http://digitalstain.blogspot.de/2011/11/rooting-out-redundancy-new-neo4j.html"
+            },
+            content.links.mapdb_index,
+            {
+                type: "link",
+                introText: "Some insights in how Cypher works internally, how the parser combinator works and how the parsed query parts are executed in the pipe based architecture",
+                author: {twitter:"adrianoalmeida7",name:"Adriano Almeida"},
+                title: "How Neo4j uses Scala’s Parser Combinator: Cypher’s internals",
+                path: "http://ahalmeida.com/2011/09/06/how-neo4j-uses-scalas-parser-combinator-cyphers-internals-part-1/"
+            }
+        ]
     },
     try: {
         path: "/learn/try",
@@ -1225,10 +1294,18 @@ exports.pages = {
             },
             {
                 type: "video",
+                title: "Introduction to Py2neo and Geoff",
+                src: "http://player.vimeo.com/video/44822406",
+                introText: "Nigel presents how to get started with Py2neo and shows the power of the graph exchange format Geoff",
+                author: "technige",
+                img: ""
+            },
+            {
+                type: "video",
                 title: "PyCon 2010:Persistent Graphs in Python with Neo4j",
                 src: "http://blip.tv/play/g4VigczNTgI.x?p=1",
                 introText: "",
-                author: "thobe",
+                author: {name:"Tobias Lindaaker",twitter:"thobe"},
                 img: "http://a.images.blip.tv/Pycon-PyCon2010PersistentGraphsInPythonWithNeo4j140164-779.jpg"
             }
         ],
