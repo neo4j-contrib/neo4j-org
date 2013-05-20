@@ -8,13 +8,13 @@
 
     <p>The 1.9 release of Neo4j builds upon the previous 1.8 releases and
       brings extensive improvements in stability and performance. In addition,
-      <i>Neo4j 1.9 Enterprise edition</i> introduces auto-clustering support,
+      <i>Neo4j 1.9 Enterprise</i> introduces auto-clustering support,
       with dramatically simplified configuration and deployment for high demand
-      product use.</p>
+      production use.</p>
 
     <ul>
       <li>Support for <a href="http://docs.neo4j.org/chunked/1.9/ha.html">auto-clustering in
-        <i>Neo4j Enterprise edition</i></a>, which replaces previous Zookeeper
+        <i>Neo4j Enterprise</i></a>, which replaces previous Zookeeper
         based HA clustering, provides a streamlined deployment process and is
         much safer and more resilient in failure scenarios.</li>
       <li>New <a href="http://docs.neo4j.org/chunked/1.9/arbiter-instances.html">neo4j-arbiter</a>
@@ -28,7 +28,7 @@
         inspecting cluster status information</a> (master, slave, etc).</li>
       <li>Correction of several concurrency and performance issues.</li>
       <li>Improvements to <a href="http://docs.neo4j.org/chunked/stable/operations-backup.html">
-        Online Backup</a> in <i>Neo4j Enterprise edition</i>, including auto-detection of
+        Online Backup</a> in <i>Neo4j Enterprise</i>, including auto-detection of
         full vs incremental backup based on existing content at the backup location.</li>
       <li>Updates to Neo4j server webadmin, including welcome pages for new users.</li>
     </ul>
@@ -36,9 +36,9 @@
     <p><strong>It is recommended to upgrade all previous Neo4j installations to
       this release.</strong> Neo4j 1.9 does not require any explicit upgrade to
       persistent stores created using Neo4j 1.7 and 1.8 installations, however
-      <i>current users of Neo4j enterprise edition must consult the
-      documentation and update the cluster configuration</i>. Please see
-      the <a href="http://docs.neo4j.org/chunked/1.9/deployment.html">deployment</a>
+      <i>current users of Neo4j Enterprise must consult the documentation and
+      update the cluster configuration</i>. Please see the
+      <a href="http://docs.neo4j.org/chunked/1.9/deployment.html">deployment</a>
       and <a href="http://docs.neo4j.org/chunked/1.9.RC2/upgrade-guide.html">cluster
       upgrade</a> sections of the neo4j manual for more detail. Also note that
       Neo4j 1.9 is tested and supported with
@@ -56,7 +56,7 @@
     <p>The 1.8.2 release of Neo4j is a service release and includes the following corrections and improvements:</p>
 
     <ul>
-        <li>Improvements to diagnostic logging and to the reliability of embedded APIs during instance fail-over (Neo4j enterprise in HA configuration).</li>
+        <li>Improvements to diagnostic logging and to the reliability of embedded APIs during instance fail-over (Neo4j Enterprise in HA configuration).</li>
         <li>Improvements to the database recovery process to avoid some scenarios that could cause the recovery after an unclean shutdown to fail.</li>
         <li>Correction of an isolation issue that could cause the failure of some traversals in the presence of concurrent write transactions.</li>
         <li>Allowing for a greater number of relationship types to be created within a single database. Neo4j now supports 65536 different relationship types.</li>
