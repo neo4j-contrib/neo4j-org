@@ -15,7 +15,7 @@ exports.content = {
             stability:"stable",
             date:"May 20, 2013",
             introText:"General Availability",
-            path:"http://blog.neo4j.org/2013/04/almost-there-neo4j-19rc1.html",
+            path:"http://blog.neo4j.org/2013/05/neo4j-19-general-availability.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },

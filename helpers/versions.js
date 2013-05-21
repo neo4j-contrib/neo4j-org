@@ -9,7 +9,7 @@ exports.load = function (app) {
         neo4j:{
             version:"2.0.0-M02", date:"Apr 22, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html"
         }, neo4jGA:{
-            version:"1.9", date:"May 20, 2013", summary:"General Availability", readme:"http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html"
+            version:"1.9", date:"May 20, 2013", summary:"General Availability", readme:"http://blog.neo4j.org/2013/05/neo4j-19-general-availability.html"
         }, neo4jP:{
             version:"2.0.0-M02", date:"Apr 22, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html"
         }, neo4jS:{
