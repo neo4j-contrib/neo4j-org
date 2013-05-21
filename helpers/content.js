@@ -827,10 +827,10 @@ neo4j start</pre>\
             url: "http://graphdatabases.com",
             name: "Graph Databases",
             author: "Jim Webber, Ian Robinson",
-            price: "Early Release Ebook, free",
+            price: "Free Ebook, Print $29.99",
             logo: asset("img/books/graphdatabases_cover.gif"),
             thumbnail: asset("img/books/graphdatabases_thumb.gif"),
-            introText: '<a href="http://graphdatabases.com">Exclusive early access</a>  to the definitive book on graph databases</em>, published by O&quot;Reilly Media.<br />',
+            introText: '<a href="http://graphdatabases.com">Exclusive, free access</a>  to the definitive book on graph databases</em>, published by O&quot;Reilly Media.<br />',
             actionText: 'Get your free e-book'
         },
         springdata: {
@@ -838,7 +838,7 @@ neo4j start</pre>\
             type: "book",
             name: "Spring Data",
             author: "Jon Brisbin, Oliver Gierke, Thomas Risberg, Mark Pollack, Michael Hunger",
-            price: "Early Release Ebook $23.99",
+            price: "Ebook $23.99, Print $29.99",
             logo: asset("img/books/spring_data.png"),
             introText: 'This book shows you how Spring’s data access framework can help you connect to either non-relational or relational databases, or a combination of the two.'
         },

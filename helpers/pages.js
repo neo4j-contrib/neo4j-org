@@ -1677,7 +1677,8 @@ exports.pages = {
                 introText: "Neo4j Spatial is an open-source library of utilities for Neo4j that faciliates the enabling of spatial operations on data. Besides basic spatial search it also integrates with geoserver and uDig.",
                 author: ["peterneubauer","craigtaverner","amorgner"],
                 thumbnail: asset("img/logo/github.png"),
-                path: "http://github.com/neo4j/spatial"
+                github: "http://github.com/neo4j/spatial",
+                path: "http://neo4j.github.io/spatial/"
             },
             {
                 type:"link",
@@ -1686,7 +1687,8 @@ exports.pages = {
                 content: "Neo4J Spatial extends the Neo4J Graph Database with the necessary tools and utilities to store and query spatial data in your graph models. For visualizing my running data, I will make use of Gephi, an open-source visualization and manipulation tool that allows users to interactively browse and explore graphs.",
                 author: "dsuvee",
                 thumbnail: "http://datablend.be/wp-content/uploads/geo5.jpg",
-                path: "http://datablend.be/?p=1255"
+                path: "http://datablend.be/?p=1255",
+                github: "https://github.com/datablend/neo4j-spatial-running"
             },
             {
                 type:"video",
@@ -1721,7 +1723,8 @@ exports.pages = {
                 tags: ["scala","spatial"],
                 author: "fakod",
                 thumbnail: asset("img/languages/scala.png"),
-                path: "https://github.com/FaKod/neo4j-spatial-scala"
+                path: "https://github.com/FaKod/neo4j-spatial-scala",
+                github: "https://github.com/FaKod/neo4j-spatial-scala"
             },
             {
                 type:"link",
