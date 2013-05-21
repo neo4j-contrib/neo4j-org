@@ -1757,6 +1757,15 @@ exports.pages = {
                 author: "mesirii",
                 thumbnail: asset("img/languages/sdn.png"),
                 path: "http://static.springsource.org/spring-data/data-graph/snapshot-site/reference/html/#d5e1074"
+            },
+            {
+                type:"link",
+                title: "Finding Football stadiums near a city",
+                tags: ["cypher","spatial", "java"],
+                introText: "An example of using Neo4j Spatial and Cypher for finding points of interest like football stadiums.",
+                author: "markhneedham",
+                thumbnail: asset("img/links/stadiums_near_a_city.png"),
+                path: "http://architects.dzone.com/articles/neo4jcypher-finding-football"
             }
 
         ]
