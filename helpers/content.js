@@ -828,8 +828,8 @@ neo4j start</pre>\
             name: "Graph Databases",
             author: "Jim Webber, Ian Robinson",
             price: "Early Release Ebook, free",
-            logo: asset("img/books/graphdatabases_v31.gif"),
-            thumbnail: asset("img/books/graphdatabases_small.gif"),
+            logo: asset("img/books/graphdatabases_cover.gif"),
+            thumbnail: asset("img/books/graphdatabases_thumb.gif"),
             introText: '<a href="http://graphdatabases.com">Exclusive early access</a>  to the definitive book on graph databases</em>, published by O&quot;Reilly Media.<br />',
             actionText: 'Get your free e-book'
         },

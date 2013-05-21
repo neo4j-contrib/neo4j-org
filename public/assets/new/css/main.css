@@ -1668,6 +1668,13 @@ a:hover pre {
     font-weight: bold ! important;
 }
 
+#release_notes a,
+#release_notes a:visited,
+#release_notes a:active,
+#release_notes a:hover {
+    font-weight: 600 ! important;
+}
+
 text.caption a:hover {
     cursor: pointer;
 }
