@@ -1,4 +1,4 @@
-        If your download did not start automatically, <a class="downloadLink" href="">click here <i class="icon icon-download-alt"></i></a> to manually download.
+        If your download did not start automatically, <a class="downloadLink" href="http://download.neo4j.org/artifact?edition=community&version=<%= neo4jGA.version %>&distribution=zip">click here <i class="icon icon-download-alt"></i></a> to manually download.
         <h2>While you're waiting for your download:</h2>
         <p>Stay informed about Neo4j events, releases and technical articles on graphs and development with Neo4j. </p>
         <iframe style="visibility:visible;" src="http://www.neotechnology.com/wp-content/themes/Neo_Technology/signup.html" style="border:0;padding: 5;" width="300px" height="75px" frameborder="0" scrolling="no"></iframe>
@@ -15,7 +15,7 @@ $(document).ready(function() {
     var packaging = 'zip';
     var suffix = "zip";
     
-    if (platform == 'unix' || platform == 'mac_linux') {
+    if (platform === 'unix' || platform === 'mac_linux') {
         suffix = 'tar.gz';
         packaging = 'tarball';
     }
@@ -23,7 +23,9 @@ $(document).ready(function() {
     
     
     $(".dirName").text("neo4j-"+edition+"-"+release);
-    
+
+    updateDownloadLink(null,true);
+
     function getUrlVars() {
         var vars = {};
         var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -31,29 +33,33 @@ $(document).ready(function() {
         });
         return vars;
     }
-    
-    function updateDownloadLink(marketo_id) {
+
+    function updateDownloadLink(marketo_id,testing) {
         var marketo_idnum = marketo_id || 'notread';
         var downloadLink = "http://dist.neo4j.org/neo4j-" + edition + "-" + release + "-" + platform +"." + suffix;
         if (!release.match("SNAPSHOT")) {
             downloadLink = "http://download.neo4j.org/artifact?edition=" + edition + "&version=" + release + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
         }
 
-		_gaq.push(['_trackEvent','neo4j-download',downloadLink]);
-		
-        $(".downloadLink").attr("href",downloadLink);
-        if (testing==null) {
+        if (console && console.log) console.log("Using downloadlink",downloadLink);
+
+        var link = $(".downloadLink");
+        link.attr("href",downloadLink).click(function() {
+            _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
+        });
+        if (testing===null) {
+            _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
             window.location = downloadLink;
         }
     }
     $.ajax("/api/marketo", {
         success: function(id) {
            // console.log("marketo-success",id)
-            updateDownloadLink(id)
+            updateDownloadLink(id,testing);
         },
         error:function(err) {
            // console.log("marketo-error",err)
-            updateDownloadLink()
-    }})
+            updateDownloadLink(testing);
+    }});
 });
 </script>
