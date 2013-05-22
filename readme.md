@@ -43,6 +43,12 @@ Submit your local changes:
 
     git commit -am "beautification and verbal eloquence"
     git push origin master
+    
+Publish assets like images to S3
+
+     s3cmd --configure
+     s3cmd ls s3://assets.neo4j.org/
+     s3cmd put --acl-public  public/assets/path/file s3://assets.neo4j.org/path/
 
 Publish
 -------
