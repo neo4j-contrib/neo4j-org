@@ -136,6 +136,7 @@ exports.pages = {
     windows: {
         path: "/download/windows",
         title: "Windows Installation",
+        thumbnail: asset("img/logo/Windows_8.png"),
         actionText: "Install on Windows",
         introText: "Installing Neo4j on Windows from scratch is just a few steps away",
         featured: [
@@ -145,9 +146,10 @@ exports.pages = {
         related: [
             content.links.install_windows,
             content.links.start_with_neo4j_neo4jclient,
-            content.links.azure_vs2012,
             "dotnet",
-            content.drivers.neo4jclient
+            content.drivers.neo4jclient,
+            content.links.azure_vs2012,
+            content.links.azure_one_click
         ]
     },
     scientific: {
@@ -551,7 +553,18 @@ exports.pages = {
         thumbnail: asset("img/neo4j/neo4j_cloud.png"),
         actionText: "Neo4j in the Cloud",
         featured: [content.videos.james_ward_neo4j],
-        related: ["heroku", "ec2", content.install.debian, content.links.azure_vs2012]
+        related: ["heroku", "ec2", content.install.debian, content.links.azure_vs2012, content.links.azure_one_click]
+    },
+    azure : {
+        path : "/develop/cloud/azure",
+        title: "Deploying Neo4j to Microsoft Azure",
+        introText: "It gets easier to deploy Neo4j Server on Azure every day, so here you can find some step-by-step instructions and hints on how to achieve that",
+        actionText: "Go Azure",
+        thumbnail: "http://blog.newrelic.com/wp-content/uploads/windows_azure2.jpg",
+        featured: [content.videos.azure_channel9],
+        related: [content.links.azure_vs2012, content.links.azure_one_click, content.links.azure_openstack, content.links.azure, "dotnet", content.drivers.neo4jclient, "windows"
+
+        ]
     },
     ec2: {
         path: "/develop/ec2",
@@ -1274,6 +1287,7 @@ exports.pages = {
                 introText: "Ariel discusses the options connecting to Neo4j from C# using code examples for the different approaches.",
                 author: "Ariel Rabinovich"
             },
+            content.links.azure_one_click ,
             content.links.azure_vs2012 ,
             content.links.azure
             

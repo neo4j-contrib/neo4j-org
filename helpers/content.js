@@ -135,6 +135,13 @@ neo4j start</pre>\
         }
     },
     videos: {
+        azure_channel9: {
+            title: "Neo4j, the Open Source Java graph database, and Windows Azure",
+            type: "video",
+            introText: "This segment we talk about Neo4j, the open source graph database, on Windows Azure. We discuss the project, getting up on the cloud with Windows Azure and what's coming.",
+            thumbnail: asset("img/still/neo4j_azure_channel9.gif"),
+            src: "http://channel9.msdn.com/Blogs/Interoperability/Neo4j-the-Open-Source-Java-graph-database-and-Windows-Azure/player"
+        },
         neo4j_webui: {
             title: "Neo4j Server Web Interface",
             type: "video",
@@ -314,11 +321,34 @@ neo4j start</pre>\
             author: "jongallant",
             path: "http://blog.jongallant.com/2013/03/neo4j-azure-vs2012.html"
         },
+        azure_openstack: {
+            type: "link",
+            title: "Azure AWS Open Stack – Neo4j Setup Tutorials on Ubuntu",
+            introText: "In this neo4j tutorial, we shall provide easy steps to install a simple neo4j community edition on azure without using neo4j Enterprise high availability features which we shall cover in a different post.",
+            author: "CognoSys",
+            thumbnail: "http://www.cogno-sys.com/wp-content/themes/cogno-sys/images/logo.png",
+            path: "http://www.cogno-sys.com/cloud-azure-amazon-open-stack/neo4j-azure-installation-graph-database-tutorials/"
+        },
+        azure_nuget_worker_host: {
+            type: "link",
+            title: "NuGet: Neo4j.Server.AzureWorkerHost ",
+            introText: "Makes it super easy to host Neo4j in an Azure worker role",
+            author: "tathamoddie",
+            thumbnail: "http://nuget.org/Content/Images/packageDefaultIcon.png",
+            path: "http://nuget.org/packages/Neo4j.Server.AzureWorkerHost/"
+        },
         azure:{
             type:"link",
             title:"Neo4j on Azure",
             introText: "In this blog post we will show that it is no problem at all to host a sophisticated and complex server product such as the Neo4j graph database server on Window Azure. Since Neo4j has a remote API over HTTP you can easily connect to the server from your applications.",
             path:"http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"
+        },
+        azure_one_click:{
+            type:"link",
+            title:"Point-Click Deployment of Neo4J to Windows Azure",
+            author: "dynamicdeploy",
+            introText: "In this article, I will show you how to deploy Neo4J into Azure VMs in minutes. No coding, no Visual Studio, just point-click deployment for free.",
+            path:"http://www.opensourceazure.com/blog/2013/05/21/point-click-deployment-of-neo4j-to-windows-azure/"
         },
         mapdb_index: {
             type: "link",
