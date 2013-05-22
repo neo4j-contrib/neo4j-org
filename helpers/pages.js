@@ -148,8 +148,7 @@ exports.pages = {
             content.links.start_with_neo4j_neo4jclient,
             "dotnet",
             content.drivers.neo4jclient,
-            content.links.azure_vs2012,
-            content.links.azure_one_click
+            "azure"
         ]
     },
     scientific: {
