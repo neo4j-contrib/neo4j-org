@@ -18,14 +18,14 @@ function channelOp(params, res) {
     req2.end();
 }
 
-exports.add_vote_route = function(path,app) {
+exports.add_vote_route = function(app) {
     app.post("/vote", function (req, res) {
         var row = req.param("row");
         console.log("voted on", row);
         channelOp("voteRow=" + parseInt(row), res);
     });
 }
-exports.add_new_channel_route = function(path,app) {
+exports.add_new_channel_route = function(app) {
     app.post("/add_channel", function (req, res) {
         var name = req.param("name");
         var logo = req.param("logo");
@@ -118,4 +118,6 @@ exports.init = function(app,interval) {
     spreadsheet.googleLogin(function () {
         app.locals.updateChannels();
     });
+    exports.add_vote_route(app);
+    exports.add_new_channel_route(app);
 }
