@@ -1,4 +1,6 @@
-var spreadsheet = require("./spreadsheet");
+var spreadsheet = require("./spreadsheet")
+    , https = require('https')
+;
 
 function channelOp(params, res) {
     var options = {
