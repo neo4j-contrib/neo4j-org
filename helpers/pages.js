@@ -45,7 +45,7 @@ exports.pages = {
         content: function (params) {
             return render.include("_download_thanks", params);
         },
-        featured: [ content.videos.installing_neo4j ],
+        featured: [ content.videos.installing_neo4j, content.install.windows7,content.install.windows ],
         related: [
             "other_versions",
             content.install.upgrading,
@@ -318,6 +318,14 @@ exports.pages = {
                 author: "nawroth",
                 path: "http://docs.neo4j.org/chunked/stable/tutorials-java-unit-testing.html",
                 introText: "Short tutorial on how to unit-test embedded Neo4j applications."
+            },
+            {
+                type: "link",
+                title: "Maven Plugin for Running a Neo4j Community Server",
+                author: {name: "Robert Herschke", twitter:"rherschke"},
+                path: "https://github.com/rherschke/neo4j-maven-plugin#maven-plugin-for-neo4j-community-server",
+                github: "https://github.com/rherschke/neo4j-maven-plugin",
+                introText: "This is a (yet very simple) maven plugin to start and stop an embedded Neo4j Community Server on a given port. With this plugin, it is possible, to run integration tests, that depends on an existing Neo4j Server."
             }
         ]
     },

@@ -26,6 +26,9 @@ $(document).ready(function() {
         packaging = 'tarball';
     }
 
+    if (platform=="windows") {
+        $('.bxslider').bxSlider().goToNextSlide();
+    }
     $(".dirName").text("neo4j-"+edition+"-"+release);
 
     updateDownloadLink(null,true);
