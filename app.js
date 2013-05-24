@@ -136,14 +136,6 @@ ejs.filters.wrap = function (content, tag) {
     return "<" + tag + ">" + content + "</" + tag + ">";
 };
 
-forwarder.add_console_forward(app, express, http);
-
-videos.loadAllVideos(app.locals.pages,app.locals.content,4);
-
-calendar.init(app,3600*1000);
-channels.init(app,60*1000);
-contributors.init(app,3600*1000);
-
 // todo move somewhere else
 app.locals({
     tutorial: {
@@ -212,6 +204,14 @@ app.configure('development', function(){
 app.configure('production', function(){
   app.use(express.errorHandler());
 });
+
+forwarder.add_console_forward(app, express, http);
+
+videos.loadAllVideos(app.locals.pages,app.locals.content,4);
+
+calendar.init(app,3600*1000);
+channels.init(app,60*1000);
+contributors.init(app,3600*1000);
 
 function forward(url) {
     return function (req, res) {
