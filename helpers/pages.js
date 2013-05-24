@@ -140,7 +140,8 @@ exports.pages = {
         actionText: "Install on Windows",
         introText: "Installing Neo4j on Windows from scratch is just a few steps away",
         featured: [
-            content.install.windows,             
+            content.install.windows7,
+            content.install.windows,
             content.install.releases
         ],
         related: [
@@ -690,6 +691,7 @@ exports.pages = {
                 title: "Spring Data Neo4j page on springsoure.org",
                 path: "http://springsource.org/spring-data/neo4j"
             },
+            content.videos.sdn_cineasts,
             {
                 type: "link",
                 thumbnail: "",

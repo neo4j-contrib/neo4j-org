@@ -92,6 +92,14 @@ exports.content = {
             src: "http://player.vimeo.com/video/63158030",
             thumbnail: asset("img/still/neo4j_install_windows8.gif")
         },
+        windows7: {
+            type: "video",
+            title: "Windows 7 Installation",
+            author: "rootsical",
+            introText: "Installing Neo4j on Windows 7 requires a few steps which are outlined in this video.",
+            src: "http://www.youtube.com/embed/KreTJA8vjnI?rel=0&autoplay=1",
+            thumbnail: asset("img/still/install_neo4j_windows7.gif")
+        },
         debian: {
             type: "video",
             title: "Debian - stable",
@@ -135,6 +143,13 @@ neo4j start</pre>\
         }
     },
     videos: {
+        sdn_cineasts: {
+            title: "Running SDN Tutorial Cineasts",
+            type: "video",
+            introText: "Downloading and running Cineasts the Spring Data Neo4j Tutorial Web Application",
+            thumbnail: asset("img/spring/cineasts.png"),
+            src: "http://www.youtube.com/embed/DAJvvchL_oE?rel=0&autoplay=1"
+        },
         azure_channel9: {
             title: "Neo4j, the Open Source Java graph database, and Windows Azure",
             type: "video",

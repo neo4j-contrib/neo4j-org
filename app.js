@@ -292,7 +292,8 @@ calendar.add_events_route('/api/events.json', app);
 calendar.add_ics_route('/api/event.ics', app);
 
 // download resources
-route_get('/resources/cypher', forward(asset('download/Neo4j_CheatSheet_v3.pdf')));
+route_get('/resources/cypher', forward('http://docs.neo4j.org/refcard/1.9/'));
+
 
 route_get('/wp-content/*', routes.resource);
 route_get('/wp-includes/*', routes.resource);
