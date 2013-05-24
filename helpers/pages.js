@@ -342,10 +342,10 @@ exports.pages = {
         related: [
             {
                 type: "link",
-                path: "http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
-                title: "Nodes are people too",
-                author: ["akollegger","prathle"],
-                introText: "Release blog for 2.0.0-M01 discussing the reasoning behind labels and potential applications."
+                path: "http://docs.neo4j.org/chunked/milestone/rest-api-transactional.html",
+                title: "Transactional http endpoint for Cypher",
+                author: ["neo4j"],
+                introText: "The Neo4j transactional HTTP endpoint allows you to execute a series of Cypher statements within the scope of a transaction. The transaction may be kept open across multiple HTTP requests, until the client chooses to commit or roll back. Each HTTP request can include a list of statements, and for convenience you can include statements along with a request to begin or commit a transaction."
             },
             {
                 type: "article",
@@ -379,6 +379,13 @@ exports.pages = {
                 introText: "Introducing labels in the cineasts domain model, and featuring a screencast upgrading cineasts to use labels instead of indexes."
             },
             content.links.mapdb_index,
+            {
+                type: "link",
+                path: "http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
+                title: "Nodes are people too",
+                author: ["akollegger","prathle"],
+                introText: "Release blog for 2.0.0-M01 discussing the reasoning behind labels and potential applications."
+            },
             {
                 type: "video",
                 src : "http://player.vimeo.com/video/61876938",
@@ -1176,6 +1183,13 @@ exports.pages = {
                 // todo yasiv.com some text, pictures etc
             },
             {
+                title: "Graph Data Visualization in QlikView",
+                path: "http://tiqview.tumblr.com/post/42292909758/graph-data-visualization-in-qlikview",
+                author: "tiqview",
+                thumbnail: "https://s3-eu-west-1.amazonaws.com/tiq-solutions/tumblr/pics/TIQ_Graph_Dracula_02.png",
+                introText: "A QlikView Graph Visualization Extension Object using the Graph Dracula JavaScript Library (based on Raphaël.js)"
+            },
+            {
                 title: "Three.js on GitHub",
                 path: "https://github.com/mrdoob/three.js",
                 thumbnail: "http://mrdoob.github.com/three.js/files/examples/webgl_buffergeometry_lines.png",
@@ -1638,12 +1652,37 @@ exports.pages = {
     },
     jdbc: {
         path: "/develop/tools/jdbc",
-        title: "Easy integration in Java applications and tools with the JDBC driver",
+        title: "Easy integration in Java applications and tools with the Cypher-Neo4j-JDBC driver",
         author: ["rickardoberg", "mesirii"],
-        introText: "",
-        content: "",
+        // introText: "",
+        // content: "",
         featured: [content.projects.jdbc],
-        related: []
+        related: [
+            {
+                type: "article",
+                thumbnail: "",
+                title: "Neo4j-JDBC Driver Blog Posts",
+                author: ["rickardoberg","mesirii","tiqview"],
+                introText : "<ul><li><a href='http://rickardoberg.wordpress.com/2011/12/19/creating-a-jdbc-driver-for-neo4j/'>Introduction by Rickard Öberg</a></li>\
+                <li><a href='http://blog.neo4j.org/2012/07/cypher-jdbc-tools-testing-results.html'>Using the JDBC Driver with SQL-Tools</a></li>\
+                <li><a href='http://tiqview.tumblr.com/post/25503986247/using-sqlexplorer-with-neo4j-graph-database'>SQL Explorer</a></li>\
+                <li><a href='http://tiqview.tumblr.com/post/25427068878/querying-neo4j-graph-data-with-cypher-in-squirrel-via'>SQuirrel SQL</a></li>\
+                </ul>"
+            },
+            {
+                type: "article",
+                thumbnail: "https://si0.twimg.com/profile_images/130504078/TIQView_bigger.jpg",
+                tags: ["cypher","jdbc","BI"],
+                title: "Neo4j-JDBC and Business Integration (BI)",
+                author: {name:"Ralf Becher",twitter: "tiqview"},
+                introText : "<ul><li><a href='http://community.jaspersoft.com/questions/803043/anything-neo4j'>JasperSoft</a></li>\
+                <li><a href='http://tiqview.tumblr.com/post/24953750981/working-with-graph-data-from-neo4j-in-qlikview'>QlikView</a></li>\
+                <li><a href='http://community.qlikview.com/docs/DOC-3115'>QlikView Neo4j Application</a></li>\
+                <li><a href='http://tiqview.tumblr.com/post/25430299054/neo4j-data-integration-with-pentaho-kettle'>Pentaho Kettle</a></li>\
+                <li><a href='http://tiqview.tumblr.com/post/25448716755/neo4j-data-profiling-with-ataccama-dq-analyzer'>Ataccama DQ Analyzer</a></li>\
+                </ul>"
+            }
+        ]
     },
 
     graphistas_map: {
