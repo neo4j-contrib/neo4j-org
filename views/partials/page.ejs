@@ -1,5 +1,5 @@
 <%
-//console.log(path);
+console.log("Rendering Path",path);
 var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
 var mainCategory = path.s<!---->plit('/')[1];
 var page = pages[pageName];
@@ -129,16 +129,16 @@ var nextPage = pages[p];
     	function filterByRegion(region) {
             var elements=$("div[area]");
             if (elements.length==0) return; 
-        	elements.each(function() {
-        		var area = $(this).attr("area");
-        		if (!area || area=='WORLD' || region=='WORLD' || area==region) $(this).show();
-        		else $(this).hide();
-        	})
+        	elements.each(function () {
+                var area = $(this).attr("area");
+                if (!area || area == 'WORLD' || region == 'WORLD' || area == region) $(this).show();
+                else $(this).hide();
+            });
             nav.resize();
         }
-    	$("#region").val(region).change(function() {
-    	    filterByRegion($(this).val());
-    	})
+    	$("#region").val(region).change(function () {
+            filterByRegion($(this).val());
+        });
 //    	filterByRegion(region);
         
         nav.activateMain('<%= mainCategory%>');

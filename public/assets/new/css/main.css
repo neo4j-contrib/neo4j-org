@@ -446,6 +446,16 @@ ul.hor li {
     display: inline-block;
 }
 
+.flash {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding: 0.5em;
+    border: 1px solid #00546a;
+    background-color: #9EBDCD;
+    width: 100%;
+    border-radius: .25em;
+}
+
 .btn {
     display: inline-block;
     *display: inline;

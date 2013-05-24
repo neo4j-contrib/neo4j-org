@@ -1,88 +1,90 @@
 var render = require('./render');
-var asset = require("../helpers/assets.js").asset
+var asset = require("../helpers/assets.js").asset;
 
 exports.content = {
-    install: { 
+    install: {
         releases: {
-            type:"include",
-            title:"Neo4j Releases",
-            path:"/partials/version/_main"
+            type: "include",
+            title: "Neo4j Releases",
+            path: "/partials/version/_main"
         },
         stable: {
-            type:"version",
-            title:"Neo4j Stable Release 1.9",
-            version:"1.9",
-            stability:"stable",
-            date:"May 20, 2013",
-            introText:"General Availability",
-            path:"http://blog.neo4j.org/2013/05/neo4j-19-general-availability.html",
+            type: "version",
+            title: "Neo4j Stable Release 1.9",
+            version: "1.9",
+            stability: "stable",
+            date: "May 20, 2013",
+            introText: "General Availability",
+            path: "http://blog.neo4j.org/2013/05/neo4j-19-general-availability.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
-        snapshot:{
-            type:"version",
-            title:"Snapshot Version 2.0-SNAPSHOT",
-            stability:"snapshot",
-            version:"2.0-SNAPSHOT",
-            date:"2013",
-            introText:"Unstable Snapshot, for resolution issue verification"
+        snapshot: {
+            type: "version",
+            title: "Snapshot Version 2.0-SNAPSHOT",
+            stability: "snapshot",
+            version: "2.0-SNAPSHOT",
+            date: "2013",
+            introText: "Unstable Snapshot, for resolution issue verification"
         },
-        "milestone":{
-            type:"version",
-            title:"Neo4j Milestone 2.0.0-M02",
-            stability:"milestone",
-            version:"2.0.0-M02",
-            date:"Apr 22, 2013",
-            introText:"Node Labels, automatic indexes, transactional Cypher HTTP.",
-            path:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
+        "milestone": {
+            type: "version",
+            title: "Neo4j Milestone 2.0.0-M02",
+            stability: "milestone",
+            version: "2.0.0-M02",
+            date: "Apr 22, 2013",
+            introText: "Node Labels, automatic indexes, transactional Cypher HTTP.",
+            path: "http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
         "1_8_2": {
-            type:"version",
-            title:"Neo4j Stable Release 1.8.2",
-            version:"1.8.2",
-            stability:"stable",
-            date:"Feb 27, 2013",
-            introText:"General Availability",
-            path:"http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html",
+            type: "version",
+            title: "Neo4j Stable Release 1.8.2",
+            version: "1.8.2",
+            stability: "stable",
+            date: "Feb 27, 2013",
+            introText: "General Availability",
+            path: "http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
-        "1_7_2":{
-            type:"version",
-            title:"Neo4j Stable Release 1.7.2",
-            version:"1.7.2",
-            stability:"stable",
-            date:"May 28, 2012",
+        "1_7_2": {
+            type: "version",
+            title: "Neo4j Stable Release 1.7.2",
+            version: "1.7.2",
+            stability: "stable",
+            date: "May 28, 2012",
             path: "http://blog.neo4j.org/2012/04/neo4j-17-ga-bastutrask-bank-released.html"
         },
-        "1_6_3":{
-            type:"version",
-            stability:"stable",
-            title:"Neo4j Stable Release 1.6.3",
-            version:"1.6.3",
-            date:"May 28, 2012",
+        "1_6_3": {
+            type: "version",
+            stability: "stable",
+            title: "Neo4j Stable Release 1.6.3",
+            version: "1.6.3",
+            date: "May 28, 2012",
             path: "http://blog.neo4j.org/2012/01/released-neo4j-16-ga-jorn-kniv.html"
         },
-        "1_5_3":{
-            type:"version",
-            stability:"stable",
-            title:"Neo4j Stable Release 1.5.3",
-            version:"1.5.3",
-            date:"May 24, 2012",
+        "1_5_3": {
+            type: "version",
+            stability: "stable",
+            title: "Neo4j Stable Release 1.5.3",
+            version: "1.5.3",
+            date: "May 24, 2012",
             path: "http://blog.neo4j.org/2011/10/announcing-neo4j-boden-bord-15-ga.html"
         },
-        upgrading:{
-            type:"link",
-            title:"Upgrading Docs",
-            introText:"Upgrading from a previous version? Make sure to read the upgrading notes",
-            path:"http://docs.neo4j.org/chunked/milestone/deployment-upgrading.html"
+        upgrading: {
+            type: "link",
+            title: "Upgrading Docs",
+            introText: "Upgrading from a previous version? Make sure to read the upgrading notes",
+            path: "http://docs.neo4j.org/chunked/milestone/deployment-upgrading.html"
         },
         maven: {
             type: "article",
             title: "Maven Dependency",
-            content: function(params) { return render.include("download/_embedded_dependency",params); }
+            content: function (params) {
+                return render.include("download/_embedded_dependency", params);
+            }
         },
         windows: {
             type: "video",
@@ -107,7 +109,9 @@ exports.content = {
                 We <em>sign</em> the packages so you know you're getting the genuine Neo4j packages.",
             src: "http://player.vimeo.com/video/57939261",
             thumbnail: asset("img/still/debian_install.png"),
-            content: function(params) { return render.include("download/debian",params) }
+            content: function (params) {
+                return render.include("download/debian", params)
+            }
         },
         puppet: {
             type: "article",
@@ -115,27 +119,26 @@ exports.content = {
             introText: "Setup <strong>only</strong> Neo4j using Puppet <a href='https://github.com/neo4j-contrib/neo4j-puppet/blob/master/README.md' target='_blank'>(source)</a>\
             ",
             thumbnail: "http://www.lennu.net/images/blog/2012-11-01/1/1.png",
-            content: function(params) { return render.render(
-                "<blockquote class='external markdown'>\
-                            <%-: content.puppet | md %>\
-                        </blockquote>\
-            ",params) }
+            content: function (params) {
+                return render.render(
+                    "<blockquote class='external markdown'>\
+                                <%-: content.puppet | md %>\
+                            </blockquote>\
+                ", params)
+            }
         },
         homebrew: {
-            type:"article",
+            type: "article",
             title: "MacOS X - Homebrew - stable",
             actionText: "Brew It",
-            introText: "Installing the stable version of Neo4j on a Mac with homebrew is really simple.",
-            content: "\
-            <p>If you have <a href='http://mxcl.github.com/homebrew/' target='_blank'>homebrew</a> installed, adding Neo4j to your Mac is simple a:</p>\
-                <pre>brew update && brew install neo4j\
-neo4j start</pre>\
-            "
+            introText: "Installing the stable version of Neo4j on a Mac with homebrew is really simple.\
+            If you have <a href='http://mxcl.github.com/homebrew/' target='_blank'>homebrew</a> installed, adding Neo4j to your Mac is simple a:<br/>\
+                <pre>brew update\nbrew install neo4j\nneo4j start</pre>"
         },
         chef: {
-            type:"video",
+            type: "video",
             title: "Install Neo4j-server with Chef",
-            author: {"twitter":"mulpat","name":"Patrick Mulder","github":"https://github.com/mulderp"},
+            author: {"twitter": "mulpat", "name": "Patrick Mulder", "github": "https://github.com/mulderp"},
             actionText: "Cook it",
             introText: "Patrick Mulder shows how to setup an automatic installation of <a href='http://thinkingonthinking.com/An-experiment-with-Vagrant-and-Neo4J/' target='_blank'>Neo4j-Server with Chef and Vagrant</a> and hosts the <a href='https://github.com/mulderp/chef-neo4j' target='_blank'>cookbook on github</a><>",
             src: "http://player.vimeo.com/video/55085049",
@@ -262,7 +265,7 @@ neo4j start</pre>\
             src: "http://player.vimeo.com/video/53838744"
         },
         graphdb101: {
-            key : "graphdb101",
+            key: "graphdb101",
             title: "Graph DB 101",
             type: "video",
             author: "akollegger",
@@ -270,7 +273,7 @@ neo4j start</pre>\
             introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
             src: "http://player.vimeo.com/video/50787208"
         },
-        importing_sample_data : {
+        importing_sample_data: {
             title: "Importing Sample Datasets",
             type: "video",
             author: "peterneubauer",
@@ -278,7 +281,7 @@ neo4j start</pre>\
             introText: "Quick guide on how to set up an installed Neo4j server with prepared datasets",
             src: "http://player.vimeo.com/video/53867161"
         },
-        neo4j_code_2012 : {
+        neo4j_code_2012: {
             title: "Contributions to the Neo4j code base",
             type: "video",
             author: "systay",
@@ -286,7 +289,7 @@ neo4j start</pre>\
             introText: "A visualisation of Neo4j's code base during 2012",
             src: "http://www.youtube.com/embed/YJKK7ciYRhM"
         },
-        ec2_setup : {
+        ec2_setup: {
             title: "Install Neo4j on EC2",
             type: "video",
             author: "peterneubauer",
@@ -297,16 +300,16 @@ neo4j start</pre>\
     },
     links: {
         gatling: {
-                type: "link",
-                thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2013/02/neo4j_loves_gatling.gif?w=200",
-                img: "http://maxdemarzidotcom.files.wordpress.com/2013/02/neo4j_loves_gatling.gif?w=580",
-                path: "http://maxdemarzi.com/2013/02/14/neo4j-and-gatling-sitting-in-a-tree-performance-t-e-s-t-ing/",
-                title: "Neo4j and Gatling sitting in a tree, performance testing",
-                author: "maxdemarzi",
-                introText: "Max De Marzi explains how to use the Scala based load testing tool Gatling to test a Neo4j Server."
+            type: "link",
+            thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2013/02/neo4j_loves_gatling.gif?w=200",
+            img: "http://maxdemarzidotcom.files.wordpress.com/2013/02/neo4j_loves_gatling.gif?w=580",
+            path: "http://maxdemarzi.com/2013/02/14/neo4j-and-gatling-sitting-in-a-tree-performance-t-e-s-t-ing/",
+            title: "Neo4j and Gatling sitting in a tree, performance testing",
+            author: "maxdemarzi",
+            introText: "Max De Marzi explains how to use the Scala based load testing tool Gatling to test a Neo4j Server."
 
         },
-        spring_heroku_james_ward : {
+        spring_heroku_james_ward: {
             type: "link",
             title: "Graphs in the Cloud: Spring + Neo4j on Heroku",
             introText: "I began by deploying a copy of the Spring MVC + Hibernate template app. Then I made a few modifications to the app to switch the persistence from JPA to Spring Data Neo4j.",
@@ -352,18 +355,18 @@ neo4j start</pre>\
             thumbnail: "http://nuget.org/Content/Images/packageDefaultIcon.png",
             path: "http://nuget.org/packages/Neo4j.Server.AzureWorkerHost/"
         },
-        azure:{
-            type:"link",
-            title:"Neo4j on Azure",
+        azure: {
+            type: "link",
+            title: "Neo4j on Azure",
             introText: "In this blog post we will show that it is no problem at all to host a sophisticated and complex server product such as the Neo4j graph database server on Window Azure. Since Neo4j has a remote API over HTTP you can easily connect to the server from your applications.",
-            path:"http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"
+            path: "http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"
         },
-        azure_one_click:{
-            type:"link",
-            title:"Point-Click Deployment of Neo4J to Windows Azure",
+        azure_one_click: {
+            type: "link",
+            title: "Point-Click Deployment of Neo4J to Windows Azure",
             author: "dynamicdeploy",
             introText: "In this article, I will show you how to deploy Neo4J into Azure VMs in minutes. No coding, no Visual Studio, just point-click deployment for free.",
-            path:"http://www.opensourceazure.com/blog/2013/05/21/point-click-deployment-of-neo4j-to-windows-azure/"
+            path: "http://www.opensourceazure.com/blog/2013/05/21/point-click-deployment-of-neo4j-to-windows-azure/"
         },
         mapdb_index: {
             type: "link",
@@ -373,20 +376,20 @@ neo4j start</pre>\
             introText: "Neo4j 2.0 introduced the concept of real automatic indexes with a new underlying indexing subsystem SPI. So I thought it would be really helpful to try it out and provide a faster indexing implementation than the default lucene one. I chose <a href='http://www.mapdb.org/'>MapDB</a> for it and the results are <a href='https://github.com/jexp/neo4j-mapdb-index'>here on github</a>."
         },
         wes_cypher: {
-            type : "link",
-            title : "Wes Freeman's Cypher Tutorials and Commentary",
-            author : "wefreema",
+            type: "link",
+            title: "Wes Freeman's Cypher Tutorials and Commentary",
+            author: "wefreema",
             url: "http://wes.skeweredrook.com/cypher/",
             introText: "Wes' Cypher page with introductory articles, links to resources and the 'Ask Wes' section."
         },
         mark_cypher: {
-            type : "link",
-            title : "Mark Needhams collection of using Cypher for real world problems",
-            author : "markhneedham",
+            type: "link",
+            title: "Mark Needhams collection of using Cypher for real world problems",
+            author: "markhneedham",
             url: "http://www.markhneedham.com/blog/tag/cypher/",
             introText: "Mark uses use-cases from mapping colleagues and projects to football games and stadiums to explain different aspects of Cypher in a very descriptive manner."
         },
-        ec2_aws_tools : {
+        ec2_aws_tools: {
             type: "link",
             title: "Getting Started Guide on Amazon EC2",
             url: "http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/Welcome.html"
@@ -622,11 +625,11 @@ neo4j start</pre>\
         }
     },
     articles: {
-        jdbc:{
-            type:"type",
+        jdbc: {
+            type: "type",
             title: "Neo4j JDBC tools integration",
             thumbnail: "https://s3-eu-west-1.amazonaws.com/tiq-solutions/tumblr/pics/QVScriptNeo4j_Search_All_Roles_Spock.png",
-            introText:"With the Cypher JDBC driver, a lot of tools can be easily integrated with Neo4j.",
+            introText: "With the Cypher JDBC driver, a lot of tools can be easily integrated with Neo4j.",
             path: "http://blog.neo4j.org/2012/07/cypher-jdbc-tools-testing-results.html"
         },
         neo4j_on_heroku: {
@@ -729,7 +732,7 @@ neo4j start</pre>\
                 introText: "An Index –maps from–> Properties –to either–> Nodes or Relationships. It –is a special–> Traversal.",
                 src: asset("img/propertygraph/graphdb-index.png"),
                 content: "Often, you want to find a specific Node or Relationship according to a Property it has. This special case of Traversal is so common that it is optimized into an Index look-up, for questions like \“find the Account for username master-of-graphs.\”"
-            }            
+            }
         },
         nosql: {
             nosql: {
@@ -747,15 +750,15 @@ neo4j start</pre>\
                 type: "article",
                 title: "(A Graph Database) –[:TRANSFORMS_A]–> (RDBMS)",
                 content: "\
-                <div><img src="+asset('img/propertygraph/vs-rdbms.png')+" alt='' title='vs-rdbms' width='270' height='141' />\
-                <img src="+asset('img/propertygraph/as-rdbms.png')+" alt='' title='as-rdbms' width='254' height='289' /></div>\
+                <div><img src=" + asset('img/propertygraph/vs-rdbms.png') + " alt='' title='vs-rdbms' width='270' height='141' />\
+                <img src=" + asset('img/propertygraph/as-rdbms.png') + " alt='' title='as-rdbms' width='254' height='289' /></div>\
                 <p>Topple the stacks of records in a <strong>Relational Database</strong> while keeping all the relationships, and you’ll see a graph. Where an RDBMS is optimized for aggregated data, Neo4j is optimized for highly connected data.</p>"
             },
             keyvalue: {
                 type: "article",
                 title: "(A Graph Database) –[:RELATES_A]–> (Key-Value Store)",
                 content: "\
-                    <div><img src="+asset('img/propertygraph/vs-key-value.png')+" alt='' title='vs-key-value' width='245' height='76' /><img src="+asset('img/propertygraph/vs-document.png')+" alt='' title='as-key-value' width='159' height='241' /></div>\
+                    <div><img src=" + asset('img/propertygraph/vs-key-value.png') + " alt='' title='vs-key-value' width='245' height='76' /><img src=" + asset('img/propertygraph/vs-document.png') + " alt='' title='as-key-value' width='159' height='241' /></div>\
                     <p>A <strong>Key-Value model</strong> is great for lookups of simple or even complex values. When the values are themselves interconnected, you’ve got a graph. Neo4j lets you traverse quickly among all the connected values.</p>\
                     "
             },
@@ -763,10 +766,10 @@ neo4j start</pre>\
                 type: "article",
                 title: "(A Graph Database) –[:NAVIGATES_A]–> (Document Store)",
                 content: "\
-                    <div><img src="+asset('img/propertygraph/vs-document.png')+" alt='' title='vs-document' width='159' height='241' /><img src="+asset('img/propertygraph/as-document.png')+" alt='' title='as-document' width='267' height='232' /></div>\
+                    <div><img src=" + asset('img/propertygraph/vs-document.png') + " alt='' title='vs-document' width='159' height='241' /><img src=" + asset('img/propertygraph/as-document.png') + " alt='' title='as-document' width='267' height='232' /></div>\
                     <p>The container hierarchy of a <strong>Document Database</strong> accommodates nice, schema-free data that can easily be represented as a tree. Which is of course a graph. Refer to other documents (or document elements) within that tree and you have a more expressive representation of the same data that you can easily navigate with Neo4j.</p>"
             }
-        },        
+        },
         learn: {
             title: "What is Neo4j?",
             type: "article",
@@ -828,23 +831,23 @@ neo4j start</pre>\
                 "Please refer to that guide in order to provide your own plugin. " +
                 "<pre>" +
                 "{<br/>" +
-            "\"node\" : \"http://localhost:7474/db/data/node\",            <br/>" +
-            "\"node_index\" : \"http://localhost:7474/db/data/index/node\",<br/>"  +
-            "\"relationship_index\" : \"http://localhost:7474/db/data/index/relationship\",<br/>"+
-            "\"reference_node\" : \"http://localhost:7474/db/data/node/0\",                  <br/>"+
-            "\"extensions_info\" : \"http://localhost:7474/db/data/ext\",                      <br/>"+
-            "\"extensions\" : {                                                                  <br/>"+
-            "    \"GetAll\" : {                                                                    <br/>"+
-            "        \"get_all_nodes\" : \"http://localhost:7474/db/data/ext/GetAll/graphdb/get_all_nodes\",<br/>"+
-            "        \"get_all_relationships\" : \"http://localhost:7474/db/data/ext/GetAll/graphdb/getAllRelationships\"<br/>"+
-            "    }"+
-            "}</pre>"
+                "\"node\" : \"http://localhost:7474/db/data/node\",            <br/>" +
+                "\"node_index\" : \"http://localhost:7474/db/data/index/node\",<br/>" +
+                "\"relationship_index\" : \"http://localhost:7474/db/data/index/relationship\",<br/>" +
+                "\"reference_node\" : \"http://localhost:7474/db/data/node/0\",                  <br/>" +
+                "\"extensions_info\" : \"http://localhost:7474/db/data/ext\",                      <br/>" +
+                "\"extensions\" : {                                                                  <br/>" +
+                "    \"GetAll\" : {                                                                    <br/>" +
+                "        \"get_all_nodes\" : \"http://localhost:7474/db/data/ext/GetAll/graphdb/get_all_nodes\",<br/>" +
+                "        \"get_all_relationships\" : \"http://localhost:7474/db/data/ext/GetAll/graphdb/getAllRelationships\"<br/>" +
+                "    }" +
+                "}</pre>"
         },
-        
+
         cypher_tutorial_1: {
             type: "track",
             introText: "Cypher Tutorial #1",
-            content:  +
+            content: +
                 "<ul>" +
                 "<li>Our example graph consists of <code>movies</code> with an <code>id</code>, <code>year</code> and <code>title</code> and <code>actors</code> with a <code>name</code>.    " +
                 "Actors have an <code>:ACTS_IN</code> relationship to movies, which represents the <code>role</code> they played, the role relationship has also a <code>role</code> attribute.   " +
@@ -852,10 +855,10 @@ neo4j start</pre>\
                 "<li> We encourage you to enter the Cypher statements in the interactive console manually, but you can also click on the code snippets." +
                 "<br/>      Like   this one" +
                 "    < pre > START n = node(*) RETURN \"Hello Graph with \" + count(*) + \" Nodes!\" as welcome; </pre> </li>" +
-                "<li>return a single node, by id (The Matrix) <br/><pre>START movie=node(0) RETURN movie;</pre></li>"+
-                "<img src = \""+asset("img/still/cineasts.gif")+"\" height=\"100\"/>" +
+                "<li>return a single node, by id (The Matrix) <br/><pre>START movie=node(0) RETURN movie;</pre></li>" +
+                "<img src = \"" + asset("img/still/cineasts.gif") + "\" height=\"100\"/>" +
                 "</ul>"
-                
+
         },
         cypher_tutorial_2: {
             type: "track",
@@ -963,7 +966,7 @@ neo4j start</pre>\
         },
         route_planner: {
             type: "app",
-            author: {"twitter":"@hasCode","name":"Micha Kops"},
+            author: {"twitter": "@hasCode", "name": "Micha Kops"},
             url: "http://www.hascode.com/2012/01/neo4j-graph-database-tutorial-how-to-build-a-route-planner-and-other-examples/",
             name: "How to build a Route Planner",
             logo: asset("img/apps/flavorwocky.png"),
@@ -1058,15 +1061,15 @@ neo4j start</pre>\
         },
         jdbc: {
             type: "link",
-            author: ["rickardoberg","mesirii"],
+            author: ["rickardoberg", "mesirii"],
             src: "https://github.com/neo4j-contrib/neo4j-jdbc",
             thumbnail: "http://rickardoberg.files.wordpress.com/2011/12/screen-shot-2011-12-19-at-5-31-52-pm.png",
             introText: "The Neo4j JDBC driver allows to access Neo4j server, embedded and in-memory databases via the JDBC API using Cypher. It also supports the <a href='http://docs.neo4j.org/chunked/milestone/rest-api-transactional.html'>transactional endpoint of Neo4j 2.0</a>" +
-                "It was initially created by <a href='http://rickardoberg.wordpress.com/2011/12/19/creating-a-jdbc-driver-for-neo4j/'>Rickard Öberg</a> and then taken over by the Neo4j Community"+
+                "It was initially created by <a href='http://rickardoberg.wordpress.com/2011/12/19/creating-a-jdbc-driver-for-neo4j/'>Rickard Öberg</a> and then taken over by the Neo4j Community" +
                 "The driver is available on <a href='https://github.com/neo4j-contrib/neo4j-jdbc'>GitHub</a>, also as <a href='http://dist.neo4j.org.s3.amazonaws.com/neo4j-jdbc/neo4j-jdbc-1.9-jar-with-dependencies.jar'>binary jar for Neo4j 1.9</a> and <a href='http://dist.neo4j.org.s3.amazonaws.com/neo4j-jdbc/neo4j-jdbc-2.0.0-M02-jar-with-dependencies.jar'>Neo4j 2.0</a>",
             title: "Neo4j JDBC driver project",
             github: "https://github.com/neo4j-contrib/neo4j-jdbc"
-        }     ,
+        },
         jpa: {
             type: "link",
             author: "@alexsmirnov",
@@ -1074,7 +1077,7 @@ neo4j start</pre>\
             thumbnail: asset("img/languages/java.jpg"),
             introText: "Standard JCA 1.6 connector, that can be installed on any Java EE 6 compatible server.",
             title: "Neo4j JPA driver"
-        }     ,
+        },
         gremlin_plugin: {
             type: "app",
             author: "@peterneubauer",
@@ -1083,7 +1086,7 @@ neo4j start</pre>\
             text: "A Neo4j Server plugin to execute Gremlin queries against the Neo4j REST API.",
             name: "Neo4j Server Gremlin plugin"
         }
-        
+
 
     },
     drivers: {
@@ -1110,7 +1113,7 @@ neo4j start</pre>\
         },
         spring_data_neo4j: {
             type: "driver",
-            tags: ["java", "jvm", "rest", "spring","ogm"],
+            tags: ["java", "jvm", "rest", "spring", "ogm"],
             authors: ["@neo4j"],
             url: "/develop/spring",
             logo: asset("img/languages/sdn.png"),
@@ -1128,7 +1131,7 @@ neo4j start</pre>\
         },
         neo4j_rb: {
             type: "driver",
-            tags: ["ruby", "jvm","ogm"],
+            tags: ["ruby", "jvm", "ogm"],
             authors: ["@ronge"],
             url: "https://github.com/andreasronge/neo4j",
             logo: asset("img/languages/rails.png"),
@@ -1187,7 +1190,7 @@ neo4j start</pre>\
         },
         neomodel: {
             type: "driver",
-            tags: ["python", "rest","ogm"],
+            tags: ["python", "rest", "ogm"],
             url: "https://github.com/robinedwards/neomodel",
             site: "http://skillsmatter.com/podcast/nosql/case-study-how-sharehoods-created-neomodel-along-the-way",
             authors: ["@robsmoniker"],
@@ -1204,12 +1207,12 @@ neo4j start</pre>\
             url: "http://pypi.python.org/pypi/neo4j-embedded",
             docs: "http://docs.neo4j.org/drivers/python-embedded/snapshot/",
             logo: asset("img/languages/python.png"),
-            name: "Neo4j Python", 
+            name: "Neo4j Python",
             text: "The JVM based Python integration for Neo4j uses JPype. More details in the <a href='http://docs.neo4j.org/drivers/python-embedded/snapshot/'>Neo4j manual.</a>"
         },
         grails: {
             type: "driver",
-            tags: ["groovy", "grails", "jvm","ogm"],
+            tags: ["groovy", "grails", "jvm", "ogm"],
             authors: ["@darthvader42"],
             url: "http://www.grails.org/plugin/neo4j",
             site: "http://www.grails.org/plugin/neo4j",
@@ -1252,7 +1255,7 @@ neo4j start</pre>\
             text: "An idiomatic, feature rich Clojure client which supports (almost) all Neo4J REST API features and is constantly tested against bleeding edge server changes, like the Cypher language improvements. " },
         bulbflow: {
             type: "driver",
-            tags: ["python", "rest","ogm"],
+            tags: ["python", "rest", "ogm"],
             authors: ["@espeed"],
             url: "http://bulbflow.com/overview/",
             logo: asset("img/languages/bulbflow.png"),
@@ -1270,7 +1273,7 @@ neo4j start</pre>\
         neoid: {
             type: "driver",
             authors: ["@elado"],
-            tags: ["ruby", "rest","ogm"],
+            tags: ["ruby", "rest", "ogm"],
             url: "https://github.com/elado/neoid",
             logo: asset("img/languages/rails.png"),
             name: "Neoid",
@@ -1278,7 +1281,7 @@ neo4j start</pre>\
         },
         neo4django: {
             type: "driver",
-            tags: ["python", "rest", "django","ogm"],
+            tags: ["python", "rest", "django", "ogm"],
             authors: ["@mhluongo"],
             url: "https://github.com/scholrly/neo4django",
             logo: asset("img/languages/django.png"),
@@ -1324,7 +1327,7 @@ neo4j start</pre>\
         },
         datanucleus: {
             type: "driver",
-            tags: ["java", "jvm", "jpa","ogm"],
+            tags: ["java", "jvm", "jpa", "ogm"],
             authors: ["@datanucleus"],
             url: "http://www.datanucleus.org/plugins/store.neo4j.html",
             logo: asset("img/languages/datanucleus.png"),
@@ -1349,7 +1352,7 @@ neo4j start</pre>\
             examples: "http://github.com/impetus-opensource/Kundera-Examples",
             logo: "http://mail.varindia.com/images/Impetus_Logo.gif",
             authors: ["Amresh Amry"],
-            tags: ["jvm","jpa","ogm"],
+            tags: ["jvm", "jpa", "ogm"],
             name: "Kundera",
             text: "Kundera is a JPA 2.0 compliant, object-datastore mapping library for NoSQL datastores."
         },
@@ -1362,23 +1365,23 @@ neo4j start</pre>\
             examples: "https://github.com/bretcope/neo4j-js#usage",
             logo: asset("img/languages/js.gif"),
             authors: ["Bret Copeland"],
-            tags: ["rest","javascript"],
+            tags: ["rest", "javascript"],
             name: "Neo4j-js",
             text: "A Node.js (pure JavaScript) client library for accessing neo4j databases with batch support."
         }
     }
-}
+};
 exports.video = function(id) { 
     return function() {
         // console.log(id,exports.content.videos[id.toString()]);
         return exports.content.videos[id.toString()];
     }
 };
-exports.findItem = function(key) {
-    
-}
-exports.lookup = function(id) {
-    return function() {
+exports.findItem = function (key) {
+
+};
+exports.lookup = function (id) {
+    return function () {
         return findItem(id);
     }
-}
+};

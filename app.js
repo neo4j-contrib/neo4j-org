@@ -32,7 +32,8 @@ var express = require('express')
     , render = require("./helpers/render")
     , videos = require("./helpers/videos")
     , asset = require("./helpers/assets.js").asset
-    , twitter = require("./helpers/twitter.js");
+    , twitter = require("./helpers/twitter.js")
+    , mylog = require("./helpers/log.js");
 
 var content = require("./helpers/content")
     , pages = require("./helpers/pages");
@@ -282,6 +283,8 @@ route_get('/price-list', forward("http://www.neotechnology.com/price-list/"));
 route_get('/customers', forward("http://www.neotechnology.com/customers/"));
 
 page_handling.init(app,app.locals.pages);
+
+mylog.init(app);
 
 twitter.load_tweets(app,10*60*1000);
 twitter.add_tweet_route("/api/tweets",app);
