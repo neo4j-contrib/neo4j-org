@@ -546,7 +546,7 @@ exports.pages = {
         introText: "Friends of Neo4j speak many languages, and work in many frameworks.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
         featured: null,
-        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp", "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "bulbflow", "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go", "kundera", "neo4j_js", "neomodel"]
+        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp", "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "gremlin", "bulbflow", "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go", "kundera", "neo4j_js", "neomodel"]
     },
     tools: {
         path: "/develop/tools",
@@ -807,6 +807,86 @@ exports.pages = {
     //     },
     //     related : ["contributors", "neo_staff", "speakers", "authors"]
     // },
+    linked_data : {
+        tags: ["rdf","sparql","linked data","semantic web"],
+        path: "/develop/linked_data",
+        title: "Linked Data: RDF and SparQL with Neo4j",
+        introText: "",
+        featured: [],
+        related: [],
+        thumbnail: ""
+    },
+    neoclipse: {
+        tags: ["workbench","rcp","cypher"],
+        path: "/develop/tools/neoclipse",
+        thumbnail: asset("img/apps/neoclipse.png"),
+        author: ["nawroth",{twitter:"nrkkalyan",name:"Radhakrishna Kalyan"}],
+        introText: "Neoclipse is a standalone workbench application to interact with Neo4j (embedded, server). It supports Cypher, index searches, visualisation, graph updates ",
+        /*
+        Main features:
+        
+        visualize the graph
+        increase/decrease the traversal depth
+        filter the view by relationship types
+        add/remove nodes/relationships
+        create relationship types
+        add/remove/change properties on nodes and relationships
+        highlight nodes/relationships in different ways
+        add icons to nodes
+         */
+        
+        featured: [
+            {
+                type:"video",
+                title: "Getting Started with Neoclipse",
+                introText: "This is a short tutorial to get started with Neoclipse and get nice graph decorations onto your graph.",
+                thumbnail: "https://github.com/neo4j/neoclipse/wiki/img/Neoclipse.introduction.png",
+                author: "peterneubauer",
+                src: "https://player.vimeo.com/video/12014944"
+            },           
+            {
+                type:"video",
+                title: "Getting Started with Neoclipse Part 2",
+                introText: "Shows the new functionality including the Cypher query window and remote Server connections.",
+                thumbnail: "https://github.com/neo4j/neoclipse/wiki/img/bigGraph1.png",
+                author: "nrkkalyan",
+                src: "http://www.youtube.com/embed/9j3FjMEp32M?rel=0&autoplay=1"
+            }],
+        related: [
+            {
+                type: "link",
+                author: "@nawroth",
+                title: "Neoclipse Documentation and source",
+                url: "https://github.com/neo4j/neoclipse/wiki",
+                github: "https://github.com/neo4j/neoclipse",
+                thumbnail: asset("img/apps/neoclipse.png")
+            },
+            {
+                type: "link",
+                author: "@nawroth",
+                title: "New Features in Neoclipse",
+                introText: "The post discusses handling of properties, relationship types, visualization",
+                url: "http://blog.nawroth.com/2009/04/neoclipse-reloaded.html",
+                thumbnail: "http://3.bp.blogspot.com/_sm_3KdSgQMg/SdVNZLa7K6I/AAAAAAAAADE/v6gDiadFOlw/s200/neoclipse-relationship.png"
+            },
+            {
+                type: "link",
+                author: "Jaime",
+                title: "Neoclipse and Neo4j",
+                introText: "The home icon is the built-in starting point* for my database. From there I can traverse nodes, relationships to find what I am looking for. (<a href='http://mybraincrack.blogspot.de/search/label/Neo4j'>more Neo4j posts</a>)",
+                url: "http://mybraincrack.blogspot.de/2012/03/neoclipse-and-neo4j.html",
+                thumbnail: "http://4.bp.blogspot.com/-5fvS7z7Te1o/T2e-ayueDGI/AAAAAAAAAC8/5GBVKXhlqjw/s200/Subreference+Nodes.JPG"
+            },
+            {
+                type: "link",
+                author: "Sefol",
+                title: "Neoclipse – setting node labels",
+                introText: "The Neoclipse documentation is a little bit confusing on this point.  You must tell Neoclipse which (String) property of a node should be used for rendering its visible node label. ...",
+                url: "http://www.sefol.com/?p=870",
+                thumbnail: "http://www.sefol.com/wp-content/themes/sefol/images/sefol/sefollogo.jpg"
+            }
+        ]
+    },
     contributors: {
         path: "/participate/contributors",
         title: "Contributors - you rock.",
@@ -1011,7 +1091,23 @@ exports.pages = {
         featured: [
             content.articles.learn, video('Ian Robinson  - What is a Graph Database? What is Neo4j?')
         ],
-        related: [content.videos.why_graphs, "graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "nosql", "licensing", content.links.manual, "neo4j_server"]
+        related: [content.videos.why_graphs, "graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "nosql", "licensing", content.links.manual, "neo4j_server",
+            {
+                type:"link",
+                author: "peterneubauer",
+                path: "http://www.infoq.com/articles/graph-nosql-neo4j",
+                title: "Graph Databases, NOSQL and Neo4j",
+                introText: "This article aims to give an overview of the position of Graph Databases in the NOSQL-movement. The second part is an introduction to Neo4j, a Java-based Graph Database.",
+                thumbnail: "http://cdn4.infoq.com/styles/i/logo.jpg"
+            }
+        ]
+    },
+    mobile : {
+        path: "/develop/mobile",
+        title: "Neo4j on and from mobile devices and smartphones",
+        featured: [],
+        related: [],
+        thumbnail: ""
     },
     reference_card: {
         path: "/learn/neo4j/reference_card",
@@ -1560,6 +1656,14 @@ exports.pages = {
                 author: "rvanbruggen",
                 thumbnail: "https://lh3.googleusercontent.com/hkoYal89xuVDMvXY8BuE7dN0IM5svowOJr9cURxT3vN_ThzxSambyj1DE-6fQlSIoEcqw2IUgg5xj8c-CJv8dHgKovjA1hMjljsMgImH963u0LrDxP07AzIRow",
                 introText: "A spreadsheet and some formulas building cypher queries are one of the simplest ways of getting data into Neo4j. If even a sales-guy like Rik can do it, you can too"
+            },
+            {
+                type: "link",
+                title: "Blog Series: Importing Data into Neo4j",
+                path: "http://jexp.de/blog/2013/05/on-importing-data-in-neo4j-blog-series/",
+                tags: ["java","shell","cypher","batch","import"],
+                author: "mesirii",
+                introText: "This series on importing data into Neo4j contains practical suggestions and covers many aspects: Cypher, Neo4j-Shell, Java-API, Batch-Insertion, Neo4j 2.0."
             },
             {
                 type: "link",

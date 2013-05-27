@@ -1102,6 +1102,18 @@ exports.content = {
             text: "A Cypher-oriented Scala library modeled after the Play! framework's Anorm library.",
             tags: ["scala", "rest", "cypher"]
         },
+        gremlin: {
+            type: "driver",
+            name: "Gremlin",
+            authors: ["@tinkerpop"],
+            source: "https://github.com/tinkerpop/gremlin",
+            docs: "https://github.com/tinkerpop/gremlin/wiki",
+            url: "https://github.com/tinkerpop/gremlin",
+            site: "http://www.tinkerpop.com",
+            logo: "http://www.tinkerpop.com/images/gremlin-character.png",
+            text: "Gremlin is a Groovy DSL by the Tinkerpop community for expressing graph traversals using the underlying <a href='https://github.com/tinkerpop/pipes'>pipes framework</a> that sits on top of <a href='https://github.com/tinkerpop/blueprints/tree/master/blueprints-neo4j-graph'>blueprints-neo4j</a>",
+            tags: ["groovy", "rest", "gremlin"]
+        },
         neo4j_rest: {
             type: "driver",
             url: "http://docs.neo4j.org/chunked/milestone/rest-api.html",
