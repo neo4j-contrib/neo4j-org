@@ -163,6 +163,7 @@ app.locals.related = function (path, page) {
     return paths.related(app.locals, path, page);
 };
 
+forwarder.add_console_forward(app, express, http);
 /////// APP-CONFIG ///////
 
 app.configure(function () {
@@ -204,8 +205,6 @@ app.configure('development', function(){
 app.configure('production', function(){
   app.use(express.errorHandler());
 });
-
-forwarder.add_console_forward(app, express, http);
 
 videos.loadAllVideos(app.locals.pages,app.locals.content,4);
 
