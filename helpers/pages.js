@@ -135,6 +135,7 @@ exports.pages = {
     linux: {
         path: "/download/linux",
         config: { tile_page: true, no_slides: true },
+        thumbnail: asset("img/logo/linux.jpg"),
         title: "Linux Installation",
         actionText: "Install on Linux",
         introText: "Installing Neo4j on Linux for instance by using apt, puppet or chef.",
@@ -275,7 +276,8 @@ exports.pages = {
                 introText: "Cypher is a graph query language that is powerful and easy to use, and a unique feature of Neo4j.  Much like SQL, Cypher is a declarative language and is the easiest way to query one’s graph.  Whereas first-generation graph query languages require you to specify exactly how the database will walk the graph, with Cypher you simply tell the database what you want, and the database engine takes care of the low-level details.  This results in less code, improved readability, and faster development cycles.  Cypher has been embraced with great enthusiasm by the Neo4j user community, and is now the preferred language for Neo4j development.",
                 thumbnail: asset("img/still/got_a_graph_talk.png"),
                 src: "http://player.vimeo.com/video/45318365"
-            }
+            },
+            "neoclipse"
             // import with cypher
             // the shell
             // the rest-cypher
@@ -568,7 +570,7 @@ exports.pages = {
         introText: "There are a lot of tools and resources around Neo4j.",
         thumbnail: asset("img/still/cypher.png"),
         featured: [content.videos.cypher],
-        related: ["drivers", "try", "visualize"]
+        related: ["drivers", "try", "neoclipse","visualize"]
     },
     books: {
         path: "/learn/books",
@@ -585,7 +587,7 @@ exports.pages = {
         thumbnail: asset("img/neo4j/neo4j_cloud.png"),
         actionText: "Neo4j in the Cloud",
         featured: [content.videos.james_ward_neo4j],
-        related: ["heroku", "ec2", content.install.debian, content.links.azure_vs2012, content.links.azure_one_click]
+        related: ["heroku", "ec2", "linux", "azure"]
     },
     azure: {
         path: "/develop/cloud/azure",
@@ -1296,7 +1298,7 @@ exports.pages = {
             content.links.keylines,
             content.links.d3,
             content.links.gephi,
-            content.projects.neoclipse,
+            "neoclipse",
             {
                 title: "VivaGraphJS on GitHub",
                 path: "https://github.com/anvaka/VivaGraphJS",
