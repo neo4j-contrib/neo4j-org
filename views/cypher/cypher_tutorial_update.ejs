@@ -4,12 +4,12 @@
 <ul>
     <li>we will add ourselves, friends and ratings</li>
     <li>add a node for yourself and 
-return it, let's say your name is "Me" <br/><pre>CREATE me={name: "Me"} RETURN me;</pre> </li>
+return it, let's say your name is "Me" <br/><pre>CREATE (me {name: "Me"}) RETURN me;</pre> </li>
     <li>let's check if the node is there: <br/><pre>START me=<%=tutorial.me%> RETURN me.name;</pre></li>
     <li>I want to rate a movie <br/><pre>START me=<%=tutorial.me%>, movie=<%=tutorial.matrix%> 
-CREATE me-[:RATED {stars : 5, comment : "I love that movie!"}]-&gt;movie;</pre></li>
+CREATE (me)-[:RATED {stars : 5, comment : "I love that movie!"}]-&gt;(movie);</pre></li>
     <li>which movies did I rate <br/><pre>START me=<%=tutorial.me%> 
-MATCH me-[r:RATED]-&gt;movie RETURN r.stars, r.comment,movie.title;</pre>
+MATCH (me)-[r:RATED]-&gt;(movie) RETURN r.stars, r.comment,movie.title;</pre>
 </li>
 </ul>
 </div>

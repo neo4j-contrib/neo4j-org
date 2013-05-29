@@ -1014,7 +1014,7 @@ exports.content = {
         neosocial: {
             type: "app",
             author: "@maxdemarzi",
-            docs: "http://maxdemarzi.com/2012/08/17/neosocial-connecting-to-facebook-with-neo4j/",
+            url: "http://maxdemarzi.com/2012/08/17/neosocial-connecting-to-facebook-with-neo4j/",
             name: "Neosocial",
             text: "Neosocial: Connecting to Facebook with Neo4j",
             logo: asset("img/apps/neosocial.png")

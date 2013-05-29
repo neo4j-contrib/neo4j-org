@@ -10,20 +10,20 @@ RETURN movie.id, movie.title;</pre></li>
     <li>first use of the 
 MATCH clause, show all actors
         <br/><pre>START m=<%=tutorial.matrix%>  
-MATCH m&lt;-[:ACTS_IN]-actor 
+MATCH (m)&lt;-[:ACTS_IN]-(actor)
 RETURN actor;</pre></li>
     <li>
 return just the name, order them by name
         <br/><pre>START m=<%=tutorial.matrix%> 
-MATCH m&lt;-[:ACTS_IN]-actor 
+MATCH (m)&lt;-[:ACTS_IN]-(actor)
 RETURN actor.name order by actor.name;</pre></li>
     <li>first aggregation, count the actors
         <br/><pre>START m=<%=tutorial.matrix%> 
-MATCH m&lt;-[:ACTS_IN]-actor 
+MATCH (m)&lt;-[:ACTS_IN]-(actor)
 RETURN count(*);</pre></li>
     <li>first filtering only the actors whose names end with "s"
         <br/><pre>START m=<%=tutorial.matrix%>  
-MATCH m&lt;-[:ACTS_IN]-actor 
+MATCH (m)&lt;-[:ACTS_IN]-(actor)
 WHERE actor.name =~ ".*s$" 
 RETURN actor.name ;</pre></li>
 </ul>

@@ -6,13 +6,13 @@
 <li>we know that Trinity loves Neo, but how many paths exist between their actors; we limit the path length and the query as it exhaustively searches the graph otherwise
 <br/><pre>START neo=<%=tutorial.neo%>, 
 trinity=<%=tutorial.trinity%> 
-MATCH p = neo-[:ACTS_IN*0..5]-trinity  
+MATCH p = (neo)-[:ACTS_IN*0..5]-(trinity)
 RETURN p, length(p) 
 LIMIT 10;</pre></li>
 <li>if that's a lot of data, we just want to look at the names and titles of the nods of this path
 <br/><pre>START neo=<%=tutorial.neo%>, 
 trinity=<%=tutorial.trinity%> 
-MATCH p = neo-[:ACTS_IN*0..5]-trinity  
+MATCH p = (neo)-[:ACTS_IN*0..5]-(trinity)
 RETURN extract(n in nodes(p) : 
 coalesce(n.title?,n.name?)) as `names and titles`, 
 length(p) 
