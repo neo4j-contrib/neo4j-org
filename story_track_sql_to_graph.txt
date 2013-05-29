@@ -1,0 +1,32 @@
+Each track page has:
+
+a friendly title
+a description of the current state and goal
+a some prose describing how people usually approach achieving the goal
+
+one or two main content items, either screencasts, texts, code examples
+several related items
+
+1. Data in relational DB, DataModel, experience with SQl, why to choose a graph
+
+2. Modeling
+
+3. Import in Graph
+
+4. Exploration, Visualization
+
+5. Learn Programmatic access / cypher
+
+cypher for dba's (webinar, manual, query from programming language, drivers)
+
+6. Build an App / Extend an app to work with the graph
+
+discuss deployment scenarios
+discuss integration points with application, e.g. components that use the graph or certain functionality
+- acl resolution
+
+7. ops & maintenance
+- embedded(war) or server installation
+- backup
+- SPF, HA
+- graph evolution

@@ -9,7 +9,7 @@ exports.pages = {
         title: "Learn",
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
         featured: [content.books.graphdatabases, content.videos.graphdb101, content.videos.why_graphs],
-        related: ["graphdatabase", "neo4j", "nosql", "tracks", "cypher", "production", "licensing", content.links.manual, "scientific"]
+        related: ["graphdatabase", "neo4j", "nosql", "tracks", "cypher", "training", "production", "licensing", content.links.manual, "scientific"]
     },
     learn_graphdb: {
         path: "/learn_graphdb",
@@ -37,6 +37,20 @@ exports.pages = {
                 path: "/participate/twitter"
             }, "channels", "graphistas_map", "beer", content.projects.neo4j_org
         ]
+    },
+    training : {
+        path : "/training",
+        title: "Neo4j Trainings, Tutorials and Courses",
+        introText: "Neo4j Trainings and Courses allow you to quickly gain practical knowledge into the concepts and usage of Neo4j. These are presented by experienced trainers and Neo4j developers",
+        thumbnail: asset("img/events/training.png"),
+        featured: ["trainings"],
+        related: [
+            content.links.course_neo4j_in_60,
+            content.links.neo4j_koans_skillsmatter,
+            content.links.neotech_services,
+            content.links.partners_graph,
+            content.links.centrum_training,
+            content.links.neo4j_koans]
     },
     download_thanks: {
         path: "/download_thanks",
@@ -154,7 +168,7 @@ exports.pages = {
     },
     scientific: {
         path: "/learn/scientific",
-        thumbnail: asset("img/logo/scientific.png"),
+//        thumbnail: asset("img/logo/scientific.png"),
         title: "Neo4j in the scientific community",
         introText: "There is a lot of research going on around Graph Databases in general and Neo4j in particular. Below you will find some of the more recent works in this field.",
         featured: null,
@@ -821,7 +835,7 @@ exports.pages = {
         path: "/develop/tools/neoclipse",
         thumbnail: asset("img/apps/neoclipse.png"),
         author: ["nawroth",{twitter:"nrkkalyan",name:"Radhakrishna Kalyan"}],
-        introText: "Neoclipse is a standalone workbench application to interact with Neo4j (embedded, server). It supports Cypher, index searches, visualisation, graph updates ",
+        introText: "Neoclipse is a standalone workbench application to interact with Neo4j (database directory or server). It supports Cypher, index searches, visualisation, graph updates. You can <a href='https://github.com/neo4j/neoclipse/downloads'>download the latest versions here.</a> ",
         /*
         Main features:
         
@@ -929,6 +943,7 @@ exports.pages = {
         prev: ["videos"],
         next: ["videos_interview"],
         thumbnail: asset("img/events/webinar.png"),
+        img: asset("img/still/webinars_slide.jpg"),
         introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
         featured: [],
         related: [],
@@ -1004,7 +1019,7 @@ exports.pages = {
         prev: ["meetups", "events"],
         next: ["trainings"],
         thumbnail: asset("img/events/webinar.png"),
-        introText: "Neo4j webinars give you hands on expert information either directly from Neo Technology or from our partners and users.",
+        introText: "Neo4j webinars give you hands on expert information either directly from Neo Technology or from our partners and users. In case you missed one, we've <a href='/learn/videos_webinar'>recorded them all</a>.",
         actionText: "Register for a webinar",
         featured: [
             "videos_webinar"
@@ -1033,7 +1048,7 @@ exports.pages = {
             {title: "Training Testimonial",
                 introText: "We developed a hands-on, full day training course to teach the basics of using a graph database as Neo4j. After the training you should feel confident to start your own Neo4j based project.",
                 type: "video",
-                path: "http://player.vimeo.com/video/55473433",
+                src: "http://player.vimeo.com/video/55473433",
                 thumbnail: "http://secure-b.vimeocdn.com/ts/383/938/383938829_295.jpg",
                 content: function (params) {
                     return render.include("/learn/training", params)
@@ -1317,9 +1332,14 @@ exports.pages = {
         title: "Apps Gallery",
         introText: "Built with Neo4j, tripping the graph fantastic.",
         featured: null,
-        related: [content.apps.flavorwocky,
-            content.apps.frostymug, content.apps.polymap,
-            content.apps.neosocial, content.apps.structr,
+        related: [
+            content.apps.structr,
+            content.apps.polymap,
+            content.apps.assim_mon,
+            content.apps.sylvadb,
+            content.apps.flavorwocky,
+            content.apps.frostymug, 
+            content.apps.neosocial, 
             content.projects.neoclipse]
     },
 

@@ -972,7 +972,9 @@ ul.hor li {
 
 .featured .video .caption, 
 .featured .version .caption, 
-.featured .default .caption 
+.featured .default .caption,
+.featured .page .caption,
+.featured .track .caption
 {
     width: 18em; 
 }

@@ -29,12 +29,12 @@ exports.content = {
         },
         "milestone": {
             type: "version",
-            title: "Neo4j Milestone 2.0.0-M02",
+            title: "Neo4j Milestone 2.0.0-M03",
             stability: "milestone",
-            version: "2.0.0-M02",
-            date: "Apr 22, 2013",
-            introText: "Node Labels, automatic indexes, transactional Cypher HTTP.",
-            path: "http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
+            version: "2.0.0-M03",
+            date: "May 28, 2013",
+            introText: "Node Labels, automatic indexes, transactional Cypher HTTP, work on constraints.",
+            path: "http://blog.neo4j.org/2013/05/new-milestone-release-neo4j-200-m03.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
@@ -140,7 +140,7 @@ exports.content = {
             title: "Install Neo4j-server with Chef",
             author: {"twitter": "mulpat", "name": "Patrick Mulder", "github": "https://github.com/mulderp"},
             actionText: "Cook it",
-            introText: "Patrick Mulder shows how to setup an automatic installation of <a href='http://thinkingonthinking.com/An-experiment-with-Vagrant-and-Neo4J/' target='_blank'>Neo4j-Server with Chef and Vagrant</a> and hosts the <a href='https://github.com/mulderp/chef-neo4j' target='_blank'>cookbook on github</a><>",
+            introText: "Patrick Mulder shows how to setup an automatic installation of <a href='http://thinkingonthinking.com/An-experiment-with-Vagrant-and-Neo4J/' target='_blank'>Neo4j-Server with Chef and Vagrant</a> and hosts the <a href='https://github.com/mulderp/chef-neo4j' target='_blank'>cookbook on github</a>",
             src: "http://player.vimeo.com/video/55085049",
             path: "http://thinkingonthinking.com/An-experiment-with-Vagrant-and-Neo4J/"
         }
@@ -299,6 +299,41 @@ exports.content = {
         }
     },
     links: {
+        course_neo4j_in_60: {
+            type: "link",
+            path: "http://www.gyaanexchange.com/online/neo4j-in-under-60-minutes/",
+            title: "Online Course: Neo4j in under 60 minutes",
+            author: ["luannem","rhetonik"],
+            introText: "In this class <a href='http://twitter.com/luannem'>Luanne Misquitta</a> and <a href='http://twitter.com/rhetonik'>Nikhil Lanjewar</a> introduce you to the basics of Neo4j and how you can quickly get started using NOSQL on your projects.",
+            thumbnail: asset("img/logo/gyaanexchange.png")
+        },
+        neo4j_koans_skillsmatter: {
+            type: "link",
+            path: "http://skillsmatter.com/course/nosql/neo4j-tutorial",
+            title: "Neo4j-Koans at Skillsmatter",
+            author: ["iansrobinson","jimwebber"],
+            introText: "This intensive, highly practical 2-day Neo4j course will provide you with the skills required to become effective with graphs and productive with Neo4j. Join this course to learn Neo4j's excellent APIs and Cypher query language and how you can use the world's leading graph database to manage and query sophisticated connected data.",
+            thumbnail: "http://skillsmatter.com/custom/images/skills-matter_150x60_logo_2010.gif",
+            github: "https://github.com/jimwebber/neo4j-tutorial"
+        },
+        centrum_training: {
+            type: "link",
+            path: "http://www.centrumsystems.com.au/what-we-do/training/neo4j-developer-training/",
+            title: "Neo4j Developer Training by Centrum (AU)",
+            author: ["Centrum Systems"],
+            introText: "Centrum Systems is a Neo Technology Business Partner and provides initial developer training on the leading NoSQL product, Neo4j, for customers in Australia and New Zealand. The training is normally delivered over a two week period and can include assistance in determining architecture and establishing a PoC.",
+            thumbnail: "http://www.centrumsystems.com.au/wp-content/themes/thesis_18/images/logo.jpg"
+        },
+        neo4j_koans: {
+            type: "link",
+            path: "https://github.com/jimwebber/neo4j-tutorial#neo4j-koans",
+            title: "Neo4j-Koans with Dr. Who",
+            author: ["iansrobinson","jimwebber"],
+            introText: "This set of Koans provides a hands-on tutorial for learning the Neo4j open source graph database. It's part of a more comprehensive tutorial often presented by the authors and others.",
+            thumbnail: asset("img/still/koans_drwho.gif"),
+            img: asset("img/still/koans_drwho.png"),
+            github: "https://github.com/jimwebber/neo4j-tutorial"
+        },
         gatling: {
             type: "link",
             thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2013/02/neo4j_loves_gatling.gif?w=200",
@@ -1005,7 +1040,7 @@ exports.content = {
             author: "@amorgner",
             url: "http://structr.org/home",
             logo: asset("img/apps/structr.gif"),
-            text: "A Content Management System, build on Neo4j.",
+            text: "A Content Management System, build on Neo4j. And a fast and powerful REST backend server to be used on its own.",
             name: "Structr"
         },
         polymap: {
@@ -1015,6 +1050,22 @@ exports.content = {
             logo: asset("img/apps/polymap.png"),
             text: "A web based GIS system running on top of OpenStreetMap and other datasources, integrating with Neo4j Spatial.",
             name: "Polymap"
+        },
+        assim_mon: {
+            type: "app",
+            author: "Alan Robertson",
+            url: "http://assimmon.org/",
+            logo: asset("img/logo/assimmon.gif"),
+            text: "An open source project that discovers your infrastructure and creates a graph around it - and keeps it continually up to date without setting off any network security alarms",
+            name: "Assimilation Monitoring"
+        },
+        sylvadb: {
+            type: "app",
+            author: "Javier de la Rosa",
+            name: "Sylva DB Modeling Workbench",
+            url: "http://sylvadb.org",
+            logo: "http://beta.sylvadb.com/static/img/sylva_logo_header.png",
+            text: "Sylva is a free, easy-to-use, flexible, and scalable database management system that helps you collect, collaborate, visualize and query large data sets."
         },
         frostymug: {
             type: "app",
