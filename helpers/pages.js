@@ -38,8 +38,8 @@ exports.pages = {
             }, "channels", "graphistas_map", "beer", content.projects.neo4j_org
         ]
     },
-    training : {
-        path : "/training",
+    training: {
+        path: "/training",
         title: "Neo4j Trainings, Tutorials and Courses",
         introText: "Neo4j Trainings and Courses allow you to quickly gain practical knowledge into the concepts and usage of Neo4j. These are presented by experienced trainers and Neo4j developers",
         thumbnail: asset("img/events/training.png"),
@@ -59,7 +59,7 @@ exports.pages = {
         content: function (params) {
             return render.include("_download_thanks", params);
         },
-        featured: [ content.videos.installing_neo4j, content.install.windows7,content.install.windows ],
+        featured: [ content.videos.installing_neo4j, content.install.windows7, content.install.windows ],
         related: [
             "other_versions",
             content.install.upgrading,
@@ -338,7 +338,7 @@ exports.pages = {
             {
                 type: "link",
                 title: "Maven Plugin for Running a Neo4j Community Server",
-                author: {name: "Robert Herschke", twitter:"rherschke"},
+                author: {name: "Robert Herschke", twitter: "rherschke"},
                 path: "https://github.com/rherschke/neo4j-maven-plugin#maven-plugin-for-neo4j-community-server",
                 github: "https://github.com/rherschke/neo4j-maven-plugin",
                 introText: "This is a (yet very simple) maven plugin to start and stop an embedded Neo4j Community Server on a given port. With this plugin, it is possible, to run integration tests, that depends on an existing Neo4j Server."
@@ -570,7 +570,7 @@ exports.pages = {
         introText: "There are a lot of tools and resources around Neo4j.",
         thumbnail: asset("img/still/cypher.png"),
         featured: [content.videos.cypher],
-        related: ["drivers", "try", "neoclipse","visualize"]
+        related: ["drivers", "try", "neoclipse", "visualize"]
     },
     books: {
         path: "/learn/books",
@@ -823,52 +823,89 @@ exports.pages = {
     //     },
     //     related : ["contributors", "neo_staff", "speakers", "authors"]
     // },
-    linked_data : {
-        tags: ["rdf","sparql","linked data","semantic web"],
+    linked_data: {
+        tags: ["rdf", "sparql", "linked data", "semantic web"],
         path: "/develop/linked_data",
         title: "Linked Data: RDF and SparQL with Neo4j",
-        introText: "",
-        featured: [],
-        related: [],
-        thumbnail: ""
+        introText: 'The core engine of Neo4j supports the <a href="/learn/graphdatabase">property graph model</a>. This model can easily be adapted to support the LinkedData <a href="http://en.wikipedia.org/wiki/Resource_Description_Framework">RDF model</a>, consisting of Triples.' +
+            'This turns Neo4j into a full triple store, or you can just import and use LinkedData resources from e.g. <a href="http://dbpedia.org/">DBPedia</a> and others. ',
+        url:"test",
+        featured: [
+            {
+                
+                type: "link",
+                title: "What is Linked Data?",
+                introText: "The concept of LinkedData is to make the wealth of information on the Internet machine-readable, interchangeable and editable by anyone. Read more on the LinedData pages.",
+                thumbnail: "http://lod-cloud.net/versions/2011-09-19/lod-cloud_1000px.png",
+                path: "http://linkeddata.org/"
+            }
+        ],
+        related: [
+            {
+                type: "link",
+                title: "A SparQL plugin for the Neo4j Server",
+                introText: "With this plugin, you can wrap a neo4j server to act as a triple store",
+//            thumbnail: "https://github.com/neo4j/neoclipse/wiki/img/Neoclipse.introduction.png",
+                author: "peterneubauer",
+                url: "https://github.com/neo4j/sparql-plugin"
+            },
+            {
+                type: "link",
+                title: "The Linked Data Benchmarking Council project",
+                introText: "Neo Technology is part of the LDBC project, working on a good benchmarking framework for graphs and LinkedData/",
+                thumbnail: "http://www.ldbc.eu/sites/default/files/logo.png",
+                author: "rab_i",
+                url: "http://architects.dzone.com/articles/state-linked-data-benchmark"
+            },
+            content.links.dbpedia_clojure,
+            {
+                type: "link",
+                title: "Importing Turtle Ontologies in Neo4j",
+                introText: "With a Turtle parser, it is quite easy to parse DBPedia dumps into neo4j.",
+//                thumbnail: "http://i.imgur.com/9eu7kRp.png",
+                author: "Michael Bach",
+                url: "http://michaelbloggs.blogspot.de/2013/05/importing-ttl-turtle-ontologies-in-neo4j.html"
+            }
+        ]
     },
     neoclipse: {
-        tags: ["workbench","rcp","cypher"],
+        tags: ["workbench", "rcp", "cypher"],
         title: "Neoclipse",
         path: "/develop/tools/neoclipse",
         thumbnail: asset("img/apps/neoclipse.png"),
-        author: ["nawroth",{twitter:"nrkkalyan",name:"Radhakrishna Kalyan"}],
+        author: ["nawroth", {twitter: "nrkkalyan", name: "Radhakrishna Kalyan"}],
         introText: "Neoclipse is a standalone workbench application to interact with Neo4j (database directory or server). It supports Cypher, index searches, visualisation, graph updates. You can <a href='https://github.com/neo4j/neoclipse/downloads'>download the latest versions here.</a> ",
         /*
-        Main features:
-        
-        visualize the graph
-        increase/decrease the traversal depth
-        filter the view by relationship types
-        add/remove nodes/relationships
-        create relationship types
-        add/remove/change properties on nodes and relationships
-        highlight nodes/relationships in different ways
-        add icons to nodes
+         Main features:
+
+         visualize the graph
+         increase/decrease the traversal depth
+         filter the view by relationship types
+         add/remove nodes/relationships
+         create relationship types
+         add/remove/change properties on nodes and relationships
+         highlight nodes/relationships in different ways
+         add icons to nodes
          */
-        
+
         featured: [
             {
-                type:"video",
+                type: "video",
                 title: "Getting Started with Neoclipse",
                 introText: "This is a short tutorial to get started with Neoclipse and get nice graph decorations onto your graph.",
                 thumbnail: "https://github.com/neo4j/neoclipse/wiki/img/Neoclipse.introduction.png",
                 author: "peterneubauer",
                 src: "https://player.vimeo.com/video/12014944"
-            },           
+            },
             {
-                type:"video",
+                type: "video",
                 title: "Getting Started with Neoclipse Part 2",
                 introText: "Shows the new functionality including the Cypher query window and remote Server connections.",
                 thumbnail: "https://github.com/neo4j/neoclipse/wiki/img/bigGraph1.png",
                 author: "nrkkalyan",
                 src: "http://www.youtube.com/embed/9j3FjMEp32M?rel=0&autoplay=1"
-            }],
+            }
+        ],
         related: [
             {
                 type: "link",
@@ -1111,7 +1148,7 @@ exports.pages = {
         ],
         related: [content.videos.why_graphs, "graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "nosql", "licensing", content.links.manual, "neo4j_server",
             {
-                type:"link",
+                type: "link",
                 author: "peterneubauer",
                 path: "http://www.infoq.com/articles/graph-nosql-neo4j",
                 title: "Graph Databases, NOSQL and Neo4j",
@@ -1120,7 +1157,7 @@ exports.pages = {
             }
         ]
     },
-    mobile : {
+    mobile: {
         path: "/develop/mobile",
         title: "Neo4j on and from mobile devices and smartphones",
         featured: [],
@@ -1341,8 +1378,8 @@ exports.pages = {
             content.apps.assim_mon,
             content.apps.sylvadb,
             content.apps.flavorwocky,
-            content.apps.frostymug, 
-            content.apps.neosocial, 
+            content.apps.frostymug,
+            content.apps.neosocial,
             content.projects.neoclipse]
     },
 
@@ -1628,13 +1665,7 @@ exports.pages = {
         ],
         related: [
             content.drivers.neocons,
-            {
-                type: "link",
-                path: "http://blog.opal.io/post/41701508265/loading-dbpedia-into-neo4j-with-clojure",
-                title: "Loading DBPedia into Neo4j with Clojure",
-                introText: "This article describes how to load over 82 million relationships from the DBPedia datasets into Neo4j with Clojure.",
-                author: "opal_io"
-            },
+            content.links.dbpedia_clojure,
             "michaelklishin"
         ]
     },
@@ -1684,7 +1715,7 @@ exports.pages = {
                 type: "link",
                 title: "Blog Series: Importing Data into Neo4j",
                 path: "http://jexp.de/blog/2013/05/on-importing-data-in-neo4j-blog-series/",
-                tags: ["java","shell","cypher","batch","import"],
+                tags: ["java", "shell", "cypher", "batch", "import"],
                 author: "mesirii",
                 introText: "This series on importing data into Neo4j contains practical suggestions and covers many aspects: Cypher, Neo4j-Shell, Java-API, Batch-Insertion, Neo4j 2.0."
             },

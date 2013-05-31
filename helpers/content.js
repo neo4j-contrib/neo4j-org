@@ -299,6 +299,13 @@ exports.content = {
         }
     },
     links: {
+        dbpedia_clojure: {
+            type: "link",
+            path: "http://blog.opal.io/post/41701508265/loading-dbpedia-into-neo4j-with-clojure",
+            title: "Loading DBPedia into Neo4j with Clojure",
+            introText: "This article describes how to load over 82 million relationships from the DBPedia datasets into Neo4j with Clojure.",
+            author: "opal_io"
+        },
         course_neo4j_in_60: {
             type: "link",
             path: "http://www.gyaanexchange.com/online/neo4j-in-under-60-minutes/",
