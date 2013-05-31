@@ -405,6 +405,13 @@ exports.pages = {
                 author: ["mesirii"],
                 introText: "Introducing labels in the cineasts domain model, and featuring a screencast upgrading cineasts to use labels instead of indexes."
             },
+            {
+                type: "link",
+                path: "http://www.terminalstate.net/2013/05/labels-and-schema-indexes-in-neo4j.html",
+                title: "Labels and Schema Indexes in Neo4j",
+                author: [{name: "Tareq Abedrabbo", twitter:"tareq_abedrabbo"}],
+                introText: "Neo4j recently introduced the concept of labels and their sidekick, schema indexes. I would like to shed some light in this blog post on how these new constructs work together. Some details will be inevitably specific to the current version of Neo4j and might change in the future but I still think it’s an interesting exercise."
+            },
             content.links.mapdb_index,
             {
                 type: "link",
