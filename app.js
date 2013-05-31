@@ -128,6 +128,10 @@ app.locals.resolve_authors = function (authors) {
     });
 };
 
+ejs.filters.blank = function (b) {
+    return b || "";
+};
+
 ejs.filters.md = function (b) {
     return markdown(b)
 };

@@ -834,6 +834,7 @@ exports.pages = {
     },
     neoclipse: {
         tags: ["workbench","rcp","cypher"],
+        title: "Neoclipse",
         path: "/develop/tools/neoclipse",
         thumbnail: asset("img/apps/neoclipse.png"),
         author: ["nawroth",{twitter:"nrkkalyan",name:"Radhakrishna Kalyan"}],
