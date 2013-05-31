@@ -23,7 +23,7 @@ exports.pages = {
         title: "Develop",
         introText: "Find what you need to develop applications with Neo4j in a variety of languages and deployment scenarios.",
         featured: null,
-        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java", "javascript", "spring", "ruby", "spatial", "dotnet", "python", "scala", "php", "clojure"]
+        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java", "javascript", "spring", "ruby", "spatial", "dotnet", "python", "scala", "php", "clojure","linked_data"]
     },
     participate: {
         path: "/participate",
@@ -174,7 +174,7 @@ exports.pages = {
         introText: "There is a lot of research going on around Graph Databases in general and Neo4j in particular. Below you will find some of the more recent works in this field.",
         featured: null,
         actionText: "Read more",
-        related: [content.scientific.wordnet_using_graphdbs, content.scientific.the_graph_traversal_pattern]
+        related: [content.scientific.wordnet_using_graphdbs, content.scientific.the_graph_traversal_pattern,"linked_data"]
     },
     /*
      <li>Open the <a href='http://localhost:7474' target='_blank'>Neo4j Web Interface</a></li>
