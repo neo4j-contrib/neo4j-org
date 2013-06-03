@@ -1517,7 +1517,15 @@ exports.pages = {
             content.drivers.neomodel,
             content.drivers.neo4django, content.drivers.neo4j_python,
             content.drivers.bulbflow,
-            "technige"
+            "technige",
+            {
+                type: "link",
+                path: "http://www.coolgarif.com/brain-food/flask-api-over-neo4j-in-python",
+                thumbnail: "http://www.coolgarif.com/img/articles/flask-neo4j-json-api-output.png",
+                title: "Deploying an API using Neo4j and Python",
+                introText: "In this article we'll be taking the HydraGraph and exposing it as a RESTful API",
+                author: "coolgarif"
+            },
         ]
     },
     javascript: {
