@@ -1521,10 +1521,11 @@ exports.pages = {
             {
                 type: "link",
                 path: "http://www.coolgarif.com/brain-food/flask-api-over-neo4j-in-python",
-                thumbnail: "http://www.coolgarif.com/img/articles/flask-neo4j-json-api-output.png",
-                title: "Deploying an API using Neo4j and Python",
-                introText: "In this article we'll be taking the HydraGraph and exposing it as a RESTful API",
-                author: "coolgarif"
+                thumbnail: asset("img/still/flask-neo4j-json-api-output.png"),
+                title: "Deploying an API using Neo4j and Python with Flask",
+                introText: "In this article we'll be taking the <a href='http://www.coolgarif.com/brain-food/getting-started-with-neo4j-part2'>HydraGraph</a> and exposing it as a RESTful API",
+                github: "https://gist.github.com/coolgarifTech/5671071",
+                author: {name:"Richie Barter",twitter:"coolgarif"}
             },
         ]
     },
