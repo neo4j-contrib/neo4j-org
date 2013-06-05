@@ -843,7 +843,7 @@ exports.pages = {
                 type: "link",
                 title: "What is Linked Data?",
                 introText: "The concept of LinkedData is to make the wealth of information on the Internet machine-readable, interchangeable and editable by anyone. Read more on the LinedData pages.",
-                thumbnail: "http://lod-cloud.net/versions/2011-09-19/lod-cloud_1000px.png",
+                thumbnail: asset("img/still/linked_data.gif"),
                 path: "http://linkeddata.org/"
             }
         ],
