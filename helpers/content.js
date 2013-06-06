@@ -408,7 +408,7 @@ exports.content = {
             title: "Point-Click Deployment of Neo4J to Windows Azure",
             author: "dynamicdeploy",
             introText: "In this article, I will show you how to deploy Neo4J into Azure VMs in minutes. No coding, no Visual Studio, just point-click deployment for free.",
-            path: "http://www.opensourceazure.com/blog/2013/05/21/point-click-deployment-of-neo4j-to-windows-azure/"
+            path: "http://www.opensourceazure.com/blog/2013/05/22/point-click-deployment-of-neo4j-to-windows-azure/"
         },
         mapdb_index: {
             type: "link",
