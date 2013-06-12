@@ -403,6 +403,13 @@ exports.content = {
             introText: "In this blog post we will show that it is no problem at all to host a sophisticated and complex server product such as the Neo4j graph database server on Window Azure. Since Neo4j has a remote API over HTTP you can easily connect to the server from your applications.",
             path: "http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"
         },
+        azure_vmdepot: {
+            type: "link",
+            title: "Step by Step Installation of Neo4j on Azure",
+            author: {name:"Yuri Bukhan",twitter:"ybukhan"},
+            introText: "Yuri Bukhan our Director of Business development, built a VMDepot Neo4j image and put together these step by step instructions on how to install it.",
+            path: "http://de.slideshare.net/neo4j/neo4j-on-azure-step-by-step-22598695"
+        },
         azure_one_click: {
             type: "link",
             title: "Point-Click Deployment of Neo4J to Windows Azure",

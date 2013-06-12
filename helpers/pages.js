@@ -603,9 +603,7 @@ exports.pages = {
         actionText: "Go Azure",
         thumbnail: "http://blog.newrelic.com/wp-content/uploads/windows_azure2.jpg",
         featured: [content.videos.azure_channel9],
-        related: [content.links.azure_vs2012, content.links.azure_one_click, content.links.azure_openstack, content.links.azure, "dotnet", content.drivers.neo4jclient, "windows"
-
-        ]
+        related: [content.links.azure_vs2012, content.links.azure_one_click, content.links.azure_vmdepot,content.links.azure_openstack, content.links.azure, "dotnet", content.drivers.neo4jclient, "windows"]
     },
     ec2: {
         path: "/develop/ec2",
