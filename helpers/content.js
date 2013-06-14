@@ -672,6 +672,16 @@ exports.content = {
             introText: "Hubway is a bike sharing service. The challenge data consists 95 Boston stations and 500k bike rides. <a href='http://example-data.neo4j.org/files/hubway_data_challenge_boston.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Ride a bike"
         }
+        conceptnet: {
+            type: "link",
+            title: "ConceptNet 5 (243MB)",
+            url: "http://maxdemarzi.com/2013/05/13/knowledge-bases-in-neo4j/",
+            author: "maxdemarzi",
+            img: "http://maxdemarzidotcom.files.wordpress.com/2013/05/cnet5promo.png?w=580&h=421",
+            introText: "ConceptNet is a semantic network built from nodes representing concepts, and labeled relationships between them. <a href='https://dl.dropboxusercontent.com/u/57740873/conceptnet.graph.db.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
+            actionText: "Know the world"
+        }
+
     },
     articles: {
         jdbc: {
