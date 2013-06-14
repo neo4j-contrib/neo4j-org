@@ -689,8 +689,16 @@ exports.content = {
             img: "http://maxdemarzidotcom.files.wordpress.com/2013/01/groucho_marx.jpg?w=300&h=300",
             introText: "Neo4j brings the love with a sample dating site. <a href='https://dl.dropboxusercontent.com/u/57740873/datasets/neo_love.tar.gz'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Bring the Love"
+        },
+        neo_permissions: {
+            type: "link",
+            title: "Neo Permissions (560MB)",
+            url: "http://maxdemarzi.com/?s=PERMISSION+RESOLUTION",
+            author: "maxdemarzi",
+            img: "http://maxdemarzidotcom.files.wordpress.com/2013/03/i_can_haz_permissions.jpg?w=300&h=300",
+            introText: "Check permissions from files and folders to users and groups in this ACL example. <a href='https://dl.dropboxusercontent.com/u/57740873/datasets/neo_permissions.tar.gz'><span class='icon-download-alt'>&nbsp;</span></a>",
+            actionText: "Check Permissions"
         }
-
     },
     articles: {
         jdbc: {

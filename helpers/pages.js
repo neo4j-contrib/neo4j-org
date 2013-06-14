@@ -211,6 +211,7 @@ exports.pages = {
             , content.example_data.hubway
             , content.example_data.conceptnet
             , content.example_data.neo_love
+            , content.example_data.neo_permissions
             , content.videos.neo4j_webui
             , content.links.cypher_cheat_sheet
         ]
