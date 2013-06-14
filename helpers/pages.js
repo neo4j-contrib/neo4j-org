@@ -210,6 +210,7 @@ exports.pages = {
             , content.example_data.cineasts_large
             , content.example_data.hubway
             , content.example_data.conceptnet
+            , content.example_data.neo_love
             , content.videos.neo4j_webui
             , content.links.cypher_cheat_sheet
         ]

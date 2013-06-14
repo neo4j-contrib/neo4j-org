@@ -671,7 +671,7 @@ exports.content = {
             img: "http://hubwaydatachallenge.org/static/img/hubway-logo.png",
             introText: "Hubway is a bike sharing service. The challenge data consists 95 Boston stations and 500k bike rides. <a href='http://example-data.neo4j.org/files/hubway_data_challenge_boston.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Ride a bike"
-        }
+        },
         conceptnet: {
             type: "link",
             title: "ConceptNet 5 (243MB)",
@@ -680,6 +680,15 @@ exports.content = {
             img: "http://maxdemarzidotcom.files.wordpress.com/2013/05/cnet5promo.png?w=580&h=421",
             introText: "ConceptNet is a semantic network built from nodes representing concepts, and labeled relationships between them. <a href='https://dl.dropboxusercontent.com/u/57740873/conceptnet.graph.db.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Know the world"
+        },
+        neo_love: {
+            type: "link",
+            title: "Neo Love (1.6MB)",
+            url: "http://maxdemarzi.com/2013/04/19/match-making-with-neo4j/",
+            author: "maxdemarzi",
+            img: "http://maxdemarzidotcom.files.wordpress.com/2013/01/groucho_marx.jpg?w=300&h=300",
+            introText: "Neo4j brings the love with a sample dating site. <a href='https://dl.dropboxusercontent.com/u/57740873/datasets/neo_love.tar.gz'><span class='icon-download-alt'>&nbsp;</span></a>",
+            actionText: "Bring the Love"
         }
 
     },
