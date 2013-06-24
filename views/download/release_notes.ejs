@@ -4,6 +4,29 @@
 
     <h1>Neo4j Release Notes</h1>
 
+    <h3 id="neo4j-1.9">Neo4j 1.9.1</h3>
+    <p>The 1.9.1 release of Neo4j is a maintenance release that brings more safety
+    features into high-availability cluster deployments, general bug fixes and a small 
+    number of API enhancements.</p>
+          
+    <p>In particular this release addresses:</p>
+
+    <ul>
+        <li>Fixed race condition that could have lead to duplication in the getSingleRelationship() 
+          in the Core API.</li>
+        <li>Reduces churn in the resource pool for channels and memory in a clustered environment.</li>
+        <li>Individual pages in <a href="http://docs.neo4j.org/chunked/stable/rest-api-traverse.html#rest-api-creating-a-paged-traverser">paged traversals</a> 
+          through the <a href="http://docs.neo4j.org/chunked/stable/rest-api.html">REST API</a> can now be streamed (<i>transfer-encoding: chunked</i>).</li>
+        <li>SSL certificate chains are supported by the Neo4j server for secure interactions with the 
+          <a href="http://docs.neo4j.org/chunked/stable/rest-api.html">REST API</a>.</li>
+    </ul>
+
+    <p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.1 does
+    not require any store-level upgrades.</p>
+	
+	<p>For a full summary of changes in this release, please review the CHANGES.TXT file contained
+	within the distribution.</p>	
+
     <h3 id="neo4j-1.9">Neo4j 1.9</h3>
 
     <p>The 1.9 release of Neo4j builds upon the previous 1.8 releases and
