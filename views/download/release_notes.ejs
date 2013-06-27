@@ -4,7 +4,7 @@
 
     <h1>Neo4j Release Notes</h1>
 
-    <h3 id="neo4j-1.9">Neo4j 1.9.1</h3>
+    <h3 id="1.9.1">Neo4j 1.9.1</h3>
     <p>The 1.9.1 release of Neo4j is a maintenance release that brings more safety
     features into high-availability cluster deployments, general bug fixes and a small
     number of API enhancements.</p>
@@ -27,7 +27,7 @@
     <p>For a full summary of changes in this release, please review the CHANGES.TXT file contained
     within the distribution.</p>
 
-    <h3 id="neo4j-1.9">Neo4j 1.9</h3>
+    <h3 id="1.9">Neo4j 1.9</h3>
 
     <p>The 1.9 release of Neo4j builds upon the previous 1.8 releases and
       brings extensive improvements in stability and performance. In addition,
@@ -78,8 +78,29 @@
     <p>For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
 
     <hr/>
+    <h3 id="1.8.3">Neo4j 1.8.3</h3>
 
-    <h3 id="neo4j-1.8.2">Neo4j 1.8.2</h3>
+    <p>The 1.8.3 release of Neo4j is a maintenance release that brings more safety
+        features into high-availability cluster deployments, general bug fixes and a small
+        number of API enhancements.</p>
+
+    <p>In particular this release addresses:</p>
+
+    <ul>
+        <li>Ensure auto-indexes correctly expunge deleted nodes and relationsips.</li>
+        <li>Fixed race condition that could have lead to duplication in the getSingleRelationship()
+            in the Core API.</li>
+        <li>Reduces churn in the resource pool for channels and memory in a clustered environment.</li>
+        <li>Corrects an issue when supplying arrays as properties during unique node creation.</li>
+    </ul>
+
+    <p><strong>All 1.8 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.8.3 does
+        not require any store-level upgrades.</p>
+
+    <p>For a full summary of changes in this release, please review the CHANGES.TXT file contained
+        within the distribution.</p>
+
+    <h3 id="1.8.2">Neo4j 1.8.2</h3>
 
     <p>The 1.8.2 release of Neo4j is a service release and includes the following corrections and improvements:</p>
 

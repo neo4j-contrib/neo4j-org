@@ -116,7 +116,7 @@ exports.pages = {
         introText: "Older, stable Neo4j versions and nightly builds",
         path: "/download/other_versions",
         related: [
-            content.install["1_8_2"],
+            content.install["1_8_3"],
             content.install["1_7_2"],
             content.install["1_6_3"],
             content.install["1_5_3"],

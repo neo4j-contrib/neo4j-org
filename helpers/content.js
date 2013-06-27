@@ -10,10 +10,10 @@ exports.content = {
         },
         stable: {
             type: "version",
-            title: "Neo4j Stable Release 1.9",
-            version: "1.9",
+            title: "Neo4j Stable Release 1.9.1",
+            version: "1.9.1",
             stability: "stable",
-            date: "May 20, 2013",
+            date: "June 27, 2013",
             introText: "General Availability",
             path: "http://blog.neo4j.org/2013/05/neo4j-19-general-availability.html",
             thumbnail: asset("img/still/install.gif"),
@@ -38,12 +38,12 @@ exports.content = {
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
-        "1_8_2": {
+        "1_8_3": {
             type: "version",
-            title: "Neo4j Stable Release 1.8.2",
-            version: "1.8.2",
+            title: "Neo4j Stable Release 1.8.3",
+            version: "1.8.3",
             stability: "stable",
-            date: "Feb 27, 2013",
+            date: "June 27, 2013",
             introText: "General Availability",
             path: "http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html",
             thumbnail: asset("img/still/install.gif"),
