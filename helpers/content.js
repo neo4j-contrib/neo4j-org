@@ -1485,7 +1485,7 @@ exports.content = {
 };
 exports.video = function(id) { 
     return function() {
-        // console.log(id,exports.content.videos[id.toString()]);
+        // console.log("video",id,exports.content.videos[id.toString()]);
         return exports.content.videos[id.toString()];
     }
 };
@@ -1494,6 +1494,7 @@ exports.findItem = function (key) {
 };
 exports.lookup = function (id) {
     return function () {
+        // console.log("lookup/findItem",id,findItem(id));
         return findItem(id);
     }
 };
