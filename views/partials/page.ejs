@@ -1,9 +1,9 @@
 <%
-console.log("Rendering Path",path);
 var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
-var mainCategory = path.s<!---->plit('/')[1];
+var mainCategory = path.split('/')[1];
 var page = pages[pageName];
 var badge = page.badge;
+console.log("Rendering Path",path,pageName,badge,page.title);
 
 var title=page.title;
 %>
@@ -60,6 +60,10 @@ var nextPage = pages[p];
     %><% if (showSlides) { %><ul class="bxslider"><% } %><%
             items.forEach(function(key) { 
             var item = findItem(key);
+            if (!item) {
+                console.log("No featured item for key",key);
+                return;
+            }
             if (typeof(key)!="string") key="";
     %>
         <% if (showSlides) { %> 
@@ -85,6 +89,10 @@ var nextPage = pages[p];
                 row.forEach(function(key) {
 
                     var item = findItem(key);
+                    if (!item) {
+                        console.log("No related item for key",key);
+                        return;
+                    }
                     if (typeof(key)!="string") key="";
                       %>
                     <% include ../partials/item/_tile %>
@@ -125,21 +133,21 @@ var nextPage = pages[p];
         }
 
         var region="<%= region %>";
-    	
-    	function filterByRegion(region) {
+        
+        function filterByRegion(region) {
             var elements=$("div[area]");
             if (elements.length==0) return; 
-        	elements.each(function () {
+            elements.each(function () {
                 var area = $(this).attr("area");
                 if (!area || area == 'WORLD' || region == 'WORLD' || area == region) $(this).show();
                 else $(this).hide();
             });
             nav.resize();
         }
-    	$("#region").val(region).change(function () {
+        $("#region").val(region).change(function () {
             filterByRegion($(this).val());
         });
-//    	filterByRegion(region);
+//      filterByRegion(region);
         
         nav.activateMain('<%= mainCategory%>');
         nav.initThumbnails();
