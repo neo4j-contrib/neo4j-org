@@ -104,7 +104,7 @@ exports.loadAllVideos = function(pages, content, nr_featured) {
             }
             content.videos[video.id.toString()] = video;
             content.videos[video.title] = video;
-            // console.log(video.id,video.category,video.title);
+            console.log(video.id,video.category,video.title,video.tags);
         })
     }
 
@@ -131,13 +131,13 @@ exports.loadAllVideos = function(pages, content, nr_featured) {
         data.forEach(function (video) {
             all_videos.push(createVideoItem(video));
         });
-        load_vidcaster(function(items) {
-            console.log("vidcaster videos",items.length);
-            all_videos.push.apply(all_videos,items);
-            sortVideos();
-            distributeToVideoPages(pages,nr_featured);
-            makeAvailableAsContent();
-            console.log("videos", all_videos.length);
-        });
+        sortVideos();
+        distributeToVideoPages(pages,nr_featured);
+        makeAvailableAsContent();
+        console.log("videos", all_videos.length);
+//        load_vidcaster(function(items) {
+//            console.log("vidcaster videos",items.length);
+//            all_videos.push.apply(all_videos,items);
+//        });
     })
 }

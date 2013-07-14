@@ -64,12 +64,13 @@
             else if (seconds > 3600 ) time = (seconds / 3600 ).toFixed() + "h ago";
             else if (seconds > 60) time = (seconds / 60 ).toFixed() + "m ago";
             var twitter = $("#twitter_bar div");
-            twitter.find("a.twitter_user img").attr("src",tweet['profile_image_url']);
-            twitter.find("a.twitter_user").attr("href","http://twitter.com/"+tweet['from_user']);
-            twitter.find("a.twitter_user span").text(tweet['from_user_name']);
+            var user=tweet['user'];
+            twitter.find("a.twitter_user img").attr("src",user['profile_image_url']);
+            twitter.find("a.twitter_user").attr("href","http://twitter.com/"+user['name']);
+            twitter.find("a.twitter_user span").text(user['screen_name']);
             twitter.find("span.text").html(tweet['rendered']);
             twitter.find("a.twitter_date").html(time);
-            twitter.find("a.twitter_date").attr("href","http://twitter.com/"+tweet['from_user']+"/status/"+tweet['id_str']);;
+            twitter.find("a.twitter_date").attr("href","http://twitter.com/"+user['name']+"/status/"+tweet['id_str']);;
         }
         nextTweet();
         setInterval(nextTweet,10*1000);

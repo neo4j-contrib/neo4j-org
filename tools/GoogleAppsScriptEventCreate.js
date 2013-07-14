@@ -5,7 +5,7 @@ function onOpen() {
 }
 
 
-//Created(0) Entered(1) Author(2)   Title(3)        Start(5)    Duration(6)      Url(8)    Description(11) Language(12)    Type(13)    Area(14)    City(15)    Location(16)    Presenter(17)   Twitter(18) Portrait(19)    Company(20) Bio(21) Group(22)   Meetup(23)    Image(25)
+//Created(0) Entered(1) Author(2)   Title(3)        Start(5)    Duration(6)      Url(8)    Description(11) Language(12)    Type(13)    Area(14)    City(15)    Location(16)    Presenter(17)   Twitter(18) Portrait(19)    Company(20) Bio(21) Group(22)   Meetup(23)    Image(25) Timezone(26),Invite(27)
 
 function createAllEvents() {
     var sheet = SpreadsheetApp.getActiveSheet();
@@ -17,7 +17,7 @@ function createAllEvents() {
         var row =data[i];
 //        Logger.log(row);
         var item={};
-        for(var col=1;col<26;col++) {
+        for(var col=1;col<28;col++) {
             if (labels[col] && labels[col].length>0) {
                 item[labels[col]]=row[col];
             }
@@ -27,7 +27,6 @@ function createAllEvents() {
             Logger.log("creating event for title '%s'", data['Title']);
             createEvent(item.Title, item.Start, item);
             sheet.getRange(i+1,1,1,1).setValue(new Date());
-
         }
     }
 }
@@ -67,12 +66,34 @@ function renderDescription(data,start) {
     return str;
 }
 
+function createTimezoneDate(start, timezone) {
+  var lookups = { PT : "PDT", ET: "EDT",MT: "MDT", CT: "CDT", CEST: "GMT+0200", CET: "GMT+0100",BST:"GMT+0100",AEST:"GMT+1000",IST:"GMT+0530"}
+    if (timezone.match(/^GMT[+-]\d$/)) {
+      timezone = timezone.replace(/^(GMT[+-])(\d)$/,"$10$200");
+    } else
+    if (timezone.match(/^GMT[+-]\d\d$/)) {
+      timezone += "00";
+    } else {
+      timezone = lookups[timezone] || timezone;
+    }
+    var timeString = start.toDateString()+" "+start.toTimeString().replace(/ .+$/," "+timezone);
+    var startTz = new Date(timeString);
+    Logger.log("start %s timeString %s startTz %s TZ #%s#",start,timeString,startTz,timezone);
+    return isNaN(startTz) ? start : startTz;
+}
+
 function createEvent(title, start, data) {
     //Get the calendar
     var cal = CalendarApp.getCalendarsByName('alerts-test2')[0];//Change the calendar name
-    var end = new Date(start.valueOf()+parseInt(data['Duration']||1)*60*60*1000);
+    var startTz = createTimezoneDate(start,data.Timezone);
+    var end = new Date(startTz.valueOf()+parseInt(data['Duration']||1)*60*60*1000);
     //Create the events
-    var desc=renderDescription(data,start);
-//    Logger.log("creating event for title '%s %s %s \n=====\n\n\n%s'", title,start,end,desc);
-    cal.createEvent(wrap(data['Type']," - ")+title+wrap(" - ",data['City']), start,end ,{location: data['Location'], description:desc });
+    var desc=renderDescription(data,startTz);
+    var initials={ED: "ehren.duisberg@neotechnology.com", EL: "edward.lombardo@neopersistence.com", DM: "Dirk.moeller@neotechnology.com", DAX: "dax.schumann@neotechnology.com", RVB: "rik@neotechnology.com", AV: "arturas.verbickas@neotechnology.com", ML: "mike.linetsky@neopersistence.com", CF: "cedric.fauvet@neotechnology.com", RB: "ruma.bose@neotechnology.com",MH: "michael@neotechnology.com",AH: "adam.herzog@neotechnology.com"};
+    var guests = data.Invite.split(/, */).map(function(i) {
+      return i.match(/@/) ? i : initials[i];
+    }).join(',');
+    var options = {location: data['Location'], description:desc, guests: guests,sendInvites:false };
+    Logger.log("creating event for title '%s %s (%s) %s %s \n=====\n\n\n%s'", title,start,startTz,end,guests,desc);
+    cal.createEvent(wrap(data['Type']," - ")+title+wrap(" - ",data['City']), startTz,end ,options);
 }

@@ -9,7 +9,7 @@ exports.pages = {
         title: "Learn",
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
         featured: [content.books.graphdatabases, content.videos.graphdb101, content.videos.why_graphs],
-        related: ["graphdatabase", "neo4j", "nosql", "tracks", "cypher", "training", "production", "licensing", content.links.manual, "scientific"]
+        related: ["graphdatabase", "neo4j", "nosql", "tracks", "cypher", "training","modeling", "production", "licensing", content.links.manual, "scientific"]
     },
     learn_graphdb: {
         path: "/learn_graphdb",
@@ -536,19 +536,20 @@ exports.pages = {
         introText: "A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way.",
         content: "Let’s follow along some graphs, using them to express themselves. We’ll “read” a graph by following arrows around the diagram to form sentences.",
         thumbnail: asset("img/propertygraph/graphdb-gve.png"),
+        config: {no_slides:false},
         //next: ["nosql", "neo4j"],
         //prev: [],
         featured: [
             content.articles.graphdb.graph,
             content.articles.graphdb.graphdb_traversal,
-            content.articles.graphdb.graphdb_indexes,
-            content.videos.why_graphs
+            content.articles.graphdb.graphdb_indexes
         ],
         actionText: "Learn more",
         related: [
+            content.videos.why_graphs,
             content.books.graphdatabases,
             "neo4j",
-            content.videos.graphdb101, "cypher_track_start", "nosql"]
+            content.videos.graphdb101, "cypher_track_start", "nosql","modeling"]
     },
     nosql: {
         path: "/learn/nosql",
@@ -853,9 +854,9 @@ exports.pages = {
                 type: "link",
                 title: "A SparQL plugin for the Neo4j Server",
                 introText: "With this plugin, you can wrap a neo4j server to act as a triple store",
-//            thumbnail: "https://github.com/neo4j/neoclipse/wiki/img/Neoclipse.introduction.png",
                 author: "peterneubauer",
-                url: "https://github.com/neo4j/sparql-plugin"
+                github: "https://github.com/neo4j-contrib/sparql-plugin",
+                url: "http://neo4j-contrib.github.io/sparql-plugin/"
             },
             {
                 type: "link",
@@ -1154,7 +1155,9 @@ exports.pages = {
         featured: [
             content.articles.learn, video('Ian Robinson  - What is a Graph Database? What is Neo4j?')
         ],
-        related: [content.videos.why_graphs, "graphdatabase", content.videos.graphdb101, content.links.neo4j_ref_card, "nosql", "licensing", content.links.manual, "neo4j_server",
+        related: [content.videos.why_graphs, "graphdatabase", 
+		    content.videos.bunnies,
+			content.videos.graphdb101, content.links.neo4j_ref_card, "nosql", "licensing", content.links.manual, "neo4j_server",
             {
                 type: "link",
                 author: "peterneubauer",
@@ -1192,6 +1195,7 @@ exports.pages = {
         prev: ["cypher_track_start"],
         next: ["cypher_track_use"],
         actionText: "Learn it",
+        config: {no_slides:false},
         featured: [
             { type: "include", title: "Intro", path: "/cypher/cypher_tutorial_intro" },
             { type: "include", title: "First Steps", path: "/cypher/cypher_tutorial_firststeps" },
@@ -1216,12 +1220,34 @@ exports.pages = {
     },
     ops: {
         path: "/develop/ops",
-        title: "Operations",
-        introText: "Here you can find some resources related to running Neo4j in different scenarios.",
+        title: "Neo4j in Production - Operations",
+        introText: "To run Neo4j in production, these resources will help you get going.",
         actionText: null,
         thumbnail: asset("img/still/secrets.png"),
         featured: [video('0607 - High Availability with Neo4j')],
-        related: [content.videos.ha, content.videos.installing_neo4j, content.videos.production_secrets, video('0719 - Hardware Sizing with Neo4j'), "production", content.install.windows, content.install.chef]
+        related: [content.videos.ha, content.videos.installing_neo4j, content.videos.ha_new_fosdem, content.videos.production_secrets, video('0719 - Hardware Sizing with Neo4j'), "production", content.install.windows, content.install.chef]
+    },
+    modeling : {
+        path: "/develop/modeling",
+        title: "Data Modeling with Graphs",
+        introText: "Data modeling with Graphs is fun. Just take your real-world data, a whiteboard and draw the connections that are important. There are ",
+        featured: [
+            {
+                type: "video",
+                title: "Data Modeling with Neo4j",
+                author: "mesirii",
+                introText: "In this presentation we'll cover many aspects of modeling domains and data for a graph database like Neo4j. <a href='http://slideshare.net/neo4j/data-modeling-with-neo4j'>Slides</a>",
+                src: "https://vimeo.com/67371996",
+                thumbnail: "http://image.slidesharecdn.com/webinardatamodeling-130713191849-phpapp01/95/slide-1-638.jpg?1373761157"
+            }
+        ],
+        related: [
+            content.books.graphdatabases,
+            "try",
+            content.videos.power_modeling,
+            content.links.graphgist,
+            content.docs.domain_modeling
+        ]
     },
     internals: {
         path: "/develop/internals",
@@ -1417,6 +1443,14 @@ exports.pages = {
             },
             content.drivers.neo4j_rb,
             content.drivers.neography,
+            {
+                type: "link",
+                path: "http://janitor.se/blog/2013/07/04/easier-neo4j-dot-rb-deployments-with-chef-plus-capistrano-plus-torquebox/",
+                title: "Easier Neo4j.rb Deployments With Chef + Capistrano + Torquebox",
+                author: {name:"Chris Fitzpatrick",twitter:"chrisfitzpat"},
+                thumbnail: "http://www.gravatar.com/avatar/670f26d0dfedc0026445c92345d627e4?s=160",
+                introText: "setting up a server to host your application isn’t as hard as you might think and you’ll get much better performance. The following is how I do it with Chef and Capistrano."
+            },
             content.drivers.neoid,
             content.drivers.keymaker,
             "maxdemarzi",
@@ -1527,7 +1561,7 @@ exports.pages = {
                 introText: "In this article we'll be taking the <a href='http://www.coolgarif.com/brain-food/getting-started-with-neo4j-part2'>HydraGraph</a> and exposing it as a RESTful API",
                 github: "https://gist.github.com/coolgarifTech/5671071",
                 author: {name:"Richie Barter",twitter:"coolgarif"}
-            },
+            }
         ]
     },
     javascript: {
@@ -1724,6 +1758,7 @@ exports.pages = {
                 type: "link",
                 title: "Importing data into Neo4j - the spreadsheet way",
                 path: "http://blog.neo4j.org/2013/03/importing-data-into-neo4j-spreadsheet.html",
+                tags: ["csv","import","spreadsheet","cypher"],
                 author: "rvanbruggen",
                 thumbnail: "https://lh3.googleusercontent.com/hkoYal89xuVDMvXY8BuE7dN0IM5svowOJr9cURxT3vN_ThzxSambyj1DE-6fQlSIoEcqw2IUgg5xj8c-CJv8dHgKovjA1hMjljsMgImH963u0LrDxP07AzIRow",
                 introText: "A spreadsheet and some formulas building cypher queries are one of the simplest ways of getting data into Neo4j. If even a sales-guy like Rik can do it, you can too"
@@ -1738,17 +1773,46 @@ exports.pages = {
             },
             {
                 type: "link",
+                tags: ["talend","import","music"],
+                title: "Import last.fm data into Neo4j with Talend",
+                path: "http://blog.neo4j.org/2013/07/fun-with-music-neo4j-and-talend.html",
+                author: "rvanbruggen",
+                thumbnail: "http://upload.wikimedia.org/wikipedia/en/7/73/Logo-talend-high.jpg",
+                introText: "Rik shows how to use Talend Open Studio for Big Data to import public Scrobbles from his last.fm account into Neo4j."
+            },
+            {
+                type: "link",
+                title: "Neo4j Shell Import Data Tools",
+                github: "https://github.com/jexp/neo4j-shell-tools",
+                path: "https://github.com/jexp/neo4j-shell-tools#import-data-into-your-neo4j-database-from-the-neo4j-shell-command",
+                tags: ["shell", "cypher", "csv","geoff","graphml","import","export"],
+                author: ["mesirii","markhneedham"],
+                introText: "If you want to import data into Neo4j in different formats, like csv, graphml and geoff using the Neo4j-Shell, have a look at this toolbelt."
+            },
+            {
+                type: "link",
                 title: "CSV-Batch-Importer",
                 path: "http://maxdemarzi.com/2012/02/28/batch-importer-part-1/",
                 author: ["maxdemarzi", "mesirii"],
+                tags: ["csv","import","batch"],
                 thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2012/02/matrix.jpg?w=200",
                 introText: "Michael wrote a <a href='https://github.com/jexp/batch-import'>batch importer</a> to load csv data quickly. I’m going to walk you through getting your data out of tables and into nodes and edges."
+            },
+            {
+                type: "link",
+                title: "Graph-Alchemist Data Import Platform ",
+                path: "http://www.graphalchemist.com/",
+                author: ["GraphAlchemist"],
+                tags: ["csv","sql","json","import","partner"],
+                thumbnail: "http://www.graphalchemist.com/static/assets/graphAlchemist-logo.png",
+                introText: "Graph Alchemist is a platform for creating Neo4j databases and applications on top of these, from a variety of import formats (CSV, SQL, JSON, XML, ...)."
             },
             {
                 type: "link",
                 title: "REST-Batch-API",
                 path: "http://docs.neo4j.org/chunked/milestone/rest-api-batch-ops.html",
                 author: ["nawroth", "jakewins", "mesirii"],
+                tags: ["rest","import","cypher"],
                 thumbnail: "",
                 introText: "Use the REST-Batch API with cypher statements to insert data into Neo4j remotely and quickly. Make sure to use parameters in the cypher statements",
                 content: "TODO syntax example"
@@ -1838,9 +1902,9 @@ exports.pages = {
     },
     jdbc: {
         path: "/develop/tools/jdbc",
-        title: "Easy integration in Java applications and tools with the Cypher-Neo4j-JDBC driver",
+        title: "Cypher-Neo4j-JDBC driver",
         author: ["rickardoberg", "mesirii"],
-        // introText: "",
+        introText: "The Neo4j Driver offers quick integration in existing Java applications and a variety tools. It supports the Neo4j Server, embedded and in-memory databases.",
         // content: "",
         featured: [content.projects.jdbc],
         related: [

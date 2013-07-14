@@ -1,5 +1,6 @@
 $(window).load(function() {
     resizeRelatedItems();
+    resizeFeaturedItems();
 });
 
 $(document).ready(function() {
@@ -34,6 +35,14 @@ function resizeRelatedItems() {
 	});
 }
 
+function resizeFeaturedItems() {
+	$.each($('div.featured'), function(i, r) {
+		var featured = $(this);
+		var height = featured.children().height();
+		featured.css({"min-height":height*1.1});
+	});
+}
+
 
 /**
  *    Some helpers for neo4j.org
@@ -45,7 +54,7 @@ var nav = {
      * Activate an item in the main menu
      */
     activateMain: function (category) {
-        var rightAlign = { learn: "14em", java: "14em", develop: "11em", participate: "7em", install: "2.5em", download: "2.5em" };
+        var rightAlign = { learn: "18.5em", java: "18.5em", develop: "15.5em", participate: "12em", install: "7.1em", download: "7.1em" };
         if (rightAlign[category]) {
             var mainNav = $('#mainNav');
             $('a', mainNav).removeClass('active');

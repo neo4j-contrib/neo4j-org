@@ -20,6 +20,7 @@
     "marketo-soap-security": "0.0.2",
     "express": "3.0.0rc5",
     "ejs": "*",
-    "node-markdown":"0.1.1"
+    "node-markdown":"0.1.1",
+    "vimeo-client":"0.2.0"
   }
 }

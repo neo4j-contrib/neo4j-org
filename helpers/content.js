@@ -145,7 +145,24 @@ exports.content = {
             path: "http://thinkingonthinking.com/An-experiment-with-Vagrant-and-Neo4J/"
         }
     },
+    docs: {
+        domain_modeling: {
+            type: "link",
+            title: "Docs: Data Modeling Modeling Examples",
+            author: ["nawroth", "peterneubauer"],
+            introText: "The following chapters contain simplified examples of how different domains can be modeled using Neo4j. The aim is not to give full examples, but to suggest possible ways to think using nodes, relationships, graph patterns and data locality in traversals.",
+            path: "http://docs.neo4j.org/chunked/stable/data-modeling-examples.html"
+        }
+    },
     videos: {
+        power_modeling: {
+            title: "Modelling with Graphs",
+            type: "video",
+            author: "Alistair Jones",
+            introText: "Modelling data as graphs is quite different from modelling data under with relational databases. In this talk we'll cover modelling business domains using graphs.",
+            thumbnail: "http://www.neotechnology.com/wp-content/uploads/2012/05/Screen-Shot-2012-05-16-at-2.38.21-PM-300x192.png",
+            src: "http://www.youtube.com/embed/XzDNw2y0QEM"
+        },
         sdn_cineasts: {
             title: "Running SDN Tutorial Cineasts",
             type: "video",
@@ -192,8 +209,8 @@ exports.content = {
         why_graphs: {
             title: "Why Graphs",
             type: "video",
-            thumbnail: asset("img/still/emil-explains.jpg"),
-            introText: "Emil Eifrem explains the secret behind websites like Twitter, Yelp and Facebook.",
+            thumbnail: "http://b.vimeocdn.com/ts/390/134/390134611_640.jpg",
+            introText: "Emil Eifrem explains how graph databases can make a difference in harvesting more value in your data by looking at its relationships.",
             src: "http://player.vimeo.com/video/56040747"
         },
         ha: {
@@ -202,6 +219,13 @@ exports.content = {
             thumbnail: asset("img/still/ha_video.gif"),
             introText: "See how to setup a 3-member cluster for the <strong>new Neo4j HA 1.5</strong> running on a single machine.",
             src: "http://player.vimeo.com/video/51906007"
+        },
+        ha_new_fosdem: {
+            title: "The new Neo4j High Availability Auto Cluster",
+            type: "video",
+            thumbnail: "http://image.slidesharecdn.com/haautocluster-130206043426-phpapp01/95/slide-1-638.jpg?1360146953",
+            src: "http://www.youtube.com/embed/vLg18Yv0SVE",
+            introText: " <a href='http://de.slideshare.net/jexp/new-neo4j-auto-ha-cluster'>slides for the presentation</a>"
         },
         good_relationships: {
             title: "Introduction to Spring Data Neo4j",
@@ -273,6 +297,15 @@ exports.content = {
             introText: "A pleasant stroll through general concepts, and Neo4j particulars.",
             src: "http://player.vimeo.com/video/50787208"
         },
+        bunnies: {
+            key: "bunnies",
+            title: "Graph Databases for Bunnies",
+            type: "video",
+            author: "rvanbruggen",
+            thumbnail: asset("img/still/bunnies.png"),
+            introText: "Rik collected the <a href='http://blog.neo4j.org/2013/06/graphs-for-bunnies.html'>top ten questions about graph databases</a> and presents answers in this awesome slidecast.",
+            src: "http://player.vimeo.com/video/68035671"
+        },
         importing_sample_data: {
             title: "Importing Sample Datasets",
             type: "video",
@@ -299,6 +332,15 @@ exports.content = {
         }
     },
     links: {
+        graphgist: {
+            type:"link",
+            github: "https://github.com/neo4j-contrib/graphgist",
+            title: "Neo4j Graph Gists",
+            author:["nawroth","peterneubauer","mesirii"],
+            introText: "Use literate programming with simple ASCII-doc files to render interactive, incremental domain model examples with lots of value added features",
+            path: "http://gist.neo4j.org",
+            actionText: "Create & Share"
+        },
         dbpedia_clojure: {
             type: "link",
             path: "http://blog.opal.io/post/41701508265/loading-dbpedia-into-neo4j-with-clojure",

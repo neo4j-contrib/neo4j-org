@@ -1,15 +1,19 @@
+// see for TWITTER_BEARER token: https://dev.twitter.com/docs/auth/application-only-auth
+// curl -XPOST -u customer:secret 'https://api.twitter.com/oauth2/token?grant_type=client_credentials'
+// returns {"token_type":"bearer","access_token":"....bearer token...."}
+
 var request=require('request');
 
 function tweets(cb) {
     var query="from:neo4j OR from:neo4jDE OR from:neo4jFR OR @Neo4j OR #neo4j";
-    var url = "http://search.twitter.com/search.json?lang=en&rpp=100&page=1&q="+encodeURIComponent(query);
-    request(url,function(err,res,body) {
+    var url = "https://api.twitter.com/1.1/search/tweets.json?lang=en&count=12&result_type=recent&q="+encodeURIComponent(query);
+    request(url,{headers: {"Authorization":"Bearer "+process.env.TWITTER_BEARER}},function(err,res,body) {
         if (err) {
             console.log("Error retrieving tweets",err);
             return;
         }
         var json = JSON.parse(body);
-        var tweets = json["results"];
+        var tweets = json["statuses"];
         tweets.forEach(function(tweet) {
            tweet.rendered=tweet.text
                .replace(/(https?:\/\/\S+)/g,"<a target='_blank' href='$1'>\(link\)</a>")
