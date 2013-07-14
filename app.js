@@ -178,7 +178,7 @@ app.configure(function () {
     app.use(express.favicon(__dirname + '/public/assets/ico/favicon.ico', { maxAge: 2592000000 }));
     app.use(function (req, res, next) {
         res.locals.path = req.path;
-        var experiment_pages = ['/', '/index', '/index_graph', '/index_graph_svg'];
+        var experiment_pages = ['/', '/index', '/index_test'];
         res.locals.index_page = experiment_pages.indexOf(req.path) != -1;
         res.locals.run_experiment = app.get('env') == 'production' && res.locals.index_page;
         next();

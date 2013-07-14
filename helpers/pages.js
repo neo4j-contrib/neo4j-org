@@ -24,12 +24,12 @@ exports.pages = {
            "events",
            content.links.customers,
            content.links.graphconnect,
+           content.books.graphdatabases,
            "learn",
 //           "cypher_track_start",
            "develop",
-//           "participate",
-           "graphistas_map",
-           content.books.graphdatabases
+           "participate"
+//           "graphistas_map",
        ]
     },
     learn: {
@@ -59,13 +59,18 @@ exports.pages = {
         path: "/participate",
         title: "Participate",
         introText: "Connect with a friendly, engaging, and ever expanding community online or in person.",
+        thumbnail: asset("img/still/graphistas_map.png"),
         featured: null,
-        related: ["q_and_a", "contributors", "events",
+        related: [
+            "events",
+            content.links.jobs,
+            "q_and_a",
             {
                 type: "include",
                 title: "@Neo4j Tweets",
                 path: "/participate/twitter"
-            }, "channels", "graphistas_map", "beer", content.projects.neo4j_org
+            },
+            "contributors",content.links.team,"channels", "graphistas_map", "beer", content.projects.neo4j_org
         ]
     },
     training: {

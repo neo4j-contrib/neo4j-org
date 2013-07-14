@@ -861,6 +861,11 @@ ul.hor li {
 .image img {
     width: 100%;
 }
+
+.featured .slide .image a:hover {
+    text-decoration: none;
+    font-weight: bolder;
+}
 .featured .slide .image {
     /*min-width: 50%;*/
     float: right;
@@ -874,6 +879,8 @@ ul.hor li {
     overflow: visible;
     /*height: 100% ! important;*/
     padding: 0;
+    position: relative;
+    z-index: 100;
 }
 
 .featured .image {
@@ -929,6 +936,7 @@ ul.hor li {
 .featured a:active {
     font-weight: 600;
 }
+
 
 .featured .console .caption {
     width: 56em;
@@ -1396,7 +1404,8 @@ a.vote i {
 
 #twitter_bar div {
     color: #333;
-    width: 62em;
+    width: 72em;
+    text-align: center;
     margin: 0 auto;
     /*background: url('//twitter.com/images/resources/twitter-bird-16x16.png') #e5e5e5 no-repeat .5em .5em;*/
     /*background: url('/assets/new/img/twitter-bird-light-bgs-32x32.png') #fff no-repeat .25em .25em;*/

@@ -224,7 +224,7 @@ exports.resource = function(req,res) {
 }
 exports.assets = function(req,res,next) {
     var path = req.path;
-    if (path.indexOf("/assets") != 0 || path.indexOf("main.js")!=-1 || path.indexOf("main.css")!=-1) {
+    if (path.indexOf("/assets") != 0 || path.indexOf("main.js")!=-1 || path.indexOf("main.css")!=-1|| path.indexOf("tweets.js")!=-1) {
        return next();
     }
     var idx = path.indexOf('/',1);

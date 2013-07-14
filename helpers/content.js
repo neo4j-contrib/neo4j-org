@@ -354,6 +354,22 @@ exports.content = {
         }
     },
     links: {
+        jobs: {
+            type: "link",
+            key: "jobs",
+            title: "Join us! We're hiring",
+            thumbnail: "http://www.neotechnology.com/wp-content/uploads/2012/05/hiring1.png",
+            introText: "As our team grows we're looking for passionate people around the world to join us. Become part of THE Neo4j-Graph.",
+            path: "http://www.neotechnology.com/jobs"
+        },
+        team: {
+            type: "link",
+            key: "team",
+            title: "Value in Relationships - Our Team",
+            thumbnail: asset("img/still/team.jpg"),
+            introText: "Working at Neo Technology is one of the best things that can happen. See, who makes Neo4j the great product it is.",
+            path: "http://www.neotechnology.com/staff"
+        },
         use_cases: {
             type: "link",
             key: "use-cases",
@@ -1036,7 +1052,7 @@ exports.content = {
             type: "book",
             url: "http://graphdatabases.com",
             name: "Graph Databases",
-            author: "Jim Webber, Ian Robinson",
+            author: "Ian Robinson, Jim Webber",
             price: "Free Ebook, Print $29.99",
             logo: asset("img/books/graphdatabases_cover.gif"),
             thumbnail: asset("img/books/graphdatabases_thumb.gif"),
