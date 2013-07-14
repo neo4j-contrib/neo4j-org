@@ -166,7 +166,7 @@ exports.content = {
             introText: "Ian Robinson explains what excites him about Graph databases and Neo4j. He discusses the power of the graph data model and how its expressiveness supersedes the relational model. He shares some insights in getting started with modeling and using graphs in your application development.",
 //            thumbnail: "http://b.vimeocdn.com/ts/388/074/388074752_640.jpg",
             thumbnail: asset("img/still/what_isa_graphdb.jpg"),
-            src: "https://vimeo.com/56043918#t=0m19s"
+            src: "https://player.vimeo.com/video/56043918#t=0m19s"
         },
         power_modeling: {
             title: "Modelling with Graphs",
