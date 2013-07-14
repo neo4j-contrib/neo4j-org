@@ -7,7 +7,7 @@ exports.load = function (app) {
 
     locals({
         neo4j:{
-            version:"2.0.0-M02", date:"Apr 22, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/05/new-milestone-release-neo4j-200-m03.html"
+            version:"2.0.0-M03", date:"Apr 22, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/05/new-milestone-release-neo4j-200-m03.html"
         }, neo4jGA:{
             version:"1.9", date:"May 20, 2013", summary:"General Availability", readme:"http://blog.neo4j.org/2013/05/neo4j-19-general-availability.html"
         }, neo4jP:{

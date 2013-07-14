@@ -19,6 +19,10 @@ exports.content = {
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
+        download_button: {
+            type: "include",
+            path: "partials/version/_download_button"
+        },
         snapshot: {
             type: "version",
             title: "Snapshot Version 2.0-SNAPSHOT",
@@ -155,6 +159,15 @@ exports.content = {
         }
     },
     videos: {
+        ian_graphdb_neo4j: {
+            title: "What is a Graph Database? What is Neo4j?",
+            type: "video",
+            author: "Ian Robinson",
+            introText: "Ian Robinson explains what excites him about Graph databases and Neo4j. He discusses the power of the graph data model and how its expressiveness supersedes the relational model. He shares some insights in getting started with modeling and using graphs in your application development.",
+//            thumbnail: "http://b.vimeocdn.com/ts/388/074/388074752_640.jpg",
+            thumbnail: asset("img/still/what_isa_graphdb.jpg"),
+            src: "https://vimeo.com/56043918#t=0m19s"
+        },
         power_modeling: {
             title: "Modelling with Graphs",
             type: "video",
@@ -306,7 +319,16 @@ exports.content = {
             introText: "Rik collected the <a href='http://blog.neo4j.org/2013/06/graphs-for-bunnies.html'>top ten questions about graph databases</a> and presents answers in this awesome slidecast.",
             src: "http://player.vimeo.com/video/68035671"
         },
-        importing_sample_data: {
+        strata: {
+            key : "strata",
+            title: "Intro to Graph Databases, Emil Eifrem interviewed at Strata 2013",
+            type: "video",
+            author: "emileifrem",
+            thumbnail: "/assets/img/still/emil_strata_2013.gif",
+            introText: "Our CEO Emil Eifrem explains Graph Databases, Neo4j and the bigger NOSQL landscape",
+            src: "http://www.youtube.com/embed/GVkTBNgRrfw"
+        },
+        importing_sample_data : {
             title: "Importing Sample Datasets",
             type: "video",
             author: "peterneubauer",
@@ -332,6 +354,20 @@ exports.content = {
         }
     },
     links: {
+        use_cases: {
+            type: "link",
+            key: "use-cases",
+            title: "Neo4j Customers & Use-Cases",
+            thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/01/WP-NetMgmt_sm.png",
+            introText: "Principal uses of Neo4j include social, recommendations, bioinformatics, fraud detection, network management, authorization and access control, content management, and parcel routing, with new ones being added regularly.",
+            path: "http://www.neotechnology.com/neo4j-use-cases/"
+        },
+        customers: {
+            title: "Neo4j Customers",
+            thumbnail: "http://www.neotechnology.com/wp-content/uploads/2012/11/neo4j_customers.png",
+            introText: "From the Fortune 500 to cutting edge startups, our customers depend on Neo4j for insanely high performance queries on massive amounts of connected data. Graphs Are Everywhere!",
+            path: "http://www.neotechnology.com/customers/"
+        },
         graphgist: {
             type:"link",
             github: "https://github.com/neo4j-contrib/graphgist",
@@ -1005,6 +1041,10 @@ exports.content = {
             logo: asset("img/books/graphdatabases_cover.gif"),
             thumbnail: asset("img/books/graphdatabases_thumb.gif"),
             introText: '<a href="http://graphdatabases.com">First Edition Now Available!</a>  Get the definitive book on graph databases</em>, published by O&#39;Reilly Media.<br />',
+            text: "Graph Databases, published by O’Reilly Media, discusses the problems that are well aligned with graph databases, " +
+                "with examples drawn from practical, real-world use cases. This book also looks at the ecosystem of complementary technologies, " +
+                "highlighting what differentiates graph databases from other database technologies, both relational and NOSQL. Graph Databases " +
+                "is written by Ian Robinson, Jim Webber, and Emil Eifrém, graph experts and enthusiasts at Neo Technology, creators of Neo4j.",
             actionText: 'Get your free e-book'
         },
         springdata: {

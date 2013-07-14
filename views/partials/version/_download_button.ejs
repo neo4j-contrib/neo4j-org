@@ -1,0 +1,36 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        var version="<%=neo4jGA.version %>";
+        var edition="community";
+        var browserPlatform = navigator.platform.toUpperCase();
+        var os=browserPlatform.indexOf("WIN")!=-1 ? "Windows" : browserPlatform.indexOf("MAC")!=-1 ? "Mac" : "Unix";
+        var platform = os == "Windows" ? "windows" : "unix";
+        var link = $("#download_link");
+        link.attr("href","/download_thanks?edition="+edition+"&release="+version+"&platform="+(platform||"unix"))
+        link.find("[name=caption]").text("Neo4j "+version+" "+edition+" edition for "+os);
+    });
+</script>
+<div class="featured" class="mainElement" style="min-height:12em;height:12em">
+    <div class="slide article">
+        <div class="image">
+        <div style="vertical-align:middle;text-align:center;width:25em;padding:1em;" class="btn btn-install image">
+            <a style="color: #ffffff" id="download_link" href="/download_thanks?edition=community&platform=unix">
+                <span style="font-size: 3em;"><i class="icon-download-alt"></i> Download Neo4j Server</span><br/>
+                <span name="caption">Neo4j </span>
+            </a>
+        </div>
+        </div>
+        <div class="text">
+            <div class="caption">
+                <h3 id="download">Get Neo4j, your graph database</h3>
+                <p class="introText">
+                <a href="/learn/neo4j">Neo4j</a> is a robust (fully ACID) transactional <a href="/learn/graphdatabase">property graph</a> database. Due to its
+                graph data model, Neo4j is highly agile and blazing fast. For connected data
+                operations, Neo4j runs a thousand times faster than relational databases.</p>
+            </div>
+            <div class="content">
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

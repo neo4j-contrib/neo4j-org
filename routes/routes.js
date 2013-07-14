@@ -6,6 +6,9 @@ var asset = require("../helpers/assets.js").asset
 exports.index = function(req, res){
   res.render('index', { category: '', title: 'Learn, Develop, Participate' });
 };
+exports.index2 = function(req, res){
+  res.render('index2', { category: '', title: 'Learn, Develop, Participate' });
+};
 exports.search = function(req, res){
   res.render('search', { category: '', title: 'Search Results' });
 };

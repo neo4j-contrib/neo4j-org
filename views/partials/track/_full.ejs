@@ -5,13 +5,17 @@
 %>
 <div class="featured" class="mainElement">
     <div class="slide default">
+        <div class="image">
+        <%- link_to(item.path, '<img class="thumbnail" src="'+image+'" />') %>
+        </div>
+        <div class="text">
         <div class="caption">
             <h3 id="<%= item.key || key %>"><%- item.title %></h3>
             <%- item.type == 'video' ? '<i class="icon icon-facetime-video"></i>' : '' %><%- item.introText %>
         </div>
         <div class="content">
-            <%- link_to(item.path, '<img class="thumbnail" src="'+image+'" />') %>
             <%- typeof item.content == "function" ? item.content(locals) : item.content %>
+        </div>
         </div>
 
         <div class="clear"></div>

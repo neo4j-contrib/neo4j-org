@@ -1,28 +1,32 @@
 <% var event=item %>
 <div class="featured" class="mainElement" area="<%= event['Area'] %>">
     <div class="slide event">
-        <div class="caption">
-            <h3 id="<%= item.key || key %>"><%= item.Title %></h3>
-            <% if (event['Start']) { %>
-            When: <%= event['Start'] %><br/>
-<hr/>
-            <% } %>
-            <% if (event['Location']) { %>
-            Where: <a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['Location'] %></a><br/>
-<hr/>
-            <% } %>
-            <% if (event['Presenter']) { %>
-                <a target='_blank' href="http://twitter.com/<%= event['Twitter'] %>">
-                    <h4><em>with <%= event['Presenter'] %></em></h4>
-                </a>
-            <% } %>
-            <p><%-: event['Description'] | truncate_words: 25 %></p>
-            <a class="btn" href="<%= event['Url'] %>" target="_blank">Participate </a><br/>
-        </div>
-        <div class="content">
+        <div class="text">
             <a target='_blank' href="<%= event['Url'] %>">
                 <img class="thumbnail" src="<%= event['Image'] || event['Portrait'] || (event['Group'] ? '/api/meetup?img=true&group='+event['Group']: undefined) || {Webinar: asset('img/events/neo4j_icon_webinar.png'),Training:asset('img/events/neo4j_icon_training.png'), Meetup: asset('img/events/neo4j_icon_meetup.png')}[event.Type] || asset('img/events/neo4j_icon_webinar.png') %>" width="300" title="<%= event['Title'] %>" alt="<%= event['Title'] %> logo"/>
             </a>
+        </div>
+        <div class="text">
+            <div class="caption">
+                <h3 id="<%= item.key || key %>"><%= item.Title %></h3>
+                <% if (event['Start']) { %>
+                When: <%= event['Start'] %><br/>
+        <hr/>
+                <% } %>
+                <% if (event['Location']) { %>
+                Where: <a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['Location'] %></a><br/>
+        <hr/>
+                <% } %>
+                <% if (event['Presenter']) { %>
+                    <a target='_blank' href="http://twitter.com/<%= event['Twitter'] %>">
+                        <h4><em>with <%= event['Presenter'] %></em></h4>
+                    </a>
+                <% } %>
+            </div>
+            <div class="content">
+                <p><%-: event['Description'] | truncate_words: 25 %></p>
+                <a class="btn" href="<%= event['Url'] %>" target="_blank">Participate </a><br/>
+            </div>
         </div>
         <div class="clear"></div>
     </div>

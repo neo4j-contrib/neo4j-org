@@ -1,30 +1,33 @@
+<% var item=content.install.stable %>
 <div class="featured" class="mainElement">
     <div class="slide version">
-        <div class="caption">            
-            <% var item=content.install.stable %>
-            <h3><%= item.title %></h3>
-            <% include _download_table %>
-            <div style="text-align: right;">
-                <a href="/release-notes#<%= item.version %>">Release Notes &raquo;</a>
-                <a class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>
-            </div>
-            <br/>
-            <% var item=content.install.milestone %>
-            <h3><%= item.title %></h3>
-            <% include _download_table %>
-            <div style="text-align: right;">
-                <a style="display: inline-block;text-align: right;" class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>
-            </div>
-            
-            
-        </div>
-        <div class="content">
+        <div class="image">
             <% if (item.thumbnail) { %>
                 <img class="thumbnail" src="<%= item.thumbnail %>" data-src="<%= item.src %>">
             <% } %>
+            <br/>
             <h3>After the Download</h3>
             <p>Unzip and change to the folder. From there start Neo4j Server <br/>on <a href="/download/linux">Linux/Mac</a> with <code>bin/neo4j start</code> from a terminal.<br/> On <a href="/download/windows">Windows</a> use <code>bin\Neo4j.bat start</code> or double-click.<br/>
                Open <a href="http://localhost:7474" target="_blank">http://localhost:7474</a> for the Web UI.</p>
+        </div>
+
+        <div class="text">
+            <div class="caption">
+                <% var item=content.install.stable %>
+                <h3><%= item.title %></h3>
+                <% include _download_table %>
+                <div style="text-align: right;">
+                    <a href="/release-notes#<%= item.version %>">Release Notes &raquo;</a>
+                    <a class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>
+                </div>
+                <br/>
+                <% var item=content.install.milestone %>
+                <h3><%= item.title %></h3>
+                <% include _download_table %>
+                <div style="text-align: right;">
+                    <a style="display: inline-block;text-align: right;" class="link" href="<%= item.path||item.src %>" target="_blank">Read More &raquo;</a>
+                </div>
+            </div>
         </div>
         <div class="clear"></div>
     </div>

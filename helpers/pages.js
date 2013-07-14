@@ -4,10 +4,39 @@ var video = require("./content").video;
 var asset = require("../helpers/assets.js").asset;
 
 exports.pages = {
+    index_test : {
+       path : "/index_test",
+       config: { tile_page: true, no_slides: true },
+       featured: [
+//           content.videos.strata,
+           content.videos.ian_graphdb_neo4j,
+           content.install.download_button
+       ],
+       related: [
+           {
+
+               "title":"Don't miss important information.",
+               introText: "For the best developer experience, subscribe and stay informed about events,<br/>\
+               releases and technical articles on graphs and development with Neo4j.\
+               <iframe style='visibility:visible;margin-left:-10px;width:15em;' src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' style='border:0;padding: 5;' width='300px' height='75px' frameborder='0' scrolling='no'></iframe>",
+               thumbnail: ""
+           },
+           "events",
+           content.links.customers,
+           content.links.graphconnect,
+           "learn",
+//           "cypher_track_start",
+           "develop",
+//           "participate",
+           "graphistas_map",
+           content.books.graphdatabases
+       ]
+    },
     learn: {
         path: "/learn",
         title: "Learn",
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
+        thumbnail: asset('img/neo4j/visually_refcard_small.gif'),
         featured: [content.books.graphdatabases, content.videos.graphdb101, content.videos.why_graphs],
         related: ["graphdatabase", "neo4j", "nosql", "tracks", "cypher", "training","modeling", "production", "licensing", content.links.manual, "scientific"]
     },
@@ -22,6 +51,7 @@ exports.pages = {
         path: "/develop",
         title: "Develop",
         introText: "Find what you need to develop applications with Neo4j in a variety of languages and deployment scenarios.",
+        thumbnail: asset("img/still/neo4j_drivers.png"),
         featured: null,
         related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java", "javascript", "spring", "ruby", "spatial", "dotnet", "python", "scala", "php", "clojure","linked_data"]
     },
@@ -214,6 +244,7 @@ exports.pages = {
             , content.example_data.neo_permissions
             , content.videos.neo4j_webui
             , content.links.cypher_cheat_sheet
+            , content.links.graphgist
         ]
     },
     tracks: {
@@ -249,7 +280,7 @@ exports.pages = {
         type: "track",
         title: "The Cypher track",
         thumbnail: asset("img/logo/cypher_small.gif"),
-        introText: "The Cypher track concentrates on the Cypher Graph Query language, making interaction with Neo4j framework independent.",
+        introText: "This path explores the incredible usefulness of the Cypher Graph Query language, which allows you work with Neo4j in an expressive and powerful way across all APIs.",
         actionText: "Start",
         next: ["cypher", "cypher_track_use"],
         prev: [],
@@ -503,19 +534,8 @@ exports.pages = {
                 introText: "Whitepapers about Graph Databases, Big Data, Scaling, Licensing and more.",
                 path: "http://www.neotechnology.com/resources/"
             },
-            {
-                key: "use-cases",
-                title: "Neo4j Use Cases",
-                thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/01/WP-NetMgmt_sm.png",
-                introText: "Principal uses of Neo4j include social, recommendations, bioinformatics, fraud detection, network management, authorization and access control, content management, and parcel routing, with new ones being added regularly.",
-                path: "http://www.neotechnology.com/neo4j-use-cases/"
-            },
-            {
-                title: "Neo4j Customers",
-                thumbnail: "http://www.neotechnology.com/wp-content/uploads/2012/11/neo4j_customers.png",
-                introText: "From the Fortune 500 to cutting edge startups, our customers depend on Neo4j for insanely high performance queries on massive amounts of connected data. Graphs Are Everywhere!",
-                path: "http://www.neotechnology.com/customers/"
-            },
+            content.links.use_cases,
+            content.links.customers,
             content.articles.partner_graph
         ]
     },
@@ -556,6 +576,7 @@ exports.pages = {
         title: "NoSQL Data Models",
         thumbnail: asset("img/propertygraph/nosql-space.png"),
         introText: "Understanding data stores for your application.",
+        config: {no_slides:false},
         // next: ["graphdatabase"],
         //prev: ["concepts"],
         featured: [
@@ -1049,15 +1070,17 @@ exports.pages = {
         path: "/participate/events/meetups",
         thumbnail: asset("img/logo/meetup.jpg"),
         title: "Worldwide Meetups",
-        introText: "Neo4j meetups are worldwide. Make a connection or start a new group. <br/>Find the next meetup events in <a href='/participate/events/meetups_US'>the US</a>, or in Europe in <a href='/participate/events/meetups_EU'>English</a> or <a href='/participate/events/meetups_DE'>German</a>.",
         prev: ["events"],
         next: ["webinars"],
+        introText: "Neo4j meetups are worldwide. Make a connection or start a new group. <br/>Find the next meetup events in <a href='/participate/events/meetups_US'>the US</a>, or in Europe in <a href='/participate/events/meetups_EU'>English</a> or <a href='/participate/events/meetups_DE'>German</a>.",
         actionText: "Find a meetup",
         featured: [
             {
                 title: "Neo4j worldwide Meetups",
                 thumbnail: asset("img/still/meetups_world.gif"),
-                path: "http://neo4j.meetup.com"
+                introText: "On meetup.com you find all the Neo4j meetups and can search for one that is close to your home.",
+                path: "http://neo4j.meetup.com",
+                actionText: "Find a meetup"
             }
         ],
         related: []
@@ -1307,7 +1330,7 @@ exports.pages = {
                 path: "/learn/try"
             }
         ],
-        related: [content.links.cypher_cheat_sheet, content.links.manual_cypher, "cypher", content.links.wes_cypher
+        related: [content.links.cypher_cheat_sheet, content.links.manual_cypher, "cypher", content.links.graphgist, content.links.wes_cypher
         ]
     },
     neo4j_server: {

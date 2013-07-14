@@ -138,8 +138,10 @@ body {
 
     .featured .slide .content,
     .featured .slide .thumbnail {
-        width: 280px ! important;
-        min-width: 0 ! important;
+        min-width: 100% ! important;
+        height: auto ! important;
+        /*width: 280px ! important;*/
+        /*min-width: 0 ! important;*/
         float: left;
         margin: 0 ! important;
         position: relative;
@@ -236,8 +238,11 @@ body {
 
     .featured .slide .content,
     .featured .slide .thumbnail {
-        width: 470px ! important;
-        min-width: 0 ! important;
+        min-width: 100% ! important;
+        height: auto ! important;
+        
+        /*width: 470px ! important;*/
+        /*min-width: 0 ! important;*/
         float: left;
         margin: 0 ! important;
         position: relative;
@@ -842,28 +847,58 @@ ul.hor li {
     background: #fff;
     overflow: none; /* makes children expand this box to max height */
     width: 59em;
-    min-height: 30em;
+    height: auto;
 }
 
 .featured .slide {
-    width: 56em;
+    /*width: 56em;*/
     margin: .5em;
     position: relative;
     min-height: 20em;
     overflow-y: visible;
 }
 
-.featured .slide .thumbnail {
+.image img {
+    width: 100%;
+}
+.featured .slide .image {
+    /*min-width: 50%;*/
+    float: right;
+    height: auto;
     max-width: 37em;
     min-width: 25em;
-    max-height: 25em;
+    /*max-height: 25em;*/
     display: inline-block;
     margin: 1.0em;
+    max-height: 100%;
+    overflow: visible;
+    /*height: 100% ! important;*/
+    padding: 0;
+}
+
+.featured .image {
+}
+
+.featured .image img {
+    border: .2em solid #fff;
+}
+
+.featured .slide .image img:hover {
+    cursor: pointer;
+    border: .2em solid #00546a;
+    /*padding: .2em;*/
+    /*margin: .2em;*/
+}
+
+
+.featured .introText {
+    line-height: 1.4em;
 }
 
 .featured .content {
+    margin-top: 1em;
     width: 38em;
-    float: right;
+    /*float: right;*/
     /*text-align: right;*/
 }
 
@@ -893,12 +928,6 @@ ul.hor li {
 .featured a:hover,
 .featured a:active {
     font-weight: 600;
-}
-
-.featured .slide .thumbnail:hover {
-    cursor: pointer;
-    border: .2em solid #00546a;
-    margin: .8em;
 }
 
 .featured .console .caption {
@@ -970,61 +999,36 @@ ul.hor li {
     text-align: right;
 }
 
-.featured .video .caption, 
-.featured .version .caption, 
+.featured .video .caption,
+.featured .version .caption,
 .featured .default .caption,
 .featured .page .caption,
-.featured .track .caption
+.featured .track .caption,
+.featured .page .caption
 {
-    width: 18em; 
+    width: 18em;
 }
 
-.featured .slide a.action  {
-    position: absolute;
-    bottom: 0.05em;
+/*.featured .slide a.action  {*/
+.featured a.action  {
+    display: inline-block;
+    position: relative;
+    bottom: 0;
     left: 0.25em;
 }
 
 .featured .article .caption,
 .featured .article .content,
+.featured .page .caption,
+.featured .page .content,
 .featured .book .caption,
 .featured .book .content {
-    display: block;
+    /*display: block;*/
     position: relative;
 }
 
-.featured .article .content,
-.featured .book .content,
-.featured .track .content {
-    float: left;
-    width: 42em;
-}
-
-.featured .article img,
-.featured .book img {
-    float: right;
-    margin: 0 1em;
-    border: none;
-    max-width: 70%;
-    max-height: 27em;
-    margin-right: 1em;
-}
-
-.featured .track .content {
-    /*s*/
+.featured .text {
     /*float: left;*/
-}
-
-.featured .image,
-.featured img {
-    overflow: auto;
-    /*height: 100% ! important;*/
-    padding: 0;
-    border: none;
-}
-
-.featured .image img {
-    width: 57em;
 }
 
 .bxslider .featured {
@@ -1215,7 +1219,7 @@ ul.hor li {
     display: none;
 }
 
-.related .item iframe {
+.related .item iframe.twitter-timeline {
     min-width: 12.5em ! important;
     width: 12.5em ! important;
 }

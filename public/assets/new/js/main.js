@@ -36,10 +36,14 @@ function resizeRelatedItems() {
 }
 
 function resizeFeaturedItems() {
-	$.each($('div.featured'), function(i, r) {
+	$.each($('div.featured .slide'), function(i, r) {
 		var featured = $(this);
-		var height = featured.children().height();
-		featured.css({"min-height":height*1.1});
+        var padding = featured.outerHeight() - featured.height();
+		var height1 = featured.find(".text").children().outerHeight();
+		var height2 = featured.find(".image").outerHeight();
+        var height = Math.max(height1,height2) + padding;
+		featured.css({"min-height":height});
+        console.log("text",height1,"image",height2,"result",height);
 	});
 }
 

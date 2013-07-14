@@ -241,7 +241,11 @@ route_get('/*/', function (req, res) {
 });
 
 route_get('/', routes.index);
+route_get('/index2', routes.index2);
 route_get('/search', routes.search);
+route_get('/b', function(req, res){
+  res.render('partials/version/_download_button');
+});
 
 route_get('/drivers', forward("/develop/drivers"));
 route_get('/learn/events', forward("/events"));

@@ -5,15 +5,19 @@
 %>
 <div class="featured" class="mainElement">
     <div class="slide video">
+        <div class="image">
+        <img class="thumbnail" src="<%= image %>" data-src="<%= item.src %>">
+        </div>
+        <div class="text">
         <div class="caption">
             <h3 id="<%= item.key || key %>"><%= item.title %></h3>
             <%- item.type == 'video' ? '<i class="icon icon-facetime-video"></i>' : '' %><%-: item.introText | blank | truncate_words: 50 %>
         </div>
         <div class="content">
-        	<img class="thumbnail" src="<%= image %>" data-src="<%= item.src %>">
             <%- (typeof item.content == "function" ? item.content(locals) : item.content) || "" %>
         </div>
+        </div>
         <div class="clear"></div>
-        <%- lightbox_link(item.src, (item.actionText || 'Watch the video') + ' &raquo;','link action') %>
     </div>
+        <%- lightbox_link(item.src, (item.actionText || 'Watch the video') + ' &raquo;','link action') %>
 </div><!-- featured -->
