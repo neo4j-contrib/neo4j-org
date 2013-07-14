@@ -256,7 +256,7 @@ exports.pages = {
         featured: [content.videos.cypher, content.videos.cypher_console],
         related: [ "reference_card", content.links.cypher_cheat_sheet, content.videos.cypher,
             video('Interview: Michael Hunger discusses Cypher transition from SQL'),
-            content.videos.cypher_sublime
+            content.videos.cypher_sublime, content.links.graphgist
         ]
     },
     cypher_track_use: {

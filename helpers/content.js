@@ -337,7 +337,7 @@ exports.content = {
             github: "https://github.com/neo4j-contrib/graphgist",
             title: "Neo4j Graph Gists",
             author:["nawroth","peterneubauer","mesirii"],
-            introText: "Use literate programming with simple ASCII-doc files to render interactive, incremental domain model examples with lots of value added features",
+            introText: "Use literate programming with simple ASCII-doc files with prose and Cypher queries to render interactive, incremental domain model examples with lots of value added features",
             path: "http://gist.neo4j.org",
             actionText: "Create & Share"
         },
