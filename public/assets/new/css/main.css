@@ -945,7 +945,7 @@ ul.hor li {
 .featured .caption {
     font-size: 1em;
     line-height: 1.5em;
-    position: absolute;
+    position: relative;
     top: 0;
 }
 
