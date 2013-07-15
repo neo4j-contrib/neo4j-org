@@ -23,6 +23,7 @@ exports.pages = {
            },
            "events",
            content.links.customers,
+           "training",
            content.links.graphconnect,
            content.books.graphdatabases,
            "learn",
@@ -1107,7 +1108,7 @@ exports.pages = {
         path: "/participate/events/trainings",
         title: "Trainings",
         thumbnail: asset("img/events/training.png"),
-        img: "http://www.neotechnology.com/wp-content/uploads/2013/03/tutorials_0305313.png",
+        img: "http://www.neotechnology.com/wp-content/uploads/2013/07/Tutorials_070912_620x300.png",
         prev: ["webinars", "events"],
         next: ["conferences"],
 // TODO move to a related in content and use in participate
@@ -1265,7 +1266,7 @@ exports.pages = {
                 title: "Data Modeling with Neo4j",
                 author: "mesirii",
                 introText: "In this presentation we'll cover many aspects of modeling domains and data for a graph database like Neo4j. <a href='http://slideshare.net/neo4j/data-modeling-with-neo4j'>Slides</a>",
-                src: "https://vimeo.com/67371996",
+                src: "http://player.vimeo.com/video/67371996#t=0m50s",
                 thumbnail: "http://image.slidesharecdn.com/webinardatamodeling-130713191849-phpapp01/95/slide-1-638.jpg?1373761157"
             }
         ],

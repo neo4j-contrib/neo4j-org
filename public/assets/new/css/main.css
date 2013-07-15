@@ -171,7 +171,7 @@ body {
         margin-right: 0 ! important;
     }
 
-    #header, .page, .related, .related .row {
+    #header, .mainpage, .related, .related .row {
         max-width: 320px ! important;
         padding: 0;
     }
@@ -292,7 +292,7 @@ body {
         margin-right: -4px ! important;
     }
 
-    #header, .page, .related, .related .row {
+    #header, .mainpage, .related, .related .row {
         width: 540px ! important;
     }
 
@@ -414,15 +414,15 @@ h1 {
     font-size: 3em;
 }
 
-h2,.page .markdown h1 {
+h2,.mainpage .markdown h1 {
     font-size: 2em;
 }
 
-h3,.page .markdown h2 {
+h3,.mainpage .markdown h2 {
     font-size: 1.3em;
 }
 
-h4,.page .markdown h3 {
+h4,.mainpage .markdown h3 {
     font-size: 1em;
 }
 
@@ -524,6 +524,22 @@ ul.hor li {
     border-color: #51a351 #51a351 #387038;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+.btn-download {
+    color: #ffffff;
+    text-shadow: 0 -.1em 0 rgba(0, 0, 0, 0.25);
+    background-color: #00708C;
+    *background-color: #00546a;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#00708C), to(#00546a));
+    background-image: -webkit-linear-gradient(top, #00708C, #00546a);
+    background-image: -o-linear-gradient(top, #00708C, #00546a);
+    background-image: linear-gradient(to bottom, #00708C, #00546a);
+    background-image: -moz-linear-gradient(top, #00708C, #00546a);
+    background-repeat: repeat-x;
+    border-color: #00546a #00546a #387038;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#00708C', endColorstr='#00546a', GradientType=0);
     filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 }
 
@@ -675,10 +691,10 @@ ul.hor li {
     z-index: 9999;
 }
 
-.page a,
-.page a:visited,
-.page a:hover,
-.page a:active {
+.mainpage a,
+.mainpage a:visited,
+.mainpage a:hover,
+.mainpage a:active {
     color: #00546a;
 }
 
@@ -693,7 +709,7 @@ ul.hor li {
     width: 60em;
 }
 
-.page {
+.mainpage {
     width: 62em;
     position: relative;
     margin: 0 auto;
@@ -701,34 +717,34 @@ ul.hor li {
     padding-bottom: 1em;
 }
 
-.page .icon {
+.mainpage .icon {
     margin-right: .4em;
 }
 
-.page .thumbnail {
+.mainpage .thumbnail {
     cursor: pointer;
 }
 
-.page h1 {
+.mainpage h1 {
     color: #555;
     margin-top: .25em;
     padding-bottom: .25em ! important;
 }
 
-.page .introText {
+.mainpage .introText {
     color: #555;
     font-size: 1.5em;
     margin: 0;
 }
 
-.page h2 {
+.mainpage h2 {
     color: #555;
     font-size: 2.2em;
     padding-bottom: .25em;
 }
 
-.page h2 a,
-.page h2 i {
+.mainpage h2 a,
+.mainpage h2 i {
     font-size: 2em  ;
     color: #00546a;
 }
@@ -830,14 +846,14 @@ ul.hor li {
 .lead a:visited,
 .lead a:hover,
 .lead a:active,
-.page .content a,
-.page .content a:visited,
-.page .content a:hover,
-.page .content a:active,
-.page .introText a,
-.page .introText a:visited,
-.page .introText a:hover,
-.page .introText a:active {
+.mainpage .content a,
+.mainpage .content a:visited,
+.mainpage .content a:hover,
+.mainpage .content a:active,
+.mainpage .introText a,
+.mainpage .introText a:visited,
+.mainpage .introText a:hover,
+.mainpage .introText a:active {
     color: #00546a;
     font-weight: 600;
 }
