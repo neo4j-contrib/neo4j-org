@@ -1108,7 +1108,8 @@ exports.pages = {
         path: "/participate/events/trainings",
         title: "Trainings",
         thumbnail: asset("img/events/training.png"),
-        img: "http://www.neotechnology.com/wp-content/uploads/2013/07/Tutorials_070912_620x300.png",
+        img: asset("img/events/tutorials.jpg"),
+//        img: "http://www.neotechnology.com/wp-content/uploads/2013/07/Tutorials_070912_620x300.png",
         prev: ["webinars", "events"],
         next: ["conferences"],
 // TODO move to a related in content and use in participate
