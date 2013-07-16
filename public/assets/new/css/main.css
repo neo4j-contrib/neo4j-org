@@ -1445,7 +1445,7 @@ a.vote i {
     /*background: url('//twitter.com/images/resources/twitter-bird-16x16.png') #e5e5e5 no-repeat .5em .5em;*/
     /*background: url('/assets/new/img/twitter-bird-light-bgs-32x32.png') #fff no-repeat .25em .25em;*/
     border: .1em solid #9EBDCD;
-    padding-left: 2em;
+    padding: .2em;
     border-radius: .25em;
 }
 
