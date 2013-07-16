@@ -124,6 +124,10 @@ body {
         max-height: 6em ! important;
     }
 
+    .featured.download {
+        display: none;
+    }
+
     .featured, .introText, #linkContainer {
         max-width: 288px;
     }
@@ -231,6 +235,10 @@ body {
 
     .featured .slide {
         max-width: 500px ! important;
+    }
+
+    .featured.download {
+        display: none;
     }
 
     .featured .slide .caption {
