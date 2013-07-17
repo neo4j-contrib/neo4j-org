@@ -684,9 +684,15 @@ exports.content = {
         gephi: {
             title: "Gephi",
             type: "video",
-            introText: "<p>The well known Graph visualization tool Gephi has a <a href='http://gephi.org/tag/neo4j/' target='_blank'>plugin for importing Neo4j</a> Databases which can then be visualized and rendered with the full power of Gephi's engines.</p>",
+            introText: "A JPA Compliant mapping solution for NoSQL Datastores with support for Neo4j",
             thumbnail: asset("img/still/gephi_neo4j_plugin.png"),
             src: "http://player.vimeo.com/video/31823202?badge=0&byline=0&portrait=0&title=0"
+        },
+        kundera: {
+            title: "Kundera",
+            introText: "<p>The well known Graph visualization tool Gephi has a <a href='http://gephi.org/tag/neo4j/' target='_blank'>plugin for importing Neo4j</a> Databases which can then be visualized and rendered with the full power of Gephi's engines.</p>",
+            thumbnail: "https://github.com/impetus-opensource/Kundera/wiki/images/imdb_polyglot.jpg",
+            path: "https://github.com/impetus-opensource/Kundera/wiki/Graph-Database-Support"
         }
 
     },

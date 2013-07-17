@@ -54,7 +54,7 @@ exports.pages = {
         introText: "Find what you need to develop applications with Neo4j in a variety of languages and deployment scenarios.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
         featured: null,
-        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java", "javascript", "spring", "ruby", "spatial", "dotnet", "python", "scala", "php", "clojure","linked_data"]
+        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java", "javascript", "spring", "ruby", "spatial", "dotnet", "python", "scala", "php", "clojure","linked_data","jee"]
     },
     participate: {
         path: "/participate",
@@ -277,7 +277,8 @@ exports.pages = {
             "spring",
             "neo4j_server",
             content.links.javadoc,
-            content.links.manual_java
+            content.links.manual_java,
+            "jee"
         ]
     },
 
@@ -489,7 +490,7 @@ exports.pages = {
         prev: ["java_basics"],
         featured: [
         ],
-        related: [content.projects.neoclipse, content.apps.structr, "spatial", content.projects.jdbc, content.projects.jpa, content.drivers.neo4j_rest, content.projects.graph_collections, content.apps.route_planner]
+        related: [content.projects.neoclipse, content.apps.structr, "jee", "spatial", content.projects.jdbc, content.projects.jpa, content.drivers.neo4j_rest, content.projects.graph_collections, content.links.kundera, content.apps.route_planner]
     },
     server_plugins: {
         path: "/java/server_plugins",
@@ -600,7 +601,7 @@ exports.pages = {
         introText: "Friends of Neo4j speak many languages, and work in many frameworks.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
         featured: null,
-        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp", "neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "gremlin", "bulbflow", "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go", "kundera", "neo4j_js", "neomodel"]
+        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp","jee" ,"neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", "gremlin", "bulbflow", "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go", "kundera", "neo4j_js", "neomodel"]
     },
     tools: {
         path: "/develop/tools",
@@ -608,7 +609,7 @@ exports.pages = {
         introText: "There are a lot of tools and resources around Neo4j.",
         thumbnail: asset("img/still/cypher.png"),
         featured: [content.videos.cypher],
-        related: ["drivers", "try", "neoclipse", "visualize"]
+        related: ["drivers", "try", "neoclipse", "visualize", "jee"]
     },
     books: {
         path: "/learn/books",
@@ -735,6 +736,12 @@ exports.pages = {
             content.videos.james_ward_neo4j
         ]
     },
+    jee: {
+         path: "/develop/jee",
+        title: "Neo4j for Java Enterprise Edition developers"  ,
+        introText: "For JEE developers, there are number of projects making Neo4j avaiable in JEE environments.",
+        related: [content.links.kundera]
+    }   ,
     spring: {
         path: "/develop/spring",
         title: "Spring Data Neo4j",
@@ -1961,7 +1968,7 @@ exports.pages = {
                 <li><a href='http://tiqview.tumblr.com/post/25430299054/neo4j-data-integration-with-pentaho-kettle'>Pentaho Kettle</a></li>\
                 <li><a href='http://tiqview.tumblr.com/post/25448716755/neo4j-data-profiling-with-ataccama-dq-analyzer'>Ataccama DQ Analyzer</a></li>\
                 </ul>"
-            }
+            } , "jee"
         ]
     },
 
