@@ -2,178 +2,238 @@
 
 <div class="mainpage" id="release_notes">
 
-    <h1>Neo4j Release Notes</h1>
+<h1>Neo4j Release Notes</h1>
 
-    <h3 id="1.9.1">Neo4j 1.9.1</h3>
-    <p>The 1.9.1 release of Neo4j is a maintenance release that brings more safety
+<h3 id="1.9.1">Neo4j 1.9.2</h3>
+
+<p>The 1.9.2 release of Neo4j is a maintenance release that brings above all a fix to a potentially dangerous
+    storage layer bug, everyone is highly encouraged to upgrade to this version.</p>
+
+<p>In particular this release addresses:</p>
+
+<ul>
+    <li>Fixes bug where a single instance cluster will perpetually try to perform elections</li>
+    <li>When flushing persistent windows, do so only if dirty. This is a performance improvement
+        for certain scenarios.
+    </li>
+    <li>Fixes bug where loading relationship chains with high ids would cause them to be
+        ignored when iterating over them.
+    </li>
+    <li>Fixes problem where Cypher would see changes while the query was running.</li>
+    <li>Fixes bug where a single instance cluster will perpetually try to perform elections</li>
+    <li>The Content-Type is now correctly used to set the text encoding, not Content-Encoding</li>
+    <li>Fixes concurrency issue with generation of JSON responses</li>
+    <li>HTTPS scheme is now properly propagated on batch requests</li>
+</ul>
+
+<p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.2 does
+    not require any store-level upgrades.</p>
+
+<h3 id="1.9.1">Neo4j 1.9.1</h3>
+
+<p>The 1.9.1 release of Neo4j is a maintenance release that brings more safety
     features into high-availability cluster deployments, general bug fixes and a small
     number of API enhancements.</p>
 
-    <p>In particular this release addresses:</p>
+<p>In particular this release addresses:</p>
 
-    <ul>
-        <li>Fixed race condition that could have lead to duplication in the getSingleRelationship()
-          in the Core API.</li>
-        <li>Reduces churn in the resource pool for channels and memory in a clustered environment.</li>
-        <li>Individual pages in <a href="http://docs.neo4j.org/chunked/stable/rest-api-traverse.html#rest-api-creating-a-paged-traverser">paged traversals</a>
-          through the <a href="http://docs.neo4j.org/chunked/stable/rest-api.html">REST API</a> can now be streamed like the other parts of the REST API, see <a href="http://docs.neo4j.org/chunked/stable/rest-api-streaming.html">the RESTstreaming docs</a>.</li>
-        <li>SSL certificate chains are supported by the Neo4j server for secure interactions with the
-          <a href="http://docs.neo4j.org/chunked/stable/rest-api.html">REST API</a>.</li>
-    </ul>
+<ul>
+    <li>Fixed race condition that could have lead to duplication in the getSingleRelationship()
+        in the Core API.
+    </li>
+    <li>Reduces churn in the resource pool for channels and memory in a clustered environment.</li>
+    <li>Individual pages in <a
+            href="http://docs.neo4j.org/chunked/stable/rest-api-traverse.html#rest-api-creating-a-paged-traverser">paged
+        traversals</a>
+        through the <a href="http://docs.neo4j.org/chunked/stable/rest-api.html">REST API</a> can now be
+        streamed like the other parts of the REST API, see <a
+                href="http://docs.neo4j.org/chunked/stable/rest-api-streaming.html">the RESTstreaming docs</a>.
+    </li>
+    <li>SSL certificate chains are supported by the Neo4j server for secure interactions with the
+        <a href="http://docs.neo4j.org/chunked/stable/rest-api.html">REST API</a>.
+    </li>
+</ul>
 
-    <p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.1 does
+<p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.1 does
     not require any store-level upgrades.</p>
 
-    <p>As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been
-      declared as deprecated, in order to help users prepare for the removal of
-      these in the next major Neo4j release. A <a href="http://docs.neo4j.org/chunked/1.9/deprecations.html">
-      list of deprecations</a> can be found in the Neo4j manual.</p>
+<p>As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been
+    declared as deprecated, in order to help users prepare for the removal of
+    these in the next major Neo4j release. A <a href="http://docs.neo4j.org/chunked/1.9/deprecations.html">
+        list of deprecations</a> can be found in the Neo4j manual.</p>
 
-    <p>For a full summary of changes in this release, please review the CHANGES.TXT file contained
+<p>For a full summary of changes in this release, please review the CHANGES.TXT file contained
     within the distribution.</p>
 
-    <h3 id="1.9">Neo4j 1.9</h3>
+<h3 id="1.9">Neo4j 1.9</h3>
 
-    <p>The 1.9 release of Neo4j builds upon the previous 1.8 releases and
-      brings extensive improvements in stability and performance. In addition,
-      <i>Neo4j 1.9 Enterprise</i> introduces auto-clustering support,
-      with dramatically simplified configuration and deployment for high demand
-      production use.</p>
+<p>The 1.9 release of Neo4j builds upon the previous 1.8 releases and
+    brings extensive improvements in stability and performance. In addition,
+    <i>Neo4j 1.9 Enterprise</i> introduces auto-clustering support,
+    with dramatically simplified configuration and deployment for high demand
+    production use.</p>
 
-    <ul>
-      <li>Support for <a href="http://docs.neo4j.org/chunked/1.9/ha.html">auto-clustering in
+<ul>
+    <li>Support for <a href="http://docs.neo4j.org/chunked/1.9/ha.html">auto-clustering in
         <i>Neo4j Enterprise</i></a>, which replaces the previous Zookeeper
         based HA clustering, provides a streamlined deployment process and is
-        much safer and more resilient in failure scenarios.</li>
-      <li>New <a href="http://docs.neo4j.org/chunked/1.9/arbiter-instances.html">neo4j-arbiter</a>
+        much safer and more resilient in failure scenarios.
+    </li>
+    <li>New <a href="http://docs.neo4j.org/chunked/1.9/arbiter-instances.html">neo4j-arbiter</a>
         tool, which acts as a voting instance in a Neo4j cluster but does not
-        keep a data store or handle transactions.</li>
-      <li>Addition of <a href="http://docs.neo4j.org/chunked/1.9/query-function.html">
-        string manipulation, timestamp and other functions</a> to the Cypher query language.</li>
-      <li>Improvements to memory utilization, which reduces working memory requirements and
-        improves overall performance.</li>
-      <li>New <a href="http://docs.neo4j.org/chunked/1.9/ha-rest-info.html">REST endpoints for
-        inspecting cluster status information</a> (master, slave, etc).</li>
-      <li>Correction of several concurrency and performance issues.</li>
-      <li>Improvements to <a href="http://docs.neo4j.org/chunked/1.9/operations-backup.html">
+        keep a data store or handle transactions.
+    </li>
+    <li>Addition of <a href="http://docs.neo4j.org/chunked/1.9/query-function.html">
+        string manipulation, timestamp and other functions</a> to the Cypher query language.
+    </li>
+    <li>Improvements to memory utilization, which reduces working memory requirements and
+        improves overall performance.
+    </li>
+    <li>New <a href="http://docs.neo4j.org/chunked/1.9/ha-rest-info.html">REST endpoints for
+        inspecting cluster status information</a> (master, slave, etc).
+    </li>
+    <li>Correction of several concurrency and performance issues.</li>
+    <li>Improvements to <a href="http://docs.neo4j.org/chunked/1.9/operations-backup.html">
         Online Backup</a> in <i>Neo4j Enterprise</i>, including auto-detection of
-        full vs incremental backup based on existing content at the backup location.</li>
-      <li>Updates to Neo4j server webadmin, including welcome pages for new users.</li>
-    </ul>
+        full vs incremental backup based on existing content at the backup location.
+    </li>
+    <li>Updates to Neo4j server webadmin, including welcome pages for new users.</li>
+</ul>
 
-    <p><strong>It is recommended to upgrade all previous Neo4j installations to
-      this release.</strong> Neo4j 1.9 does not require any explicit upgrade to
-      persistent stores created using Neo4j 1.7 and 1.8 installations, however
-      <i>current users of Neo4j Enterprise must consult the documentation and
-      update the cluster configuration</i>. Please see the
-      <a href="http://docs.neo4j.org/chunked/1.9/deployment.html">deployment</a>
-      and <a href="http://docs.neo4j.org/chunked/1.9/upgrade-guide.html">cluster
-      upgrade</a> sections of the neo4j manual for more detail. Also note that
-      Neo4j 1.9 is tested and supported with
-      <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle
-      JRE 7</a>. <i>Users of previous Java versions should upgrade to
-      <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle
-      JRE 7</a> when deploying Neo4j 1.9.</i></p>
+<p><strong>It is recommended to upgrade all previous Neo4j installations to
+    this release.</strong> Neo4j 1.9 does not require any explicit upgrade to
+    persistent stores created using Neo4j 1.7 and 1.8 installations, however
+    <i>current users of Neo4j Enterprise must consult the documentation and
+        update the cluster configuration</i>. Please see the
+    <a href="http://docs.neo4j.org/chunked/1.9/deployment.html">deployment</a>
+    and <a href="http://docs.neo4j.org/chunked/1.9/upgrade-guide.html">cluster
+        upgrade</a> sections of the neo4j manual for more detail. Also note that
+    Neo4j 1.9 is tested and supported with
+    <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle
+        JRE 7</a>. <i>Users of previous Java versions should upgrade to
+        <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle
+            JRE 7</a> when deploying Neo4j 1.9.</i></p>
 
-    <p>As part of the Neo4j 1.9 release, multiple behaviours and features of Neo4j have been
-      declared as deprecated, in order to help users prepare for the removal of
-      these in the next major Neo4j release. A <a href="http://docs.neo4j.org/chunked/1.9/deprecations.html">
-      list of deprecations</a> can be found in the Neo4j manual.</p>
+<p>As part of the Neo4j 1.9 release, multiple behaviours and features of Neo4j have been
+    declared as deprecated, in order to help users prepare for the removal of
+    these in the next major Neo4j release. A <a href="http://docs.neo4j.org/chunked/1.9/deprecations.html">
+        list of deprecations</a> can be found in the Neo4j manual.</p>
 
-    <p>For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
+<p>For a full summary of changes in this release, please review the CHANGES.TXT file contained within the
+    distribution.</p>
 
-    <hr/>
-    <h3 id="1.8.3">Neo4j 1.8.3</h3>
+<hr/>
+<h3 id="1.8.3">Neo4j 1.8.3</h3>
 
-    <p>The 1.8.3 release of Neo4j is a maintenance release that brings more safety
-        features into high-availability cluster deployments, general bug fixes and a small
-        number of API enhancements.</p>
+<p>The 1.8.3 release of Neo4j is a maintenance release that brings more safety
+    features into high-availability cluster deployments, general bug fixes and a small
+    number of API enhancements.</p>
 
-    <p>In particular this release addresses:</p>
+<p>In particular this release addresses:</p>
 
-    <ul>
-        <li>Ensure auto-indexes correctly expunge deleted nodes and relationsips.</li>
-        <li>Fixed race condition that could have lead to duplication in the getSingleRelationship()
-            in the Core API.</li>
-        <li>Reduces churn in the resource pool for channels and memory in a clustered environment.</li>
-        <li>Corrects an issue when supplying arrays as properties during unique node creation.</li>
-    </ul>
+<ul>
+    <li>Ensure auto-indexes correctly expunge deleted nodes and relationsips.</li>
+    <li>Fixed race condition that could have lead to duplication in the getSingleRelationship()
+        in the Core API.
+    </li>
+    <li>Reduces churn in the resource pool for channels and memory in a clustered environment.</li>
+    <li>Corrects an issue when supplying arrays as properties during unique node creation.</li>
+</ul>
 
-    <p><strong>All 1.8 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.8.3 does
-        not require any store-level upgrades.</p>
+<p><strong>All 1.8 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.8.3 does
+    not require any store-level upgrades.</p>
 
-    <p>For a full summary of changes in this release, please review the CHANGES.TXT file contained
-        within the distribution.</p>
+<p>For a full summary of changes in this release, please review the CHANGES.TXT file contained
+    within the distribution.</p>
 
-    <h3 id="1.8.2">Neo4j 1.8.2</h3>
+<h3 id="1.8.2">Neo4j 1.8.2</h3>
 
-    <p>The 1.8.2 release of Neo4j is a service release and includes the following corrections and improvements:</p>
+<p>The 1.8.2 release of Neo4j is a service release and includes the following corrections and improvements:</p>
 
-    <ul>
-        <li>Improvements to diagnostic logging and to the reliability of embedded APIs during instance fail-over (Neo4j Enterprise in HA configuration).</li>
-        <li>Improvements to the database recovery process to avoid some scenarios that could cause the recovery after an unclean shutdown to fail.</li>
-        <li>Correction of an isolation issue that could cause the failure of some traversals in the presence of concurrent write transactions.</li>
-        <li>Allowing for a greater number of relationship types to be created within a single database. Neo4j now supports 65536 different relationship types.</li>
-        <li>Improved store locking to prevent concurrent access of the store by multiple processes.</li>
-        <li>Neo4j server will now use X-Forwarded-Host and X-Forwarded-Proto headers, if present, when generating the URIs contained in responses from the REST API.</li>
-    </ul>
+<ul>
+    <li>Improvements to diagnostic logging and to the reliability of embedded APIs during instance fail-over
+        (Neo4j Enterprise in HA configuration).
+    </li>
+    <li>Improvements to the database recovery process to avoid some scenarios that could cause the recovery
+        after an unclean shutdown to fail.
+    </li>
+    <li>Correction of an isolation issue that could cause the failure of some traversals in the presence of
+        concurrent write transactions.
+    </li>
+    <li>Allowing for a greater number of relationship types to be created within a single database. Neo4j now
+        supports 65536 different relationship types.
+    </li>
+    <li>Improved store locking to prevent concurrent access of the store by multiple processes.</li>
+    <li>Neo4j server will now use X-Forwarded-Host and X-Forwarded-Proto headers, if present, when generating
+        the URIs contained in responses from the REST API.
+    </li>
+</ul>
 
-    <p><strong>It is recommended to upgrade all Neo4j 1.8.1 (and earlier) installations to this release, which is fully backward compatible</strong>. Please see the <a href="http://docs.neo4j.org/chunked/1.8.2/deployment.html">deployment section of the neo4j manual</a> for more detail.</p>
+<p><strong>It is recommended to upgrade all Neo4j 1.8.1 (and earlier) installations to this release, which is
+    fully backward compatible</strong>. Please see the <a
+        href="http://docs.neo4j.org/chunked/1.8.2/deployment.html">deployment section of the neo4j manual</a>
+    for more detail.</p>
 
-    <p>For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
+<p>For a full summary of changes in this release, please review the CHANGES.TXT file contained within the
+    distribution.</p>
 
-    <hr/>
+<hr/>
 
-    <h3 id="neo4j-1.8.1">Neo4j 1.8.1</h3>
+<h3 id="neo4j-1.8.1">Neo4j 1.8.1</h3>
 
-    <p>The 1.8.1 release of Neo4j is a service release and includes the following corrections and improvements:</p>
+<p>The 1.8.1 release of Neo4j is a service release and includes the following corrections and improvements:</p>
 
-    <ul>
-        <li>Correction of several errors in the parsing and evaluation of Cypher statements.</li>
-        <li>Improvements in the memory footprint of most Cypher statements.</li>
-        <li>Correction of an error in calculating shortest paths that could occur for some graph structures.</li>
-        <li>Improvements in the diagnostic logging required for support provided by Neo Technology.</li>
-    </ul>
+<ul>
+    <li>Correction of several errors in the parsing and evaluation of Cypher statements.</li>
+    <li>Improvements in the memory footprint of most Cypher statements.</li>
+    <li>Correction of an error in calculating shortest paths that could occur for some graph structures.</li>
+    <li>Improvements in the diagnostic logging required for support provided by Neo Technology.</li>
+</ul>
 
-    <p><strong>It is recommended to upgrade all Neo4j 1.8 (and earlier) installations to this release, which is fully
-        backward compatible</strong>. Please see the <a href="http://docs.neo4j.org/chunked/1.8.1/deployment.html">deployment
-        section of the neo4j manual</a> for more detail.</p>
+<p><strong>It is recommended to upgrade all Neo4j 1.8 (and earlier) installations to this release, which is
+    fully
+    backward compatible</strong>. Please see the <a href="http://docs.neo4j.org/chunked/1.8.1/deployment.html">deployment
+    section of the neo4j manual</a> for more detail.</p>
 
-    <p>For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
+<p>For a full summary of changes in this release, please review the CHANGES.TXT file contained within the
+    distribution.</p>
 
-    <hr/>
+<hr/>
 
-    <h3 id="neo4j-1.8">Neo4j 1.8</h3>
+<h3 id="neo4j-1.8">Neo4j 1.8</h3>
 
-    <p>The 1.8 release of Neo4j provides extensive improvements in
-        stability and performance. As an incremental service release, Neo4j 1.8 builds upon the previous 1.6 and 1.7
-        releases and provides full backward compatibility.</p>
+<p>The 1.8 release of Neo4j provides extensive improvements in
+    stability and performance. As an incremental service release, Neo4j 1.8 builds upon the previous 1.6 and 1.7
+    releases and provides full backward compatibility.</p>
 
-    <p>This release includes the following corrections and improvements:</p>
-    <ul>
-        <li>Correction of several concurrency issues affecting performance in multi-threaded configurations.</li>
-        <li>Correction of several concurrency issues that infrequently affect consistency of persisted data.</li>
-        <li>Optimization of high-availability (HA) protocols to increase write performance.</li>
-        <li>Support for zero-downtime rolling upgrades in HA clusters.</li>
-        <li>Improvements to transaction distribution in HA clusters, providing greater resistance to branching.</li>
-        <li>Configurable rotation of logical logs.</li>
-        <li>Support for streamed responses to REST API requests.</li>
-        <li>Support for bi-directional traversals, branch state and path expanders in the traversal framework.</li>
-        <li>Performance improvements to several graph algorithms.</li>
-        <li>Support in the Cypher language for writing graph data and updating auto-indexes (manual indexes are not
-            supported).
-        </li>
-        <li>Extensions to the Cypher language to allow the use of patterns as expressions and predicates.</li>
-        <li>Correction of several issues in the Cypher parser when using collections and when aggregating.</li>
-        <li>Improved error reporting in Cypher and more reliable statement parsing.</li>
-        <li>Support for explicit transactions in neo4j-shell.</li>
-    </ul>
+<p>This release includes the following corrections and improvements:</p>
+<ul>
+    <li>Correction of several concurrency issues affecting performance in multi-threaded configurations.</li>
+    <li>Correction of several concurrency issues that infrequently affect consistency of persisted data.</li>
+    <li>Optimization of high-availability (HA) protocols to increase write performance.</li>
+    <li>Support for zero-downtime rolling upgrades in HA clusters.</li>
+    <li>Improvements to transaction distribution in HA clusters, providing greater resistance to branching.</li>
+    <li>Configurable rotation of logical logs.</li>
+    <li>Support for streamed responses to REST API requests.</li>
+    <li>Support for bi-directional traversals, branch state and path expanders in the traversal framework.</li>
+    <li>Performance improvements to several graph algorithms.</li>
+    <li>Support in the Cypher language for writing graph data and updating auto-indexes (manual indexes are not
+        supported).
+    </li>
+    <li>Extensions to the Cypher language to allow the use of patterns as expressions and predicates.</li>
+    <li>Correction of several issues in the Cypher parser when using collections and when aggregating.</li>
+    <li>Improved error reporting in Cypher and more reliable statement parsing.</li>
+    <li>Support for explicit transactions in neo4j-shell.</li>
+</ul>
 
-    <p><strong>It is recommended to upgrade all previous Neo4j installations to this release.</strong> Neo4j 1.8 does not require
-        any explicit upgrade to persistent stores created using Neo4j 1.6 and 1.7 installations. Please see the
-        <a href="http://docs.neo4j.org/chunked/1.8/deployment.html">deployment section of the neo4j manual</a> for more detail.</p>
+<p><strong>It is recommended to upgrade all previous Neo4j installations to this release.</strong> Neo4j 1.8
+    does not require
+    any explicit upgrade to persistent stores created using Neo4j 1.6 and 1.7 installations. Please see the
+    <a href="http://docs.neo4j.org/chunked/1.8/deployment.html">deployment section of the neo4j manual</a> for
+    more detail.</p>
 
-    <p>For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
+<p>For a full summary of changes in this release, please review the CHANGES.TXT file contained within the
+    distribution.</p>
 </div>
 
 <% include ../foot %>
