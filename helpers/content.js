@@ -163,7 +163,7 @@ exports.content = {
             title: "What is a Graph Database? What is Neo4j?",
             type: "video",
             author: "Ian Robinson",
-            introText: "Ian Robinson explains what excites him about Graph databases and Neo4j. He discusses the power of the graph data model and how its expressiveness supersedes the relational model. He shares some insights in getting started with modeling and using graphs in your application development.",
+            introText: "Ian Robinson explains what excites him about graph databases and Neo4j. He discusses the power of the graph data model and how its expressiveness supersedes the relational model. He shares some insights in getting started with modeling and using graphs in your application development.",
 //            thumbnail: "http://b.vimeocdn.com/ts/388/074/388074752_640.jpg",
             thumbnail: asset("img/still/what_isa_graphdb.jpg"),
             src: "https://player.vimeo.com/video/56043918#t=0m19s"
@@ -379,7 +379,7 @@ exports.content = {
             path: "http://www.neotechnology.com/neo4j-use-cases/"
         },
         customers: {
-            title: "Neo4j Customers",
+            title: "Customers",
             thumbnail: "http://www.neotechnology.com/wp-content/uploads/2012/11/neo4j_customers.png",
             introText: "From the Fortune 500 to cutting edge startups, our customers depend on Neo4j for insanely high performance queries on massive amounts of connected data. Graphs Are Everywhere!",
             path: "http://www.neotechnology.com/customers/"
@@ -565,8 +565,9 @@ exports.content = {
         },
         graphconnect: {
             type: "link",
-            title: "GraphConnect the Graph Conference",
-            introText: "GraphConnect is the conference to meet developers, users and visionaries present and talk about graph databases and their applications.",
+//            title: "GraphConnect the Graph Conference",
+            title: "GraphConnect",
+            introText: "GraphConnect is the graph conference to meet developers, users and visionaries present and talk about graph databases and their applications.",
             thumbnail: asset("img/logo/graphconnect.png"),
             img: asset("img/logo/graphconnect_large.png"),
             url: "http://graphconnect.com"

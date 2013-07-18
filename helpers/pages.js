@@ -14,8 +14,8 @@ exports.pages = {
        ],
        related: [
            {
-
-               "title":"Don't miss important information.",
+//               "title":"Don't miss important information.",
+               "title":"Sign up for Neo4j",
                introText: "For the best developer experience, subscribe and stay informed about events,<br/>\
                releases and technical articles on graphs and development with Neo4j.\
                <iframe style='visibility:visible;margin-left:-10px;width:15em;' src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' style='border:0;padding: 5;' width='300px' height='75px' frameborder='0' scrolling='no'></iframe>",
@@ -76,7 +76,7 @@ exports.pages = {
     },
     training: {
         path: "/training",
-        title: "Neo4j Trainings, Tutorials and Courses",
+        title: "Tutorials & Courses",
         introText: "Neo4j Trainings and Courses allow you to quickly gain practical knowledge into the concepts and usage of Neo4j. These are presented by experienced trainers and Neo4j developers",
         thumbnail: asset("img/events/training.png"),
         featured: ["trainings"],
@@ -1070,7 +1070,7 @@ exports.pages = {
     },
     events: {
         path: "/events",
-        title: "Neo4j related events",
+        title: "Events",
         thumbnail: asset("img/logo/meetup.jpg"),
         introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial near you.",
         content: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
