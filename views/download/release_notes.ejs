@@ -4,27 +4,25 @@
 
 <h1>Neo4j Release Notes</h1>
 
-<h3 id="1.9.1">Neo4j 1.9.2</h3>
+<h3 id="1.9.2">Neo4j 1.9.2</h3>
 
-<p>The 1.9.2 release of Neo4j is a maintenance release that brings above all a fix to a potentially dangerous
-    storage layer bug, everyone is highly encouraged to upgrade to this version.</p>
+<p>The 1.9.2 release of Neo4j is a maintenance release that corrects a serious issue concurrency issue introduced in Neo4j 1.9.1,
+and resolves some other critical issues when reading from the underlying store. All Neo4j users are highly encouraged to upgrade to this version.</p>
 
 <p>In particular this release addresses:</p>
 
 <ul>
-    <li>Fixes bug where a single instance cluster will perpetually try to perform elections</li>
-    <li>When flushing persistent windows, do so only if dirty. This is a performance improvement
-        for certain scenarios.
-    </li>
-    <li>Fixes bug where loading relationship chains with high ids would cause them to be
-        ignored when iterating over them.
-    </li>
-    <li>Fixes problem where Cypher would see changes while the query was running.</li>
-    <li>Fixes bug where a single instance cluster will perpetually try to perform elections</li>
-    <li>The Content-Type is now correctly used to set the text encoding, not Content-Encoding</li>
-    <li>Fixes concurrency issue with generation of JSON responses</li>
-    <li>HTTPS scheme is now properly propagated on batch requests</li>
+    <li>Fixes a concurrency issue when generating JSON payload in response to requests over the REST API</li>
+    <li>Resolves an issue where relationships with very high IDs could be ignored during reading</li>
+    <li>Improves performance when flushing changes to disk on windows systems</li>
+    <li>Resolves an isolation issue when using the Cypher query language</li>
+    <li>Corrects the setting of Content-Type and Content-Encoding headers in REST API responses</li>
 </ul>
+
+<p>As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been
+    declared as deprecated, in order to help users prepare for the removal of
+    these in the next major Neo4j release. A <a href="http://docs.neo4j.org/chunked/1.9/deprecations.html">
+        list of deprecations</a> can be found in the Neo4j manual.</p>
 
 <p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.2 does
     not require any store-level upgrades.</p>
