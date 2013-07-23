@@ -1126,21 +1126,20 @@ exports.pages = {
 //            Please keep me updated about Neo4j events, releases and articles.\
 //            <iframe src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' onload='this.style.visibility = 'visible';' style='border:0;padding: 0;' width='180px' height='50px' frameborder='0' scrolling='no'></iframe>\
 //            </div>",
-        introText: "Get productive with Neo4j with a Graph Database Training. Meet an expert from Neo Technology or one of our partners for a full day training event in your city.\
-        <br/>Find the next trainings in <a href='/participate/events/trainings_US'>the US</a>, or in Europe in <a href='/participate/events/trainings_EU'>English</a> or <a href='/participate/events/trainings_DE'>German</a>.\
-        ",
+        introText: "Get productive with Neo4j at a training near you. Learn from Neo Technology engineers or from one of our global community of experts in our <a href='http://www.neotechnology.com/consulting-partners/'>Neo4j Partners Graph</a>.", 
+        content:" Find the next trainings in <a href='/participate/events/trainings_US'>the US</a>, or in Europe in <a href='/participate/events/trainings_EU'>English</a> or <a href='/participate/events/trainings_DE'>German</a>.",
         actionText: "Find trainings near you",
-        featured: [
-            {title: "Training Testimonial",
-                introText: "We developed a hands-on, full day training course to teach the basics of using a graph database as Neo4j. After the training you should feel confident to start your own Neo4j based project.",
-                type: "video",
-                src: "http://player.vimeo.com/video/55473433",
-                thumbnail: "http://secure-b.vimeocdn.com/ts/383/938/383938829_295.jpg",
-                content: function (params) {
-                    return render.include("/learn/training", params)
-                }
-            }
-        ],
+//        featured: [
+//             {title: "Training Testimonial",
+//                introText: "We developed a hands-on, full day training course to teach the basics of using a graph database as Neo4j. After the training you should feel confident to start your own Neo4j based project.",
+//                type: "video",
+//                src: "http://player.vimeo.com/video/55473433",
+//                thumbnail: "http://secure-b.vimeocdn.com/ts/383/938/383938829_295.jpg",
+//                content: function (params) {
+//                    return render.include("/learn/training", params)
+//                }
+//            }
+//        ],
         related: []  //"partners","licensing"
     },
     trainings_US: { path: "/participate/events/trainings_US" },
