@@ -53,6 +53,7 @@ exports.pages = {
         title: "Develop",
         introText: "Find what you need to develop applications with Neo4j in a variety of languages and deployment scenarios.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
+        badge: "<a href='/tutorials' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
         featured: null,
         related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java", "javascript", "spring", "ruby", "spatial", "dotnet", "python", "scala", "php", "clojure","linked_data","jee"]
     },
@@ -63,15 +64,15 @@ exports.pages = {
         thumbnail: asset("img/still/graphistas_map.png"),
         featured: null,
         related: [
+            "tutorials",
             "events",
-            content.links.jobs,
             "q_and_a",
             {
                 type: "include",
                 title: "@Neo4j Tweets",
                 path: "/participate/twitter"
             },
-            "contributors",content.links.team,"channels", "graphistas_map", "beer", content.projects.neo4j_org
+           "contributors", content.links.jobs, content.links.team, "channels", "graphistas_map", "beer", content.projects.neo4j_org
         ]
     },
     training: {
@@ -1074,7 +1075,7 @@ exports.pages = {
         thumbnail: asset("img/logo/meetup.jpg"),
         introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial near you.",
         content: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
-        badge: "<a href='/tutorials' target='_blank'><img width='150px' height='150px' src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
+        badge: "<a href='/tutorials' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
         featured: [], // content.links.graphconnect,content.links.tutorials
         related: ["tutorials","meetups", "webinars",  "conferences"],
         actionText: "Pick your event"
