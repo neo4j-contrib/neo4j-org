@@ -6,6 +6,7 @@ var asset = require("../helpers/assets.js").asset;
 exports.pages = {
     index_test : {
        path : "/index_test",
+       title: null,
        config: { tile_page: true, no_slides: true },
        featured: [
 //           content.videos.strata,
