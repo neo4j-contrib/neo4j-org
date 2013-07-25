@@ -39,7 +39,7 @@ exports.pages = {
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
         thumbnail: asset('img/neo4j/visually_refcard_small.gif'),
         featured: [content.books.graphdatabases, content.videos.graphdb101, content.videos.why_graphs],
-        related: ["graphdatabase", "neo4j", "nosql", "tracks", "cypher", "training","modeling", "production", "licensing", content.links.manual, "scientific"]
+        related: ["tutorials","graphdatabase", "neo4j", "nosql", "tracks", "cypher", "modeling", "production", "licensing", content.links.manual, "scientific"]
     },
     learn_graphdb: {
         path: "/learn_graphdb",
@@ -76,10 +76,10 @@ exports.pages = {
     },
     training: {
         path: "/training",
-        title: "Tutorials & Courses",
-        introText: "Neo4j Trainings and Courses allow you to quickly gain practical knowledge into the concepts and usage of Neo4j. These are presented by experienced trainers and Neo4j developers",
+        title: "Training",
+        introText: "Get trained from the community of Neo4j core developers and worldwide experts. Neo4j tutorials and courses allow you to quickly gain practical knowledge into the concepts and usage of Neo4j. ",
         thumbnail: asset("img/events/training.png"),
-        featured: ["trainings"],
+        featured: ["tutorials"],
         related: [
             content.links.course_neo4j_in_60,
             content.links.neo4j_koans_skillsmatter,
@@ -1076,7 +1076,7 @@ exports.pages = {
         content: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
         badge: "<h3>GraphConnect<br/>Graph Conference</h3><a href='http://graphconnect.com' target='_blank'><img src='" + asset("img/logo/graphconnect.png") + "'></a> ",
         featured: [], // content.links.graphconnect,content.links.tutorials
-        related: ["meetups", "webinars", "trainings", "conferences"],
+        related: ["meetups", "webinars", "tutorials", "conferences"],
         actionText: "Pick your event"
     },
     meetups: {
@@ -1102,7 +1102,7 @@ exports.pages = {
         path: "/participate/events/webinars",
         title: "Webinars",
         prev: ["meetups", "events"],
-        next: ["trainings"],
+        next: ["tutorials"],
         thumbnail: asset("img/events/webinar.png"),
         introText: "Neo4j webinars give you hands on expert information either directly from Neo Technology or from our partners and users. In case you missed one, we've <a href='/learn/videos_webinar'>recorded them all</a>.",
         actionText: "Register for a webinar",
@@ -1111,9 +1111,9 @@ exports.pages = {
         ],
         related: []
     },
-    trainings: {
-        path: "/participate/events/trainings",
-        title: "Trainings",
+    tutorials: {
+        path: "/tutorials",
+        title: "Neo4j Tutorials",
         thumbnail: asset("img/events/training.png"),
         img: asset("img/events/tutorials.jpg"),
 //        img: "http://www.neotechnology.com/wp-content/uploads/2013/07/Tutorials_070912_620x300.png",
@@ -1126,9 +1126,9 @@ exports.pages = {
 //            Please keep me updated about Neo4j events, releases and articles.\
 //            <iframe src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' onload='this.style.visibility = 'visible';' style='border:0;padding: 0;' width='180px' height='50px' frameborder='0' scrolling='no'></iframe>\
 //            </div>",
-        introText: "Get productive with Neo4j at a training near you. Learn from Neo Technology engineers or from one of our global community of experts in our <a href='http://www.neotechnology.com/consulting-partners/'>Neo4j Partners Graph</a>.", 
+        introText: "Get productive with Neo4j at a tutorial near you. Learn from Neo Technology engineers or from one of our global community of experts in our <a href='http://www.neotechnology.com/consulting-partners/'>Neo4j Partners Graph</a>.", 
         content:" Find the next trainings in <a href='/participate/events/trainings_US'>the US</a>, or in Europe in <a href='/participate/events/trainings_EU'>English</a> or <a href='/participate/events/trainings_DE'>German</a>.",
-        actionText: "Find trainings near you",
+        actionText: "Find tutorials near you",
 //        featured: [
 //             {title: "Training Testimonial",
 //                introText: "We developed a hands-on, full day training course to teach the basics of using a graph database as Neo4j. After the training you should feel confident to start your own Neo4j based project.",
@@ -1154,7 +1154,7 @@ exports.pages = {
     conferences: {
         path: "/participate/events/conferences",
         title: "Neo4j at Conferences",
-        prev: ["trainings"],
+        prev: ["tutorials"],
         next: ["events"],
         introText: "There is a lot of interest in graph databases and Neo4j. here are some of the conferences where you can learn and " +
             "talk more about Neo4j. <br/>Find the next conference talks in <a href='/participate/events/conferences_US'>the US</a>, or in Europe in <a href='/participate/events/conferences_EU'>English</a> or <a href='/participate/events/conferences_DE'>German</a>.",
