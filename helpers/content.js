@@ -569,7 +569,7 @@ exports.content = {
             title: "GraphConnect",
             introText: "GraphConnect is the graph conference to meet developers, users and visionaries present and talk about graph databases and their applications.",
             thumbnail: asset("img/logo/graphconnect.png"),
-            img: asset("img/logo/graphconnect_large.png"),
+            img: asset("img/logo/GC_n4jsite_ad.jpg"),
             url: "http://graphconnect.com"
         },
         tutorials: {
