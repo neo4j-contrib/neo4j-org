@@ -24,7 +24,7 @@ exports.pages = {
            },
            "events",
            content.links.customers,
-           "training",
+           "tutorials",
            content.links.graphconnect,
            content.books.graphdatabases,
            "learn",
@@ -39,8 +39,10 @@ exports.pages = {
         title: "Learn",
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
         thumbnail: asset('img/neo4j/visually_refcard_small.gif'),
-        featured: [content.books.graphdatabases, content.videos.graphdb101, content.videos.why_graphs],
-        related: ["tutorials","graphdatabase", "neo4j", "nosql", "tracks", "cypher", "modeling", "production", "licensing", content.links.manual, "scientific"]
+        featured: [content.books.graphdatabases, content.videos.why_graphs],
+        related: ["graphdatabase", "neo4j", "nosql", "tutorials",
+                  "tracks", "cypher", "modeling", content.videos.graphdb101,
+                  "production","licensing", content.links.manual, "scientific"]
     },
     learn_graphdb: {
         path: "/learn_graphdb",
@@ -54,9 +56,9 @@ exports.pages = {
         title: "Develop",
         introText: "Find what you need to develop applications with Neo4j in a variety of languages and deployment scenarios.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
-        badge: "<a href='/tutorials' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
+//        badge: "<a href='/tutorials' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
         featured: null,
-        related: ["tracks", "drivers", "import", "tools", "cloud", "ops", "java", "javascript", "spring", "ruby", "spatial", "dotnet", "python", "scala", "php", "clojure","linked_data","jee"]
+        related: ["tracks", "drivers", "import", "tools", "cloud", "tutorials", "ops", "java", "javascript", "spring", "ruby", "dotnet", "python", "scala", "php", "clojure","linked_data","jee", "spatial"]
     },
     participate: {
         path: "/participate",
@@ -66,8 +68,8 @@ exports.pages = {
         featured: null,
         related: [
             "tutorials",
-            "events",
             "q_and_a",
+            "events",
             {
                 type: "include",
                 title: "@Neo4j Tweets",
@@ -79,9 +81,20 @@ exports.pages = {
     training: {
         path: "/training",
         title: "Training",
-        introText: "Get trained from the community of Neo4j core developers and worldwide experts. Neo4j tutorials and courses allow you to quickly gain practical knowledge into the concepts and usage of Neo4j. ",
+        introText: "Neo4j tutorials and courses allow you to quickly gain practical knowledge into the concepts and usage of Neo4j. These are presented by experienced trainers and Neo4j developers",
         thumbnail: asset("img/events/training.png"),
-        featured: ["tutorials"],
+        featured: [
+//             {title: "Neo4j Tutorials",
+//                introText: "We developed a hands-on, full day training course to teach the basics of using a graph database as Neo4j. After the training you should feel confident to start your own Neo4j based project.",
+//                type: "video",
+//                src: "http://player.vimeo.com/video/55473433",
+//                thumbnail: "http://secure-b.vimeocdn.com/ts/383/938/383938829_295.jpg",
+//                content: function (params) {
+//                    return render.include("/learn/training", params)
+//                }
+//            }
+            "tutorials"
+        ],
         related: [
             content.links.course_neo4j_in_60,
             content.links.neo4j_koans_skillsmatter,
@@ -1076,7 +1089,7 @@ exports.pages = {
         thumbnail: asset("img/logo/meetup.jpg"),
         introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial near you.",
         content: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
-        badge: "<a href='/tutorials' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
+//        badge: "<a href='/tutorials' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
         featured: [], // content.links.graphconnect,content.links.tutorials
         related: ["tutorials","meetups", "webinars",  "conferences"],
         actionText: "Pick your event"
@@ -1114,9 +1127,9 @@ exports.pages = {
         related: []
     },
     tutorials: {
-        path: "/tutorials",
+        path: "/participate/events/tutorials",
         title: "Neo4j Tutorials",
-        thumbnail: asset("img/events/training.png"),
+        thumbnail: asset("img/events/n4jtutorial_ad-150x150.png"),
         img: asset("img/events/tutorials.jpg"),
 //        img: "http://www.neotechnology.com/wp-content/uploads/2013/07/Tutorials_070912_620x300.png",
         prev: ["webinars", "events"],
@@ -1129,24 +1142,14 @@ exports.pages = {
 //            <iframe src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' onload='this.style.visibility = 'visible';' style='border:0;padding: 0;' width='180px' height='50px' frameborder='0' scrolling='no'></iframe>\
 //            </div>",
         introText: "Get productive with Neo4j at a tutorial near you. Learn from Neo Technology engineers or from one of our global community of experts in our <a href='http://www.neotechnology.com/consulting-partners/'>Neo4j Partners Graph</a>.", 
-        content:" Find the next trainings in <a href='/participate/events/trainings_US'>the US</a>, or in Europe in <a href='/participate/events/trainings_EU'>English</a> or <a href='/participate/events/trainings_DE'>German</a>.",
+        content:" Find the next tutorial in <a href='/participate/events/tutorials_US'>the US</a>, or in Europe in <a href='/participate/events/tutorials_EU'>English</a> or <a href='/participate/events/tutorials_DE'>German</a>.",
         actionText: "Find tutorials near you",
-//        featured: [
-//             {title: "Training Testimonial",
-//                introText: "We developed a hands-on, full day training course to teach the basics of using a graph database as Neo4j. After the training you should feel confident to start your own Neo4j based project.",
-//                type: "video",
-//                src: "http://player.vimeo.com/video/55473433",
-//                thumbnail: "http://secure-b.vimeocdn.com/ts/383/938/383938829_295.jpg",
-//                content: function (params) {
-//                    return render.include("/learn/training", params)
-//                }
-//            }
-//        ],
+        featured: [],
         related: []  //"partners","licensing"
     },
-    trainings_US: { path: "/participate/events/trainings_US" },
-    trainings_EU: { path: "/participate/events/trainings_EU" },
-    trainings_DE: { path: "/participate/events/trainings_DE" },
+    tutorials_US: { path: "/participate/events/tutorials_US" },
+    tutorials_EU: { path: "/participate/events/tutorials_EU" },
+    tutorials_DE: { path: "/participate/events/tutorials_DE" },
     conferences_US: { path: "/participate/events/conferences_US" },
     conferences_EU: { path: "/participate/events/conferences_EU" },
     conferences_DE: { path: "/participate/events/conferences_DE" },

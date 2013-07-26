@@ -745,6 +745,12 @@ ul.hor li {
     margin: 0;
 }
 
+.mainpage .content {
+    /*color: #555;*/
+    font-size: 1.2em;
+    margin: 0;
+}
+
 .mainpage h2 {
     color: #555;
     font-size: 2.2em;

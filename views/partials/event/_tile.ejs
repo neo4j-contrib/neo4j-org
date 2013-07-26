@@ -27,9 +27,11 @@
                 <% } %>
             </div>
             <div class="introText">
+                <% if ([event.Type] != "Training") { %>
                 <p><%-: event['Description'] | truncate_words: 30 %></p>
+                <% } %>
                 <a class="link" style="left: 1em;" href="/api/event.ics?title=<%- encodeURIComponent(event['Title']) %>" target="_blank"><i class="icon-calendar"></i></a><br/>
-                <a class="link" href="<%= event['Url'] %>" target="_blank">Participate &raquo;</a><br/>
+                <a class="link" style="font-size: 1.5em" href="<%= event['Url'] %>" target="_blank"><%= event['Type']=="Training" ? "Sign me up" : "Participate"%> &raquo;</a><br/>
             </div>
         </div>
         <% }  %>

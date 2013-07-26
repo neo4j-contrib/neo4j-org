@@ -224,7 +224,7 @@ exports.content = {
             type: "video",
             thumbnail: "http://b.vimeocdn.com/ts/390/134/390134611_640.jpg",
             introText: "Emil Eifrem explains how graph databases can make a difference in harvesting more value in your data by looking at its relationships.",
-            src: "http://player.vimeo.com/video/56040747"
+            src: "http://player.vimeo.com/video/56040747#t=0m14s"
         },
         ha: {
             title: "High Availability",

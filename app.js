@@ -248,6 +248,12 @@ route_get('/b', function(req, res){
 });
 
 route_get('/drivers', forward("/develop/drivers"));
+route_get('/participate/events/trainings', forward("/participate/events/tutorials"));
+route_get('/participate/events/trainings_EU', forward("/participate/events/tutorials_EU"));
+route_get('/participate/events/trainings_US', forward("/participate/events/tutorials_US"));
+route_get('/participate/events/trainings_DE', forward("/participate/events/tutorials_DE"));
+route_get('/trainings', forward("/participate/events/tutorials"));
+route_get('/tutorials', forward("/participate/events/tutorials"));
 route_get('/learn/events', forward("/events"));
 
 // TODO
