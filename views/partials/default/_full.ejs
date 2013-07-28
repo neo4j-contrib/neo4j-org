@@ -1,12 +1,12 @@
 <%
-	var hasPath = item.path;
+	var path = item.path || item.url;
 	var image = item.img ? item.img : item.thumbnail ? item.thumbnail : (item.featured && item.featured.thumbnail ? item.featured.thumbnail : '');
 
 %>
 <div class="featured" class="mainElement">
     <div class="slide default">
         <div class="image">
-            <%- link_to(item.path, '<img class="thumbnail" src="'+image+'" />') %>
+            <%- link_to(path, '<img class="thumbnail" src="'+image+'" />') %>
         </div>
         <div class="text">
             <div class="caption">
@@ -20,5 +20,5 @@
 
         <div class="clear"></div>
     </div>
-    <% if (item.path) { %><a class="link action" href="<%= item.path %>" target="_blank"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+    <% if (path) { %><a class="link action" href="<%= path %>" target="_blank"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
 </div><!-- featured -->

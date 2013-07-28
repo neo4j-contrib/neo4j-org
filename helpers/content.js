@@ -567,9 +567,13 @@ exports.content = {
             type: "link",
 //            title: "GraphConnect the Graph Conference",
             title: "GraphConnect",
-            introText: "GraphConnect is the graph conference to meet developers, users and visionaries present and talk about graph databases and their applications.",
+            introText: "GraphConnect is the graph conference to meet developers, users and visionaries present and talk about graph databases and their applications.<br/> \
+                Upcoming conferences in <a href='http://www.graphconnect.com/san-francisco/' target='_blank'>San Francisco</a>, \
+                <a href='http://www.graphconnect.com/new-york/' target='_blank'>New York</a> and <a href='http://www.graphconnect.com/london' target='_blank'>London</a>.<br/>\
+                Videos and slides from <a href='http://www.graphconnect.com/boston/' target='_blank'>Boston</a> and <a href='http://www.graphconnect.com/chicago' target='_blank'>Chicago</a> are online now.",
             thumbnail: asset("img/logo/graphconnect.png"),
-            img: asset("img/logo/GC_n4jsite_ad.jpg"),
+            img: asset("img/events/GC_n4jsite_ad.jpg"),
+            actionText: "Register Now!",
             url: "http://graphconnect.com"
         },
         tutorials: {
