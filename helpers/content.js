@@ -1474,6 +1474,16 @@ exports.content = {
             logo: asset("img/languages/clojure.png"),
             name: "Neocons",
             text: "An idiomatic, feature rich Clojure client which supports (almost) all Neo4J REST API features and is constantly tested against bleeding edge server changes, like the Cypher language improvements. " },
+        borneo: {
+            type: "driver",
+            tags: ["clojure", "jvm"],
+            authors: ["@wagjo"],
+            url: "https://github.com/wagjo",
+            docs: "http://wagjo.github.io/borneo/",
+            source: "https://github.com/wagjo",
+            logo: asset("img/languages/clojure.png"),
+            name: "Borneo",
+            text: "Clojure wrapper for Neo4j, a graph database, in embedded JVM mode." },
         bulbflow: {
             type: "driver",
             tags: ["python", "rest", "ogm"],
