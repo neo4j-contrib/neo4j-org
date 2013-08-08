@@ -947,7 +947,7 @@ exports.content = {
                 type: "article",
                 title: "(A Graph Database) –[:RELATES_A]–> (Key-Value Store)",
                 content: "\
-                    <div><img src=" + asset('img/propertygraph/vs-key-value.png') + " alt='' title='vs-key-value' width='245' height='76' /><img src=" + asset('img/propertygraph/vs-document.png') + " alt='' title='as-key-value' width='159' height='241' /></div>\
+                    <div><img src=" + asset('img/propertygraph/vs-key-value.png') + " alt='' title='vs-key-value' width='245' height='76' /><img src=" + asset('img/propertygraph/as-key-value.png') + " alt='' title='as-key-value' width='159' height='241' /></div>\
                     <p>A <strong>Key-Value model</strong> is great for lookups of simple or even complex values. When the values are themselves interconnected, you’ve got a graph. Neo4j lets you traverse quickly among all the connected values.</p>\
                     "
             },
