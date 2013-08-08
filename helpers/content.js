@@ -33,12 +33,12 @@ exports.content = {
         },
         "milestone": {
             type: "version",
-            title: "Neo4j Milestone 2.0.0-M03",
+            title: "Neo4j Milestone 2.0.0-M04",
             stability: "milestone",
-            version: "2.0.0-M03",
-            date: "May 28, 2013",
-            introText: "Node Labels, automatic indexes, transactional Cypher HTTP, work on constraints.",
-            path: "http://blog.neo4j.org/2013/05/new-milestone-release-neo4j-200-m03.html",
+            version: "2.0.0-M04",
+            date: "Aug 7, 2013",
+            introText: "Java 7, Cypher Language, Mandatory Transactions",
+            path: "http://blog.neo4j.org/2013/08/summer-release-neo4j-20-milestone-4.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
