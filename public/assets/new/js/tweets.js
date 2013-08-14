@@ -21,11 +21,11 @@ $(document).ready(function(){
         var twitter = $("#twitter_bar div");
         var user=tweet['user'];
         twitter.find("a.twitter_user img").attr("src",user['profile_image_url']);
-        twitter.find("a.twitter_user").attr("href","http://twitter.com/"+user['name']);
-        twitter.find("a.twitter_user span").text(user['screen_name']);
+        twitter.find("a.twitter_user").attr("href","http://twitter.com/"+user['screen_name']);
+        twitter.find("a.twitter_user span").text(user['name']);
         twitter.find("span.text").html(tweet['rendered']);
         twitter.find("a.twitter_date").html(time);
-        twitter.find("a.twitter_date").attr("href","http://twitter.com/"+user['name']+"/status/"+tweet['id_str']);;
+        twitter.find("a.twitter_date").attr("href","http://twitter.com/"+user['screen_name']+"/status/"+tweet['id_str']);;
     }
     nextTweet();
     setInterval(nextTweet,10*1000);
