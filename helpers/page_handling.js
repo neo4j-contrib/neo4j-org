@@ -1,19 +1,20 @@
 var fs=require("fs");
 
-exports.init = function(app,pages) {
-    function merge() {
-        var res={};
-        for (i in arguments) {
-            var arg=arguments[i];
-            for (prop in arg) {
-                if (arg.hasOwnProperty(prop)) {
-                    res[prop] = arg[prop];  
-                }  
+function merge() {
+    var res={};
+    for (i in arguments) {
+        var arg=arguments[i];
+        for (prop in arg) {
+            if (arg.hasOwnProperty(prop)) {
+                res[prop] = arg[prop];
             }
         }
-        return res;
     }
-    
+    return res;
+}
+
+exports.init = function(app,pages) {
+
     fs.readFile("views/partials/page.ejs", function (err, buf) {
         function addRoute(file,path,title) {
             app.get(page.path, function (req, res) {
@@ -66,3 +67,4 @@ exports.init = function(app,pages) {
       }
     });
 }
+exports.merge=merge

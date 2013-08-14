@@ -370,6 +370,13 @@ exports.content = {
             introText: "Working at Neo Technology is one of the best things that can happen. See, who makes Neo4j the great product it is.",
             path: "http://www.neotechnology.com/staff"
         },
+        seradio_neo4j: {
+            type: "link",
+            title: "Software Engineering Radio Podcast on Neo4j and Graph Databases",
+            thumbnail: "https://si0.twimg.com/profile_images/61815563/se_bigger.JPG",
+            introText: "Robert Blumen interviews Michael Hunger about the graph data model, graph databases and Neo4j",
+            path: "http://www.se-radio.net/2013/05/episode-194-michael-hunger/"
+        },
         use_cases: {
             type: "link",
             key: "use-cases",
@@ -407,6 +414,22 @@ exports.content = {
             author: ["luannem","rhetonik"],
             introText: "In this class <a href='http://twitter.com/luannem'>Luanne Misquitta</a> and <a href='http://twitter.com/rhetonik'>Nikhil Lanjewar</a> introduce you to the basics of Neo4j and how you can quickly get started using NOSQL on your projects.",
             thumbnail: asset("img/logo/gyaanexchange.png")
+        },
+        python_safari: {
+            type: "link",
+            author: "technige",
+            title: "Using Neo4j from Python",
+            path: "http://blog.safaribooksonline.com/2013/07/23/using-neo4j-from-python/",
+            introText: "This article shows how the Py2neo library can be used to build a simple application with Neo4j.",
+            thumbnail: asset("img/logo/safari-logo.png")
+        },
+        python_unique_safari: {
+            type: "link",
+            author: "technige",
+            title: "Managing Neo4j Uniqueness with Py2neo",
+            path: "http://blog.safaribooksonline.com/2013/08/07/managing-uniqueness-with-py2neo/",
+            introText: "In the context of Neo4j, it may be necessary to ensure that individual nodes are unique within a particular context; or there may be more complex uniqueness requirements across paths or subgraphs.",
+            thumbnail: asset("img/logo/safari-logo.png")
         },
         neo4j_koans_skillsmatter: {
             type: "link",
@@ -1569,7 +1592,7 @@ exports.content = {
             type: "driver",
             url: "https://github.com/davemeehan/Neo4j-GO",
             logo: asset("img/languages/go.png"),
-            authors: ["@dmeehan"],
+            authors: ["@packetdrop"],
             tags: ["go", "rest"],
             name: "Neo4j GO",
             text: "A Neo4j REST client in the GO language."

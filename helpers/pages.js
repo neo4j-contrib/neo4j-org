@@ -4,8 +4,8 @@ var video = require("./content").video;
 var asset = require("../helpers/assets.js").asset;
 
 exports.pages = {
-    index_test : {
-       path : "/index_test",
+    index : {
+       path : "/index",
        title: null,
        config: { tile_page: true, no_slides: true },
        featured: [
@@ -19,7 +19,7 @@ exports.pages = {
                "title":"Sign up for Neo4j",
                introText: "For the best developer experience, subscribe and stay informed about events,<br/>\
                releases and technical articles on graphs and development with Neo4j.\
-               <iframe style='visibility:visible;margin-left:-10px;width:15em;' src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' style='border:0;padding: 5;' width='300px' height='75px' frameborder='0' scrolling='no'></iframe>",
+               <iframe class='newsletter' style='visibility:visible;margin-left:-10px;width:15em;' src='' style='border:0;padding: 5;' width='300px' height='75px' frameborder='0' scrolling='no'></iframe>",
                thumbnail: ""
            },
            "events",
@@ -1042,7 +1042,7 @@ exports.pages = {
         next: ["videos_interview"],
         thumbnail: asset("img/events/webinar.png"),
         img: asset("img/still/webinars_slide.jpg"),
-        introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
+        introText: "Enjoy yourself watching these webinar-videos that were produced to entertain and educate you about graph databases, Neo4j and Cypher. Check our event listing for <a href='/participate/events/webinars'>currently scheduled webinars</a>.",
         featured: [],
         related: [],
         actionText: "Watch them"
@@ -1054,7 +1054,7 @@ exports.pages = {
         path: "/learn/videos_interview",
         title: "Neo4j interviews",
         thumbnail: asset("img/events/webinar.png"),
-        introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
+        introText: "Enjoy yourself watching these interviews that we recorded with people who had interesting stories to share. Stories that could be your own, about graph databases, Neo4j and Cypher. Make sure to meet them at the next <a href='http://graphconnect.com'>GraphConnect</a> conference.",
         featured: [],
         related: [],
         actionText: "Watch them"
@@ -1066,7 +1066,7 @@ exports.pages = {
         path: "/learn/videos_graphconnect",
         title: "Neo4j GraphConnect recordings",
         thumbnail: asset("img/logo/graphconnect.png"),
-        introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
+        introText: "Enjoy watching these session recordings from our <a href='http://graphconnect.com'>GraphConnect</a> about graphs, graph databases, Neo4j and applications using them conference. Hope you are there next time too.",
         featured: [],
         related: [],
         actionText: "Watch them"
@@ -1078,7 +1078,7 @@ exports.pages = {
         path: "/learn/videos_other",
         title: "Neo4j related videos",
         thumbnail: asset("img/events/webinar.png"),
-        introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
+        introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher.",
         featured: [],
         related: [],
         actionText: "Watch them"
@@ -1087,8 +1087,8 @@ exports.pages = {
         path: "/events",
         title: "Events",
         thumbnail: asset("img/logo/meetup.jpg"),
-        introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial near you.",
-        content: "If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors, talk to our engineers or discuss with our customers.",
+        introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial close to you.",
+        content: "If you want to learn more about Neo4j nothing beats a hands on experience. Learn with our community members and driver authors, talk to our engineers or discuss with our customers.",
 //        badge: "<a href='/tutorials' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
         featured: [], // content.links.graphconnect,content.links.tutorials
         related: ["tutorials","meetups", "webinars",  "conferences"],
@@ -1106,7 +1106,7 @@ exports.pages = {
             {
                 title: "Neo4j worldwide Meetups",
                 thumbnail: asset("img/still/meetups_world.gif"),
-                introText: "On meetup.com you find all the Neo4j meetups and can search for one that is close to your home.",
+                introText: "On <a href='http://neo4j.meetup.com'>meetup.com</a> you find all the Neo4j meetups and can search for one that is close to your home.",
                 path: "http://neo4j.meetup.com",
                 actionText: "Find a meetup"
             }
@@ -1141,7 +1141,7 @@ exports.pages = {
 //            Please keep me updated about Neo4j events, releases and articles.\
 //            <iframe src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' onload='this.style.visibility = 'visible';' style='border:0;padding: 0;' width='180px' height='50px' frameborder='0' scrolling='no'></iframe>\
 //            </div>",
-        introText: "Get productive with Neo4j at a tutorial near you. Learn from Neo Technology engineers or from one of our global community of experts in our <a href='http://www.neotechnology.com/consulting-partners/'>Neo4j Partners Graph</a>.", 
+        introText: "Become proficient with Neo4j by attending a tutorial close to you. If you enjoy focused, hands-on learning experiences, the tutorials are the best way.",
         content:" Find the next tutorial in <a href='/participate/events/tutorials_US'>the US</a>, or in Europe in <a href='/participate/events/tutorials_EU'>English</a> or <a href='/participate/events/tutorials_DE'>German</a>.",
         actionText: "Find tutorials near you",
         featured: [],
@@ -1199,6 +1199,7 @@ exports.pages = {
         related: [content.videos.why_graphs, "graphdatabase", 
 		    content.videos.bunnies,
 			content.videos.graphdb101, content.links.neo4j_ref_card, "nosql", "licensing", content.links.manual, "neo4j_server",
+            content.links.seradio_neo4j,
             {
                 type: "link",
                 author: "peterneubauer",
@@ -1565,27 +1566,19 @@ exports.pages = {
         featured: [
             {
                 type: "video",
+                title: "Introduction to Py2neo and Geoff",
+                src: "http://player.vimeo.com/video/44822406",
+                introText: "Nigel presents how to get started with Py2neo and shows the power of the graph exchange format Geoff",
+                author: "technige",
+                img: "http://image.slidesharecdn.com/introductiontopy2neo-120629031610-phpapp02/95/slide-1-728.jpg"
+            },
+            {
+                type: "video",
                 title: "How Sharehoods created NeoModel along the way",
                 src: "http://player.vimeo.com/video/62812358",
                 introText: "In this <a href='http://skillsmatter.com/podcast/nosql/case-study-how-sharehoods-created-neomodel-along-the-way'>SkillsMatter Neo4j User-Group</a> talk, Sharehoods Head of Technology Robin Edwards will explain why and how Neo4j is used at this exciting tech startup. Robin will also give a whirlwind tour of neomodel, a new Python framework for neo4j and its integration with the Django stack.",
                 author: "Robin Edwards",
                 img: "https://raw.github.com/robinedwards/neomodel/master/art/neomodel-300.png"
-            },
-            {
-                type: "video",
-                title: "Introduction to Py2neo and Geoff",
-                src: "http://player.vimeo.com/video/44822406",
-                introText: "Nigel presents how to get started with Py2neo and shows the power of the graph exchange format Geoff",
-                author: "technige",
-                img: ""
-            },
-            {
-                type: "video",
-                title: "PyCon 2010:Persistent Graphs in Python with Neo4j",
-                src: "http://blip.tv/play/g4VigczNTgI.x?p=1",
-                introText: "",
-                author: {name: "Tobias Lindaaker", twitter: "thobe"},
-                img: "http://a.images.blip.tv/Pycon-PyCon2010PersistentGraphsInPythonWithNeo4j140164-779.jpg"
             }
         ],
         related: [
@@ -1593,6 +1586,8 @@ exports.pages = {
             content.drivers.neomodel,
             content.drivers.neo4django, content.drivers.neo4j_python,
             content.drivers.bulbflow,
+            content.links.python_safari,
+            content.links.python_unique_safari,
             "technige",
             {
                 type: "link",
@@ -1602,6 +1597,14 @@ exports.pages = {
                 introText: "In this article we'll be taking the <a href='http://www.coolgarif.com/brain-food/getting-started-with-neo4j-part2'>HydraGraph</a> and exposing it as a RESTful API",
                 github: "https://gist.github.com/coolgarifTech/5671071",
                 author: {name:"Richie Barter",twitter:"coolgarif"}
+            } ,
+            {
+                type: "video",
+                title: "PyCon 2010:Persistent Graphs in Python with Neo4j",
+                src: "http://blip.tv/play/g4VigczNTgI.x?p=1",
+                introText: "",
+                author: {name: "Tobias Lindaaker", twitter: "thobe"},
+                img: "http://a.images.blip.tv/Pycon-PyCon2010PersistentGraphsInPythonWithNeo4j140164-779.jpg"
             }
         ]
     },

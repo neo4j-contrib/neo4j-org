@@ -551,6 +551,9 @@ ul.hor li {
     filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 }
 
+.btn-download a:hover {
+    text-shadow: #BBB 0 0 .75em;
+}
 .btn-action {
     color: #555 ! important;
     font-size: 1em;
@@ -905,7 +908,7 @@ ul.hor li {
 
 .featured .slide .image a:hover {
     text-decoration: none;
-    font-weight: bolder;
+    /*font-weight: bolder;*/
 }
 .featured .slide .image {
     /*min-width: 50%;*/

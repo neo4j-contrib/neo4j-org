@@ -240,12 +240,16 @@ route_get('/*/', function (req, res) {
     res.redirect(path);
 });
 
-route_get('/', routes.index);
-route_get('/index2', routes.index2);
-route_get('/search', routes.search);
-route_get('/b', function(req, res){
-  res.render('partials/version/_download_button');
+//route_get('/', forward("/index"));
+app.get("/", function (req, res) {
+    var page = app.locals.pages["index"];
+    var params = page_handling.merge(app.locals, { path:page.path, title:page.title || "", locals:app.locals });
+    res.render("partials/page", params);
 });
+
+route_get('/index_graph', routes.index_graph);
+
+route_get('/search', routes.search);
 
 route_get('/drivers', forward("/develop/drivers"));
 route_get('/participate/events/trainings', forward("/participate/events/tutorials"));
@@ -260,7 +264,7 @@ route_get('/learn/events', forward("/events"));
 route_get('/download_thanks', routes.pages);
 route_get('/subscribe_thanks', routes.pages);
 route_get('/participate/meetup_signup', routes.meetup_signup);
-route_get('/participate/meetups', forward("http://neo4j.meetup.com/")); // TODO
+route_get('/participate/meetups', forward("/participate/events/meetups")); // TODO
 
 route_get('/terms', routes.terms); // terms and conditions
 route_get('/privacy', routes.privacy); // privacy policy
