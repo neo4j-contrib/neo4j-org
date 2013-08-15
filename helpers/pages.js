@@ -1541,6 +1541,13 @@ exports.pages = {
             content.links.start_with_neo4j_neo4jclient,
             {
                 type: "link",
+                title: "Using Neo4j Graph DB With F#",
+                introText: "Sergey shows how to use Neo4jClient from F# from simple commands to using the LINQ-like Cypher DSL",
+                author: {twitter: "sergey_tihon",name:"Sergey Tihon"},
+                path: "http://sergeytihon.wordpress.com/2013/03/27/using-neo4j-graph-db-with-f/"
+            },
+            {
+                type: "link",
                 title: "Neo4j Koans in .net using Neo4jClient",
                 introText: "Brian converted the <a href='https://github.com/jimwebber/neo4j-tutorial' target='_blank'>Neo4j Dr.Who Koans</a> by Jim Webber and Ian Robinson to c# so that you can have an enjoyable learning experience in .net",
                 author: "Brian Woodward",
