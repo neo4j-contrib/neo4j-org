@@ -1434,12 +1434,6 @@ exports.pages = {
                 introText: "The aim of the project is to create a lightweight 3D library with a very low level of complexity"
                 // todo max article, neo4waza etc.
             },
-            {
-                title: "A collection of graph visualization options",
-                path: "http://clipboard.com/mesirii/boards/viz",
-                introText: "Michael Hunger has a nice collection on interesting projects in the visualisation space.",
-                thumbnail: "http://d2g1zjdg4phkb4.cloudfront.net/IiVRi9fidoad7M4g5KflUrgx3Tg="
-            },
             content.articles.jdbc
         ]
     },
