@@ -1261,7 +1261,7 @@ exports.content = {
         neoclipse: {
             type: "app",
             author: "@nawroth",
-            url: "https://github.com/neo4j/neoclipse",
+            url: "https://github.com/neo4j-contrib/neoclipse",
             logo: asset("img/apps/neoclipse.png"),
             text: "An Eclipse-RCP based visualization and query tool for Neo4j",
             name: "Neoclipse"
