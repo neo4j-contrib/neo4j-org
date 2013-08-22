@@ -923,6 +923,14 @@ exports.pages = {
 //                thumbnail: "http://i.imgur.com/9eu7kRp.png",
                 author: "Michael Bach",
                 url: "http://michaelbloggs.blogspot.de/2013/05/importing-ttl-turtle-ontologies-in-neo4j.html"
+            }  ,
+            {
+                type: "link",
+                title: "Using OWL with Neo4j",
+                introText: "It's quite easy to map and query ontologies in a property graph model, here is an example for this.",
+                thumbnail: "http://1.bp.blogspot.com/-AfPJhGuMY08/UhMt1e0AuSI/AAAAAAAAAAM/ze08DayNioc/s320/provontology.jpg",
+                author: "Stefanie Wiegand",
+                url: "http://blog.neo4j.org/2013/08/and-now-for-something-completely.html"
             }
         ]
     },
