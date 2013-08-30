@@ -28,7 +28,7 @@ function events2(fun, filter,calendar) {
 }
 
 function events(fun, filter) {
-    var calendarUrl='http://www.google.com/calendar/feeds/neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com/public/basic?orderby=starttime&sortorder=ascending&max-results=30&futureevents=true&hl=en';
+    var calendarUrl='http://www.google.com/calendar/feeds/neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com/public/basic?orderby=starttime&sortorder=ascending&max-results=100&futureevents=true&hl=en';
     rssparser.parseURL(calendarUrl, { headers: {'Accept-Language':'en'}}, function(err, out){
         function event_prop(item,name,regexp,type) {
             var match = item.summary.match(regexp);
