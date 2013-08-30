@@ -4,6 +4,27 @@
 
 <h1>Neo4j Release Notes</h1>
 
+<h3 id="1.9.3">Neo4j 1.9.3</h3>
+
+<p>The 1.9.3 release of Neo4j is a maintenance release that
+All Neo4j users are highly encouraged to upgrade to this version.</p>
+
+<p>In particular this release addresses:</p>
+
+<ul>
+    <li>Improvements to logging of HA clustering events</li>
+    <li>Resolves an infrequent exception when iterating over the relationships of some nodes</li>
+    <li>Resolved rare concurrency issue in persistence window pools</li>
+    <li>Improvements to reduce disk space and memory consumption by indexes</li>
+    <li>Corrects several race conditions in the High-Availability (HA) protocol and in the distribution of transactions in a clustered environment</li>
+    <li>Introduces an additional configuration option to control logical log rotation (logical_log_rotation_threshold)</li>
+    <li>Resolves an issue with rolling upgrade support (rolling upgrade to 1.9.3 is supported from all previous 1.9 and 1.8 releases)</li>
+</ul>
+
+<p>As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been declared as deprecated, in order to help users prepare for the removal of these in the next major Neo4j release. A <a href="http://docs.neo4j.org/chunked/1.9.3/deprecations.html"> list of deprecations</a> can be found in the Neo4j manual.</p>
+
+<p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.3 does not require any store-level upgrades.</p>
+
 <h3 id="1.9.2">Neo4j 1.9.2</h3>
 
 <p>The 1.9.2 release of Neo4j is a maintenance release that corrects a serious issue concurrency issue introduced in Neo4j 1.9.1,
