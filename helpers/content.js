@@ -890,6 +890,9 @@ exports.content = {
             path: "http://www.neotechnology.com/price-list/",
             actionText: "Neo4j Editions",
             content: "\
+            <h4>The main intention for usage of Neo4j</h4>\
+            <p>You are free to use the community version of Neo4j in any situation where you would, for example, use MySQL. \
+            If you are using the enterprise version of Neo4j in a commercial setting, then our intention is that you will contact Neo Technology to discuss commercial licensing.</p>\
             <h4>You build Closed Source, Business-Essential Online Applications</h4>\
             <p>If you&#39;re using Neo4j to build closed-source online applications that are central to your business, then you&#39;ll want to talk to us about commercial licensing of <strong>Neo4j Advanced or Enterprise editions</strong>. These offer the monitoring, backup and high-availability features you&#39;ll need to be successful  &#8211; not to mention access to support from our top engineering team.</p>\
             <p>If you don&#39;t need any of the reliability features in the Advanced or Enterprise editions, then you&#39;re free to use the Community edition of Neo4j Server under a GPL license &#8211; which means you can use it anywhere i.e. similarly to MySQL. Used in this way, only changes you make to the Neo4j software itself should be open-sourced and shared with the community.</p>\
