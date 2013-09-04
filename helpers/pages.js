@@ -129,7 +129,8 @@ exports.pages = {
     download: {
         path: "/download",
         title: "Download and Install Neo4j",
-        introText: "Take Neo4j for a spin. Community, Advanced, and Enterprise are available for your exploration.",
+        introText: "Your Neo4j installation is just one click away. Get the Community Edition for your first steps. " +
+            "Check out Advanced and Enterprise for your production setup. More on licensing here.",
         content: ""// render.include("download/installation")
         ,
         featured: [
@@ -1994,6 +1995,16 @@ exports.pages = {
         ]
     },
 
+    education: {
+        path: "/learn/education",
+        thumbnail: asset("img/still/graphistas_map.png"),
+        title: "The Neo4j Online Course",
+        introText: 'The Neo4j Online course offers the wildly successful Neo4j Tutorial for you to take whenever and wherever you want.',
+        content: "<blockquote class='versal-embedded' data-id='dbld7j' viewport='tall'><a href='https://versal.com/c/dbld7j/test-neo-j-course'><p>Test Neo4j Course on Versal.com</p><img src='https://versal.com//assets/img/defaults/course-tiny.png'></a></blockquote><script src='https://versal.com/embed.js'></script>",
+        featured: [],
+        related: [],
+        actionText: "Attend the course"
+    },
     graphistas_map: {
         path: "/participate/graphistas_map",
         thumbnail: asset("img/still/graphistas_map.png"),

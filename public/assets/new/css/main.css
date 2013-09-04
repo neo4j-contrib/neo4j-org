@@ -104,6 +104,19 @@ textarea {
         font-style: normal;
 }
 
+#sites {
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+}
+#site a:active, #sites a:link, #sites a {
+    color: #fff;
+}
+#sites a:hover {
+    text-decoration: none;
+    text-shadow: #BBB 0 0 .75em;
+}
+
 /** Default */
 body {
     font-size: 9pt;
@@ -300,7 +313,7 @@ body {
         margin-right: -4px ! important;
     }
 
-    #header, .mainpage, .related, .related .row {
+    #header, .mainpage, .related, .related .row, #sites {
         width: 540px ! important;
     }
 

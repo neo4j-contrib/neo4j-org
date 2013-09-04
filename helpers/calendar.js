@@ -41,9 +41,9 @@ function events(fun, filter) {
             event_prop(item, 'Status', /Event Status: (.+?)(\n|<br *\/>)/);
             event_prop(item, 'Location', /Where: (.+?)(\n|<br *\/>)/);
             event_prop(item, 'Description', /Event Description: ([\s\S]+)$/);
-            event_prop(item, 'Url', /Event Description: <a +href="(.+?)".*>.+?<\/a>/);
-            event_prop(item, 'UrlText', /Event Description: <a +href=".+?".*>(.+?)<\/a>/);
-            item.Description = item.Description.replace(/^<a +href=".+?".*>.+?<\/a> */,"");
+            event_prop(item, 'Url', /Event Description: +<a +href=["'](.+?)["'].*>.+?<\/a>/);
+            event_prop(item, 'UrlText', /Event Description: +<a +href=["'].+?["'].*>(.+?)<\/a>/);
+            item.Description = item.Description.replace(/^<a +href=["'].+?["'].*>.+?<\/a> */,"");
             if (item.Url && item.Url.match(/http:\/\/www.google.com\/url\?q=/)) {
               var url = item.Url.replace(/http:\/\/www.google.com\/url\?q=/, "");
               url=decodeURIComponent(url);
