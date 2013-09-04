@@ -130,7 +130,7 @@ exports.pages = {
         path: "/download",
         title: "Download and Install Neo4j",
         introText: "Your Neo4j installation is just one click away. Get the Community Edition for your first steps. " +
-            "Check out Advanced and Enterprise for your production setup. More on licensing here.",
+            "Check out Advanced and Enterprise for your production setup. For insights in licensing, <a href='/learn/licensing'>see our explanation</a>.",
         content: ""// render.include("download/installation")
         ,
         featured: [

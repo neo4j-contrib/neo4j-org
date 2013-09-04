@@ -8,14 +8,20 @@
     <tbody>
     <%
     var platforms={"unix":"Linux/Mac","windows":"Windows"};
-    ["community","advanced","enterprise"].forEach(function(edition) {
+    var editions = {
+    community : "Free High Performance Graph Database Server, GPL licensed with community support",
+    advanced  : "High Performance Graph Database Server with advanced monitoring, AGPL/Commercially licensed with 10x5 email support",
+    enterprise: "High Performance Graph Database Server with advanced monitoring, high availability, read scaling and online backup, AGPL/Commercially licensed with 24x7 phone support"
+    };
+    Object.keys(editions).forEach(function(edition) {
     %>
     <tr>
         <%
         Object.keys(platforms).forEach(function(platform) {
         %>
         <td>
-            <a href="<%= edition=='community' ? '/download_thanks':'http://info.neotechnology.com/download-Neo4j.html'%>?edition=<%= edition %>&amp;release=<%= item.version %>&amp;platform=<%= platform %>">
+            <a  title="<%= editions[edition]%>"
+                href="<%= edition=='community' ? '/download_thanks':'http://info.neotechnology.com/download-Neo4j.html'%>?edition=<%= edition %>&amp;release=<%= item.version %>&amp;platform=<%= platform %>">
                 <%=: edition | capitalize %> <i class="icon-download-alt"></i></a></td>
         <% }) %>
     </tr>
