@@ -105,12 +105,10 @@ textarea {
 }
 
 #sites {
-    position: absolute;
-    top: 0.2em;
-    left: 0.2em;
+    text-align: center;
 }
 #site a:active, #sites a:link, #sites a {
-    color: #fff;
+    color: #333333;
 }
 #sites a:hover {
     text-decoration: none;
