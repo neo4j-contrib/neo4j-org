@@ -2044,7 +2044,7 @@ exports.pages = {
             },
             {
                 type: "article",
-                title: "How does it work?",
+                title: "How do I create a GraphGist?",
                 content: "<ul><li>Find a great domain (Music, Dating, Comics, Healthcare, Politics, Sciences, ...)</li>\
                 <li>Whiteboard a good example graph model.</li>\
                 <li>Determine interesting use-cases.</li>\
@@ -2052,6 +2052,7 @@ exports.pages = {
                 <li>Write a good description and create a pretty model picture.</li>\
                 <li>Compose it all nicely in your asciidoc-graphgist-file.</li>\
                 <li>Store it as a <strong>public</strong> <a href='http://gist.github.com'>GitHub Gist</a></li>\
+                <li>For details, check out the example <a href='http://gist.neo4j.org/?5956246'>GraphGist</a> and the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>Collection</a> on the Wiki</li>\
                 </ul>"
             },
             {
@@ -2063,7 +2064,21 @@ exports.pages = {
                 <li>Add your gist on the <a href='https://github.com/neo4j-contrib/graphgist/wiki/Challenge'>GraphGist Challenge</a> Wiki page</li>\
                 <li>The GraphGist needs to be registered before Sept 30, 2013</li>\
                 <li>If you have questions reach out to our <a href='/forums'>Google Group</a>, <a href='http://twitter.com/neo4j'>@neo4j</a> on twitter or <a href='http://twitter.com/peterneubauer'>Peter Neubauer</a></li>\
-                </ul>"
+                </ul>\
+                <strong>Make sure that the content you create is shared under <a href='http://creativecommons.org/licenses/by-sa/3.0/'>CC-SA</a>.</strong>\
+                "
+            },
+            {
+                type: "article",
+                title: "Where can I learn more about GraphGists?",
+                url: "http://www.meetup.com/graphdb-world/events/138513152/",
+                src: asset("img/events/neo4j_icon_meetup.png"),
+                content: "<ul>\
+                    <li>Check out the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>GraphGist Wiki</a> for many examples and hints.</li>\
+                    <li>Read the <a href='http://gist.neo4j.org/?5956246'>self describing GraphGist</a>.</li>\
+                    <li>We want to run a <a href='http://www.meetup.com/graphdb-world/events/138513152/'>webinar/hangout on September 10</a> to explain GraphGists in detail (<a href='https://docs.google.com/a/neopersistence.com/presentation/d/1QrYDKrJ8WRmvAdVcgA79HUlfiOrGrByRTgNCDPOSq-c/edit#slide=id.p'>slides</a>).</li>\
+                    <li>We encourage local <a href='/participate/meetups'>Neo4j Meetup</a> organizers to attend that discussion and work with us to run a September meetup event about GraphGists and the challenge.</li>\
+                    </ul> "
             }
             ],
         related: ["modeling"],
