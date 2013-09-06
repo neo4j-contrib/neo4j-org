@@ -2018,12 +2018,12 @@ exports.pages = {
         path: "/learn/graphgist_challenge",
         title: "Neo4j GraphGist Challenge",
         introText: "Outdo yourself! Create the most impressive GraphGist ever, submit and win!",
-        thumbnail: "https://dl.dropboxusercontent.com/u/14493611/neo4githubj.png",
+        thumbnail: asset("img/logo/neo4j-github.png"),
         featured: [
             {
                 type: "article",
                 title: "GraphGist September Challenge",
-                src: "https://dl.dropboxusercontent.com/u/14493611/graphgist.jpg",
+                src: asset("img/still/graphgist.jpg"),
                 url: "http://gist.neo4j.org",
                 content: "<p>Join our GraphGist Challenge this month.\
             We want to encourage you to model <em>a domain that you know or like</em> in a graph model and describe it\
