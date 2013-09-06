@@ -25,6 +25,7 @@ exports.pages = {
            "events",
            content.links.customers,
            "tutorials",
+           "graphgist_challenge",
            content.links.graphconnect,
            content.books.graphdatabases,
            "learn",
@@ -2004,6 +2005,69 @@ exports.pages = {
         featured: [],
         related: [],
         actionText: "Attend the course"
+    },
+//    graphgist: {
+//        path: "/learn/graphgist",
+//        title: "Neo4j GraphGist",
+//        introText: "With Neo4j <a href='http://gist.neo4j.org'>GraphGists</a> you can describe and model your domain in a simple text file and render it as a rich, interactive page in any browser.",
+//        featured: ["graphgist_challenge"],
+//        related: ["modeling"],
+//        actionText: "Model your Graph"
+//    },
+    graphgist_challenge: {
+        path: "/learn/graphgist_challenge",
+        title: "Neo4j GraphGist Challenge",
+        introText: "Outdo yourself! Create the most impressive GraphGist ever, submit and win!",
+        thumbnail: "",
+        featured: [
+            {
+                type: "article",
+                title: "GraphGist September Challenge",
+                src: "https://dl.dropboxusercontent.com/u/14493611/graphgist.jpg",
+                url: "http://gist.neo4j.org",
+                content: "<p>Join our GraphGist Challenge this month.\
+            We want to encourage you to model <em>a domain that you know or like</em> in a graph model and describe it\
+            interactively in a GraphGist.<br/>\
+            A <a href='http://gist.neo4j.org' >GraphGist</a> is just a basic <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>ascii doc</a> text file, and can be hosted simply in a\
+            <a href='http://gist.github.com/'>GitHub Gist</a> but rendered as an interactive page in the browser.<br/>\
+            <strong style='font-size: 1.2em'>To make this more interesting we want to offer some prizes.</strong></p>\
+            "
+            },
+            {
+                type: "article",
+                title: "Prizes",
+                content: "<ol><li>Winner: 500 USD</li>\
+                <li>Second: 300 USD</li>\
+                <li>Third: 200 USD</li>\
+                <li>Every participant gets a special t-shirt, <a href='http://graphconnect.com/'>Graph Connect</a> ticket or a copy of the <a href='http://graphdatabases.com/'>Graph Databases book</a></li>\
+                </ol>"
+            },
+            {
+                type: "article",
+                title: "How does it work?",
+                content: "<ul><li>Find a great domain (Music, Dating, Comics, Healthcare, Politics, Sciences, ...)</li>\
+                <li>Whiteboard a good example graph model.</li>\
+                <li>Determine interesting use-cases.</li>\
+                <li>Create Cypher statements for setup and query-use-cases.</li>\
+                <li>Write a good description and create a pretty model picture.</li>\
+                <li>Compose it all nicely in your asciidoc-graphgist-file.</li>\
+                <li>Store it as a <strong>public</strong> <a href='http://gist.github.com'>GitHub Gist</a></li>\
+                </ul>"
+            },
+            {
+                type: "article",
+                title: "How do I participate?",
+                content: "<ul>\
+                <li>Enter the URL of your Gist in the top-right box of the <a href='http://gist.neo4j.org'>GraphGist-Page</a> and note the URL of your GraphGist</li>\
+                <li>Tweet the title and public URL of your GraphGist and add the tag #graphgist to the tweet.</li>\
+                <li>Add your gist on the <a href='https://github.com/neo4j-contrib/graphgist/wiki/Challenge'>GraphGist Challenge</a> Wiki page</li>\
+                <li>The GraphGist needs to be registered before Sept 30, 2013</li>\
+                <li>If you have questions reach out to our <a href='/forums'>Google Group</a>, <a href='http://twitter.com/neo4j'>@neo4j</a> on twitter or <a href='http://twitter.com/peterneubauer'>Peter Neubauer</a></li>\
+                </ul>"
+            }
+            ],
+        related: ["modeling"],
+        actionText: "Submit and Win"
     },
     graphistas_map: {
         path: "/participate/graphistas_map",
