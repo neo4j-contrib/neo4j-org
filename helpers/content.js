@@ -38,7 +38,7 @@ exports.content = {
             version: "2.0.0-M05",
             date: "Sept 10, 2013",
             introText: "Cypher: Schema Constraints, Collections, JSON",
-            path: "http://blog.neo4j.org/2013/08/summer-release-neo4j-20-milestone-4.html",
+            path: "http://blog.neo4j.org/2013/09/neo4j-200m05-released.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
