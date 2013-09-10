@@ -33,11 +33,11 @@ exports.content = {
         },
         "milestone": {
             type: "version",
-            title: "Neo4j Milestone 2.0.0-M04",
+            title: "Neo4j Milestone 2.0.0-M05",
             stability: "milestone",
-            version: "2.0.0-M04",
-            date: "Aug 7, 2013",
-            introText: "Java 7, Cypher Language, Mandatory Transactions",
+            version: "2.0.0-M05",
+            date: "Sept 10, 2013",
+            introText: "Cypher: Schema Constraints, Collections, JSON",
             path: "http://blog.neo4j.org/2013/08/summer-release-neo4j-20-milestone-4.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
