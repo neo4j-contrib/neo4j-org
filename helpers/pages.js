@@ -2061,7 +2061,7 @@ exports.pages = {
                 content: "<ul>\
                 <li>Enter the URL of your Gist in the top-right box of the <a href='http://gist.neo4j.org'>GraphGist-Page</a> and note the URL of your GraphGist</li>\
                 <li>Tweet the title and public URL of your GraphGist and add the tag #graphgist to the tweet.</li>\
-                <li>Add your gist on the <a href='https://github.com/neo4j-contrib/graphgist/wiki/Challenge'>GraphGist Challenge</a> Wiki page</li>\
+                <li>Add your gist on the <a href='https://github.com/neo4j-contrib/graphgist/wiki#graphgist-challenge-submissions'>GraphGist Challenge</a> Wiki page</li>\
                 <li>The GraphGist needs to be registered before Sept 30, 2013</li>\
                 <li>If you have questions reach out to our <a href='/forums'>Google Group</a>, <a href='http://twitter.com/neo4j'>@neo4j</a> on twitter or <a href='http://twitter.com/peterneubauer'>Peter Neubauer</a></li>\
                 </ul>\
