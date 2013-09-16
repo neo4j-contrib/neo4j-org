@@ -44,8 +44,8 @@ function events(fun, filter) {
             event_prop(item, 'Url', /Event Description: +<a +href=["'](.+?)["'].*>.+?<\/a>/);
             event_prop(item, 'UrlText', /Event Description: +<a +href=["'].+?["'].*>(.+?)<\/a>/);
             item.Description = item.Description.replace(/^<a +href=["'].+?["'].*>.+?<\/a> */,"");
-            if (item.Url && item.Url.match(/http:\/\/www.google.com\/url\?q=/)) {
-              var url = item.Url.replace(/http:\/\/www.google.com\/url\?q=/, "");
+            if (item.Url && item.Url.match(/https?:\/\/www.google.com\/url\?q=/)) {
+              var url = item.Url.replace(/https?:\/\/www.google.com\/url\?q=/, "");
               url=decodeURIComponent(url);
               url=url.replace(/&amp;ust=.*$/,"");
               item.Url=url;

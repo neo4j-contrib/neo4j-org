@@ -354,6 +354,18 @@ exports.content = {
         }
     },
     links: {
+        graphenedb: {
+            title: "Neo4j Hosting with GrapheneDB",
+            introText: "Neo4j partner GrapheneDB offers comprehensive hosting plans for Neo4j",
+            content: "GrapheneDB offers Neo4j versions 1.8, 1.9 and 2.0 in free and paid hosting plans. " +
+                "Paid plans include server extensions",
+            actionText: "Check out GrapheneDB",
+            thumbnail: "http://www.graphenedb.com/images/logo.png",
+            img: "http://www.graphenedb.com/images/screen1.png",
+            author: "graphenedb",
+            type: "link",
+            url : "http://graphenedb.com"
+        },
         jobs: {
             type: "link",
             key: "jobs",
@@ -392,12 +404,14 @@ exports.content = {
             path: "http://www.neotechnology.com/customers/"
         },
         graphgist: {
-            type:"link",
+            type:"video",
             github: "https://github.com/neo4j-contrib/graphgist",
             title: "Neo4j Graph Gists",
             author:["nawroth","peterneubauer","mesirii"],
-            introText: "Use literate programming with simple ASCII-doc files with prose and Cypher queries to render interactive, incremental domain model examples with lots of value added features",
+            introText: "Use literate programming with simple ASCII-doc files with prose and Cypher queries to render interactive, incremental domain model examples with lots of value added features." +
+                "The quick screencast shows how to create them.",
             path: "http://gist.neo4j.org",
+            src: "http://player.vimeo.com/video/74279113?badge=0&byline=0&portrait=0&title=0",
             actionText: "Create & Share"
         },
         dbpedia_clojure: {

@@ -642,7 +642,7 @@ exports.pages = {
         introText: "Neo4j can be run in various cloud scenarios and on a number of cloud stacks.",
         thumbnail: asset("img/neo4j/neo4j_cloud.png"),
         actionText: "Neo4j in the Cloud",
-        featured: [content.videos.james_ward_neo4j],
+        featured: [content.links.graphenedb],
         related: ["heroku", "ec2", "linux", "azure"]
     },
     azure: {
@@ -2043,7 +2043,7 @@ exports.pages = {
                 </ol>"
             },
             {
-                type: "article",
+                type: "video",
                 title: "How do I create a GraphGist?",
                 content: "<ul><li>Find a great domain (Music, Dating, Comics, Healthcare, Politics, Sciences, ...)</li>\
                 <li>Whiteboard a good example graph model.</li>\
@@ -2053,7 +2053,10 @@ exports.pages = {
                 <li>Compose it all nicely in your asciidoc-graphgist-file.</li>\
                 <li>Store it as a <strong>public</strong> <a href='http://gist.github.com'>GitHub Gist</a></li>\
                 <li>For details, check out the example <a href='http://gist.neo4j.org/?5956246'>GraphGist</a> and the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>Collection</a> on the Wiki</li>\
-                </ul>"
+                </ul>",
+                src: "http://player.vimeo.com/video/74279113?badge=0&byline=0&portrait=0&title=0",
+                img: asset("img/still/graphgist_video.jpg")
+
             },
             {
                 type: "article",
