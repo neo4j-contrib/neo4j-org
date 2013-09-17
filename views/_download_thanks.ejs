@@ -54,10 +54,14 @@ $(document).ready(function() {
         var link = $(".downloadLink");
         link.attr("href",downloadLink).html("<i class='icon icon-download-alt'></i> "+downloadLink.replace(/&dlid.+/,"")).click(function() {
             _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
+            _kmq.push(['identify', marketo_id ||'' ]); // todo identify people
+            _kmq.push(['record', 'neo4j-download', {release:release, action:"click",platform: platform,edition:edition,link:downloadLink,marketo:marketo_id}]);
             log("download-click",logdata);
         });
         if (testing===null) {
             _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
+            _kmq.push(['identify', marketo_id ||'']); // todo identify people
+            _kmq.push(['record', 'neo4j-download', {action:"auto",release:release, platform: platform,edition:edition,link:downloadLink,marketo:marketo_id}]);
             window.location = downloadLink;
             log("download-auto",logdata);
         }

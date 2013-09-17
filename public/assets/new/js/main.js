@@ -43,7 +43,7 @@ function resizeFeaturedItems() {
 		var height2 = featured.find(".image").outerHeight();
         var height = Math.max(height1,height2) + padding;
 		featured.css({"min-height":height});
-        console.log("text",height1,"image",height2,"result",height);
+//        console.log("text",height1,"image",height2,"result",height);
 	});
 }
 
