@@ -44,9 +44,10 @@ $(document).ready(function() {
 
     function updateDownloadLink(marketo_id,testing) {
         var marketo_idnum = marketo_id || 'notread';
-        var downloadLink = "http://dist.neo4j.org/neo4j-" + edition + "-" + release + "-" + platform +"." + suffix;
         var method = "s3";
-        var redfoxLink = "http://download.neo4j.org/artifact?edition=" + edition + "&version=" + release + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
+        var url_params = "?edition=" + edition + "&version=" + release + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
+        var downloadLink = "http://dist.neo4j.org/neo4j-" + edition + "-" + release + "-" + platform +"." + suffix + url_params;
+        var redfoxLink = "http://download.neo4j.org/artifact" + url_params;
         if (!release.match("SNAPSHOT") && abTestToRedfox) {
             downloadLink = redfoxLink;
             method = "redfox";
