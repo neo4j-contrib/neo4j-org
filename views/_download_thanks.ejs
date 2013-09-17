@@ -20,7 +20,8 @@ $(document).ready(function() {
     var platform = getUrlVars()["platform"] || "unix";
     var packaging = 'zip';
     var suffix = "zip";
-    
+    var abTestToRedfox = Math.random() < 0.5;
+
     if (platform === 'unix' || platform === 'mac_linux') {
         suffix = 'tar.gz';
         packaging = 'tarball';
@@ -44,24 +45,28 @@ $(document).ready(function() {
     function updateDownloadLink(marketo_id,testing) {
         var marketo_idnum = marketo_id || 'notread';
         var downloadLink = "http://dist.neo4j.org/neo4j-" + edition + "-" + release + "-" + platform +"." + suffix;
-        if (!release.match("SNAPSHOT")) {
-            downloadLink = "http://download.neo4j.org/artifact?edition=" + edition + "&version=" + release + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
+        var method = "s3";
+        var redfoxLink = "http://download.neo4j.org/artifact?edition=" + edition + "&version=" + release + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
+        if (!release.match("SNAPSHOT") && abTestToRedfox) {
+            downloadLink = redfoxLink;
+            method = "redfox";
         }
-        var logdata={release:release, platform: platform,edition:edition,link:downloadLink,marketo:marketo_id};
-        if (console && console.log) console.log("Using downloadlink",downloadLink);
+        var logdata={release:release, platform: platform,edition:edition,link:downloadLink,marketo:marketo_id,method:method,action:"auto"};
+        if (console && console.log) console.log("Using downloadlink",downloadLink,logdata);
         log("download-prepare",logdata);
 
         var link = $(".downloadLink");
-        link.attr("href",downloadLink).html("<i class='icon icon-download-alt'></i> "+downloadLink.replace(/&dlid.+/,"")).click(function() {
+        link.attr("href",downloadLink).html("<i class='icon icon-download-alt'></i> "+redfoxLink.replace(/&dlid.+/,"")).click(function() {
+            logdata.action = "click";
             _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
             _kmq.push(['identify', marketo_id ||'' ]); // todo identify people
-            _kmq.push(['record', 'neo4j-download', {release:release, action:"click",platform: platform,edition:edition,link:downloadLink,marketo:marketo_id}]);
+            _kmq.push(['record', 'neo4j-download', logdata]);
             log("download-click",logdata);
         });
         if (testing===null) {
             _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
             _kmq.push(['identify', marketo_id ||'']); // todo identify people
-            _kmq.push(['record', 'neo4j-download', {action:"auto",release:release, platform: platform,edition:edition,link:downloadLink,marketo:marketo_id}]);
+            _kmq.push(['record', 'neo4j-download', logdata]);
             window.location = downloadLink;
             log("download-auto",logdata);
         }
