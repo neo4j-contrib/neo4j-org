@@ -2184,6 +2184,15 @@ exports.pages = {
             },
             {
                 type: "link",
+                title: "Neo4j for transport routing",
+                tags: ["routing", "spatial"],
+                author: "EKozhanov",
+                introText: "This presentation is describing the routing for http://a360.ru done through neo4j.",
+                thumbnail: "http://image.slidesharecdn.com/useneo4jfortransport-130914142354-phpapp02/95/slide-5-638.jpg?1379186704",
+                path: "http://www.slideshare.net/EugenyKozhanov/how-we-use-neo4j-fortransport"
+            },
+            {
+                type: "link",
                 title: "Neo4j Spatial Starter Project",
                 tags: ["intro", "java", "spatial"],
                 author: "rhetonik",
