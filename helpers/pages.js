@@ -1671,7 +1671,7 @@ exports.pages = {
         thumbnail: asset("img/languages/php.png"),
         featured: [video('1025 - Neo4j at Seth Godin\'s Squidoo')],
         related: [
-            content.drivers.neo4jphp, content.apps.frostymug, "josh_adell",
+            content.drivers.neo4jphp, content.apps.frostymug,
             {
                 type: "link",
                 authors: ["josh_adell", "Christophe Willems"],
