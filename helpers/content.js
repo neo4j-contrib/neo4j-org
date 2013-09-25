@@ -15,7 +15,7 @@ exports.content = {
             stability: "stable",
             date: "Sep 25, 2013",
             introText: "General Availability",
-            path: "http://blog.neo4j.org/2013/08/neo4j-193-now-available.html",
+            path: "http://blog.neo4j.org/2013/09/installer-check-desktop-launcher-check.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
