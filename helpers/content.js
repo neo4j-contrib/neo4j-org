@@ -356,12 +356,17 @@ exports.content = {
     links: {
         graphenedb: {
             title: "Neo4j Hosting with GrapheneDB",
-            introText: "Neo4j partner GrapheneDB offers comprehensive hosting plans for Neo4j",
-            content: "GrapheneDB offers Neo4j versions 1.8, 1.9 and 2.0 in free and paid hosting plans. " +
-                "Paid plans include server extensions",
+            introText: "GrapheneDB offers comprehensive hosting plans for Neo4j, taking care of the operational aspects of running a graph database.",
+            content: "The platform supports Neo4j Community Edition versions 1.8, 1.9 and 2.0. Sandbox databases are free of charge and with 512MB storage, support of the Neo4j API, including REST traversals and Gremlin.<br/> " +
+                "Paid plans are dedicated instances running on Amazon with following features:<br/><ul>\
+                <li>Hosting in any AWS region</li>\
+                <li>Online, automated daily backups and manual snapshots</li>\
+                <li>24x7 monitoring and alerts</li>\
+                <li>Support for provided and custom plugins and extensions</li>\
+                </ul>",
             actionText: "Check out GrapheneDB",
             thumbnail: "http://www.graphenedb.com/images/logo.png",
-            img: "http://www.graphenedb.com/images/screen1.png",
+            img: "http://www.graphenedb.com/images/screen3.png",
             author: "graphenedb",
             type: "link",
             url : "http://graphenedb.com"
@@ -1339,6 +1344,18 @@ exports.content = {
 
     },
     drivers: {
+        cyphernet: {
+            type: "driver",
+            name: "CypherNet",
+            authors: ["@mtranter"],
+            source: "https://github.com/mtranter/CypherNet",
+            docs: "https://github.com/mtranter/CypherNet#cyphernet",
+            url: "http://mtranter.com/2013/09/21/cypher-net-a-neo4j-cypher-api/",
+            site: "http://mtranter.com/2013/09/21/cypher-net-a-neo4j-cypher-api/",
+            logo: asset("img/languages/dotnet.png"),
+            text: "A .Net API for the Neo4j HTTP Transactional Endpoint. (v2.0.0) Exposes strongly typed Graph Query API based on the Neo4j Cypher Query Language.",
+            tags: ["dotnet", "rest", "cypher","transactional"]
+        },
         anorm_cypher: {
             type: "driver",
             name: "AnormCypher",

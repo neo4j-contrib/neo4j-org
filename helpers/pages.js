@@ -217,6 +217,7 @@ exports.pages = {
             content.links.start_with_neo4j_neo4jclient,
             "dotnet",
             content.drivers.neo4jclient,
+            content.drivers.cyphernet,
             "azure"
         ]
     },
@@ -367,7 +368,8 @@ exports.pages = {
             "import",
             content.drivers.anorm_cypher,
             content.drivers.neography,
-            content.drivers.node_neo4j
+            content.drivers.node_neo4j,
+            content.drivers.cyphernet
         ]
     },
     test: {
@@ -618,7 +620,7 @@ exports.pages = {
         introText: "Friends of Neo4j speak many languages, and work in many frameworks.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
         featured: null,
-        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp","jee" ,"neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", content.drivers.borneo, "gremlin", content.drivers.bulbflow, "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher", "haskell", "datanucleus", "neo4j_go", "kundera", "neo4j_js", "neomodel"]
+        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp","jee" ,"neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", content.drivers.borneo, "gremlin", content.drivers.bulbflow, "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher","cyphernet", "haskell", "datanucleus", "neo4j_go", "kundera", "neo4j_js", "neomodel"]
     },
     tools: {
         path: "/develop/tools",
@@ -783,7 +785,7 @@ exports.pages = {
             {
                 thumbnail: "http://www.springsource.org/files/imagefield_thumbs/project/images/Project_Data.png",
                 title: "Spring Data Neo4j page on springsoure.org",
-                path: "http://springsource.org/spring-data/neo4j"
+                path: "http://projects.spring.io/spring-data-neo4j/"
             },
             content.videos.sdn_cineasts,
             {
@@ -1541,6 +1543,7 @@ exports.pages = {
             content.install.windows,
             content.links.install_windows,
             content.links.start_with_neo4j_neo4jclient,
+            content.drivers.cyphernet,
             {
                 type: "link",
                 title: "Using Neo4j Graph DB With F#",
