@@ -1,4 +1,4 @@
-For Windows users of the Neo4j Community Edition we now provide a <a title ='Windows installer x64 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x64'>
+For <b>Windows</b> users of the Neo4j Community Edition we now provide a <a title ='Windows installer x64 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x64'>
  64bit installer</a>, and a
 <a title ='Windows installer x32 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x32'>
   32bit installer</a>  or the 
@@ -30,10 +30,15 @@ For Windows users of the Neo4j Community Edition we now provide a <a title ='Win
         %>
            <% if(platform == 'windows' && edition=='community') { %>
                    <td>
-                     see above.  
+                       <a title ='Windows installer x64 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x64'>
+                           .exe (x64)</a>   <br>
+                       <a title ='Windows installer x32 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x32'>
+                           .exe (x32)</a>       <br>
+                       <a title ='Windows zip distribution for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows'>
+                           .zip</a>
                    </td>
            <%} else {%>                
-            <td>
+            <td style="text-align: center">
                 <a  title="<%= editions[edition]%>"
                     href="<%= edition=='community' ? '/download_thanks':'http://info.neotechnology.com/download-Neo4j.html'%>?edition=<%= edition %>&amp;release=<%= item.version %>&amp;platform=<%= platform %>">
                 <i class="icon-download-alt"></i></a>
