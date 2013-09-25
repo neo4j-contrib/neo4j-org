@@ -10,10 +10,10 @@ exports.content = {
         },
         stable: {
             type: "version",
-            title: "Neo4j Stable Release 1.9.3",
-            version: "1.9.3",
+            title: "Neo4j Stable Release 1.9.4",
+            version: "1.9.4",
             stability: "stable",
-            date: "Aug 30, 2013",
+            date: "Sep 25, 2013",
             introText: "General Availability",
             path: "http://blog.neo4j.org/2013/08/neo4j-193-now-available.html",
             thumbnail: asset("img/still/install.gif"),

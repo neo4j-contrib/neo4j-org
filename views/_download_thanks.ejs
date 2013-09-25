@@ -18,7 +18,8 @@ $(document).ready(function() {
     var edition = getUrlVars()["edition"] || "community";
     var release = getUrlVars()["release"] || "<%= neo4jGA.version %>";
     var platform = getUrlVars()["platform"] || "unix";
-    var packaging = 'zip';
+    var architecture = getUrlVars()["architecture"] || "x64";
+    var packaging = getUrlVars()["packaging"] || "zip";
     var suffix = "zip";
     var abTestToRedfox = Math.random() < 0.5;
 
@@ -52,12 +53,21 @@ $(document).ready(function() {
             downloadLink = redfoxLink;
             method = "redfox";
         }
-        var logdata={release:release, platform: platform,edition:edition,link:downloadLink,marketo:marketo_id,method:method,action:"auto"};
+        if(platform=='windows') {
+            if(packaging=='exe'){
+                if(architecture=='x64') {
+                    downloadLink = "https://s3-eu-west-1.amazonaws.com/dist.neo4j.org/neo4j-"+edition+"_"+platform+"-"+architecture+"_"+release.replace(/\./g,"_")+"."+packaging
+                }   else {
+                    downloadLink = "https://s3-eu-west-1.amazonaws.com/dist.neo4j.org/neo4j-"+edition+"_"+platform+"_"+release.replace(/\./g,"_")+"."+packaging
+                }
+            }
+        }
+        var logdata={release:release, platform: platform,edition:edition,link:downloadLink,architecture:architecture,packaging:packaging,marketo:marketo_id,method:method,action:"auto"};
         if (console && console.log) console.log("Using downloadlink",downloadLink,logdata);
         log("download-prepare",logdata);
 
         var link = $(".downloadLink");
-        link.attr("href",downloadLink).html("<i class='icon icon-download-alt'></i> "+redfoxLink.replace(/&dlid.+/,"")).click(function() {
+        link.attr("href",downloadLink).html("<i class='icon icon-download-alt'></i> "+(packaging=='exe'?downloadLink:redfoxLink.replace(/&dlid.+/,""))).click(function() {
             logdata.action = "click";
             _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
             _kmq.push(['identify', marketo_id ||'' ]); // todo identify people

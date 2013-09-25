@@ -1,0 +1,46 @@
+For Windows users of the Neo4j Community Edition we now provide a <a title ='Windows installer x64 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x64'>
+ 64bit installer</a>, and a
+<a title ='Windows installer x32 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x32'>
+  32bit installer</a>  or the 
+<a title ='Windows zip distribution for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows'>
+ Zip</a> distribution.
+
+<table class="table-download">
+    <thead>
+    <tr>
+        <th>Version</th>
+        <th>Linux/Mac</th>
+        <th>Windows</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%
+    var platforms={"unix":"Linux/Mac","windows":"Windows"};
+    var editions = {
+    community : "Free High Performance Graph Database Server, GPL licensed with community support",
+    advanced  : "High Performance Graph Database Server with advanced monitoring, AGPL/Commercially licensed with 10x5 email support",
+    enterprise: "High Performance Graph Database Server with advanced monitoring, high availability, read scaling and online backup, AGPL/Commercially licensed with 24x7 phone support"
+    };
+    Object.keys(editions).forEach(function(edition) {
+    %>
+    <tr>
+        <td><div title ='<%= editions[edition]%>'><%=: edition | capitalize %></div></td>
+        <%
+        Object.keys(platforms).forEach(function(platform) {
+        %>
+           <% if(platform == 'windows' && edition=='community') { %>
+                   <td>
+                     see above.  
+                   </td>
+           <%} else {%>                
+            <td>
+                <a  title="<%= editions[edition]%>"
+                    href="<%= edition=='community' ? '/download_thanks':'http://info.neotechnology.com/download-Neo4j.html'%>?edition=<%= edition %>&amp;release=<%= item.version %>&amp;platform=<%= platform %>">
+                <i class="icon-download-alt"></i></a>
+            </td>
+           <%}%>                
+        <% }) %>
+    </tr>
+    <% }) %>
+    </tbody>
+</table>
