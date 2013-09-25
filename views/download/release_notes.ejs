@@ -4,10 +4,20 @@
 
 <h1>Neo4j Release Notes</h1>
 
+<p>The full changelog is available <a href="https://github.com/neo4j/neo4j/blob/1.9-maint/packaging/standalone/standalone-enterprise/src/main/distribution/text/enterprise/CHANGES.txt" target="_blank"> as part of the source on Github</a>. </p>
+
+<h3 id="1.9.4">Neo4j 1.9.4</h3>
+<ul>
+   <li>Fixed issue where querying a Lucene index for "*:*" while having removed entities
+       from it in the same transaction might result in exceptions.</li>
+    <li>Added Windwos installer and Desktop launcher for the Community Server.</li>
+</ul>
+
 <h3 id="1.9.3">Neo4j 1.9.3</h3>
 
 <p>The 1.9.3 release of Neo4j is a maintenance release that addresses several
-critical issues, especially in high load clustered deployments. All Neo4j users are highly encouraged to upgrade to this version.</p>
+    critical issues, especially in high load clustered deployments. All Neo4j users are highly encouraged to upgrade to
+    this version.</p>
 
 <p>In particular this release addresses:</p>
 
@@ -16,19 +26,30 @@ critical issues, especially in high load clustered deployments. All Neo4j users 
     <li>Resolves an infrequent exception when iterating over the relationships of some nodes</li>
     <li>Resolved rare concurrency issue in persistence window pools</li>
     <li>Improvements to reduce disk space and memory consumption by indexes</li>
-    <li>Corrects several race conditions in the High-Availability (HA) protocol and in the distribution of transactions in a clustered environment</li>
-    <li>Introduces an additional configuration option to control logical log rotation (logical_log_rotation_threshold)</li>
-    <li>Resolves an issue with rolling upgrade support (rolling upgrade to 1.9.3 is supported from all previous 1.9 and 1.8 releases)</li>
+    <li>Corrects several race conditions in the High-Availability (HA) protocol and in the distribution of transactions
+        in a clustered environment
+    </li>
+    <li>Introduces an additional configuration option to control logical log rotation (logical_log_rotation_threshold)
+    </li>
+    <li>Resolves an issue with rolling upgrade support (rolling upgrade to 1.9.3 is supported from all previous 1.9 and
+        1.8 releases)
+    </li>
 </ul>
 
-<p>As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been declared as deprecated, in order to help users prepare for the removal of these in the next major Neo4j release. A <a href="http://docs.neo4j.org/chunked/1.9.3/deprecations.html"> list of deprecations</a> can be found in the Neo4j manual.</p>
+<p>As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been declared as deprecated,
+    in order to help users prepare for the removal of these in the next major Neo4j release. A <a
+            href="http://docs.neo4j.org/chunked/1.9.3/deprecations.html"> list of deprecations</a> can be found in the
+    Neo4j manual.</p>
 
-<p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.3 does not require any store-level upgrades.</p>
+<p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.3 does not require any
+    store-level upgrades.</p>
 
 <h3 id="1.9.2">Neo4j 1.9.2</h3>
 
-<p>The 1.9.2 release of Neo4j is a maintenance release that corrects a serious issue concurrency issue introduced in Neo4j 1.9.1,
-and resolves some other critical issues when reading from the underlying store. All Neo4j users are highly encouraged to upgrade to this version.</p>
+<p>The 1.9.2 release of Neo4j is a maintenance release that corrects a serious issue concurrency issue introduced in
+    Neo4j 1.9.1,
+    and resolves some other critical issues when reading from the underlying store. All Neo4j users are highly
+    encouraged to upgrade to this version.</p>
 
 <p>In particular this release addresses:</p>
 
