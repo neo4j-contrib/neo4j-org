@@ -1614,6 +1614,15 @@ exports.content = {
             name: "Neo4j GO",
             text: "A Neo4j REST client in the GO language."
         },
+        neoism: {
+            type: "driver",
+            url: "https://github.com/jmcvetta/neoism",
+            logo: asset("img/languages/neoism.png"),
+            authors: ["Jason McVetta"],
+            tags: ["go", "rest"],
+            name: "Neoism",
+            text: "Neoism is a Go client library providing access to the Neo4j graph database via its REST API."
+        },
         kundera: {
             type: "driver",
             url: "https://github.com/impetus-opensource/Kundera",
