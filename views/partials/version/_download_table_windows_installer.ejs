@@ -1,9 +1,8 @@
-For <b>Windows</b> users of the Neo4j Community Edition we now provide a <a title ='Windows installer x64 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x64'>
- 64bit installer</a>, and a
-<a title ='Windows installer x32 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x32'>
-  32bit installer</a>  or the 
+For <b>Windows</b> users of the Neo4j Community Edition we now provide an <a title ='Windows installer x64 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x64'>
+  installer </a> (64bit, <a title ='Windows installer x32 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x32'>
+  32bit</a>) and the existing
 <a title ='Windows zip distribution for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows'>
- Zip</a> distribution.
+distribution</a>.<br/><span class="footnote"> Windows 8 users please use "More" and "Run Anyway" on the protection warning for now.</span>
 
 <table class="table-download">
     <thead>
@@ -29,14 +28,7 @@ For <b>Windows</b> users of the Neo4j Community Edition we now provide a <a titl
         Object.keys(platforms).forEach(function(platform) {
         %>
            <% if(platform == 'windows' && edition=='community') { %>
-                   <td>
-                       <a title ='Windows installer x64 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x64'>
-                           .exe (x64)</a>   <br>
-                       <a title ='Windows installer x32 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x32'>
-                           .exe (x32)</a>       <br>
-                       <a title ='Windows zip distribution for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows'>
-                           .zip</a>
-                   </td>
+                   <td>See above</td>
            <%} else {%>                
             <td style="text-align: center">
                 <a  title="<%= editions[edition]%>"

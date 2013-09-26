@@ -56,9 +56,9 @@ $(document).ready(function() {
         if(platform=='windows') {
             if(packaging=='exe'){
                 if(architecture=='x64') {
-                    downloadLink = "https://s3-eu-west-1.amazonaws.com/dist.neo4j.org/neo4j-"+edition+"_"+platform+"-"+architecture+"_"+release.replace(/\./g,"_")+"."+packaging
+                    downloadLink = "http://dist.neo4j.org/neo4j-"+edition+"_"+platform+"-"+architecture+"_"+release.replace(/\./g,"_")+"."+packaging + url_params;
                 }   else {
-                    downloadLink = "https://s3-eu-west-1.amazonaws.com/dist.neo4j.org/neo4j-"+edition+"_"+platform+"_"+release.replace(/\./g,"_")+"."+packaging
+                    downloadLink = "http://dist.neo4j.org/neo4j-"+edition+"_"+platform+"_"+release.replace(/\./g,"_")+"."+packaging + url_params;
                 }
             }
         }

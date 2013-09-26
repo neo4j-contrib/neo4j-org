@@ -148,6 +148,7 @@ exports.pages = {
             //"develop",
             //"participate",
             // content.install["2_0_0_M02"],
+            content.install.milestone,
             "other_versions",
             "linux",
             "windows",
@@ -173,8 +174,8 @@ exports.pages = {
             content.install["1_7_2"],
             content.install["1_6_3"],
             content.install["1_5_3"],
-            content.install.upgrading,
-            content.install.snapshot
+            content.install.upgrading
+//            content.install.snapshot
         ]
     },
     maven: {
@@ -450,6 +451,13 @@ exports.pages = {
                     <li>REST: <a href='http://docs.neo4j.org/chunked/preview/rest-api-node-labels.html'>labels</a>, <a href='http://docs.neo4j.org/chunked/preview/rest-api-schema-indexes.html'>indexes</a></li>\
                     <li>Core: <a href='http://docs.neo4j.org/chunked/preview/tutorials-java-embedded-new-index.html'>example</a>, <a href='http://docs.neo4j.org/chunked/preview/rest-api-schema-indexes.html'>indexes</a></li>\
                     </ul>"
+            },
+            {
+                type: "link",
+                path: "http://docs.neo4j.org/refcard/2.0/",
+                title: "Cypher 2.0 Reference Card",
+                author: ["nawroth","mesirii"],
+                introText: "The brand new reference card covering the new syntax of Cypher for Neo4j 2.0 (labels, indexes, constraints, MERGE, list comprehensions, subscripts, ...)"
             },
             {
                 type: "link",
@@ -1015,7 +1023,7 @@ exports.pages = {
         path: "/participate/contributors",
         title: "Contributors - you rock.",
         introText: "The Neo4j project is driven by the community. Here are some individuals that you might encounter in the discussion forums or come across their projects.\
-        For a full list of all code contributors, please see <a href='http://docs.neo4j.org/chunked/snapshot/contributors.html' target='_blank'>The official docs.</a>",
+        For a full list of all code contributors, please see <a href='http://docs.neo4j.org/chunked/stable/contributors.html' target='_blank'>The official docs.</a>",
         previewText: "We're very proud to have such an engaged group of contributors to Neo4j and its ecosystem.",
         actionText: "See our contributors",
         featured: [content.videos.neo4j_code_2012],
