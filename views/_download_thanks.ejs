@@ -47,19 +47,25 @@ $(document).ready(function() {
         var marketo_idnum = marketo_id || 'notread';
         var method = "s3";
         var url_params = "?edition=" + edition + "&version=" + release + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
-        var downloadLink = "http://dist.neo4j.org/neo4j-" + edition + "-" + release + "-" + platform +"." + suffix + url_params;
-        var redfoxLink = "http://download.neo4j.org/artifact" + url_params;
+
+        var displayLink = "http://dist.neo4j.org/neo4j-" + edition + "-" + release + "-" + platform +"." + suffix;
+        var downloadLink = displayLink + url_params;
+        // temporarily until redfox is fixed,
+        /*
         if (!release.match("SNAPSHOT") && abTestToRedfox) {
-            downloadLink = redfoxLink;
+            downloadLink = "http://download.neo4j.org/artifact" + url_params;
+            displayLink = downloadLink.replace(/&dlid.+/,"");
             method = "redfox";
         }
+        */
         if(platform=='windows') {
             if(packaging=='exe'){
                 if(architecture=='x64') {
-                    downloadLink = "http://dist.neo4j.org/neo4j-"+edition+"_"+platform+"-"+architecture+"_"+release.replace(/\./g,"_")+"."+packaging + url_params;
+                    displayLink = "http://dist.neo4j.org/neo4j-"+edition+"_"+platform+"-"+architecture+"_"+release.replace(/\./g,"_")+"."+packaging;
                 }   else {
-                    downloadLink = "http://dist.neo4j.org/neo4j-"+edition+"_"+platform+"_"+release.replace(/\./g,"_")+"."+packaging + url_params;
+                    displayLink = "http://dist.neo4j.org/neo4j-"+edition+"_"+platform+"_"+release.replace(/\./g,"_")+"."+packaging;
                 }
+                downloadLink = displayLink + url_params;
             }
         }
         var logdata={release:release, platform: platform,edition:edition,link:downloadLink,architecture:architecture,packaging:packaging,marketo:marketo_id,method:method,action:"auto"};
@@ -67,7 +73,7 @@ $(document).ready(function() {
         log("download-prepare",logdata);
 
         var link = $(".downloadLink");
-        link.attr("href",downloadLink).html("<i class='icon icon-download-alt'></i> "+(packaging=='exe'?downloadLink:redfoxLink.replace(/&dlid.+/,""))).click(function() {
+        link.attr("href",downloadLink).html("<i class='icon icon-download-alt'></i> "+displayLink).click(function() {
             logdata.action = "click";
             _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
             _kmq.push(['identify', marketo_id ||'' ]); // todo identify people
