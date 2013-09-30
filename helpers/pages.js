@@ -370,6 +370,7 @@ exports.pages = {
             content.drivers.anorm_cypher,
             content.drivers.neography,
             content.drivers.node_neo4j,
+            content.drivers.node_neo4j_embedded,
             content.drivers.cyphernet
         ]
     },
@@ -628,7 +629,7 @@ exports.pages = {
         introText: "Friends of Neo4j speak many languages, and work in many frameworks.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
         featured: null,
-        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp","jee" ,"neo4jclient", "py2neo", "neo4j_python", "node_neo4j", "neocons", content.drivers.borneo, "gremlin", content.drivers.bulbflow, "keymaker", "neoid", "neo4django", "neo4j_rest_client", "neo4p", "scala", "grails", "anorm_cypher","cyphernet", "haskell", "datanucleus", "neo4j_go", "kundera", "neo4j_js", "neomodel"]
+        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp" ,"neo4jclient", "py2neo", "node_neo4j", "neocons", "neo4j_rest_client","anorm_cypher","cyphernet", "neo4j_js","node_neo4j_embedded",content.drivers.borneo, "neo4j_python", "gremlin", content.drivers.bulbflow, "keymaker", "neoid", "neo4django",  "neo4p", "scala", "grails", "haskell", "datanucleus", "neo4j_go", "kundera", "neomodel"]
     },
     tools: {
         path: "/develop/tools",
@@ -1653,7 +1654,6 @@ exports.pages = {
         ],
         related: [
             content.drivers.node_neo4j,
-            content.drivers.neo4js,
             {
                 type: "link",
                 path: "http://aseemk.com/talks/neo4j-with-nodejs",
@@ -1663,6 +1663,8 @@ exports.pages = {
                 author: "aseemk"
             },
             content.drivers.neo4j_js,
+            content.drivers.node_neo4j_embedded,
+            content.drivers.neo4js,
             {
                 type: "link",
                 path: "http://maxdemarzi.com/tag/javascript/",

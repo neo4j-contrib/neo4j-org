@@ -1511,6 +1511,17 @@ exports.content = {
             name: "node-neo4j",
             text: "Node.js driver for Neo4j. Cleverly asynchronous, and blazingly fast. "
         },
+        node_neo4j_embedded: {
+            type: "driver",
+            tags: ["js", "jvm", "nodejs"],
+            authors: {twitter:"@whitefrog_de",name:"Jochen Weis"},
+            url: "http://joewhite86.wordpress.com/2013/07/08/introducing-neo4j-embedded-a-neo4j-driver-for-node-js/",
+            docs: "http://docs.whitefrog.de/neo4j-embedded/",
+            source: "https://github.com/joewhite86/node-neo4j-embedded",
+            logo: asset("img/languages/nodejs.png"),
+            name: "node-neo4j-embedded",
+            text: "Node.js driver for the embedded Neo4j Database. Supports HA Setups, API is built to be as close to the Java API as possible."
+        },
         neo4js: {
             type: "driver",
             tags: ["js", "rest", "nodejs"],
