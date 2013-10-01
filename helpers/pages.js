@@ -2017,7 +2017,6 @@ exports.pages = {
         <form id="course_login" method="post">Just log in with your email address <input name="email" type="email"/>, to participate.</form>',
 //        content: "<blockquote style='display: none' id='online_course' class='versal-embedded' data-id='dbld7j' viewport='tall'><a href='https://versal.com/c/dbld7j/test-neo-j-course'><p>Test Neo4j Course on Versal.com</p><img src='https://versal.com//assets/img/defaults/course-tiny.png'></a></blockquote><script id='versal_script' src=''></script>",
         content: "<div id='online_course_player' style='width:80%;height: 80%;'>\
-                    <script src='http://stack.versal.com/player2/scripts/versal.js'></script>\
                   </div>",
         featured: [],
         related: [],
