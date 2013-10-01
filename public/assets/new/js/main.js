@@ -1,3 +1,6 @@
+var online_course="ue6dqk";
+
+
 $(window).load(function() {
     resizeRelatedItems();
     resizeFeaturedItems();
@@ -160,6 +163,33 @@ $(document).ready(function(){
     setTimeout(function(){
         $("iframe.newsletter").attr("src","http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html");
     },100);
+
+    console.log($("#course_login"));
+    $("#course_login").submit(function() {
+        var email=$(this).find("input[name=email]").val();
+        if (!email) return false;
+        console.log(email);
+        $.ajax("/api/versal",{
+            data: JSON.stringify({email:email}),
+            contentType: "application/json",
+            accepts: "text",
+            type: "post",
+            error : function(error) {
+                console.log("Error registering "+email+" for course",error);
+                _kmq.push(['identify', email ]);
+                _kmq.push(['record', 'neo4j-course-subscribe-error', {email:email,data:error,course:online_course}]);
+            },
+            success: function(data) {
+                $("#course_login").hide();
+                $("#online_course_player").show();
+                _kmq.push(['identify', email ]);
+                _kmq.push(['record', 'neo4j-course-subscribe', {email:email,data:data,course:online_course}]);
+                _gaq.push(['_trackEvent','neo4j-course-subscribe',email,online_course,data]);
+                vs.onReady({ container: '#online_course_player', courseId: online_course, sessionId: data });
+            }
+        });
+        return false;
+    });
 });
 
 function log(action, data) {

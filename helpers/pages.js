@@ -2013,8 +2013,12 @@ exports.pages = {
         path: "/learn/education",
         thumbnail: asset("img/still/graphistas_map.png"),
         title: "The Neo4j Online Course",
-        introText: 'The Neo4j Online course offers the wildly successful Neo4j Tutorial for you to take whenever and wherever you want.',
-        content: "<blockquote class='versal-embedded' data-id='dbld7j' viewport='tall'><a href='https://versal.com/c/dbld7j/test-neo-j-course'><p>Test Neo4j Course on Versal.com</p><img src='https://versal.com//assets/img/defaults/course-tiny.png'></a></blockquote><script src='https://versal.com/embed.js'></script>",
+        introText: 'The Neo4j Online course offers the wildly successful Neo4j Tutorial for you to take whenever and wherever you want.\
+        <form id="course_login" method="post">Just log in with your email address <input name="email" type="email"/>, to participate.</form>',
+//        content: "<blockquote style='display: none' id='online_course' class='versal-embedded' data-id='dbld7j' viewport='tall'><a href='https://versal.com/c/dbld7j/test-neo-j-course'><p>Test Neo4j Course on Versal.com</p><img src='https://versal.com//assets/img/defaults/course-tiny.png'></a></blockquote><script id='versal_script' src=''></script>",
+        content: "<div id='online_course_player' style='width:80%;height: 80%;'>\
+                    <script src='http://stack.versal.com/player2/scripts/versal.js'></script>\
+                  </div>",
         featured: [],
         related: [],
         actionText: "Attend the course"

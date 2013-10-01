@@ -26,6 +26,7 @@ var express = require('express')
     , spreadsheet = require("./helpers/spreadsheet")
     , content_loading = require("./helpers/content_loading")
     , meetup = require("./helpers/meetup")
+    , versal = require("./helpers/versal")
     , page_handling = require("./helpers/page_handling")
     , paths = require("./helpers/path")
     , geoip = require("./helpers/geoip")
@@ -308,6 +309,7 @@ twitter.add_tweet_route("/api/tweets",app);
 
 munchkin.add_route('/api/marketo',app);
 meetup.add_route("/api/meetup",app);
+versal.add_route("/api/versal",app);
 calendar.add_events_route('/api/events.json', app);
 calendar.add_ics_route('/api/event.ics', app);
 

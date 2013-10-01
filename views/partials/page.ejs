@@ -128,7 +128,7 @@ var nextPage = pages[p];
                     offset = 224;
                 }
             }
-            var featuredTop = ref.first().offset().top;
+            var featuredTop = ref && ref.first() && ref.first().offset() && ref.first().offset().top;
             
         }
 
