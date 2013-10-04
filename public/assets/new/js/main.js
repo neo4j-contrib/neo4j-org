@@ -196,12 +196,7 @@ $(document).ready(function(){
                 script.type = 'text/javascript';
                 script.src = origin + '/player2/scripts/versal.js';
                 console.log(script);
-                player.append(script);
-//                var resize = function () {
-//                    var height = player.height();
-//                    player.find('iframe').height(height);
-//                    player.find('iframe').width('100%');
-//                };
+                player[0].appendChild(script);
                 window.addEventListener('message', function (e) {
                     console.log("message-event",e);
                     if (e.origin == origin && JSON.parse(e.data).event == 'player:ready') {
@@ -211,7 +206,6 @@ $(document).ready(function(){
                             course: online_course,
                             sid: sessionId
                         }), origin);
-//                        resize();
                     }
                 });
             }
