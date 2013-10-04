@@ -1761,3 +1761,7 @@ a:hover pre {
 text.caption a:hover {
     cursor: pointer;
 }
+
+#online_course_player iframe {
+  height: 600px !important;
+}
