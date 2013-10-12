@@ -23,6 +23,17 @@ body {
     line-height: 1.4;
 }
 
+.course_form input {
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px dashed black;
+    color: #000000;
+    outline: none;
+    text-align: center;
+}
+
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection declarations have to be separate.

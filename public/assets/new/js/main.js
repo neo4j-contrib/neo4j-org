@@ -1,7 +1,7 @@
 //var online_course="ue6dqk";
 var online_course="dbld7j";
 //var apiUrl = "https://stack.versal.com/api2";
-var apiUrl = "http://stagingstack.versal.com/api2";
+var apiUrl = "http://stack.versal.com/api2";
 
 
 $(window).load(function() {
@@ -167,53 +167,41 @@ $(document).ready(function(){
         $("iframe.newsletter").attr("src","http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html");
     },100);
 
-    $("#course_login").submit(function() {
+    $(".course_form").submit(function() {
+        function showCourse(sessionId, email) {
+            $(".course_form").hide();
+            var player = $("#online_course_player");
+            player.html('').show();
+            var origin = apiUrl.split('/').slice(0, -1).join('/');
+            var script = $("<script>").attr("type","text/javascript").attr("src",origin + "/player2/scripts/versal.js")
+                .attr('data-sid',sessionId).attr('data-course',online_course).attr('data-api',apiUrl);
+            player[0].appendChild(script[0]); // jquery puts script at top of the page dom
+        }
         var email=$(this).find("input[name=email]").val();
         if (!email) return false;
-        console.log(email);
+
+        var name=$(this).find("input[name=name]").val();
+        var company=$(this).find("input[name=company]").val();
+        var action=$(this).find("button").attr("name");
+        var info = {email:email,company:company,name:name,action:action,course:online_course};
+        console.log(info);
         $.ajax("/api/versal",{
-            data: JSON.stringify({email:email}),
+            data: JSON.stringify(info),
             contentType: "application/json",
             accepts: "text",
             type: "post",
             error : function(error) {
-                console.log("Error registering "+email+" for course",error);
+                console.log("Error logging in "+email+" for course",error);
                 _kmq.push(['identify', email ]);
-                _kmq.push(['record', 'neo4j-course-login-error', {email:email,data:error,course:online_course}]);
+                info["data"]=error;
+                _kmq.push(['record', 'neo4j-course-'+action+'-error', info]);
             },
             success: function(sessionId) {
-                $("#course_login").hide();
-                var player = $("#online_course_player");
-                player.html('').show();
                 _kmq.push(['identify', email ]);
-                _kmq.push(['record', 'neo4j-course-login', {email:email,data:sessionId,course:online_course}]);
-                _gaq.push(['_trackEvent','neo4j-course-login',email,online_course,sessionId]);
-
-//                vs.onReady({ container: '#online_course_player', courseId: online_course, sessionId: sessionId });
-                var origin = apiUrl.split('/').slice(0, -1).join('/');
-                console.log("origin",origin);
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = origin + '/player2/scripts/versal.js';
-                console.log(script);
-                player.append(script);
-//                var resize = function () {
-//                    var height = player.height();
-//                    player.find('iframe').height(height);
-//                    player.find('iframe').width('100%');
-//                };
-                window.addEventListener('message', function (e) {
-                    console.log("message-event",e);
-                    if (e.origin == origin && JSON.parse(e.data).event == 'player:ready') {
-                        e.source.postMessage(JSON.stringify({
-                            event: 'player:launch',
-                            api: apiUrl,
-                            course: online_course,
-                            sid: sessionId
-                        }), origin);
-//                        resize();
-                    }
-                });
+                info["data"]=sessionId;
+                _kmq.push(['record', 'neo4j-course-'+action, info]);
+                _gaq.push(['_trackEvent','neo4j-course-'+action,email,online_course,sessionId,name,company]);
+                showCourse(sessionId, email);
             }
         });
         return false;
