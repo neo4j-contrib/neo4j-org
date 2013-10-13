@@ -366,7 +366,7 @@ exports.content = {
                 </ul>",
             actionText: "Check out GrapheneDB",
             thumbnail: "http://www.graphenedb.com/images/logo.png",
-            img: "http://www.graphenedb.com/images/screen3.png",
+            img: asset("img/still/graphenedb.png"),
             author: "graphenedb",
             type: "link",
             url : "http://graphenedb.com"
@@ -610,18 +610,18 @@ exports.content = {
 //            title: "GraphConnect the Graph Conference",
             title: "GraphConnect",
             introText: "GraphConnect is the graph conference to meet developers, users and visionaries present and talk about graph databases and their applications.<br/> \
-                Upcoming conferences in <a href='http://www.graphconnect.com/san-francisco/' target='_blank'>San Francisco</a>, \
+                Upcoming conferences in \
                 <a href='http://www.graphconnect.com/new-york/' target='_blank'>New York</a> and <a href='http://www.graphconnect.com/london' target='_blank'>London</a>.<br/>\
-                Videos and slides from <a href='http://www.graphconnect.com/boston/' target='_blank'>Boston</a> and <a href='http://www.graphconnect.com/chicago' target='_blank'>Chicago</a> are online now.",
+                Videos and slides from <a href='http://www.graphconnect.com/san-francisco/' target='_blank'>San Francisco</a>, <a href='http://www.graphconnect.com/boston/' target='_blank'>Boston</a> and <a href='http://www.graphconnect.com/chicago' target='_blank'>Chicago</a> are online now.",
             thumbnail: asset("img/logo/graphconnect.png"),
             img: asset("img/events/GC_n4jsite_ad.jpg"),
             actionText: "Register Now!",
             url: "http://graphconnect.com"
         },
-        tutorials: {
+        trainings: {
             type: "link",
-            title: "Neo4j full day tutorials",
-            introText: "Get to know Neo4j at this introductory, full day tutorial covering, graph-databases, use-cases and cypher.",
+            title: "Neo4j full day trainings",
+            introText: "Get to know Neo4j at this introductory, full day training covering, graph-databases, use-cases and cypher.",
             thumbnail: asset("img/events/training.png"),
             img: "http://www.neotechnology.com/wp-content/uploads/2013/03/tutorials_0305313.png",
             url: "http://www.neotechnology.com/2013/01/neo4j-tutorials-going-global/"
@@ -886,20 +886,22 @@ exports.content = {
         licensing_guide: {
             type: "article",
             title: "Pragmatic licensing guide",
-            introText: "Understand which license you need and how Neo Technology can help you.",
-            src: asset("img/still/cover-commercial-license.png"),
-            url: "http://info.neotechnology.com/commercial-license.html",
+            introText: "Understand which license you need and how Neo Technology can help you.<br/>Free community and personal editions, affordable startup package and comprehensive enterprise offering.",
+            src: asset("img/still/neo4j_bundles.png"),
+            url: "http://www.neotechnology.com/price-list/",
             path: "http://www.neotechnology.com/price-list/",
             actionText: "Neo4j Editions",
             content: "<p>Neo4j is commercial software. Proven in production since 2003, powering applications from global collaborative websites to in-house experiments, Neo4j is used in diverse environments.</p>\
-    <p><a href='http://neotechnology.com' target='_blank'>Neo Technology</a> makes Neo4j available under a dual-license arrangement that is business friendly and open-source transparent: the Neo Technology Commercial License (NTCL), or the (A)GPLv3. Neo Technology also takes care of Neo4j customer support, (OEM) license agreements, the Partner Network, and more.</p>\
-    <p>There are 3 editions of Neo4j:</p>\
+    <p><a href='http://neotechnology.com' target='_blank'>Neo Technology</a> makes Neo4j available under a dual-license arrangement that is business friendly and open-source transparent: the Neo Technology \
+            Commercial License (NTCL), or the open-source (A)GPLv3. Neo Technology also takes care of <strong>professional Neo4j customer support</strong>, (OEM) license agreements, the Partner Network, and more.</p>\
+    <p>There are two main editions of Neo4j:</p>\
     <ul>\
-    <li><b>Neo4j Community</b>, a High Performance, fully ACID transactional graph database\
-    <li><b>Neo4j Advanced</b> includes Advanced Monitoring\
-    <li><b>Neo4j Enterprise</b> includes Online Backup, High Availability Clustering, and Advanced Monitoring\
+    <li><b>Neo4j Community</b>, an Open-Source High Performance, fully ACID transactional graph database\
+    <li><b>Neo4j Enterprise</b> adds production capabilities - High Performance Cache, Online Backup, High Availability Clustering, and Advanced Monitoring\
     </ul>\
-    <p>Commercial Licenses include the permission to integrate the enterprise editions in closed-source software products, service and support by Neo Technology.</p>"
+    <p>Commercial Licenses include the permission to integrate the enterprise edition in closed-source or production level software products, service and support by Neo Technology.<br/>\
+       The Enterprise edition is available in different <a href='http://www.neotechnology.com/price-list/'>bundles tailored to your needs</a>. From a free personal bundle for individual usage, a startup and small business package to a comprehensive offering for medium and large enterprises.\
+       </p>"
         },
         licensing_guide_which: {
             type: "article",
@@ -910,17 +912,33 @@ exports.content = {
             actionText: "Neo4j Editions",
             content: "\
             <h4>The main intention for usage of Neo4j</h4>\
+            \
             <p>You are free to use the community version of Neo4j in any situation where you would, for example, use MySQL. \
-            If you are using the enterprise version of Neo4j in a commercial setting, then our intention is that you will contact Neo Technology to discuss commercial licensing.</p>\
+            If you are using Neo4j in a commercial, production setting, then our intention is that you will contact Neo Technology to discuss licensing.</p>\
+            \
             <h4>You build Closed Source, Business-Essential Online Applications</h4>\
-            <p>If you&#39;re using Neo4j to build closed-source online applications that are central to your business, then you&#39;ll want to talk to us about commercial licensing of <strong>Neo4j Advanced or Enterprise editions</strong>. These offer the monitoring, backup and high-availability features you&#39;ll need to be successful  &#8211; not to mention access to support from our top engineering team.</p>\
-            <p>If you don&#39;t need any of the reliability features in the Advanced or Enterprise editions, then you&#39;re free to use the Community edition of Neo4j Server under a GPL license &#8211; which means you can use it anywhere i.e. similarly to MySQL. Used in this way, only changes you make to the Neo4j software itself should be open-sourced and shared with the community.</p>\
+            \
+            <p>If you're using Neo4j to build closed-source online applications that are central to your business, \
+            then we want you to talk to us about commercial licensing of the <a href='http://www.neotechnology.com/price-list/'>Neo4j Enterprise edition</a>. \
+            It offers the performance, monitoring, backup and high-availability features you need to be successful - \
+            not to mention access to full support from our top engineering team.</p>\
+            \
             <h4>You want to embed Neo4j as an OEM component in your Closed Source software</h4>\
-            <p>Neo4j is a great choice when you need to include a graph database service in your packaged software product. We can make Neo4j available to use in these situations under our commercial OEM licensing &#8211; <a href='http://neotechnology.com/contactus/'>contact us</a> for details.</p>\
+            \
+            <p>Neo4j is a great choice when you need to include a graph database service in your packaged software product. \
+            We can make Neo4j available to use in these situations under our commercial OEM licensing - <a href='http://neotechnology.com/contactus/'>contact us</a> for details.</p>\
+            \
             <h4>You are Testing or Evaluating Neo4j</h4>\
-            <p>All editions of Neo4j are available for <a href='/download'>download</a> and can be used under open source licenses &#8211; perfect for testing and evaluating Neo4j before you&#39;ve released your code or made your new online service available to your customers.</p>\
+            \
+            <p>All editions of Neo4j are available for <a href='/download'>download</a> and can be used under permissive licenses - \
+            perfect for testing and evaluating Neo4j before you've released your code or made your new online service available to your customers.\
+            If you want to evaluate Neo4j for a real use-case, the <strong>personal bundle</strong> is the way to go.\
+            </p>\
+            \
             <h4>You are developing Open Source Software</h4>\
-            <p>We love open source development, so you are free to use all Neo4j components for your open source, public domain project under either the GPL (for Community edition) or the AGPL (for Advanced and Enterprise editions).</p>\
+            \
+            <p>We love open source development, so you are free to use all Neo4j components for your open source, \
+            public domain project under either the GPL (for Community edition) or the AGPL (for Advanced and Enterprise editions).</p>\
             "
         },
 

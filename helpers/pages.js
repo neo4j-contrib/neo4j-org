@@ -23,9 +23,10 @@ exports.pages = {
                thumbnail: ""
            },
            "events",
+           "licensing",
            content.links.customers,
-           "tutorials",
-           "graphgist_challenge",
+           "trainings",
+//           "graphgist_challenge",
            content.links.graphconnect,
            content.books.graphdatabases,
            "learn",
@@ -41,7 +42,7 @@ exports.pages = {
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
         thumbnail: asset('img/neo4j/visually_refcard_small.gif'),
         featured: [content.books.graphdatabases, content.videos.why_graphs],
-        related: ["graphdatabase", "neo4j", "nosql", "tutorials",
+        related: ["graphdatabase", "neo4j", "nosql", "trainings",
                   "tracks", "cypher", "modeling", content.videos.graphdb101,
                   "production","licensing", content.links.manual, "scientific"]
     },
@@ -57,9 +58,9 @@ exports.pages = {
         title: "Develop",
         introText: "Find what you need to develop applications with Neo4j in a variety of languages and deployment scenarios.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
-//        badge: "<a href='/tutorials' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
+//        badge: "<a href='/trainings' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
         featured: null,
-        related: ["tracks", "drivers", "import", "tools", "cloud", "tutorials", "ops", "java", "javascript", "spring", "ruby", "dotnet", "python", "scala", "php", "clojure","linked_data","jee", "spatial"]
+        related: ["tracks", "drivers", "import", "tools", "cloud", "trainings", "ops", "java", "javascript", "spring", "ruby", "dotnet", "python", "scala", "php", "clojure","linked_data","jee", "spatial"]
     },
     participate: {
         path: "/participate",
@@ -68,7 +69,7 @@ exports.pages = {
         thumbnail: asset("img/still/graphistas_map.png"),
         featured: null,
         related: [
-            "tutorials",
+            "trainings",
             "q_and_a",
             "events",
             {
@@ -82,7 +83,7 @@ exports.pages = {
     training: {
         path: "/training",
         title: "Training",
-        introText: "Neo4j tutorials and courses allow you to quickly gain practical knowledge into the concepts and usage of Neo4j. These are presented by experienced trainers and Neo4j developers",
+        introText: "Neo4j trainings and courses allow you to quickly gain practical knowledge into the concepts and usage of Neo4j. These are presented by experienced trainers and Neo4j developers",
         thumbnail: asset("img/events/training.png"),
         featured: [
 //             {title: "Neo4j Tutorials",
@@ -94,7 +95,7 @@ exports.pages = {
 //                    return render.include("/learn/training", params)
 //                }
 //            }
-            "tutorials"
+            "trainings"
         ],
         related: [
             content.links.course_neo4j_in_60,
@@ -131,7 +132,7 @@ exports.pages = {
         path: "/download",
         title: "Download and Install Neo4j",
         introText: "Your Neo4j installation is just one click away. Get the Community Edition for your first steps. " +
-            "Check out Advanced and Enterprise for your production setup. For insights in licensing, <a href='/learn/licensing'>see our explanation</a>.",
+            "Check out our Enterprise bundles for your production setup. For insights in licensing, <a href='/learn/licensing'>see our explanation</a>.",
         content: ""// render.include("download/installation")
         ,
         featured: [
@@ -209,13 +210,13 @@ exports.pages = {
         actionText: "Install on Windows",
         introText: "Installing Neo4j on Windows from scratch is just a few steps away",
         featured: [
-            content.install.windows7,
-            content.install.windows,
+//            content.install.windows7,
+//            content.install.windows,
             content.install.releases
         ],
         related: [
-            content.links.install_windows,
-            content.links.start_with_neo4j_neo4jclient,
+//            content.links.install_windows,
+//            content.links.start_with_neo4j_neo4jclient,
             "dotnet",
             content.drivers.neo4jclient,
             content.drivers.cyphernet,
@@ -414,11 +415,11 @@ exports.pages = {
         featured: [
             {
                 type: "video",
-                thumbnail: asset("img/still/Neo4j-2.0-Screencast-Title.jpg"),
-                introText: "Screencast about labels and indexes and how to evolve a pre 2.0 dataset (cineasts) to use them.",
+                thumbnail: asset("img/still/new_neo4j_20.jpg"),
+                introText: "Webinar on labels, indexes and other improvements in Neo4j 2.0",
                 author: "mesirii",
-                src: "http://player.vimeo.com/video/63707662",
-                title: "Screencast on using labels and indexes"
+                src: "http://player.vimeo.com/video/72069694",
+                title: "Webinar, Wha's new in Neo4j 2.0"
             },
             {
                 type: "video",
@@ -429,6 +430,7 @@ exports.pages = {
             }
         ],
         related: [
+            content.install.milestone,
             {
                 type: "link",
                 path: "http://docs.neo4j.org/chunked/milestone/rest-api-transactional.html",
@@ -563,14 +565,14 @@ exports.pages = {
                 introText: "A Neo Technology representative can help you to determine how to proceed to a production deployment of Neo4j.",
                 path: "http://neotechnology.com/contactus/"
             },
+            content.links.customers,
             {
                 title: "Neo4j White Papers",
                 thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/02/WP_FTSL-125x160.png",
                 introText: "Whitepapers about Graph Databases, Big Data, Scaling, Licensing and more.",
                 path: "http://www.neotechnology.com/resources/"
             },
-            content.links.use_cases,
-            content.links.customers,
+//            content.links.use_cases,
             content.articles.partner_graph
         ]
     },
@@ -1108,11 +1110,11 @@ exports.pages = {
         path: "/events",
         title: "Events",
         thumbnail: asset("img/logo/meetup.jpg"),
-        introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j tutorial close to you.",
+        introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j training close to you.",
         content: "If you want to learn more about Neo4j nothing beats a hands on experience. Learn with our community members and driver authors, talk to our engineers or discuss with our customers.",
-//        badge: "<a href='/tutorials' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
-        featured: [], // content.links.graphconnect,content.links.tutorials
-        related: ["tutorials","meetups", "webinars",  "conferences"],
+//        badge: "<a href='/trainings' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
+        featured: [], // content.links.graphconnect,content.links.trainings
+        related: ["trainings","meetups", "webinars",  "conferences"],
         actionText: "Pick your event"
     },
     meetups: {
@@ -1138,7 +1140,7 @@ exports.pages = {
         path: "/participate/events/webinars",
         title: "Webinars",
         prev: ["meetups", "events"],
-        next: ["tutorials"],
+        next: ["trainings"],
         thumbnail: asset("img/events/webinar.png"),
         introText: "Neo4j webinars give you hands on expert information either directly from Neo Technology or from our partners and users. In case you missed one, we've <a href='/learn/videos_webinar'>recorded them all</a>.",
         actionText: "Register for a webinar",
@@ -1147,9 +1149,9 @@ exports.pages = {
         ],
         related: []
     },
-    tutorials: {
-        path: "/participate/events/tutorials",
-        title: "Neo4j Tutorials",
+    trainings: {
+        path: "/participate/events/trainings",
+        title: "Neo4j Trainings",
         thumbnail: asset("img/events/n4jtutorial_ad-150x150.png"),
         img: asset("img/events/tutorials.jpg"),
 //        img: "http://www.neotechnology.com/wp-content/uploads/2013/07/Tutorials_070912_620x300.png",
@@ -1162,15 +1164,15 @@ exports.pages = {
 //            Please keep me updated about Neo4j events, releases and articles.\
 //            <iframe src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' onload='this.style.visibility = 'visible';' style='border:0;padding: 0;' width='180px' height='50px' frameborder='0' scrolling='no'></iframe>\
 //            </div>",
-        introText: "Become proficient with Neo4j by attending a tutorial close to you. If you enjoy focused, hands-on learning experiences, the tutorials are the best way.",
-        content:" Find the next tutorial in <a href='/participate/events/tutorials_US'>the US</a>, or in Europe in <a href='/participate/events/tutorials_EU'>English</a> or <a href='/participate/events/tutorials_DE'>German</a>.",
-        actionText: "Find tutorials near you",
+        introText: "Become proficient with Neo4j by attending a full day training close to you. If you enjoy focused, hands-on learning experiences, the trainings are the best way to go.",
+        content:" Find the next training in <a href='/participate/events/trainings_US'>the US</a>, or in Europe in <a href='/participate/events/trainings_EU'>English</a> or <a href='/participate/events/trainings_DE'>German</a>.",
+        actionText: "Find trainings near you",
         featured: [],
         related: []  //"partners","licensing"
     },
-    tutorials_US: { path: "/participate/events/tutorials_US" },
-    tutorials_EU: { path: "/participate/events/tutorials_EU" },
-    tutorials_DE: { path: "/participate/events/tutorials_DE" },
+    trainings_US: { path: "/participate/events/trainings_US" },
+    trainings_EU: { path: "/participate/events/trainings_EU" },
+    trainings_DE: { path: "/participate/events/trainings_DE" },
     conferences_US: { path: "/participate/events/conferences_US" },
     conferences_EU: { path: "/participate/events/conferences_EU" },
     conferences_DE: { path: "/participate/events/conferences_DE" },
@@ -1180,7 +1182,7 @@ exports.pages = {
     conferences: {
         path: "/participate/events/conferences",
         title: "Neo4j at Conferences",
-        prev: ["tutorials"],
+        prev: ["trainings"],
         next: ["events"],
         introText: "There is a lot of interest in graph databases and Neo4j. here are some of the conferences where you can learn and " +
             "talk more about Neo4j. <br/>Find the next conference talks in <a href='/participate/events/conferences_US'>the US</a>, or in Europe in <a href='/participate/events/conferences_EU'>English</a> or <a href='/participate/events/conferences_DE'>German</a>.",
@@ -1549,9 +1551,9 @@ exports.pages = {
         ],
         related: [
             content.drivers.neo4jclient,
-            content.install.windows,
-            content.links.install_windows,
-            content.links.start_with_neo4j_neo4jclient,
+//            content.install.windows,
+//            content.links.install_windows,
+//            content.links.start_with_neo4j_neo4jclient,
             content.drivers.cyphernet,
             {
                 type: "link",
@@ -2025,43 +2027,26 @@ exports.pages = {
         related: [],
         actionText: "Attend the course"
     },
-//    graphgist: {
-//        path: "/learn/graphgist",
-//        title: "Neo4j GraphGist",
-//        introText: "With Neo4j <a href='http://gist.neo4j.org'>GraphGists</a> you can describe and model your domain in a simple text file and render it as a rich, interactive page in any browser.",
-//        featured: ["graphgist_challenge"],
-//        related: ["modeling"],
-//        actionText: "Model your Graph"
-//    },
-    graphgist_challenge: {
-        path: "/learn/graphgist_challenge",
-        title: "Neo4j GraphGist Challenge",
-        introText: "Outdo yourself! Create the most impressive GraphGist ever, submit and win!",
-        thumbnail: asset("img/logo/neo4j-github.png"),
+    graphgist: {
+        path: "/learn/graphgist",
+        title: "Live, Interactive Graph Models - Neo4j GraphGist",
+        introText: "With Neo4j <a href='http://gist.neo4j.org'>GraphGists</a> you can describe and model your domain in a simple text file and render it as a rich, interactive page in any browser. Perfect to document a specific domain, use-case, question or graph problem.",
         featured: [
             {
                 type: "article",
-                title: "GraphGist September Challenge",
+                title: "GraphGist Introduction",
                 src: asset("img/still/graphgist.jpg"),
                 url: "http://gist.neo4j.org",
-                content: "<p>Join our GraphGist Challenge this month.\
+                content: "<p>Documenting your graph domain model has never been easier. \
+            A <a href='http://gist.neo4j.org' >GraphGist</a> is just a simple <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>ascii doc</a> text file, and can be hosted in a\
+            <a href='http://gist.github.com/'>GitHub Gist</a> or any other place. It will be rendered as an interactive page in the browser.<br/>\
+            You can explore those pages, read and understand them and try out the provided queries on a live graph.\
             We want to encourage you to model <em>a domain that you know or like</em> in a graph model and describe it\
             interactively in a GraphGist.<br/>\
-            A <a href='http://gist.neo4j.org' >GraphGist</a> is just a basic <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>ascii doc</a> text file, and can be hosted simply in a\
-            <a href='http://gist.github.com/'>GitHub Gist</a> but rendered as an interactive page in the browser.<br/>\
-            <strong style='font-size: 1.2em'>To make this more interesting we want to offer some prizes.</strong></p>\
+            To learn about interesting existing models created by other Neo4j users check out the impressive collection that is available on the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>GraphGist-Wiki</a></p>\
             "
-            },
-            {
-                type: "article",
-                title: "Prizes",
-                content: "<ol><li>Winner: 500 USD</li>\
-                <li>Second: 300 USD</li>\
-                <li>Third: 200 USD</li>\
-                <li>Every participant gets a special t-shirt, <a href='http://graphconnect.com/'>Graph Connect</a> ticket or a copy of the <a href='http://graphdatabases.com/'>Graph Databases book</a></li>\
-                </ol>"
-            },
-            {
+            }
+            ,{
                 type: "video",
                 title: "How do I create a GraphGist?",
                 content: "<ul><li>Find a great domain (Music, Dating, Comics, Healthcare, Politics, Sciences, ...)</li>\
@@ -2075,37 +2060,85 @@ exports.pages = {
                 </ul>",
                 src: "http://player.vimeo.com/video/74279113?badge=0&byline=0&portrait=0&title=0",
                 img: asset("img/still/graphgist_video.jpg")
-
-            },
-            {
-                type: "article",
-                title: "How do I participate?",
-                content: "<ul>\
-                <li>Enter the URL of your Gist in the top-right box of the <a href='http://gist.neo4j.org'>GraphGist-Page</a> and note the URL of your GraphGist</li>\
-                <li>Tweet the title and public URL of your GraphGist and add the tag #graphgist to the tweet.</li>\
-                <li>Add your gist on the <a href='https://github.com/neo4j-contrib/graphgist/wiki#graphgist-challenge-submissions'>GraphGist Challenge</a> Wiki page</li>\
-                <li>The GraphGist needs to be registered before Sept 30, 2013</li>\
-                <li>If you have questions reach out to our <a href='/forums'>Google Group</a>, <a href='http://twitter.com/neo4j'>@neo4j</a> on twitter or <a href='http://twitter.com/peterneubauer'>Peter Neubauer</a></li>\
-                </ul>\
-                <strong>Make sure that the content you create is shared under <a href='http://creativecommons.org/licenses/by-sa/3.0/'>CC-SA</a>.</strong>\
-                "
-            },
-            {
-                type: "article",
-                title: "Where can I learn more about GraphGists?",
-                url: "http://www.meetup.com/graphdb-world/events/138513152/",
-                src: asset("img/events/neo4j_icon_meetup.png"),
-                content: "<ul>\
-                    <li>Check out the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>GraphGist Wiki</a> for many examples and hints.</li>\
-                    <li>Read the <a href='http://gist.neo4j.org/?5956246'>self describing GraphGist</a>.</li>\
-                    <li>We want to run a <a href='http://www.meetup.com/graphdb-world/events/138513152/'>webinar/hangout on September 10</a> to explain GraphGists in detail (<a href='https://docs.google.com/a/neopersistence.com/presentation/d/1QrYDKrJ8WRmvAdVcgA79HUlfiOrGrByRTgNCDPOSq-c/pub?start=false&loop=false#slide=id.p'>slides</a>).</li>\
-                    <li>We encourage local <a href='/participate/meetups'>Neo4j Meetup</a> organizers to attend that discussion and work with us to run a September meetup event about GraphGists and the challenge.</li>\
-                    </ul> "
             }
-            ],
+        ],
         related: ["modeling"],
-        actionText: "Submit and Win"
+        thumbnail: asset("img/logo/neo4j-github.png"),
+        actionText: "Model your Graph"
     },
+//    graphgist_challenge: {
+//        path: "/learn/graphgist_challenge",
+//        title: "Neo4j GraphGist Challenge",
+//        introText: "Outdo yourself! Create the most impressive GraphGist ever, submit and win!",
+//        thumbnail: asset("img/logo/neo4j-github.png"),
+//        featured: [
+//            {
+//                type: "article",
+//                title: "GraphGist September Challenge",
+//                src: asset("img/still/graphgist.jpg"),
+//                url: "http://gist.neo4j.org",
+//                content: "<p>Join our GraphGist Challenge this month.\
+//            We want to encourage you to model <em>a domain that you know or like</em> in a graph model and describe it\
+//            interactively in a GraphGist.<br/>\
+//            A <a href='http://gist.neo4j.org' >GraphGist</a> is just a basic <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>ascii doc</a> text file, and can be hosted simply in a\
+//            <a href='http://gist.github.com/'>GitHub Gist</a> but rendered as an interactive page in the browser.<br/>\
+//            <strong style='font-size: 1.2em'>To make this more interesting we want to offer some prizes.</strong></p>\
+//            "
+//            }
+//            ,{
+//                type: "article",
+//                title: "Prizes",
+//                content: "<ol><li>Winner: 500 USD</li>\
+//                <li>Second: 300 USD</li>\
+//                <li>Third: 200 USD</li>\
+//                <li>Every participant gets a special t-shirt, <a href='http://graphconnect.com/'>Graph Connect</a> ticket or a copy of the <a href='http://graphdatabases.com/'>Graph Databases book</a></li>\
+//                </ol>"
+//            },
+//            ,{
+//                type: "video",
+//                title: "How do I create a GraphGist?",
+//                content: "<ul><li>Find a great domain (Music, Dating, Comics, Healthcare, Politics, Sciences, ...)</li>\
+//                <li>Whiteboard a good example graph model.</li>\
+//                <li>Determine interesting use-cases.</li>\
+//                <li>Create Cypher statements for setup and query-use-cases.</li>\
+//                <li>Write a good description and create a pretty model picture.</li>\
+//                <li>Compose it all nicely in your asciidoc-graphgist-file.</li>\
+//                <li>Store it as a <strong>public</strong> <a href='http://gist.github.com'>GitHub Gist</a></li>\
+//                <li>For details, check out the example <a href='http://gist.neo4j.org/?5956246'>GraphGist</a> and the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>Collection</a> on the Wiki</li>\
+//                </ul>",
+//                src: "http://player.vimeo.com/video/74279113?badge=0&byline=0&portrait=0&title=0",
+//                img: asset("img/still/graphgist_video.jpg")
+//
+//            }
+//            ,{
+//                type: "article",
+//                title: "How do I participate?",
+//                content: "<ul>\
+//                <li>Enter the URL of your Gist in the top-right box of the <a href='http://gist.neo4j.org'>GraphGist-Page</a> and note the URL of your GraphGist</li>\
+//                <li>Tweet the title and public URL of your GraphGist and add the tag #graphgist to the tweet.</li>\
+//                <li>Add your gist on the <a href='https://github.com/neo4j-contrib/graphgist/wiki#graphgist-challenge-submissions'>GraphGist Challenge</a> Wiki page</li>\
+//                <li>The GraphGist needs to be registered before Sept 30, 2013</li>\
+//                <li>If you have questions reach out to our <a href='/forums'>Google Group</a>, <a href='http://twitter.com/neo4j'>@neo4j</a> on twitter or <a href='http://twitter.com/peterneubauer'>Peter Neubauer</a></li>\
+//                </ul>\
+//                <strong>Make sure that the content you create is shared under <a href='http://creativecommons.org/licenses/by-sa/3.0/'>CC-SA</a>.</strong>\
+//                "
+//            }
+//            ,{
+//                type: "article",
+//                title: "Where can I learn more about GraphGists?",
+//                url: "http://www.meetup.com/graphdb-world/events/138513152/",
+//                src: asset("img/events/neo4j_icon_meetup.png"),
+//                content: "<ul>\
+//                    <li>Check out the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>GraphGist Wiki</a> for many examples and hints.</li>\
+//                    <li>Read the <a href='http://gist.neo4j.org/?5956246'>self describing GraphGist</a>.</li>\
+//                    <li>We want to run a <a href='http://www.meetup.com/graphdb-world/events/138513152/'>webinar/hangout on September 10</a> to explain GraphGists in detail (<a href='https://docs.google.com/a/neopersistence.com/presentation/d/1QrYDKrJ8WRmvAdVcgA79HUlfiOrGrByRTgNCDPOSq-c/pub?start=false&loop=false#slide=id.p'>slides</a>).</li>\
+//                    <li>We encourage local <a href='/participate/meetups'>Neo4j Meetup</a> organizers to attend that discussion and work with us to run a September meetup event about GraphGists and the challenge.</li>\
+//                    </ul> "
+//            }
+//            ],
+//        related: ["modeling"],
+//        actionText: "Submit and Win"
+//    },
     graphistas_map: {
         path: "/participate/graphistas_map",
         thumbnail: asset("img/still/graphistas_map.png"),

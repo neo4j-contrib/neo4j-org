@@ -208,12 +208,12 @@ exports.init = function (app, interval) {
                     Meetup: { events: [], page: "meetups"}, 
                     Webinar:{ events: [], page: "webinars"},
                     Conference:{ events: [], page: "conferences"},
-                    Training:{ events: [], page: "tutorials"}};
+                    Training:{ events: [], page: "trainings"}};
                 app.locals.events.forEach(function (e) {
                     e.type = "event";
                     eventPages[e.Type].events.push(e);
                 });
-                app.locals.pages.events.related = ["meetups","webinars","tutorials","conferences"].concat(app.locals.events);
+                app.locals.pages.events.related = ["meetups","webinars","trainings","conferences"].concat(app.locals.events);
                 Object.keys(eventPages).forEach(function(type) {
                     var eventsPerType = eventPages[type].events;
                     var pageName = eventPages[type].page;

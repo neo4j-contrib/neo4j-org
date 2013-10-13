@@ -253,12 +253,13 @@ route_get('/index_graph', routes.index_graph);
 route_get('/search', routes.search);
 
 route_get('/drivers', forward("/develop/drivers"));
-route_get('/participate/events/trainings', forward("/participate/events/tutorials"));
-route_get('/participate/events/trainings_EU', forward("/participate/events/tutorials_EU"));
-route_get('/participate/events/trainings_US', forward("/participate/events/tutorials_US"));
-route_get('/participate/events/trainings_DE', forward("/participate/events/tutorials_DE"));
-route_get('/trainings', forward("/participate/events/tutorials"));
-route_get('/tutorials', forward("/participate/events/tutorials"));
+route_get('/participate/events/tutorials_EU', forward("/participate/events/trainings_EU"));
+route_get('/participate/events/tutorials_US', forward("/participate/events/trainings_US"));
+route_get('/participate/events/tutorials_DE', forward("/participate/events/trainings_DE"));
+
+route_get('/participate/events/tutorials', forward("/participate/events/trainings"));
+route_get('/trainings', forward("/participate/events/trainings"));
+route_get('/tutorials', forward("/participate/events/trainings"));
 route_get('/learn/events', forward("/events"));
 
 // TODO
@@ -280,6 +281,7 @@ route_get('/install/linux', forward("/download/linux"));
 route_get('/install/windows', forward("/download/windows"));
 route_get('/tracks/java', forward("/develop/java"));
 route_get('/tracks/cypher', forward("/tracks/cypher_track_start"));
+route_get('/learn/graphgist_challenge', forward("/learn/graphgist"));
 route_get('/about', forward("/learn/neo4j"));
 route_get('/java', forward("/develop/java"));
 route_get('/ruby', forward("/develop/ruby"));
