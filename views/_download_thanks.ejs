@@ -50,14 +50,11 @@ $(document).ready(function() {
 
         var displayLink = "http://dist.neo4j.org/neo4j-" + edition + "-" + release + "-" + platform +"." + suffix;
         var downloadLink = displayLink + url_params;
-        // temporarily until redfox is fixed,
-        /*
         if (!release.match("SNAPSHOT") && abTestToRedfox) {
             downloadLink = "http://download.neo4j.org/artifact" + url_params;
             displayLink = downloadLink.replace(/&dlid.+/,"");
             method = "redfox";
         }
-        */
         if(platform=='windows') {
             if(packaging=='exe'){
                 if(architecture=='x64') {
