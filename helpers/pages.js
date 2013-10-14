@@ -108,31 +108,33 @@ exports.pages = {
     download_thanks: {
         path: "/download_thanks",
         title: "Neo4j is downloading, you are almost there",
-        introText: "Your download should have started, if not please click the link. Meanwhile enjoy the video or other content on this page.",
+        introText: "Your download should have started, if not please click the link. Enjoy the video in the meantime.",
         content: function (params) {
             return render.include("_download_thanks", params);
         },
-        featured: [ content.videos.installing_neo4j, content.install.windows7, content.install.windows ],
+        featured: [ content.videos.installing_neo4j ],
         related: [
+            "neo4j",
+            "trainings",
             "other_versions",
-            content.install.upgrading,
-            {
-                type: "link",
-                title: "Detailed Installation Instructions",
-                introText: "For detailed explanations on how to install Neo4j please refer to the Manual",
-                path: "http://docs.neo4j.org/chunked/stable/server-installation.html"
-            },
-            "linux",
-            "windows",
-            content.install.homebrew,
-            "maven"
+            content.install.upgrading
+//            {
+//                type: "link",
+//                title: "Detailed Installation Instructions",
+//                introText: "For detailed explanations on how to install Neo4j please refer to the Manual",
+//                path: "http://docs.neo4j.org/chunked/stable/server-installation.html"
+//            },
+////            "linux",
+//            "windows",
+//            content.install.homebrew,
+//            "maven"
         ]
     },
     download: {
         path: "/download",
         title: "Download and Install Neo4j",
-        introText: "Your Neo4j installation is just one click away. Get the Community Edition for your first steps. " +
-            "Check out our Enterprise bundles for your production setup. For insights in licensing, <a href='/learn/licensing'>see our explanation</a>.",
+        introText: "Your Neo4j installation is just one click away. Get the Community Edition for your side-project.<br/>" +
+            "Use our Enterprise bundles for your production setup. <a href='/learn/licensing'>More details on licensing and bundled offerings</a>.",
         content: ""// render.include("download/installation")
         ,
         featured: [
@@ -150,11 +152,11 @@ exports.pages = {
             //"participate",
             // content.install["2_0_0_M02"],
             content.install.milestone,
-            "other_versions",
-            "linux",
             "windows",
-            content.install.upgrading,
+            "linux",
             "licensing",
+            "other_versions",
+            content.install.upgrading,
             {
                 type: "link",
                 title: "Detailed Installation Instructions",
@@ -168,9 +170,12 @@ exports.pages = {
     other_versions: {
         type: "page",
         title: "Other Neo4j Versions",
-        introText: "Older, stable Neo4j versions and nightly builds",
+        introText: "All available Neo4j versions and editions.",
         path: "/download/other_versions",
+        thumbnail: asset("img/neo4j/logo.png"),
         related: [
+            content.install.stable,
+            content.install.milestone,
             content.install["1_8_3"],
             content.install["1_7_2"],
             content.install["1_6_3"],
@@ -1453,7 +1458,7 @@ exports.pages = {
             {
                 title: "Three.js on GitHub",
                 path: "https://github.com/mrdoob/three.js",
-                thumbnail: "http://mrdoob.github.com/three.js/files/examples/webgl_buffergeometry_lines.png",
+                thumbnail: asset("img/still/threejs.jpg"),
                 introText: "The aim of the project is to create a lightweight 3D library with a very low level of complexity"
                 // todo max article, neo4waza etc.
             },

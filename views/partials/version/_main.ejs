@@ -5,11 +5,6 @@
             <% if (item.thumbnail) { %>
                 <img class="thumbnail" src="<%= item.thumbnail %>" data-src="<%= item.src %>">
             <% } %>
-            <br/>
-            <h3>After the Download</h3>
-            <p>For <a href="/download/windows">Windows</a> please run the installer and then use the Neo4j Desktop to start and stop your server. It is also available in the system tray.</p>
-            <p>For <a href="/download/linux">Linux/Mac</a> please download and unzip the distribution. Start the server with <code>bin/neo4j start</code> from a terminal.<br/>
-               Open <a href="http://localhost:7474" target="_blank">http://localhost:7474</a> for the Web UI.</p>
         </div>
 
         <div class="text">
@@ -32,6 +27,13 @@
                 </div>
                 -->
             </div>
+        </div>
+        <div class="content">
+            <h3>After the Download</h3>
+            <p>For <a href="/download/windows">Windows</a> please run the installer and use the Neo4j Desktop to start and stop your server.</p>
+            <p>For <a href="/download/linux">Linux/Mac</a> please download and unzip the distribution. <br/>
+                Start the server with <code>bin/neo4j start</code> from a terminal.</p>
+            <p>Open <a href="http://localhost:7474" target="_blank">http://localhost:7474</a> for the Web UI.</p>
         </div>
         <div class="clear"></div>
     </div>
