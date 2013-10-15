@@ -33,12 +33,12 @@ exports.content = {
         },
         "milestone": {
             type: "version",
-            title: "Neo4j Milestone 2.0.0-M05",
+            title: "Neo4j Milestone 2.0.0-M06",
             stability: "milestone",
-            version: "2.0.0-M05",
-            date: "Sept 10, 2013",
-            introText: "Cypher: Schema Constraints, Collections, JSON",
-            path: "http://blog.neo4j.org/2013/09/neo4j-200m05-released.html",
+            version: "2.0.0-M06",
+            date: "Oct 14, 2013",
+            introText: "Shiny new Web-UI, Windows Desktop",
+            path: "http://blog.neo4j.org/2013/10/neo4j-200m06-released-new-web-browser.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },

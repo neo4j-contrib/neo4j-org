@@ -169,7 +169,7 @@ $(document).ready(function(){
 
     $(".course_form").submit(function() {
         function showCourse(sessionId, email) {
-            $(".course_form").hide();
+            $(".course_box").hide();
             var player = $("#online_course_player");
             player.html('').show();
             var origin = apiUrl.split('/').slice(0, -1).join('/');
@@ -180,10 +180,14 @@ $(document).ready(function(){
         var email=$(this).find("input[name=email]").val();
         if (!email) return false;
 
-        var name=$(this).find("input[name=name]").val();
-        var company=$(this).find("input[name=company]").val();
+        var info = {name:null, email:null, company:null, zip:null, usage:null, newsletter:null, newsletter_lang:null};
+        for (var key in info) {
+            if (!info.hasOwnProperty(key)) continue;
+            info[key]=$(this).find("input[name="+key+"]").val();
+        }
         var action=$(this).find("button").attr("name");
-        var info = {email:email,company:company,name:name,action:action,course:online_course};
+        info.action = action;
+        info.course = online_course;
         console.log(info);
         $.ajax("/api/versal",{
             data: JSON.stringify(info),
@@ -200,7 +204,7 @@ $(document).ready(function(){
                 _kmq.push(['identify', email ]);
                 info["data"]=sessionId;
                 _kmq.push(['record', 'neo4j-course-'+action, info]);
-                _gaq.push(['_trackEvent','neo4j-course-'+action,email,online_course,sessionId,name,company]);
+                _gaq.push(['_trackEvent','neo4j-course-'+action,email,online_course,sessionId,name,info["company"],info["country"]]);
                 showCourse(sessionId, email);
             }
         });

@@ -262,15 +262,16 @@ route_get('/trainings', forward("/participate/events/trainings"));
 route_get('/tutorials', forward("/participate/events/trainings"));
 route_get('/learn/events', forward("/events"));
 
-// TODO
 route_get('/download_thanks', routes.pages);
 route_get('/subscribe_thanks', routes.pages);
 route_get('/participate/meetup_signup', routes.meetup_signup);
-route_get('/participate/meetups', forward("/participate/events/meetups")); // TODO
+route_get('/participate/meetups', forward("/participate/events/meetups"));
 
 route_get('/terms', routes.terms); // terms and conditions
 route_get('/privacy', routes.privacy); // privacy policy
-route_get('/release-notes', routes.release_notes); // TODO
+route_get('/release-notes', routes.release_notes);
+route_get('/learn/education', routes.online_course);
+route_get('/learn/online_course', routes.online_course);
 
 // route_get('/misc/beer', routes.beer);
 
@@ -289,13 +290,13 @@ route_get('/ruby', forward("/develop/ruby"));
 route_get('/community', forward("/participate"));
 route_get('/learn/intro', forward("/learn"));
 route_get('/learn/concepts', forward("/learn"));
-route_get('/community/feeds', forward("/participate")); //TODO
+route_get('/community/feeds', forward("/participate"));
 route_get('/resources', forward("/learn"));
 route_get('/forums', forward("http://groups.google.com/group/neo4j"));
 route_get('/nabble', forward("http://groups.google.com/group/neo4j"));
 route_get('/spring', forward("/develop/spring"));
 route_get('/heroku', forward("/develop/heroku"));
-route_get('/azure', forward("http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html")); // TODO
+route_get('/azure', forward("/develop/cloud/azure"));
 route_get('/licensing-guide', forward("/learn/licensing"));
 route_get('/bookstore', forward("/learn/books"));
 
@@ -317,6 +318,7 @@ calendar.add_ics_route('/api/event.ics', app);
 
 // download resources
 route_get('/resources/cypher', forward('http://docs.neo4j.org/refcard/1.9/'));
+route_get('/resources/cypher20', forward('http://docs.neo4j.org/refcard/2.0/'));
 
 
 route_get('/wp-content/*', routes.resource);

@@ -23,15 +23,56 @@ body {
     line-height: 1.4;
 }
 
+blockquote .course_form {
+    background-image: url(data:image/gif;base64,R0lGODlhFQAQAMQAAPz8+czMzN7e3fn59urq6NjY18/Pz9LS0uTk4/Dw7u3t6/Pz8fb28+Hh4NXV1Nvb2ufn5QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAAALAAAAAAVABAAAAWFICCOgIIw5DgQyJASRxAQ6SDIQaIWsqGTBIPMsRgtYoGHi9TAIUgDYUCQAhBwNNItcFiOGFIqiYGtInAo0ln2Izlw1QdOUcUF0iPe0Cuyi0dbPQJ0IkgyBw1FABB2OAUigXYNAAONcAAJljIia3YGeZYHgI1ZlHpzJAsNBQ9tIwoCBQKKIQA7);
+    background-position: 0.3333em top;
+    padding-left: 2em;
+    background-repeat: no-repeat;
+}
+
+blockquote .course_form .endquote {
+    background-image: url(data:image/gif;base64,R0lGODlhFQAQAMQAAPz8+czMzN7e3fn59urq6NjY18/Pz9LS0uTk4/Dw7u3t6/Pz8fb28+Hh4NXV1Nvb2ufn5QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAAALAAAAAAVABAAAAWDIAAsQiEoYgokT9EsqhLMczGkBD0L6aHXKcMvgBANZwnj8dY48gCFI0S0aPhoh5RCIKQ9UwKdCjBw0Apjhngsmz3GAJoDnqAVVerZXZWbMcZhAQZ/KgNXXyJ9AQRwgQY3KQg0DWMDDzMHMFRmgowqCV02KXU7kDiYnikDCASmeAgocCEAOw%3D%3D);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    position: absolute;
+    display: inline-block;
+    right: 6em;
+    width: 4em;
+    height: 1em;
+}
+
+#online_course_player iframe {
+    height: 100% !important;
+    width: 100% !important;
+}
 .course_form input {
     background: transparent;
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px dashed black;
+    border-bottom: 1px dashed #ccc;
+    font-family: monaco, courier, monospace;
+    font-size: 0.8em;
     color: #000000;
     outline: none;
     text-align: center;
+}
+.course_form button {
+    border: none;
+}
+
+.course_form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border:0;
+    border-bottom: 1px dashed #ccc;
+    font-family: monaco, courier, monospace;
+    color: #999;
+    text-align: center;
+    font-size: 0.8em;
+    padding-left: 2em;
+    width: 10em;
 }
 
 /*
