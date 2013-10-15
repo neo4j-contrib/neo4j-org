@@ -13,6 +13,7 @@ function signup(data,fun) {
             console.log(error, r.statusCode,body);
             if (error || r.statusCode != 201) return fun(error ? error["message"] : body);
             var data = JSON.parse(body);
+            console.log("versal-signup",data);
             fun(null,data["user"]["id"]);
         });
 }
@@ -25,6 +26,7 @@ function login(email,fun) {
             console.log(error, r.statusCode,body);
             if (error || r.statusCode != 201) return fun(error ? error["message"] : body);
             var data = JSON.parse(body);
+            console.log("versal-login",data);
             fun(null,data["sessionId"]);
         });
 }
@@ -44,7 +46,7 @@ exports.add_route = function(path,app) {
         } else {
             login(email,function(err,session) {
                 if (!err) return res.send(200,session);
-                var info = {email: email, name: req.body["name"], company: req.body["company"]};
+                var info = req.body["info"];
                 signup(info,function(err,userId) {
                     if (err) return res.send(500,err);
                     login(email, function(err,session) {

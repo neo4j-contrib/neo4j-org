@@ -183,14 +183,12 @@ $(document).ready(function(){
         var info = {name:null, email:null, company:null, zip:null, usage:null, newsletter:null, newsletter_lang:null};
         for (var key in info) {
             if (!info.hasOwnProperty(key)) continue;
-            info[key]=$(this).find("input[name="+key+"]").val();
+            info[key]=$(this).find("input[name="+key+"]").val()||$(this).find("select[name="+key+"]").val();
         }
         var action=$(this).find("button").attr("name");
-        info.action = action;
-        info.course = online_course;
         console.log(info);
         $.ajax("/api/versal",{
-            data: JSON.stringify(info),
+            data: JSON.stringify({action:action, course:online_course, email:email, info:info}),
             contentType: "application/json",
             accepts: "text",
             type: "post",
