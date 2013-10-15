@@ -1749,6 +1749,10 @@ a.vote i {
     width: 20em;
 }
 
+table.events  tbody tr:nth-child(odd) {
+   background-color: #ccc;
+}
+
 .table-download th, .table-download td {
   text-align: center;
   vertical-align: middle;

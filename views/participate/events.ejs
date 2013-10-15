@@ -1,31 +1,23 @@
 <% include ../head %>
 <div class="mainpage">
 
-    <div role="main" class="main row span12">
-            <div class="inner">
-                <div id="apps" class="hero-unit path">
-                    <h2><a><i class="icon icon-book"></i> <%= title %></a></h2>
 
-                    <p class="lead">There are Neo4j related everywhere at every time. Pick one.</p>
-                </div>
-        </div>
-    </div>
-
-    <div role="main" class="main row span12">
+    <h1>Neo4j Events</h1>
+    <div class="introText">
     <p>Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j training near you.</p>
     
     <p>If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors,
     talk to our engineers or discuss with our customers. There are many Neo4j Meetups, Trainings and Conferences happening everywhere and
     at any time.</p>
-    
-    <h3>Events for your region: 
-		<select id="region" style="width:10em;height:1.8em;vertical-align:baseline;">
-		   <option value="WORLD">All</option>
-		   <option value="US">North America</option>
-		   <option value="EU">Europe</option>
-		   <option value="DE">Germany, Austria, Switzerland</option>
-		</select>
-    </h3>
+    </div>
+    <!--<h3>Events for your region: -->
+		<!--<select id="region" style="width:10em;height:1.8em;vertical-align:baseline;">-->
+		   <!--<option value="WORLD">All</option>-->
+		   <!--<option value="US">North America</option>-->
+		   <!--<option value="EU">Europe</option>-->
+		   <!--<option value="DE">Germany, Austria, Switzerland</option>-->
+		<!--</select>-->
+    <!--</h3>-->
         
         <%  
 			var groupedEvents = {Conference:[],Meetup:[],Webinar:[],Training:[]};
@@ -37,17 +29,35 @@
 				groupedEvents[type].push(event);
 			}
 	        %>
-            <div class="thumbnails events row">
 			<% 	for (type in groupedEvents) { %>
-				<div class="span3">
-			    <h3 class="center"><%= type %></h3>
-		        <% groupedEvents[type].forEach(function(event) { %>
-	               <% include ../partials/_event %>
+
+                <br/>
+			    <h2><%= type %></h2>
+                <table class="events">
+                    <tr>
+                        <th>Title</th>
+                        <th>Location</th>
+                        <th>Start</th>
+                        <!--<th>Presenter</th>-->
+                        <th></th>
+                    </tr>
+                    <% groupedEvents[type].forEach(function(event) { %>
+                    <tr>
+                        <td title="<%-: event['Description'] | truncate_words: 30 %>"><%- event['Title'] %></td>
+                        <td><a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['Location'] %></a></td>
+                        <td><%= event['Start'] %> <a class="link" style="left: 1em;" href="/api/event.ics?title=<%- encodeURIComponent(event['Title']) %>" target="_blank"><i class="icon-calendar"></i></a></td>
+                        <% if (event['Presenter']) { %>
+                        <td>
+                        <a target='_blank' href="http://twitter.com/<%= event['Twitter'] %>">
+                            <%= event['Presenter'] %>
+                        </a>
+                        </td>
+                        <% } %>
+                        <td><a href="<%= event['Url'] %>" target="_blank">Register</a></td>
+                    </tr>
 			    <% }); %>
-			  </div>
+                </table>
 			<% } %>
-			  </div>
-    </div>
 </div>
 
 <script type="text/javascript">
