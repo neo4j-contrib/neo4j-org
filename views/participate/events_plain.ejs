@@ -1,0 +1,22 @@
+<table class="events">
+    <tr>
+        <th style="width:40%">Title</th>
+        <th style="width:40%">Location</th>
+        <th style="width:15%">Date</th>
+        <!--<th>Presenter</th>-->
+        <th style="width:5%"></th>
+    </tr>
+    <%
+console.log(requestedType);
+for (var i=0;i<events.length;i++) {
+    var event=events[i];
+    if (!event) continue;
+    var type=event.Type;
+    if (!requestedType || requestedType == "Conference" || type == requestedType) {
+%>
+        <% include event_table %>
+<%
+    }
+}
+%>
+</table>

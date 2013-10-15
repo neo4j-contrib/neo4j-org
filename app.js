@@ -259,6 +259,9 @@ route_get('/participate/events/tutorials_DE', forward("/participate/events/train
 
 route_get('/participate/events/tutorials', forward("/participate/events/trainings"));
 route_get('/participate/events_test', routes.events);
+route_get('/participate/events_plain', function(req, res){
+    res.render('participate/events_plain', { requestedType:req.query["type"]});
+});
 route_get('/trainings', forward("/participate/events/trainings"));
 route_get('/tutorials', forward("/participate/events/trainings"));
 route_get('/learn/events', forward("/events"));
