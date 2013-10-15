@@ -1745,11 +1745,14 @@ a.vote i {
     margin-right: -0.8em;
 }
 
+.caption .table-download {
+    width: 20em;
+}
 
 .table-download th, .table-download td {
   text-align: center;
   vertical-align: middle;
-  height: 2em;
+  height: 2em;;
 }
 table th {
     font-size: larger;

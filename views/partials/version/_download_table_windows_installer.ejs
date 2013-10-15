@@ -8,7 +8,6 @@ distribution</a>.
 <table class="table-download">
     <thead>
     <tr>
-        <th>Version</th>
         <th>Linux/Mac</th>
         <th>Windows</th>
     </tr>
@@ -24,19 +23,20 @@ distribution</a>.
     Object.keys(editions).forEach(function(edition) {
     %>
     <tr>
-        <td><div title ='<%= editions[edition]%>'><%=: edition | capitalize %></div></td>
         <%
         Object.keys(platforms).forEach(function(platform) {
         %>
            <% if(platform == 'windows' && edition=='community') { %>
-                   <td>
+                   <td style="text-align: center;vertical-align: bottom">
+                       <strong><%=: edition | capitalize %></strong><br/>
                        <a title ='Windows installer x64 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x64'>64</a> /
                        <a title ='Windows installer x32 for Neo4j <%= item.version %>'  href='/download_thanks?edition=community&amp;release=<%= item.version %>&amp;platform=windows&amp;packaging=exe&amp;architecture=x32'>32</a> bit
                    </td>
            <%} else {%>                
-            <td style="text-align: center">
+            <td style="text-align: center;vertical-align: bottom">
                 <a  title="<%= editions[edition]%>"
                     href="<%= edition=='community' ? '/download_thanks':'http://info.neotechnology.com/download-Neo4j.html'%>?edition=<%= edition %>&amp;release=<%= item.version %>&amp;platform=<%= platform %>">
+                <strong><%=: edition | capitalize %></strong><br/>
                 <i class="icon-download-alt"></i></a>
             </td>
            <%}%>                

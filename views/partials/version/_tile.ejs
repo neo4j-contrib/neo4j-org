@@ -1,9 +1,14 @@
 <div class="item version">
     <h3 id="<%= item.key || key %>"><%= item.title %></h3>
-    <div>
+    <div style="height: 2.5em;">
         <p class="introText"><%- item.previewText || item.introText || item.summary %></p>
     </div>
-    <% include _download_table %> 
+
+    <% if (item.stability=="milestone" || item.version.indexOf("1.9") > -1 ) { %>
+        <% include _download_table_windows_installer %>
+    <% } else { %>
+        <% include _download_table %>
+    <% } %>
     <% if (item.stability=="stable") { %>
     <a class="notes" href="/release-notes#<%= item.version %>">Release Notes &raquo;</a>
     <% } %>
