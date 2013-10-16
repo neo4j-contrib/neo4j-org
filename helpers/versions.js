@@ -9,13 +9,13 @@ exports.load = function (app) {
         neo4j:{
             version:"2.0.0.M06", date:"Oct 14, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/10/neo4j-200m06-released-new-web-browser.html"
         }, neo4jGA:{
-            version:"1.9.3", date:"Aug 30, 2013", summary:"General Availability", readme:"http://blog.neo4j.org/2013/08/neo4j-193-now-available.html"
+            version:"1.9.4", date:"Sep 25, 2013", summary:"General Availability", readme:"http://blog.neo4j.org/2013/09/installer-check-desktop-launcher-check.html"
         }, /*neo4jP:{
             version:"2.0.0-M03", date:"May 28, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html"
         },*/ neo4jS:{
             version:"2.0-SNAPSHOT",
             date:"2013",
-            summary:"Unstable Snapshot, for resolution issue verification"
+            summary:"Unstable Snapshot, for issue resolution verification"
         }
     });
 

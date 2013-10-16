@@ -234,8 +234,29 @@ function lightbox(id, url) {
         iframe.removeAttr("src");
     });
 }
-
-
+function download_button_function(version) {
+    var packaging = "zip";
+    var edition="community";
+    var architecture = "32";
+    var userAgent = navigator.userAgent.toUpperCase();
+    var testStrings = ["X86_64", "X86-64", "WIN64", "X64;", "AMD64", "WOW64", "X64_64"];
+    for (var i=0;i<testStrings.length;i++) {
+        if (userAgent.indexOf(testStrings[i])!=-1) architecture="64";
+    }
+    var browserPlatform = navigator.platform.toUpperCase();
+    var os=browserPlatform.indexOf("WIN")!=-1 ? "Windows" : browserPlatform.indexOf("MAC")!=-1 ? "Mac" : "Unix";
+    var platform;
+    if (os == "Windows") {
+        platform = "windows";
+        packaging = "exe";
+        os = "Windows "+ architecture + "bit";
+    } else {
+        platform = "unix";
+    }
+    var link = $("#download_link");
+    link.attr("href","/download_thanks?edition="+edition+"&release="+version+"&platform="+(platform||"unix")+"&packaging="+packaging+"&architecture=x"+architecture);
+    link.find("[name=caption]").text("Neo4j "+version+" "+edition+" edition for "+os);
+}
 
 // Avoid `console` errors in browsers that lack a console.
 (function() {

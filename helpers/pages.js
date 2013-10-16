@@ -133,12 +133,33 @@ exports.pages = {
     download: {
         path: "/download",
         title: "Download and Install Neo4j",
-        introText: "Your Neo4j installation is just one click away. Get the Community Edition for your side-project.<br/>" +
-            "Use our Enterprise bundles for your production setup. <a href='/learn/licensing'>More details on licensing and bundled offerings</a>.",
+//        introText: "Your Neo4j installation is just one click away. Get the Community Edition for your side-project.<br/>" +
+//            "Use our Enterprise bundles for your production setup. <a href='/learn/licensing'>More details on licensing and bundled offerings</a>.",
         content: ""// render.include("download/installation")
         ,
         featured: [
-            content.install.releases
+            {
+                type: "include",
+                path: "partials/version/_download_community"
+            },
+            {
+                    type: "article",
+                    title: "Neo4j Enterprise Bundles",
+                    introText: "You are planning to use Neo4j for real? Then you should go with a production ready Enterprise bundle from the outset.",
+                    src: asset("img/still/neo4j_bundles.png"),
+                    url: "http://www.neotechnology.com/price-list/",
+                    path: "http://www.neotechnology.com/price-list/",
+                    actionText: "Neo4j Editions",
+                    content: "<p>Neo4j is proven, commercial software. Used in production since 2003, powering applications \
+                    globally for <a href='http://www.neotechnology.com/customers'>hundreds of customers</a>, Neo4j can also make the difference for your company.</p>\
+                    <p>By applying the powerful property graph model and fast graph search to your data you can make well informed and faster decisions on an\
+                    ever more demanding market.</p>\
+                    <p><strong>Neo4j, Enterprise Edition</strong> is an Open-Source, high-performance, NoSQL graph database with fully transactional operations. \
+                    It offers production capabilities, like a High Performance Cache, Live Backup, High Availability Clustering, and Advanced Monitoring\
+                    </p>\
+                    <p>The Enterprise edition is available in different <a href='http://www.neotechnology.com/price-list/'>bundles tailored to your needs</a>. From a free personal bundle for individual usage, a startup and small business package to a comprehensive offering for medium and large enterprises.</p>"
+            }
+//          ,  content.install.releases
             //content.videos.installing_neo4j,
             // content.install.milestone
             //,content.install.stable
