@@ -7,7 +7,7 @@ exports.load = function (app) {
 
     locals({
         neo4j:{
-            version:"2.0.0.M06", date:"Oct 14, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/10/neo4j-200m06-released-new-web-browser.html"
+            version:"2.0.0.M06", date:"Oct 14, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/10/neo4j-200-m06-introducing-neo4js-browser.html"
         }, neo4jGA:{
             version:"1.9.4", date:"Sep 25, 2013", summary:"General Availability", readme:"http://blog.neo4j.org/2013/09/installer-check-desktop-launcher-check.html"
         }, /*neo4jP:{
