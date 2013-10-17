@@ -1,5 +1,5 @@
-//var online_course="ue6dqk";
-var online_course="dbld7j";
+var online_course="ue6dqk";
+//var online_course="dbld7j";
 //var apiUrl = "https://stack.versal.com/api2";
 var apiUrl = "http://stack.versal.com/api2";
 
