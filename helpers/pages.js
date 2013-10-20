@@ -657,7 +657,7 @@ exports.pages = {
         introText: "Friends of Neo4j speak many languages, and work in many frameworks.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
         featured: null,
-        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp" ,"neo4jclient", "py2neo", "node_neo4j", "neocons", "neo4j_rest_client","anorm_cypher","cyphernet", "neo4j_js","node_neo4j_embedded",content.drivers.borneo, "neo4j_python", "gremlin", content.drivers.bulbflow, "keymaker", "neoid", "neo4django",  "neo4p", "scala", "grails", "haskell", "datanucleus", "neo4j_go", "kundera", "neomodel"]
+        related: ["neo4j_rest", "spring_data_neo4j", "neo4j_java", "neo4j_rb", "neography", "neo4jphp" ,"neo4jclient", "py2neo", "node_neo4j", "neocons", "neo4j_rest_client","anorm_cypher","cyphernet", "neo4j_js","node_neo4j_embedded",content.drivers.borneo, "neo4j_python", "gremlin", content.drivers.bulbflow, "keymaker", "neoid", "neo4django",  "neo4p", "scala", "grails", "haskell", "datanucleus", "neoism","neo4j_go", "kundera", "neomodel"]
     },
     tools: {
         path: "/develop/tools",

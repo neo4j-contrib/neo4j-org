@@ -1651,6 +1651,15 @@ exports.content = {
             name: "DataNucleus Neo4j Plugin",
             text: "datanucleus-neo4j provides persistence of Java objects to Neo4j. It builds on top of the basic persistence provided by datanucleus-core."
         },
+        neoism: {
+             type: "driver",
+             url: "https://github.com/jmcvetta/neoism",
+             logo: asset("img/languages/neoism.png"),
+             authors: ["Jason McVetta"],
+             tags: ["go", "rest"],
+             name: "Neoism",
+             text: "Neoism is a Go client library providing access to the Neo4j graph database via its REST API."
+        },
         neo4j_go: {
             type: "driver",
             url: "https://github.com/davemeehan/Neo4j-GO",
