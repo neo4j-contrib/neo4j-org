@@ -171,11 +171,15 @@ $(document).ready(function(){
         function showCourse(sessionId, email) {
             $(".course_box").hide();
             var player = $("#online_course_player");
-            player.html('').show();
+            player.show();
             var origin = apiUrl.split('/').slice(0, -1).join('/');
             var script = $("<script>").attr("type","text/javascript").attr("src",origin + "/player2/scripts/versal.js")
                 .attr('data-sid',sessionId).attr('data-course',online_course).attr('data-api',apiUrl);
+
             player[0].appendChild(script[0]); // jquery puts script at top of the page dom
+            setTimeout(function() {
+               player.find('.course').hide();
+            },5000);
         }
         var email=$(this).find("input[name=email]").val();
         if (!email) return false;

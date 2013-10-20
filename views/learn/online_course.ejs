@@ -14,7 +14,7 @@
         <h4>Login</h4>
         <blockquote>
             <form class="course_form" id="course_login" method="post">
-                <p>I am already registered as <input size="20" name="email" type="email" required="required" placeholder="email address">
+                <p>I am already registered as <input size="35" name="email" type="email" required="required" placeholder="email address">
             and want <button name="login" class="btn-action">to continue</button> the course.</p>
             <div class="endquote"></div>
             </form>
@@ -23,7 +23,7 @@
         <blockquote>
             <form class="course_form" id="course_signup" method="post">
                 <p>I, <input name="name" type="text" placeholder="full name" size="20">
-                    want to sign up for the Neo4j online course with my <input name="email" type="email" required="required" placeholder="email address" size="20">.</p>
+                    want to sign up for the Neo4j online course with my <input name="email" type="email" required="required" placeholder="email address" size="35">.</p>
                 <p>I work at <input name="company" type="text" placeholder="company" size="10"> in
                     <select name="country"><option value="">Country</option>
                         <optgroup label="North America">
@@ -139,7 +139,15 @@
         </div>
     </div>
 
-    <div id='online_course_player' style='width:100%;height: 100%;'>
+    <div id='online_course_player' style='width:100%;height:100%;'>
+        <div class="featured mainElement course" b>
+            <div class="slide article">
+            <h2>Welcome to the Neo4j Course</h2>
+            <p>Welcome to the Neo4j online course. You can always pause the course and continue by just using your email address.<br/>
+            The course is loading now and you can continue as soon as it finishes.</p>
+            </div>
+        </div>
+        <br/>
     </div>
 </div>
 <% include ../foot %>
