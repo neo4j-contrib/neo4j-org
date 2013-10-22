@@ -103,8 +103,10 @@ function mergeEvents(events,items) {
 	var urls=events.map(function(e) {return e['Url'];});
     items.forEach(function (event) {
         var idx = urls.indexOf(event['Url']);
+        console.log(event['Url'], "found",idx,event['Title']);
         if (idx == -1) events.push(event);
-        else events[idx] = event;
+// TODO for now, uncomment when event spreadsheet is more consistent
+//        else events[idx] = event;
     });
     var result = events.sort(function (e1, e2) {
         return e1.Date.getTime() - e2.Date.getTime();
@@ -222,7 +224,7 @@ exports.init = function (app, interval) {
                     if (type == "Webinar") return;
                     ["US","EU","DE"].forEach(function(area) {
                         var events = eventsPerType.filter(function(event) { 
-                            console.log(event.Area,event.title);
+//                            console.log(event.Area,event.title);
                             return event.Area == area;
                         });
                         var p = app.locals.pages[pageName+"_"+area];

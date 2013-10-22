@@ -104,7 +104,7 @@ exports.loadAllVideos = function(pages, content, nr_featured) {
             }
             content.videos[video.id.toString()] = video;
             content.videos[video.title] = video;
-            console.log(video.id,video.category,video.title,video.tags);
+//            console.log(video.id,video.category,video.title,video.tags);
         })
     }
 
