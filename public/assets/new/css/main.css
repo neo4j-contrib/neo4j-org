@@ -41,6 +41,37 @@ blockquote .course_form .endquote {
     height: 1em;
 }
 
+.course-modal {
+  position: fixed;
+  width: 400px;
+  padding: 1em;
+  top: 20%;
+  display: none;
+  background: white;
+  border-radius: 5px;
+  border: 4px solid black;
+}
+
+.course-modal .close-modal {
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#online_course_player {
+  width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  min-height: 800px;
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  #online_course_player {
+    width: 100%;
+  }
+}
+
 #online_course_player iframe {
     height: 100% !important;
     width: 100% !important;
@@ -790,6 +821,13 @@ ul.hor li {
     width: 60em;
 }
 
+.course_box {
+  width: 62em;
+  position: relative;
+  margin: 0 auto;
+  padding-bottom: 1em;
+}
+
 .mainpage {
     width: 62em;
     position: relative;
@@ -953,7 +991,7 @@ ul.hor li {
     left: 1em;
 */
     padding: 1em;
-    margin: 1em 0 0 0;
+    margin: 1em auto;
     box-shadow: 0px 0px 1em #e5e5e5;
     -webkit-box-shadow: 0px 0px 1em #e5e5e5;
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
