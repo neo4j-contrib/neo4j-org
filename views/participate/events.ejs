@@ -18,27 +18,29 @@
 		   <!--<option value="DE">Germany, Austria, Switzerland</option>-->
 		<!--</select>-->
     <!--</h3>-->
-        
-        <%  
+        <%
+            var _events = (requestedSource == "calendar") ? events : events2;
+
 			var groupedEvents = {Conference:[],Meetup:[],Webinar:[],Training:[]};
-			for (var i=0;i<events.length;i++) {
-			    var event=events[i];
+			for (var i=0;i<_events.length;i++) {
+			    var event=_events[i];
 			    if (!event) continue;
 			    var type=event.Type;
 			    if (!groupedEvents[type]) { type="Conference"; event.Type=type;}
 				groupedEvents[type].push(event);
 			}
 	        %>
-			<% 	for (type in groupedEvents) { %>
-
-                <br/>
+			<% 	for (type in groupedEvents) {
+                if (requestedType && requestedType != type) continue;
+            %>
+            <br/>
 			    <h2><%= type %></h2>
                 <table class="events">
                     <tr>
                         <th style="width:40%">Title</th>
                         <th style="width:40%">Location</th>
                         <th style="width:15%">Date</th>
-                        <!--<th>Presenter</th>-->
+                        <th>Presenter</th>
                         <th style="width:5%"></th>
                     </tr>
                     <% groupedEvents[type].forEach(function(event) { %>

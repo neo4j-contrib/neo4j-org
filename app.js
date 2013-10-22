@@ -258,9 +258,11 @@ route_get('/participate/events/tutorials_US', forward("/participate/events/train
 route_get('/participate/events/tutorials_DE', forward("/participate/events/trainings_DE"));
 
 route_get('/participate/events/tutorials', forward("/participate/events/trainings"));
-route_get('/participate/events_test', routes.events);
+route_get('/participate/events_test',    function(req, res){
+    res.render('participate/events', { title: "Neo4j Events", requestedType:req.query["type"],requestedSource:req.query["source"]||"calendar" });
+});
 route_get('/participate/events_plain', function(req, res){
-    res.render('participate/events_plain', { requestedType:req.query["type"]});
+    res.render('participate/events_plain', { title: "Neo4j Events", requestedType:req.query["type"],requestedSource:req.query["source"]||"calendar"});
 });
 route_get('/trainings', forward("/participate/events/trainings"));
 route_get('/tutorials', forward("/participate/events/trainings"));

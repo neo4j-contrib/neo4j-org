@@ -143,6 +143,7 @@ function parseEvents(cells, fun, filter) {
             item[header[colNo].value] = row[colNo].value
         }
         if (new Date(item.Start) >= now && item.Created && item.Created.length > 0 && (!filter || filter(item))) {
+            item.SourceTitle = item['Title'];
             item.Title = wrap(item['Type'], " - ") + item['Title'] + wrap(" - ", item['City']);
             items.push(item);
         }
@@ -205,6 +206,7 @@ exports.init = function (app, interval) {
             console.log("events", app.locals.events.length);
 
             eventsFromSpreadSheet(function (items) {
+                app.locals.events2 = items;
                 app.locals.events = mergeEvents(app.locals.events, items);
                 var eventPages = {
                     Meetup: { events: [], page: "meetups"}, 

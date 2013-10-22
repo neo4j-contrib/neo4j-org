@@ -7,9 +7,10 @@
         <th style="width:5%"></th>
     </tr>
     <%
-console.log(requestedType);
-for (var i=0;i<events.length;i++) {
-    var event=events[i];
+var _events = (requestedSource == "calendar") ? events : events2;
+
+for (var i=0;i<_events.length;i++) {
+    var event=_events[i];
     if (!event) continue;
     var type=event.Type;
     if (!requestedType || requestedType == "Conference" || type == requestedType) {

@@ -1,13 +1,17 @@
     <tr>
-        <td title="<%-: event['Description'] | truncate_words: 30 %>"><%- event['Title'] %></td>
-        <td><a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['Location'] %></a></td>
-        <td  style=";text-align: right;" title="<%= event['Start'] %>"><%= event['Date'].toDateString() %> <a class="link" style="left: 1em;" href="/api/event.ics?title=<%- encodeURIComponent(event['Title']) %>" target="_blank"><i class="icon-calendar"></i></a></td>
-        <% if (event['Presenter']) { %>
+        <td title="<%-: event['Description'] | truncate_words: 30 %>"><%- event['SourceTitle'] || event['Title'] %></td>
         <td>
-            <a target='_blank' href="http://twitter.com/<%= event['Twitter'] %>">
-                <%= event['Presenter'] %>
-            </a>
+            <a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['City'] || event['Location'] %></a>
         </td>
+        <td  style=";text-align: right;" title="<%= event['Start'] %>"><%= event['Date'].toDateString() %> <a class="link" style="left: 1em;" href="/api/event.ics?title=<%- encodeURIComponent(event['Title']) %>" target="_blank"><i class="icon-calendar"></i></a></td>
+        <td>
+        <% if (event['Presenter']) { %>
+            <% if (event['Twitter']) { %>
+                <a target='_blank' href="http://twitter.com/<%= event['Twitter'] %>"> <%= event['Presenter'] %> </a>
+            <% } else { %>
+                <%= event['Presenter'] %>
+            <% } %>
         <% } %>
+        </td>
         <td style=";text-align: right;"><a href="<%= event['Url'] %>" target="_blank">Register</a></td>
     </tr>

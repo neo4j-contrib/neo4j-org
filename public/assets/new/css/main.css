@@ -1756,8 +1756,8 @@ a.vote i {
 table.events  tbody tr:nth-child(odd) {
    background-color: #ccc;
 }
-table.events  tbody tr td {
-   padding: 0.1em;
+table.events tbody tr, table.events tbody td {
+   padding: 0.2em;
 }
 
 .table-download th, .table-download td {
