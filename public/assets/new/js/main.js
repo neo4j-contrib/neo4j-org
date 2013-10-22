@@ -238,7 +238,7 @@ function lightbox(id, url) {
         iframe.removeAttr("src");
     });
 }
-function download_button_function(version) {
+function download_button_function(version, link_id) {
     var packaging = "zip";
     var edition="community";
     var architecture = "32";
@@ -257,7 +257,7 @@ function download_button_function(version) {
     } else {
         platform = "unix";
     }
-    var link = $("#download_link");
+    var link = $("#"+link_id);
     link.attr("href","/download_thanks?edition="+edition+"&release="+version+"&platform="+(platform||"unix")+"&packaging="+packaging+"&architecture=x"+architecture);
     link.find("[name=caption]").text("Neo4j "+version+" "+edition+" edition for "+os);
 }

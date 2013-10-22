@@ -11,7 +11,11 @@ exports.pages = {
        featured: [
 //           content.videos.strata,
            content.videos.ian_graphdb_neo4j,
-           content.install.download_button
+//           content.install.download_button
+           {
+               type: "include",
+               path: "partials/version/_download_button_milestone"
+           }
        ],
        related: [
            {
@@ -167,7 +171,7 @@ exports.pages = {
         related: [
             //content.videos.installing_neo4j,
             // content.install.milestone,
-            // content.install.stable,
+            content.install.stable,
             //"graphdatabase",
             //"develop",
             //"participate",
