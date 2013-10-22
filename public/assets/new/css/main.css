@@ -62,8 +62,8 @@ blockquote .course_form .endquote {
   width: 1200px;
   margin: 0 auto;
   height: 100%;
-  min-height: 800px;
   display: none;
+  position: relative;
 }
 
 @media screen and (max-width: 1200px) {
@@ -73,8 +73,8 @@ blockquote .course_form .endquote {
 }
 
 #online_course_player iframe {
-    height: 100% !important;
     width: 100% !important;
+    height: 100% !important;
 }
 .course_form input {
     background: transparent;
