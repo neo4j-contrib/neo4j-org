@@ -173,6 +173,9 @@ $(document).ready(function(){
             var player = $("#online_course_player");
 
             player.show();
+            player.height($(window).height() - 125);
+
+            $('.push').hide();
             
             /* course modal stuff */
             $('.course-modal').show();
@@ -183,7 +186,6 @@ $(document).ready(function(){
                   left: ($(window).width() - $('.course-modal').outerWidth())/2
             });
 
-
             $(window).resize(function(){
                 $('.course-modal').css({
                       left: ($(window).width() - $('.course-modal').outerWidth())
@@ -191,6 +193,8 @@ $(document).ready(function(){
                 $('.course-modal').css({
                       left: ($(window).width() - $('.course-modal').outerWidth())/2
                 });
+
+                player.height($(window).height() - 125);
             });
 
             $('.close-modal').on('click', function(e) {
@@ -200,13 +204,10 @@ $(document).ready(function(){
             $('#footer').hide();
             var origin = apiUrl.split('/').slice(0, -1).join('/');
             var script = $("<script>").attr("type","text/javascript").attr("src",origin + "/player2/scripts/versal.js")
-                .attr('data-sid',sessionId).attr('data-course',online_course).attr('data-api',apiUrl);
+                .attr('data-sid',sessionId).attr('data-course',online_course).attr('data-api',apiUrl).attr('data-whitelabel', "true");
 
             player[0].appendChild(script[0]); // jquery puts script at top of the page dom
-            $('iframe').height(50);
-            setTimeout(function() {
-               player.find('.course').fadeOut();
-            },5000);
+            
         }
         var email=$(this).find("input[name=email]").val();
         if (!email) return false;
