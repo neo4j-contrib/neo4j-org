@@ -155,6 +155,9 @@ function parseEvents(cells, fun, filter) {
         item.Date = new Date(item.Start);
 		item.Origin="Spreadsheet";
     }
+    items = items.sort(function (e1, e2) {
+        return e1.Date.getTime() - e2.Date.getTime();
+    });
     if (filter) fun(items.filter(filter));
     else fun(items)
 }
