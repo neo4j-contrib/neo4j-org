@@ -1,7 +1,11 @@
     <tr>
-        <td class="event_title" title="<%-: event['Description'] | truncate_words: 30 %>"><%- event['SourceTitle'] || event['Title'] %></td>
+        <td class="event_title" title="<%-: event['Description'] | truncate_words: 30 %>">
+            <a href="<%= event['Url'] %>" target="_blank">
+                <%- event['SourceTitle'] || event['Title'] %>
+            </a>
+        </td>
         <td>
-            <a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['City'] || event['Location'] %></a>
+            <a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['City'] || "Map" || event['Location'] %></a>
         </td>
         <td class="event_date"  style=";text-align: right;" title="<%= event['Start'] %>">
             <%= event['Date'].toDateString() %>

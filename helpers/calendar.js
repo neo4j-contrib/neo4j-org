@@ -109,8 +109,7 @@ function mergeEvents(events,items) {
         var idx = urls.indexOf(event['Url']);
         console.log(event['Url'], "found",idx,event['Title']);
         if (idx == -1) events.push(event);
-// TODO for now, uncomment when event spreadsheet is more consistent
-//        else events[idx] = event;
+        else events[idx] = event;
     });
     var result = events.sort(function (e1, e2) {
         return e1.Date.getTime() - e2.Date.getTime();
