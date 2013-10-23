@@ -31,6 +31,7 @@ function events(fun, filter) {
     var calendarUrl='http://www.google.com/calendar/feeds/neopersistence.com_3p7hh97rfcu76paib7l2dp4llo%40group.calendar.google.com/public/basic?orderby=starttime&sortorder=ascending&max-results=100&futureevents=true&hl=en';
     rssparser.parseURL(calendarUrl, { headers: {'Accept-Language':'en'}}, function(err, out){
         function event_prop(item,name,regexp,type) {
+            if (item[name]) return;
             var match = item.summary.match(regexp);
             item[name]=match == null ? '' : type || match[1];
         }
@@ -94,6 +95,9 @@ function events(fun, filter) {
 			item.Origin="Calendar";
             return item;
         });
+        items = items.sort(function (e1, e2) {
+            return e1.Date.getTime() - e2.Date.getTime();
+        });
         if (filter) fun(items.filter(filter));
         else fun(items)
     });
@@ -136,6 +140,7 @@ function parseEvents(cells, fun, filter) {
         var row = cells.cells[rowNo];
         if (!header) {
             header = row;
+            console.log(header)
             continue;
         }
         var item = {};
@@ -160,7 +165,7 @@ function eventsFromSpreadSheet(fun, filter) {
             console.log("Error retrieving spreadsheet ", err)
         }
         spreadsheet.worksheets[0].cells({
-            range:"R1C1:R100C26"
+            range:"R1C1:R100C28"
         }, function (err, cells) {
             if (err) {
                 console.log("Error retrieving spreadsheet ", err)

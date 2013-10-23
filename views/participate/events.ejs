@@ -37,11 +37,11 @@
 			    <h2><%= type %></h2>
                 <table class="events">
                     <tr>
-                        <th style="width:40%">Title</th>
-                        <th style="width:40%">Location</th>
-                        <th style="width:15%">Date</th>
-                        <th>Presenter</th>
-                        <th style="width:5%"></th>
+                        <th class="event_title"    style="width:40%"><%= type == "Training" ? "Course":""%> Title</th>
+                        <th class="event_location" style="width:40%">Location</th>
+                        <th class="event_date"     style="width:15%">Date</th>
+                        <th class="event_presenter" >Presenter</th>
+                        <th class="event_register" style="width:5%">Register</th>
                     </tr>
                     <% groupedEvents[type].forEach(function(event) { %>
                     <% include event_table %>

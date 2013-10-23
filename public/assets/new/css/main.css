@@ -1791,15 +1791,37 @@ a.vote i {
     width: 20em;
 }
 
+table.events {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 table.events  tbody tr:nth-child(odd) {
    background-color: #ccc;
 }
-table.events tbody tr, table.events tbody td {
+table.events th, table.events tbody td {
    padding: 0.2em;
 }
 
+table.events th {
+    /*text-align: left;*/
+}
+table.events th.event_title, table.events tbody td.event_title {
+    width: 30%;
+}
+table.events th.event_location, table.events tbody td.event_location {
+    width: 30%;
+}
+table.events th.event_date, table.events tbody td.event_date {
+    width: 30%;
+}
+table.events th.event_presenter, table.events tbody td.event_presenter {
+   display: none;
+}
+
 .table-download th, .table-download td {
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
   height: 2em;;
 }

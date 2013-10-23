@@ -31,7 +31,8 @@ exports.add_route = function(path,app) {
             var html=json['html'];
             if (!event) {
                 meetups[group]={html:html};
-                meetups[group]['img']=html.match(/"(https?:\/\/photos.+?(jpeg|jpg|png))"/)[1];
+                var match = html.match(/"(https?:\/\/photos.+?(jpeg|jpg|png))"/);
+                meetups[group]['img']=match ? match[1] : "http://assets.neo4j.org/img/events/neo4j_icon_meetup.png";
                 if (img) { res.redirect(meetups[group]['img']); return;}
             }
             res.send(200,html);
