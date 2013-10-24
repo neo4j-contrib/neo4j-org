@@ -144,12 +144,13 @@ ejs.filters.wrap = function (content, tag) {
 function dateFormat(d,time,tz) {
     var mthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     var dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    var timezones = { PT : -8, PST:-8, "PDT":-7, EST: -5, ET: -4,"EDT":-4 ,MT: -7, MST: -7, "MDT":-6, CT:-6,CST:-6, CDT:-5, CEST: +2, CET: 1,BST:1,AEST:1,IST:5.5}
+//    var timezones = { PT : -8, PST:-8, "PDT":-7, EST: -5, ET: -4,"EDT":-4 ,MT: -7, MST: -7, "MDT":-6, CT:-6,CST:-6, CDT:-5, CEST: +2, CET: 1,BST:1,AEST:1,IST:5.5}
     var zeroPad = function(number) {
         return ("0"+number).substr(-2,2);
     }
+    /*
+    var offset = 0;
     if (time && tz) {
-        var offset = 0;
         if (tz.match(/^GMT[+-]\d{1,2}$/)) {
             offset = parseFloat(tz.replace(/^(GMT[+-])(\d{1,2})$/,"$2"));
         } else
@@ -158,9 +159,9 @@ function dateFormat(d,time,tz) {
         } else if (timezones[tz]) {
             offset = timezones[tz];
         }
-console.log("offset",offset)
-        d=new Date(d.getTime()+offset*3600);
+        d=new Date(d.getTime()+offset*3600*1000);
     }
+*/
     return dayNames[d.getDay()]+" "+zeroPad(d.getDate())+" "+mthNames[d.getMonth()]+", "+ d.getFullYear() +
         (time ? (" "+ d.getHours()+":"+ zeroPad(d.getMinutes()) + (tz ? " "+tz:"")) : "");
 }

@@ -1,14 +1,21 @@
 <% include ../head %>
 <div class="mainpage">
+<%
+    var texts = {Training: {header: "Neo4j Training", text: "Become proficient with Neo4j by attending a training class close to you.  If you enjoy focused, hands-on learning with a Neo4j expert, our training classes are your best option.<br/>\
+    Don't see a class you want?  in a location you need?  Email us at <a href='mailto:training@neotechnology.com'>training@neotechnology.com</a>"}
+                };
+%>
 
-
-    <h1>Neo4j Events</h1>
+    <h1><%- (texts[requestedType]||{})['header'] || "Neo4j Events" %></h1>
     <div class="introText">
-    <p>Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j training near you.</p>
-    
-    <p>If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors,
-    talk to our engineers or discuss with our customers. There are many Neo4j Meetups, Trainings and Conferences happening everywhere and
-    at any time.</p>
+
+    <p><%- (texts[requestedType]||{})['text'] || "\
+        Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j training near you. <br/>\
+        If you want to learn more about Neo4j nothing beats a hands on experience. Listen to our community members and driver authors,\
+    talk to our engineers or discuss with our customers. There are many Neo4j Meetups, Trainings and Conferences happening everywhere and\
+    at any time.\
+        " %>
+    </p>
     </div>
     <!--<h3>Events for your region: -->
 		<!--<select id="region" style="width:10em;height:1.8em;vertical-align:baseline;">-->
@@ -34,7 +41,9 @@
                 if (requestedType && requestedType != type) continue;
             %>
             <br/>
-			    <h2><%= type %></h2>
+			    <% if (!requestedType) { %>
+                <h2><%= type %></h2>
+                <% } %>
                 <table class="events">
                     <tr>
                         <th class="event_title"    style="width:40%"><%= type == "Training" ? "Course":""%> Title</th>

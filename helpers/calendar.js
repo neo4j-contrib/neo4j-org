@@ -139,7 +139,6 @@ function parseEvents(cells, fun, filter) {
         var row = cells.cells[rowNo];
         if (!header) {
             header = row;
-            console.log(header)
             continue;
         }
         var item = {};
