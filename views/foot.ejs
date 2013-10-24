@@ -33,27 +33,10 @@
 
 </script>
 
-<!--marketo-->
+<script src="http://munchkin.marketo.net/munchkin.js" type="text/javascript"></script>
 <script type="text/javascript">
-
-    $.ajax({
-        url: document.location.protocol + '//munchkin.marketo.net/munchkin.js',
-        dataType: 'script',
-        cache: true,
-        success: function () {
-            try {
-                if (typeof Munchkin != "undefined") {
-                    var m = Munchkin.init('773-GON-065');
-                    if (m) {
-                        m.munchkinFunction("associateLead");
-                    }
-                }
-            } catch (e) {
-                // error accessing munchkin, go ahead
-            }
-        }
-    });
-
+    mktoMunchkin("773-GON-065");
+//    createTrackingCookie(forceCreate: true);
 </script>
 
 <!-- Google Code for Remarketing tag -->

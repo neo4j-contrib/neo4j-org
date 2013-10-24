@@ -68,6 +68,7 @@ $(document).ready(function() {
         var link = $(".downloadLink");
         link.attr("href",downloadLink).html("<i class='icon icon-download-alt'></i> "+displayLink).click(function() {
             logdata.action = "click";
+            mktoMunchkinFunction('visitWebPage', { url: 'neo4j.org/download', params: url_params });
             _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
             _kmq.push(['identify', marketo_id ||'' ]); // todo identify people
             _kmq.push(['record', 'neo4j-download', logdata]);
@@ -77,6 +78,7 @@ $(document).ready(function() {
             _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
             _kmq.push(['identify', marketo_id ||'']); // todo identify people
             _kmq.push(['record', 'neo4j-download', logdata]);
+            mktoMunchkinFunction('visitWebPage', { url: 'neo4j.org/download', params: url_params });
             window.location = downloadLink;
             log("download-auto",logdata);
         }
