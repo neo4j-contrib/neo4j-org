@@ -45,7 +45,7 @@ $(document).ready(function() {
         var url_params = "?edition=" + edition + "&version=" + release + "&distribution=" + packaging + "&dlid=" + marketo_idnum;
 
         var displayLink = "http://dist.neo4j.org/neo4j-" + edition + "-" + release + "-" + platform +"." + suffix;
-        var downloadLink = displayLink + url_params;
+        var downloadLink = displayLink; //  + url_params;
         if (!release.match("SNAPSHOT") && abTestToRedfox) {
             downloadLink = "http://download.neo4j.org/artifact" + url_params;
             displayLink = downloadLink.replace(/&dlid.+/,"");
@@ -58,8 +58,8 @@ $(document).ready(function() {
                 }   else {
                     displayLink = "http://dist.neo4j.org/neo4j-"+edition+"_"+platform+"_"+release.replace(/\./g,"_")+"."+packaging;
                 }
-                downloadLink = displayLink + url_params;
             }
+            downloadLink = displayLink; //  + url_params;
         }
         var logdata={release:release, platform: platform,edition:edition,link:downloadLink,architecture:architecture,packaging:packaging,marketo:marketo_id,method:method,action:"auto"};
         if (console && console.log) console.log("Using downloadlink",downloadLink,logdata);
