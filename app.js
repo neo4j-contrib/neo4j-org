@@ -301,7 +301,9 @@ route_get('/tutorials', forward("/participate/events/trainings"));
 route_get('/learn/events', forward("/events"));
 
 route_get('/download_thanks', routes.pages);
-route_get('/subscribe_thanks', routes.pages);
+route_get('/subscribe_thanks', function(req, res){
+    res.render('subscribe_thanks', { title: "Thanks"});
+});
 route_get('/participate/meetup_signup', routes.meetup_signup);
 route_get('/participate/meetups', forward("/participate/events/meetups"));
 
