@@ -33,7 +33,7 @@ exports.content = {
         },
         "milestone": {
             type: "version",
-            title: "Neo4j Milestone 2.0.0-M06",
+            title: "Neo4j Beta 2.0.0-M06",
             stability: "milestone",
             version: "2.0.0-M06",
             date: "Oct 14, 2013",
@@ -1433,6 +1433,15 @@ exports.content = {
             logo: asset("img/languages/rails.png"),
             name: "neo4j.rb",
             text: "Ruby on Rails? Try coasting along graph paths with Neo4j. Everything you know and love, wrapped with graph glory."
+        },
+        pacer: {
+            type: "driver",
+            tags: ["ruby", "jvm", "dsl"],
+            authors: [{name:"Darrick Wiebe",twiter:"darrickwiebe"}],
+            url: "https://github.com/pangloss/pacer",
+            logo: asset("img/languages/jruby-logo.png"),
+            name: "Pacer",
+            text: "Express yourself clearly and model your application in terms you understand with Pacer - a JRuby gem for building embedded Neo4j applications."
         },
         neo4j_core: {
             type: "driver",
