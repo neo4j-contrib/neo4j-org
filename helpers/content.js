@@ -37,7 +37,7 @@ exports.content = {
             stability: "milestone",
             version: "2.0.0-M06",
             date: "Oct 14, 2013",
-            introText: "Shiny new Web-UI, Windows Desktop",
+            introText: "Shiny new Neo4j Browser, Windows Launcher for Community Edition",
             path: "http://blog.neo4j.org/2013/10/neo4j-200-m06-introducing-neo4js-browser.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
@@ -886,22 +886,39 @@ exports.content = {
         licensing_guide: {
             type: "article",
             title: "Pragmatic licensing guide",
-            introText: "Understand which license you need and how Neo Technology can help you.<br/>Free community and personal editions, affordable startup package and comprehensive enterprise offering.",
+            introText: "Understand which license you need and how Neo Technology can help you.<br/>Free community and " +
+                "personal editions, affordable startup package and comprehensive offerings for medium businesses and large enterprises alike.",
             src: asset("img/still/neo4j_bundles.png"),
             url: "http://www.neotechnology.com/price-list/",
             path: "http://www.neotechnology.com/price-list/",
             actionText: "Neo4j Editions",
-            content: "<p>Neo4j is commercial software. Proven in production since 2003, powering applications from global collaborative websites to in-house experiments, Neo4j is used in diverse environments.</p>\
-    <p><a href='http://neotechnology.com' target='_blank'>Neo Technology</a> makes Neo4j available under a dual-license arrangement that is business friendly and open-source transparent: the Neo Technology \
-            Commercial License (NTCL), or the open-source (A)GPLv3. Neo Technology also takes care of <strong>professional Neo4j customer support</strong>, (OEM) license agreements, the Partner Network, and more.</p>\
+            content: "<p>Neo4j has been powering large-scale mission-critical production applications since 2003. Today it powers a wide diversity of applications: from small startups to global mission-critical systems.</p>\
+    <p>Neo4j is licensed under a dual-license arrangement: with a Community Edition licensed under the GPL, and an Enterprise Edition optimized for closed-source development. \
+            Enterprise Edition is licensed on a subscription basis for commercial use, or under the AGPL for open source projects contributing to the open source commons. \
+            In addition to a commercial license, commercial subscriptions also include professional support, certified releases, access to the Neo4j partner network, and \
+            of course <a href='http://www.neotechnology.com/price-list/'>Enterprise features</a>.</p>\
     <p>There are two main editions of Neo4j:</p>\
     <ul>\
     <li><b>Neo4j Community</b>, an Open-Source High Performance, fully ACID transactional graph database\
-    <li><b>Neo4j Enterprise</b> adds production capabilities - High Performance Cache, Online Backup, High Availability Clustering, and Advanced Monitoring\
+    <li><b>Neo4j Enterprise</b> adds production capabilities - High Performance Cache, Horizontal scalability with Neo4j Clustering, High-availability Clustering and online backups, Cache based sharding, and Advanced Monitoring\
     </ul>\
     <p>Commercial Licenses include the permission to integrate the enterprise edition in closed-source or production level software products, service and support by Neo Technology.<br/>\
        The Enterprise edition is available in different <a href='http://www.neotechnology.com/price-list/'>bundles tailored to your needs</a>. From a free personal bundle for individual usage, a startup and small business package to a comprehensive offering for medium and large enterprises.\
        </p>"
+        },
+        enterprise_features : {
+            type: "article",
+            title: "Enterprise Features",
+            introText: "Neo4j Enterprise Edition comes with features that allow for deployment in your mission critical business applications.",
+            src: asset("img/logo/neotechnology_small.png"),
+            path: "http://www.neotechnology.com/price-list/",
+            content: "<ol>\
+                <li><strong>High-Performance Cache</strong>. Queries can run up to 10x faster than the Community Edition under high query workloads and with large graphs</li>\
+                <li><strong>Horizontal scalability with Neo4j Clustering</strong> provides <a href='http://www.neotechnology.com/neo4j-scales-for-the-enterprise/'>predictable scalability</a>, by guaranteeing that every query runs in-instance, with maximum performance</li>\
+                <li><strong>High-availability and online backups</strong> safeguard your data so that your business can keep running under a wide range of scenarios</li>\
+                <li><strong>Cache-based sharding</strong> is a technique made possible by Neo4j’s clustering technology, which lets you shard your graph in memory without sharding your data on disk</li>\
+                <li><strong>Advanced monitoring</strong> provides operational metrics not available in the Community Edition, making it easier to operate your system and keep it running healthy</li>\
+                </ol>"
         },
         licensing_guide_which: {
             type: "article",
@@ -938,7 +955,7 @@ exports.content = {
             <h4>You are developing Open Source Software</h4>\
             \
             <p>We love open source development, so you are free to use all Neo4j components for your open source, \
-            public domain project under either the GPL (for Community edition) or the AGPL (for Advanced and Enterprise editions).</p>\
+            public domain project under either the GPL (for Community edition) or the AGPL (Enterprise edition, <a href='http://neotechnology.com/contactus/'>contact us</a>).</p>\
             "
         },
 
