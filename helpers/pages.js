@@ -158,11 +158,12 @@ exports.pages = {
                     Neo4j Enterprise Edition is designed for large-scale high-availability deployments. In production since 2003, today it powers applications globally for \
                     <a href='http://www.neotechnology.com/customers'>hundreds of commercial customers</a>, Neo4j can also make the difference for your company.</p>\
                     <p>By applying the powerful property graph model and fast graph search to your data you can make well informed and faster decisions \
-                    in an increasingly demanding market..</p>\
+                    in an increasingly demanding market.</p>\
                     <p><strong>Neo4j, Enterprise Edition</strong> is an Open-Source, <a href='http://www.neotechnology.com/neo4j-scales-for-the-enterprise/'>high-performance</a> graph database with fully transactional operations. \
                     It offers production capabilities, like a High Performance Cache, Live Backup, High Availability Clustering, and Advanced Monitoring\
                     </p>\
-                    <p>The Enterprise edition is available in different <a href='http://www.neotechnology.com/price-list/'>subscriptions tailored to your needs</a>. From a free personal subscription for individual usage, a startup and small business package to a comprehensive offering for medium and large enterprises.</p>"
+                    <p>The Enterprise edition is available in different <a href='http://www.neotechnology.com/price-list/'>subscriptions tailored to your needs</a>. \
+                        From a free personal subscription for individual usage, a startup and small business package to a comprehensive offering for medium and large enterprises.</p>"
             }
 //          ,  content.install.releases
             //content.videos.installing_neo4j,
