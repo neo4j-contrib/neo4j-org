@@ -81,7 +81,7 @@ exports.pages = {
                 title: "@Neo4j Tweets",
                 path: "/participate/twitter"
             },
-           "contributors", content.links.jobs, content.links.team, "channels", "graphistas_map", "beer", content.projects.neo4j_org
+           "contributors", content.links.jobs, content.links.team, "channels", "graphistas_map", "beer","music", content.projects.neo4j_org
         ]
     },
     training: {
@@ -1845,6 +1845,51 @@ exports.pages = {
         related: ["popchartlabs_beer", "trycypher_beer", "beer_rik_screencast", "frostymug"],
         actionText: "Grab a beer"
 
+    },
+    music: {
+        path: "/misc/music",
+        title: "Everyone loves music... And graphs",
+        introText: "Music is everywhere, and there is rich set of connections between artists, songs, albums, labels, publishers, users, ratings, stations, etc.",
+        thumbnail: asset("img/still/LazyIcon.png"),
+        content: "<p>Everyone loves to listen to music and many people enjoy creating music. There is a rich ecosystem and community around music data which is intricately connected and fits perfectly into a graph database.</p>",
+        featured: [
+            {
+                type:"link",
+                title: "MusicBrainz Data Import",
+                introText: "Paul wanted to import the MusicBrainz database which lives in a postgres instance into Neo4j, so he wrote some python code to export the data \
+                to CSV and used the CSV-BatchImporter to import the data. Peter helped with modeling and the import and now the whole MusicBrainz dataset is available as \
+                Neo4j Database.",
+                author: ["peterneubauer",{name:"Paul Tremberth",twitter:"skywy"}],
+                path: "https://github.com/redapple/sql2graph/blob/master/MUSICBRAINZ_README.md",
+                img: asset("img/still/musicbrainz.png")
+            },
+            {
+                type:"link",
+                title: "Last.fm data import and querying",
+                introText: "<a href='http://twitter.com/rvanbruggen'>Rik van Bruggen</a> is an avid last.fm user and wanted to look into recommendations on top of his listening habits. \
+                    He imported the last.fm scrobbles and other data in several ways to build different Neo4j databases to work with. Enjoy his entertaining and thorough blog posts.",
+                content: "<ul>\
+                <li><a href='http://blog.bruggen.com/2013/10/same-csv-files-different-neo4j-database.html'>Revisiting my Last.fm model</a></li>\
+                <li><a href='http://blog.bruggen.com/2013/10/importing-my-lastfm-dataset-neo4j-way.html'>Importing my Last.fm dataset - the neo4j way</a></li>\
+                <li><a href='http://blog.bruggen.com/2013/07/many-of-you-know-that-i-am-big-fan-of.html'>Fun with Music, Neo4j and Talend</a></li>\
+                </ul>",
+                author: {name:"Rik van Bruggen",twitter:"rvanbruggen"},
+                path: "http://blog.bruggen.com/search?q=last.fm",
+                img: "http://2.bp.blogspot.com/-uNPggNP9A3c/Ud7HDhwpkbI/AAAAAAAAAK4/AZd25Q0h-j4/s320/Screen+Shot+2013-07-11+at+16.52.59.png",
+                thumbnail: "http://cdn.last.fm/flatness/badges/lastfm_red.gif"
+            }
+        ],
+        related: [
+            {
+                type:"link",
+                title: "Neo4j LazyScales",
+                introText: "LazyScales is an experiment with musical scales, (guitar) fretboards and Neo4j, the graph database. LazyScales is all about basing everything on intervals, and representing these as relationships in the database. Testing how this line of thought works out in practice, and also, if it can be leveraged for scale and chord analysis.",
+                author: {name:"Anders Nawroth",twitter:"nawroth"},
+                path: "https://github.com/nawroth/lazyscales#lazyscales",
+                thumbnail: asset("img/still/LazyIcon.png")
+//                img: "https://raw.github.com/nawroth/lazyscales/master/docs/images/gui.png"
+            }],
+        actionText: "Go play some music"
     },
     import: {
         path: "/develop/import",
