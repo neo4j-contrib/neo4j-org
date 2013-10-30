@@ -1239,7 +1239,6 @@ exports.pages = {
             {
                 title: "FAQ",
                 introText: "There are FAQ's in several places:<ul>\
-                    <li><a href='http://docs.neo4j.org/chunked/milestone/questions.html' target='_blank'>FAQ in the Manual</a></li>\
                     <li><a href='http://github.com/simpsonjulian/neo4j-faq/blob/master/README.md#neo4j-faq' target='_blank'>Julian Simpson</a></li>\
                     <li><a href='http://stackoverflow.com/questions/tagged/neo4j?sort=faq&pagesize=50' target='_blank'>frequent questions on StackOverflow</a></li>\
                     </ul>"
@@ -1990,7 +1989,7 @@ exports.pages = {
             {
                 title: "Hello, Subgraph - Alice & Bob",
                 type: "article",
-                path: "http://nigelsmall.com/geoff/hello-subgraph",
+                path: "http://nigelsmall.com/geoff",
                 introText: "Subgraphs are the primary structures used within Geoff to hold collections of data. These are simply standalone pieces of graph data consisting of nodes and relationships. The following diagram shows a subgraph which illustrates a relationship between the ubiquitous Alice and Bob",
                 content: "<pre>\
 (A) {\"name\": \"Alice\"}\n\
@@ -2009,7 +2008,7 @@ exports.pages = {
             {
                 type: "link",
                 introText: "XML data can easily be converted into a graph. Simply load paste the XML data into the left-hand side, convert into both Geoff and a Cypher CREATE statement, then view the results in the Neo4j console.",
-                path: "http://nigelsmall.com/xml2graph",
+                path: "http://api.nigelsmall.com/xml-cypher",
                 title: "XML to Graph converter"
             }
         ]

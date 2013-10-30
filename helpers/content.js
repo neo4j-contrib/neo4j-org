@@ -1507,8 +1507,7 @@ exports.content = {
             logo: asset("img/languages/py2neo.png"),
             name: "py2neo",
             text: "Py2neo is a simple and pragmatic Python library that provides access to the popular graph database Neo4j via its RESTful web service interface.",
-            source: "https://github.com/nigelsmall/py2neo",
-            docs: "http://nigelsmall.com/_api/py2neo/"
+            source: "https://github.com/nigelsmall/py2neo"
         },
         neomodel: {
             type: "driver",
@@ -1539,7 +1538,7 @@ exports.content = {
             url: "http://www.grails.org/plugin/neo4j",
             site: "http://www.grails.org/plugin/neo4j",
             docs: "http://springsource.github.com/grails-data-mapping/neo4j/manual/index.html",
-            source: "https://github.com/SpringSource/grails-data-mapping/tree/master/grails-datastore-gorm-neo4j",
+            source: "https://github.com/grails/grails-data-mapping/tree/master/grails-datastore-gorm-neo4j",
             logo: asset("img/languages/grails.png"),
             name: "Neo4j Grails Plugin",
             text: "A plugin that integrates the Neo4j graph database into Grails, providing a GORM API onto it"
