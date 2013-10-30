@@ -4,10 +4,10 @@
                 <%- event['SourceTitle'] || event['Title'] %>
             </a>
         </td>
-        <td>
+        <td class="event_location">
             <a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['City'] || "Map" || event['Location'] %></a>
         </td>
-        <td class="event_date"  style=";text-align: right;" title="<%= event['Start'] %>">
+        <td class="event_date" title="<%= event['Start'] %>">
             <%= event['Date'].toDateString() %>
         <a class="link" style="left: 1em;" href="/api/event.ics?title=<%- encodeURIComponent(event['Title']) %>" target="_blank"><i class="icon-calendar"></i></a></td>
         <td class="event_presenter">
