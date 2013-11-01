@@ -112,7 +112,7 @@ function findItem(key) {
     if (data.trainings[key]) return addType(data.trainings[key], "training");
     if (content.content.apps[key]) return addType(content.content.apps[key], "app");
     if (content.content.links[key]) return addType(content.content.drivers[key], "link");
-    if (content.content.videos[key]) return addType(content.content.drivers[key], "video");
+    if (content.content.videos[key]) return addType(content.content.videos[key], "video");
     return key;
 }
 app.locals.findItem = findItem;

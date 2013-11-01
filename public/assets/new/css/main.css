@@ -572,12 +572,12 @@ ul.hor li {
 }
 
 .flash {
-    padding-left: 10%;
-    padding-right: 10%;
+    /*padding-left: 10%;*/
+    /*padding-right: 10%;*/
     padding: 0.5em;
     border: 1px solid #00546a;
     background-color: #9EBDCD;
-    width: 100%;
+    width: 90%;
     border-radius: .25em;
 }
 

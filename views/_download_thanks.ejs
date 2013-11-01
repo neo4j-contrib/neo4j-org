@@ -1,11 +1,34 @@
-<p class="flash">If your download did not start automatically or was blocked, click the link below to download manually:
-    <br/><a class="downloadLink" href="http://download.neo4j.org/artifact?edition=community&version=<%= neo4jGA.version %>&distribution=zip">
-        <i class="icon icon-download-alt"></i> http://download.neo4j.org/artifact?edition=community&version=<%= neo4jGA.version %>&distribution=zip</a>
+<div class="featured" class="mainElement">
+    <div class="slide article">
+        <div class="introText">
+            <p class="flash">If your download did not start automatically or was blocked, click the link below to download manually:
+                <br/><a class="downloadLink" href="http://download.neo4j.org/artifact?edition=community&version=<%= neo4jGA.version %>&distribution=zip">
+                    <i class="icon icon-download-alt"></i> http://download.neo4j.org/artifact?edition=community&version=<%= neo4jGA.version %>&distribution=zip</a>
+            </p>
+        </div>
+        <div class="content">
+<p id="download_info_installer">If you downloaded the <strong>Windows Installer</strong>, run it and then use the <strong>Neo4j Launcher</strong> to
+    start and stop your server. It is also available in the system tray.</p>
+<p id="download_info_distribution">If you downloaded the binary distribution, just unzip it to a folder.<br/>
+    <strong>Please</strong> make sure to have the latest <a href='http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html'>Oracle JDK 7 <i class="icon-download-alt"></i></a>
+    installed, if not please follow that link.<br/>
+    Start the Neo4j server with <code>bin/neo4j start</code> from a terminal.<br/>
 </p>
+<p>Open <a href='http://localhost:7474'><code>http://localhost:7474</code></a> for the Neo4j Browser.</p>
+</div>
+</div>
+</div>
 
+
+<div class="featured" class="mainElement">
+    <div class="slide article">
+        <div class="content">
 <!--<h2>While you're waiting for your download:</h2>-->
 <p>For the best developer experience, subscribe and stay informed about events, releases and technical articles on graphs and development with Neo4j.</p>
 <div style="margin-top: -20px;margin-bottom: -10px;"><iframe style="visibility:visible;" src="http://www.neotechnology.com/wp-content/themes/Neo_Technology/signup.html" style="border:0;padding: 5;" width="300px" height="75px" frameborder="0" scrolling="no"></iframe></div>
+</div>
+</div>
+</div>
 
 
 <script type='text/javascript'>//<![CDATA[
@@ -29,6 +52,11 @@ $(document).ready(function() {
     }
     $(".dirName").text("neo4j-"+edition+"-"+release);
 
+    if (packaging == "exe") {
+        $("#download_info_distribution").hide();
+    } else {
+        $("#download_info_installer").hide();
+    }
     updateDownloadLink(null,true);
 
     function getUrlVars() {

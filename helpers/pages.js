@@ -116,7 +116,7 @@ exports.pages = {
         content: function (params) {
             return render.include("_download_thanks", params);
         },
-        featured: [ content.videos.installing_neo4j ],
+        featured: [ "installing_neo4j" ],
         related: [
             "neo4j",
             "trainings",
