@@ -9,9 +9,10 @@
         <div class="content">
 <p id="download_info_installer">If you downloaded the <strong>Windows Installer</strong>, run it and then use the <strong>Neo4j Launcher</strong> to
     start and stop your server. It is also available in the system tray.</p>
-<p id="download_info_distribution">If you downloaded the binary distribution, just unzip it to a folder.<br/>
+<p id="download_info_distribution">If you downloaded the binary distribution, just extract the archive to a folder.<br/>
     <strong>Please</strong> make sure to have the latest <a href='http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html'>Oracle JDK 7 <i class="icon-download-alt"></i></a>
     installed, if not please follow that link.<br/>
+    Open a terminal and change to the extracted folder (<code class="neo4j-version"></code>).<br/>
     Start the Neo4j server with <code>bin/neo4j start</code> from a terminal.<br/>
 </p>
 <p>Open <a href='http://localhost:7474'><code>http://localhost:7474</code></a> for the Neo4j Browser.</p>
@@ -46,6 +47,8 @@ $(document).ready(function() {
         suffix = 'tar.gz';
         packaging = 'tarball';
     }
+
+    $(".neo4j-version").html(release);
 
     if (platform=="windows" && $('.bxslider').length) {
         $('.bxslider').bxSlider().goToNextSlide();
