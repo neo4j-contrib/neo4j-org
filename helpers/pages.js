@@ -244,7 +244,11 @@ exports.pages = {
         featured: [
 //            content.install.windows7,
 //            content.install.windows,
-            content.install.releases
+//            content.install.releases
+            {
+                type: "include",
+                path: "partials/version/_download_community"
+            }
         ],
         related: [
 //            content.links.install_windows,
