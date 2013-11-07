@@ -820,6 +820,16 @@ exports.content = {
             introText: "Full dataset (12k movies, 50k actors) of the Spring Data Neo4j Cineasts.net tutorial. <a href='http://example-data.neo4j.org/files/cineasts_12k_movies_50k_actors.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Like a Movie"
         },
+        musicbrainz_large: {
+            type: "link",
+            title: "The Musicbrainz main entities - large (5.4GB)",
+            url: "http://blog.neo4j.org/2013/11/musicbrainz-in-neo4j-part-1.html",
+            github: "https://github.com/SpringSource/spring-data-neo4j/tree/master/spring-data-neo4j-examples/cineasts",
+            author: "peterneubauer",
+            img: "http://2.bp.blogspot.com/--ghj75EWkyc/UnjtpNV657I/AAAAAAAALiU/UYua5dc4fPk/s1600/Screenshot_11_5_13_2_07_PM.png",
+            introText: "Most of the interesting entities (800,000 Artists, 12,000,000 Tracks, 1,200,000 Releases, 75,000 Record Labels) from the <a href='http://musicbrainz.org'>Musicbrainz</a> dataset. <a href='http://example-data.neo4j.org/files/musicbrainz_neo_20.tar.bz2'><span class='icon-download-alt'>&nbsp;</span></a>",
+            actionText: "Explore music now"
+        },
         hubway: {
             type: "link",
             title: "Hubway Data Challenge (50MB)",

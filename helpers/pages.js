@@ -304,6 +304,7 @@ exports.pages = {
             , content.example_data.conceptnet
             , content.example_data.neo_love
             , content.example_data.neo_permissions
+            , content.example_data.musicbrainz_large
             , content.videos.neo4j_webui
             , content.links.cypher_cheat_sheet
             , content.links.graphgist
@@ -1891,7 +1892,9 @@ exports.pages = {
                 path: "https://github.com/nawroth/lazyscales#lazyscales",
                 thumbnail: asset("img/still/LazyIcon.png")
 //                img: "https://raw.github.com/nawroth/lazyscales/master/docs/images/gui.png"
-            }],
+            },
+            content.example_data.musicbrainz_large
+        ],
         actionText: "Go play some music"
     },
     import: {
