@@ -3,7 +3,7 @@ var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
 var mainCategory = path.split('/')[1];
 var page = pages[pageName];
 var badge = page.badge;
-console.log("Rendering Path",path,pageName,badge,page.title);
+// console.log("Rendering Path",path,pageName,badge,page.title);
 
 var title=page.title;
 %>
@@ -65,7 +65,6 @@ var nextPage = pages[p];
                 return;
             }
             if (typeof(key)!="string") key="";
-console.log("item.content1",item.content);
     %>
         <% if (showSlides) { %> 
             <li title="<%= item.title||'' %>">

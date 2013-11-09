@@ -1,6 +1,6 @@
 var render = require('./render');
-var content = require("./content").content;
-var video = require("./content").video;
+var content = require("./content.js").content;
+var video = require("./content.js").video;
 var asset = require("../helpers/assets.js").asset;
 
 exports.pages = {
@@ -31,8 +31,9 @@ exports.pages = {
            content.links.customers,
            "trainings",
 //           "graphgist_challenge",
-           content.links.graphconnect,
+           content.links.manual,
            content.books.graphdatabases,
+           content.links.scale,
            "learn",
 //           "cypher_track_start",
            "develop",
@@ -146,26 +147,8 @@ exports.pages = {
                 type: "include",
                 path: "partials/version/_download_community"
             },
-            {
-                    type: "article",
-                    title: "Neo4j Commercial Subscriptions",
-                    introText: "Are you building a business-critical application? We'd love to support you in being successful.",
-                    src: asset("img/still/neo4j_bundles.png"),
-                    url: "http://www.neotechnology.com/price-list/",
-                    path: "http://www.neotechnology.com/price-list/",
-                    actionText: "Neo4j Enterprise Subscriptions",
-                    content: "<p>\
-                    Neo4j Enterprise Edition is designed for large-scale high-availability deployments. In production since 2003, today it powers applications globally for \
-                    <a href='http://www.neotechnology.com/customers'>hundreds of commercial customers</a>, Neo4j can also make the difference for your company.</p>\
-                    <p>By applying the powerful property graph model and fast graph search to your data you can make well informed and faster decisions \
-                    in an increasingly demanding market.</p>\
-                    <p><strong>Neo4j, Enterprise Edition</strong> is an Open-Source, <a href='http://www.neotechnology.com/neo4j-scales-for-the-enterprise/'>high-performance</a> graph database with fully transactional operations. \
-                    It offers production capabilities, like a High Performance Cache, Live Backup, High Availability Clustering, and Advanced Monitoring\
-                    </p>\
-                    <p>The Enterprise edition is available in different <a href='http://www.neotechnology.com/price-list/'>subscriptions tailored to your needs</a>. \
-                        From a free personal subscription for individual usage, a startup and small business package to a comprehensive offering for medium and large enterprises.</p>"
-            }
-//          ,  content.install.releases
+            content.install.subscriptions
+            //,  content.install.releases
             //content.videos.installing_neo4j,
             // content.install.milestone
             //,content.install.stable
@@ -247,10 +230,14 @@ exports.pages = {
 //            content.install.releases
             {
                 type: "include",
-                path: "partials/version/_download_community"
-            }
+                path: "partials/version/_download_community_windows"
+            },
+            content.install.subscriptions
         ],
         related: [
+            content.install.stable,
+            content.install.milestone,
+
 //            content.links.install_windows,
 //            content.links.start_with_neo4j_neo4jclient,
             "dotnet",
@@ -589,7 +576,7 @@ exports.pages = {
     },
     licensing: {
         path: "/learn/licensing",
-        title: "Pragmatic Licensing Guide",
+        title: "Neo4j Licenses",
         introText: "Neo4j's enterprise editions are provided by Neo Technology for use in commercial, non open-source deployments.",
         thumbnail: asset("img/logo/neotechnology_small.png"),
         featured: [

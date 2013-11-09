@@ -153,7 +153,7 @@ $(document).ready(function(){
         }
         lightbox(lb.attr("id"),url);
     });
-    $("a[href^=http]").attr("target","_blank").click(function() {
+    $("a[href^=http]").filter(function(){ !$(this).attr("href").indexOf("download_thanks");}).attr("target","_blank").click(function() {
 		_gaq.push(['_trackEvent','outbound-neo4j',$(this).attr("href")]);
 	});
     $("a.like").click(function(){
@@ -166,80 +166,6 @@ $(document).ready(function(){
     setTimeout(function(){
         $("iframe.newsletter").attr("src","http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html");
     },100);
-
-    $(".course_form").submit(function() {
-        function showCourse(sessionId, email) {
-            $(".course_box").hide();
-            var player = $("#online_course_player");
-
-            player.show();
-            player.height($(window).height() - 125);
-
-            $('.push').hide();
-            
-            /* course modal stuff */
-            $('.course-modal').show();
-
-            var topPos = ($(window).height() - $('.course-modal').outerHeight())/2;
-
-            $('.course-modal').css({
-                  left: ($(window).width() - $('.course-modal').outerWidth())/2
-            });
-
-            $(window).resize(function(){
-                $('.course-modal').css({
-                      left: ($(window).width() - $('.course-modal').outerWidth())
-                });
-                $('.course-modal').css({
-                      left: ($(window).width() - $('.course-modal').outerWidth())/2
-                });
-
-                player.height($(window).height() - 125);
-            });
-
-            $('.close-modal').on('click', function(e) {
-              $('.course-modal').fadeOut();
-            });
-
-            $('#footer').hide();
-            var origin = apiUrl.split('/').slice(0, -1).join('/');
-            var script = $("<script>").attr("type","text/javascript").attr("src",origin + "/player2/scripts/versal.js")
-                .attr('data-sid',sessionId).attr('data-course',online_course).attr('data-api',apiUrl).attr('data-whitelabel', "true");
-
-            player[0].appendChild(script[0]); // jquery puts script at top of the page dom
-            
-        }
-        var email=$(this).find("input[name=email]").val();
-        if (!email) return false;
-
-        var info = {name:null, email:null, company:null, zip:null, usage:null, newsletter:null, newsletter_lang:null};
-        for (var key in info) {
-            if (!info.hasOwnProperty(key)) continue;
-            info[key]=$(this).find("input[name="+key+"]").val()||$(this).find("select[name="+key+"]").val();
-        }
-        var action=$(this).find("button").attr("name");
-        console.log(info);
-        $.ajax("/api/versal",{
-            data: JSON.stringify({action:action, course:online_course, email:email, info:info}),
-            contentType: "application/json",
-            accepts: "text",
-            type: "post",
-            error : function(error) {
-                console.log("Error logging in "+email+" for course",error);
-                _kmq.push(['identify', email ]);
-                info["data"]=error;
-                _kmq.push(['record', 'neo4j-course-'+action+'-error', info]);
-            },
-            success: function(sessionId) {
-                _kmq.push(['identify', email ]);
-                info["data"]=sessionId;
-                _kmq.push(['record', 'neo4j-course-'+action, info]);
-                _gaq.push(['_trackEvent','neo4j-course-'+action,email,online_course,sessionId,name,info["company"],info["country"]]);
-                showCourse(sessionId, email);
-            }
-        });
-        return false;
-    });
 });
 
 function log(action, data) {
@@ -266,7 +192,7 @@ function lightbox(id, url) {
         iframe.removeAttr("src");
     });
 }
-function download_button_function(version, link_id) {
+function download_button_function(version, link_id, platform) {
     var packaging = "zip";
     var edition="community";
     var architecture = "32";
@@ -277,8 +203,7 @@ function download_button_function(version, link_id) {
     }
     var browserPlatform = navigator.platform.toUpperCase();
     var os=browserPlatform.indexOf("WIN")!=-1 ? "Windows" : browserPlatform.indexOf("MAC")!=-1 ? "Mac" : "Unix";
-    var platform;
-    if (os == "Windows") {
+    if (os == "Windows" || platform == "windows") {
         platform = "windows";
         packaging = "exe";
         os = "Windows "+ architecture + "bit";
@@ -286,7 +211,7 @@ function download_button_function(version, link_id) {
         platform = "unix";
     }
     var link = $("#"+link_id);
-    link.attr("href","/download_thanks?edition="+edition+"&release="+version+"&platform="+(platform||"unix")+"&packaging="+packaging+"&architecture=x"+architecture);
+    link.attr("href","http://info.neotechnology.com/download_thanks.html?edition="+edition+"&release="+version+"&platform="+(platform||"unix")+"&packaging="+packaging+"&architecture=x"+architecture);
     link.find("[name=caption]").text("Neo4j "+version+" "+edition+" edition for "+os);
 }
 

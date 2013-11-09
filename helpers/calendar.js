@@ -114,7 +114,7 @@ function mergeEvents(events,items) {
     var result = events.sort(function (e1, e2) {
         return e1.Date.getTime() - e2.Date.getTime();
     });
-    console.log("events2",result.length);
+    console.log("mergeEvents",result.length);
 //	result.forEach(function (e) {
 //		console.log(e.Date,e.Title,e.Location,e.Type,e.Origin)
 //	})
@@ -130,6 +130,8 @@ function wrap(prefix, value, suffix) {
     }
     return str;
 }
+
+var EVENT_TYPES=["Meetup","Webinar","Conference","Training"];
 
 function parseEvents(cells, fun, filter) {
     var now = new Date();
@@ -152,6 +154,8 @@ function parseEvents(cells, fun, filter) {
         }
         item.Date = new Date(item.Start);
 		item.Origin="Spreadsheet";
+
+        if (!item.Type || EVENT_TYPES.indexOf(item.Type)==-1) item.Type="Conference";
     }
     items = items.sort(function (e1, e2) {
         return e1.Date.getTime() - e2.Date.getTime();

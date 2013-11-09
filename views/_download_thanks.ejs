@@ -93,7 +93,7 @@ $(document).ready(function() {
             downloadLink = displayLink; //  + url_params;
         }
         var logdata={release:release, platform: platform,edition:edition,link:downloadLink,architecture:architecture,packaging:packaging,marketo:marketo_id,method:method,action:"auto"};
-        if (console && console.log) console.log("Using downloadlink",downloadLink,logdata);
+//        if (console && console.log) console.log("Using downloadlink",downloadLink,logdata);
         log("download-prepare",logdata);
 
         var link = $(".downloadLink");
