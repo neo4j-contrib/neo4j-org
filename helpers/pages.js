@@ -2096,6 +2096,31 @@ exports.pages = {
         related: [],
         actionText: "Attend the course"
     },
+    intro_course_finish: {
+        path: "/learn/intro_course_finish",
+//        thumbnail: asset("img/still/graphistas_map.png"),
+        title: "Neo4j Online Course",
+        introText: 'You successfully finished the Neo4j online course',
+        featured: [{
+            type:"article",
+            src: asset("img/events/tutorials.jpg"),
+            title:"Congratulations on completing this online course!",
+            content: "<p>\
+Here are a few resources for you to continue down your learning path on Neo4j!\
+<ul>\
+<li>Join the Neo4j <a href='/participate'>community</a></li>\
+<li>Sign up for a public training class near you – check out <a href='/participate/events/trainings'>the available classes</a>.</li>\
+<li><a href='/download'>Download Neo4j</a> and evaluate its features and benefits for yourself!</li>\
+<li>Read the <a href='http://docs.neo4j.org'>Neo4j Manual</a> for more detailed information on how to use it.</li>\
+<li>Study <a href='http://www.neotechnology.com/industries-and-use-cases/'>case studies</a> of successful customer projects that have deployed Neo4j</li>\
+<li>Learn more about the <a href='/tracks/cypher'>Cypher query language</a> and download the handy <a href='http://docs.neo4j.org/refcard/2.0'>reference card</a></li>\
+</ul>\
+\
+Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com'>training@neotechnology.com</a>\
+</p>"
+        }],
+        related: []
+    },
     graphgist: {
         path: "/learn/graphgist",
         title: "Live, Interactive Graph Models - Neo4j GraphGist",
