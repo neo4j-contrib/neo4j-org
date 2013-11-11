@@ -170,7 +170,7 @@ $(document).ready(function(){
 
 function log(action, data) {
     data["action"]=action;
-    $.ajax("/api/log", {type: "post", contentType:"application/json", global: false, data: JSON ? JSON.stringify(data) : data.toString() });
+    $.ajax("/api/log", {type: "post", contentType:"application/json", global: false, data: JSON === null ? data.toString() : JSON.stringify(data) });
 }
 
 function renderConsole(url) {
