@@ -49,14 +49,14 @@ exports.pages = {
         featured: [content.books.graphdatabases, content.videos.why_graphs],
         related: ["graphdatabase", "neo4j", "nosql", "trainings",
                   "tracks", "cypher", "modeling", content.videos.graphdb101,
-                  "production","licensing", content.links.manual, "scientific"]
+                  "production","licensing", content.links.manual, content.links.slides, "scientific"]
     },
     learn_graphdb: {
         path: "/learn_graphdb",
         title: "Learn",
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
         featured: [content.videos.graphdb101, content.books.graphdatabases, content.videos.why_graphs],
-        related: ["graphdatabase", "neo4j", "nosql", "tracks", "cypher", "production", "licensing", content.links.manual, "scientific"]
+        related: ["graphdatabase", "neo4j", "nosql", "tracks", "cypher", "production", "licensing", content.links.manual, content.links.slides, "scientific"]
     },
     develop: {
         path: "/develop",
@@ -65,7 +65,7 @@ exports.pages = {
         thumbnail: asset("img/still/neo4j_drivers.png"),
 //        badge: "<a href='/trainings' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
         featured: null,
-        related: ["tracks", "drivers", "import", "tools", "cloud", "trainings", "ops", "java", "javascript", "spring", "ruby", "dotnet", "python", "scala", "php", "clojure","linked_data","jee", "spatial"]
+        related: ["tracks", "drivers", "import", "tools", "cloud", "trainings", "ops", "java", "javascript", "spring", "ruby", "dotnet", "python", "scala", "php", "clojure","linked_data","jee", "spatial", content.links.manual]
     },
     participate: {
         path: "/participate",
@@ -108,7 +108,10 @@ exports.pages = {
             content.links.neotech_services,
             content.links.partners_graph,
             content.links.centrum_training,
-            content.links.neo4j_koans]
+            content.links.neo4j_koans,
+            content.links.manual,
+            content.links.slides
+        ]
     },
     download_thanks: {
         path: "/download_thanks",
@@ -683,8 +686,8 @@ exports.pages = {
         introText: "Neo4j can be run in various cloud scenarios and on a number of cloud stacks.",
         thumbnail: asset("img/neo4j/neo4j_cloud.png"),
         actionText: "Neo4j in the Cloud",
-        featured: [content.links.graphenedb],
-        related: ["heroku", "ec2", "linux", "azure"]
+        featured: ["ec2", content.links.graphenedb],
+        related: ["heroku", "linux", "azure"]
     },
     azure: {
         path: "/develop/cloud/azure",

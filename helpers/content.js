@@ -685,6 +685,13 @@ exports.content = {
             introText: "The Neo4j Manual is the comprehensive resource for detailed information about Neo4j. You will find everything, from tutorials to extensive reference documentation on every aspect of the database.",
             actionText: "Go to the manual"
         },
+        slides: {
+            title: "Neo4j Presentation slides",
+            path: "http://slideshare.net/neo4j",
+            thumbnail: "http://help.slideshare.com/system/logos/2029/3220/logo.png",
+            introText: "Slides from Neo4j conference, webinar and meetup presentations. These talks were delivered by a variety of customer, company and community speakers. Also check out our <a href='/learn/videos'>recorded videos</a>.",
+            actionText: "Enjoy the presentations"
+        },
         scale: {
             title: "Neo4j at Scale",
             path: "http://www.neotechnology.com/neo4j-scales-for-the-enterprise/",
