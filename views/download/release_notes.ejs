@@ -6,86 +6,28 @@
 
 <h3 id="1.9.5">Neo4j 1.9.5 (2013-11-11)</h3>
 
-<p>This release addresses a number of bugs affecting HA cluster stability. 
-    Everyone is advised to upgrade their 1.9.x Neo4j instances to this release.</p>
-<h4>HA</h4>
-<ul>
+<p>The 1.9.5 release of Neo4j is a maintenance release that addresses several
+    critical issues affecting HA cluster deployment and stability.</p>
 
-    <li>Removed all usage of getHostName() that might lead to problems on
-        instances with improperly configured DNS
-    </li>
-    <li>The master instance will now always send out masterIsAvailable
-        messages in response to masterIsElected, ensuring that instances
-        in PENDING state will transition eventually to SLAVE
-    </li>
-    <li>Master instance now properly blocks transactions from starting
-        after shutdown has started and waits on a timeout for running
-        transactions to finish and be pushed to slaves before
-        stopping completely
-    </li>
+<p>Notably, this release addresses:</p>
+
+<ul>
+  <li>Improvement to handling DNS hostnames, rather than IP addresses, in configuration</li>
+  <li>Resolved several issues that could destabilise a HA cluster during failover and master election</li>
+  <li>Improved shutdown of the database to ensure running transactions are given time to complete</li>
+  <li>Improved delivery and processing of status messages within a HA cluster</li>
+  <li>Resolved several concurrency issues in the database kernel, that could result in deadlocks or other failures</li>
+  <li>Various performance improvements to traversals and graph algorithms</li>
 </ul>
 
-<h4>Kernel</h4>
-<ul>
+<p><strong>All Neo4j users are strongly recommended to upgrade to this release.</strong>
+    Neo4j 1.9.5 does not require any store-level upgrades.</p>
 
-    <li>Fixed NPE in PersistenceWindowPool when concurrently loading non-
-        mapped windows
-    </li>
-    <li>Fixed potential deadlock in PersistenceWindowPool cause by negative
-        mark count
-    </li>
-    <li>Performance optimizations for best-first selector</li>
-    <li>Database now waits on a timeout for transactions to finish before
-        actually shutting down, while preventing new transactions from
-        starting up
-    </li>
-</ul>
+<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
 
-<h4>Server</h4>
-<ul>
-    <li>
-        Shutdown hook is now properly removed on normal shutdown, removing
-        potential thread leak which might prevent orderly exit of the VM
-        process
-    </li>
-</ul>
-
-<h4>Graph Algorithms</h4>
-<ul>
-    <li>
-        Fixed potential suboptimal path finding in A* executions for
-        particular graph topologies. Also improved performance and memory
-        consumption of A*
-    </li>
-</ul>
-
-<h4>Cluster</h4>
-<ul>
-    <li>Fixed a bug around channel handling which might lead to messages
-        being delayed and leading to false heartbeat failures
-    </li>
-
-    <li>It is now possible to specify 0.0.0.0 for ha.cluster_server and
-        properly wait for messages on all interfaces
-    </li>
-    <li>Removed all usage of getHostName() that might lead to problems on
-
-        instances with improperly configured DNS
-    </li>
-    <li>Fixed election bug which might lead to infinite wait on elections
-    </li>
-    <li>Fixed election bug which might lead to votes being discarded and
-        result in the wrong master being elected
-    </li>
-    <li>Instances no longer expect heartbeats from themselves so they can't
-        timeout on their own
-    </li>
-    <li>Instances will now ignore suspicions from ex cluster members
-    </li>
-    <li>Instances will now ignore suspicions for themselves
-    </li>
-</ul>
-
+<p class="footnote">As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been declared as deprecated,
+    in order to help users prepare for the removal of these in the next major Neo4j release.
+    A <a href="http://docs.neo4j.org/chunked/1.9.3/deprecations.html"> list of deprecations</a> can be found in the Neo4j manual.</p>
 
 <h3 id="1.9.4">Neo4j 1.9.4 (2013-09-19)</h3>
 
@@ -113,8 +55,7 @@
 <h3 id="1.9.3">Neo4j 1.9.3 (2013-08-30)</h3>
 
 <p>The 1.9.3 release of Neo4j is a maintenance release that addresses several
-    critical issues, especially in high load clustered deployments. All Neo4j users are highly encouraged to upgrade to
-    this version.</p>
+    critical issues, especially in high load clustered deployments.</p>
 
 <p>In particular this release addresses:</p>
 
@@ -133,7 +74,7 @@
     </li>
 </ul>
 
-<p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.3 does not require any
+<p><strong>All 1.9 users are recommended to upgrade to this release.</strong> Neo4j 1.9.3 does not require any
     store-level upgrades.</p>
 
 <p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within
@@ -149,8 +90,7 @@
 
 <p>The 1.9.2 release of Neo4j is a maintenance release that corrects a serious issue concurrency issue introduced in
     Neo4j 1.9.1,
-    and resolves some other critical issues when reading from the underlying store. All Neo4j users are highly
-    encouraged to upgrade to this version.</p>
+    and resolves some other critical issues when reading from the underlying store.</p>
 
 <p>In particular this release addresses:</p>
 
@@ -162,7 +102,7 @@
     <li>Corrects the setting of Content-Type and Content-Encoding headers in REST API responses</li>
 </ul>
 
-<p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.2 does
+<p><strong>All 1.9 users are recommended to upgrade to this release.</strong> Neo4j 1.9.2 does
     not require any store-level upgrades.</p>
 
 <p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within
@@ -198,7 +138,7 @@
     </li>
 </ul>
 
-<p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.1 does
+<p><strong>All 1.9 users are recommended to upgrade to this version.</strong> Neo4j 1.9.1 does
     not require any store-level upgrades.</p>
 
 <p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within
