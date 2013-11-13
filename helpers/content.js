@@ -10,10 +10,10 @@ exports.content = {
         },
         stable: {
             type: "version",
-            title: "Neo4j Stable Release 1.9.4",
-            version: "1.9.4",
+            title: "Neo4j Stable Release 1.9.5",
+            version: "1.9.5",
             stability: "stable",
-            date: "Sep 25, 2013",
+            date: "Nov 11, 2013",
             introText: "General Availability",
             path: "http://blog.neo4j.org/2013/09/installer-check-desktop-launcher-check.html",
             thumbnail: asset("img/still/install.gif"),

@@ -4,19 +4,111 @@
 
 <h1>Neo4j Release Notes</h1>
 
+<h3 id="1.9.5">Neo4j 1.9.5 (2013-11-11)</h3>
+
+<p>This release addresses a number of bugs affecting HA cluster stability. 
+    Everyone is advised to upgrade their 1.9.x Neo4j instances to this release.</p>
+<h4>HA</h4>
+<ul>
+
+    <li>Removed all usage of getHostName() that might lead to problems on
+        instances with improperly configured DNS
+    </li>
+    <li>The master instance will now always send out masterIsAvailable
+        messages in response to masterIsElected, ensuring that instances
+        in PENDING state will transition eventually to SLAVE
+    </li>
+    <li>Master instance now properly blocks transactions from starting
+        after shutdown has started and waits on a timeout for running
+        transactions to finish and be pushed to slaves before
+        stopping completely
+    </li>
+</ul>
+
+<h4>Kernel</h4>
+<ul>
+
+    <li>Fixed NPE in PersistenceWindowPool when concurrently loading non-
+        mapped windows
+    </li>
+    <li>Fixed potential deadlock in PersistenceWindowPool cause by negative
+        mark count
+    </li>
+    <li>Performance optimizations for best-first selector</li>
+    <li>Database now waits on a timeout for transactions to finish before
+        actually shutting down, while preventing new transactions from
+        starting up
+    </li>
+</ul>
+
+<h4>Server</h4>
+<ul>
+    <li>
+        Shutdown hook is now properly removed on normal shutdown, removing
+        potential thread leak which might prevent orderly exit of the VM
+        process
+    </li>
+</ul>
+
+<h4>Graph Algorithms</h4>
+<ul>
+    <li>
+        Fixed potential suboptimal path finding in A* executions for
+        particular graph topologies. Also improved performance and memory
+        consumption of A*
+    </li>
+</ul>
+
+<h4>Cluster</h4>
+<ul>
+    <li>Fixed a bug around channel handling which might lead to messages
+        being delayed and leading to false heartbeat failures
+    </li>
+
+    <li>It is now possible to specify 0.0.0.0 for ha.cluster_server and
+        properly wait for messages on all interfaces
+    </li>
+    <li>Removed all usage of getHostName() that might lead to problems on
+
+        instances with improperly configured DNS
+    </li>
+    <li>Fixed election bug which might lead to infinite wait on elections
+    </li>
+    <li>Fixed election bug which might lead to votes being discarded and
+        result in the wrong master being elected
+    </li>
+    <li>Instances no longer expect heartbeats from themselves so they can't
+        timeout on their own
+    </li>
+    <li>Instances will now ignore suspicions from ex cluster members
+    </li>
+    <li>Instances will now ignore suspicions for themselves
+    </li>
+</ul>
+
+
 <h3 id="1.9.4">Neo4j 1.9.4 (2013-09-19)</h3>
 
-<p>The 1.9.4 release of Neo4j is a maintenance release, introducing a new distribution of Neo4j Community Edition specifically for the Windows operating system (both 32 and 64 bit variants). This new distribution contains a native installer and a graphical user interface for managing Neo4j Server.</p>
+<p>The 1.9.4 release of Neo4j is a maintenance release, introducing a new distribution of Neo4j Community Edition
+    specifically for the Windows operating system (both 32 and 64 bit variants). This new distribution contains a native
+    installer and a graphical user interface for managing Neo4j Server.</p>
 
 <p>Neo4j 1.9.4 also contains minor improvements to logging and and monitoring services.</p>
 
-<p><strong>Users of Neo4j 1.9.2 or earlier are strongly encouraged to upgrade to this release</strong> (there are no critical fixes requiring users of Neo4j 1.9.3 to upgrade). Neo4j 1.9.4 does not require any store-level upgrades.</p>
+<p><strong>Users of Neo4j 1.9.2 or earlier are strongly encouraged to upgrade to this release</strong> (there are no
+    critical fixes requiring users of Neo4j 1.9.3 to upgrade). Neo4j 1.9.4 does not require any store-level upgrades.
+</p>
 
-<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
+<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within
+    the distribution.</p>
 
-<p class="footnote">As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been declared as deprecated, in order to help users prepare for the removal of these in the next major Neo4j release. A <a href="http://docs.neo4j.org/chunked/1.9.4/deprecations.html"> list of deprecations</a> can be found in the Neo4j manual.</p>
+<p class="footnote">As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been
+    declared as deprecated, in order to help users prepare for the removal of these in the next major Neo4j release. A
+    <a href="http://docs.neo4j.org/chunked/1.9.4/deprecations.html"> list of deprecations</a> can be found in the Neo4j
+    manual.</p>
 
-<p class="footnote">Windows is a registered trademark of Microsoft Corporation in the United States and other countries.</p>
+<p class="footnote">Windows is a registered trademark of Microsoft Corporation in the United States and other
+    countries.</p>
 
 <h3 id="1.9.3">Neo4j 1.9.3 (2013-08-30)</h3>
 
@@ -44,9 +136,11 @@
 <p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.3 does not require any
     store-level upgrades.</p>
 
-<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
+<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within
+    the distribution.</p>
 
-<p class="footnote">As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been declared as deprecated,
+<p class="footnote">As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been
+    declared as deprecated,
     in order to help users prepare for the removal of these in the next major Neo4j release. A <a
             href="http://docs.neo4j.org/chunked/1.9.3/deprecations.html"> list of deprecations</a> can be found in the
     Neo4j manual.</p>
@@ -71,7 +165,8 @@
 <p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.2 does
     not require any store-level upgrades.</p>
 
-<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
+<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within
+    the distribution.</p>
 
 <p class="footnote">As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been
     declared as deprecated, in order to help users prepare for the removal of
@@ -106,12 +201,14 @@
 <p><strong>All 1.9 users are strongly recommended to upgrade to this version.</strong> Neo4j 1.9.1 does
     not require any store-level upgrades.</p>
 
-<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
+<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within
+    the distribution.</p>
 
 <p class="footnote">As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been
     declared as deprecated, in order to help users prepare for the removal of
     these in the next major Neo4j release. A <a href="http://docs.neo4j.org/chunked/1.9.2/deprecations.html">
         list of deprecations</a> can be found in the Neo4j manual.</p>
+
 
 <h3 id="1.9">Neo4j 1.9 (2013-05-13)</h3>
 
@@ -222,7 +319,8 @@
         href="http://docs.neo4j.org/chunked/1.8.2/deployment.html">deployment section of the neo4j manual</a>
     for more detail.</p>
 
-<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the
+<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within
+    the
     distribution.</p>
 
 <hr/>
@@ -243,7 +341,8 @@
     backward compatible</strong>. Please see the <a href="http://docs.neo4j.org/chunked/1.8.1/deployment.html">deployment
     section of the neo4j manual</a> for more detail.</p>
 
-<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the
+<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within
+    the
     distribution.</p>
 
 <hr/>
@@ -280,7 +379,8 @@
     <a href="http://docs.neo4j.org/chunked/1.8/deployment.html">deployment section of the neo4j manual</a> for
     more detail.</p>
 
-<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the
+<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within
+    the
     distribution.</p>
 </div>
 
