@@ -2323,6 +2323,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 path: "http://www.markhneedham.com/blog/2013/03/17/clojurejava-interop-importing-neo4j-spatial-data/"
             },
             content.apps.route_planner,
+            content.example_data.snapplr,
             {
                 type: "link",
                 title: "Neo4j Spatial Scala wrapper library",
