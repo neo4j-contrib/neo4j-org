@@ -869,7 +869,7 @@ exports.content = {
             github: "https://github.com/neo4j/spatial",
             author: "peterneubauer",
             img: asset("img/still/snapplr.png"),
-            introText: "An import of the Open Streetmap data for the Malmö area, used in the Snapplr example application.",
+            introText: "An import of the Open Streetmap data for the Malmö area, used in the Snapplr example application. <a href='http://example-data.neo4j.org/files/malmo.db.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Test now"
         },
         hubway: {
