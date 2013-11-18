@@ -295,6 +295,7 @@ exports.pages = {
             , content.example_data.neo_love
             , content.example_data.neo_permissions
             , content.example_data.musicbrainz_large
+            , content.example_data.snapplr
             , content.videos.neo4j_webui
             , content.links.cypher_cheat_sheet
             , content.links.graphgist

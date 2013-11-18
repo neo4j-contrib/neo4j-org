@@ -862,6 +862,16 @@ exports.content = {
             introText: "Most of the interesting entities (800,000 Artists, 12,000,000 Tracks, 1,200,000 Releases, 75,000 Record Labels) from the <a href='http://musicbrainz.org'>Musicbrainz</a> dataset. <a href='http://example-data.neo4j.org/files/musicbrainz_neo_20.tar.bz2'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Explore music now"
         },
+        snapplr: {
+            type: "link",
+            title: "OpenStreetMapimport for Malmö, Sweden (14.7MB)",
+            url: "https://github.com/neo4j/spatial",
+            github: "https://github.com/neo4j/spatial",
+            author: "peterneubauer",
+            img: asset("img/still/snapplr.png"),
+            introText: "An import of the Open Streetmap data for the Malmö area, used in the Snapplr example application.",
+            actionText: "Test now"
+        },
         hubway: {
             type: "link",
             title: "Hubway Data Challenge (50MB)",
