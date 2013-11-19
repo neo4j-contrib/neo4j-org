@@ -1550,11 +1550,11 @@ exports.content = {
             tags: ["dotnet", "rest"],
             authors: ["@tathamoddie", "@romikoderbynew"],
             url: "http://nuget.org/packages/Neo4jClient",
-            source: "http://hg.readify.net/neo4jclient/src",
-            docs: "http://hg.readify.net/neo4jclient/wiki",
+            source: "https://github.com/Readify/Neo4jClient",
+            docs: "https://github.com/Readify/Neo4jClient/wiki",
             logo: asset("img/languages/dotnet.png"),
             name: "Neo4jClient",
-            text: "A .NET client for Neo4j which supports basic CRUD operations, a fluent Cypher query interface, and indexing operations. "
+            text: "A .NET client for Neo4j, which makes it easy to write Cypher queries in C# with IntelliSense. Also supports basic CRUD, legacy indexing and Gremlin."
         },
         py2neo: {
             type: "driver",
