@@ -864,8 +864,8 @@ exports.content = {
         },
         snapplr: {
             type: "link",
-            title: "OpenStreetMapimport for Malmö, Sweden (14.7MB)",
-            url: "https://github.com/neo4j/spatial",
+            title: "OpenStreetMap import for Malmö, Sweden (14.7MB)",
+            url: "https://snapplr.herokuapp.com",
             github: "https://github.com/neo4j/spatial",
             author: "peterneubauer",
             img: asset("img/still/snapplr.png"),
