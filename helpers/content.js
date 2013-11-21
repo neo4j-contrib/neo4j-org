@@ -33,12 +33,12 @@ exports.content = {
         },
         "milestone": {
             type: "version",
-            title: "Neo4j Beta 2.0.0-M06",
+            title: "Neo4j Beta 2.0.0-RC1",
             stability: "milestone",
-            version: "2.0.0-M06",
-            date: "Oct 14, 2013",
-            introText: "Neo4j Browser, Windows Launcher for Community Edition",
-            path: "http://blog.neo4j.org/2013/10/neo4j-200-m06-introducing-neo4js-browser.html",
+            version: "2.0.0-RC1",
+            date: "Nov 21, 2013",
+            introText: "Finishing Cypher touches, removed reference node",
+            path: "http://blog.neo4j.org/2013/11/neo4j-200-rc1-final-preparations.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
