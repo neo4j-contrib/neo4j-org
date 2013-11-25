@@ -10,13 +10,13 @@ exports.add_console_forward=function(app) {
     app.use(function(req, res, next) {
         var path = req.path;
         // console.log('app.use rawbody '+path);
-        if (!path.match("^/console")) {
+        if (!path.match("^/?console")) {
             return next();
         }
-        if (path=="/console") return console_forward(req,res,"/");
-        if (path.match("_$")) return console_forward(req,res,path.substring(0,path.length-1));
+        if (path.match("^/?console$")) return console_forward(req,res,"/");
+//        if (path.match("_$")) return console_forward(req,res,path.substring(0,path.length-1));
 
-        var m=path.match("^/console/r/(.+)$");
+        var m=path.match("^/?console/r/(.+)$");
         if (m) return console_forward(req,res,"/?id="+m[1]);
         console_forward(req,res,path);
     });
