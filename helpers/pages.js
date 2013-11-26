@@ -2164,79 +2164,98 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
         thumbnail: asset("img/logo/neo4j-github.png"),
         actionText: "Model your Graph"
     },
-//    graphgist_challenge: {
-//        path: "/learn/graphgist_challenge",
-//        title: "Neo4j GraphGist Challenge",
-//        introText: "Outdo yourself! Create the most impressive GraphGist ever, submit and win!",
-//        thumbnail: asset("img/logo/neo4j-github.png"),
-//        featured: [
-//            {
-//                type: "article",
-//                title: "GraphGist September Challenge",
-//                src: asset("img/still/graphgist.jpg"),
-//                url: "http://gist.neo4j.org",
-//                content: "<p>Join our GraphGist Challenge this month.\
-//            We want to encourage you to model <em>a domain that you know or like</em> in a graph model and describe it\
-//            interactively in a GraphGist.<br/>\
-//            A <a href='http://gist.neo4j.org' >GraphGist</a> is just a basic <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>ascii doc</a> text file, and can be hosted simply in a\
-//            <a href='http://gist.github.com/'>GitHub Gist</a> but rendered as an interactive page in the browser.<br/>\
-//            <strong style='font-size: 1.2em'>To make this more interesting we want to offer some prizes.</strong></p>\
-//            "
-//            }
-//            ,{
-//                type: "article",
-//                title: "Prizes",
-//                content: "<ol><li>Winner: 500 USD</li>\
-//                <li>Second: 300 USD</li>\
-//                <li>Third: 200 USD</li>\
-//                <li>Every participant gets a special t-shirt, <a href='http://graphconnect.com/'>Graph Connect</a> ticket or a copy of the <a href='http://graphdatabases.com/'>Graph Databases book</a></li>\
-//                </ol>"
-//            },
-//            ,{
-//                type: "video",
-//                title: "How do I create a GraphGist?",
-//                content: "<ul><li>Find a great domain (Music, Dating, Comics, Healthcare, Politics, Sciences, ...)</li>\
-//                <li>Whiteboard a good example graph model.</li>\
-//                <li>Determine interesting use-cases.</li>\
-//                <li>Create Cypher statements for setup and query-use-cases.</li>\
-//                <li>Write a good description and create a pretty model picture.</li>\
-//                <li>Compose it all nicely in your asciidoc-graphgist-file.</li>\
-//                <li>Store it as a <strong>public</strong> <a href='http://gist.github.com'>GitHub Gist</a></li>\
-//                <li>For details, check out the example <a href='http://gist.neo4j.org/?5956246'>GraphGist</a> and the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>Collection</a> on the Wiki</li>\
-//                </ul>",
-//                src: "http://player.vimeo.com/video/74279113?badge=0&byline=0&portrait=0&title=0",
-//                img: asset("img/still/graphgist_video.jpg")
-//
-//            }
-//            ,{
-//                type: "article",
-//                title: "How do I participate?",
-//                content: "<ul>\
-//                <li>Enter the URL of your Gist in the top-right box of the <a href='http://gist.neo4j.org'>GraphGist-Page</a> and note the URL of your GraphGist</li>\
-//                <li>Tweet the title and public URL of your GraphGist and add the tag #graphgist to the tweet.</li>\
-//                <li>Add your gist on the <a href='https://github.com/neo4j-contrib/graphgist/wiki#graphgist-challenge-submissions'>GraphGist Challenge</a> Wiki page</li>\
-//                <li>The GraphGist needs to be registered before Sept 30, 2013</li>\
-//                <li>If you have questions reach out to our <a href='/forums'>Google Group</a>, <a href='http://twitter.com/neo4j'>@neo4j</a> on twitter or <a href='http://twitter.com/peterneubauer'>Peter Neubauer</a></li>\
-//                </ul>\
-//                <strong>Make sure that the content you create is shared under <a href='http://creativecommons.org/licenses/by-sa/3.0/'>CC-SA</a>.</strong>\
-//                "
-//            }
-//            ,{
-//                type: "article",
-//                title: "Where can I learn more about GraphGists?",
-//                url: "http://www.meetup.com/graphdb-world/events/138513152/",
-//                src: asset("img/events/neo4j_icon_meetup.png"),
-//                content: "<ul>\
-//                    <li>Check out the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>GraphGist Wiki</a> for many examples and hints.</li>\
-//                    <li>Read the <a href='http://gist.neo4j.org/?5956246'>self describing GraphGist</a>.</li>\
-//                    <li>We want to run a <a href='http://www.meetup.com/graphdb-world/events/138513152/'>webinar/hangout on September 10</a> to explain GraphGists in detail (<a href='https://docs.google.com/a/neopersistence.com/presentation/d/1QrYDKrJ8WRmvAdVcgA79HUlfiOrGrByRTgNCDPOSq-c/pub?start=false&loop=false#slide=id.p'>slides</a>).</li>\
-//                    <li>We encourage local <a href='/participate/meetups'>Neo4j Meetup</a> organizers to attend that discussion and work with us to run a September meetup event about GraphGists and the challenge.</li>\
-//                    </ul> "
-//            }
-//            ],
-//        related: ["modeling"],
-//        actionText: "Submit and Win"
-//    },
+    graphgist_challenge: {
+        path: "/learn/graphgist_challenge",
+        title: "Neo4j GraphGist December Challenge",
+        introText: "Model a domain or industry use-case as a great GraphGist and WIN!",
+        thumbnail: asset("img/logo/neo4j-github.png"),
+        featured: [
+            {
+                type: "article",
+                title: "GraphGist December Challenge",
+                src: asset("img/still/graphgist.jpg"),
+                url: "http://gist.neo4j.org",
+                content: "<p>Join our GraphGist Challenge this month.\
+            We want to encourage you to model <em>one of the domains we list below</em> in a graph model and describe it\
+            interactively in a GraphGist.<br/>\
+            A <a href='http://gist.neo4j.org' >GraphGist</a> is just a basic <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>ascii doc</a> text file, and can be hosted simply in a\
+            <a href='http://gist.github.com/'>GitHub Gist</a> but rendered as an interactive page in the browser.<br/>\
+            <strong style='font-size: 1.2em'>To make this more interesting we want to offer some prizes in these categories.</strong></p>\
+            "
+            }
+            ,{
+                type: "article",
+                title: "Categories",
+                content: "This time we want you to look into these 10 categories and provide us with really easy to understand and still insightful Graph Use-Cases: \
+                Do not take the example keywords literally, you know your domain much better than we do!\
+                <ul>\
+                <li><strong>Education</strong> - Schools, Universities, Courses, Planning, Managment etc</li>\
+                <li><strong>Finance</strong> - Loans, Risks Fraud</li>\
+                <li><strong>Life Science</strong> - Biology, Genetics, Drug research, Medicine, Doctors, Referrals</li>\
+                <li><strong>Manufacturing</strong> - production line managment, supply chain, parts list, product lines</li>\
+                <li><strong>Sports</strong> - Football, Baseball, Olympics, Public Sports</li>\
+                <li><strong>Resources</strong> - Energy Market, Consumption, Resource exploration, Green Energy, Climate Modeling</li>\
+                <li><strong>Retail</strong> - Recommendations, Product categories, Price Management, Seasons, Collections</li>\
+                <li><strong>Telecommunication</strong> - Infrastructure, Authorization, Planning, Impact</li>\
+                <li><strong>Transport</strong> - Shipping, Logistics, Flights, Cruises, Road/Train optimizations, Schedules</li>\
+                <li><em>Advanced Graph Gists</em> - for those of you that run outside of the competition anyway, give your best :)</li>\
+                </ul>"
+            },
+            ,{
+                type: "article",
+                title: "Prizes",
+                content: "We want to offer in each of our 10 categories prizes equivalent to:\
+                <ol><li>Winner: <strong>300 USD</strong></li>\
+                <li>Second: <strong>150 USD</strong></li>\
+                <li>Third: <strong>50 USD</strong></li>\
+                <li>Every participant gets a special <strong>GraphGist t-shirt</strong> too.</li>\
+                </ol>"
+            },
+            ,{
+                type: "video",
+                title: "How do I create a GraphGist?",
+                content: "<ul><li>Take one of our categories</li>\
+                <li>Whiteboard a good example graph model.</li>\
+                <li>Determine interesting use-cases.</li>\
+                <li>Create Cypher statements for setup and query-use-cases.</li>\
+                <li>Write a good description and create a pretty model picture.</li>\
+                <li>Compose it all nicely in your asciidoc-graphgist-file.</li>\
+                <li>Store it as a <strong>public</strong> <a href='http://gist.github.com'>GitHub Gist</a></li>\
+                <li>For details, check out the example <a href='http://gist.neo4j.org/?5956246'>GraphGist</a> and the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>Collection</a> on the Wiki</li>\
+                </ul>",
+                src: "http://player.vimeo.com/video/74279113?badge=0&byline=0&portrait=0&title=0",
+                img: asset("img/still/graphgist_video.jpg")
+
+            }
+            ,{
+                type: "article",
+                title: "How do I participate?",
+                content: "<ul>\
+                <li>Enter the URL of your Gist in the top-right box of the <a href='http://gist.neo4j.org'>GraphGist-Page</a> and note the URL of your GraphGist</li>\
+                <li>Tweet the title and public URL of your GraphGist and add the tag #graphgist to the tweet.</li>\
+                <li>Add your gist on the <a href='https://github.com/neo4j-contrib/graphgist/wiki#graphgist-challenge-submissions'>GraphGist Challenge</a> Wiki page</li>\
+                <li>The GraphGist needs to be registered before Dec 31, 2013</li>\
+                <li>If you have questions reach out to our <a href='/forums'>Google Group</a>, <a href='http://twitter.com/neo4j'>@neo4j</a> on twitter or <a href='http://twitter.com/peterneubauer'>Peter Neubauer</a></li>\
+                </ul>\
+                <strong>Make sure that the content you create is shared under <a href='http://creativecommons.org/licenses/by-sa/3.0/'>CC-SA</a>.</strong>\
+                "
+            }
+            ,{
+                type: "article",
+                title: "Where can I learn more about GraphGists?",
+                url: "http://www.meetup.com/graphdb-world/events/138513152/",
+                src: asset("img/events/neo4j_icon_meetup.png"),
+                content: "<ul>\
+                    <li>Check out the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>GraphGist Wiki</a> for many examples and hints.</li>\
+                    <li>Read the <a href='http://gist.neo4j.org/?5956246'>self describing GraphGist</a>.</li>\
+                    <li>We want to run a <a href='http://www.meetup.com/graphdb-world/events/152790132/'>webinar/hangout early in December</a> to explain GraphGists in detail (<a href='https://docs.google.com/a/neopersistence.com/presentation/d/1QrYDKrJ8WRmvAdVcgA79HUlfiOrGrByRTgNCDPOSq-c/pub?start=false&loop=false#slide=id.p'>slides</a>).</li>\
+                    <li>We encourage local <a href='/participate/meetups'>Neo4j Meetup</a> organizers to attend that discussion and work with us to run a December meetup event about GraphGists and the challenge.</li>\
+                    </ul> "
+            }
+            ],
+        related: ["modeling"],
+        actionText: "Submit and Win"
+    },
     graphistas_map: {
         path: "/participate/graphistas_map",
         thumbnail: asset("img/still/graphistas_map.png"),

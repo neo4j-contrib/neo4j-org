@@ -329,7 +329,7 @@ route_get('/install/linux', forward("/download/linux"));
 route_get('/install/windows', forward("/download/windows"));
 route_get('/tracks/java', forward("/develop/java"));
 route_get('/tracks/cypher', forward("/tracks/cypher_track_start"));
-route_get('/learn/graphgist_challenge', forward("/learn/graphgist"));
+//route_get('/learn/graphgist_challenge', forward("/learn/graphgist"));
 route_get('/about', forward("/learn/neo4j"));
 route_get('/java', forward("/develop/java"));
 route_get('/ruby', forward("/develop/ruby"));
