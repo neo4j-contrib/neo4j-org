@@ -801,7 +801,7 @@ exports.pages = {
     jee: {
          path: "/develop/jee",
         title: "Neo4j for Java Enterprise Edition developers"  ,
-        introText: "For JEE developers, there are number of projects making Neo4j avaiable in JEE environments.",
+        introText: "For JEE developers, there are a number of projects making Neo4j available in JEE environments.",
         related: [content.links.kundera]
     }   ,
     spring: {
@@ -2059,7 +2059,7 @@ exports.pages = {
         path: "/develop/tools/jdbc",
         title: "Cypher-Neo4j-JDBC driver",
         author: ["rickardoberg", "mesirii"],
-        introText: "The Neo4j Driver offers quick integration in existing Java applications and a variety tools. It supports the Neo4j Server, embedded and in-memory databases.",
+        introText: "The Neo4j Driver offers quick integration into existing Java applications and a variety of tools. It supports the Neo4j Server, embedded and in-memory databases.",
         // content: "",
         featured: [content.projects.jdbc],
         related: [
