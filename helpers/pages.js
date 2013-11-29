@@ -2390,5 +2390,13 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
             }
 
         ]
+    },
+    asciidoc: {
+        path: "/test/asciidoc",
+        title: "Asciidoc examples",
+//        introText: 'Intro',
+//        content: 'Content',
+        featured: [content.asciidoc.simple_asciidoc],
+        related: []
     }
 };

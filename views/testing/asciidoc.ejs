@@ -1,0 +1,164 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Neo4j GraphGist</title>
+
+    <script type="text/javascript">
+        if (!window.console || !('log' in window.console)) {
+            window.console = {log: function () {
+            }};
+        }
+    </script>
+    <script src="/public/js/graphgist/opal.js"></script>
+    <script src="/public/js/graphgist/asciidoctor.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/public/js/graphgist/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js"></script>
+
+    <!--MathJAX-->
+    <script type="text/x-mathjax-config;executed=true">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] }
+        });
+    </script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <!-- Bootstrap -->
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js"></script>-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+    <link href="/public/css/graphgist/datatable.css" rel="stylesheet">
+    <link href="/public/css/graphgist/d3.css" rel="stylesheet">
+    <link href="/public/css/graphgist/versal_gadget.css" rel="stylesheet">
+    <script src="/public/js/graphgist/jquery.dataTables.min.js"></script>
+    <script src="/public/js/graphgist/cypher.datatable.js"></script>
+    <script src="/public/js/graphgist/visualization.js"></script>
+    <script src="/public/js/graphgist/console.js"></script>
+    <script src="/public/js/graphgist/gist.js"></script>
+    <script src="/public/js/graphgist/graphgist.js"></script>
+    <script src="/public/js/graphgist/base64.js"></script>
+
+    <!--versal widget-->
+    <script src="/public/js/graphgist/versal_color_manager.js"></script>
+    <script src="/public/js/graphgist/versal_visualization.js"></script>
+
+
+    <!-- Syntax Highlighter -->
+    <script type="text/javascript" src="http://docs.neo4j.org/chunked/snapshot/js/shCore.js"></script>
+    <script type="text/javascript" src="http://docs.neo4j.org/chunked/snapshot/js/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://docs.neo4j.org/chunked/snapshot/js/shBrushCypher.js"></script>
+
+    <!-- style -->
+    <link href="http://docs.neo4j.org/chunked/snapshot/css/shCore.css" rel="stylesheet" type="text/css"/>
+    <link href="http://docs.neo4j.org/chunked/snapshot/css/shCoreEclipse.css" rel="stylesheet" type="text/css"/>
+    <link href="http://docs.neo4j.org/chunked/snapshot/css/shThemeEclipse.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/public/css/graphgist/style.css" rel="stylesheet">
+
+    <link rel="icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+
+</head>
+
+<body>
+<div class="navbar">
+    <div class="navbar-inner">
+
+        <a class="brand" href="http://gist.neo4j.org/">
+            <img style="height: 40px;" src="images/graphgist/neo4j-gray_60x80.png"> Neo4j GraphGist
+        </a>
+
+        <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#">
+                <i class="icon-external-link"></i> Resources
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href=" http://www.neo4j.org/" target="_blank">
+                    <i class="icon-home"></i> Neo4j
+                </a></li>
+                <li><a href=" http://docs.neo4j.org/chunked/stable/cypher-query-lang.html"
+                       target="_blank">
+                    <i class="icon-book"></i> Cypher Manual 1.9
+                </a></li>
+                <li><a href=" http://docs.neo4j.org/refcard/1.9/" target="_blank">
+                    <i class="icon-columns"></i> Cypher Refcard 1.9
+                </a></li>
+                <li><a href=" http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html"
+                       target="_blank">
+                    <i class="icon-book"></i> Cypher Manual 2.0
+                </a></li>
+                <li><a href=" http://docs.neo4j.org/refcard/2.0/" target="_blank">
+                    <i class="icon-columns"></i> Cypher Refcard 2.0
+                </a></li>
+                <li>
+                    <a target="_blank" href="./?5956246"><i class="icon-question-sign"></i>
+                        How to create a GraphGist</a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://github.com/neo4j-contrib/graphgist/wiki"><i class="icon-list"></i>
+                        The Graphgist Collection</a>
+                </li>
+            </ul>
+        </div>
+        <a class="btn btn-success disabled" id="gist_link" href="javascript:;" target="_blank">
+            <i class="icon-file-text"></i> Page Source
+        </a>
+
+
+        <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#">
+                <i class="icon-share-alt"></i> Share
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a id="twitter-share" href="" target="_blank" data-toggle="tooltip" title="Tweet">
+                    <i class="icon-twitter-sign"></i> Twitter
+                </a></li>
+                <li><a id="facebook-share" href="" target="_blank" data-toggle="tooltip" title="Share link on Facebook">
+                    <i class="icon-facebook-sign"></i> Facebook
+                </a></li>
+                <li><a id="google-plus-share" href="" target="_blank" data-toggle="tooltip"
+                       title="Share link on Google+">
+                    <i class="icon-google-plus-sign"></i> Google+
+                </a></li>
+                <li>
+                    <a target="_blank" href="https://github.com/neo4j-contrib/graphgist/wiki"><i
+                            class="icon-github-sign"></i>
+                        Add to the GraphGist Collection wiki</a>
+                </li>
+            </ul>
+        </div>
+
+        <a class="btn" id="tell-me-more"
+           title="Contact Neo Technology on this example to get more info about similar Neo4j deployments and customers."
+           href="mailto:info@neotechnology.com?Subject=More%20info%20about"><i class="icon-envelope"></i> Tell me more
+            ...</a>
+
+        <form class="navbar-form pull-right" id="gist-form">
+            <div class="input-prepend">
+          <span class="add-on">
+            <i class="icon-github"></i> <i class="icon-dropbox"></i>
+          </span>
+                <input type="text" class="span2" id="gist-id" placeholder="GitHub Gist/File / Dropbox URL">
+            </div>
+        </form>
+        <div  class="pull-right">
+            <a id="status" class="label tooltip-below" title="Displays the overall status of all queries in this example.">Executing queries ...</a>
+
+        </div>
+    </div>
+</div>
+<div id="content">
+    <img alt="loading" src="images/loading.gif" style="margin: 5em;">
+</div>
+<footer>
+    <i class="icon-github-sign"></i> The GraphGist <a href="https://github.com/neo4j-contrib/graphgist">project</a>.
+</footer>
+</body>
+</html>

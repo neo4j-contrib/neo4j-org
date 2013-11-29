@@ -114,6 +114,7 @@ function findItem(key) {
     if (content.content.apps[key]) return addType(content.content.apps[key], "app");
     if (content.content.links[key]) return addType(content.content.drivers[key], "link");
     if (content.content.videos[key]) return addType(content.content.videos[key], "video");
+    if (content.content.asciidoc[key]) return addType(content.content.asciidoc[key], "asciidoc");
     return key;
 }
 app.locals.findItem = findItem;
@@ -209,6 +210,7 @@ app.configure(function () {
     app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs');
     app.enable('trust proxy');
+    app.use('/public', express.static(__dirname + '/public/assets'));
     app.use(express.favicon(__dirname + '/public/assets/ico/favicon.ico', { maxAge: 2592000000 }));
     app.use(function (req, res, next) {
         res.locals.path = req.path;
@@ -373,6 +375,10 @@ route_get('/wp-includes/*', routes.resource);
 route_get('/assets/download/*', routes.resource);
 route_get('/img/*', routes.resource);
 route_get('/highlighter/*', routes.resource);
+
+
+route_get('/asciidoc', routes.asciidoc);
+route_get('/js', routes.javascript);
 
 
 // todo redirect to our video content page

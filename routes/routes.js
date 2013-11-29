@@ -203,6 +203,10 @@ exports.channels = function(req, res){
     res.render('participate/channels', { category: 'participate', title: 'Learning Channels' });
 };
 
+exports.asciidoc = function(req, res){
+    res.render('testing/asciidoc', {});
+};
+
 
 
 exports.resource = function(req,res) {

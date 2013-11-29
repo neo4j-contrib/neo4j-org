@@ -1778,6 +1778,12 @@ exports.content = {
             name: "Neo4j-js",
             text: "A Node.js (pure JavaScript) client library for accessing neo4j databases with batch support."
         }
+    },
+    asciidoc: {
+        simple_asciidoc: {
+            type: "asciidoc",
+            url: "https://dl.dropboxusercontent.com/u/5925006/simple.adoc"
+        }
     }
 };
 exports.video = function(id) { 

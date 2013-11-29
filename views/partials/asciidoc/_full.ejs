@@ -1,0 +1,40 @@
+
+<script src="/public/js/opal.js"></script>
+<script src="/public/js/asciidoctor.js"></script>
+<div class="featured book" class="mainElement">
+    <div class="slide book">
+        <div id=asciidoc_content>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div><!-- featured -->
+<script>
+    var asciidoc_url = "<%- item.url %>";
+    function render_asciidoc() {
+        $.ajax({
+            'url': asciidoc_url,
+            'success': function (data) {
+                var generatedHtml = undefined;
+                var ASCIIDOCTOR_OPTIONS = Opal.hash('attributes', [ 'notitle!' ], 'attribute-missing','drop');
+
+                try {
+                    generatedHtml = Opal.Asciidoctor.$render(data, ASCIIDOCTOR_OPTIONS);
+                }
+                catch (e) {
+                    console.log("error",e.name + ':' + '<p>' + e.message + '</p>');
+                    return;
+                }
+                $('#asciidoc_content').html(generatedHtml);
+            },
+            'dataType': 'text',
+            'error': function (xhr, status, errorMessage) {
+                error(errorMessage);
+            }
+        });
+        
+    }
+
+    $(document).ready(function () {
+       render_asciidoc();
+    });
+</script>
