@@ -2136,7 +2136,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 src: asset("img/still/graphgist.jpg"),
                 url: "http://gist.neo4j.org",
                 content: "<p>Documenting your graph domain model has never been easier. \
-            A <a href='http://gist.neo4j.org' >GraphGist</a> is just a simple <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>ascii doc</a> text file, and can be hosted in a\
+            A <a href='http://gist.neo4j.org' >GraphGist</a> is just a simple <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>AsciiDoc</a> text file, and can be hosted in a\
             <a href='http://gist.github.com/'>GitHub Gist</a> or any other place. It will be rendered as an interactive page in the browser.<br/>\
             You can explore those pages, read and understand them and try out the provided queries on a live graph.\
             We want to encourage you to model <em>a domain that you know or like</em> in a graph model and describe it\
@@ -2167,7 +2167,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
     graphgist_challenge: {
         path: "/learn/graphgist_challenge",
         title: "Neo4j GraphGist December Challenge",
-        introText: "Model a domain or industry use-case as a great GraphGist and WIN!",
+        introText: "Model a domain or industry use-case as a great GraphGist and WIN!<br/>It's easy. Everyone can do it.",
         thumbnail: asset("img/logo/neo4j-github.png"),
         featured: [
             {
@@ -2178,7 +2178,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 content: "<p>Join our GraphGist Challenge this month.\
             We want to encourage you to model <em>one of the domains we list below</em> in a graph model and describe it\
             interactively in a GraphGist.<br/>\
-            A <a href='http://gist.neo4j.org' >GraphGist</a> is just a basic <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>ascii doc</a> text file, and can be hosted simply in a\
+            A <a href='http://gist.neo4j.org' >GraphGist</a> is just a basic <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>AsciiDoc</a> text file, and can be hosted simply in a\
             <a href='http://gist.github.com/'>GitHub Gist</a> but rendered as an interactive page in the browser.<br/>\
             <strong style='font-size: 1.2em'>To make this more interesting we want to offer some prizes in these categories.</strong></p>\
             "
@@ -2189,10 +2189,10 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 content: "This time we want you to look into these 10 categories and provide us with really easy to understand and still insightful Graph Use-Cases: \
                 Do not take the example keywords literally, you know your domain much better than we do!\
                 <ul>\
-                <li><strong>Education</strong> - Schools, Universities, Courses, Planning, Managment etc</li>\
+                <li><strong>Education</strong> - Schools, Universities, Courses, Planning, Management etc</li>\
                 <li><strong>Finance</strong> - Loans, Risks Fraud</li>\
                 <li><strong>Life Science</strong> - Biology, Genetics, Drug research, Medicine, Doctors, Referrals</li>\
-                <li><strong>Manufacturing</strong> - production line managment, supply chain, parts list, product lines</li>\
+                <li><strong>Manufacturing</strong> - production line management, supply chain, parts list, product lines</li>\
                 <li><strong>Sports</strong> - Football, Baseball, Olympics, Public Sports</li>\
                 <li><strong>Resources</strong> - Energy Market, Consumption, Resource exploration, Green Energy, Climate Modeling</li>\
                 <li><strong>Retail</strong> - Recommendations, Product categories, Price Management, Seasons, Collections</li>\
@@ -2204,7 +2204,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
             ,{
                 type: "article",
                 title: "Prizes",
-                content: "We want to offer in each of our 10 categories prizes equivalent to:\
+                content: "We want to offer in each of our 10 categories Amazon gift-cards valued:\
                 <ol><li>Winner: <strong>300 USD</strong></li>\
                 <li>Second: <strong>150 USD</strong></li>\
                 <li>Third: <strong>50 USD</strong></li>\
