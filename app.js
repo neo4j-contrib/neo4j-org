@@ -244,11 +244,8 @@ app.configure(function () {
             var info = {host: req.host, page: req.path, ip: req.ip, cookies: ""+req.cookies, ref: ref, region:""+res.locals.region};
             try {
                 kmClient.event(req.ip,"campaign_ref", info,
-                    function(err){
-                        console.log("Error sending to kissmetrics",err,info);
-                    }
-                );
-                console.log("logging campaign_ref to km",ref,info);
+                    function(err){ if (err) { console.log("Error sending to kissmetrics",err,info); } });
+//                console.log("logging campaign_ref to km",ref,info);
             } catch(err) {
                 console.log("Error sending to kissmetrics",err,info);
             }
