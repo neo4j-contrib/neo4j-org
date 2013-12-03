@@ -35,10 +35,14 @@ var express = require('express')
     , videos = require("./helpers/videos")
     , asset = require("./helpers/assets.js").asset
     , twitter = require("./helpers/twitter.js")
-    , mylog = require("./helpers/log.js");
+    , mylog = require("./helpers/log.js")
+    , kissmetrics = require('kissmymetrics');
+
 
 var content = require("./helpers/content")
     , pages = require("./helpers/pages");
+
+var kmClient = new kissmetrics({ key: process.env.KM_KEY });
 
 var app = express();
 
@@ -232,6 +236,23 @@ app.configure(function () {
         res.header('Access-Control-Allow-Origin', '*');
         res.header('Access-Control-Allow-Methods', 'GET'); // 'PUT, GET, POST, DELETE, OPTIONS');
         res.header('Access-Control-Allow-Headers', 'Content-Type');
+        next();
+    });
+    app.use(function(req, res, next) {
+        var ref=req.query["ref"];
+        if (ref && typeof(kmClient) !== "undefined") {
+            var info = {host: req.host, page: req.path, ip: req.ip, cookies: ""+req.cookies, ref: ref, region:""+res.locals.region};
+            try {
+                kmClient.event(req.ip,"campaign_ref", info,
+                    function(err){
+                        console.log("Error sending to kissmetrics",err,info);
+                    }
+                );
+                console.log("logging campaign_ref to km",ref,info);
+            } catch(err) {
+                console.log("Error sending to kissmetrics",err,info);
+            }
+        }
         next();
     });
 	app.use(routes.assets);
