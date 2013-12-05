@@ -134,7 +134,7 @@ function wrap(prefix, value, suffix) {
 var EVENT_TYPES=["Meetup","Webinar","Conference","Training"];
 
 function parseEvents(cells, fun, filter) {
-    var now = new Date();
+    var yesterday = new Date(new Date() - 24*3600*1000);
     var header;
     var items = [];
     for (var rowNo in cells.cells) {
@@ -147,7 +147,7 @@ function parseEvents(cells, fun, filter) {
         for (var colNo in row) {
             item[header[colNo].value] = row[colNo].value
         }
-        if (new Date(item.Start) >= now && item.Created && item.Created.length > 0 && (!filter || filter(item))) {
+        if (new Date(item.Start) >= yesterday && item.Created && item.Created.length > 0 && (!filter || filter(item))) {
             item.SourceTitle = item['Title'];
             item.Title = wrap(item['Type'], " - ") + item['Title'] + wrap(" - ", item['City']);
             items.push(item);
