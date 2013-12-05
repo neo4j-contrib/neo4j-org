@@ -134,7 +134,7 @@ function wrap(prefix, value, suffix) {
 var EVENT_TYPES=["Meetup","Webinar","Conference","Training"];
 
 function parseEvents(cells, fun, filter) {
-    var yesterday = new Date(new Date() - 24*3600*1000);
+    var yesterday = new Date(new Date() - 12*3600*1000);
     var header;
     var items = [];
     for (var rowNo in cells.cells) {
@@ -211,13 +211,15 @@ exports.add_ics_route = function (path, app) {
 
 exports.init = function (app, interval) {
     function updateEvents() {
-        events(function (items) {
-            app.locals.events = items;
-            console.log("events", app.locals.events.length);
-
+//        events(function (items) {
+//            app.locals.events = items;
+//            console.log("events", app.locals.events.length);
+//
             eventsFromSpreadSheet(function (items) {
-                app.locals.events2 = items;
-                app.locals.events = mergeEvents(app.locals.events, items);
+                app.locals.events = items;
+                console.log("events", app.locals.events.length);
+//                app.locals.events2 = items;
+//                app.locals.events = mergeEvents(app.locals.events, items);
                 var eventPages = {
                     Meetup: { events: [], page: "meetups"}, 
                     Webinar:{ events: [], page: "webinars"},
@@ -247,8 +249,8 @@ exports.init = function (app, interval) {
                         p.prev = page.prev; p.prev = page.next; p.related = events
                     });
                 });
-            })
-        })
+            });
+//        })
     }
     spreadsheet.googleLogin(function () {
         updateEvents();

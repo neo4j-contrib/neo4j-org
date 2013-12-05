@@ -5,7 +5,9 @@
             </a>
         </td>
         <td class="event_location">
+            <% if (event['Location']) { %>
             <a href="http://maps.google.com/?q=<%= event['Location'] %>" target="_blank"><%= event['City'] || "Map" || event['Location'] %></a>
+            <% } %>
         </td>
         <td class="event_date" title="<%= event['Start'] %>">
             <%= event['Date'].toDateString() %>
