@@ -2,13 +2,11 @@
 <h3>Explore a dataset</h3>
 <ul>
     <li>some exploratory queries for unknown datasets, <strong>don&#8217;t do that on live production instances</strong></li>
-    <li>Count nodes <br/><pre>START n=node(*)  
+    <li>Count nodes <br/><pre>MATCH (n)
 RETURN count(*);</pre></li>
-    <li>Count relationship types <br/><pre>START n=node(*)  
-MATCH (n)-[r]-&gt;()
+    <li>Count relationship types <br/><pre>MATCH (n)-[r]->()
 RETURN type(r), count(*);</pre></li>
-    <li>List all nodes and their relationships<br/><pre>START n=node(*)    
-MATCH (n)-[r]-&gt;(m)
+    <li>List all nodes and their relationships<br/><pre>MATCH (n)-[r]->(m)
 RETURN n as from, r as `->`, m as to;</pre></li>
 </ul>
 </div>

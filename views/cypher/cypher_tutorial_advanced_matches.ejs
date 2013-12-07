@@ -5,24 +5,23 @@
 <li>same setup as before, with all the added friends and ratings</li>
 <li>lets explore the relationships between the actors</li>
 <li>All other movies that the matrix actors acted in ordered by occurrence
-<br/><pre>START m=<%=tutorial.matrix%>  
-MATCH (m)&lt;-[:ACTS_IN]-(actor)-[:ACTS_IN]-&gt;(movie)
+<br/><pre>MATCH (m:Movie)<-[:ACTS_IN]-(actor)-[:ACTS_IN]->(movie)
 RETURN movie.title, count(*) order by count(*) desc;</pre></li>
 <li>obviously the Matrix trilogy, but also others, let's see which actors
-<br/><pre>START m=<%=tutorial.matrix%> 
-MATCH (m)&lt;-[:ACTS_IN]-(actor)-[:ACTS_IN]-&gt;(movie)
+<br/><pre>
+MATCH (m:Movie)<-[:ACTS_IN]-(actor)-[:ACTS_IN]->(movie)
 RETURN movie.title, collect(actor.name), 
 count(*) as count 
 ORDER BY count desc;</pre></li>
 <li>what about co-acting, actors that acted together
 <br/><pre>START m=<%=tutorial.matrix%> 
-MATCH (m)&lt;-[:ACTS_IN]-(actor)-[:ACTS_IN]-&gt;(movie)
-&lt;-[:ACTS_IN]-(colleague)
+MATCH (m)<-[:ACTS_IN]-(actor)-[:ACTS_IN]->(movie)
+<-[:ACTS_IN]-(colleague)
 RETURN actor.name, collect(distinct colleague.name);</pre></li>
 <li>who of those other actors acted most often with anyone from the matrix cast
 <br/><pre>START m=<%=tutorial.matrix%> 
-MATCH (m)&lt;-[:ACTS_IN]-(actor)-[:ACTS_IN]-&gt;(movie)
-&lt;-[:ACTS_IN]-(colleague)
+MATCH (m)<-[:ACTS_IN]-(actor)-[:ACTS_IN]->(movie)
+<-[:ACTS_IN]-(colleague)
 RETURN colleague.name,count(*) 
 ORDER BY count(*) desc LIMIT 10;</pre></li>
 </ul>

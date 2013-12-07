@@ -2,28 +2,23 @@
 <h3>First steps with Cypher</h3>
 <ul>
     <li>
-return a single node, by id (The Matrix) <br/><pre>START movie=<%=tutorial.matrix%> 
+return a single node, by id (The Matrix) <br/><pre>MATCH (movie:Movie {title:"The Matrix"})
 RETURN movie;</pre></li>
     <li>
-return the title and id of the matrix node <br/><pre>START movie=<%=tutorial.matrix%>  
+return the title and id of the matrix node <br/><pre>MATCH (movie:Movie {title:"The Matrix"})
 RETURN movie.id, movie.title;</pre></li>
-    <li>first use of the 
-MATCH clause, show all actors
-        <br/><pre>START m=<%=tutorial.matrix%>  
-MATCH (m)&lt;-[:ACTS_IN]-(actor)
+    <li>first use of a graph pattern, show all actors
+        <br/><pre>MATCH (m:Movie {title:"The Matrix"})<-[:ACTS_IN]-(actor)
 RETURN actor;</pre></li>
     <li>
 return just the name, order them by name
-        <br/><pre>START m=<%=tutorial.matrix%> 
-MATCH (m)&lt;-[:ACTS_IN]-(actor)
+        <br/><pre>MATCH (m:Movie {title:"The Matrix"})<-[:ACTS_IN]-(actor)
 RETURN actor.name order by actor.name;</pre></li>
     <li>first aggregation, count the actors
-        <br/><pre>START m=<%=tutorial.matrix%> 
-MATCH (m)&lt;-[:ACTS_IN]-(actor)
+        <br/><pre>MATCH (m:Movie {title:"The Matrix"})<-[:ACTS_IN]-(actor)
 RETURN count(*);</pre></li>
-    <li>first filtering only the actors whose names end with "s"
-        <br/><pre>START m=<%=tutorial.matrix%>  
-MATCH (m)&lt;-[:ACTS_IN]-(actor)
+    <li>filter the actors, only return the ones with names ending in "s"
+        <br/><pre>MATCH (m:Movie {title:"The Matrix"})<-[:ACTS_IN]-(actor)
 WHERE actor.name =~ ".*s$" 
 RETURN actor.name ;</pre></li>
 </ul>

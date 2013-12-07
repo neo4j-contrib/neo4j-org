@@ -2,25 +2,24 @@
 <h3>Updating the graph</h3>
 
 <ul>
-    <li>we need a friend <br/><pre>CREATE (friend {name: "A Friend"}) RETURN friend;</pre></li>
+    <li>we need a friend <br/><pre>CREATE (friend:User {name: "A Friend"}) RETURN friend;</pre></li>
     <li>add our friendship idempotently, so we can re-run the query without adding it several times, we return the
         relationship to check that it has not been created several times
-        <br/><pre>START me=<%=tutorial.me%>, friend=<%=tutorial.friend%> 
-CREATE UNIQUE (me)-[r:FRIEND]-&gt;(friend) RETURN r;</pre></li>
+        <br/><pre>MATCH (me:User {name:"Me"}), (friend:User {name:"A Friend"})
+CREATE UNIQUE (me)-[r:FRIEND]->(friend) RETURN r;</pre></li>
     <li>rerun the query</li>
     <li>update our friendship with a <code>since</code> property
-        <br/><pre>START me=<%=tutorial.me%>, friend=<%=tutorial.friend%>  
-MATCH (me)-[r:FRIEND]-&gt;(friend)
-SET r.since='forever' 
+        <br/><pre>MATCH (me:User {name:"Me"})-[r:FRIEND]-(friend:User {name:"A Friend"})
+SET r.since='forever'
 RETURN r;</pre></li>
     <li>we pretend us being our friend and wanting to see which movies our friends have rated
-        <br/><pre>START me=<%=tutorial.friend%>  
-MATCH (me)-[:FRIEND]-(friend)-[r:RATED]-&gt;(movie)
+        <br/><pre>MATCH (me:User {name:"A Friend"}),
+(me)-[:FRIEND]-(friend)-[r:RATED]->(movie)
 RETURN movie.title, avg(r.stars) as stars, collect(r.comment) as comments, count(*);</pre></li>
     <li>that's too little data, let's add some more friends and friendships
-        <br/><pre>START me=<%=tutorial.me%> 
-FOREACH (i in range(1,10) : 
-CREATE (friend {name: "Friend "+i}), (me)-[:FRIEND]->(friend));</pre>
+        <br/><pre>MATCH (me:User {name:"Me"})
+FOREACH (i in range(1,10) |
+CREATE (friend:User {name: "Friend "+i}), (me)-[:FRIEND]->(friend));</pre>
     </li>
 </ul>
 </div>
