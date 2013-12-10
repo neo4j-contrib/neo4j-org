@@ -9,7 +9,12 @@
         </div>
         <div id="headerWrapper" class="mainElement">
            <div id="header">
+<!--[if lt IE 9]><![if gt IE 8]><![endif]-->
                <a href="/"><img id="logo" src="<%=asset('new/img/logo-white.svg')%>" alt="Neo4j World's Leading Graph Database"> <div class="brand">Neo4j</div>   </a>
+<!--[if lt IE 9]><![endif]><![endif]-->
+<!--[if lt IE 9]>
+               <a href="/"><img id="logo" src="<%=asset('new/img/logo-white-with-brand.png')%>" alt="Neo4j World's Leading Graph Database"/></a>
+<![endif]-->
                <div id="mobileMenu"><i class="icon icon-reorder"></i></div>
                 <div id="mainNav">
 

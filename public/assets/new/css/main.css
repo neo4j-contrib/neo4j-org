@@ -706,6 +706,13 @@ ul.hor li {
     text-decoration: none;   
 }
 
+.lt-ie9 #logo {
+    float: left;
+    display: block;
+    width: 10em;
+    border-left: .3em solid transparent;
+}
+
 #logo {
     float: left;
     width: 3em;
