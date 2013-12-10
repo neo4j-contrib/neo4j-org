@@ -4,7 +4,7 @@
         <p class="introText"><%- item.previewText || item.introText || item.summary %></p>
     </div>
 
-    <% if (item.stability=="milestone" || item.version.indexOf("1.9") > -1 ) { %>
+    <% if (item.stability=="milestone" || item.version.indexOf("1.9") > -1 || item.version.indexOf("2.0") > -1 ) { %>
         <% include _download_table_windows_installer %>
     <% } else { %>
         <% include _download_table %>

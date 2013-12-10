@@ -14,7 +14,8 @@ exports.pages = {
 //           content.install.download_button
            {
                type: "include",
-               path: "partials/version/_download_button_milestone"
+               path: "partials/version/_download_button"
+//               path: "partials/version/_download_button_milestone"
            }
        ],
        related: [
@@ -164,7 +165,7 @@ exports.pages = {
             //"develop",
             //"participate",
             // content.install["2_0_0_M02"],
-            content.install.milestone,
+//            content.install.milestone,
             "windows",
             "linux",
             "licensing",
@@ -189,6 +190,7 @@ exports.pages = {
         related: [
             content.install.stable,
             content.install.milestone,
+            content.install["1_9_5"],
             content.install["1_8_3"],
             content.install["1_7_2"],
             content.install["1_6_3"],
