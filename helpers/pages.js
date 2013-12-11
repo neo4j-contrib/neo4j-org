@@ -31,7 +31,7 @@ exports.pages = {
            "licensing",
            content.links.customers,
            "trainings",
-//           "graphgist_challenge",
+           "graphgist_challenge",
            content.links.manual,
            content.books.graphdatabases,
            content.links.scale,
@@ -2250,7 +2250,8 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 content: "<ul>\
                     <li>Check out the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>GraphGist Wiki</a> for many examples and hints.</li>\
                     <li>Read the <a href='http://gist.neo4j.org/?5956246'>self describing GraphGist</a>.</li>\
-                    <li>We want to run a <a href='http://www.meetup.com/graphdb-world/events/152790132/'>webinar/hangout on December 5th</a> to explain GraphGists in detail (<a href='https://docs.google.com/a/neopersistence.com/presentation/d/1QrYDKrJ8WRmvAdVcgA79HUlfiOrGrByRTgNCDPOSq-c/pub?start=false&loop=false#slide=id.p'>slides</a>).</li>\
+                    <!--li>We want to run a <a href='http://www.meetup.com/graphdb-world/events/152790132/'>webinar/hangout on December 5th</a> to explain GraphGists in detail (<a href='https://docs.google.com/a/neopersistence.com/presentation/d/1QrYDKrJ8WRmvAdVcgA79HUlfiOrGrByRTgNCDPOSq-c/pub?start=false&loop=false#slide=id.p'>slides</a>).</li-->\
+                    <li>We ran and recorded a <a href='https://vimeo.com/81146271'>webinar on December 5th</a> to explain GraphGists in detail (<a href='https://docs.google.com/a/neopersistence.com/presentation/d/1QrYDKrJ8WRmvAdVcgA79HUlfiOrGrByRTgNCDPOSq-c/pub?start=false&loop=false#slide=id.p'>slides</a>).</li>\
                     <li>We encourage local <a href='/participate/meetups'>Neo4j Meetup</a> organizers to attend that discussion and work with us to run a December meetup event about GraphGists and the challenge.</li>\
                     </ul> "
             }
