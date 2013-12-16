@@ -189,7 +189,7 @@ exports.pages = {
         thumbnail: asset("img/neo4j/logo.png"),
         related: [
             content.install.stable,
-            content.install.milestone,
+//            content.install.milestone,
             content.install["1_9_5"],
             content.install["1_8_3"],
             content.install["1_7_2"],
@@ -2169,7 +2169,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
     graphgist_challenge: {
         path: "/learn/graphgist_challenge",
         title: "Neo4j GraphGist December Challenge",
-        introText: "Model a domain or industry use-case as a great GraphGist and WIN!<br/>It's easy. Everyone can do it.",
+        introText: "Model a domain or industry use-case as a great GraphGist and WIN!<br/>It's easy. Everyone can do it. Challenge runs from Dec 1 to Jan 31 2014.",
         thumbnail: asset("img/logo/neo4j-github.png"),
         featured: [
             {
@@ -2236,7 +2236,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 <li>Enter the URL of your Gist in the top-right box of the <a href='http://gist.neo4j.org'>GraphGist-Page</a> and note the URL of your GraphGist</li>\
                 <li>Tweet the title and public URL of your GraphGist and add the tag #graphgist to the tweet.</li>\
                 <li>Add your gist on the <a href='https://github.com/neo4j-contrib/graphgist/wiki#graphgist-challenge-submissions'>GraphGist Challenge</a> Wiki page</li>\
-                <li>The GraphGist needs to be registered before Dec 31, 2013</li>\
+                <li>The GraphGist needs to be registered before Jan 31, 2014</li>\
                 <li>If you have questions reach out to our <a href='/forums'>Google Group</a>, <a href='http://twitter.com/neo4j'>@neo4j</a> on twitter or <a href='http://twitter.com/peterneubauer'>Peter Neubauer</a></li>\
                 </ul>\
                 <strong>Make sure that the content you create is shared under <a href='http://creativecommons.org/licenses/by-sa/3.0/'>CC-SA</a>.</strong>\
