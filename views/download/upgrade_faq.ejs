@@ -1,0 +1,198 @@
+<% include ../head %>
+
+<div class="mainpage" id="release_notes">
+
+
+    <h1>Frequently Asked Questions</h1>
+
+    <h2>Upgrading from Neo4j 1.x to 2
+        <div class="0"></div>
+    </h2>
+
+
+    <h3>What is in 2.0?</h3>
+
+    <p>Neo4j 2.0 is, quite simply, the most significant upgrade we have ever given to Neo4j. It represents more than a
+        year's worth of work by nearly our entire Engineering team, and some outstanding contributors. For a summary of
+        what is in version 2.0, please visit our <a
+                href="http://blog.neo4j.org/2013/12/neo4j-20-ga-graphs-for-everyone.html">Neo4j 2.0 Release Blog.</a>
+    </p>
+
+    <h3>Is 2.0 an API-Breaking Release?</h3>
+
+    <p>Yes. Major releases are the time when we remove features that were marked deprecated in earlier releases.
+        Further: in order to benefit from the upgrade to Neo4j 2.0, you will need to change your code to take advantage
+        of the new features.
+    </p>
+
+    <p>
+        <strong>More information about what APIs have been removed in 2.0 can be found <a
+                href="http://docs.neo4j.org/chunked/2.0.0/deployment-upgrading.html#deployment-upgrading-two-zero">here.</a></strong>
+    </p>
+
+    <h3>A few things you should know about 2.0:</h3>
+
+    <ul>
+        <li>Java 6 is no longer supported. To use Neo4j 2.0, please install Java 7, preferably the <a
+                href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Oracle JDK
+            (Java Development Kit)</a> but at
+            least the full Java Runtime Environment (JRE) with command-line tools.
+        </li>
+        <li>The reference node has been removed. Graph database initialization no longer creates the reference node.
+            Node ID 0 should not be presumed to exist. All related Java API methods have been removed.
+        </li>
+        <li>All database interactions must occur within a transaction, including reads. This primarily affects users of
+            the Java API: wrap transactions around all database operations, not just writes.
+        </li>
+        <li>Cypher has evolved quite significantly. Please check all of your Cypher scripts for both syntax and expected
+            results, to guard against silent false positives.
+        </li>
+    </ul>
+
+    <h3>Where are the Release Notes?</h3>
+
+    <p>
+        Release notes for all Neo4j releases can be found here:
+        <a href="/release-notes">http://www.neo4j.org/release-notes</a>
+    </p>
+
+    <h3>Are there any Backwards-Compatibility Options?</h3>
+
+    <p>Yes. Cypher lets you specify what version of the Cypher compiler you would like to use. So it is possible to run
+        your 1.9 queries without changing them. Of course you will eventually want to upgrade your queries to take
+        advantage of the new features in Cypher and Neo4j 2.0.</p>
+
+    <p>For instance, this query specifies Cypher 1.9 syntax, allowing use of the '?' operator in the <code>MATCH</code>
+        clause
+        (which has been replaced in 2.0 with the new syntax: <code>OPTIONAL MATCH</code>).</p>
+
+    <p><code><strong>CYPHER 1.9</strong> START n=node(*) MATCH (n)-[r?]-() RETURN n,r</code></p>
+
+    <p>If you are using a <a href="/drivers">language-specific driver</a> to access Neo4j, please check the
+        documentation for your driver to understand how to specify a prior Cypher version.</p>
+
+    <p>While transitioning, it is also possible to set a database wide configuration option to indicate the default
+        Cypher
+        version to use for all queries. With <code>cypher_parser_version=1.9</code> in the configuration file <code>conf/neo4j.properties</code>,
+        that same query can omit the version specifying preamble:<br/>
+
+        <code>START n=node(*) MATCH (n)-[r?]-() RETURN n,r</code>
+    </p>
+
+    <p>If your database is running in Cypher 1.9 compatibility mode, 2.0 features can still be accessed by adding the
+        <code>CYPHER 2.0</code> preamble. Of course it is unnecessary to prefix your queries with <code>CYPHER 2.0</code> you have not
+        explicitly set the <code>cypher_parser_version</code>.
+    </p>
+
+    <p>(Note that for this configuration change to take effect, the database server must be restarted.)</p>
+
+    <h3>Where in the Documentation Can I Learn More about Upgrades?</h3>
+
+    <p>The Upgrade section of the Neo4j documentation can be found <a
+            href="http://docs.neo4j.org/chunked/stable/deployment-upgrading.html">here</a>, and also covers upgrades to
+        2.0.
+    </p>
+
+    <p>
+        The upgrade basically happens by starting your Neo4j data store (after making the backup) with Neo4j 2.0 and the
+        configuration <code>allow_store_upgrade=true</code> enabled in the configuration
+        file <code>conf/neo4j.properties</code>. To avoid running into server startup issues as part of the upgrade, you
+        can also use the neo4j-shell for that purpose. The command line call would then be:<br/>
+        <code>bin/neo4j-shell -path data/graph.db -config conf/neo4j.properties</code>.
+    </p>
+
+    <h3>Is the Store Upgrade Reversible?</h3>
+
+    <p>Once your data store is upgraded, it cannot be rolled back. For this reason, Neo4j makes a complete backup of
+        your 1.9.x store as part of the upgrade to 2.0. (And an extra precaution, it probably doesn't hurt to take a
+        second backup before you start the upgrade process.) </p>
+
+    <p>Make sure you have at least double the size of your Neo4j store available as free space on your disk, before you
+        upgrade. After
+        the upgrade, the backup can be found in the following directory: <code>data/graph.db/upgrade_backup/</code>
+    </p>
+
+
+    <h3>How Long Will the Upgrade Take?</h3>
+
+    <p>When you initiate the upgrade of your 1.9 database for the first time, Neo4j will run through the store files and
+        update them to the new format. How much time this takes depends on the size of your data store. We recommend you try this out
+        in a test environment first, to get an idea of the timing, and help you plan your upgrade.</p>
+
+    <p>Don't forget though that you will first need to test your application to make sure it works! Chances are that
+        that you will have to make some changes. How much development time is required to update your code, depends on your application.
+        Applications using Neo4j's native Java APIs will be affected more than others, because of the need to wrap
+        reads in transactions.</p>
+
+    <p>Beyond the changes required to upgrade, leveraging new features such as labels, unique constraints, and new
+        indexing functionality, will may take more or less time depending on your application.</p>
+
+    <h3>When Should I Upgrade?</h3>
+
+    <p>If you are planning a new release of your app, and adding new features, then we recommend you upgrade now:
+        since you are likely to save a lot of time with the new features. Even if you aren't adding features, we
+        suggest you start planning your upgrade soon, in the coming months, as the 1.9 release will now be going into
+        maintenance mode. </p>
+
+    <p>As far as when to schedule your upgrade? Upgrading an already-running application to 2.0 just for the sake of
+        it is probably not going to give you huge benefits right now. One good reason to start planning an upgrade
+        besides new features is the upcoming 2.1 release. Neo4j 2.1 is planned to be a minor/API-compatible release of
+        Neo4j 2.x, focused primarily on performance. Neo4j 2.1 is expected mid 2014, and like 2.0, will require a store
+        upgrade. Customers not in a hurry to upgrade, and/or seeking to minimize their Neo4j upgrade overhead in 2014,
+        might want to start developing on 2.0 and go live with 2.1.</p>
+
+    <p>As always, we encourage you to contact Support to discuss your actual situation. We are happy to offer
+        advice as to when to time your upgrade.</p>
+
+    <h3>Are Rolling Upgrades Supported?</h3>
+
+    <p>Not for 2.0. Rolling upgrades let you upgrade a cluster while it is running. While we do our best to support
+        rolling upgrades between all releases - particularly between minor releases - the scope and nature of the
+        changes in Neo4j 2.0 are such, that rolling upgrades are not possible.</p>
+
+    <h3>What Version Can I Upgrade From?</h3>
+
+    <p>Neo4j 2.0 supports direct upgrades from 1.9. Previous versions have to be upgraded to 1.9 first.</p>
+
+    <h3>How Long Can I Continue Using 1.9?</h3>
+
+    <p>1.9 will continue to be supported for at least 6 months in parallel to 2.0, according to the terms of your
+        Support Agreement. Any critical fixes deemed important enough will be released in a 1.9.x release. As of the
+        time of this writing, the latest stable 1.9.x release is 1.9.5.</p>
+
+    <h3>Is 2.0 Faster?</h3>
+
+    <p>Labels allow for some new data modeling patterns that, depending on your situation, might speed things up.
+        Primarily though you can expect your 1.x application to perform similarly with 2.0. The 2.0 release is more
+        about functionality than performance. The next release (2.1, planned for mid 2014) will have performance as a
+        primary goal.</p>
+
+    <h3>Do you have any advice on how to update my 1.x data model to 2.0?</h3>
+
+    <p>The following blog post by Neo's Max de Marzi offers some examples and advice:
+        <a href="http://maxdemarzi.com/2013/06/26/neo4j-2-0-is-coming/ ">http://maxdemarzi.com/2013/06/26/neo4j-2-0-is-coming/</a>.
+        You will find more material published covering this topic in the coming weeks.
+    </p>
+
+    <p>Additionally, Neo offers training classes on data modeling, that discuss some of the new 2.0 design patterns.
+        You can always reach out to your local Neo representative for dedicated consulting,
+        if you want to engage an expert for more tailored advice.</p>
+
+    <h3>Are there any known bugs in Neo4j 2.0?</h3>
+
+    <p>While we make our best efforts to thoroughly and exhaustively test Neo4j, there are some known problems (deemed
+        non-critical) which we have not addressed, and there may be issues that have not been found. We take all concerns very
+        seriously and will respond quickly, as always, to any problems.</p>
+
+    <p>Please check <a href="http://github.com/neo4j/neo4j/issues">Neo4j on GitHub</a> for any reported bugs that appear
+        similar to any problem you are experiencing. If it has not been reported yet, please file a new issue,
+        providing details about how to reproduce the problem.</p>
+
+    <p>We recommend that you test all Cypher queries, REST calls, and re-compile all Java code before committing to a
+        migration from a previous version of Neo4j.</p>
+
+    <p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained
+        within the distribution.</p>
+</div>
+
+<% include ../foot %>

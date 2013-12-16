@@ -337,6 +337,8 @@ route_get('/participate/meetups', forward("/participate/events/meetups"));
 route_get('/terms', routes.terms); // terms and conditions
 route_get('/privacy', routes.privacy); // privacy policy
 route_get('/release-notes', routes.release_notes);
+route_get('/release-notes/faq', forward("/download/upgrade-faq"));
+route_get('/download/upgrade-faq', routes.upgrade_faq);
 route_get('/learn/education', routes.online_course);
 route_get('/learn/online_course', routes.online_course);
 

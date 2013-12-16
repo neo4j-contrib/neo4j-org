@@ -188,6 +188,10 @@ exports.privacy = function(req, res){
 exports.release_notes = function(req, res){
   res.render('download/release_notes', { category: 'download', title: 'Release Notes' });
 };
+exports.upgrade_faq = function(req, res){
+  res.render('download/upgrade_faq', { category: 'download', title: 'Upgrade FAQ' });
+};
+
 exports.online_course = function(req, res){
   res.render('learn/online_course', { category: 'learn', title: 'Online Course' });
 };
