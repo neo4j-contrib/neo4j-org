@@ -1,15 +1,15 @@
 <% include ../head %>
 
 <!--suppress HtmlFormInputWithoutLabel -->
-<div class="mainpage-course" id="online_course">
-    <div class="course_box">
+<div class="mainpage course_box" id="online_course">
+    
     <h1>The Neo4j Online Course</h1>
     <div class="clear"></div>
-    <div class="introText">
+    <p class="introText">
         You're beginning with Neo4j? Invest 4 hours of interactive, engaging learning to get familiar with Neo4j.
         With this online course you can make progress at your own leisure and pause and resume at any time.
-    </div>
-        <div class="featured mainElement course" style="min-height:20em;height:20em">
+    </p>
+        <div class="featured course">
             <div class="slide article">
         <h4>Login</h4>
         <blockquote>
@@ -94,8 +94,8 @@
             <div class="slide article">
         <h2>Course Description: Getting Started with Neo4j</h2>
 
-        <p class="content"><em>You're beginning with Neo4j? Invest 4 hours of interactive, engaging learning to get familiar with Neo4j.
-            With this online course you can control your progress at your own leisure and pause and resume at any time.</em>
+        <p class="introText">You're beginning with Neo4j? Invest 4 hours of interactive, engaging learning to get familiar with Neo4j.
+            With this online course you can control your progress at your own leisure and pause and resume at any time.
         </p>
 
         <h3>Audience </h3>
@@ -150,7 +150,6 @@
     <br/>
     </div>
 </div>
-<% include ../foot %>
 <script type="text/javascript">
     $(document).ready(function() {
         $(".course_form").submit(function() {
@@ -228,3 +227,4 @@
         });
     })
 </script>
+<% include ../foot %>

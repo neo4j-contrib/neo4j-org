@@ -792,8 +792,11 @@ ul.hor li {
 }
 
 #q {
-    width: 5em;
-    font-size: 0.9em;
+    padding: .15em;
+    width: 6em;
+    font-size: .7em;
+    line-height: 1.1em;
+    border: 1px inset #fff;
     -webkit-border-radius: .25em;
        -moz-border-radius: .25em;
             border-radius: .25em;
@@ -998,7 +1001,7 @@ ul.hor li {
     left: 1em;
 */
     padding: 1em;
-    margin: 1em auto;
+    margin: 1em 0;
     box-shadow: 0px 0px 1em #e5e5e5;
     -webkit-box-shadow: 0px 0px 1em #e5e5e5;
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
@@ -1499,11 +1502,15 @@ a.vote i {
 }
 
 .linkBlock .connect li {
-    margin-bottom: 1em;
+    margin-bottom: .5em;
 }
 
 .linkBlock .connect a {
     font-size: 1em;
+}
+
+.linkBlock .subscribe iframe {
+    margin: 0 0 0 -10px ! important;
 }
 
 /****************** footer *******************/
