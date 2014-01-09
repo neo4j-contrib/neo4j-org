@@ -151,6 +151,10 @@ exports.pages = {
                 type: "include",
                 path: "partials/version/_download_community"
             },
+            {
+                type: "include",
+                path: "browser_matrix"
+            },
             content.install.subscriptions
             //,  content.install.releases
             //content.videos.installing_neo4j,

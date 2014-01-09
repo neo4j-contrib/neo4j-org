@@ -166,6 +166,9 @@ $(document).ready(function(){
     setTimeout(function(){
         $("iframe.newsletter").attr("src","http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html");
     },100);
+    if (window.location.hash != "") {
+        $(window.location.hash).show();
+    }
 });
 
 function log(action, data) {
