@@ -170,7 +170,7 @@ function eventsFromSpreadSheet(fun, filter) {
             console.log("Error retrieving spreadsheet ", err)
         }
         spreadsheet.worksheets[0].cells({
-            range:"R1C1:R100C28"
+            range:"R1C1:R350C28"
         }, function (err, cells) {
             if (err) {
                 console.log("Error retrieving spreadsheet ", err)
