@@ -20,7 +20,7 @@ try {
 	console.log("Error creating soap client for Marketo", e);
 }
 
-getMarketoLeadFromValueAndType = function (id, type, fun) {
+var getMarketoLeadFromValueAndType = function (id, type, fun) {
     marketoClient.setSecurity(MarketoSecurity(marketoId, marketoSecret));
     marketoClient.getLead({leadKey: {keyType: type, keyValue:id}}, function(err, result) {
         if (err) {
@@ -31,6 +31,27 @@ getMarketoLeadFromValueAndType = function (id, type, fun) {
             var ids = extractIds(result);
             var firstId = ids.length ? ids[0] : null;
             return fun(firstId,ids);
+        }
+        return fun();
+    });
+};
+
+var associateMarketoLead = function (info, fun) {
+    marketoClient.setSecurity(MarketoSecurity(marketoId, marketoSecret));
+    var attributes = [ ];
+    for (key in info) {
+        if (info.hasOwnProperty(key)) {
+            attributes.push({attrName: key, attrValue: info[key]});
+        }
+    }
+    var params = {leadRecord: {Email: info.Email, leadAttributeList: {attribute:attributes}}, returnLead: true};
+    marketoClient.syncLead(params, function(err, result) {
+        if (err) {
+            console.log("Error associate lead",err,"lead",info);
+            fun(err);
+        }
+        if (!err) {
+            return fun(null,result);
         }
         return fun();
     });
@@ -78,6 +99,18 @@ exports.add_route = function(path,app) {
             res.send(500);
         }
     });
+    app.post(path, function(req,res) {
+        var info = req.body;
+        console.log(info);
+        associateMarketoLead(info, function(error,data) {
+            if (error) {
+                console.log(error);
+                res.send(500,JSON.stringify(error));
+                return;
+            }
+            res.send(200,JSON.stringify(data));
+        })
+    })
 }
 
 exports.marketo=marketoId && marketoSecret ? getMarketoLead : function(cookie,fun) { return fun() };

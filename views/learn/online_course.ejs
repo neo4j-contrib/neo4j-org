@@ -22,7 +22,7 @@
         <h4>Sign-Up</h4>
         <blockquote>
             <form class="course_form" id="course_signup" method="post">
-                <p>I, <input name="name" type="text" placeholder="full name" size="20">
+                <p>I, <input name="firstname" type="text" placeholder="first name" size="20"> <input name="name" type="text" placeholder="last name" size="20">
                     want to sign up for the Neo4j online course with my <input name="email" type="email" required="required" placeholder="email address" size="35">.</p>
                 <p>I work at <input name="company" type="text" placeholder="company" size="10"> in
                     <select name="country"><option value="">Country</option>
@@ -81,9 +81,9 @@
                         </optgroup>
                     </select> in a place with this
                     <input type="text" placeholder="ZIP-Code" name="zip" size="10">.</p>
-                <p>I want <select name="usage"><option value="evaluate">to evaluate</option><option value="develop">develop a project on with</option><option value="production">go into production with</option><option value="play">just play around with</option></select> Neo4j
+                <p>I want to <select name="usage"><option value="evaluate">evaluate</option><option value="learn">learn about</option><option value="develop">develop a project with</option><option value="production">go into production with</option><option value="play">just play around with</option></select> Neo4j
                     and <input type="checkbox" name="newsletter"> am also interested to sign up for the monthly newsletter in
-                    <select name="newsletter_lang"><option selected="selected">English</option><option>German</option></select>.</p>
+                    <select name="newsletter_lang"><option selected="selected" value="English">English</option><option value="German">German</option></select>.</p>
                 <button name="register" class="btn-action">Let's go for it.</button>
                 <div class="endquote"></div>
             </form>
@@ -197,7 +197,7 @@
             var email=$(this).find("input[name=email]").val();
             if (!email) return false;
 
-            var info = {name:null, email:null, company:null, zip:null, usage:null, newsletter:null, newsletter_lang:null};
+            var info = {firstname:null,name:null, email:null, company:null, country:null, zip:null, usage:null, newsletter:null, newsletter_lang:null};
             for (var key in info) {
                 if (!info.hasOwnProperty(key)) continue;
                 info[key]=$(this).find("input[name="+key+"]").val()||$(this).find("select[name="+key+"]").val();
@@ -216,11 +216,24 @@
                     _kmq.push(['record', 'neo4j-course-'+action+'-error', info]);
                 },
                 success: function(sessionId) {
+                    showCourse(sessionId, email);
                     _kmq.push(['identify', email ]);
                     info["data"]=sessionId;
                     _kmq.push(['record', 'neo4j-course-'+action, info]);
                     _gaq.push(['_trackEvent','neo4j-course-'+action,email,online_course,sessionId,name,info["company"],info["country"]]);
-                    showCourse(sessionId, email);
+                    if (action=="register") {
+                        var marketoInfo = {FirstName:info.firstname, LastName:info.name, Email: email, Company: info.company, Country:info.country,
+                                              HowdoyouuseNeo4j:info.usage, PostalCode:info.zip};
+                        if (info.newsletter) {
+                            var nlLangKey = (info.newsletter_lang == "German" ? "Subscription-DACHNewsletterinGerman" : "Monthlynewsletter");
+                            marketoInfo[ nlLangKey ]=true;
+                        }
+//                        var res = mktoMunchkinFunction('associateLead',marketoInfo);
+                        $.ajax("/api/marketo", {type:"POST",contentType:"application/json",data:JSON.stringify(marketoInfo),
+                            success:function(data,status) {
+                                console.log("marketo update",data,status)
+                            }});
+                    }
                 }
             });
             return false;

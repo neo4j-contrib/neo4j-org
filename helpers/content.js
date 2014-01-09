@@ -391,7 +391,9 @@ exports.content = {
     links: {
         graphenedb: {
             title: "Neo4j Hosting with GrapheneDB",
-            introText: "GrapheneDB offers comprehensive hosting plans for Neo4j, taking care of the operational aspects of running a graph database.",
+            introText: "GrapheneDB offers comprehensive hosting plans for Neo4j, taking care of the operational aspects of running a graph database.<br/>" +
+                "<strong>GrapheneDB is also available as free <a href='https://addons.heroku.com/graphenedb'>Heroku Add-On</a> in Beta</strong><br/>"
+            ,
             content: "The platform supports Neo4j Community Edition versions 1.8, 1.9 and 2.0. Sandbox databases are free of charge and with 512MB storage, support of the Neo4j API, including REST traversals and Gremlin.<br/> " +
                 "Paid plans are dedicated instances running on Amazon with following features:<br/><ul>\
                 <li>Hosting in any AWS region</li>\
@@ -468,6 +470,14 @@ exports.content = {
             author: ["luannem","rhetonik"],
             introText: "In this class <a href='http://twitter.com/luannem'>Luanne Misquitta</a> and <a href='http://twitter.com/rhetonik'>Nikhil Lanjewar</a> introduce you to the basics of Neo4j and how you can quickly get started using NOSQL on your projects.",
             thumbnail: asset("img/logo/gyaanexchange.png")
+        },
+        online_intro_training: {
+            type: "link",
+            path: "/learn/online_course",
+            title: "Online Training: Neo4j Introduction",
+            author: ["mesirii","akollegger"],
+            introText: "You're beginning with Neo4j? Invest 4 hours of interactive, engaging learning to get familiar with Neo4j. With this online course you can make progress at your own leisure and pause and resume at any time.",
+            thumbnail: asset("img/logo/online-training.png")
         },
         python_safari: {
             type: "link",
