@@ -6,6 +6,9 @@ var marketoId = process.env.MARKETO_ID;
 var marketoSecret = process.env.MARKETO_SECRET;
 
 var marketoClient;
+
+var CAMPAIGN="1464";
+
 try {
     soap.createClient(wsdlUrl, function(err, client) {
         if (client) {
@@ -57,6 +60,31 @@ var associateMarketoLead = function (info, fun) {
     });
 };
 
+var requestCampaign = function (email,campaign, fun) {
+    marketoClient.setSecurity(MarketoSecurity(marketoId, marketoSecret));
+    var params = {leadList: {leadKey: { keyType: "EMAIL", keyValue: email}}, source:"MKTOWS", campaignId:campaign};
+    marketoClient.requestCampaign(params, function(err, result) {
+        if (err) {
+            console.log("Error associating campaign",err,"lead",email,"campaign",campaign);
+            fun(err);
+        } else {
+            fun(null,result);
+        }
+    });
+};
+
+exports.listCampaigns = function (fun) {
+    marketoClient.setSecurity(MarketoSecurity(marketoId, marketoSecret));
+    var params = { source:"MKTOWS" };
+    marketoClient.getCampaignsForSource(params, function(err, result) {
+        if (err) {
+            console.log("Error listing campaigns",err);
+            fun(err);
+        } else {
+            fun(null,result);
+        }
+    });
+};
 
 function getMarketoLead(cookie, fun) {
    return getMarketoLeadFromValueAndType(cookie,"COOKIE",fun);
@@ -108,7 +136,14 @@ exports.add_route = function(path,app) {
                 res.send(500,JSON.stringify(error));
                 return;
             }
-            res.send(200,JSON.stringify(data));
+            requestCampaign(info.Email,CAMPAIGN,function(error, data) {
+                if (error) {
+                    console.log(error);
+                    res.send(500,JSON.stringify(error));
+                    return;
+                }
+                res.send(200,JSON.stringify(data));
+            })
         })
     })
 }

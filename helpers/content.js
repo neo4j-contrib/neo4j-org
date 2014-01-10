@@ -475,8 +475,8 @@ exports.content = {
             type: "link",
             path: "/learn/online_course",
             title: "Online Training: Neo4j Introduction",
-            author: ["mesirii","akollegger"],
-            introText: "You're beginning with Neo4j? Invest 4 hours of interactive, engaging learning to get familiar with Neo4j. With this online course you can make progress at your own leisure and pause and resume at any time.",
+//            author: ["mesirii","akollegger"],
+            introText: "Short on time? Or need to learn on your own time? Learn at your own pace with online training courses. These courses can stand on their own or as a complement to classroom training. Get started today!",
             thumbnail: asset("img/logo/online-training.png")
         },
         python_safari: {

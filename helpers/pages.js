@@ -27,11 +27,11 @@ exports.pages = {
                <iframe class='newsletter' style='visibility:visible;margin-left:-10px;width:15em;' src='' style='border:0;padding: 5;' width='300px' height='75px' frameborder='0' scrolling='no'></iframe>",
                thumbnail: ""
            },
-           "events",
            "licensing",
-           content.links.online_intro_training,
            content.links.customers,
+           content.links.online_intro_training,
            "graphgist_challenge",
+//           "events",
            "trainings",
            content.links.manual,
            content.books.graphdatabases,
@@ -1194,7 +1194,7 @@ exports.pages = {
     },
     trainings: {
         path: "/participate/events/trainings",
-        title: "Neo4j Trainings",
+        title: "Neo4j Training",
         thumbnail: asset("img/events/n4jtutorial_ad-150x150.png"),
         img: asset("img/events/tutorials.jpg"),
 //        img: "http://www.neotechnology.com/wp-content/uploads/2013/07/Tutorials_070912_620x300.png",
@@ -1207,9 +1207,9 @@ exports.pages = {
 //            Please keep me updated about Neo4j events, releases and articles.\
 //            <iframe src='http://info.neotechnology.com/2012Newsletters_NewsletterSubscriptioniframe.html' onload='this.style.visibility = 'visible';' style='border:0;padding: 0;' width='180px' height='50px' frameborder='0' scrolling='no'></iframe>\
 //            </div>",
-        introText: "Become proficient with Neo4j by attending a full day training close to you. If you enjoy focused, hands-on learning experiences, the trainings are the best way to go.",
+        introText: "Become proficient with Neo4j by attending a full day training close to you. If you enjoy focused, hands-on learning experiences, the training is the best way to go.",
         content:" Find the next training in <a href='/participate/events/trainings_US'>the US</a>, or in Europe in <a href='/participate/events/trainings_EU'>English</a> or <a href='/participate/events/trainings_DE'>German</a>.",
-        actionText: "Find trainings near you",
+        actionText: "Find training classes near you",
         featured: [content.links.online_intro_training],
         related: []  //"partners","licensing"
     },
@@ -2179,7 +2179,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
         path: "/learn/graphgist_challenge",
         title: "Neo4j GraphGist Winter Challenge",
         introText: "Model a domain or industry use-case as a great GraphGist and WIN!<br/>It's easy. Everyone can do it. Challenge runs from Dec 1 to Jan 31 2014.",
-        thumbnail: asset("img/logo/neo4j-github.png"),
+//        thumbnail: asset("img/logo/neo4j-github.png"),
         featured: [
             {
                 type: "article",
