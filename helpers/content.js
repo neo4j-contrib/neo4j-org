@@ -472,13 +472,14 @@ exports.content = {
             thumbnail: asset("img/logo/gyaanexchange.png")
         },
         online_intro_training: {
-            type: "video",
+            type: "page",
             path: "/learn/online_course",
-            title: "Online Training: Neo4j Introduction",
-            src: "https://player.vimeo.com/video/77866447",
+            title: "Online Training: Getting Started with Neo4j",
+//            src: "https://player.vimeo.com/video/77866447",
 //            author: ["mesirii","akollegger"],
             introText: "Short on time? Or need to learn on your own time? Learn at your own pace with online training courses. These courses can stand on their own or as a complement to classroom training.",
-            thumbnail: asset("img/logo/online-training.png"),
+            img: asset("img/still/online_training.jpg"),
+            thumbnail: asset("img/still/online_training_small.jpg"),
             actionText: "Get started today"
         },
         python_safari: {
