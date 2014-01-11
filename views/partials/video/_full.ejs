@@ -20,5 +20,5 @@ console.log("item.content",item.content);
         </div>
         <div class="clear"></div>
     </div>
-        <%- lightbox_link(item.src, (item.actionText || 'Watch the video') + ' &raquo;','link action') %>
+    <%- hasPath ? link_to(item.path, (item.actionText || 'Learn more') + ' &raquo;', 'link_action') : lightbox_link(item.src, (item.actionText || 'Watch the video') + ' &raquo;','link action') %>
 </div><!-- featured -->

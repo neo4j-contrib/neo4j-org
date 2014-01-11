@@ -221,22 +221,47 @@
                     info["data"]=sessionId;
                     _kmq.push(['record', 'neo4j-course-'+action, info]);
                     _gaq.push(['_trackEvent','neo4j-course-'+action,email,online_course,sessionId,name,info["company"],info["country"]]);
+                    var marketoInfo = {Email: email, Activity:action};
                     if (action=="register") {
-                        var marketoInfo = {FirstName:info.firstname, LastName:info.name, Email: email, Company: info.company, Country:info.country,
-                                              HowdoyouuseNeo4j:info.usage, PostalCode:info.zip};
+                        marketoInfo = {FirstName:info.firstname, LastName:info.name, Email: email, Company: info.company, Country:info.country,
+                                              HowdoyouuseNeo4j:info.usage, PostalCode:info.zip, Activity:action};
                         if (info.newsletter) {
                             var nlLangKey = (info.newsletter_lang == "German" ? "Subscription-DACHNewsletterinGerman" : "Monthlynewsletter");
                             marketoInfo[ nlLangKey ]=true;
                         }
-//                        var res = mktoMunchkinFunction('associateLead',marketoInfo);
-                        $.ajax("/api/marketo", {type:"POST",contentType:"application/json",data:JSON.stringify(marketoInfo),
-                            success:function(data,status) {
-                                console.log("marketo update",data,status)
-                            }});
                     }
-                }
+
+                    $.ajax("/api/marketo", {type:"POST",contentType:"application/json",data:JSON.stringify(marketoInfo),
+                        success:function(data,status) {
+                            console.log("marketo update",data,status)
+                        }});
+                    }
             });
             return false;
+        });
+
+        var redirectUrl = '/learn/intro_course_finish';
+        window.addEventListener('message', function(e) {
+            var data;
+//            console.log(e.data,e);
+            if (e.origin === window.location.origin) {
+                try {
+                    data = JSON.parse(e.data);
+                    if (data.event=='courseEnd') {
+                            var marketoInfo = {Email: data.email, Activity:"finish"};
+                            $.ajax("/api/marketo",
+                                    {type:"POST",contentType:"application/json",data:JSON.stringify(marketoInfo),
+                                     success:function(data,status) {
+                                        console.log("marketo update finish ",marketoInfo,data,status);
+                                     },
+                                     error:function(data,status) {
+                                         console.log("marketo error finish ",marketoInfo,data,status);
+                                     }
+                            });
+                            setTimeout(function() {window.location.href = redirectUrl;}, 300);
+                    }
+                } catch (e) { console.log(e); }
+            }
         });
     })
 </script>

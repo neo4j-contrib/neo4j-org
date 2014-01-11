@@ -33,7 +33,8 @@ var express = require('express')
     , geoip = require("./helpers/geoip")
     , render = require("./helpers/render")
     , videos = require("./helpers/videos")
-    , asset = require("./helpers/assets.js").asset
+    , asset = require("./helpers/utils.js").asset
+    , merge = require("./helpers/utils.js").merge
     , twitter = require("./helpers/twitter.js")
     , mylog = require("./helpers/log.js")
     , kissmetrics = require('kissmymetrics');
@@ -303,7 +304,7 @@ route_get('/*/', function (req, res) {
 //route_get('/', forward("/index"));
 app.get("/", function (req, res) {
     var page = app.locals.pages["index"];
-    var params = page_handling.merge(app.locals, { path:page.path, title:page.title || "", locals:app.locals });
+    var params = merge(app.locals, { path:page.path, title:page.title || "", locals:app.locals });
     res.render("partials/page", params);
 });
 

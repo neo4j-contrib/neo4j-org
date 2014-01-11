@@ -1,4 +1,4 @@
-var asset = require("../helpers/assets.js").asset
+var asset = require("../helpers/utils.js").asset
 
 //THIS IS OVERWRITTEN FROM GOOGLE
 exports.contributors = {

@@ -1,17 +1,5 @@
 var fs=require("fs");
-
-function merge() {
-    var res={};
-    for (i in arguments) {
-        var arg=arguments[i];
-        for (prop in arg) {
-            if (arg.hasOwnProperty(prop)) {
-                res[prop] = arg[prop];
-            }
-        }
-    }
-    return res;
-}
+var merge = require("../helpers/utils.js").merge;
 
 exports.init = function(app,pages) {
 
@@ -67,4 +55,3 @@ exports.init = function(app,pages) {
       }
     });
 }
-exports.merge=merge

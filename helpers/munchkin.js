@@ -7,7 +7,7 @@ var marketoSecret = process.env.MARKETO_SECRET;
 
 var marketoClient;
 
-var CAMPAIGN="1464";
+var CAMPAIGNS={register:"5642",login:"5643",finish:"5644"};
 
 try {
     soap.createClient(wsdlUrl, function(err, client) {
@@ -78,7 +78,7 @@ exports.listCampaigns = function (fun) {
     var params = { source:"MKTOWS" };
     marketoClient.getCampaignsForSource(params, function(err, result) {
         if (err) {
-            console.log("Error listing campaigns",err);
+            console.log("Error listing campaigns",err)  ;
             fun(err);
         } else {
             fun(null,result);
@@ -129,20 +129,22 @@ exports.add_route = function(path,app) {
     });
     app.post(path, function(req,res) {
         var info = req.body;
+        var activity = info.Activity||"register";
+        delete info.Activity;
         console.log(info);
-        associateMarketoLead(info, function(error,data) {
+        associateMarketoLead(info, function(error,associate_result) {
             if (error) {
                 console.log(error);
                 res.send(500,JSON.stringify(error));
                 return;
             }
-            requestCampaign(info.Email,CAMPAIGN,function(error, data) {
+            requestCampaign(info.Email,CAMPAIGNS[activity],function(error, campaign_result) {
                 if (error) {
                     console.log(error);
                     res.send(500,JSON.stringify(error));
                     return;
                 }
-                res.send(200,JSON.stringify(data));
+                res.send(200,JSON.stringify(associate_result));
             })
         })
     })

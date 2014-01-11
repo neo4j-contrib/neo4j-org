@@ -1,7 +1,7 @@
 var render = require('./render');
 var content = require("./content.js").content;
 var video = require("./content.js").video;
-var asset = require("../helpers/assets.js").asset;
+var asset = require("../helpers/utils.js").asset;
 
 exports.pages = {
     index : {
@@ -10,7 +10,8 @@ exports.pages = {
        config: { tile_page: true, no_slides: true },
        featured: [
 //           content.videos.strata,
-           content.videos.ian_graphdb_neo4j,
+//           content.videos.ian_graphdb_neo4j,
+           content.links.online_intro_training,
 //           content.install.download_button
            {
                type: "include",
@@ -29,7 +30,6 @@ exports.pages = {
            },
            "licensing",
            content.links.customers,
-           content.links.online_intro_training,
            "graphgist_challenge",
 //           "events",
            "trainings",
