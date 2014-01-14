@@ -10,14 +10,14 @@ exports.pages = {
        config: { tile_page: true, no_slides: true },
        featured: [
 //           content.videos.strata,
-           content.videos.ian_graphdb_neo4j,
+           content.links.online_intro_training,
 //           content.install.download_button
            {
                type: "include",
                path: "partials/version/_download_button"
 //               path: "partials/version/_download_button_milestone"
            },
-           content.links.online_intro_training
+           content.videos.ian_graphdb_neo4j
        ],
        related: [
            {
