@@ -10,14 +10,14 @@ exports.pages = {
        config: { tile_page: true, no_slides: true },
        featured: [
 //           content.videos.strata,
-//           content.videos.ian_graphdb_neo4j,
-           content.links.online_intro_training,
+           content.videos.ian_graphdb_neo4j,
 //           content.install.download_button
            {
                type: "include",
                path: "partials/version/_download_button"
 //               path: "partials/version/_download_button_milestone"
-           }
+           },
+           content.links.online_intro_training
        ],
        related: [
            {
@@ -581,7 +581,13 @@ exports.pages = {
         related: [
             "licensing",
             content.links.neotech_services,
-            video('0607 - High Availability with Neo4j'),
+            content.videos.high_availability,
+            {
+                type:"link", author:"maxdemarzi",
+                title: "Blog Post: Scaling Up",
+                path: "http://maxdemarzi.com/2013/11/25/scaling-up/",
+                introText: "Like rock climbing, scaling a database is a challenge. That’s one of the driving forces of the NOSQL movement, so when it comes to your database you’ll want to make sure you are making the right choices."
+            },
             "ops",
             content.links.partners_graph
         ]
@@ -1331,7 +1337,7 @@ exports.pages = {
         introText: "To run Neo4j in production, these resources will help you get going.",
         actionText: null,
         thumbnail: asset("img/still/secrets.png"),
-        featured: [video('0607 - High Availability with Neo4j')],
+        featured: [content.videos.high_availability],
         related: [content.videos.ha, content.videos.installing_neo4j, content.videos.ha_new_fosdem, content.videos.production_secrets, video('0719 - Hardware Sizing with Neo4j'), "production", content.install.windows, content.install.chef]
     },
     modeling : {

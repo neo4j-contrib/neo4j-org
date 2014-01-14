@@ -169,6 +169,18 @@ $(document).ready(function(){
     if (window.location.hash != "") {
         $(window.location.hash).show();
     }
+    $('.related .thumbnail').each(function(i, img) {
+//        var item = $(img);
+//        var h = item.height();
+//        var div_h = item.parent().height();
+//        console.log("div_h",div_h,"height",h);
+//        if (h < div_h){
+//            var mt = (div_h-h)/2+'px';
+//            item.css({'margin-top': mt });
+//        } else if (h>div_h) {
+//        }
+        item.css({'width': 'auto'});
+    });
 });
 
 function log(action, data) {

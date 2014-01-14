@@ -188,6 +188,14 @@ exports.content = {
         }
     },
     videos: {
+        high_availability : {
+            title: "High Availability with Neo4j",
+            type: "video",
+            author: "Andreas Kollegger",
+            introText: "Learn about Neo4j High Availability (HA). This webinar will explain the benefits, use cases, and basic operational procedures for: Why organizations choose Neo4j HA; Scaling performance to meet demand; Deployment scenarios, best practices; How to prepare for Disaster Recovery",
+            thumbnail: "https://secure-b.vimeocdn.com/ts/304/073/304073737_295.jpg",
+            src: "https://player.vimeo.com/video/43797268"
+        },
         ian_graphdb_neo4j: {
             title: "What is a Graph Database? What is Neo4j?",
             type: "video",
@@ -477,7 +485,7 @@ exports.content = {
             title: "Online Training: Getting Started with Neo4j",
 //            src: "https://player.vimeo.com/video/77866447",
 //            author: ["mesirii","akollegger"],
-            introText: "Short on time? Or need to learn on your own time? Learn at your own pace with online training courses. These courses can stand on their own or as a complement to classroom training.",
+            introText: "Learn Neo4j at your own pace and time with our free online training course.  Get introduced to graph databases, learn the core functionality of Neo4j, and practice Cypher with this engaging and interactive course.",
             img: asset("img/still/online_training.jpg"),
             thumbnail: asset("img/still/online_training_small.jpg"),
             actionText: "Get started today"
