@@ -480,7 +480,7 @@ exports.content = {
             thumbnail: asset("img/logo/gyaanexchange.png")
         },
         online_intro_training: {
-            type: "page",
+            type: "link",
             path: "/learn/online_course",
             title: "Online Training: Getting Started with Neo4j",
 //            src: "https://player.vimeo.com/video/77866447",
