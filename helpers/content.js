@@ -1445,7 +1445,7 @@ exports.content = {
             thumbnail: "http://rickardoberg.files.wordpress.com/2011/12/screen-shot-2011-12-19-at-5-31-52-pm.png",
             introText: "The Neo4j JDBC driver allows to access Neo4j server, embedded and in-memory databases via the JDBC API using Cypher. It also supports the <a href='http://docs.neo4j.org/chunked/milestone/rest-api-transactional.html'>transactional endpoint of Neo4j 2.0</a>. " +
                 "It was initially created by <a href='http://rickardoberg.wordpress.com/2011/12/19/creating-a-jdbc-driver-for-neo4j/'>Rickard Öberg</a> and then taken over by the Neo4j Community. " +
-                "The driver is available on <a href='https://github.com/neo4j-contrib/neo4j-jdbc'>GitHub</a>, also as <a href='http://dist.neo4j.org.s3.amazonaws.com/neo4j-jdbc/neo4j-jdbc-1.9-jar-with-dependencies.jar'>binary jar for Neo4j 1.9</a> and <a href='http://dist.neo4j.org.s3.amazonaws.com/neo4j-jdbc/neo4j-jdbc-2.0.0-M02-jar-with-dependencies.jar'>Neo4j 2.0</a>",
+                "The driver is available on <a href='https://github.com/neo4j-contrib/neo4j-jdbc'>GitHub</a>, also as <a href='http://dist.neo4j.org.s3.amazonaws.com/neo4j-jdbc/neo4j-jdbc-1.9-jar-with-dependencies.jar'>binary jar for Neo4j 1.9</a> and <a href='http://dist.neo4j.org/neo4j-jdbc/neo4j-jdbc-2.0.0-SNAPSHOT-jar-with-dependencies.jar'>Neo4j 2.0</a>",
             title: "Neo4j JDBC driver project",
             github: "https://github.com/neo4j-contrib/neo4j-jdbc"
         },
