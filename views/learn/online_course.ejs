@@ -22,10 +22,10 @@
         <h4>Sign-Up</h4>
         <blockquote>
             <form class="course_form" id="course_signup" method="post">
-                <p>I, <input name="firstname" type="text" placeholder="first name" size="20"> <input name="name" type="text" placeholder="last name" size="20">
+                <p>I, <input name="firstname" required="required" type="text" placeholder="first name" size="20"> <input name="name" required="required" type="text" placeholder="last name" size="20">
                     want to sign up for the Neo4j online course with my <input name="email" type="email" required="required" placeholder="email address" size="35">.</p>
-                <p>I work at <input name="company" type="text" placeholder="company" size="10"> in
-                    <select name="country"><option value="">Country</option>
+                <p>I work at <input required="required" name="company" type="text" placeholder="company" size="10"> in
+                    <select required="required" name="country"><option value="">Country</option>
                         <optgroup label="North America">
                             <option value="US">United States</option>
                             <option value="CA">Canada</option>
@@ -80,8 +80,8 @@
                             <option value="_AFRICA">a better place</option>
                         </optgroup>
                     </select> in a place with this
-                    <input type="text" placeholder="ZIP-Code" name="zip" size="10">.</p>
-                <p>I want to <select name="usage"><option value="evaluate">evaluate</option><option value="learn">learn about</option><option value="develop">develop a project with</option><option value="production">go into production with</option><option value="play">just play around with</option></select> Neo4j
+                    <input required="required" type="text" placeholder="ZIP-Code" name="zip" size="10">.</p>
+                <p>I want to <select required="required" name="usage"><option value="evaluate">evaluate</option><option value="learn">learn about</option><option value="develop">develop a project with</option><option value="production">go into production with</option><option value="play">just play around with</option></select> Neo4j
                     and <input type="checkbox" name="newsletter"> am also interested to sign up for the monthly newsletter in
                     <select name="newsletter_lang"><option selected="selected" value="English">English</option><option value="German">German</option></select>.</p>
                 <button name="register" class="btn-action">Let's go for it.</button>
