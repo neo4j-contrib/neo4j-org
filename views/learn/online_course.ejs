@@ -25,7 +25,7 @@
                 <p>I, <input name="firstname" required="required" type="text" placeholder="first name" size="20"> <input name="name" required="required" type="text" placeholder="last name" size="20">
                     want to sign up for the Neo4j online course with my <input name="email" type="email" required="required" placeholder="email address" size="35">.</p>
                 <p>I work at <input required="required" name="company" type="text" placeholder="company" size="10"> in
-                    <select required="required" name="country"><option value="">Country</option>
+                    <select required="required" name="country" style="width:150px"><option value="">Country</option>
                         <optgroup label="North America">
                             <option value="US">United States</option>
                             <option value="CA">Canada</option>
@@ -79,10 +79,12 @@
                             <option value="AE">United Arab Emirates</option>
                             <option value="_AFRICA">a better place</option>
                         </optgroup>
-                    </select> in a place with this
+                    </select>
+                    <select name="state" size="1" style="display: none;width: 180px;"><option value="">Select State</option><option value="AK">Alaska</option><option value="AL">Alabama</option><option value="AR">Arkansas</option><option value="AZ">Arizona</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DC">District of Columbia</option><option value="DE">Delaware</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="IA">Iowa</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="MA">Massachusetts</option><option value="MD">Maryland</option><option value="ME">Maine</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MO">Missouri</option><option value="MS">Mississippi</option><option value="MT">Montana</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="NE">Nebraska</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NV">Nevada</option><option value="NY">New York</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="PR">Puerto Rico</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VA">Virginia</option><option value="VT">Vermont</option><option value="WA">Washington</option><option value="WI">Wisconsin</option><option value="WV">West Virginia</option><option value="WY">Wyoming</option></select>
+                    in a place with this
                     <input required="required" type="text" placeholder="ZIP-Code" name="zip" size="10">.</p>
                 <p>I want to <select required="required" name="usage"><option value="evaluate">evaluate</option><option value="learn">learn about</option><option value="develop">develop a project with</option><option value="production">go into production with</option><option value="play">just play around with</option></select> Neo4j
-                    and <input type="checkbox" name="newsletter"> am also interested to sign up for the monthly newsletter in
+                    and <input type="checkbox" name="newsletter" checked="checked"> am also interested to sign up for the monthly newsletter in
                     <select name="newsletter_lang"><option selected="selected" value="English">English</option><option value="German">German</option></select>.</p>
                 <button name="register" class="btn-action">Let's go for it.</button>
                 <div class="endquote"></div>
@@ -152,6 +154,17 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
+        $(".course_form select[name=country]").change(function() {
+            var show_states = $(this).val() == "US";
+            var states = $(".course_form select[name=state]");
+            if (show_states) {
+                states.show();
+                states.attr("required","required");
+            } else {
+                states.hide();
+                states.attr("required",null);
+            }
+        });
         $(".course_form").submit(function() {
             function showCourse(sessionId, email) {
                 $(".course_box").hide();
@@ -197,7 +210,7 @@
             var email=$(this).find("input[name=email]").val();
             if (!email) return false;
 
-            var info = {firstname:null,name:null, email:null, company:null, country:null, zip:null, usage:null, newsletter:null, newsletter_lang:null};
+            var info = {firstname:null,name:null, email:null, company:null, country:null,state:null, zip:null, usage:null, newsletter:null, newsletter_lang:null};
             for (var key in info) {
                 if (!info.hasOwnProperty(key)) continue;
                 info[key]=$(this).find("input[name="+key+"]").val()||$(this).find("select[name="+key+"]").val();
@@ -220,10 +233,10 @@
                     _kmq.push(['identify', email ]);
                     info["data"]=sessionId;
                     _kmq.push(['record', 'neo4j-course-'+action, info]);
-                    _gaq.push(['_trackEvent','neo4j-course-'+action,email,online_course,sessionId,name,info["company"],info["country"]]);
+                    _gaq.push(['_trackEvent','neo4j-course-'+action,email,online_course,sessionId,name,info["company"],info["country"],info["state"]]);
                     var marketoInfo = {Email: email, Activity:action};
                     if (action=="register") {
-                        marketoInfo = {FirstName:info.firstname, LastName:info.name, Email: email, Company: info.company, Country:info.country,
+                        marketoInfo = {FirstName:info.firstname, LastName:info.name, Email: email, Company: info.company, Country:info.country,State:info.state,
                                               HowdoyouuseNeo4j:info.usage, PostalCode:info.zip, Activity:action};
                         if (info.newsletter) {
                             var nlLangKey = (info.newsletter_lang == "German" ? "Subscription-DACHNewsletterinGerman" : "Monthlynewsletter");
