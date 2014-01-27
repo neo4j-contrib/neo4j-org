@@ -387,8 +387,8 @@ calendar.add_events_route('/api/events.json', app);
 calendar.add_ics_route('/api/event.ics', app);
 
 // download resources
-route_get('/resources/cypher', forward('http://docs.neo4j.org/refcard/1.9/'));
-route_get('/resources/cypher20', forward('http://docs.neo4j.org/refcard/2.0/'));
+route_get('/resources/cypher19', forward('http://docs.neo4j.org/refcard/1.9/'));
+route_get('/resources/cypher', forward('http://docs.neo4j.org/refcard/2.0/'));
 
 
 route_get('/wp-content/*', routes.resource);
