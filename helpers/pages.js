@@ -2250,8 +2250,9 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 content: "<ul>\
                 <li>Enter the URL of your Gist in the top-right box of the <a href='http://gist.neo4j.org'>GraphGist-Page</a> and note the URL of your GraphGist</li>\
                 <li>Tweet the title and public URL of your GraphGist and add the tag #graphgist to the tweet.</li>\
+                <li>Submit your entry to the challenge with <a href='http://bit.ly/graphgist'>this form</a></li>\
                 <li>Add your gist on the <a href='https://github.com/neo4j-contrib/graphgist/wiki#graphgist-challenge-submissions'>GraphGist Challenge</a> Wiki page</li>\
-                <li>The GraphGist needs to be registered before Jan 31, 2014</li>\
+                <li>The GraphGist needs to be registered before Jan 31, 2014 (EOD last timezone)</li>\
                 <li>If you have questions reach out to our <a href='/forums'>Google Group</a>, <a href='http://twitter.com/neo4j'>@neo4j</a> on twitter or <a href='http://twitter.com/peterneubauer'>Peter Neubauer</a></li>\
                 </ul>\
                 <strong>Make sure that the content you create is shared under <a href='http://creativecommons.org/licenses/by-sa/3.0/'>CC-SA</a>.</strong>\
@@ -2267,7 +2268,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                     <li>Read the <a href='http://gist.neo4j.org/?5956246'>self describing GraphGist</a>.</li>\
                     <!--li>We want to run a <a href='http://www.meetup.com/graphdb-world/events/152790132/'>webinar/hangout on December 5th</a> to explain GraphGists in detail (<a href='https://docs.google.com/a/neopersistence.com/presentation/d/1QrYDKrJ8WRmvAdVcgA79HUlfiOrGrByRTgNCDPOSq-c/pub?start=false&loop=false#slide=id.p'>slides</a>).</li-->\
                     <li>We ran and recorded a <a href='https://vimeo.com/81146271'>webinar on December 5th</a> to explain GraphGists in detail (<a href='https://docs.google.com/a/neopersistence.com/presentation/d/1QrYDKrJ8WRmvAdVcgA79HUlfiOrGrByRTgNCDPOSq-c/pub?start=false&loop=false#slide=id.p'>slides</a>).</li>\
-                    <li>We encourage local <a href='/participate/meetups'>Neo4j Meetup</a> organizers to attend that discussion and work with us to run a December meetup event about GraphGists and the challenge.</li>\
+                    <li>We encourage local <a href='/participate/meetups'>Neo4j Meetup</a> organizers to attend that discussion and work with us to run a meetup event about GraphGists and the challenge.</li>\
                     </ul> "
             }
             ],
