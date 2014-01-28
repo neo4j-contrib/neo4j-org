@@ -7,7 +7,7 @@
         <th class="event_register"></th>
     </tr>
     <%
-var _events = (requestedSource == "calendar") ? events : events2;
+var _events = events; // (requestedSource == "calendar") ? events : events2;
 
 for (var i=0;i<_events.length;i++) {
     var event=_events[i];

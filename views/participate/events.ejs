@@ -26,7 +26,7 @@
 		<!--</select>-->
     <!--</h3>-->
         <%
-            var _events = (requestedSource == "calendar") ? events : events2;
+            var _events = events; // (requestedSource == "calendar") ? events : events2;
 
 			var groupedEvents = {Conference:[],Meetup:[],Webinar:[],Training:[]};
 			for (var i=0;i<_events.length;i++) {
