@@ -196,7 +196,7 @@ exports.pages = {
         related: [
             content.install.stable,
 //            content.install.milestone,
-            content.install["1_9_5"],
+            content.install["1_9_6"],
             content.install["1_8_3"],
             content.install["1_7_2"],
             content.install["1_6_3"],
