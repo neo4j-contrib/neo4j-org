@@ -4,6 +4,26 @@
 
 <h1>Neo4j Release Notes</h1>
 
+<h3 id="1.9.6">Neo4j 1.9.6 (2014-02-03)</h3>
+
+<p>The 1.9.6 release of Neo4j is a maintenance release.</p>
+
+<p>Notably, this release addresses:</p>
+
+<ul>
+  <li>A critical concurrency issue in the Cypher query language, that could lead to incorrect query results</li>
+  <li>Improvements to propagation of updates around a HA cluster</li>
+  <li>Improvements in stability when instances join, leave or fail in a HA cluster</li>
+</ul>
+
+<p><strong>All Neo4j users are strongly recommended to upgrade to this release.</strong>
+    Neo4j 1.9.6 does not require any store-level upgrades.</p>
+
+<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
+
+<p class="footnote">As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been declared as deprecated,
+    in order to help users prepare for the removal of these in the next major Neo4j release.
+    A <a href="http://docs.neo4j.org/chunked/1.9.3/deprecations.html"> list of deprecations</a> can be found in the Neo4j manual.</p>
 
 <h3 id="2.0.0">Neo4j 2.0 (2013-12-11)</h3>
 
@@ -24,12 +44,10 @@
 
 <p>We also covered Frequently Asked Questions about <a href="/download/upgrade-faq">Upgrading to Neo4j 2.0</a>.</p>
 
-
 <p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
 
 <p class="footnote"><strong>Note: </strong>All features marked as deprecated in the Neo4j 1.9 release series have been removed.
     Please see the <a href="http://docs.neo4j.org/chunked/1.9.5/deprecations.html"> list of deprecations</a> for any previous release in the Neo4j manual.</p>
-       
 
 <h3 id="1.9.5">Neo4j 1.9.5 (2013-11-11)</h3>
 
