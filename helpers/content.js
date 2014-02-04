@@ -15,7 +15,7 @@ exports.content = {
             stability: "stable",
             date: "Feb 4, 2014",
             introText: "General Availability",
-            path: "http://blog.neo4j.org/2013/12/neo4j-20-ga-graphs-for-everyone.html",
+            path: "http://blog.neo4j.org/2014/02/neo4j-201-maintenance-release.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
@@ -38,7 +38,7 @@ exports.content = {
             stability: "milestone",
             date: "Feb 4, 2014",
             introText: "General Availability",
-            path: "http://blog.neo4j.org/2013/12/neo4j-20-ga-graphs-for-everyone.html",
+            path: "http://blog.neo4j.org/2014/02/neo4j-201-maintenance-release.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
