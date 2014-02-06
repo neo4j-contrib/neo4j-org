@@ -931,7 +931,7 @@ exports.content = {
 			github: "https://github.com/maxdemarzi/neo_love",
             author: "maxdemarzi",
             img: "http://maxdemarzidotcom.files.wordpress.com/2013/01/groucho_marx.jpg?w=128&h=128",
-            introText: "Neo4j brings the love with a sample dating site. <a href='https://dl.dropboxusercontent.com/u/57740873/datasets/neo_love.tar.gz'><span class='icon-download-alt'>&nbsp;</span></a>",
+            introText: "Neo4j brings the love with a sample dating site. <a href='https://dl.dropboxusercontent.com/u/57740873/neo_love.graph.db.zip'><span class='icon-download-alt'>&nbsp;</span></a>",
             actionText: "Bring the Love"
         },
         neo_permissions: {
