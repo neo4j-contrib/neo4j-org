@@ -309,7 +309,6 @@ app.get("/", function (req, res) {
 });
 
 route_get('/index_graph', routes.index_graph);
-
 route_get('/search', routes.search);
 
 route_get('/drivers', forward("/develop/drivers"));
@@ -319,10 +318,13 @@ route_get('/participate/events/tutorials_DE', forward("/participate/events/train
 
 route_get('/participate/events/tutorials', forward("/participate/events/trainings"));
 route_get('/participate/events_test',    function(req, res){
-    res.render('participate/events', { title: "Neo4j Events", requestedType:req.query["type"],requestedSource:req.query["source"]||"calendar" });
+    res.render('participate/events', { title: "Neo4j Events", requestedType:req.query["type"],requestedSource:req.query["source"]||"spreadsheet" });
 });
 route_get('/participate/events_plain', function(req, res){
-    res.render('participate/events_plain', { title: "Neo4j Events", requestedType:req.query["type"],requestedSource:req.query["source"]||"calendar"});
+    res.render('participate/events_plain', { title: "Neo4j Events", requestedType:req.query["type"],requestedSource:req.query["source"]||"spreadsheet"});
+});
+route_get('/participate/events_map', function(req, res){
+    res.render('participate/events_map', { title: "Neo4j Events Map", requestedType:req.query["type"],requestedSource:req.query["source"]||"spreadsheet"});
 });
 route_get('/trainings', forward("/participate/events/trainings"));
 route_get('/tutorials', forward("/participate/events/trainings"));
@@ -390,7 +392,7 @@ calendar.add_ics_route('/api/event.ics', app);
 route_get('/resources/cypher19', forward('http://docs.neo4j.org/refcard/1.9/'));
 route_get('/resources/cypher', forward('http://docs.neo4j.org/refcard/2.0/'));
 
-
+route_get('/google2239a2d33a72ae12.html', forward("/public/google2239a2d33a72ae12.html"));
 route_get('/wp-content/*', routes.resource);
 route_get('/wp-includes/*', routes.resource);
 route_get('/assets/download/*', routes.resource);

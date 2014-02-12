@@ -1,3 +1,5 @@
+var render = require('./render');
+var merge = require("../helpers/utils.js").merge;
 var rssparser = require('rssparser')
     , http = require('http')
     , spreadsheet = require('./spreadsheet');
@@ -183,12 +185,16 @@ function eventsFromSpreadSheet(fun, filter) {
 exports.add_events_route = function (path, app) {
     app.get(path, function (req, res) {
         var filter = req.query['filter'];
-        events(function (items) {
-            var data = JSON.stringify(items);
-            res.send(200, data);
-        }, function (item) {
-            return !filter || item.title.match(filter) || item.summary.match(filter)
-        })
+        var area = req.query['area'];
+        var type = req.query['type'];
+        var items = app.locals.events.filter(function(event) {
+            if (area && event.Area != area) return false;
+            if (type && event.Type != type) return false;
+            if (filter && !event.Title.match(filter) && !event.Description.match(filter)) return false;
+            return true;
+        });
+        var data = JSON.stringify(items);
+        res.send(200, data);
     });
 };
 
@@ -228,6 +234,9 @@ exports.init = function (app, interval) {
                 app.locals.events.forEach(function (e) {
                     e.type = "event";
                     eventPages[e.Type].events.push(e);
+// cache html rendering of event tile
+                    var params = merge(app.locals, {item: e}, { locals:app.locals });
+                    e.html=render.include("partials/event/_tile",params);
                 });
                 app.locals.pages.events.related = ["meetups","webinars","trainings","conferences"].concat(app.locals.events);
                 Object.keys(eventPages).forEach(function(type) {

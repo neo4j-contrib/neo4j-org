@@ -1,0 +1,183 @@
+<script src="<%=asset('new/js/vendor/jquery-1.8.3.min.js')%>"></script>
+<script>window.jQuery || document.write('<script src="new/js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+
+<style type="text/css">
+    #map-div {
+        margin-top: 2em;
+        height: 300px;
+        width: 600px;
+    }
+    #panel {
+        position: relative;
+        top: 5px;
+        left: 45%;
+        right: 45%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        display:none;
+    }
+    #map-canvas {
+        top: -25px;
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script>
+    var INITIAL = new google.maps.LatLng(51.5, -0.12);
+    var geocoder;
+    var map;
+    var events;
+
+    function handleNoGeolocation(errorFlag) {
+        document.getElementById('address').show();
+        if (errorFlag) {
+            var content = 'Error: The Geolocation service failed.';
+        } else {
+            var content = 'Error: Your browser doesn\'t support geolocation.';
+        }
+
+        var options = {
+            map: map,
+            position: INITIAL,
+            content: content
+        };
+
+        var infowindow = new google.maps.InfoWindow(options);
+        map.setCenter(options.position);
+    }
+
+    function initialize() {
+        geocoder = new google.maps.Geocoder();
+        var mapOptions = {
+            zoom: 5,
+            center: INITIAL
+        };
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+// Try HTML5 geolocation
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(handleCurrentPosition, function() {
+                handleNoGeolocation(true);
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleNoGeolocation(false);
+        }
+        loadEvents();
+    }
+
+    function loadEvents() {
+        if (events) {
+            showEvents();
+        } else {
+            // todo filters
+            $.get("/api/events.json",function(data,err) {
+                if (err!="success") {
+                    console.log(JSON.stringify(err));
+                } else {
+                    var parsed = JSON.parse(data);
+                    if (parsed.length) events = parsed;
+                    showEvents();
+                }
+            })
+        }
+    }
+
+    function showEvents() {
+        if (!events) return;
+        var requestedType;
+        if (document.location.search) {
+            var params=document.location.search.split(/[&=?]/).slice(1);
+            if (params.indexOf("type") != -1) requestedType = params[params.indexOf("type")+1];
+        }
+        events.forEach(function(event) {
+            console.log(event);
+            if (!requestedType || event.Type == requestedType) {
+                codeAddress(event, eventMarker);
+            }
+        })
+    }
+    function handleCurrentPosition(position) {
+        console.log(position);
+        var pos = new google.maps.LatLng(position.coords.latitude,
+                position.coords.longitude);
+
+        // var infowindow = new google.maps.InfoWindow({
+        //   zoom: 7,
+        //   map: map,
+        //   position: pos,
+        //   content: 'Location found using HTML5.'
+        // });
+        map.setZoom(6);
+        map.setCenter(pos);
+    }
+
+    function eventMarker(event,location) {
+        var marker = new google.maps.Marker({
+            map: map,
+            position: location,
+            title: event.Title
+        });
+        var infowindow = new google.maps.InfoWindow({
+            content: event.html||"An Event", // todo
+//            content: "<h3>"+event.Title+"</h3>"+"<p>with "+event.+"</p>"
+            maxWidth: 300
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+        });
+    }
+
+    function codeAddress(event, fun) {
+//  var address = document.getElementById('address').value;
+        var address = event.Location || event.City;
+        console.log(address);
+        geocoder.geocode( { 'address': address }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                console.log(address,results);
+                var loc = results[0].geometry.location;
+                if (!fun) {
+                    map.setCenter(loc);
+                } else {
+                    fun(event,loc)
+                }
+            } else {
+                console.log('Geocode was not successful for the following reason: ' + status);
+                if (status == "OVER_QUERY_LIMIT") {
+                    setTimeout(function() { codeAddress(event,fun);},1000);
+                }
+            }
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<div class="featured" class="mainElement" id="events-map" style="/*display: none*/">
+    <div class="slide event">
+        <div class="image">
+            <div id="map-div">
+                <div id="panel">
+                    <input id="address" type="text" value="London, UK">
+                    <input type="button" value="Geocode" onclick="codeAddress({City:document.getElementById('address').value})">
+                </div>
+                <div id="map-canvas"></div>
+            </div>
+        </div>
+        <div class="text">
+        <div class="caption">
+            <h3>Neo4j Events Map</h3>
+        </div>
+        <div class="content">
+            <p class="contentText">Find Neo4j Events close to you and engage with your local community. You'll love it!</p>
+        </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <a class="link action" href="/participate/events" target="_blank">See All Neo4j Events &raquo;</a>
+</div>

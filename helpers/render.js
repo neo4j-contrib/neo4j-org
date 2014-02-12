@@ -11,7 +11,7 @@ exports.include = function (path, options) {
         content = fs.readFileSync(fileName).toString();
         cache[path] = content;
     }
-    console.log("Rendering ",fileName);
+//    console.log("Rendering ",fileName);
     return ejs.render(content, options);
 };
 

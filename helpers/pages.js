@@ -17,6 +17,10 @@ exports.pages = {
                path: "partials/version/_download_button"
 //               path: "partials/version/_download_button_milestone"
            },
+           {
+               type: "include",
+               path: "participate/events_map"
+           },
            content.videos.ian_graphdb_neo4j
        ],
        related: [
