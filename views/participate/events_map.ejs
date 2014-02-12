@@ -126,7 +126,7 @@
             title: event.Title
         });
         var infowindow = new google.maps.InfoWindow({
-            content: event.html||"An Event", // todo
+            content: "<div class=''>"+(event.html||"An Event")+"</div>", // todo
 //            content: "<h3>"+event.Title+"</h3>"+"<p>with "+event.+"</p>"
             maxWidth: 300
         });
