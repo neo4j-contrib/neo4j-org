@@ -17,10 +17,10 @@ exports.pages = {
                path: "partials/version/_download_button"
 //               path: "partials/version/_download_button_milestone"
            },
-           {
-               type: "include",
-               path: "participate/events_map"
-           },
+//           {
+//               type: "include",
+//               path: "participate/events_map"
+//           },
            content.videos.ian_graphdb_neo4j
        ],
        related: [
@@ -170,12 +170,12 @@ exports.pages = {
         related: [
             //content.videos.installing_neo4j,
             // content.install.milestone,
-            content.install.stable,
+//            content.install.stable,
             //"graphdatabase",
             //"develop",
             //"participate",
             // content.install["2_0_0_M02"],
-//            content.install.milestone,
+            content.install.milestone,
             "windows",
             "linux",
             "licensing",

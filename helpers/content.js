@@ -13,6 +13,7 @@ exports.content = {
             title: "Neo4j Stable Release 2.0.1",
             version: "2.0.1",
             stability: "stable",
+            key: "stable",
             date: "Feb 4, 2014",
             introText: "General Availability",
             path: "http://blog.neo4j.org/2014/02/neo4j-201-maintenance-release.html",
@@ -27,18 +28,20 @@ exports.content = {
             type: "version",
             title: "Snapshot Version 2.0-SNAPSHOT",
             stability: "snapshot",
+            key: "snapshot",
             version: "2.0-SNAPSHOT",
             date: "2013",
             introText: "Unstable Snapshot, for resolution issue verification"
         },
         "milestone": {
             type: "version",
-            title: "Neo4j Stable Release 2.0.1",
-            version: "2.0.1",
+            title: "Neo4j Milestone Release 2.1.0-M01",
+            version: "2.1.0-M01",
+            key: "milestone",
             stability: "milestone",
-            date: "Feb 4, 2014",
-            introText: "General Availability",
-            path: "http://blog.neo4j.org/2014/02/neo4j-201-maintenance-release.html",
+            date: "Feb 24, 2014",
+            introText: "Dense Nodes and CSV Import",
+            path: "http://blog.neo4j.org/2014/02/neo4j-210-milestone-1-release-import-and-dense-nodes.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
@@ -480,6 +483,7 @@ exports.content = {
             thumbnail: asset("img/logo/gyaanexchange.png")
         },
         online_intro_training: {
+            key: "online_intro_training",
             type: "link",
             path: "/learn/online_course",
             title: "Online Training: Getting Started with Neo4j",
