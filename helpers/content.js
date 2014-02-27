@@ -1818,7 +1818,7 @@ exports.content = {
     asciidoc: {
         simple_asciidoc: {
             type: "asciidoc",
-            url: "https://dl.dropboxusercontent.com/u/5925006/simple.adoc"
+            url: "https://api.github.com/gists/ca811daa580aee95bd07"
         }
     }
 };

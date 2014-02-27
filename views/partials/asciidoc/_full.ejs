@@ -13,12 +13,19 @@
     function render_asciidoc() {
         $.ajax({
             'url': asciidoc_url,
-            'success': function (data) {
+            'success': function (d) {
+                var data = JSON.parse(d);
+                console.log(data);
+                var file = data.files[Object.keys(data.files)[0]];
+                console.log("file",file);
+                var content = file.content;
+                var link = file.content;
+                console.log("gist", link);
                 var generatedHtml = undefined;
                 var ASCIIDOCTOR_OPTIONS = Opal.hash('attributes', [ 'notitle!' ], 'attribute-missing','drop');
 
                 try {
-                    generatedHtml = Opal.Asciidoctor.$render(data, ASCIIDOCTOR_OPTIONS);
+                    generatedHtml = Opal.Asciidoctor.$render(link, ASCIIDOCTOR_OPTIONS);
                 }
                 catch (e) {
                     console.log("error",e.name + ':' + '<p>' + e.message + '</p>');
