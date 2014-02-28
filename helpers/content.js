@@ -1833,7 +1833,7 @@ exports.findItem = function (key) {
 };
 exports.lookup = function (id) {
     return function () {
-        // console.log("lookup/findItem",id,findItem(id));
+        console.log("lookup/findItem",id,findItem(id));
         return findItem(id);
     }
 };

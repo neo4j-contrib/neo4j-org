@@ -1,0 +1,11 @@
+<% var info=item;%>
+<div class="item graphgist">
+
+    <a href="<%= 'http://twitter.com/'+info['Twitter'] %>" target="_blank">
+        <img class="preview" src="<%= 'http://api.twitter.com/1.1/users/profile_image/'+info['Twitter']+'?size=bigger' %>" title="<%= info['name'] %>" alt="picture of <%= info['name'] %>"/>
+    </a>
+    <h5><a href="<%=info.URL %>" target="_blank"><%= info['Title'] %></a></h5>
+            
+    <!--<p class="introText"><%- info['text'] %></p>-->
+    
+</div>

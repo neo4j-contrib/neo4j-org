@@ -2181,7 +2181,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 img: asset("img/still/graphgist_video.jpg")
             }
         ],
-        related: ["modeling"],
+        related: ["modeling", "http://gist.neo4j.org/?8015026", "http://gist.neo4j.org/?8526106"],
         thumbnail: asset("img/logo/neo4j-github.png"),
         actionText: "Model your Graph"
     },

@@ -22,6 +22,7 @@ var express = require('express')
     , markdown = require("node-markdown").Markdown
     , calendar = require("./helpers/calendar")
     , contributors = require("./helpers/contributors")
+    , graphgists = require("./helpers/graphgists")
     , versions = require("./helpers/versions")
     , channels = require("./helpers/channels")
     , spreadsheet = require("./helpers/spreadsheet")
@@ -55,6 +56,7 @@ app.locals.pages = pages.pages;
 app.locals.content = content.content;
 // app.locals.contributors = data.contributors;
 app.locals.contributors = {};
+app.locals.graphgists = {};
 app.locals.drivers = data.drivers;
 app.locals.ext_content = data.ext_content;
 app.locals.trainings = data.trainings;
@@ -100,7 +102,7 @@ app.locals.chunk = function (arr, size) {
 };
 
 function findItem(key) {
-    // console.log("findItem", key)
+    console.log("findItem", key)
     if (typeof key == 'function') key = key();
     if (typeof key == 'object') return key;
     
@@ -113,6 +115,7 @@ function findItem(key) {
     if (content.content.drivers[key]) return addType(content.content.drivers[key], "driver");
     if (content.content.books[key]) return addType(content.content.books[key], "book");
     if (app.locals.contributors[key]) return addType(app.locals.contributors[key], "contributor");
+    if (app.locals.graphgists[key]) return addType(app.locals.graphgists[key], "graphgist");
     if (data.contributors[key]) return addType(data.contributors[key], "contributor");
     if (data.ext_content[key]) return addType(data.ext_content[key], "external");
     if (data.trainings[key]) return addType(data.trainings[key], "training");
@@ -276,6 +279,7 @@ videos.loadAllVideos(app.locals.pages,app.locals.content,4);
 calendar.init(app,3600*1000);
 channels.init(app,60*1000);
 contributors.init(app,3600*1000);
+graphgists.init(app,3600*1000);
 
 function forward(url) {
     return function (req, res) {
@@ -354,7 +358,7 @@ route_get('/install/linux', forward("/download/linux"));
 route_get('/install/windows', forward("/download/windows"));
 route_get('/tracks/java', forward("/develop/java"));
 route_get('/tracks/cypher', forward("/tracks/cypher_track_start"));
-route_get('/learn/graphgist', forward("/learn/graphgist_challenge"));
+//route_get('/learn/graphgist', forward("/learn/graphgist_challenge"));
 route_get('/about', forward("/learn/neo4j"));
 route_get('/java', forward("/develop/java"));
 route_get('/ruby', forward("/develop/ruby"));
