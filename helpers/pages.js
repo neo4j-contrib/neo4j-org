@@ -24,14 +24,7 @@ exports.pages = {
            content.videos.ian_graphdb_neo4j
        ],
        related: [
-           {
-//               "title":"Don't miss important information.",
-               "title":"Sign up for Neo4j",
-               introText: "For the best developer experience, subscribe and stay informed about events,<br/>\
-               releases and technical articles on graphs and development with Neo4j.\
-               <iframe class='newsletter' style='visibility:visible;margin-left:-10px;width:15em;' src='' style='border:0;padding: 5;' width='300px' height='75px' frameborder='0' scrolling='no'></iframe>",
-               thumbnail: ""
-           },
+           content.action.signup ,
            "licensing",
            content.links.customers,
            "graphgist_challenge",
@@ -455,19 +448,12 @@ exports.pages = {
         featured: [
             {
                 type: "video",
-                thumbnail: asset("img/still/new_neo4j_20.jpg"),
-                introText: "Webinar on labels, indexes and other improvements in Neo4j 2.0",
-                author: "mesirii",
-                src: "http://player.vimeo.com/video/72069694",
-                title: "Webinar, Wha's new in Neo4j 2.0"
+                thumbnail: asset("img/still/new_neo4j_20.png"),
+                introText: "The 2.0 release of Neo4j makes an important change to the graph data model, the introduction of labels. Using labels, Neo4j 2.0 is able to do much more powerful indexing, enable data constraints and bring Cypher to a whole new level. <a href='https://docs.google.com/presentation/d/1jv3Yv6F99tjT0iy---3K2NpJEpU4Ngj4ABhxBlYNtSY/embed?start=false&loop=false&delayms=3000'>Slides</a>",
+                author: "Jacob Hansson",
+                src: "http://player.vimeo.com/video/82319888",
+                title: "Webinar, Neo4j 2.0 Feature Overview"
             },
-            {
-                type: "video",
-                thumbnail: "https://dl.dropboxusercontent.com/u/14493611/Public%20Labels%20Presentation.png",
-                introText: "Short presentation about labels and indexes.",
-                src: "https://docs.google.com/presentation/d/14-_0rzxQAPgnk5HlqswaDT7QEuPgdvDpLZcbpb1puQU/embed?start=false&loop=false&delayms=3000",
-                title: "Labels and Indexes in Neo4j 2.0"
-            }
         ],
         related: [
             content.install.milestone,
@@ -480,19 +466,19 @@ exports.pages = {
             },
             {
                 type: "article",
-                path: "http://docs.neo4j.org/chunked/preview/what-is-a-graphdb.html",
+                path: "http://docs.neo4j.org/chunked/stable/what-is-a-graphdb.html",
                 title: "Manual: Labels and Indexes",
                 author: ["systay", "jakewins", "boggle", "tinwelint"],
                 introText: "All major Neo4j API's can handle labels:<ul>\
-                    <li>General: <a href='http://docs.neo4j.org/chunked/preview/graphdb-neo4j-schema.html'>schema</a></li>\
-                    <li>Cypher: <a href='http://docs.neo4j.org/chunked/preview/query-match.html#match-match-with-labels'>match</a>,\
-                                <a href='http://docs.neo4j.org/chunked/preview/introduction-pattern.html#_labels'>patterns</a>,\
-                                <a href='http://docs.neo4j.org/chunked/preview/query-where.html#where-filter-on-node-label'>where</a>,\
-                                <a href='http://docs.neo4j.org/chunked/preview/query-create.html#create-create-node-and-add-labels'>create</a>,\
-                                <a href='http://docs.neo4j.org/chunked/preview/query-function.html#_collection_functions'>functions</a>,\
-                                <a href='http://docs.neo4j.org/chunked/preview/query-schema-index.html'>indexes</a></li>\
-                    <li>REST: <a href='http://docs.neo4j.org/chunked/preview/rest-api-node-labels.html'>labels</a>, <a href='http://docs.neo4j.org/chunked/preview/rest-api-schema-indexes.html'>indexes</a></li>\
-                    <li>Core: <a href='http://docs.neo4j.org/chunked/preview/tutorials-java-embedded-new-index.html'>example</a>, <a href='http://docs.neo4j.org/chunked/preview/rest-api-schema-indexes.html'>indexes</a></li>\
+                    <li>General: <a href='http://docs.neo4j.org/chunked/stable/graphdb-neo4j-schema.html'>schema</a></li>\
+                    <li>Cypher: <a href='http://docs.neo4j.org/chunked/stable/query-match.html#match-match-with-labels'>match</a>,\
+                                <a href='http://docs.neo4j.org/chunked/stable/introduction-pattern.html#_labels'>patterns</a>,\
+                                <a href='http://docs.neo4j.org/chunked/stable/query-where.html#where-filter-on-node-label'>where</a>,\
+                                <a href='http://docs.neo4j.org/chunked/stable/query-create.html#create-create-node-and-add-labels'>create</a>,\
+                                <a href='http://docs.neo4j.org/chunked/stable/query-function.html#_collection_functions'>functions</a>,\
+                                <a href='http://docs.neo4j.org/chunked/stable/query-schema-index.html'>indexes</a></li>\
+                    <li>REST: <a href='http://docs.neo4j.org/chunked/stable/rest-api-node-labels.html'>labels</a>, <a href='http://docs.neo4j.org/chunked/stable/rest-api-schema-indexes.html'>indexes</a></li>\
+                    <li>Core: <a href='http://docs.neo4j.org/chunked/stable/tutorials-java-embedded-new-index.html'>example</a>, <a href='http://docs.neo4j.org/chunked/stable/rest-api-schema-indexes.html'>indexes</a></li>\
                     </ul>"
             },
             {
@@ -696,8 +682,21 @@ exports.pages = {
         thumbnail: asset("img/books/nosql_distilled.png"),
         title: "Graph Database related Books",
         introText: "Learn more about Neo4j, Graph Theory and Graph Databases by reading these amazing books!",
-        featured: [content.books.graphdatabases],
+        featured: [content.books.graphdatabases,content.books.neo4j20_de],
         related: [content.books.springdata, content.books.goodrelationships, content.books.nosqldistilled, content.books.sevendatabases, content.books.neo4jinaction, content.books.visualcomplexity, content.books.connected]
+    },
+    neo4j20_de: {
+        path: "/learn/books/neo4j20_de",
+        thumbnail: asset("img/books/neo4j20_de_small.jpg"),
+        title: "Neo4j 2.0 - Eine Graphdatenbank für alle",
+        introText: "Das einzige deutsche Buch zu Neo4j, umfassend und aktuell für Version 2.0",
+        featured: [content.books.neo4j20_de],
+        related: [
+            content.action.signup,
+            "trainings_DE",
+            "conferences_DE",
+            "meetups_DE"
+        ]
     },
     cloud: {
         path: "/develop/cloud",

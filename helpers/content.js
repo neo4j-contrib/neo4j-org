@@ -2,6 +2,16 @@ var render = require('./render');
 var asset = require("../helpers/utils.js").asset;
 
 exports.content = {
+    action: {
+         signup:            {
+//               "title":"Don't miss important information.",
+             "title":"Sign up for Neo4j",
+             introText: "For the best developer experience, subscribe and stay informed about events,<br/>\
+               releases and technical articles on graphs and development with Neo4j.\
+               <iframe class='newsletter' style='visibility:visible;margin-left:-10px;width:15em;' src='' style='border:0;padding: 5;' width='300px' height='75px' frameborder='0' scrolling='no'></iframe>",
+             thumbnail: ""
+         }
+    },
     install: {
         releases: {
             type: "include",
@@ -1247,6 +1257,23 @@ exports.content = {
                 "highlighting what differentiates graph databases from other database technologies, both relational and NOSQL. Graph Databases " +
                 "is written by Ian Robinson, Jim Webber, and Emil Eifrém, graph experts and enthusiasts at Neo Technology, creators of Neo4j.",
             actionText: 'Get your free e-book'
+        },
+        neo4j20_de: {
+            key: "neo4j20_de",
+            type: "book",
+            url: "http://bit.ly/neo4j-buch",
+            name: "Neo4j 2.0 - Eine Graphdatenbank für alle",
+            author: "Michael Hunger",
+            price: "E-Book: 9,99 EUR; Taschenbuch EUR 12.90",
+            logo: asset("img/books/neo4j20_de.jpg"),
+            thumbnail: asset("img/books/neo4j20_de_small.jpg"),
+            introText: 'Das einzige deutsche Buch zu Neo4j, umfassend und aktuell für Version 2.0',
+            text: "Der Mehrwert von Informationen steckt nicht notwendigerweise in der reinen Menge von Daten, sondern vor allem in den Beziehungen zwischen Elementen. " +
+                "Bisher war es nicht so einfach, die interessanten, vernetzten Domänen verlustlos in einer Datenbank zu speichern und effizient abzufragen. " +
+                "Neo4j, besonders die neue Version 2.0, erlaubt es, komplexe Datenmodelle direkt zu modellieren und herausfordernde Anwendungsfälle performant umzusetzen. " +
+                "In diesem Buch gibt Michael Hunger, langjähriger Mitarbeiter von Neo Technology, an praktischen Beispielen einen Überblick zur Anwendung der quelloffenen " +
+                "Graphdatenbank.",
+            actionText: 'Jetzt reinschauen'
         },
         springdata: {
             url: "http://shop.oreilly.com/product/0636920024767.do",
