@@ -1,11 +1,16 @@
 <% var info=item;%>
 <div class="item graphgist">
 
-    <a href="<%= 'http://twitter.com/'+info['Twitter'] %>" target="_blank">
-        <img class="preview" src="<%= 'http://api.twitter.com/1.1/users/profile_image/'+info['Twitter']+'?size=bigger' %>" title="<%= info['name'] %>" alt="picture of <%= info['name'] %>"/>
-    </a>
-    <h3><a href="<%=info.URL %>" target="_blank"><%= info['Title'] %></a></h3>
-            
-    <h5>Category: <%=info.Category %></h5>
-    
+    <!--a href="<%= 'http://twitter.com/'+info['Twitter'] %>" target="_blank">
+        <img class="preview" src="<%= 'http://api.twitter.com/1.1/users/profile_image/'+info['Twitter']+'?size=bigger' %>" title="<%= info['Your Name'] %>" alt="picture of <%= info['Your Name'] %>"/>
+    </a-->
+    <div class="caption">
+        <h3><a href="<%=info['GraphGist URL'] %>" target="_blank"><%= info['Gist Title'] %></a></h3>
+        <a target='_blank' href="http://twitter.com/<%= info['Twitter'] %>"> <h4><em>by <%= info['Your Name'] %></em></h4> </a>
+    </div>
+    <div class="introText">
+        <p><%-info.Description %></p>
+        <h5>Category: <%=info.Category %></h5>
+        <a class="link" style="font-size: 1.5em" href="<%=info['GraphGist URL'] %>" target="_blank">Read more &raquo;</a><br/>
+    </div>
 </div>

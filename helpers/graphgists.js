@@ -4,7 +4,6 @@ function parseGraphgists(cells, fun, filter) {
     var header;
     var items = {};
     for (var rowNo in cells.cells) {
-        console.log("graphgists", rowNo);
         var row = cells.cells[rowNo]
         if (!header) {
             header = row;
@@ -14,9 +13,10 @@ function parseGraphgists(cells, fun, filter) {
         for (var colNo in row) {
             item[header[colNo].value] = row[colNo].value;
         }
-        var id = item.URL;
+        var id = item['Gist Title'];
         if (id) items[id] = item;
     }
+    console.log("graphgists",items.length);
     if (filter) fun(items.filter(filter));
     else fun(items)
 }
@@ -27,7 +27,7 @@ function graphgists(fun, filter) {
             console.log("Error retrieving spreadsheet ", err)
         }
         sheet.worksheets[2].cells({
-            range: "R1C2:R58C8"
+            range: "R1C2:R300C12"
         }, function (err, cells) {
             if (err) {
                 console.log("Error retrieving spreadsheet ", err)

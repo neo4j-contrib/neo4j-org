@@ -17,17 +17,17 @@ exports.pages = {
                path: "partials/version/_download_button"
 //               path: "partials/version/_download_button_milestone"
            },
-//           {
-//               type: "include",
-//               path: "participate/events_map"
-//           },
+           {
+               type: "include",
+               path: "participate/events_map"
+           },
            content.videos.ian_graphdb_neo4j
        ],
        related: [
            content.action.signup ,
            "licensing",
            content.links.customers,
-           "graphgist_challenge",
+           "graphgist",
 //           "events",
            "trainings",
            content.links.manual,
@@ -453,7 +453,7 @@ exports.pages = {
                 author: "Jacob Hansson",
                 src: "http://player.vimeo.com/video/82319888",
                 title: "Webinar, Neo4j 2.0 Feature Overview"
-            },
+            }
         ],
         related: [
             content.install.milestone,
@@ -2180,7 +2180,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 img: asset("img/still/graphgist_video.jpg")
             }
         ],
-        related: ["modeling", "http://gist.neo4j.org/?8015026", "http://gist.neo4j.org/?8526106"],
+        related: ["modeling", "Piping Water", 'Roads, Nodes and Automobiles','Single Malt Scotch Whisky GraphGist'],
         thumbnail: asset("img/logo/neo4j-github.png"),
         actionText: "Model your Graph"
     },
