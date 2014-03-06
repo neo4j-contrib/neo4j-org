@@ -123,6 +123,7 @@ function findItem(key) {
     if (content.content.links[key]) return addType(content.content.drivers[key], "link");
     if (content.content.videos[key]) return addType(content.content.videos[key], "video");
     if (content.content.asciidoc[key]) return addType(content.content.asciidoc[key], "asciidoc");
+    if (content.content.graphgists[key]) return addType(content.content.graphgists[key], "graphgist");
     return key;
 }
 app.locals.findItem = findItem;
@@ -230,9 +231,11 @@ app.configure(function () {
     app.use(function (req, res, next) {
         try {
             res.locals.region = geoip.region(req.ip);
+            res.locals.ip_country = geoip.countryName(req.ip);
         } catch (e) {
             console.log("Error getting ip", req.ip, e);
             res.locals.region = 'US';
+            res.locals.ip_country = 'US';
         }
         next();
     });
@@ -308,7 +311,8 @@ route_get('/*/', function (req, res) {
 //route_get('/', forward("/index"));
 app.get("/", function (req, res) {
     var page = app.locals.pages["index"];
-    var params = merge(app.locals, { path:page.path, title:page.title || "", locals:app.locals });
+    var params = merge({ path:page.path, title:page.title || "", locals:merge(app.locals,res.locals) });
+    console.log("merge",Object.keys(params));
     res.render("partials/page", params);
 });
 

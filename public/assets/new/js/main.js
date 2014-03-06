@@ -137,10 +137,11 @@ function getTextWidth(text, fs, fw) {
 }
 
 function enableBxSlider() {
-	$('.bxslider').bxSlider({
-		//captions: true,
-		adaptiveHeight: true
-	});
+    var slider = $('.bxslider');
+    slider.bxSlider && slider.bxSlider({
+            //captions: true,
+            adaptiveHeight: true
+        });
 }
 
 $(document).ready(function(){

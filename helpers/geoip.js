@@ -14,5 +14,6 @@ function region(ipOrCountry) {
 }
 
 exports.region = region
-exports.country = function(ip) { return geoip.getCountry(ip, 'code'); }
+exports.country = function(ip) { return geoip.getCountry(ip, 'code') || "US"; }
+exports.countryName = function(ip) { return geoip.getCountry(ip) || "USA"; }
 

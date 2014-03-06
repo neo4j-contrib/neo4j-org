@@ -36,21 +36,20 @@
     var events;
 
     function handleNoGeolocation(errorFlag) {
-        document.getElementById('address').show();
-        if (errorFlag) {
-            var content = 'Error: The Geolocation service failed.';
-        } else {
-            var content = 'Error: Your browser doesn\'t support geolocation.';
-        }
-
-        var options = {
-            map: map,
-            position: INITIAL,
-            content: content
-        };
-
-        var infowindow = new google.maps.InfoWindow(options);
-        map.setCenter(options.position);
+//        if (errorFlag) {
+//            var content = 'Error: The Geolocation service failed.';
+//        } else {
+//            var content = 'Error: Your browser doesn\'t support geolocation.';
+//        }
+//
+//        var options = {
+//            map: map,
+//            position: INITIAL,
+//            content: content
+//        };
+//
+//        var infowindow = new google.maps.InfoWindow(options);
+//        map.setCenter(options.position);
     }
 
     function initialize() {
@@ -62,14 +61,15 @@
         map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
 // Try HTML5 geolocation
-        if(navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(handleCurrentPosition, function() {
-                handleNoGeolocation(true);
-            });
-        } else {
-            // Browser doesn't support Geolocation
-            handleNoGeolocation(false);
-        }
+//        if(navigator.geolocation) {
+//            navigator.geolocation.getCurrentPosition(handleCurrentPosition, function() {
+//                handleNoGeolocation(true);
+//            });
+//        } else {
+//            // Browser doesn't support Geolocation
+//            handleNoGeolocation(false);
+//        }
+        codeAddress({Location:'<%=ip_country%>'});
         loadEvents();
     }
 
@@ -98,7 +98,7 @@
             if (params.indexOf("type") != -1) requestedType = params[params.indexOf("type")+1];
         }
         events.forEach(function(event) {
-            console.log(event);
+//            console.log(event);
             if (!requestedType || event.Type == requestedType) {
                 codeAddress(event, eventMarker);
             }
@@ -136,12 +136,25 @@
     }
 
     function codeAddress(event, fun) {
-//  var address = document.getElementById('address').value;
         var address = event.Location || event.City;
-        console.log(address);
+        if (event.Geo && event.Geo.trim().length) {
+            try {
+                var coords=event.Geo.trim().split(/, */);
+                var loc = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
+                console.log("### GEO ",loc);
+                if (!fun) {
+                    map.setCenter(loc);
+                } else {
+                    fun(event,loc)
+                }
+                return;
+            } catch(e) {
+                console.log(e);
+            }
+        }
         geocoder.geocode( { 'address': address }, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-                console.log(address,results);
+//                console.log(address,results);
                 var loc = results[0].geometry.location;
                 if (!fun) {
                     map.setCenter(loc);
@@ -149,7 +162,7 @@
                     fun(event,loc)
                 }
             } else {
-                console.log('Geocode was not successful for the following reason: ' + status);
+//                console.log('Geocode was not successful for the following reason: ' + status);
                 if (status == "OVER_QUERY_LIMIT") {
                     setTimeout(function() { codeAddress(event,fun);},1000);
                 }
