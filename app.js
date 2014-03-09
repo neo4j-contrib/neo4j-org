@@ -236,7 +236,7 @@ app.configure(function () {
         } catch (e) {
             console.log("Error getting ip", req.ip, e);
             res.locals.region = 'US';
-            res.locals.ip_country = 'US';
+            res.locals.ip_country = 'United States';
         }
         next();
     });
