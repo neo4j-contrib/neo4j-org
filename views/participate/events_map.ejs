@@ -118,18 +118,21 @@
         map.setCenter(pos);
     }
 
+    var infowindow;
     function eventMarker(event,location) {
         var marker = new google.maps.Marker({
             map: map,
             position: location,
             title: event.Title
         });
-        var infowindow = new google.maps.InfoWindow({
-            content: "<div class=''>"+(event.html||"An Event")+"</div>", // todo
-//            content: "<h3>"+event.Title+"</h3>"+"<p>with "+event.+"</p>"
-            maxWidth: 300
-        });
         google.maps.event.addListener(marker, 'click', function() {
+            if (infowindow) {
+                infowindow.close();
+            }
+            infowindow = new google.maps.InfoWindow({
+                content: "<div class=''>"+(event.html||"An Event")+"</div>",
+                maxWidth: 300
+            });
             infowindow.open(map,marker);
         });
     }
