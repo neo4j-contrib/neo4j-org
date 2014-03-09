@@ -1261,13 +1261,13 @@ exports.content = {
         neo4j20_de: {
             key: "neo4j20_de",
             type: "book",
-            url: "http://bit.ly/neo4j-buch",
+            url: "http://bit.ly/das-buch",
             name: "Neo4j 2.0 - Eine Graphdatenbank für alle",
             author: "Michael Hunger",
-            price: "E-Book: 9,99 EUR; Taschenbuch EUR 12.90",
+            price: "PDF frei, E-Book: 9,99 EUR; Taschenbuch EUR 12.90",
             logo: asset("img/books/neo4j20_de.jpg"),
             thumbnail: asset("img/books/neo4j20_de_small.jpg"),
-            introText: 'Das einzige deutsche Buch zu Neo4j, umfassend und aktuell für Version 2.0',
+            introText: 'Das einzige deutsche Buch zu Neo4j, umfassend und aktuell für Version 2.0. Gratis E-Book zum Download',
             text: "Der Mehrwert von Informationen steckt nicht notwendigerweise in der reinen Menge von Daten, sondern vor allem in den Beziehungen zwischen Elementen. " +
                 "Bisher war es nicht so einfach, die interessanten, vernetzten Domänen verlustlos in einer Datenbank zu speichern und effizient abzufragen. " +
                 "Neo4j, besonders die neue Version 2.0, erlaubt es, komplexe Datenmodelle direkt zu modellieren und herausfordernde Anwendungsfälle performant umzusetzen. " +

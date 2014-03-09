@@ -80,7 +80,7 @@
             // todo filters
             $.get("/api/events.json",function(data,err) {
                 if (err!="success") {
-                    console.log(JSON.stringify(err));
+                    console.log("error loading events",JSON.stringify(err));
                 } else {
                     var parsed = JSON.parse(data);
                     if (parsed.length) events = parsed;
@@ -98,14 +98,12 @@
             if (params.indexOf("type") != -1) requestedType = params[params.indexOf("type")+1];
         }
         events.forEach(function(event) {
-//            console.log(event);
             if (!requestedType || event.Type == requestedType) {
                 codeAddress(event, eventMarker);
             }
         })
     }
     function handleCurrentPosition(position) {
-        console.log(position);
         var pos = new google.maps.LatLng(position.coords.latitude,
                 position.coords.longitude);
 
@@ -141,7 +139,6 @@
             try {
                 var coords=event.Geo.trim().split(/, */);
                 var loc = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
-                console.log("### GEO ",loc);
                 if (!fun) {
                     map.setCenter(loc);
                 } else {
@@ -149,12 +146,11 @@
                 }
                 return;
             } catch(e) {
-                console.log(e);
+                console.log("error handling position",event['Geo'],e);
             }
         }
         geocoder.geocode( { 'address': address }, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-//                console.log(address,results);
                 var loc = results[0].geometry.location;
                 if (!fun) {
                     map.setCenter(loc);
@@ -162,7 +158,6 @@
                     fun(event,loc)
                 }
             } else {
-//                console.log('Geocode was not successful for the following reason: ' + status);
                 if (status == "OVER_QUERY_LIMIT") {
                     setTimeout(function() { codeAddress(event,fun);},1000);
                 }

@@ -10,8 +10,8 @@ exports.pages = {
        config: { tile_page: true, no_slides: true },
        featured: [
 //           content.videos.strata,
-           content.links.online_intro_training,
 //           content.install.download_button
+           content.videos.ian_graphdb_neo4j,
            {
                type: "include",
                path: "partials/version/_download_button"
@@ -21,17 +21,18 @@ exports.pages = {
                type: "include",
                path: "participate/events_map"
            },
-           content.videos.ian_graphdb_neo4j
+           content.links.online_intro_training
        ],
        related: [
            content.action.signup ,
-           "licensing",
+           content.books.neo4j20_de,
            content.links.customers,
            "graphgist",
 //           "events",
            "trainings",
-           content.links.manual,
+           "licensing",
            content.books.graphdatabases,
+           content.links.manual,
            content.links.scale,
            "learn",
 //           "cypher_track_start",
@@ -2148,7 +2149,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
     graphgist: {
         path: "/learn/graphgist",
         title: "Live, Interactive Graph Models - Neo4j GraphGist",
-        introText: "With Neo4j <a href='http://gist.neo4j.org'>GraphGists</a> you can describe and model your domain in a simple text file and render it as a rich, interactive page in any browser. Perfect to document a specific domain, use-case, question or graph problem.",
+        introText: "With Neo4j <a href='http://gist.neo4j.org'>GraphGists</a> you can describe and model your domain in a simple text file and render it as a rich, interactive page in any browser. Perfect to document a specific domain, use-case, question or graph problem.<br/> To learn about interesting existing models created by other Neo4j users look at the impressive collection that is listed here.",
         featured: [
             {
                 type: "article",
@@ -2160,8 +2161,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
             <a href='http://gist.github.com/'>GitHub Gist</a> or any other place. It will be rendered as an interactive page in the browser.<br/>\
             You can explore those pages, read and understand them and try out the provided queries on a live graph.\
             We want to encourage you to model <em>a domain that you know or like</em> in a graph model and describe it\
-            interactively in a GraphGist.<br/>\
-            To learn about interesting existing models created by other Neo4j users check out the impressive collection that is available on the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>GraphGist-Wiki</a></p>\
+            interactively in a GraphGist.</p>\
             "
             }
             ,{
@@ -2171,17 +2171,31 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 <li>Whiteboard a good example graph model.</li>\
                 <li>Determine interesting use-cases.</li>\
                 <li>Create Cypher statements for setup and query-use-cases.</li>\
-                <li>Write a good description and create a pretty model picture.</li>\
-                <li>Compose it all nicely in your asciidoc-graphgist-file.</li>\
-                <li>Store it as a <strong>public</strong> <a href='http://gist.github.com'>GitHub Gist</a></li>\
-                <li>For details, check out the example <a href='http://gist.neo4j.org/?5956246'>GraphGist</a> and the <a href='https://github.com/neo4j-contrib/graphgist/wiki'>Collection</a> on the Wiki</li>\
+                <li>Write a good description and create a useful model picture.</li>\
+                <li>Compose it all nicely in your AsciiDoc-GraphGist-file.</li>\
+                <li>Store it as a <a href='http://gist.github.com'>GitHub Gist</a></li>\
+                <li>Submit your GraphGist via <a href='http://bit.ly/graphgist'>this form</a> and get a T-Shirt for every original model</li>\
+                <li>Start with the example <a href='http://gist.neo4j.org/?5956246'>GraphGist</a>.</li>\
                 </ul>",
                 src: "http://player.vimeo.com/video/74279113?badge=0&byline=0&portrait=0&title=0",
                 img: asset("img/still/graphgist_video.jpg")
             }
+            ,{
+                type: "article",
+                title: "GraphGist Challenges",
+//                src: asset("img/still/graphgist.jpg"),
+                url: "/learn/graphgist_challenge",
+                content: "<p>The best way gathering great graph models is to ask your community. \
+            That's why we already ran two challenges to find interesting ideas for GraphGists with tremendous results.<br/>\
+            The first challenge in September 2013 had <a href='https://github.com/neo4j-contrib/graphgist/wiki#wiki-graphgist-september-challenge-submissions'>17 submissions</a> and <a href='http://blog.neo4j.org/2013/10/the-first-graphgist-challenge-completed.html'>3 winners</a>.<br/>\
+            Our GraphGist Winter Challenge (Dec 2013-Jan 2014) asked for contributions in 10 categories. We got an impressive <a href='https://github.com/neo4j-contrib/graphgist/wiki#wiki-graphgist-winter-challenge-submissions---categories'>65 submissions</a>. Here are the <a href='http://blog.neo4j.org/2014/02/graph-gist-winter-challenge-winners.html'>winners per category</a><br/>\
+            But we don't stop here. There will be more challenges. And you can even win now.<br/> Every original Graph Model that is <a href='http://bit.ly/graphgist'>submitted via this form</a> will get a personalized Neo4j T-Shirt from us.</p>\
+            "
+            }
+
         ],
-        related: ["modeling", "Piping Water", 'Roads, Nodes and Automobiles','Single Malt Scotch Whisky GraphGist'],
-        thumbnail: asset("img/logo/neo4j-github.png"),
+        related: ["modeling"],
+//        thumbnail: asset("img/logo/neo4j-github.png"),
         actionText: "Model your Graph"
     },
     graphgist_challenge: {

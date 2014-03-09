@@ -102,10 +102,11 @@ app.locals.chunk = function (arr, size) {
 };
 
 function findItem(key) {
-    console.log("findItem", key)
+//    console.log("findItem", key)
+    if (typeof key == 'undefined') return null;
     if (typeof key == 'function') key = key();
     if (typeof key == 'object') return key;
-    
+
     function addType(item, type) {
         if (!item.type) item.type = type;
         return item;
@@ -123,7 +124,7 @@ function findItem(key) {
     if (content.content.links[key]) return addType(content.content.drivers[key], "link");
     if (content.content.videos[key]) return addType(content.content.videos[key], "video");
     if (content.content.asciidoc[key]) return addType(content.content.asciidoc[key], "asciidoc");
-    if (content.content.graphgists[key]) return addType(content.content.graphgists[key], "graphgist");
+    if (app.locals.graphgists[key]) return addType(app.locals.graphgists[key], "graphgist");
     return key;
 }
 app.locals.findItem = findItem;

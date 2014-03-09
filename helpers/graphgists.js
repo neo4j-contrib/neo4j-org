@@ -14,9 +14,13 @@ function parseGraphgists(cells, fun, filter) {
             item[header[colNo].value] = row[colNo].value;
         }
         var id = item['Gist Title'];
+        item.type = "graphgist";
+        item.key = id;
+        item['Category'] = item['Category'] || "Other";
+        item['Rating'] = parseFloat(item['Rating']||"0");
         if (id) items[id] = item;
     }
-    console.log("graphgists",items.length);
+    console.log("graphgists",Object.keys(items).length);
     if (filter) fun(items.filter(filter));
     else fun(items)
 }
@@ -41,6 +45,15 @@ exports.init = function (app, interval) {
     function update() {
         graphgists(function (items) {
             app.locals.graphgists = items;
+            var array = Object.keys(items).map(function(k){return items[k]});
+            array = array.sort(function(item1,item2) {
+                var catComp = item1.Category.localeCompare(item2.Category);
+                var ratingComp = item2.Rating - item1.Rating;
+//                return  catComp == 0 ? ratingComp : catComp;
+                return  ratingComp == 0 ? catComp : ratingComp;
+            });
+            var page = app.locals.pages["graphgist"];
+            page.related = array;
         });
     }
 
