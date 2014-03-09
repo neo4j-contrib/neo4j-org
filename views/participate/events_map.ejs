@@ -70,7 +70,7 @@
         console.log(country);
         var big_countries = ["USA","United States","Russian Federation","China","India"];
         codeAddress({Location:country},function(event,loc) {
-            var zoom = country == big_countries.indexOf(country) == -1 ? 5 : 3;
+            var zoom = big_countries.indexOf(country) == -1 ? 5 : 3;
             map.setZoom(zoom); map.setCenter(loc); });
         loadEvents();
     }
