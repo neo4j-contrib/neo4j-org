@@ -218,6 +218,15 @@ exports.content = {
             thumbnail: asset("img/still/what_isa_graphdb.jpg"),
             src: "https://player.vimeo.com/video/56043918#t=0m19s"
         },
+        andreas_graphdb_neo4j: {
+            title: "What is a Graph Database? What is Neo4j?",
+            type: "video",
+            author: "Andreas Kollegger",
+            introText: "Andreas Kollegger explains what kinds of questions you can answer with a graph database. Not only the big websites but everyone has graph questions. And Neo4j is the tool that can help YOU to answer the ones that are important to you. Learn how with our <a href='/learn/online_course'>online training</a>.",
+//            thumbnail: "http://b.vimeocdn.com/ts/388/074/388074752_640.jpg",
+            thumbnail: asset("img/still/what_isa_graphdb.jpg"),
+            src: "https://player.vimeo.com/video/77866447"
+        },
         power_modeling: {
             title: "Modelling with Graphs",
             type: "video",
