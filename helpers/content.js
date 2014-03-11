@@ -223,7 +223,7 @@ exports.content = {
             title: "What is a Graph Database? What is Neo4j?",
             type: "video",
             author: "Andreas Kollegger",
-            introText: "Andreas Kollegger explains what kinds of questions you can answer with a graph database. It's not only the big websites that have graph questions but everyone! And Neo4j is the tool that can help YOU to answer the ones that are important to you. Learn how with our <a href='/learn/online_course'>online training</a>.",
+            introText: "Andreas Kollegger explains what kinds of questions you can answer with a graph database. It's not only the big sites that have graph questions but EVERYONE! Neo4j is the tool that can help YOU to solve the ones that are important to you. Learn how with our <a href='/learn/online_course'>online training</a>.",
 //            thumbnail: "http://b.vimeocdn.com/ts/388/074/388074752_640.jpg",
             thumbnail: asset("img/still/what_isa_graphdb.jpg"),
             src: "https://player.vimeo.com/video/77866447"
@@ -536,7 +536,7 @@ exports.content = {
             title: "Neo4j-Koans at Skillsmatter",
             author: ["iansrobinson","jimwebber"],
             introText: "This intensive, highly practical 2-day Neo4j course will provide you with the skills required to become effective with graphs and productive with Neo4j. Join this course to learn Neo4j's excellent APIs and Cypher query language and how you can use the world's leading graph database to manage and query sophisticated connected data.",
-            thumbnail: "http://skillsmatter.com/custom/images/skills-matter_150x60_logo_2010.gif",
+            thumbnail: asset("img/logo/skillsmatter.gif"),
             github: "https://github.com/jimwebber/neo4j-tutorial"
         },
         centrum_training: {

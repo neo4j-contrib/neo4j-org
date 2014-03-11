@@ -17,11 +17,11 @@ exports.pages = {
                path: "partials/version/_download_button"
 //               path: "partials/version/_download_button_milestone"
            },
+           content.links.online_intro_training,
            {
                type: "include",
                path: "participate/events_map"
-           },
-           content.links.online_intro_training
+           }
        ],
        related: [
            content.action.signup ,
@@ -92,6 +92,11 @@ exports.pages = {
         thumbnail: asset("img/events/training.png"),
         featured: [
             content.links.online_intro_training,
+            {
+                type: "include",
+                path: "participate/events_map",
+                params: {requestedType:"Training"}
+            },
 //             {title: "Neo4j Tutorials",
 //                introText: "We developed a hands-on, full day training course to teach the basics of using a graph database as Neo4j. After the training you should feel confident to start your own Neo4j based project.",
 //                type: "video",
