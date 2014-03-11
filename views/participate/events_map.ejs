@@ -94,13 +94,14 @@
 
     function showEvents() {
         if (!events) return;
-        var requestedType;
+        var requestedType = "<%=typeof(requestedType)!='undefined'?requestedType:''%>";
+        console.log("requestedType",requestedType);
         if (document.location.search) {
             var params=document.location.search.split(/[&=?]/).slice(1);
             if (params.indexOf("type") != -1) requestedType = params[params.indexOf("type")+1];
         }
         events.forEach(function(event) {
-            if (!requestedType || event.Type == requestedType) {
+            if (!requestedType || requestedType=="" || event.Type == requestedType) {
                 codeAddress(event, eventMarker);
             }
         })
@@ -186,10 +187,10 @@
         </div>
         <div class="text">
         <div class="caption">
-            <h3>Neo4j Events Map</h3>
+            <h3>Neo4j <%=typeof(requestedType)!='undefined'?requestedType:'Event'%> Map</h3>
         </div>
         <div class="content">
-            <p class="contentText">Find Neo4j Events close to you and engage with your local community. You'll love it!</p>
+            <p class="contentText">Find a Neo4j <%=typeof(requestedType)!='undefined'?requestedType:'Event'%> close to you and engage with your local community. You'll love it!</p>
         </div>
         </div>
         <div class="clear"></div>

@@ -72,6 +72,7 @@ app.locals.tweets = [];
 app.locals.asset = asset;
 app.locals._include = render.include;
 app.locals.render = ejs.render;
+app.locals.merge = merge;
 
 app.locals.theme = function () {
     return "aqua";

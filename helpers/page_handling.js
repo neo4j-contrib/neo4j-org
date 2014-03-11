@@ -6,7 +6,7 @@ exports.init = function(app,pages) {
     fs.readFile("views/partials/page.ejs", function (err, buf) {
         function addRoute(file,path,title) {
             app.get(page.path, function (req, res) {
-                var params = merge(app.locals, { path:path, title:title || "", locals:app.locals });
+                var params = merge(app.locals, { path:path, title:title || "", locals:merge(app.locals,res.locals)  });
                 res.render(file, params);
             });
         }

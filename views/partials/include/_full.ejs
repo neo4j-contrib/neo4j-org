@@ -1,1 +1,1 @@
-<%- _include(item.path,{filename:filename,locals:locals}) %>
+<%- _include(item.path,{filename:filename,locals:merge(locals,item.params||{})}) %>

@@ -11,7 +11,7 @@ exports.pages = {
        featured: [
 //           content.videos.strata,
 //           content.install.download_button
-           content.videos.andreas_graphdb_neo4j,
+           content.videos.what_is_neo4j,
            {
                type: "include",
                path: "partials/version/_download_button"
@@ -1166,7 +1166,12 @@ exports.pages = {
         introText: "Join the Neo4j community at one of our events! Learn about Neo4j at a conference, meet other Neo4j users at a meet up, or quickly get up to speed at a Neo4j training close to you.",
         content: "If you want to learn more about Neo4j nothing beats a hands on experience. Learn with our community members and driver authors, talk to our engineers or discuss with our customers.",
 //        badge: "<a href='/trainings' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
-        featured: [], // content.links.graphconnect,content.links.trainings
+        featured: [
+            {
+                type: "include",
+                path: "participate/events_map"
+            }
+        ], // content.links.graphconnect,content.links.trainings
         related: ["trainings","meetups", "webinars",  "conferences"],
         actionText: "Pick your event"
     },
@@ -1180,12 +1185,17 @@ exports.pages = {
         actionText: "Find a meetup",
         featured: [
             {
-                title: "Neo4j worldwide Meetups",
-                thumbnail: asset("img/still/meetups_world.gif"),
-                introText: "On <a href='http://neo4j.meetup.com'>meetup.com</a> you find all the Neo4j meetups and can search for one that is close to your home.",
-                path: "http://neo4j.meetup.com",
-                actionText: "Find a meetup"
+                type: "include",
+                path: "participate/events_map",
+                params: {requestedType:"Meetup"}
             }
+//            {
+//                title: "Neo4j worldwide Meetups",
+//                thumbnail: asset("img/still/meetups_world.gif"),
+//                introText: "On <a href='http://neo4j.meetup.com'>meetup.com</a> you find all the Neo4j meetups and can search for one that is close to your home.",
+//                path: "http://neo4j.meetup.com",
+//                actionText: "Find a meetup"
+//            }
         ],
         related: []
     },
@@ -1220,7 +1230,13 @@ exports.pages = {
         introText: "Become proficient with Neo4j by attending a full day training close to you. If you enjoy focused, hands-on learning experiences, the training is the best way to go.",
         content:" Find the next training in <a href='/participate/events/trainings_US'>the US</a>, or in Europe in <a href='/participate/events/trainings_EU'>English</a> or <a href='/participate/events/trainings_DE'>German</a>.",
         actionText: "Find training classes near you",
-        featured: [content.links.online_intro_training],
+        featured: [content.links.online_intro_training,
+            {
+                type: "include",
+                path: "participate/events_map",
+                params: {requestedType:"Training"}
+            }
+        ],
         related: []  //"partners","licensing"
     },
     trainings_US: { path: "/participate/events/trainings_US" },

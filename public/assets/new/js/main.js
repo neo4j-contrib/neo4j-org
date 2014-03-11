@@ -171,7 +171,7 @@ $(document).ready(function(){
         $(window.location.hash).show();
     }
     $('.related .thumbnail').each(function(i, img) {
-//        var item = $(img);
+        var item = $(img);
 //        var h = item.height();
 //        var div_h = item.parent().height();
 //        console.log("div_h",div_h,"height",h);
