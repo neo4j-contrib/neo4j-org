@@ -979,21 +979,21 @@ exports.content = {
         },
         neo4j_on_heroku: {
             type: "article",
-            title: "Neo4j on Heroku",
-            thumbnail: asset("img/logo/heroku.png"),
-            src: asset("img/still/neo4j_heroku_addon.gif"),
+            title: "Hosted Neo4j on Heroku (GrapheneDB)",
+            thumbnail: "",
+            src: asset("img/still/graphenedb.png"),
             introText: "<p>As a platform-as-a-service (PAAS) provider, <a href='http://heroku.com'>Heroku</a> offers a quick way from your locally developed app to a\
                                      managed deployment in the cloud. The ability of adding different hosted services is crucial for the daily needs of a modern day web-application.\
-                                     To run a Neo4j graph powered app on Heroku you can easily add the <a href='https://devcenter.heroku.com/articles/neo4j'>Neo4j Add-on</a>.\
+                                     To run a Neo4j graph powered app on Heroku you can easily add the <a href='https://devcenter.heroku.com/articles/graphenedb'>GrapheneDB Neo4j Add-on</a>.\
                                   </p>",
             content: "<h3>Add Neo4j to your Heroku Application</h3>\
                         <p>After installing the <a href='https://toolbelt.heroku.com' target='_blank'>Heroku toolbelt</a>, it is as easy as:\
             <ol>\
                 <li>Create an application: <code>heroku apps:create your-app-name</code></li>\
-                <li>Add the Neo4j Add-on: <code>heroku addons:add neo4j</code></li>\
-                <li>Open the Neo4j Administration page: <code>heroku addons:open neo4j</code></li>\
+                <li>Add the Database Add-on: <code>heroku addons:add graphenedb</code></li>\
+                <li>Open the Add-On Administration page: <code>heroku addons:open graphenedb</code></li>\
                 <li>Show the your app's environment variables: <code>heroku config</code></li>\
-                <li>Use <code>ENV[\"NEO4J_URL\"]</code> or <code>System.getenv(\"NEO4J_URL\")</code> to access the Neo4j Server with one of the <a href=''/develop/drivers'>language drivers</a></li>\
+                <li>Use <code>ENV[\"GRAPHENEDB_URL\"]</code> or <code>System.getenv(\"GRAPHENEDB_URL\")</code> to access the Neo4j Server with one of the <a href=''/develop/drivers'>language drivers</a></li>\
             </ol>\
           </p>"
         },

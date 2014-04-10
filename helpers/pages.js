@@ -781,31 +781,32 @@ exports.pages = {
     },
     heroku: {
         path: "/develop/heroku",
-        title: "Neo4j Heroku Add-on",
+        title: "Neo4j on Heroku",
         thumbnail: asset("img/logo/heroku.png"),
-        introText: "A managed graph database in the cloud, perfect for getting to know Neo4j.",
+        introText: "A managed graph database in the cloud, perfect for getting to know Neo4j on your favorite PaaS platform.",
         actionText: "Do it now",
         featured: [
             content.articles.neo4j_on_heroku
         ],
         related: [
+            content.links.graphenedb,
             content.videos.neo4j_heroku_gdocs,
+//            {
+//                thumbnail: asset("img/logo/heroku.png"),
+//                title: "Heroku Neo4j Add-on",
+//                path: "http://addons.heroku.com/neo4j"
+//
+//            },
             {
                 thumbnail: asset("img/logo/heroku.png"),
-                title: "Heroku Neo4j Add-on",
-                path: "http://addons.heroku.com/neo4j"
-
+                title: "Heroku devcenter article on hosted Neo4j",
+                path: "https://devcenter.heroku.com/articles/graphenedb"
             },
-            {
-                thumbnail: asset("img/logo/heroku.png"),
-                title: "Heroku devcenter article on Neo4j",
-                path: "http://devcenter.heroku.com/articles/neo4j"
-            },
-            {
-                thumbnail: asset("img/logo/github.png"),
-                title: "Clone an example Github Herkou template",
-                path: "https://github.com/neo4j-contrib/neo4j-heroku-seeds"
-            },
+//            {
+//                thumbnail: asset("img/logo/github.png"),
+//                title: "Clone an example Github Herkou template",
+//                path: "https://github.com/neo4j-contrib/neo4j-heroku-seeds"
+//            },
             {
                 thumbnail: asset("img/contributors/maxdemarzi.jpg"),
                 title: "Max De Marzi's Heroku examples",
@@ -821,7 +822,9 @@ exports.pages = {
                 title: "Neo4j at Heroku Waza 2013",
                 path: "http://waza.neo4j.org"
             },
-            content.videos.james_ward_neo4j
+            "cloud",
+            "azure"
+//            content.videos.james_ward_neo4j
         ]
     },
     jee: {
@@ -1671,7 +1674,7 @@ exports.pages = {
         featured: [
             {
                 type: "video",
-                title: "Introduction to Py2neo and Geoff",
+                title: "Introduction tod Py2neo and Geoff",
                 src: "http://player.vimeo.com/video/44822406",
                 introText: "Nigel presents how to get started with Py2neo and shows the power of the graph exchange format Geoff",
                 author: "technige",
