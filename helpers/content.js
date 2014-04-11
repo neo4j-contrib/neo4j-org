@@ -55,12 +55,12 @@ exports.content = {
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
-        "1_9_6": {
+        "1_9_7": {
             type: "version",
-            title: "Neo4j Stable Release 1.9.6",
-            version: "1.9.6",
+            title: "Neo4j Stable Release 1.9.7",
+            version: "1.9.7",
             stability: "stable",
-            date: "Feb 3, 2014",
+            date: "Apr 11, 2014",
             introText: "General Availability",
             path: "http://blog.neo4j.org/2013/09/installer-check-desktop-launcher-check.html",
             thumbnail: asset("img/still/install.gif"),
