@@ -4,6 +4,26 @@
 
 <h1>Neo4j Release Notes</h1>
 
+<h3 id="1.9.7">Neo4j 1.9.7 (2014-04-11)</h3>
+
+<p>The 1.9.7 release of Neo4j is a maintenance release.</p>
+
+<p>Notably, this release addresses:</p>
+
+<ul>
+  <li>The default value for the 'keep_logical_logs' setting has been changed to '7 days' (previously 'all'), to prevent issues with exahusting disk space in deployments where that setting has not been adjusted.</li>
+  <li>The online backup tool (Neo4j Enterprise) will now switch to a full backup when there are insufficient logical logs available to perform an incremental backup.</li>
+  <li>Corrected a memory leak in transaction management that could result in substantial degredation in performance and stability over time.</li>
+  <li>Reduces verbosity of cluster transition logging (Neo4j Enterprise).</li>
+  <li>Resolves several cases where Neo4j instances could become unresponsive during role switching in a HA cluster (Neo4j Enterprise).</li>
+</ul>
+
+<p><strong>Users of Neo4j 1.9 are strongly recommended to upgrade to this release.</strong> Neo4j 1.9.7 does not require any store-level upgrades.</p>
+
+<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
+
+<p class="footnote">As part of the Neo4j 1.9 release series, multiple behaviours and features of Neo4j have been declared as deprecated, in order to help users prepare for the removal of these in Neo4j 2.0. A <a href="http://docs.neo4j.org/chunked/1.9.7/deprecations.html"> list of deprecations</a> can be found in the Neo4j manual.</p>
+
 <h3 id="2.0.1">Neo4j 2.0.1 (2014-02-04)</h3>
 
 <p>The 2.0.1 release of Neo4j is a maintenance release, with signficant
