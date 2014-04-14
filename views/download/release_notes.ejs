@@ -4,6 +4,31 @@
 
 <h1>Neo4j Release Notes</h1>
 
+<h3 id="2.0.2">Neo4j 2.0.2 (2014-03-14)</h3>
+
+<p>The 2.0.2 release of Neo4j is a maintenance release, with critical stability improvements.</p>
+
+<p>Notably, this release addresses the following:</p>
+
+<ul>
+<li>Adds new Cypher functions for type conversion (toInt, toFloat, toStr).</li>
+<li>Resolves an issue with some specific Cypher queries that would never terminate.</li>
+<li>The default value for the 'keep_logical_logs' setting has been changed to '7 days' (previously 'all'), to prevent issues with exahusting disk space in deployments where that setting has not been adjusted.</li>
+<li>The online backup tool (Neo4j Enterprise) will now switch to a full backup when there are insufficient logical logs available to perform an incremental backup.</li>
+<li>Corrected a memory leak in transaction management that could result in substantial degredation in performance and stability over time.</li>
+<li>Resolves a deadlock that could occur during highly concurrent updates and querying.</li>
+<li>Reduces verbosity of cluster transition logging (Neo4j Enterprise).</li>
+<li>Resolves several cases where Neo4j instances could become unresponsive during role switching in a HA cluster (Neo4j Enterprise).</li>
+<li>Corrects several issues with transaction application and recovery, that could result in slow recovery or failure to recover.</li>
+<li>Resolves an issue where store migration (during upgrade) could fail to handle legacy indexes correctly.</li>
+</ul>
+
+<p><strong>All Neo4j users are strongly recommended to upgrade to this release.</strong> Neo4j 2.0.2 does not require any store-level upgrades from the previous 2.0.0 release.</p>
+
+<p class="footnote">For information about upgrading from Neo4j 1.9 or earlier, please see our <a href="/download/upgrade-faq">Upgrading to Neo4j 2.0 FAQ</a>.</p>
+
+<p class="footnote">For a full summary of changes in this release, please review the CHANGES.TXT file contained within the distribution.</p>
+
 <h3 id="1.9.7">Neo4j 1.9.7 (2014-04-11)</h3>
 
 <p>The 1.9.7 release of Neo4j is a maintenance release.</p>
