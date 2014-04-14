@@ -398,6 +398,8 @@ versal.add_route("/api/versal",app);
 calendar.add_events_route('/api/events.json', app);
 calendar.add_ics_route('/api/event.ics', app);
 
+route_get('/buch_de', forward('http://info.neotechnology.com/Neo4j20_de.html'));
+
 // download resources
 route_get('/resources/cypher19', forward('http://docs.neo4j.org/refcard/1.9/'));
 route_get('/resources/cypher', forward('http://docs.neo4j.org/refcard/2.0/'));
