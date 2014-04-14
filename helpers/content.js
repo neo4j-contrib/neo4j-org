@@ -24,7 +24,7 @@ exports.content = {
             version: "2.0.2",
             stability: "stable",
             key: "stable",
-            date: "Mar 14, 2014",
+            date: "Apr 14, 2014",
             introText: "General Availability",
             path: "http://blog.neo4j.org/2014/02/neo4j-201-maintenance-release.html",
             thumbnail: asset("img/still/install.gif"),
