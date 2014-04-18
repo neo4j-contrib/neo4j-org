@@ -26,12 +26,6 @@ exports.pages = {
        related: [
            content.action.signup ,
            content.books.neo4j20_de,
-           {
-               type:"default",
-               title: "Join us at neo4j.com",
-               introText: "<img src='"+asset('img/still/neo4j_com_banner.png')+"'/>",
-               path: "http://neo4j.com/home"
-           },
            "graphgist",
 //           "events",
            "trainings",
