@@ -26,12 +26,18 @@ exports.pages = {
        related: [
            content.action.signup ,
            content.books.neo4j20_de,
-           content.links.customers,
+           {
+               type:"default",
+               title: "Join us at neo4j.com",
+               introText: "<img src='"+asset('img/still/neo4j_com_banner.png')+"'/>",
+               path: "http://neo4j.com/home"
+           },
            "graphgist",
 //           "events",
            "trainings",
            "licensing",
            content.books.graphdatabases,
+           content.links.customers,
            content.links.manual,
            content.links.scale,
            "learn",
