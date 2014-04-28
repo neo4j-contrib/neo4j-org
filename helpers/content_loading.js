@@ -3,12 +3,14 @@ var   http = require('http')
 
 
 function load_github_content(locals, name, path, host) {
-    if (!host) host="raw.github.com";
+    locals.content[name]="Content not found";
+    if (!host) host="raw.githubusercontent.com";
 	try {
      var req=https.get({host: host, path: path},
         function(res) {
             res.on("data", function(data) {
-                locals.content[name] = data.toString();            
+console.log("on data",name,data.toString());
+                locals.content[name] = data.toString();
             })
         }, function(err) {
             console.log("Error during request to ",host,path,err);
