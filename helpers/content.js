@@ -20,8 +20,8 @@ exports.content = {
         },
         stable: {
             type: "version",
-            title: "Neo4j Stable Release 2.0.2",
-            version: "2.0.2",
+            title: "Neo4j Stable Release 2.0.1",
+            version: "2.0.1",
             stability: "stable",
             key: "stable",
             date: "Apr 14, 2014",
