@@ -20,13 +20,13 @@ exports.content = {
         },
         stable: {
             type: "version",
-            title: "Neo4j Stable Release 2.0.1",
-            version: "2.0.1",
+            title: "Neo4j Stable Release 2.0.3",
+            version: "2.0.3",
             stability: "stable",
             key: "stable",
-            date: "Apr 14, 2014",
+            date: "Apr 30, 2014",
             introText: "General Availability",
-            path: "http://blog.neo4j.org/2014/02/neo4j-201-maintenance-release.html",
+            path: "http://blog.neo4j.org/2013/12/neo4j-20-ga-graphs-for-everyone.html",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
