@@ -381,6 +381,7 @@ route_get('/heroku', forward("/develop/heroku"));
 route_get('/azure', forward("/develop/cloud/azure"));
 route_get('/licensing-guide', forward("/learn/licensing"));
 route_get('/bookstore', forward("/learn/books"));
+route_get('/learn/books', forward("http://neo4j.com/books/"));
 
 route_get('/price-list', forward("http://www.neotechnology.com/price-list/"));
 route_get('/customers', forward("http://www.neotechnology.com/customers/"));

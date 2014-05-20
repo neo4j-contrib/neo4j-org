@@ -683,14 +683,6 @@ exports.pages = {
         featured: [content.videos.cypher],
         related: ["drivers", "try", "neoclipse", "visualize", "jee"]
     },
-    books: {
-        path: "/learn/books",
-        thumbnail: asset("img/books/nosql_distilled.png"),
-        title: "Graph Database related Books",
-        introText: "Learn more about Neo4j, Graph Theory and Graph Databases by reading these amazing books!",
-        featured: [content.books.graphdatabases,content.books.neo4j20_de],
-        related: [content.books.springdata, content.books.goodrelationships, content.books.nosqldistilled, content.books.sevendatabases, content.books.neo4jinaction, content.books.visualcomplexity, content.books.connected]
-    },
     neo4j20_de: {
         path: "/learn/books/neo4j20_de",
         thumbnail: asset("img/books/neo4j20_de_small.jpg"),
