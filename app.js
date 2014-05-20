@@ -339,6 +339,7 @@ route_get('/participate/events_map', function(req, res){
 route_get('/trainings', forward("/participate/events/trainings"));
 route_get('/tutorials', forward("/participate/events/trainings"));
 route_get('/learn/events', forward("/events"));
+route_get('/events', forward("http://neo4j.com/events/"));
 
 route_get('/download_thanks', routes.pages);
 route_get('/subscribe_thanks', function(req, res){
@@ -379,7 +380,10 @@ route_get('/nabble', forward("http://groups.google.com/group/neo4j"));
 route_get('/spring', forward("/develop/spring"));
 route_get('/heroku', forward("/develop/heroku"));
 route_get('/azure', forward("/develop/cloud/azure"));
+
 route_get('/licensing-guide', forward("/learn/licensing"));
+route_get('/learn/licensing', forward("http://neo4j.com/subscriptions/"));
+
 route_get('/bookstore', forward("/learn/books"));
 route_get('/learn/books', forward("http://neo4j.com/books/"));
 
