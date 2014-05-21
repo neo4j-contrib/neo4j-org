@@ -55,6 +55,7 @@ Publish
 
 For staging content, push to:
 
+    git remote add staging git@heroku.com:neo4j-org-staging.git
     git push staging master
 
 Then view the website like so:
@@ -66,11 +67,12 @@ Or go directly here: [http://obscure-wildwood-7384.herokuapp.com](http://obscure
 
 For production, push to the default remote:
 
-    git push heroku master
+    git remote add live git@heroku.com:neo4j-org-live.git
+    git push live master
 
 Viewable by:
 
-    heroku open --remote heroku
+    heroku open --remote live
 
 Or go directly here: [http://neo4j-org.herokuapp.com/](http://neo4j-org.herokuapp.com/)
 
