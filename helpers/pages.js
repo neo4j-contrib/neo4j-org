@@ -198,7 +198,7 @@ exports.pages = {
         thumbnail: asset("img/neo4j/logo.png"),
         related: [
             content.install.stable,
-//            content.install.milestone,
+            content.install.milestone,
             content.install["1_9_7"],
             content.install["1_8_3"],
             content.install["1_7_2"],

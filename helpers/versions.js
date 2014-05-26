@@ -7,7 +7,7 @@ exports.load = function (app) {
 
     locals({
         neo4j:{
-            version:"2.1.0-M01", date:"Feb 24, 2014", summary:"Milestone", readme:"http://blog.neo4j.org/2014/02/neo4j-210-milestone-1-release-import-and-dense-nodes.html"
+            version:"2.1.0-RC2", date:"May 25, 2014", summary:"Milestone", readme:"http://blog.neo4j.org/2014/02/neo4j-210-milestone-1-release-import-and-dense-nodes.html"
         }, neo4jGA:{
             version:"2.0.3", date:"April 30, 2014", summary:"Maintenance Release", readme:"http://blog.neo4j.org/2013/12/neo4j-20-ga-graphs-for-everyone.html"
         }, /*neo4jP:{
