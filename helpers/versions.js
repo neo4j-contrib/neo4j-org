@@ -7,9 +7,9 @@ exports.load = function (app) {
 
     locals({
         neo4j:{
-            version:"2.1.0-RC2", date:"May 25, 2014", summary:"Milestone", readme:"http://blog.neo4j.org/2014/02/neo4j-210-milestone-1-release-import-and-dense-nodes.html"
+            version:"2.1.1", date:"May 29, 2014", summary:"Release", readme:"http://neo4j.com/blog/neo4j-2-1-graph-etl/"
         }, neo4jGA:{
-            version:"2.0.3", date:"April 30, 2014", summary:"Maintenance Release", readme:"http://blog.neo4j.org/2013/12/neo4j-20-ga-graphs-for-everyone.html"
+            version:"2.1.1", date:"May 29, 2014", summary:"Release", readme:"http://neo4j.com/blog/neo4j-2-1-graph-etl/"
         }, /*neo4jP:{
             version:"2.0.0-M03", date:"May 28, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html"
         },*/ neo4jS:{
