@@ -9,7 +9,6 @@ function load_github_content(locals, name, path, host) {
      var req=https.get({host: host, path: path},
         function(res) {
             res.on("data", function(data) {
-console.log("on data",name,data.toString());
                 locals.content[name] = data.toString();
             })
         }, function(err) {
