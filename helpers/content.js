@@ -55,6 +55,17 @@ exports.content = {
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
+        "2_0_3": {
+            type: "version",
+            title: "Neo4j Stable Release 2.0.3",
+            version: "2.0.3",
+            stability: "stable",
+            date: "April 30, 2014",
+            introText: "General Availability",
+            path: "http://neo4j.com/blog/neo4j-2-0-ga-graphs-for-everyone/",
+            thumbnail: asset("img/still/install.gif"),
+            src: "http://player.vimeo.com/video/53838744"
+        },
         "1_9_7": {
             type: "version",
             title: "Neo4j Stable Release 1.9.7",

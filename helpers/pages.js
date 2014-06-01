@@ -174,7 +174,6 @@ exports.pages = {
             //"develop",
             //"participate",
             // content.install["2_0_0_M02"],
-            content.install.milestone,
             "windows",
             "linux",
             "licensing",
@@ -198,7 +197,8 @@ exports.pages = {
         thumbnail: asset("img/neo4j/logo.png"),
         related: [
             content.install.stable,
-            content.install.milestone,
+//            content.install.milestone,
+            content.install["2_0_3"],
             content.install["1_9_7"],
             content.install["1_8_3"],
             content.install["1_7_2"],
@@ -250,7 +250,7 @@ exports.pages = {
         ],
         related: [
             content.install.stable,
-            content.install.milestone,
+//            content.install.milestone,
 
 //            content.links.install_windows,
 //            content.links.start_with_neo4j_neo4jclient,
@@ -462,7 +462,7 @@ exports.pages = {
             }
         ],
         related: [
-            content.install.milestone,
+//            content.install.milestone,
             {
                 type: "link",
                 path: "http://docs.neo4j.org/chunked/milestone/rest-api-transactional.html",
@@ -1939,22 +1939,40 @@ exports.pages = {
         featured: [
             {
                 type: "video",
-                title: "ETL into Neo4j",
-                author: "maxdemarzi",
-                introText: "In this presentation, Max explains several ways of importing data into Neo4j",
-                src: "http://de.slideshare.net/slideshow/embed_code/13143642",
-                thumbnail: "http://image.slidesharecdn.com/etlintoneo4j-120531001746-phpapp02/95/slide-1-728.jpg?1338442853"
+                title: "Webinar: Data Import into Neo4j",
+                author: ["rvanbruggen","mesirii","maxdemarzi"],
+                introText: "This webinar discusses the different ways of importing data into Neo4j from a variety of sources depending on a set of factors that you should think about. It is also available in <a href='http://watch.neo4j.org/video/90299371'>German</a> and <a href='http://watch.neo4j.org/video/90296414'>French</a>",
+                src: "http://player.vimeo.com/video/90358900",
+                thumbnail: "https://i.vimeocdn.com/video/469437362_590x332.jpg"
             }
         ],
         related: [
             {
                 type: "link",
-                title: "Importing data into Neo4j - the spreadsheet way",
-                path: "http://blog.neo4j.org/2013/03/importing-data-into-neo4j-spreadsheet.html",
+                title: "Importing CSV files with Cypher",
+                path: "http://docs.neo4j.org/chunked/milestone/cypherdoc-importing-csv-files-with-cypher.html",
+                tags: ["csv","import","cypher"],
+                author: "nawroth",
+                thumbnail: asset("img/neo4j/neo4j-logo.png"),
+                introText: "This tutorial will show you how to import data from CSV files using LOAD CSV loading the content from an URL and inserting it into the graph in the appropriate places in the model"
+            },
+            {
+                type: "link",
+                title: "Using LOAD CSV to import Git History into Neo4j",
+                path: "http://jexp.de/blog/2014/06/using-load-csv-to-import-git-history-into-neo4j/",
+                tags: ["csv","import","cypher","github","blog"],
+                author: "mesirii",
+                thumbnail: "http://jexp.github.io/blog/img/git2neo/git2neo_datamodel2.jpg",
+                introText: "The blog show how to utilize the tabular output of <code>git log</code> to generate input files for Cyphers <code>LOAD CSV</code> command and use it to populate a graph of users that authored commits over time."
+            },
+            {
+                type: "link",
+                title: "Importing data to Neo4j the spreadsheet way in Neo4j 2.0!",
+                path: "http://neo4j.com/blog/importing-data-to-neo4j-the-spreadsheet-way-in-neo4j-2-0/",
                 tags: ["csv","import","spreadsheet","cypher"],
-                author: "rvanbruggen",
-                thumbnail: "https://lh3.googleusercontent.com/hkoYal89xuVDMvXY8BuE7dN0IM5svowOJr9cURxT3vN_ThzxSambyj1DE-6fQlSIoEcqw2IUgg5xj8c-CJv8dHgKovjA1hMjljsMgImH963u0LrDxP07AzIRow",
-                introText: "A spreadsheet and some formulas building cypher queries are one of the simplest ways of getting data into Neo4j. If even a sales-guy like Rik can do it, you can too"
+                author: ["rvanbruggen","Pernilla Lindh"],
+                thumbnail: "http://dev.assets.neo4j.com.s3.amazonaws.com/wp-content/uploads/2014/01/Ska-CC-88rmavbild-2014-01-17-kl.-13.38.53.png",
+                introText: "A spreadsheet and some formulas building cypher queries are one of the simplest ways of getting data into Neo4j. Even for non-developers this is a quick way of getting data into your favorite graph database."
             },
             {
                 type: "link",
@@ -1991,24 +2009,41 @@ exports.pages = {
                 thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2012/02/matrix.jpg?w=200",
                 introText: "Michael wrote a <a href='https://github.com/jexp/batch-import'>batch importer</a> to load csv data quickly. I’m going to walk you through getting your data out of tables and into nodes and edges."
             },
+//            {
+//                type: "link",
+//                title: "Graph-Alchemist Data Import Platform ",
+//                path: "http://www.graphalchemist.com/",
+//                author: ["GraphAlchemist"],
+//                tags: ["csv","sql","json","import","partner"],
+//                thumbnail: "http://www.graphalchemist.com/static/assets/graphAlchemist-logo.png",
+//                introText: "Graph Alchemist is a platform for creating Neo4j databases and applications on top of these, from a variety of import formats (CSV, SQL, JSON, XML, ...)."
+//            },
             {
                 type: "link",
-                title: "Graph-Alchemist Data Import Platform ",
-                path: "http://www.graphalchemist.com/",
-                author: ["GraphAlchemist"],
-                tags: ["csv","sql","json","import","partner"],
-                thumbnail: "http://www.graphalchemist.com/static/assets/graphAlchemist-logo.png",
-                introText: "Graph Alchemist is a platform for creating Neo4j databases and applications on top of these, from a variety of import formats (CSV, SQL, JSON, XML, ...)."
+                title: "Transactional HTTP Cypher Endpoint",
+                path: "http://docs.neo4j.org/chunked/milestone/rest-api-transactional.html",
+                author: ["jakewins"],
+                tags: ["http","import","cypher","transaction","batch"],
+                thumbnail: "",
+                introText: "Use the transactional HTTP endpoint to execute many cypher statements per request (with parameters) transactionally in Neo4j. This can be used to batch write operations."
             },
             {
                 type: "link",
-                title: "REST-Batch-API",
-                path: "http://docs.neo4j.org/chunked/milestone/rest-api-batch-ops.html",
-                author: ["nawroth", "jakewins", "mesirii"],
-                tags: ["rest","import","cypher"],
-                thumbnail: "",
-                introText: "Use the REST-Batch API with cypher statements to insert data into Neo4j remotely and quickly. Make sure to use parameters in the cypher statements",
-                content: "TODO syntax example"
+                title: "Importing Forests into Neo4j",
+                path: "http://jexp.de/blog/2014/04/importing-forests-into-neo4j/",
+                author: ["mesirii"],
+                tags: ["import","cypher","tree"],
+                thumbnail: "https://dl.dropboxusercontent.com/u/14493611/timetree.png",
+                introText: "Creating a tree from a year down to second resolution creates 32M nodes and relationships in total. This blog post shows how you can achieve that with cypher."
+            },
+            {
+                type: "link",
+                title: "LOAD CSV with Rik Van Bruggen’s Tube Graph",
+                path: "http://www.markhneedham.com/blog/2014/03/03/neo4j-2-1-0-m01-load-csv-with-rik-van-bruggens-tube-graph/",
+                author: ["markhneedham"],
+                tags: ["import","cypher","csv"],
+                thumbnail: "http://www.markhneedham.com/blog/wp-content/uploads/2014/03/2014-03-03_16-15-58.png",
+                introText: "Importing the London Tube (subway) data of stations, lines, travel and waiting times into Neo4j using Cypher's LOAD CSV."
             },
             "jdbc",
             "geoff"
