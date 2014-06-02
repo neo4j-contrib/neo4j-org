@@ -453,9 +453,9 @@ exports.content = {
             type: "link",
             key: "jobs",
             title: "Join us! We're hiring",
-            thumbnail: "http://www.neotechnology.com/wp-content/uploads/2012/05/hiring1.png",
+            thumbnail: "https://camo.githubusercontent.com/7f97429e763bd14e2e7b8306175d43c4b1c43650/687474703a2f2f696d6167652e73707265616473686972742e636f6d2f696d6167652d7365727665722f696d6167652f64657369676e2f333032323637342f747970652f706e672f77696474682f3238302f6865696768742f323830",
             introText: "As our team grows we're looking for passionate people around the world to join us. Become part of THE Neo4j-Graph.",
-            path: "http://www.neotechnology.com/jobs"
+            path: "https://github.com/neo4j/neo4j/wiki/Jobs"
         },
         team: {
             type: "link",
@@ -828,7 +828,7 @@ exports.content = {
             <h3>What kind of data?</h3><p>KeyLines can work on any kind of network - all you need is data with nodes and links.</p>\
             \
             ",
-            thumbnail: "http://keylines.com/Keylines-logo-tex-tagline-medium.png",
+            thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/02/Keylines-logo-tex-tagline-medium-300x89.png",
             img: "http://keylines.com/im/product/KeyLinesNeo4j.png",
             path: "http://keylines.com/neo4j"
         },

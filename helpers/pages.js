@@ -694,7 +694,9 @@ exports.pages = {
             content.action.signup,
             "trainings_DE",
             "conferences_DE",
-            "meetups_DE"
+            "meetups_DE",
+            video("92114085"), // 0415 - Einführung in Neo4j
+            video("0327 - Datenimport in Neo4j")
         ]
     },
     cloud: {
@@ -1230,7 +1232,7 @@ exports.pages = {
 //            </div>",
         introText: "Become proficient with Neo4j by attending a full day training close to you. If you enjoy focused, hands-on learning experiences, the training is the best way to go.",
         content:" Find the next training in <a href='/participate/events/trainings_US'>the US</a>, or in Europe in <a href='/participate/events/trainings_EU'>English</a> or <a href='/participate/events/trainings_DE'>German</a>.",
-        actionText: "Find training classes near you",
+        actionText: "Find training near you",
         featured: [content.links.online_intro_training,
             {
                 type: "include",
@@ -1485,9 +1487,24 @@ exports.pages = {
                 There are different tools that you can use to visualize the content of a Neo4j graph database.",
         featured: [
             content.videos.neo4j_webui,
-            video('GraphConnect 2012: Visualizing Graphs-Max De Marzi'),
-            content.links.linkurious,
-            content.links.keylines
+            {
+                type:"video",
+                title: "GraphConnect 2012: Visualizing Graphs-Max De Marzi",
+                author: "maxdemarzi",
+                src:"http://player.vimeo.com/video/53205761",
+                img: "http://maxdemarzidotcom.files.wordpress.com/2012/01/visualization.png?w=500",
+                thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2012/01/visualization.png?w=100",
+                introText: "Max de Marzi, the graph visualization rock star shows how to present graphs in different ways, with just a few lines of codes."+
+ "<a href='http://slideshare.net/GraphConnect/1434-adopt-marzi-visualizing-graphs'>Slides</a>"
+            },
+            {
+                type:"link",
+                author: {name:"Alistair Jones",twitter:"apcj"},
+                title:"Seeing patterns in your data",
+                path:"https://skillsmatter.com/skillscasts/5095-seeing-patterns-in-your-data",
+                introText: "Alistair will give an overview of the techniques and technologies for visualising graph data, and explain where these work well for different types of problems. <a href='http://www.apcjones.com/talks/2014-03-26_Neo4j_London/'>Interactive Slides</a>",
+                thumbnail: asset("img/still/seening_pattern_in_data.jpg")
+            }
         ],
         related: [
             {
@@ -1496,6 +1513,7 @@ exports.pages = {
                 path: "http://maxdemarzi.com/tag/visualization-2/",
                 thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2012/04/threed2.jpg?w=1160&h=336"
             },
+            "graphgist",
             content.links.linkurious,
             content.links.keylines,
             content.links.d3,
@@ -1504,7 +1522,7 @@ exports.pages = {
             {
                 title: "VivaGraphJS on GitHub",
                 path: "https://github.com/anvaka/VivaGraphJS",
-                thumbnail: "http://www2.research.att.com/~yifanhu/GALLERY/GRAPHS/GIF_THUMBNAIL/Bai@bfwa398.gif",
+                thumbnail: "http://yifanhu.net/GALLERY/GRAPHS/GIF_THUMBNAIL/Bai@bfwa398.gif",
                 introText: "VivaGraphJS is a free graph drawing library for JavaScript."
                 // todo yasiv.com some text, pictures etc
             },
@@ -1526,7 +1544,7 @@ exports.pages = {
                 title: "A collection of graph visualization options",
                 path: "http://memit.com/mesirii",
                 introText: "Michael Hunger has a nice collection on interesting projects in the visualisation space.",
-                thumbnail: "http://d2g1zjdg4phkb4.cloudfront.net/IiVRi9fidoad7M4g5KflUrgx3Tg="
+                thumbnail: asset("img/still/d3_network.png")
             },
             content.articles.jdbc
         ]

@@ -408,7 +408,8 @@ route_get('/buch_de', forward('http://info.neotechnology.com/Neo4j20_de.html'));
 
 // download resources
 route_get('/resources/cypher19', forward('http://docs.neo4j.org/refcard/1.9/'));
-route_get('/resources/cypher', forward('http://docs.neo4j.org/refcard/2.0/'));
+route_get('/resources/cypher20', forward('http://docs.neo4j.org/refcard/2.0/'));
+route_get('/resources/cypher', forward('http://docs.neo4j.org/refcard/2.1/'));
 
 route_get('/google2239a2d33a72ae12.html', forward("/public/google2239a2d33a72ae12.html"));
 route_get('/wp-content/*', routes.resource);
