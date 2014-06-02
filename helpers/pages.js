@@ -147,8 +147,9 @@ exports.pages = {
     download: {
         path: "/download",
         title: "Download and Install Neo4j",
-//        introText: "Your Neo4j installation is just one click away. Get the Community Edition for your side-project.<br/>" +
-//            "Use our Enterprise bundles for your production setup. <a href='/learn/licensing'>More details on licensing and bundled offerings</a>.",
+        introText: "Your Neo4j installation is just one click away. Grab the Community Edition to get started, or <br/>" +
+            "use our Enterprise bundles for your production setup. <a href='/learn/licensing'>More details on licensing and bundled offerings</a>.",
+        thumbnail: asset("img/neo4j/neo4j-logo.png"),
         content: ""// render.include("download/installation")
         ,
         featured: [
@@ -1445,31 +1446,27 @@ exports.pages = {
     },
     neo4j_server: {
         path: "/tracks/neo4j_server",
-        thumbnail: asset("img/still/webadmin.png"),
+        thumbnail : asset("img/still/neo4j_browser_small.png"),
+        img : asset("img/still/neo4j_browser.png"),
         type: "page",
         title: "Neo4j Server",
-        introText: "Neo4j comes as standalone server. Easy to download and start. It has an accessible Web-UI and a comprehensive REST-API. Neo4j-Server is also available at Heroku and for cloud setup. The drivers for non-JVM languages all work with the Neo4j-Server",
+        introText: "Neo4j comes as standalone server. Easy to <a href='/download'>download</a>, install and start. It has an interactive and friendly Web-Interface and a fast, transactional HTTP-Endpoint for Cypher. Most of the drivers support the Neo4j server. The browser contains getting started guides for Cypher and the Web-UI as well as the movie example dataset.",
         featured: [content.videos.neo4j_webui],
         related: [
             "download",
-            "heroku",
             {
                 type: "link",
-                introText: "The tabs of the Web-UI quickly described in the manual.",
-                title: "Manual: Web-UI",
-                path: "http://docs.neo4j.org/chunked/milestone/tools-webadmin.html"
+                introText: "The Neo4j transactional HTTP endpoint allows you to execute a series of Cypher statements within the scope of a transaction. The transaction may be kept open across multiple HTTP requests, until the client chooses to commit or roll back.",
+                title: "The transactional Cypher HTTP endpoint",
+                path: "http://docs.neo4j.org/chunked/milestone/rest-api-transactional.html"
             },
             {
                 type: "link",
-                introText: "Detailed description and usage of the Neo4j-Server REST-API, Cypher-Endpoint and REST-Batch-Insertion",
-                title: "Manual: REST-API & Cypher",
+                introText: "Detailed description and usage of the Neo4j-Server REST-API which is mostly used for managment purposes.",
+                title: "Manual: REST-API",
                 path: "http://docs.neo4j.org/chunked/milestone/rest-api.html"
             },
             "drivers",
-            // java example rest-api from manual
-            // java-rest-binding
-            // extensions, setup
-            // remoting protocol
             "cloud",
             {
                 type: "link",
@@ -1930,12 +1927,8 @@ exports.pages = {
         path: "/develop/import",
         title: "Importing data into Neo4j",
         introText: "The first thing you need to get started is to import data from various sources into Neo4j. Fortunately there are a number of ways to do that.",
-        content: "If you have your data in a relational database, spreadsheet or somewhere else, you want to get in into the graph database. " +
-            "Although you can point and click in the <a href='/develop/server'>Web-UI</a> or script a bit in the <a href='/develop/shell'>shell</a>, " +
-            "the easiest way by far is to generate <a href='/tracks/cypher'>Cypher</a> statements and import them via the shell " +
-            "(<code>cat insert.cql | neo4j-shell -path /path/to/db</code>), use the <a href='/develop/tools/jdbc'>JDBC-Driver</a> " +
-            "or pump them through the Batch-REST-API.<br/>You can also import CSV files with a tool or <a href='/develop/tools/gephi'>Gephi</a> " +
-            "or write a custom <a href='/develop/import/batch-insert'>Batch-Inserter</a> in a JVM language to do high performance imports.",
+        content: "If you have your data in a relational database, spreadsheet or somewhere else, you can get it in into the graph database. " +
+            "Importing data into Neo4j is now easier than ever. Loading graph data from a CSV file with <code>LOAD CSV</code> from Cypher is easy enough, but you can also create Cypher statements in a variety of ways, which you can then run using the <a href='/tracks/neo4j_server'>Neo4j Browser</a> or the <a href='/develop/tools/shell'>Neo4j-Shell</a>. Programmatically any of the <a href='/drivers'>drivers</a> can be used (e.g. the <a href='/develop/tools/jdbc'>JDBC-Driver</a>, which you can also use from within existing ETL-Tools). For high performance, high volume imports you'd look for the CSV-batch-importer.",
         featured: [
             {
                 type: "video",

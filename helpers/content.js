@@ -262,12 +262,11 @@ exports.content = {
             src: "http://channel9.msdn.com/Blogs/Interoperability/Neo4j-the-Open-Source-Java-graph-database-and-Windows-Azure/player"
         },
         neo4j_webui: {
-            title: "Neo4j Server Web Interface",
+            title: "Recommendation Engine with Neo4j 2.0",
             type: "video",
-            introText: "<p>The Data Browser Tab offers a handy visualization of your graph. You can select the nodes to be shown by id,  index lookup or <a href='/learn/cypher'>cypher query</a>. A style editor will adapt the visualization to your needs.</p>\
-                                <p>The Neo4j Server Web Interface was written using arbor.js and canvas.</p>",
-            thumbnail: asset("img/still/server_visualization.jpg"),
-            src: "https://player.vimeo.com/video/58016492"
+            introText: "In just 2 minutes, we show you how to build a recommendation engine using Neo4j-Browser 2.0 and the powerful graph query language Cypher.",
+            thumbnail: asset("img/still/browser_get_some_data.png"),
+            src: "//www.youtube.com/embed/qbZ_Q-YnHYo"
         },
         graphviz: {
             title: "GraphViz",
@@ -1495,9 +1494,9 @@ exports.content = {
             author: ["rickardoberg", "mesirii"],
             src: "https://github.com/neo4j-contrib/neo4j-jdbc",
             thumbnail: "http://rickardoberg.files.wordpress.com/2011/12/screen-shot-2011-12-19-at-5-31-52-pm.png",
-            introText: "The Neo4j JDBC driver allows to access Neo4j server, embedded and in-memory databases via the JDBC API using Cypher. It also supports the <a href='http://docs.neo4j.org/chunked/milestone/rest-api-transactional.html'>transactional endpoint of Neo4j 2.0</a>. " +
-                "It was initially created by <a href='http://rickardoberg.wordpress.com/2011/12/19/creating-a-jdbc-driver-for-neo4j/'>Rickard Öberg</a> and then taken over by the Neo4j Community. " +
-                "The driver is available on <a href='https://github.com/neo4j-contrib/neo4j-jdbc'>GitHub</a>, also as <a href='http://dist.neo4j.org/neo4j-jdbc/neo4j-jdbc-2.0.0-SNAPSHOT-jar-with-dependencies.jar'>binary jar for Neo4j 2.0</a> and <a href='http://dist.neo4j.org/neo4j-jdbc/neo4j-jdbc-2.0.0-SNAPSHOT-jar-with-dependencies.jar'>Neo4j 2.0</a>",
+            introText: "The Neo4j JDBC driver allows to access Neo4j server, embedded and in-memory databases via the JDBC API using Cypher. It also supports the <a href='http://docs.neo4j.org/chunked/milestone/rest-api-transactional.html'>transactional HTTP endpoint of Neo4j 2.0</a>. " +
+                "It was initially created by <a href='http://rickardoberg.wordpress.com/2011/12/19/creating-a-jdbc-driver-for-neo4j/'>Rickard Öberg</a> and then continued to be developed by the Neo4j Community. " +
+                "The driver is available on <a href='https://github.com/neo4j-contrib/neo4j-jdbc#neo4j-jdbc-driver'>GitHub</a>.",
             title: "Neo4j JDBC driver project",
             github: "https://github.com/neo4j-contrib/neo4j-jdbc"
         },
