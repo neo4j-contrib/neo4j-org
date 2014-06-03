@@ -31,7 +31,8 @@ exports.pages = {
            "trainings",
            "licensing",
            content.books.graphdatabases,
-           content.links.customers,
+           "use_cases",
+           "getting_started",
            content.links.manual,
            content.links.scale,
            "learn",
@@ -47,7 +48,7 @@ exports.pages = {
         introText: "Learn about concepts behind Neo4j, graph databases, NOSQL and start to dive into our Cypher query language.",
         thumbnail: asset('img/neo4j/visually_refcard_small.gif'),
         featured: [content.books.graphdatabases, content.videos.why_graphs],
-        related: ["graphdatabase", "neo4j", "nosql", content.links.online_intro_training, "trainings",
+        related: ["graphdatabase", "neo4j", "nosql","neo4j_server","use_cases", content.links.online_intro_training, "trainings","getting_started",
                   "tracks", "cypher", "modeling", content.videos.graphdb101,
                   "production","licensing", content.links.manual, content.links.slides, "scientific"]
     },
@@ -64,7 +65,7 @@ exports.pages = {
         introText: "Find what you need to develop applications with Neo4j in a variety of languages and deployment scenarios.",
         thumbnail: asset("img/still/neo4j_drivers.png"),
 //        badge: "<a href='/trainings' target='_blank'><img src='" + asset("img/events/n4jtutorial_ad-150x150.png") + "'></a> ",
-        featured: null,
+        featured: ["getting_started"],
         related: ["tracks", "drivers", "import", "tools", "cloud", content.links.online_intro_training, "trainings", "ops", "java", "javascript", "spring", "ruby", "dotnet", "python", "scala", "php", "clojure","linked_data","jee", "spatial", content.links.manual]
     },
     participate: {
@@ -169,12 +170,12 @@ exports.pages = {
         ],
         related: [
             //content.videos.installing_neo4j,
-            // content.install.milestone,
+            content.install.milestone,
+            "getting_started",
 //            content.install.stable,
             //"graphdatabase",
             //"develop",
             //"participate",
-            // content.install["2_0_0_M02"],
             "windows",
             "linux",
             "licensing",
@@ -308,7 +309,7 @@ exports.pages = {
             , content.example_data.neo_permissions
             , content.example_data.musicbrainz_large
             , content.example_data.snapplr
-            , content.videos.neo4j_webui
+            , content.videos.neo4j_recommendation_engine
             , content.links.cypher_cheat_sheet
             , content.links.graphgist
         ]
@@ -352,9 +353,11 @@ exports.pages = {
         next: ["cypher", "cypher_track_use"],
         prev: [],
         featured: [content.videos.cypher, content.videos.cypher_console],
-        related: [ "reference_card", content.links.cypher_cheat_sheet, content.videos.cypher,
+        related: [ content.links.cypher_cheat_sheet,
+            content.videos.cypher,
             video('Interview: Michael Hunger discusses Cypher transition from SQL'),
-            content.videos.cypher_sublime, content.links.graphgist
+            content.videos.cypher_sublime,
+            content.links.graphgist
         ]
     },
     cypher_track_use: {
@@ -366,7 +369,10 @@ exports.pages = {
         actionText: "Begin to use Cypher",
         next: ["cypher_track_develop"],
         prev: ["cypher", "cypher_track_start"],
-        featured: [content.videos.cypher_vs_sql],
+        featured: [
+            content.videos.cypher_vs_sql,
+            video("0123 - Optimizing Cypher Queries in Neo4j")
+        ],
         related: [
             content.videos.cypher_advanced,
             content.links.cypher_cheat_sheet,
@@ -406,7 +412,7 @@ exports.pages = {
             // profiling
             // demo apps
             "shell",
-            content.videos.neo4j_webui,
+            content.videos.neo4j_recommendation_engine,
             "import",
             content.drivers.anorm_cypher,
             content.drivers.neography,
@@ -1375,14 +1381,17 @@ exports.pages = {
                 introText: "In this presentation we'll cover many aspects of modeling domains and data for a graph database like Neo4j. <a href='http://slideshare.net/neo4j/data-modeling-with-neo4j'>Slides</a>",
                 src: "http://player.vimeo.com/video/67371996#t=0m50s",
                 thumbnail: "http://image.slidesharecdn.com/webinardatamodeling-130713191849-phpapp01/95/slide-1-638.jpg?1373761157"
-            }
+            },
+            video("0424 - Managing and Querying Hierarchies with Neo4j")
         ],
         related: [
             content.books.graphdatabases,
             "try",
             content.videos.power_modeling,
             content.links.graphgist,
-            content.docs.domain_modeling
+            content.docs.domain_modeling,
+            video("89075703"),
+            video("Designing and Building a Graph Database Application - Ian Robinson @ GraphConnect SF 2013")
         ]
     },
     internals: {
@@ -1453,7 +1462,7 @@ exports.pages = {
         type: "page",
         title: "Neo4j Server",
         introText: "Neo4j comes as standalone server. Easy to <a href='/download'>download</a>, install and start. It has an interactive and friendly Web-Interface and a fast, transactional HTTP-Endpoint for Cypher. Most of the drivers support the Neo4j server. The browser contains getting started guides for Cypher and the Web-UI as well as the movie example dataset.",
-        featured: [content.videos.neo4j_webui],
+        featured: [content.videos.neo4j_recommendation_engine, content.videos.browser_styling],
         related: [
             "download",
             {
@@ -1462,12 +1471,6 @@ exports.pages = {
                 title: "The transactional Cypher HTTP endpoint",
                 path: "http://docs.neo4j.org/chunked/milestone/rest-api-transactional.html"
             },
-            {
-                type: "link",
-                introText: "Detailed description and usage of the Neo4j-Server REST-API which is mostly used for managment purposes.",
-                title: "Manual: REST-API",
-                path: "http://docs.neo4j.org/chunked/milestone/rest-api.html"
-            },
             "drivers",
             "cloud",
             {
@@ -1475,6 +1478,12 @@ exports.pages = {
                 title: "Manual: Neo4j-Server",
                 introText: "Components, installation and other aspects of the Neo4j Server documented in the manual.",
                 path: "http://docs.neo4j.org/chunked/milestone/server.html"
+            },
+            {
+                type: "link",
+                introText: "Detailed description and usage of the Neo4j-Server REST-API which is mostly used for managment purposes.",
+                title: "Manual: REST-API",
+                path: "http://docs.neo4j.org/chunked/milestone/rest-api.html"
             }
         ]
     },
@@ -1486,7 +1495,7 @@ exports.pages = {
                 Graph visualisations are a powerful tool to convey the content of a graph. They can highlight patterns, show clusters and connections.\
                 There are different tools that you can use to visualize the content of a Neo4j graph database.",
         featured: [
-            content.videos.neo4j_webui,
+            content.videos.browser_styling,
             {
                 type:"video",
                 title: "GraphConnect 2012: Visualizing Graphs-Max De Marzi",
@@ -2173,7 +2182,72 @@ exports.pages = {
             } , "jee"
         ]
     },
-
+    getting_started: {
+        path: "/develop/getting_started",
+        thumbnail: "http://salihcenap.files.wordpress.com/2014/05/pill.jpg?w=540",
+        title: "Get Started with Neo4j",
+        introText : "Graph Databases are easy to understand, model, query and use. The only problem is, that graph thinking is addictive",
+        featured: [
+            content.videos.what_is_neo4j,
+            video("0522 - Building Killer Apps with Neo4j"),
+            { type:"link",
+              title: "Neo4Art - Van Gogh's Journey in a Graph",
+              path: "http://inserpio.wordpress.com/information-technology/neo4art-van-goghs-journey/",
+              author: "Lorenzo Speranzoni",
+              introText : "Lorenzo Speranzoni colors the graph of Van Gogh, his paintings, stations, influences, colors and finds many interesting insights.",
+              img: "http://www.neotechnology.com/wp-content/uploads/2014/02/vangogh.jpg"
+            },
+            video("1024 - DIY Graph Search")
+        ],
+        related: [
+            "download",
+            content.links.manual,
+            video("0313 - Recommend Restaurants Near Me: Introduction to Neo4j Spatial"),
+            "drivers",
+            "maxdemarzi",
+            "markhneedham",
+            "rvanbruggen",
+            "kennybastani",
+            "mesirii",
+            "develop"
+        ]
+    },
+    use_cases: {
+        path: "/learn/use_cases",
+        thumbnail: asset("img/still/use_cases.jpg"),
+        title: "Neo4j Use-Cases",
+        introText : "The versatility of graph databases allows you to power applications in many different domains with their flexible data-model and high-performance query capabilities. You'll only see a tiny selection of possibilities here, the sky is your limit",
+        featured: [
+            content.videos.neo4j_recommendation_engine,
+            video("0213 - The Five Graphs of Love"),
+            video("0227 - Using Graphs for Telecom Churn Reduction"),
+            video("0417 - The Five Graphs of Telcommunications"),
+            video("0410 - Fraud Detection in Real-Time with Graphs"),
+            {
+                title:"Here Be Monsters - Balance Game Economies with Neo4j",
+                author: "Yan Cui",
+                path:"http://theburningmonk.com/2013/09/here-be-monsters-updates-and-hello-neo4j/",
+                thumbnail:"http://theburningmonk.com/WordPress/wp-content/uploads/2013/09/image12.png",
+                introText:"One of the main challenges that came up in our effort to automate the economic balancing was that we really needed to understand the complex relationships between the items, quests, achievements as well as locations and activities that can be performed against/with specific items at specific locations. Also see Yan's <a href='http://de.slideshare.net/theburningmonk/modelling-a'>Presentation</a>."
+            }
+        ],
+        related: [
+            content.links.customers,
+            video("0424 - Managing and Querying Hierarchies with Neo4j"),
+            video("0313 - Recommend Restaurants Near Me: Introduction to Neo4j Spatial"),
+            video("0312 - AuditBucket: Data Auditing with Neo4j and ElasticSearch"),
+            video("1017 - Graph Databases in Life Sciences: Bringing Biology Back to Its Nature"),
+            {
+                type: "link", title:"How Graph Databases Uncover Patterns To Break Up Organized Crime",
+                author: "Philip Rathle",
+                path: "http://thenewstack.io/how-graph-databases-uncover-patterns-to-break-up-organized-crime/",
+                thumbnail: "http://thenewstack.io/wp-content/uploads/2014/05/Diagram1.jpg"
+            },
+            video("Analyzing Career Paths with College Miner - Matthew Harris @ GraphConnect SF 2013"),
+            video("Using Graph Databases in Real-Time to Solve Resource Authorization at Telenor - Sebastian Verheughe @ GraphConnect SF 2013")
+        ],
+        actionText: "Learn More"
+    },
     education: {
         path: "/learn/education",
         thumbnail: asset("img/still/graphistas_map.png"),
@@ -2257,7 +2331,10 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
             }
 
         ],
-        related: ["modeling"],
+        related: [
+            "modeling",
+            video("1205 - Model Neo4j Graphs Interactively with a GraphGist")
+        ],
 //        thumbnail: asset("img/logo/neo4j-github.png"),
         actionText: "Model your Graph"
     },

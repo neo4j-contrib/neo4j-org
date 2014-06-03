@@ -38,7 +38,10 @@ function contributors(fun, filter) {
 
 exports.init = function(app,interval) {
     function update() {
-        contributors(function(items) { app.locals.contributors = items; });
+        contributors(function(items) {
+            console.log("contributors",Object.keys(items).length,JSON.stringify(Object.keys(items)));
+            app.locals.contributors = items;
+        });
     }
     spreadsheet.googleLogin(function () {
         update();

@@ -239,6 +239,17 @@ exports.content = {
             thumbnail: asset("img/still/what_isa_graphdb.jpg"),
             src: "https://player.vimeo.com/video/77866447"
         },
+        browser_styling: {
+            key: "browser_styling",
+            title: "Styling your Neo4j-Browser Visualization",
+            type: "video",
+            author: "Michael Hunger",
+            introText: "Michael shows how to style Nodes and Relationships in the Neo4j's Browser visualization, setting colors, sizes and titles. \
+            He discusses the Graph-Style-Sheet (GRASS) and how you can download, update and reset the styling information.",
+            thumbnail: "https://i.vimeocdn.com/video/477496068_295x166.jpg",
+            img: "https://i.vimeocdn.com/video/477496068_590x232.jpg",
+            src: "https://player.vimeo.com/video/97204829"
+        },
         power_modeling: {
             title: "Modelling with Graphs",
             type: "video",
@@ -261,7 +272,7 @@ exports.content = {
             thumbnail: asset("img/still/neo4j_azure_channel9.gif"),
             src: "http://channel9.msdn.com/Blogs/Interoperability/Neo4j-the-Open-Source-Java-graph-database-and-Windows-Azure/player"
         },
-        neo4j_webui: {
+        neo4j_recommendation_engine: {
             title: "Recommendation Engine with Neo4j 2.0",
             type: "video",
             introText: "In just 2 minutes, we show you how to build a recommendation engine using Neo4j-Browser 2.0 and the powerful graph query language Cypher.",

@@ -7,5 +7,13 @@
     <h5><a href="http://twitter.com/<%=key %>" target="_blank"><%= info['name'] %></a></h5>
             
     <p class="introText"><%- info['text'] %></p>
-    
+    <br/>
+    <div class="link action">
+    <% if (info['project_url'] && info['project']) { %>
+         <a class="" href="<%= info['project_url'] %>"><%= info['project'] %></a> |
+    <% } %>
+    <% if (info['url']) { %>
+      <a class="" href="<%= info.url %>"><%= (info.actionText ? info.actionText : 'Read the Blog')+' &raquo;' %></a>
+    <% } %>
+    </div>
 </div>
