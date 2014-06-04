@@ -1911,7 +1911,8 @@ exports.video = function(id) {
 exports.graphgist = function(id) {
     return function() {
         // console.log("video",id,exports.content.videos[id.toString()]);
-        return exports.content.graphgists[id.toString()];
+//        console.log("content.graphgists",Object.keys(exports.content.graphgists));
+        return exports.content.graphgists[id.toString()] || {};
     }
 };
 exports.findItem = function (key) {
