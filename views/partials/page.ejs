@@ -43,7 +43,7 @@ var nextPage = pages[p];
     <% } %>
 
 
-
+<a name="featured"></a>
 <% 
     var items = [].concat(page.featured);
     var config = page.config || {};
@@ -54,7 +54,7 @@ var nextPage = pages[p];
             items.forEach(function(key) { 
             var item = findItem(key);
             if (!item) {
-                console.log("No featured item for key",key);
+                //console.log("No featured item for key",key);
                 return;
             }
             if (typeof(key)!="string") key="";
@@ -74,7 +74,7 @@ var nextPage = pages[p];
 <%
     if (page.related && page.related.length) { 
 %>
-    <div class="related" class="mainElement">
+    <div class="related" id="related" class="mainElement">
 
             <% chunk(page.related,4).forEach(function(row) { %>
                 <div class="row">
@@ -82,7 +82,7 @@ var nextPage = pages[p];
                 row.forEach(function(key) {
                     var item = findItem(key);
                     if (!item) {
-                        console.log("No related item for key",key);
+                        //console.log("No related item for key",key);
                         return;
                     }
                     if (typeof(key)!="string") key="";
