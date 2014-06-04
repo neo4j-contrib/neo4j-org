@@ -475,8 +475,18 @@ route_get('/js', routes.javascript);
 route_get('/graphgist', function (req, res) {
     var path =  req.originalUrl.substring("/graphgist".length);
     load_gist(path, function(err, data) {
-        if (err) console.log("Error loading graphgist",path,err);
-        res.render("participate/graphgist",{ path: path, title:"GraphGist", category:"Participate", data:data, req:req});
+        var item = {};
+        if (err) {
+            console.log("Error loading graphgist",path,err);
+        } else {
+            for (var k in app.locals.graphgists) {
+                var gist = app.locals.graphgists[k];
+                if (gist.url == req.originalUrl) {
+                    item = gist;
+                }
+            }
+        }
+        res.render("participate/graphgist",{ path: path, title:"GraphGist", category:"Participate", data:data, req:req, item:item});
     });
 });
 

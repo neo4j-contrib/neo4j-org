@@ -27,6 +27,8 @@ function parseGraphgists(cells, fun, filter) {
         item.introText = item['Description'];
         item.img = item.src =  item['Image-URL'];
         item.author = {name:item['Your Name'], twitter:item['Twitter']};
+        item.name = item['Your Name'];
+        item.twitter = item['Twitter'];
         item['Category'] = item['Category'] || "Other";
         item['Rating'] = parseFloat(item['Rating']||"0");
 //        console.log(JSON.stringify(item));
