@@ -1246,7 +1246,7 @@ exports.content = {
         <p>After including Neo4j in your project and <a href=\"/java/ide\">setting up your IDE</a>. See the Hello-World example below for getting started.</p>\
         <h3>Adding the Neo4j dependencies to your project</h3>\
         <% include ../download/_embedded_dependency %><div class=\"markdown\">\
-        <%- content.java_hello_world %></div>"
+        <%-: content.java_hello_world | asciidoc %></div>"
         },
         tracks_server_plugins: {
             type: "track",
