@@ -1,10 +1,12 @@
 <% include ../head %>
-<meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@neo4j">
+<meta name="twitter:domain" content="http://neo4j.org">
 <meta name="twitter:creator" content="@<%=item['twitter']%>">
 <meta name="twitter:title" content="<%=item['title']%>">
 <meta name="twitter:description" content="<%=item['introText']%>">
-<meta name="twitter:image" content="<%=item['img']||asset('img/neo4j/neo4j-logo.png') %>">
+<meta name="twitter:card" content="<%=item['img'] ? 'summary_large_image':'summary' %>">
+<meta name="twitter:image:src" content="<%=item['img']||asset('img/neo4j/neo4j-logo.png') %>">
+
 <div class="mainpage">
 
     <!--<!DOCTYPE html>-->
