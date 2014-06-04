@@ -35,7 +35,7 @@ function load_github_content(locals, name, path, host) {
                 locals.content[name]="Content from http://"+host+"/"+path+" not loaded!";
                 return;
             }
-            console.log("response for",url,res.headers);
+//            console.log("response for",url,res.headers);
             // todo store res.headers.etag for conditional requests to save rates
             //
             locals.content[name] = data;
@@ -60,7 +60,7 @@ function load_content(locals, name, url,cb) {
                 locals.content[name]="Content "+name+" from "+url+" not loaded!";
                 return;
             }
-            console.log("response for",name,url,res.headers);
+//            console.log("response for",name,url,res.headers);
             // todo store res.headers.etag for conditional requests to save rates
             locals.content[name] = data;
             if (cb) {

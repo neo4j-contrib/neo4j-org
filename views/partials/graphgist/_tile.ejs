@@ -5,14 +5,14 @@
         <img class="preview" src="<%= 'http://api.twitter.com/1.1/users/profile_image/'+info['Twitter']+'?size=bigger' %>" title="<%= info['Your Name'] %>" alt="picture of <%= info['Your Name'] %>"/>
     </a-->
     <div class="caption">
-        <h3><a href="<%=info['GraphGist URL'] %>" target="_blank"><%= info['Gist Title'] %></a></h3>
+        <h3><a href="<%=info.url %>" target="_blank"><%= info.title %></a></h3>
         <a target='_blank' href="http://twitter.com/<%= info['Twitter'] %>"> <h4><em>by <%= info['Your Name'] %></em></h4> </a>
         <h4>Category: <%=info.Category %></h4>
         <h4>Rating: <%=info.Rating %></h4>
     </div>
     <div class="introText">
         <p><%-info.Description %></p>
-        <a class="link" href="<%=info['GraphGist URL'] %>" target="_blank">
+        <a class="link" href="<%=info.url %>" target="_blank">
         <!--<img style="display: inline" src="https://graphgist-status.herokuapp.com/?url=<%=info['GraphGist URL']%>"/>-->
         Learn more &raquo;</a><br/>
     </div>

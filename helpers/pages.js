@@ -617,12 +617,7 @@ exports.pages = {
                 path: "http://neotechnology.com/contactus/"
             },
             content.links.customers,
-            {
-                title: "Neo4j White Papers",
-                thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/02/WP_FTSL-125x160.png",
-                introText: "Whitepapers about Graph Databases, Big Data, Scaling, Licensing and more.",
-                path: "http://www.neotechnology.com/resources/"
-            },
+            content.links.whitepapers,
 //            content.links.use_cases,
             content.articles.partner_graph
         ]
@@ -2235,18 +2230,21 @@ exports.pages = {
         ],
         related: [
             content.links.customers,
-            video("0424 - Managing and Querying Hierarchies with Neo4j"),
-            video("0313 - Recommend Restaurants Near Me: Introduction to Neo4j Spatial"),
-            video("0312 - AuditBucket: Data Auditing with Neo4j and ElasticSearch"),
-            video("1017 - Graph Databases in Life Sciences: Bringing Biology Back to Its Nature"),
-            {
+            content.links.whitepapers,
+            content.links.use_cases,
+            content.articles.partner_graph,
+            video("0424 - Managing and Querying Hierarchies with Neo4j")
+            ,video("0313 - Recommend Restaurants Near Me: Introduction to Neo4j Spatial")
+            ,video("0312 - AuditBucket: Data Auditing with Neo4j and ElasticSearch")
+//          ,video("1017 - Graph Databases in Life Sciences: Bringing Biology Back to Its Nature"),
+            ,{
                 type: "link", title:"How Graph Databases Uncover Patterns To Break Up Organized Crime",
                 author: "Philip Rathle",
                 path: "http://thenewstack.io/how-graph-databases-uncover-patterns-to-break-up-organized-crime/",
                 thumbnail: "http://thenewstack.io/wp-content/uploads/2014/05/Diagram1.jpg"
-            },
-            video("Analyzing Career Paths with College Miner - Matthew Harris @ GraphConnect SF 2013"),
-            video("Using Graph Databases in Real-Time to Solve Resource Authorization at Telenor - Sebastian Verheughe @ GraphConnect SF 2013")
+            }
+          ,video("Analyzing Career Paths with College Miner - Matthew Harris @ GraphConnect SF 2013")
+          ,video("Using Graph Databases in Real-Time to Solve Resource Authorization at Telenor - Sebastian Verheughe @ GraphConnect SF 2013")
         ],
         actionText: "Learn More"
     },

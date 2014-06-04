@@ -49,6 +49,8 @@
             </ul>
         </div><!-- headerWrapper -->
 
+<% if (typeof(req) == "undefined" || !req.path.match(/graphgist/)) {
+%>
     <div id="banner">
       <div>
         <a href="http://neo4j.com">
@@ -66,3 +68,5 @@
       </div>
 
     </div>
+<% } else { %>
+<% } %>

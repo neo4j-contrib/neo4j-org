@@ -491,6 +491,12 @@ exports.content = {
             introText: "Principal uses of Neo4j include social, recommendations, bioinformatics, fraud detection, network management, authorization and access control, content management, and parcel routing, with new ones being added regularly.",
             path: "http://www.neotechnology.com/neo4j-use-cases/"
         },
+        whitepapers: {
+            title: "Neo4j White Papers",
+            thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/02/WP_FTSL-125x160.png",
+            introText: "Whitepapers about Graph Databases, Big Data, Scaling, Licensing and more.",
+            path: "http://www.neotechnology.com/resources/"
+        },
         customers: {
             title: "Customers",
             thumbnail: "http://www.neotechnology.com/wp-content/uploads/2012/11/neo4j_customers.png",
@@ -1897,8 +1903,9 @@ exports.content = {
 };
 exports.video = function(id) { 
     return function() {
-        // console.log("video",id,exports.content.videos[id.toString()]);
-        return exports.content.videos[id.toString()];
+        var video = exports.content.videos[id.toString()];
+        if (!video) console.log("video",id,false);
+        return video;
     }
 };
 exports.graphgist = function(id) {
@@ -1912,7 +1919,7 @@ exports.findItem = function (key) {
 };
 exports.lookup = function (id,type) {
     return function () {
-        console.log("lookup/findItem",type,id,findItem(id),"type");
+//        console.log("lookup/findItem",type,id,findItem(id),"type");
         return findItem(id,type);
     }
 };

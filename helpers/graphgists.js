@@ -17,12 +17,19 @@ function parseGraphgists(cells, fun, filter) {
         var id = item['Gist Title'];
         item.type = "graphgist";
         item.key  = item.title = id;
-        item.url = item.path = item['GraphGist URL'];
+        var url=item['GraphGist URL'];
+        var idx = url.indexOf("?");
+        if (idx !=-1) {
+            var relative = url.substring(idx);
+            url = "/graphgist" + relative;
+        }
+        item.url = item.path = url;
         item.introText = item['Description'];
         item.img = item.src =  item['Image-URL'];
         item.author = {name:item['Your Name'], twitter:item['Twitter']};
         item['Category'] = item['Category'] || "Other";
         item['Rating'] = parseFloat(item['Rating']||"0");
+//        console.log(JSON.stringify(item));
         if (id) items[id] = item;
     }
     console.log("graphgists",Object.keys(items).length);

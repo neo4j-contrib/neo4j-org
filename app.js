@@ -150,6 +150,7 @@ function findItem(key,type) {
     if (typeof key == 'object') return key;
 
     if (type) {
+//        console.log("key",key,"type",type);
         var item=addType(app.locals[type][key],type);
         if (!item) return key;
     }
@@ -165,7 +166,6 @@ function findItem(key,type) {
     if (app.locals.graphgists[key]) return addType(app.locals.graphgists[key], "graphgist");
     if (data.contributors[key]) return addType(data.contributors[key], "contributor");
     if (data.ext_content[key]) return addType(data.ext_content[key], "external");
-    if (data.trainings[key]) return addType(data.trainings[key], "training");
     if (content.content.apps[key]) return addType(content.content.apps[key], "app");
     if (content.content.links[key]) return addType(content.content.drivers[key], "link");
     if (content.content.videos[key]) return addType(content.content.videos[key], "video");
@@ -474,10 +474,9 @@ route_get('/js', routes.javascript);
 
 route_get('/graphgist', function (req, res) {
     var path =  req.originalUrl.substring("/graphgist".length);
-//console.log(req.originalUrl,path);
     load_gist(path, function(err, data) {
         if (err) console.log("Error loading graphgist",path,err);
-        res.render("participate/graphgist",{ path: path, title:"GraphGist", category:"Participate", data:data});
+        res.render("participate/graphgist",{ path: path, title:"GraphGist", category:"Participate", data:data, req:req});
     });
 });
 

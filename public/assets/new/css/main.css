@@ -907,8 +907,8 @@ ul.hor li {
     text-shadow: #aaa 0 0 1em;
 }
 
+/*
 .badge {
-    /*overflow: hidden;*/
     font-size: .9em;
     padding: 1em;
     position: absolute;
@@ -916,17 +916,12 @@ ul.hor li {
     background: #fcf0ad;
     right: 2em;
     top: 12em;
-    /*top: 4em;*/
     box-shadow: 0px 0px 1em #666;
     -webkit-box-shadow: 0px 0px 1em #666;
     -moz-box-shadow: 0px 0px 1em #666;
-    /* Firefox */
     -moz-transform: scale(1) rotate(10deg);
-    /* WebKit */
     -webkit-transform: scale(1) rotate(10deg);
-    /* Opera */
     -o-transform: scale(1) rotate(10deg);
-    /* Standard */
     transform: scale(1) rotate(10deg);
 }
 
@@ -943,6 +938,7 @@ ul.hor li {
 .badge h3 {
     background: transparent;
 }
+*/
 
 .lead {
     width: 60em;

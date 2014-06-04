@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+<% include ../head %>
+<div class="mainpage">
 
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Neo4j GraphGist</title>
+    <!--<!DOCTYPE html>-->
+
+<!--<html>-->
+<!--<head>-->
+    <!--<meta charset="utf-8">-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+    <!--<title>Neo4j GraphGist</title>-->
 
     <script type="text/javascript">
         if (!window.console || !('log' in window.console)) {
@@ -77,16 +80,22 @@
 
     <link rel="icon" href="favicon.ico"/>
     <link rel="shortcut icon" href="favicon.ico"/>
+    <style type="text/css">
+        #sidebar_right {
+           position: absolute;
+           top: 5em;
+           left: -15em;
+        }
+    </style>
+<!--</head>-->
 
-</head>
-
-<body>
+<!--<body>-->
 
 <div class="navbar">
     <div class="navbar-inner">
 
-        <a class="brand" href="http://gist.neo4j.org/">
-            <img style="height: 40px;" src="images/neo4j-gray_60x80.png"> Neo4j GraphGist
+        <a class="brand" href="/learn/graphgist">
+            <img style="height: 40px;" src="http://gist.neo4j.org/images/neo4j-gray_60x80.png"> Neo4j GraphGist
         </a>
 
         <div class="btn-group">
@@ -140,7 +149,7 @@
 </div>
 
 <div class="row">
-    <div id="content" class="span10 offset1">
+    <div id="content" class="span10">
         <%-: data  | asciidoc %>
     </div>
     <div class="span1" id="sidebar_right">
@@ -175,6 +184,9 @@
      $( '#content' ).addClass( 'internet-explorer' );
      @*/
 </script>
-</body>
-</html>
 
+
+<!--</body>-->
+<!--</html>-->
+</div>
+<% include ../foot %>

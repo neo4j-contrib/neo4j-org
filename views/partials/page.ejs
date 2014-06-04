@@ -2,19 +2,19 @@
 var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
 var mainCategory = path.split('/')[1];
 var page = pages[pageName];
-var badge = page.badge;
+// var badge = page.badge;
 // console.log("Rendering Path",path,pageName,badge,page.title);
 
 var title=page.title;
 %>
 
 <% include ../head %>
-<% if (badge) { %>
+<% /* if (badge) { %>
     <div class="badge">
         <div class="close"><img src="<%=asset('new/img/close_button.png')%>"></div>
         <%- badge %>
     </div>
-<% } %>
+<% } */ %>
 <%
 if (page) {
 %>
