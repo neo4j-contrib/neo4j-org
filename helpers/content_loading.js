@@ -1,68 +1,77 @@
 var   http = require('http')
 	, https = require('https')
+    , request = require("request")
+;
 
+var github_personal_token=process.env.GITHUB_TOKEN
+var github_client_id=process.env.GITHUB_CLIENT_ID
+var github_client_secret=process.env.GITHUB_CLIENT_SECRET
+/*
+ wiki access: curl -i https://raw.githubusercontent.com/wiki/neo4j-contrib/graphgist/Syntax.asciidoc
+ returns raw asciidoc
+ content access: curl -u $personal_token:x-oauth-basic https://api.github.com/repos/neo4j-contrib/graphgist/contents/README.md
+ content access returns json with base64
+ curl -H accept:application/vnd.github.VERSION.raw https://api.github.com/repos/neo4j-contrib/graphgist/contents/README.md
+
+ If you need to make unauthenticated calls but need to use a higher rate limit associated with your OAuth application, you can send over your client ID and secret in the query string.
+
+ $ curl -i 'https://api.github.com/users/whatever?client_id=xxxx&client_secret=yyyy'
+
+ curl -u $personal_token:x-oauth-basic https://api.github.com/rate_limit -> "limit": 5000,
+ curl https://api.github.com/rate_limit -> "limit": 60
+ */
 
 function load_github_content(locals, name, path, host) {
     locals.content[name]="Content not found";
     if (!host) host="raw.githubusercontent.com";
 	try {
-     var req=https.get({host: host, path: path},
-        function(res) {
-            res.on("data", function(data) {
-                locals.content[name] = data.toString();
-            })
-        }, function(err) {
-            console.log("Error during request to ",host,path,err);
+        var url = "https://" +host + "/" + path;
+        request(url,{
+            headers: {'User-Agent': 'neo4j.org',accept:'application/vnd.github.VERSION.raw'},
+            auth : {user:github_personal_token,pass:'x-oauth-basic'}, encoding:"UTF-8"
+        },function(err,res,data) {
+            if (err) {
+                console.log("Error loading content for",name,host,path,e);
+                locals.content[name]="Content from http://"+host+"/"+path+" not loaded!";
+                return;
+            }
+            console.log("response for",url,res.headers);
+            // todo store res.headers.etag for conditional requests to save rates
+            //
+            locals.content[name] = data;
         });
-        req.on('error',function(err) {
-            console.log("Error during request to ",host,path,err);
-        });
-        req.end();
-        
 	} catch(e) {
 		console.log("Error loading content for",name,host,path,e)
 		locals.content[name]="Content from http://"+host+"/"+path+" not loaded!";
 	}
 }
 
-var doc_url = "http://docs.neo4j.org/chunked/milestone/"
-
-function load_learn_content(locals, name, path, host) {
+function load_content(locals, name, url,cb) {
+    locals.content[name]="Content not found";
 	try {
-       var add_attribs='target="_blank" class="manual" ';
-       if (!host) host="learn.neo4j.org";
-       var req=http.get({host: host, path: path},
-       function(res) {
-            res.on("data", function(data) {
-                var content = data.toString();
-                content = content.replace(/<\/?(html|body|!DOCTYPE).*?>/g,"");
-                content = content.replace(/-neo4j-version/g,locals.neo4j.version);
-                content = content.replace(/<!\[CDATA\[|\]\]>/g,"");
-                
-                content = content.replace(/((?:href|src)\s*=\s*")([^"]+)/g, function (match, group1, group2) {
-                    var fixed=group1+doc_url+group2;
-                    if (group2.match("^http")) fixed=match;
-                    else if (group2[0] == "#") fixed=group1+doc_url+group2.substr(1)+".html";
-                    return add_attribs+fixed;
-                })
-                
-//                    console.log("data="+content);
-                if (locals.content[name]) {
-                    var tmp = locals.content[name];
-                    content = tmp + content;
-                }
-                locals.content[name] = content;
-            })
-        })
-        req.on('error',function(err) {
-            console.log("Error during request to ",host,path,err);
+        // todo other
+        var auth = url.match("/github.com/") ?  {user:github_personal_token,pass:'x-oauth-basic'} : null;
+        request(url,
+            { headers: {'User-Agent': 'neo4j.org',accept:'application/vnd.github.VERSION.raw'},
+              auth: auth, encoding:"UTF-8" },
+            function(err,res,data) {
+            if (err && !cb) {
+                console.log("Error loading content for",name,url,e);
+                locals.content[name]="Content "+name+" from "+url+" not loaded!";
+                return;
+            }
+            console.log("response for",name,url,res.headers);
+            // todo store res.headers.etag for conditional requests to save rates
+            locals.content[name] = data;
+            if (cb) {
+                cb(err,data,name,url);
+            }
         });
-        req.end();
-    } catch(e) {
-		console.log("Error loading content for",name,host,path,e)
-		locals.content[name]="Content from http://"+host+"/"+path+" not loaded!";
+	} catch(e) {
+		console.log("Error loading content for",name,url,e);
+        locals.content[name]="Content "+name+" from "+url+" not loaded!";
 	}
 }
 
-exports.load_learn_content = load_learn_content
-exports.load_github_content = load_github_content
+exports.load_content = load_content;
+exports.load_github_content = load_github_content;

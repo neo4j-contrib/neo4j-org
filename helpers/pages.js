@@ -1,6 +1,8 @@
 var render = require('./render');
 var content = require("./content.js").content;
 var video = require("./content.js").video;
+var _graphgist = require("./content.js").graphgist;
+var lookup = require("./content.js").lookup;
 var asset = require("../helpers/utils.js").asset;
 
 exports.pages = {
@@ -712,8 +714,8 @@ exports.pages = {
         thumbnail: asset("img/neo4j/neo4j_cloud.png"),
         actionText: "Neo4j in the Cloud",
         featured: [
-//            "ec2",
-            content.links.graphenedb
+            content.links.graphenedb,
+            "ec2"
         ],
         related: ["heroku", "linux", "azure"]
     },
@@ -2328,7 +2330,8 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
             Our GraphGist Winter Challenge (Dec 2013-Jan 2014) asked for contributions in 10 categories. We got an impressive <a href='https://github.com/neo4j-contrib/graphgist/wiki#wiki-graphgist-winter-challenge-submissions---categories'>65 submissions</a>. Here are the <a href='http://blog.neo4j.org/2014/02/graph-gist-winter-challenge-winners.html'>winners per category</a><br/>\
             But we don't stop here. There will be more challenges. And you can even win now.<br/> Every original Graph Model that is <a href='http://bit.ly/graphgist'>submitted via this form</a> will get a personalized Neo4j T-Shirt from us.</p>\
             "
-            }
+            },
+            _graphgist("Simple Movie Recommendation","graphgist")
 
         ],
         related: [

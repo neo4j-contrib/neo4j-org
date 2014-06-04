@@ -35,6 +35,12 @@ exports.subscribe_thanks = function(req, res){
 /*
  * GET - "learn" information with guided tracks
  */
+
+exports.graphgist = function(req, res){
+    res.render('graphgist', { category: 'Learn', title: 'GraphGist' });
+};
+
+
 exports.learn = function(req, res){
   res.render('page', { category: 'learn', title: 'Learn' });
 };

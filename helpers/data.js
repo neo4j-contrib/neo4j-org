@@ -98,23 +98,3 @@ exports.ext_content = {
         introText: "Rik shows how easy it is to import data about beers, their attributes and breweries into Neo4j and walks through different ways of exploring, visualizing and querying this very tasty data."
     }
 }
-
-exports.trainings = [
-    { date: "Feb 13", url: "0213-siliconvalley-register.html", city: "Silicon Valley", presenter: {name: "@dmontag"}, location: "Quadrus Conference Center", area: "US" },
-    { date: "Feb 20", url: "0220-chicago-register.html", city: "Chicago", presenter: {name: "@maxdemarzi", twitter: "maxdemarzi"}, location: "TechNexus", area: "US" },
-    { date: "Feb 26", url: "0226-dc-register.html", city: "Washington, D.C.", presenter: {name: "@maxdemarzi", twitter: "maxdemarzi"}, location: "Catalyst Restaurant", area: "US" },
-    { date: "Feb 28", url: "0228-boston-register.html", city: "Boston", presenter: {name: "@maxdemarzi", twitter: "maxdemarzi"}, location: "Catalyst Restaurant", area: "US" },
-    { date: "Mar 7", url: "0307-sf-register.html", city: "San Francisco", presenter: { name: "@akollegger", twitter: "akollegger"}, location: "Mission Bay CC", area: "US" },
-    { date: "Mar 12", url: "0312-la-register.html", city: "Los Angeles", presenter: { name: "@chrisl", twitter: "cleishm"}, location: "Working Village", area: "US" },
-
-    { date: "Feb 19", url: "0219-munich-register.html", city: "M&uuml;nchen", presenter: { name: "@darthvader42", twitter: "darthvader42"}, location: "comSysto", area: "EU" },
-    { date: "Feb 21", url: "0221-frankfurt-register.html", city: "Frankfurt", presenter: { name: "@darthvader42", twitter: "darthvader42"}, location: "UG Morgner", area: "EU" },
-    { date: "Mar 4", url: "http://qconlondon.com/london-2013/presentation/Neo4j%20Tutorial", city: "London", 
-        presenter: [{name:"@iansrobinson"},{name:"@jimwebber"}],
-        location: "QCon London", area: "EU" },
-    { date: "Mar 5", url: "0305-paris-register.html", city: "Paris", presenter: { name: "@darthvader42", twitter: "darthvader42"}, location: "Zenika", area: "EU" },
-    { date: "Mar 5", url: "0305-london-register.html", city: "London", presenter: { name: "@aleksavukotic", twitter: "AleksaVukotic", company: "OpenCredo"}, location: "LMG Training & Development", area: "EU"},
-    { date: "Mar 7", url: "0307-amsterdam-register.html", city: "Amsterdam", presenter: { name: "@darthvader42", twitter: "darthvader42"}, location: "Xebia", area: "EU" },
-    { date: "Mar 12", url: "0312-berlin-register.html", city: "Berlin", presenter: { name: "@mesirii", twitter: "mesirii"}, location: "betahaus", area: "EU" },
-    { date: "Mar 14", url: "0314-dusseldorf-register.html", city: "D&uuml;sseldorf", presenter: { name: "@darthvader42", twitter: "darthvader42"}, location: "codecentric", area: "EU" }
-]

@@ -1,4 +1,5 @@
 var spreadsheet = require("./spreadsheet");
+var content = require("./content").content;
 
 function parseGraphgists(cells, fun, filter) {
     var header;
@@ -15,7 +16,11 @@ function parseGraphgists(cells, fun, filter) {
         }
         var id = item['Gist Title'];
         item.type = "graphgist";
-        item.key = id;
+        item.key  = item.title = id;
+        item.url = item.path = item['GraphGist URL'];
+        item.introText = item['Description'];
+        item.img = item.src =  item['Image-URL'];
+        item.author = {name:item['Your Name'], twitter:item['Twitter']};
         item['Category'] = item['Category'] || "Other";
         item['Rating'] = parseFloat(item['Rating']||"0");
         if (id) items[id] = item;
@@ -45,6 +50,7 @@ exports.init = function (app, interval) {
     function update() {
         graphgists(function (items) {
             app.locals.graphgists = items;
+            content.graphgists = items;
             var array = Object.keys(items).map(function(k){return items[k]});
             array = array.sort(function(item1,item2) {
                 var catComp = item1.Category.localeCompare(item2.Category);

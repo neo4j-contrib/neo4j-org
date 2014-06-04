@@ -991,6 +991,20 @@ exports.content = {
         }
     },
     articles: {
+
+        graphgist_syntax: {
+            type: "track",
+            title:"GraphGist Syntax",
+            url:"http://gist.neo4j.org/?github-neo4j-contrib%2Fgraphgist%2F%2Fgists%2Fsyntax.adoc",
+            author:"nawroth",
+            content: function (params) {
+                return render.render(
+                    "<blockquote class='external markdown'>\
+                                <%-: content.graphgist_syntax | asciidoc %>\
+                            </blockquote>\
+                ", params)
+            }
+        },
         jdbc: {
             type: "type",
             title: "Neo4j JDBC tools integration",
@@ -1878,7 +1892,8 @@ exports.content = {
             type: "asciidoc",
             url: "https://api.github.com/gists/ca811daa580aee95bd07"
         }
-    }
+    },
+    graphgists: {}
 };
 exports.video = function(id) { 
     return function() {
@@ -1886,12 +1901,18 @@ exports.video = function(id) {
         return exports.content.videos[id.toString()];
     }
 };
+exports.graphgist = function(id) {
+    return function() {
+        // console.log("video",id,exports.content.videos[id.toString()]);
+        return exports.content.graphgists[id.toString()];
+    }
+};
 exports.findItem = function (key) {
 
 };
-exports.lookup = function (id) {
+exports.lookup = function (id,type) {
     return function () {
-        console.log("lookup/findItem",id,findItem(id));
-        return findItem(id);
+        console.log("lookup/findItem",type,id,findItem(id),"type");
+        return findItem(id,type);
     }
 };

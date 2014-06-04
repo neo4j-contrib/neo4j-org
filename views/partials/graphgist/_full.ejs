@@ -1,0 +1,17 @@
+<div class="featured" class="mainElement">
+    <div class="slide article">
+        <div class="image">
+            <% if (item.src) { %><%- link_to(item.url||item.path, '<img src="'+item.src+'" />') %><% } %>
+        </div>
+        <div class="text">
+            <div class="caption">
+                <% if (item.title) { %><h3 id="<%= item.key || key %>"><%- item.title %></h3><% } %>
+            </div>
+            <% if (item.introText) { %><p class="introText"><%- item.introText %></p><% } %>
+            <% if (!item.content) { item.content = get_graphgist(item); } %>
+            <% if (item.content) { %><div class="contentText markdown"><%-: (typeof item.content == "function" ? item.content(locals) : item.content) | asciidoc %></div><% } %>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <% if (item.path) { %><a class="link action" href="<%= item.path %>" target="_blank"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
+</div><!-- featured -->
