@@ -13,7 +13,7 @@
 	"maxmind-native" :"0.1.2",
 	"request" :"2.14.0",
 	"asciidoctorjs-npm-wrapper" :"0.1.3",
-    "opal-npm-wrapper": "git://github.com/anthonny/opal-npm-wrapper.git#0.1.0",
+//    "opal-npm-wrapper": "git://github.com/anthonny/opal-npm-wrapper.git#0.1.0",
 	"rssparser" : "0.0.2",
 	"googleclientlogin" : "0.2.5",
     "hooky-spreadsheets" : "0.0.4",

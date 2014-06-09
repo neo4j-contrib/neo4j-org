@@ -41,7 +41,8 @@ var express = require('express')
     , mylog = require("./helpers/log.js")
     , load_gist = require("./helpers/load_gist.js").load_gist
     , kissmetrics = require('kissmymetrics')
-    , Opal = require('opal-npm-wrapper').Opal;
+//    , Opal = require('opal-npm-wrapper').Opal
+    ;
 
 
 var content = require("./helpers/content")
@@ -206,7 +207,8 @@ ejs.filters.md = function (b) {
     return markdown(b)
 };
 ejs.filters.asciidoc = function (b) { //
-    return asciidoc.$convert(b, null); // Opal.hash2(['attributes'], {'attributes': ['allow-uri-read!',['leveloffset',0]]}));
+//    return asciidoc.$convert(b, null); // Opal.hash2(['attributes'], {'attributes': ['allow-uri-read!',['leveloffset',0]]}));
+    return asciidoc.$render(b, null); // Opal.hash2(['attributes'], {'attributes': ['allow-uri-read!',['leveloffset',0]]}));
 };
 
 ejs.filters.wrap = function (content, tag) {
