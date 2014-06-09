@@ -2181,7 +2181,7 @@ exports.pages = {
     },
     getting_started: {
         path: "/develop/getting_started",
-        thumbnail: "http://i.imgur.com/mtz0YId.png",
+        thumbnail: "http://i.imgur.com/uf5EHWk.png",
         title: "Get Started with Neo4j",
         introText : "Developing on Neo4j is a breeze. We've put together a collection of resources to help you start building your applications using the power of the graph.",
         featured: [
