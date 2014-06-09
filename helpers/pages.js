@@ -2181,9 +2181,9 @@ exports.pages = {
     },
     getting_started: {
         path: "/develop/getting_started",
-        thumbnail: "http://salihcenap.files.wordpress.com/2014/05/pill.jpg?w=540",
+        thumbnail: "http://i.imgur.com/mtz0YId.png",
         title: "Get Started with Neo4j",
-        introText : "Graph Databases are easy to understand, model, query and use. The only problem is, that graph thinking is addictive",
+        introText : "Developing on Neo4j is a breeze. We've put together a collection of resources to help you start building your applications using the power of the graph.",
         featured: [
             content.videos.what_is_neo4j,
             video("0522 - Building Killer Apps with Neo4j"),
