@@ -756,7 +756,7 @@ exports.content = {
         },
         javadoc: {
             title: "API JavaDoc",
-            path: "http://api.neo4j.org/current/",
+            path: "http://docs.neo4j.org/chunked/milestone/javadocs/",
             thumbnail: asset("img/languages/java.jpg"),
             introText: "Check out the Java API of the current milestone.",
             actionText: "Browse JavaDoc"
@@ -791,7 +791,7 @@ exports.content = {
         },
         manual_server: {
             title: "Neo4j Server manual",
-            path: "http://docs.neo4j.org/chunked/milestone/server.html",
+            path: "http://docs.neo4j.org/chunked/milestone/server-installation.htmlg",
             thumbnail: asset("img/languages/java.jpg"),
             introText: "Neo4j server manual sections",
             actionText: "Browse the manual"
@@ -1210,7 +1210,7 @@ exports.content = {
             <li><em>fast</em>, with a powerful traversal framework for high-speed graph queries</li>\
             <li><em>embeddable</em>, with a few small jars</li>\
             <li><em>simple</em>, accessible by a convenient <a href='http://docs.neo4j.org/chunked/milestone/rest-api.html'>REST interface</a> or\
-                an object-oriented Java <a href='http://api.neo4j.org/1.8.1'>API</a></li>\
+                an object-oriented Java <a href='http://docs.neo4j.org/chunked/milestone/javadocs/'>API</a></li>\
                 </ul>",
             src: asset('img/neo4j/visually_refcard.gif')
         }

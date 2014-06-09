@@ -1474,7 +1474,7 @@ exports.pages = {
                 type: "link",
                 title: "Manual: Neo4j-Server",
                 introText: "Components, installation and other aspects of the Neo4j Server documented in the manual.",
-                path: "http://docs.neo4j.org/chunked/milestone/server.html"
+                path: "http://docs.neo4j.org/chunked/milestone/server-installation.html"
             },
             {
                 type: "link",
