@@ -748,7 +748,7 @@ exports.content = {
             path: "http://www.neotechnology.com/neo4j-professional-services/"
         },
         neo4j_ref_card: {
-            type: "external",
+            type: "link",
             title: "Neo4j Reference Card",
             introText: "Visualize the concepts of the graph as a graph, how much more meta can you go?",
             thumbnail: asset('img/neo4j/visually_refcard_small.gif'),
@@ -1012,7 +1012,7 @@ exports.content = {
             }
         },
         jdbc: {
-            type: "type",
+            type: "link",
             title: "Neo4j JDBC tools integration",
             thumbnail: "https://s3-eu-west-1.amazonaws.com/tiq-solutions/tumblr/pics/QVScriptNeo4j_Search_All_Roles_Spock.png",
             introText: "With the Cypher JDBC driver, a lot of tools can be easily integrated with Neo4j.",
@@ -1897,6 +1897,12 @@ exports.content = {
         simple_asciidoc: {
             type: "asciidoc",
             url: "https://api.github.com/gists/ca811daa580aee95bd07"
+        },
+        jdbc_csv : {
+            type: "asciidoc",
+            title: "Using Neo4j-JDBC for Importing CSV Data",
+            author: "peterneubauer",
+            url: "https://github.com/peterneubauer/blogs/master/csv_jdbc/README.adoc"
         }
     },
     graphgists: {}

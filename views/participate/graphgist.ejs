@@ -94,12 +94,15 @@
            top: 5em;
            left: -15em;
         }
+        #graphgist_navbar {
+           margin-top: 1em;
+        }
     </style>
 <!--</head>-->
 
 <!--<body>-->
 
-<div class="navbar">
+<div id="graphgist_navbar" class="navbar">
     <div class="navbar-inner">
 
         <a class="brand" href="/learn/graphgist">
@@ -112,29 +115,19 @@
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-                <li><a href="http://neo4j.com/" target="_blank">
-                    <i class="icon-home"></i> Neo4j
-                </a></li>
                 <li><a href="http://docs.neo4j.org/chunked/stable/cypher-query-lang.html"
                        target="_blank">
-                    <i class="icon-book"></i> Cypher Manual 2.0
+                    <i class="icon-book"></i> Cypher Manual
                 </a></li>
-                <li><a href="http://docs.neo4j.org/refcard/2.0.3/" target="_blank">
-                    <i class="icon-columns"></i> Cypher Refcard 2.0
-                </a></li>
-                <li><a href="http://docs.neo4j.org/chunked/1.9.7/cypher-query-lang.html"
-                       target="_blank">
-                    <i class="icon-book"></i> Cypher Manual 1.9
-                </a></li>
-                <li><a href="http://docs.neo4j.org/refcard/1.9/" target="_blank">
-                    <i class="icon-columns"></i> Cypher Refcard 1.9
+                <li><a href="http://docs.neo4j.org/refcard/stable/" target="_blank">
+                    <i class="icon-columns"></i> Cypher Refcard
                 </a></li>
                 <li>
-                    <a target="_blank" href="./?5956246"><i class="icon-question-sign"></i>
+                    <a href="./?5956246"><i class="icon-question-sign"></i>
                         How to create a GraphGist</a>
                 </li>
                 <li>
-                    <a target="_blank" href="https://github.com/neo4j-contrib/graphgist/wiki"><i class="icon-list"></i>
+                    <a href="/learn/graphgist#related"><i class="icon-list"></i>
                         The Graphgist Collection</a>
                 </li>
             </ul>

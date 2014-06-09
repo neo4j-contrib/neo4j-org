@@ -581,7 +581,7 @@ exports.pages = {
         path: "/learn/production",
         title: "Going into Production",
         introText: "In order to run Neo4j in production scenarios, there are a number of aspects that need to be covered. Here you will find some resources on putting Neo4j into production.",
-        featured: content.videos.production_secrets,
+        featured: [content.videos.production_secrets],
         actionText: "Go into production",
         related: [
             "licensing",
@@ -2286,7 +2286,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
     graphgist: {
         path: "/learn/graphgist",
         title: "Live, Interactive Graph Models - Neo4j GraphGist",
-        introText: "With Neo4j <a href='http://gist.neo4j.org'>GraphGists</a> you can describe and model your domain in a simple text file and render it as a rich, interactive page in any browser. Perfect to document a specific domain, use-case, question or graph problem.<br/> To learn about interesting existing models created by other Neo4j users look at the impressive collection that is listed here.",
+        introText: "With Neo4j GraphGists you can describe and model your domain in a simple text file and render it as a rich, interactive page in any browser. Perfect to document a specific domain, use-case, question or graph problem.<br/> To learn about interesting existing models created by other Neo4j users look at the impressive collection that is <a href='#related'>listed below</a>.",
         featured: [
             {
                 type: "article",
@@ -2294,9 +2294,9 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 src: asset("img/still/graphgist.jpg"),
                 url: "http://gist.neo4j.org",
                 content: "<p>Documenting your graph domain model has never been easier. \
-            A <a href='http://gist.neo4j.org' >GraphGist</a> is just a simple <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>AsciiDoc</a> text file, and can be hosted in a\
-            <a href='http://gist.github.com/'>GitHub Gist</a> or any other place. It will be rendered as an interactive page in the browser.<br/>\
-            You can explore those pages, read and understand them and try out the provided queries on a live graph.\
+            A GraphGist is just a simple <a href='http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/'>AsciiDoc</a> text file, and can be hosted in a\
+            <a href='http://gist.github.com/'>GitHub Gist</a> or any other place with an accessible URL. It will be rendered as an interactive page in your browser.<br/>\
+            You can explore those pages, read and understand them and try out the provided use-case queries on a live graph.\
             We want to encourage you to model <em>a domain that you know or like</em> in a graph model and describe it\
             interactively in a GraphGist.</p>\
             "
@@ -2312,7 +2312,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 <li>Compose it all nicely in your AsciiDoc-GraphGist-file.</li>\
                 <li>Store it as a <a href='http://gist.github.com'>GitHub Gist</a></li>\
                 <li>Submit your GraphGist via <a href='http://bit.ly/graphgist'>this form</a> and get a T-Shirt for every original model</li>\
-                <li>Start with the example <a href='http://gist.neo4j.org/?5956246'>GraphGist</a>.</li>\
+                <li>Start with the example <a href='/graphgist?5956246'>GraphGist</a>.</li>\
                 </ul>",
                 src: "http://player.vimeo.com/video/74279113?badge=0&byline=0&portrait=0&title=0",
                 img: asset("img/still/graphgist_video.jpg")
