@@ -181,10 +181,20 @@ app.locals.resolve_authors = function (authors) {
     return [].concat(authors).filter(function (author) {
         return !!author
     }).map(function (author) {
-        if (typeof(author) == 'object') author = author['name'];
-        if (author.indexOf('@') == 0) author = author.substring(1);
-        if (app.locals.contributors[author]) return app.locals.contributors[author];
-        return { name:author, twitter:author.match(/\s/) ? "neo4j" : author };
+        var result = {name:"Neo4j",twitter:"neo4j"};
+        if (typeof(author) == 'object') {
+            result.name = author['name'];
+            result.twitter = author['twitter'] || (result.name.match(/\s/) ? "neo4j" : result.name);
+        } else {
+            result.name = author;
+            result.twitter = result.name.match(/\s/) ? "neo4j" : result.name;
+        }
+        if (result.name.indexOf('@') == 0) {
+            result.name = result.name.substring(1);
+            result.twitter = result.name;
+        }
+        if (app.locals.contributors[result.name]) return app.locals.contributors[result.name];
+        return result;
     });
 };
 

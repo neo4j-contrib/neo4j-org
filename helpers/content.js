@@ -18,7 +18,7 @@ exports.content = {
             title: "Neo4j Releases",
             path: "/partials/version/_main"
         },
-        stable: {
+        "2_1_1": {
             type: "version",
             title: "Neo4j Stable Release 2.1.1",
             version: "2.1.1",
@@ -27,6 +27,18 @@ exports.content = {
             date: "May 29, 2014",
             introText: "ETL CSV Import, Dense Nodes",
             path: "http://neo4j.com/blog/neo4j-2-1-graph-etl/",
+            thumbnail: asset("img/still/install.gif"),
+            src: "http://player.vimeo.com/video/53838744"
+        },
+        stable: {
+            type: "version",
+            stability: "stable",
+            key: "stable",
+            title: "Neo4j Stable Release 2.0.3",
+            version: "2.0.3",
+            date: "April 30, 2014",
+            introText: "General Availability",
+            path: "http://neo4j.com/blog/neo4j-2-0-ga-graphs-for-everyone/",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
@@ -44,22 +56,22 @@ exports.content = {
             introText: "Unstable Snapshot, for resolution issue verification"
         },
         "milestone": {
-            type: "version",
-            title: "Neo4j Stable Release 2.1.1",
-            version: "2.1.1",
             key: "milestone",
             stability: "milestone",
-            date: "May 29, 2014",
-            introText: "ETL CSV Import, Dense Nodes",
-            path: "http://neo4j.com/blog/neo4j-2-1-graph-etl/",
+            type: "version",
+            title: "Neo4j Stable Release 2.0.3",
+            version: "2.0.3",
+            date: "April 30, 2014",
+            introText: "General Availability",
+            path: "http://neo4j.com/blog/neo4j-2-0-ga-graphs-for-everyone/",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
         "2_0_3": {
+            stability: "stable",
             type: "version",
             title: "Neo4j Stable Release 2.0.3",
             version: "2.0.3",
-            stability: "stable",
             date: "April 30, 2014",
             introText: "General Availability",
             path: "http://neo4j.com/blog/neo4j-2-0-ga-graphs-for-everyone/",
@@ -1551,6 +1563,17 @@ exports.content = {
 
     },
     drivers: {
+        rneo4j: {
+            type: "driver",
+            name: "rneo4j",
+            authors: [{name:"Nicole White",twitter:"@_nicolemargaret"}],
+            source: "https://github.com/nicolewhite/Rneo4j",
+            docs: "http://nicolewhite.github.io/r/2014/05/30/demo-of-rneo4j-part1.html",
+            url: "https://github.com/nicolewhite/Rneo4j",
+            logo: "http://dev.assets.neo4j.com.s3.amazonaws.com/wp-content/uploads/2014/06/Rlogo.jpg",
+            text: "An R package that allows you to easily populate a Neo4j graph database from your R environment.",
+            tags: ["R", "rest", "cypher","transactional"]
+        },
         cyphernet: {
             type: "driver",
             name: "CypherNet",
@@ -1589,12 +1612,12 @@ exports.content = {
         },
         neo4j_rest: {
             type: "driver",
-            url: "http://docs.neo4j.org/chunked/milestone/rest-api.html",
+            url: "http://docs.neo4j.org/chunked/milestone/rest-api-transactional.html",
             authors: ["@neo4j"],
-            tags: ["java", "rest"],
+            tags: ["rest","cypher","transactional"],
             logo: asset("img/languages/neo4jrest.png"),
-            name: "Neo4j REST API",
-            text: "Discoverable, language-neutral data access from anything that can send HTTP requests. You could write a whole application with just bash scripts and curl."
+            name: "Transactional Cypher HTTP Endpoint",
+            text: "A transactional endpoint for Cypher that allows sending many statements with parameters at once and reading writing to a open transaction until it is committed or rolled back."
         },
         spring_data_neo4j: {
             type: "driver",

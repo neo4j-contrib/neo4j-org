@@ -7,9 +7,11 @@ exports.load = function (app) {
 
     locals({
         neo4j:{
-            version:"2.1.1", date:"May 29, 2014", summary:"Release", readme:"http://neo4j.com/blog/neo4j-2-1-graph-etl/"
+            version:"2.0.3", date:"April 30, 2014", summary:"Maintenance Release", readme:"http://blog.neo4j.org/2013/12/neo4j-20-ga-graphs-for-everyone.html"
+//            version:"2.1.1", date:"May 29, 2014", summary:"Release", readme:"http://neo4j.com/blog/neo4j-2-1-graph-etl/"
         }, neo4jGA:{
-            version:"2.1.1", date:"May 29, 2014", summary:"Release", readme:"http://neo4j.com/blog/neo4j-2-1-graph-etl/"
+            version:"2.0.3", date:"April 30, 2014", summary:"Maintenance Release", readme:"http://blog.neo4j.org/2013/12/neo4j-20-ga-graphs-for-everyone.html"
+//            version:"2.1.1", date:"May 29, 2014", summary:"Release", readme:"http://neo4j.com/blog/neo4j-2-1-graph-etl/"
         }, /*neo4jP:{
             version:"2.0.0-M03", date:"May 28, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html"
         },*/ neo4jS:{
@@ -33,7 +35,7 @@ exports.load = function (app) {
                 console.log("Error retrieving versions ", err, res, body);
                 return;
             }
-            locals.versions = JSON.parse(body) || {};
+//            locals.versions = JSON.parse(body) || {};
             console.log(locals.versions);
             temp_update_version(locals.versions.stable, locals.neo4jGA, locals.versions.stable_date);
             temp_update_version(locals.versions.milestone, locals.neo4j, locals.versions.milestone_date);
