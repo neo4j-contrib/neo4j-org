@@ -35,6 +35,7 @@ exports.load = function (app) {
                 console.log("Error retrieving versions ", err, res, body);
                 return;
             }
+            locals.versions = { stable : locals.neo4jGA.version, milestone: locals.neo4j.version, snapshot: locals.neo4jS.version};
 //            locals.versions = JSON.parse(body) || {};
             console.log(locals.versions);
             temp_update_version(locals.versions.stable, locals.neo4jGA, locals.versions.stable_date);
