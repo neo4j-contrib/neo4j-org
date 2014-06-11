@@ -1,0 +1,154 @@
+<%
+var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
+var mainCategory = path.split('/')[1];
+var page = findItem(pageName,mainCategory);
+//console.log("page",pageName,"cat",mainCategory)
+//console.log(Object.keys(pages));
+var title=page.title;
+%>
+
+<% include ../head %>
+<%
+if (page) {
+%>
+<div class="mainpage"><!-- page -->
+    <% if (page.title) { %>
+<h1><%= page.title %></h1>
+    <% } %>
+
+
+<% (page.prev||[]).forEach(function(p) {
+var prevPage = pages[p];
+  %>
+    <div class="btn trackNav prevStep"><a href="<%= prevPage.path %>"><i class="icon icon-circle-arrow-left"></i></a><a href="<%= prevPage.path %>"><%= prevPage.title %></a></div>
+<%
+});
+%>
+
+<% (page.next||[]).forEach(function(p) {
+var nextPage = pages[p];
+  %>
+    <div class="btn trackNav nextStep"><a href="<%= nextPage.path %>"><%= nextPage.title %></a> <a href="<%= nextPage.path %>"><i class="icon icon-circle-arrow-right"></i></a></div>
+<%
+});
+%>
+
+<div class="clear"></div>
+
+    <% if (page.introText) { %>
+<p class="introText"><%- page.introText %></p>
+    <% } %>
+    <% if (page.content) { %>
+<p class="content"><%- typeof page.content == "function" ? page.content(locals) : page.content %></p>
+    <% } %>
+
+
+<a name="featured"></a>
+<% 
+    var items = [].concat(page.featured);
+    var config = page.config || {};
+    var showSlides = false || config['no_slides']===false; // items.length > 1 && !config['no_slides'];
+    if (page.featured && items.length) {
+
+    %><% if (showSlides) { %><ul class="bxslider"><% } %><%
+            items.forEach(function(key) { 
+            var item = findItem(key);
+            if (!item) {
+                //console.log("No featured item for key",key);
+                return;
+            }
+            if (typeof(key)!="string") key="";
+    %>
+        <% if (showSlides) { %> 
+            <li title="<%= item.title||'' %>">
+            <% include ../partials/item/_full %>
+            </li>
+        <% } else { %>
+            <% include ../partials/item/_full %>
+        <% } }); %>
+        <% if (showSlides) { %>
+            </ul>
+        <% } %><%
+   } %>
+
+<%
+    if (page.related && page.related.length) { 
+%>
+    <div class="related" id="related" class="mainElement">
+
+            <% chunk(page.related,4).forEach(function(row) { %>
+                <div class="row">
+                <%
+                row.forEach(function(key) {
+                    var item = findItem(key);
+                    if (!item) {
+                        //console.log("No related item for key",key);
+                        return;
+                    }
+                    if (typeof(key)!="string") key="";
+                      %>
+                    <% include ../partials/item/_tile %>
+                <% }); %>
+
+                </div><!-- row -->
+                <div class="clear"></div>
+
+         <% }); %>
+                    
+    </div><!-- related -->
+
+<% } %>
+
+</div><!-- page -->
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        var timeout;
+        function init() {
+            clearTimeout(timeout);
+            if ($(".page").height()==0) {
+                timeout=setTimeout(init,250);
+            }
+            var ref = $('#featured_slider');
+            var offset = 224;
+    
+            if (!ref.length) {
+                ref = $('div.featured');
+                offset = 240;
+                if (!ref.length) {
+                    ref = $('div.related');
+                    offset = 224;
+                }
+            }
+            var featuredTop = ref && ref.first() && ref.first().offset() && ref.first().offset().top;
+            
+        }
+
+        var region="<%= region %>";
+        
+        function filterByRegion(region) {
+            var elements=$("div[area]");
+            if (elements.length==0) return; 
+            elements.each(function () {
+                var area = $(this).attr("area");
+                if (!area || area == 'WORLD' || region == 'WORLD' || area == region) $(this).show();
+                else $(this).hide();
+            });
+            nav.resize();
+        }
+        $("#region").val(region).change(function () {
+            filterByRegion($(this).val());
+        });
+//      filterByRegion(region);
+        
+        nav.activateMain('<%= mainCategory%>');
+        nav.initThumbnails();
+        
+        init();
+    });
+
+
+</script>
+<% } %>        
+
+<% include ../foot %>

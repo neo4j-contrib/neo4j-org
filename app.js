@@ -501,6 +501,12 @@ route_get('/graphgist', function (req, res) {
     });
 });
 
+route_get("/c/:type/:item",function (req, res) {
+    var page = findItem(req.param("item"),req.param("type"));
+    var params = merge({ path:req.path, title:page.title || "", locals:merge(app.locals,res.locals) });
+    res.render("partials/default/_page", params);
+});
+
 // todo redirect to our video content page
 route_get('/video/*', function (req, res) {
     var path = req.path;
