@@ -1,13 +1,13 @@
 <%
-var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
+//var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
 var mainCategory = path.split('/')[1];
-var page = findItem(pageName,mainCategory);
-//console.log("page",pageName,"cat",mainCategory)
-//console.log(Object.keys(pages));
 var title=page.title;
+//var page = findItem(pageName,mainCategory);
+//console.log("page",pageName,"cat",mainCategory)
+console.log(page);
 %>
 
-<% include ../head %>
+<% include ../../head %>
 <%
 if (page) {
 %>
@@ -16,22 +16,6 @@ if (page) {
 <h1><%= page.title %></h1>
     <% } %>
 
-
-<% (page.prev||[]).forEach(function(p) {
-var prevPage = pages[p];
-  %>
-    <div class="btn trackNav prevStep"><a href="<%= prevPage.path %>"><i class="icon icon-circle-arrow-left"></i></a><a href="<%= prevPage.path %>"><%= prevPage.title %></a></div>
-<%
-});
-%>
-
-<% (page.next||[]).forEach(function(p) {
-var nextPage = pages[p];
-  %>
-    <div class="btn trackNav nextStep"><a href="<%= nextPage.path %>"><%= nextPage.title %></a> <a href="<%= nextPage.path %>"><i class="icon icon-circle-arrow-right"></i></a></div>
-<%
-});
-%>
 
 <div class="clear"></div>
 
@@ -61,10 +45,10 @@ var nextPage = pages[p];
     %>
         <% if (showSlides) { %> 
             <li title="<%= item.title||'' %>">
-            <% include ../partials/item/_full %>
+            <% include ../item/_full %>
             </li>
         <% } else { %>
-            <% include ../partials/item/_full %>
+            <% include ../item/_full %>
         <% } }); %>
         <% if (showSlides) { %>
             </ul>
@@ -87,7 +71,7 @@ var nextPage = pages[p];
                     }
                     if (typeof(key)!="string") key="";
                       %>
-                    <% include ../partials/item/_tile %>
+                    <% include ../item/_tile %>
                 <% }); %>
 
                 </div><!-- row -->
@@ -151,4 +135,4 @@ var nextPage = pages[p];
 </script>
 <% } %>        
 
-<% include ../foot %>
+<% include ../../foot %>

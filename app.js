@@ -60,6 +60,7 @@ app.locals.content = content.content;
 // app.locals.contributors = data.contributors;
 app.locals.contributors = {};
 app.locals.graphgists = {};
+app.locals.articles = content.content.articles;
 app.locals.graphgist_files = { content : {}};
 app.locals.drivers = data.drivers;
 app.locals.ext_content = data.ext_content;
@@ -151,7 +152,7 @@ function findItem(key,type) {
     if (typeof key == 'object') return key;
 
     if (type) {
-//        console.log("key",key,"type",type);
+        console.log("key",key,"type",type);
         var item=addType(app.locals[type][key],type);
         if (!item) return key;
     }
@@ -169,6 +170,7 @@ function findItem(key,type) {
     if (data.ext_content[key]) return addType(data.ext_content[key], "external");
     if (content.content.apps[key]) return addType(content.content.apps[key], "app");
     if (content.content.links[key]) return addType(content.content.drivers[key], "link");
+    if (content.content.articles[key]) return addType(content.content.articles[key], "article");
     if (content.content.videos[key]) return addType(content.content.videos[key], "video");
     if (content.content.asciidoc[key]) return addType(content.content.asciidoc[key], "asciidoc");
     if (app.locals.graphgists[key]) return addType(app.locals.graphgists[key], "graphgist");
@@ -502,8 +504,11 @@ route_get('/graphgist', function (req, res) {
 });
 
 route_get("/c/:type/:item",function (req, res) {
-    var page = findItem(req.param("item"),req.param("type"));
-    var params = merge({ path:req.path, title:page.title || "", locals:merge(app.locals,res.locals) });
+    var item = req.param("item");
+    var type = req.param("type");
+    console.log(page, type, item);
+    var page = findItem(item, type);
+    var params = merge({ page:page, path:req.path, title:page.title || "", locals:merge(app.locals,res.locals) });
     res.render("partials/default/_page", params);
 });
 
