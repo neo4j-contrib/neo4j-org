@@ -1596,7 +1596,50 @@ exports.content = {
             site: "http://anormcypher.org",
             logo: asset("img/languages/scala.png"),
             text: "A Cypher-oriented Scala library modeled after the Play! framework's Anorm library.",
-            tags: ["scala", "rest", "cypher"]
+            tags: ["scala", "rest", "cypher"],
+            featured: [
+                {
+                    type: "link",
+                    title: "Neo4J with Scala Play! 2.0 on Heroku",
+                    introText: "In this new posts series I’ll try to gather all steps of a spike I did building a prototype using scala and a graph database. \
+                        <strong>Play! Framework</strong> as the web framework, in its 2.0 version built from sources. \
+                        <strong>Neo4j</strong> as the back end service for storing graph data. \
+                        <strong>Scala</strong> for telling the computer what it should do...",
+                    img: "http://2.bp.blogspot.com/-UHeP3vJf3WA/T0wGNElHqTI/AAAAAAAAAwE/CnPvABqf-Pg/s1600/neo4j-and-play2.0.tiff",
+                    path: "http://ska-la.blogspot.de/2012/02/neo4j-with-scala-play-20-on-heroku-part.html",
+                    author: "Andy Petrella"
+                }
+            ],
+            related: [
+                "wefreema",
+                {
+                    type: "link",
+                    thumbnail: "http://www.cakesolutions.net/teamblogs/wp-content/themes/twentyten/images/cake_solutions_logo_green.png",
+                    path: "http://www.cakesolutions.net/teamblogs/2012/03/29/neo4j-spring-data-scala/",
+                    title: "Neo4j Spring Data & Scala",
+                    author: "Jan Machacek"
+                },
+                "/c/links/gatling",
+                {
+                    type: "link",
+                    thumbnail: "http://www.cakesolutions.net/teamblogs/wp-content/themes/twentyten/images/cake_solutions_logo_green.png",
+                    path: "http://www.cakesolutions.net/teamblogs/2013/02/04/neo4j-and-spray-json/",
+                    title: "Neo4j and Spray JSON",
+                    author: "Jan Machacek"
+                },
+                {
+                    type: "link",
+                    path: "http://ahalmeida.com/2011/09/06/how-neo4j-uses-scalas-parser-combinator-cyphers-internals-part-1/",
+                    title: "How Neo4j uses Scala’s Parser Combinator: Cypher’s internals",
+                    author: "adrianoalmeida7"
+                },
+                {
+                    type: "link",
+                    author: "fakod",
+                    path: "http://blog.fakod.eu/2010/10/04/neo4j-example-written-in-scala/",
+                    title: "Neo4j Example written in Scala"
+                }
+            ]
         },
         gremlin: {
             type: "driver",

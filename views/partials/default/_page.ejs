@@ -2,6 +2,7 @@
 //var pageName = path.substring(path.lastIndexOf('/')+1, path.length);
 var mainCategory = path.split('/')[1];
 var title=page.title;
+var item = page;
 //var page = findItem(pageName,mainCategory);
 //console.log("page",pageName,"cat",mainCategory)
 console.log(page);
@@ -26,16 +27,17 @@ if (page) {
 <p class="content"><%- typeof page.content == "function" ? page.content(locals) : page.content %></p>
     <% } %>
 
+    <% include ../item/_full %>
 
 <a name="featured"></a>
-<% 
+<%
     var items = [].concat(page.featured);
     var config = page.config || {};
     var showSlides = false || config['no_slides']===false; // items.length > 1 && !config['no_slides'];
     if (page.featured && items.length) {
 
     %><% if (showSlides) { %><ul class="bxslider"><% } %><%
-            items.forEach(function(key) { 
+            items.forEach(function(key) {
             var item = findItem(key);
             if (!item) {
                 //console.log("No featured item for key",key);
@@ -43,7 +45,7 @@ if (page) {
             }
             if (typeof(key)!="string") key="";
     %>
-        <% if (showSlides) { %> 
+        <% if (showSlides) { %>
             <li title="<%= item.title||'' %>">
             <% include ../item/_full %>
             </li>
@@ -60,7 +62,7 @@ if (page) {
 %>
     <div class="related" id="related" class="mainElement">
 
-            <% chunk(page.related,4).forEach(function(row) { %>
+         <% chunk(page.related,4).forEach(function(row) { %>
                 <div class="row">
                 <%
                 row.forEach(function(key) {
@@ -78,7 +80,7 @@ if (page) {
                 <div class="clear"></div>
 
          <% }); %>
-                    
+
     </div><!-- related -->
 
 <% } %>
@@ -95,7 +97,7 @@ if (page) {
             }
             var ref = $('#featured_slider');
             var offset = 224;
-    
+
             if (!ref.length) {
                 ref = $('div.featured');
                 offset = 240;
@@ -105,14 +107,14 @@ if (page) {
                 }
             }
             var featuredTop = ref && ref.first() && ref.first().offset() && ref.first().offset().top;
-            
+
         }
 
         var region="<%= region %>";
-        
+
         function filterByRegion(region) {
             var elements=$("div[area]");
-            if (elements.length==0) return; 
+            if (elements.length==0) return;
             elements.each(function () {
                 var area = $(this).attr("area");
                 if (!area || area == 'WORLD' || region == 'WORLD' || area == region) $(this).show();
@@ -124,15 +126,15 @@ if (page) {
             filterByRegion($(this).val());
         });
 //      filterByRegion(region);
-        
+
         nav.activateMain('<%= mainCategory%>');
         nav.initThumbnails();
-        
+
         init();
     });
 
 
 </script>
-<% } %>        
+<% } %>
 
 <% include ../../foot %>

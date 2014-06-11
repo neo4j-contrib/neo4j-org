@@ -146,14 +146,19 @@ app.locals.chunk = function (arr, size) {
 };
 
 function findItem(key,type) {
-//    console.log("findItem", key)
+    console.log("findItem", key)
     if (typeof key == 'undefined') return null;
     if (typeof key == 'function') key = key();
     if (typeof key == 'object') return key;
-
+    var parts = key.match(/^\/c\/(.+?)\/(.+?)$/);
+    if (parts) {
+        //TODO: this is not working
+//        key = parts[2];
+//        type = parts[1];
+    }
     if (type) {
-        console.log("key",key,"type",type);
-        var item=addType(app.locals[type][key],type);
+        var item=addType(app.locals[type]?app.locals[type][key]:content.content[type][key],type.replace(/s$/,""));
+        console.log("key",key,"type",type, item);
         if (!item) return key;
     }
     function addType(item, type) {
@@ -164,13 +169,13 @@ function findItem(key,type) {
     if (content.content[key]) return addType(content.content[key], "content");
     if (content.content.drivers[key]) return addType(content.content.drivers[key], "driver");
     if (content.content.books[key]) return addType(content.content.books[key], "book");
+    if (content.content.articles[key]) return addType(content.content.articles[key], "article");
     if (app.locals.contributors[key]) return addType(app.locals.contributors[key], "contributor");
     if (app.locals.graphgists[key]) return addType(app.locals.graphgists[key], "graphgist");
     if (data.contributors[key]) return addType(data.contributors[key], "contributor");
     if (data.ext_content[key]) return addType(data.ext_content[key], "external");
     if (content.content.apps[key]) return addType(content.content.apps[key], "app");
     if (content.content.links[key]) return addType(content.content.drivers[key], "link");
-    if (content.content.articles[key]) return addType(content.content.articles[key], "article");
     if (content.content.videos[key]) return addType(content.content.videos[key], "video");
     if (content.content.asciidoc[key]) return addType(content.content.asciidoc[key], "asciidoc");
     if (app.locals.graphgists[key]) return addType(app.locals.graphgists[key], "graphgist");
