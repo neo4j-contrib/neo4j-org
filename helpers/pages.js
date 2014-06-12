@@ -78,7 +78,6 @@ exports.pages = {
         featured: null,
         related: [
             content.links.online_intro_training,
-            "q_and_a",
             "events",
             {
                 type: "include",
@@ -1266,23 +1265,6 @@ exports.pages = {
         featured: [content.links.graphconnect],
         related: []
 
-    },
-    q_and_a: {
-        path: "/participate/q_and_a",
-        title: "Ask Questions and Share Answers",
-        introText: "Here you can find some of the resources that give you access to questions, answers and support around Neo4j related questions.",
-        thumbnail: asset("img/logo/googlegroups.png"),
-        featured: [content.links.stack_overflow],
-        related: [
-            content.links.mailing_list, content.links.github_neo4j,
-            {
-                title: "FAQ",
-                introText: "There are FAQ's in several places:<ul>\
-                    <li><a href='http://github.com/simpsonjulian/neo4j-faq/blob/master/README.md#neo4j-faq' target='_blank'>Julian Simpson</a></li>\
-                    <li><a href='http://stackoverflow.com/questions/tagged/neo4j?sort=faq&pagesize=50' target='_blank'>frequent questions on StackOverflow</a></li>\
-                    </ul>"
-            }
-        ]
     },
     neo4j: {
         path: "/learn/neo4j",

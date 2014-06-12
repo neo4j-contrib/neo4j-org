@@ -387,6 +387,8 @@ route_get('/release-notes', forward("http://neo4j.com/release-notes/"));
 route_get('/participate/events/tutorials_EU', forward("/participate/events/trainings_EU"));
 route_get('/participate/events/tutorials_US', forward("/participate/events/trainings_US"));
 route_get('/participate/events/tutorials_DE', forward("/participate/events/trainings_DE"));
+route_get('/participate/q_and_a', forward("http://neo4j.com/contact-us/"));
+
 
 route_get('/participate/events/tutorials', forward("/participate/events/trainings"));
 route_get('/participate/events_test',    function(req, res){
@@ -410,8 +412,8 @@ route_get('/subscribe_thanks', function(req, res){
 route_get('/participate/meetup_signup', routes.meetup_signup);
 route_get('/participate/meetups', forward("/participate/events/meetups"));
 
-route_get('/terms', routes.terms); // terms and conditions
-route_get('/privacy', routes.privacy); // privacy policy
+route_get('/terms', forward("http://neo4j.com/terms/"));
+route_get('/privacy', forward("http://neo4j.com/privacy-policy/"));
 route_get('/release-notes', routes.release_notes);
 route_get('/release-notes/faq', forward("/download/upgrade-faq"));
 route_get('/download/upgrade-faq', routes.upgrade_faq);
