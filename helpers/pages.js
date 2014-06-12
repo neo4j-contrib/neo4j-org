@@ -172,7 +172,8 @@ exports.pages = {
         ],
         related: [
             //content.videos.installing_neo4j,
-            content.install.milestone,
+//            content.install.milestone,
+            "other_versions",
             "getting_started",
 //            content.install.stable,
             //"graphdatabase",
@@ -181,7 +182,6 @@ exports.pages = {
             "windows",
             "linux",
             "licensing",
-            "other_versions",
             content.install.upgrading,
             {
                 type: "link",
