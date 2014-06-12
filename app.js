@@ -519,6 +519,7 @@ route_get('/e/:type/:item', function (req, res) {
         var item = {};
         console.log('loaded graphgist', data);
         content.content = data;
+
         var params = merge({ page:content, path:req.path, title:content.title || "", locals:merge(app.locals,res.locals) });
         res.render("partials/default/_page", params);
     });
