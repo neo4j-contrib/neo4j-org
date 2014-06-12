@@ -511,6 +511,7 @@ route_get('/graphgist', function (req, res) {
     });
 });
 
+//urls that ill be attempted to the resolved and served dynamically, e.g. http://localhost:3000/e/asciidoc/jdbc_csv
 route_get('/e/:type/:item', function (req, res) {
     var item = req.param("item");
     var type = req.param("type");
@@ -519,12 +520,13 @@ route_get('/e/:type/:item', function (req, res) {
         var item = {};
         console.log('loaded graphgist', data);
         content.content = data;
-
         var params = merge({ page:content, path:req.path, title:content.title || "", locals:merge(app.locals,res.locals) });
         res.render("partials/default/_page", params);
     });
 });
 
+
+//urls referring to prepopulated items upon startup (e.g. from graphgists spreadsheet, http://localhost:3000/c/graphgists/github-neo4j-contrib%2Fgists%2F%2Fother%2FBankFraudDetection.adoc)
 route_get("/c/:type/:item",function (req, res) {
     var item = req.param("item");
     var type = req.param("type");
