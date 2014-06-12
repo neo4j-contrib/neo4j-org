@@ -154,8 +154,9 @@ function findItem(key,type) {
     var parts = key.match(/^\/c\/(.+?)\/(.+?)$/);
     if (parts) {
         //TODO: this is not working
-//        key = parts[2];
-//        type = parts[1];
+        console.log('findItem path', key, 'type: ',typeof key, parts);
+        key = parts[2];
+        type = parts[1];
     }
     if (type) {
         var item=addType(app.locals[type]?app.locals[type][key]:content.content[type][key],type.replace(/s$/,""));
@@ -163,6 +164,7 @@ function findItem(key,type) {
         if (!item) return key;
     }
     function addType(item, type) {
+        console.log('addType', item, type);
         if (!item.type) item.type = type;
         return item;
     }
@@ -176,7 +178,7 @@ function findItem(key,type) {
     if (data.contributors[key]) return addType(data.contributors[key], "contributor");
     if (data.ext_content[key]) return addType(data.ext_content[key], "external");
     if (content.content.apps[key]) return addType(content.content.apps[key], "app");
-    if (content.content.links[key]) return addType(content.content.drivers[key], "link");
+    if (content.content.links[key]) return addType(content.content.links[key], "link");
     if (content.content.videos[key]) return addType(content.content.videos[key], "video");
     if (content.content.asciidoc[key]) return addType(content.content.asciidoc[key], "asciidoc");
     if (app.locals.graphgists[key]) return addType(app.locals.graphgists[key], "graphgist");
@@ -515,16 +517,8 @@ route_get('/e/:type/:item', function (req, res) {
     var content = findItem(item, type);
     load_gist(content.url, function(err, data) {
         var item = {};
-        if (err) {
-            console.log("Error loading graphgist",path,err);
-        } else {
-            for (var k in app.locals.graphgists) {
-                var gist = app.locals.graphgists[k];
-                if (gist.url == req.originalUrl) {
-                    item = gist;
-                }
-            }
-        }
+        console.log('loaded graphgist', data);
+        content.content = data;
         var params = merge({ page:content, path:req.path, title:content.title || "", locals:merge(app.locals,res.locals) });
         res.render("partials/default/_page", params);
     });
