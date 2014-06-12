@@ -1968,7 +1968,7 @@ exports.content = {
             type: "asciidoc",
             title: "Using Neo4j-JDBC for Importing CSV Data",
             author: "peterneubauer",
-            url: "https://github.com/peterneubauer/blogs/master/csv_jdbc/README.adoc"
+            url: "github-peterneubauer%2Fblogs%2F%2Fcsv_jdbc%2FREADME.adoc"
         }
     },
     graphgists: {}

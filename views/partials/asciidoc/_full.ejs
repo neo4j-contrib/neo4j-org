@@ -1,47 +1,17 @@
-
-<script src="/public/js/opal.js"></script>
-<script src="/public/js/asciidoctor.js"></script>
-<div class="featured book" class="mainElement">
-    <div class="slide book">
-        <div id=asciidoc_content>
+<div class="featured" class="mainElement">
+    <div class="slide article">
+        <div class="image">
+            <% if (item.src) { %><%- link_to(item.url||item.path, '<img src="'+item.src+'" />') %><% } %>
+        </div>
+        <div class="text">
+            <div class="caption">
+                <% if (item.title) { %><h3 id="<%= item.key || key %>"><%- item.title %></h3><% } %>
+            </div>
+            <% if (item.introText) { %><p class="introText"><%- item.introText %></p><% } %>
+            <% if (!item.content) { item.content = get_graphgist(item); } %>
+            <% if (item.content) { %><div class="contentText markdown"><%-: (typeof item.content == "function" ? item.content(locals) : item.content) | asciidoc %></div><% } %>
         </div>
         <div class="clear"></div>
     </div>
+    <% if (item.path) { %><a class="link action" href="<%= item.path %>" target="_blank"><%= (item.actionText ? item.actionText : 'Learn more')+' &raquo;' %></a><% } %>
 </div><!-- featured -->
-<script>
-    var asciidoc_url = "<%- item.url %>";
-    function render_asciidoc() {
-        $.ajax({
-            'url': asciidoc_url,
-            'success': function (d) {
-                var data = JSON.parse(d);
-                console.log(data);
-                var file = data.files[Object.keys(data.files)[0]];
-                console.log("file",file);
-                var content = file.content;
-                var link = file.content;
-                console.log("gist", link);
-                var generatedHtml = undefined;
-                var ASCIIDOCTOR_OPTIONS = Opal.hash('attributes', [ 'notitle!' ], 'attribute-missing','drop');
-
-                try {
-                    generatedHtml = Opal.Asciidoctor.$render(link, ASCIIDOCTOR_OPTIONS);
-                }
-                catch (e) {
-                    console.log("error",e.name + ':' + '<p>' + e.message + '</p>');
-                    return;
-                }
-                $('#asciidoc_content').html(generatedHtml);
-            },
-            'dataType': 'text',
-            'error': function (xhr, status, errorMessage) {
-                error(errorMessage);
-            }
-        });
-        
-    }
-
-    $(document).ready(function () {
-       render_asciidoc();
-    });
-</script>

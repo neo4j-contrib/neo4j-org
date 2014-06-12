@@ -85,30 +85,31 @@ function get_graphgist(item,cb) {
         // http://gist.neo4j.org/?github-HazardJ%2Fgists%2F%2FDoc_Source_Graph.adoc
         // http://gist.neo4j.org/?dropbox-14493611%2Fmovie_recommendation.adoc
         var decoded = decodeURIComponent(url);
-console.log("resolveGraphGistUrl",url,"#"+decoded+"#");
         var match = decoded.match(/^http:\/\/gist.neo4j.org\/\?(.+)/);
         if (match) {
             var original = match[1];
             if (original.match(/^[0-9a-f]{5,}/i)) {
-                // gist
                 return "https://gist.github.com/" + original;
             }
             if (original.match(/github-/i)) {
-                // gist
                 return "https://github.com/" + original.substring("github-".length);
             }
             if (original.match(/dropbox-/i)) {
-                // gist
                 return "https://dl.dropboxusercontent.com/u/" + original.substring("dropbox-".length);
             }
-            // todo dropbox
-            // o
         }
+        return decoded;
     }
-
     var original = resolveGraphGistUrl(item.url);
     var content = app.locals.graphgist_files.content[item.id];
+
+    console.log("resolveGraphGistUrl2", original, content);
     if (!content || content == "Content not found") {
+        // todo dropbox
+        // o
+        // gist
+        // gist
+        // gist
         content_loading.load_content(app.locals.graphgist_files, item.id, original,cb);
     } else {
         cb(null, content, item.id, original);
@@ -508,10 +509,30 @@ route_get('/graphgist', function (req, res) {
     });
 });
 
+route_get('/e/:type/:item', function (req, res) {
+    var item = req.param("item");
+    var type = req.param("type");
+    var content = findItem(item, type);
+    load_gist(content.url, function(err, data) {
+        var item = {};
+        if (err) {
+            console.log("Error loading graphgist",path,err);
+        } else {
+            for (var k in app.locals.graphgists) {
+                var gist = app.locals.graphgists[k];
+                if (gist.url == req.originalUrl) {
+                    item = gist;
+                }
+            }
+        }
+        var params = merge({ page:content, path:req.path, title:content.title || "", locals:merge(app.locals,res.locals) });
+        res.render("partials/default/_page", params);
+    });
+});
+
 route_get("/c/:type/:item",function (req, res) {
     var item = req.param("item");
     var type = req.param("type");
-    console.log(page, type, item);
     var page = findItem(item, type);
     var params = merge({ page:page, path:req.path, title:page.title || "", locals:merge(app.locals,res.locals) });
     res.render("partials/default/_page", params);

@@ -22,37 +22,6 @@ var DROPBOX_BASE_URL = 'https://dl.dropboxusercontent.com/u/';
 var DEFAULT_SOURCE = 'github-neo4j-contrib/gists//meta/Home.adoc';
 var VALID_GIST = /^[0-9a-f]{5,32}\/?$/;
 
-exports.load_gist = function (id, callback) {
-    if (id.length < 2) {
-        id = DEFAULT_SOURCE;
-    }
-    else {
-        id = id.substring(1);
-        var idCut = id.indexOf('&');
-        if (idCut !== -1) {
-            id = id.substring(0, idCut);
-        }
-    }
-    var fetcher = fetchGithubGist;
-    if (id.length > 8 && id.substr(0, 8) === 'dropbox-') {
-        fetcher = fetchDropboxFile;
-        id = id.substr(8);
-    }
-    else if (id.length > 7 && id.substr(0, 7) === 'github-') {
-        fetcher = fetchGithubFile;
-        id = id.substr(7);
-    }
-    else if (!VALID_GIST.test(id)) {
-        if (id.indexOf('%3A%2F%2F') !== -1) {
-            fetcher = fetchAnyUrl;
-        }
-        else {
-            fetcher = fetchLocalSnippet;
-        }
-    }
-    fetcher(id, callback);
-};
-
 function fetchGithubGist(gist, callback) {
     if (!VALID_GIST.test(gist)) {
         callback('The gist id is malformed: ' + gist);
@@ -77,6 +46,7 @@ function fetchGithubGist(gist, callback) {
 
 function fetchGithubFile(id, callback) {
     var decoded = decodeURIComponent(id);
+
     decoded = decoded.replace(/\/contents\//, '//');
     var parts = decoded.split('/');
     var branch = 'master';
@@ -85,9 +55,10 @@ function fetchGithubFile(id, callback) {
         branch = parts[2];
         pathPartsIndex++;
     }
-
-
     var url = 'https://api.github.com/repos/' + parts[0] + '/' + parts[1] + '/contents/' + parts.slice(pathPartsIndex).join('/');
+
+
+    console.log("fetching", url);
     request(url,
         { headers: {'User-Agent': 'neo4j.org'}, json: true, qs: "ref=" + branch,
             auth: {user: github_personal_token, pass: 'x-oauth-basic'}, encoding: "UTF-8" },
@@ -102,6 +73,8 @@ function fetchGithubFile(id, callback) {
             var link = data.html_url;
             var imagesdir = 'https://raw.github.com/' + parts[0] + '/' + parts[1]
                 + '/' + branch + '/' + data.path.substring(0, -data.name.length);
+            console.log("got", content);
+
             callback(null, content, link, imagesdir); // todo images
         }
     );
@@ -113,6 +86,7 @@ function fetchDropboxFile(id, callback) {
 }
 
 function fetchAnyUrl(id, callback) {
+    console.log('fetchAnyUrl', id);
     var url = decodeURIComponent(id);
     request(url, {Headers: {accept: "text/plain"}}, function (err, resp, data) {
         callback(err, data, id);
@@ -123,4 +97,36 @@ function fetchLocalSnippet(id, callback) {
     var url = 'http://gist.neo4j.org/gists/' + id + '.adoc';
     fetchAnyUrl(url, callback);
 }
+
+exports.load_gist = function (id, callback) {
+
+    if (id.length < 2) {
+        id = DEFAULT_SOURCE;
+    }
+    else {
+        id = id.replace(/^\?/,"")
+        var idCut = id.indexOf('&');
+        if (idCut !== -1) {
+            id = id.substring(0, idCut);
+        }
+    }
+    var fetcher = fetchGithubGist;
+    if (id.length > 8 && id.substr(0, 8) === 'dropbox-') {
+        fetcher = fetchDropboxFile;
+        id = id.substr(8);
+    }
+    else if (id.length > 7 && id.substr(0, 7) === 'github-') {
+        fetcher = fetchGithubFile;
+        id = id.substr(7);
+    }
+    else if (!VALID_GIST.test(id)) {
+        if (id.indexOf('%3A%2F%2F') !== -1) {
+            fetcher = fetchAnyUrl;
+        }
+        else {
+            fetcher = fetchLocalSnippet;
+        }
+    }
+    fetcher(id, callback);
+};
 
