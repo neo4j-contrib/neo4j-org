@@ -383,6 +383,7 @@ route_get('/index_graph', routes.index_graph);
 route_get('/search', routes.search);
 
 route_get('/drivers', forward("/develop/drivers"));
+route_get('/develop/drivers', forward("http://neo4j.com/contrib/"));
 route_get('/release-notes', forward("http://neo4j.com/release-notes/"));
 route_get('/participate/events/tutorials_EU', forward("/participate/events/trainings_EU"));
 route_get('/participate/events/tutorials_US', forward("/participate/events/trainings_US"));
