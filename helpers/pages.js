@@ -1253,19 +1253,6 @@ exports.pages = {
     meetups_US: { path: "/participate/events/meetups_US" },
     meetups_EU: { path: "/participate/events/meetups_EU" },
     meetups_DE: { path: "/participate/events/meetups_DE" },
-    conferences: {
-        path: "/participate/events/conferences",
-        title: "Neo4j at Conferences",
-        prev: ["trainings"],
-        next: ["events"],
-        introText: "There is a lot of interest in graph databases and Neo4j. here are some of the conferences where you can learn and " +
-            "talk more about Neo4j. <br/>Find the next conference talks in <a href='/participate/events/conferences_US'>the US</a>, or in Europe in <a href='/participate/events/conferences_EU'>English</a> or <a href='/participate/events/conferences_DE'>German</a>.",
-        thumbnail: asset("img/logo/graphconnect.png"),
-        actionText: "Neo4j at conferences",
-        featured: [content.links.graphconnect],
-        related: []
-
-    },
     neo4j: {
         path: "/learn/neo4j",
         title: "What is Neo4j?",
