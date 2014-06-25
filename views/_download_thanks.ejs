@@ -64,7 +64,7 @@ $(document).ready(function() {
     var testing = getUrlVars()["test"] || null;
     var edition = getUrlVars()["edition"] || "community";
     var release = getUrlVars()["release"] || "<%= neo4jGA.version %>";
-    var platform = getUrlVars()["platform"] || "unix";
+    var platform = getUrlVars()["platform"] || getUrlVars()["flavour"] || "unix";
     var architecture = getUrlVars()["architecture"] || "x64";
     var packaging = getUrlVars()["packaging"] || "zip";
     var suffix = "zip";
