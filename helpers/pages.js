@@ -202,7 +202,7 @@ exports.pages = {
             content.install.stable,
 //            content.install.milestone,
             content.install["2_0_3"],
-            content.install["1_9_7"],
+            content.install["1_9_8"],
             content.install["1_8_3"],
             content.install["1_7_2"],
             content.install["1_6_3"],
