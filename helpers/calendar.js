@@ -243,6 +243,7 @@ exports.init = function (app, interval) {
                     var eventsPerType = eventPages[type].events;
                     var pageName = eventPages[type].page;
                     var page = app.locals.pages[pageName];
+                    if (!page) return;
                     page.related = eventsPerType; 
                     if (type == "Webinar") return;
                     ["US","EU","DE"].forEach(function(area) {
