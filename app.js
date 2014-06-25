@@ -506,6 +506,43 @@ route_get('/highlighter/*', routes.resource);
 route_get('/asciidoc', routes.asciidoc);
 route_get('/js', routes.javascript);
 
+function findGist(locals, url) {
+    var item;
+    for (var k in locals.graphgists) {
+        var gist = locals.graphgists[k];
+        if (gist.url.indexOf(url) != -1) {
+            item = gist;
+        }
+    }
+    return item;
+}
+
+route_get('/api/graphgist',function (req, res) {
+    var path =  req.originalUrl.substring("/api/graphgist".length);
+    load_gist(path, function(err, data) {
+        if (err) {
+            console.log("Error loading graphgist",path,err);
+            res.send(404,"Error loading graphgist from: " + path+" "+err)
+        } else {
+            var item = findGist(app.locals,path);
+            res.set('Content-Type', 'text/plain');
+            if (item) {
+                function setHeader(key,prop) {
+                    if (item[prop]) res.set("GraphGist-" + key,item[prop]);
+                }
+                setHeader("Title","title");
+                setHeader("Author","name");
+                setHeader("Twitter","twitter");
+                setHeader("Description","introText");
+                setHeader("Image","img");
+                setHeader("Category","Category");
+                res.set("Url","http://neo4j.org/graphgist"+path);
+            }
+            res.send(200,data);
+        }
+    });
+});
+
 route_get('/graphgist', function (req, res) {
     var path =  req.originalUrl.substring("/graphgist".length);
     load_gist(path, function(err, data) {
@@ -513,12 +550,7 @@ route_get('/graphgist', function (req, res) {
         if (err) {
             console.log("Error loading graphgist",path,err);
         } else {
-            for (var k in app.locals.graphgists) {
-                var gist = app.locals.graphgists[k];
-                if (gist.url == req.originalUrl) {
-                    item = gist;
-                }
-            }
+            item = findGist(app.locals,path) | {};
         }
         res.render("participate/graphgist",{ path: path, title:"Neo4j GraphGist "+(item['title']?item.title:""), category:"Participate", data:data, req:req, item:item});
     });
