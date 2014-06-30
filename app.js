@@ -101,18 +101,18 @@ function get_graphgist(item,cb) {
         return decoded;
     }
     var original = resolveGraphGistUrl(item.url);
-    var content = app.locals.graphgist_files.content[item.id];
+    var content = app.locals.graphgist_files.content[item.url];
 
     console.log("resolveGraphGistUrl2", original, content);
     if (!content || content == "Content not found") {
         // todo dropbox
-        // o
-        // gist
-        // gist
-        // gist
-        content_loading.load_content(app.locals.graphgist_files, item.id, original,cb);
+        content_loading.load_content(app.locals.graphgist_files, item.url, original,cb);
     } else {
-        cb(null, content, item.id, original);
+        console.log("cb");
+        if(cb) {
+            cb(null, content, item.url, original);
+        }
+        return content;
     }
 }
 

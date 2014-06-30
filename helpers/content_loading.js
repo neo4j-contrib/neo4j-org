@@ -48,6 +48,7 @@ function load_github_content(locals, name, path, host) {
 
 function load_content(locals, name, url,cb) {
     locals.content[name]="Content not found";
+    console.log("load_content", name);
 	try {
         // todo other
         var auth = url.match("/github.com/") ?  {user:github_personal_token,pass:'x-oauth-basic'} : null;
@@ -60,12 +61,14 @@ function load_content(locals, name, url,cb) {
                 locals.content[name]="Content "+name+" from "+url+" not loaded!";
                 return;
             }
-//            console.log("response for",name,url,res.headers);
+//            console.log("response for",name,url,res.headers, data);
             // todo store res.headers.etag for conditional requests to save rates
             locals.content[name] = data;
             if (cb) {
                 cb(err,data,name,url);
             }
+
+                console.log("locals.content:", locals.content[name]);
         });
 	} catch(e) {
 		console.log("Error loading content for",name,url,e);
