@@ -1965,13 +1965,14 @@ exports.content = {
             url: "https://gist.githubusercontent.com/galliva/ca811daa580aee95bd07/raw/aa11f84ec7cd02beeefd0bf892602cbf1ed09797/NoSQLGist"
         },
         jdbc_csv : {
-            type: "asciidoc",
+            type: "graphgist",
             title: "Using Neo4j-JDBC for Importing CSV Data",
             author: "peterneubauer",
-            url: "https://raw.githubusercontent.com/peterneubauer/blogs/master/csv_jdbc/README.adoc"
+            url: "https://raw.githubusercontent.com/peterneubauer/blogs/master/csv_jdbc/README.adoc",
+            related: ["/c/asciidoc/simple_asciidoc"]
         }
-    },
-    graphgists: {}
+
+    }
 };
 exports.video = function(id) { 
     return function() {

@@ -18,7 +18,7 @@ if (page) {
     <% if (page.introText) { %>
 <p class="introText"><%- page.introText %></p>
     <% } %>
-    <% if (page.content && ["asciidoc"].indexOf(page.type) == -1) { %>
+    <% if (page.content && ["asciidoc", "graphgist"].indexOf(page.type) == -1) { %>
 <p class="content"><%- typeof page.content == "function" ? page.content(locals) : page.content %></p>
     <% } %>
 
