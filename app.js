@@ -439,7 +439,6 @@ route_get('/privacy', forward("http://neo4j.com/privacy-policy/",301));
 route_get('/release-notes', routes.release_notes);
 route_get('/release-notes/faq', forward("/download/upgrade-faq"));
 route_get('/download/upgrade-faq', routes.upgrade_faq);
-route_get('/learn/education', routes.online_course);
 route_get('/learn/online_course', routes.online_course);
 
 // route_get('/misc/beer', routes.beer);
@@ -458,6 +457,8 @@ route_get('/ruby', forward("/develop/ruby"));
 
 route_get('/community', forward("/participate"));
 route_get('/learn/intro', forward("/learn"));
+route_get('/learn', forward("http://neo4j.com/graphacademy/",301));
+route_get('/learn/education', forward("http://neo4j.com/graphacademy/",301));
 route_get('/learn/concepts', forward("/learn"));
 route_get('/community/feeds', forward("/participate"));
 route_get('/resources', forward("/learn"));
