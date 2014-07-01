@@ -131,14 +131,12 @@ $(document).ready(function() {
         link.attr("href",downloadLink).html("<i class='icon icon-download-alt'></i> "+displayLink).click(function() {
             logdata.action = "click";
             mktoMunchkinFunction('visitWebPage', { url: 'neo4j.org/download', params: url_params });
-            _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
             ga('send','event','neo4j-download',downloadLink);
             _kmq.push(['identify', marketo_id ||'' ]); // todo identify people
             _kmq.push(['record', 'neo4j-download', logdata]);
             log("download-click",logdata);
         });
         if (testing===null) {
-            _gaq.push(['_trackEvent','neo4j-download',downloadLink]);
             ga('send','event','neo4j-download',downloadLink);
             _kmq.push(['identify', marketo_id ||'']); // todo identify people
             _kmq.push(['record', 'neo4j-download', logdata]);

@@ -235,7 +235,6 @@
                     info["data"]=sessionId;
                     _kmq.push(['record', 'neo4j-course-'+action, info]);
                     ga('send','event','neo4j-course-'+action,JSON.stringify([email,name,info["company"],info["country"],info["state"]])); // ,online_course,sessionId
-                    _gaq.push(['_trackEvent','neo4j-course-'+action,JSON.stringify([email,name,info["company"],info["country"],info["state"]])]); // ,online_course,sessionId
                     var marketoInfo = {Email: email, Activity:action};
                     if (action=="register") {
                         marketoInfo = {FirstName:info.firstname, LastName:info.name, Email: email, Company: info.company, Country:info.country,State:info.state,

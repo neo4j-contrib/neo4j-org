@@ -156,12 +156,10 @@ $(document).ready(function(){
     });
     $("a[href^=http]").filter(function(){ !$(this).attr("href").indexOf("download_thanks");}).attr("target","_blank").click(function() {
 		ga('send','event','outbound-neo4j',$(this).attr("href"));
-		_gaq.push(['_trackEvent','outbound-neo4j',$(this).attr("href")]);
 	});
     $("a.like").click(function(){
         var like = $(this);
         ga('send','event','neo4j-like-content',like.attr("data-like"));
-        _gaq.push(['_trackEvent','neo4j-like-content',like.attr("data-like")]);
         like.css({fontSize: "1.5em"});
         like.animate({fontSize: "1em"},250);
         return false;

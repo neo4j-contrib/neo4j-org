@@ -123,7 +123,7 @@ app.locals.theme = function () {
 // helper functions
 app.locals.link_to = function (path, inner,css) {
     if (path) {
-	    var tracking = ' onclick="javascript:_gaq.push([\'_trackEvent\',\'outbound-neo4j\',\''+path+'\']);ga(\'send\',\'event\',\'outbound-neo4j\',\''+path+'\');" ';
+	    var tracking = ' onclick="javascript:ga(\'send\',\'event\',\'outbound-neo4j\',\''+path+'\');" ';
 		return '<a class="'+(css||"")+'" href="' +path+ '" ' + (path.match("^http") ? ' target="_blank" '+tracking : '') + ">" +inner+ "</a>";
 	}
     return inner;
