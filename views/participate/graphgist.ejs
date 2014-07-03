@@ -1,11 +1,20 @@
 <% include ../head %>
+<%
+    function findAttribute(attr,defaultValue) {
+       var m = data.match(attr);
+       return m ? m[1] : defaultValue;
+    }
+    var creator = item['twitter'] || findAttribute(/:twitter: *(.+)/,'neo4j');
+    var gist_title = item['title'] || findAttribute(/^=+ *(.+)/,title||'A Neo4j Graph Gist');
+    var gist_img = item['img'] || findAttribute(/image::(.+)\[/,asset('img/neo4j/neo4j-logo.png'));
+%>
 <meta name="twitter:site" content="@neo4j">
 <meta name="twitter:domain" content="http://neo4j.org">
-<meta name="twitter:creator" content="@<%=item['twitter']%>">
-<meta name="twitter:title" content="<%=item['title']%>">
-<meta name="twitter:description" content="<%=item['introText']%>">
+<meta name="twitter:creator" content="@<%=creator||'neo4j'%>">
+<meta name="twitter:title" content="<%=gist_title||'A Neo4j GraphGist'%>">
+<meta name="twitter:description" content="<%=item['introText']||''%>">
 <meta name="twitter:card" content="<%=item['img'] ? 'summary_large_image':'summary' %>">
-<meta name="twitter:image:src" content="<%=item['img']||asset('img/neo4j/neo4j-logo.png') %>">
+<meta name="twitter:image:src" content="<%=gist_img||asset('img/neo4j/neo4j-logo.png') %>">
 
 <div class="mainpage">
 
