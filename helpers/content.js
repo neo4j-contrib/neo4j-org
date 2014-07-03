@@ -85,7 +85,7 @@ exports.content = {
             stability: "stable",
             date: "June 19, 2014",
             introText: "General Availability",
-            path: "http://blog.neo4j.org/2013/09/installer-check-desktop-launcher-check.html",
+            path: "http://neo4j.com/blog/neo4j-1-9-4-installer-check-desktop-launcher-check/",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
@@ -96,7 +96,7 @@ exports.content = {
             stability: "stable",
             date: "June 27, 2013",
             introText: "General Availability",
-            path: "http://blog.neo4j.org/2012/12/neo4j-1-8-1-release-stability-and-cypher-performance.html",
+            path: "http://neo4j.com/blog/neo4j-1-8-1-stability-and-cypher-performance/",
             thumbnail: asset("img/still/install.gif"),
             src: "http://player.vimeo.com/video/53838744"
         },
@@ -106,7 +106,7 @@ exports.content = {
             version: "1.7.2",
             stability: "stable",
             date: "May 28, 2012",
-            path: "http://blog.neo4j.org/2012/04/neo4j-17-ga-bastutrask-bank-released.html"
+            path: "http://neo4j.com/blog/neo4j-1-7-ga-bastutrask-bank-released/"
         },
         "1_6_3": {
             type: "version",
@@ -114,7 +114,7 @@ exports.content = {
             title: "Neo4j Stable Release 1.6.3",
             version: "1.6.3",
             date: "May 28, 2012",
-            path: "http://blog.neo4j.org/2012/01/released-neo4j-16-ga-jorn-kniv.html"
+            path: "http://neo4j.com/blog/released-neo4j-1-6-ga-jorn-kniv/"
         },
         "1_5_3": {
             type: "version",
@@ -122,7 +122,7 @@ exports.content = {
             title: "Neo4j Stable Release 1.5.3",
             version: "1.5.3",
             date: "May 24, 2012",
-            path: "http://blog.neo4j.org/2011/10/announcing-neo4j-boden-bord-15-ga.html"
+            path: "http://neo4j.com/blog/announcing-neo4j-boden-bord-1-5-ga-release/"
         },
         upgrading: {
             type: "link",
@@ -295,13 +295,13 @@ exports.content = {
             title: "GraphViz",
             type: "video",
             introText: "<p>Using the GraphViz Exporter it is possible to generate <code>.dot</code> files which can then be rendered as images using graphviz' dot toolchain.\
-              See this <a href='http://blog.neo4j.org/2012/05/graph-this-rendering-your-graph-with.html' target='_blank'>blog post</a> for details.</p>",
+              See this <a href='http://neo4j.com/blog/graph-this-rendering-your-graph-with' target='_blank'>blog post</a> for details.</p>",
             thumbnail: "http://docs.neo4j.org/chunked/snapshot/images/graphdb-indexes.svg.png"
         },
         neo4j_heroku_gdocs: {
             type: "video",
             title: "Screencast: Integrate Neo4j, Heroku and Google Docs",
-            introText: "A screencast about <a href='http://blog.neo4j.org/2011/12/neo4j-labs-heroku-neo4j-and-google.html'>deploying an application using the Neo4j add-on on Heroku</a> to expose a readonly Cypher endpoint. Then integrating with a Google Spreadsheet for querying and rendering of the results.",
+            introText: "A screencast about <a href='http://neo4j.com/blog/neo4j-labs-heroku-neo4j-and-google'>deploying an application using the Neo4j add-on on Heroku</a> to expose a readonly Cypher endpoint. Then integrating with a Google Spreadsheet for querying and rendering of the results.",
             thumbnail: "http://vidcaster-media.s3.amazonaws.com/sites/145/videos/67656/freeze/thumbs/120x6816U7J.jpg",
             src: "http://video.neo4j.org/player/U4Yq"
         },
@@ -415,7 +415,7 @@ exports.content = {
             type: "video",
             author: "rvanbruggen",
             thumbnail: asset("img/still/bunnies.png"),
-            introText: "Rik collected the <a href='http://blog.neo4j.org/2013/06/graphs-for-bunnies.html'>top ten questions about graph databases</a> and presents answers in this awesome slidecast.",
+            introText: "Rik collected the <a href='http://neo4j.com/blog/graphs-for-bunnies'>top ten questions about graph databases</a> and presents answers in this awesome slidecast.",
             src: "http://player.vimeo.com/video/68035671"
         },
         strata: {
@@ -656,7 +656,7 @@ exports.content = {
             type: "link",
             title: "Neo4j on Azure",
             introText: "In this blog post we will show that it is no problem at all to host a sophisticated and complex server product such as the Neo4j graph database server on Window Azure. Since Neo4j has a remote API over HTTP you can easily connect to the server from your applications.",
-            path: "http://blog.neo4j.org/2011/02/announcing-neo4j-on-windows-azure.html"
+            path: "http://neo4j.com/blog/announcing-neo4j-on-windows-azure"
         },
         azure_vmdepot: {
             type: "link",
@@ -824,7 +824,7 @@ exports.content = {
         },
         eclipse_maven_neo4j_setup: {
             title: "Setting up a Neo4j maven project in Eclipse",
-            path: "http://blog.neo4j.org/2012/03/how-to-set-up-maven-project-with-neo4j.html",
+            path: "http://neo4j.com/blog/how-to-set-up-a-maven-project-with-neo4j-in-eclipse/",
             introText: "A blog post on how to set up a new project with Neo4j in Java using Eclipse",
             actionText: "Read the blog",
             thumbnail: asset("img/logo/eclipse.jpg")
@@ -909,7 +909,7 @@ exports.content = {
         fec_2012: {
             type: "link",
             title: "Federal Election Commission Campaign Data - (63.91MB)",
-            url: "http://blog.neo4j.org/2012/10/follow-data-fec-campaign-data-challenge.html",
+            url: "http://neo4j.com/blog/follow-the-data-fec-campaign-data-challenge/",
 			github: "https://github.com/akollegger/FEC_GRAPH",
             author: "akollegger",
             img: "http://2.bp.blogspot.com/-yz4sG2of89Y/UG4TQ5QsgDI/AAAAAAAAAV8/apaI68-NH5U/s1600/ftd-banner.png",
@@ -950,7 +950,7 @@ exports.content = {
         musicbrainz_large: {
             type: "link",
             title: "The Musicbrainz main entities - large (5.4GB)",
-            url: "http://blog.neo4j.org/2013/11/musicbrainz-in-neo4j-part-1.html",
+            url: "http://neo4j.com/blog/musicbrainz-in-neo4j-part-1",
             github: "https://github.com/SpringSource/spring-data-neo4j/tree/master/spring-data-neo4j-examples/cineasts",
             author: "peterneubauer",
             img: "http://2.bp.blogspot.com/--ghj75EWkyc/UnjtpNV657I/AAAAAAAALiU/UYua5dc4fPk/s1600/Screenshot_11_5_13_2_07_PM.png",
@@ -970,7 +970,7 @@ exports.content = {
         hubway: {
             type: "link",
             title: "Hubway Data Challenge (50MB)",
-            url: "http://blog.neo4j.org/2012/10/using-spring-data-neo4j-for-hubway-data.html",
+            url: "http://neo4j.com/blog/using-spring-data-neo4j-for-the-hubway-data-challenge/",
 			github: "https://github.com/jexp/hubway-sdn",
             author: "mesirii",
             img: "http://hubwaydatachallenge.org/static/img/hubway-logo.png",
@@ -1028,7 +1028,7 @@ exports.content = {
             title: "Neo4j JDBC tools integration",
             thumbnail: "https://s3-eu-west-1.amazonaws.com/tiq-solutions/tumblr/pics/QVScriptNeo4j_Search_All_Roles_Spock.png",
             introText: "With the Cypher JDBC driver, a lot of tools can be easily integrated with Neo4j.",
-            path: "http://blog.neo4j.org/2012/07/cypher-jdbc-tools-testing-results.html"
+            path: "http://neo4j.com/blog/cypher-jdbc-tools-testing-results"
         },
         neo4j_on_heroku: {
             type: "article",

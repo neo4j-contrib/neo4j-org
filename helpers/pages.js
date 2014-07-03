@@ -526,7 +526,7 @@ exports.pages = {
             content.links.mapdb_index,
             {
                 type: "link",
-                path: "http://blog.neo4j.org/2013/04/nodes-are-people-too.html",
+                path: "http://neo4j.com/blog/nodes-are-people-too",
                 title: "Nodes are people too",
                 author: ["akollegger", "prathle"],
                 introText: "Release blog for 2.0.0-M01 discussing the reasoning behind labels and potential applications."
@@ -812,7 +812,7 @@ exports.pages = {
             {
                 thumbnail: asset("img/neo4j/neo4j_cloud.png"),
                 title: "Neo4j Heroku Challenge Applications",
-                path: "http://blog.neo4j.org/2012/03/heroku-challengers-vote-now.html"
+                path: "http://neo4j.com/blog/heroku-challengers-vote-now"
             },
             {
                 thumbnail: "https://waza.heroku.com/images/layout/waza-bookmark.png",
@@ -894,7 +894,7 @@ exports.pages = {
                 thumbnail: "http://1.bp.blogspot.com/-1wuzYs5eO1A/T3UQSaOrTnI/AAAAAAAAATY/OKRFYhWP_EY/s320/scala_with_sdn.png",
                 title: "Using Spring Data Neo4j from Scala",
                 author: "Jan Machacek",
-                path: "http://blog.neo4j.org/2012/03/spring-data-neo4j-from-scala.html"
+                path: "http://neo4j.com/blog/spring-data-neo4j-from-scala"
             },
             {
                 type: "link",
@@ -1003,7 +1003,7 @@ exports.pages = {
                 introText: "It's quite easy to map and query ontologies in a property graph model, here is an example for this.",
                 thumbnail: "http://1.bp.blogspot.com/-AfPJhGuMY08/UhMt1e0AuSI/AAAAAAAAAAM/ze08DayNioc/s320/provontology.jpg",
                 author: "Stefanie Wiegand",
-                url: "http://blog.neo4j.org/2013/08/and-now-for-something-completely.html"
+                url: "http://neo4j.com/blog/and-now-for-something-completely"
             }
         ]
     },
@@ -1972,7 +1972,7 @@ exports.pages = {
                 type: "link",
                 tags: ["talend","import","music"],
                 title: "Import last.fm data into Neo4j with Talend",
-                path: "http://blog.neo4j.org/2013/07/fun-with-music-neo4j-and-talend.html",
+                path: "http://neo4j.com/blog/fun-with-music-neo4j-and-talend",
                 author: "rvanbruggen",
                 thumbnail: "http://upload.wikimedia.org/wikipedia/en/7/73/Logo-talend-high.jpg",
                 introText: "Rik shows how to use Talend Open Studio for Big Data to import public Scrobbles from his last.fm account into Neo4j."
@@ -2128,7 +2128,7 @@ exports.pages = {
                 title: "Neo4j-JDBC Driver Blog Posts",
                 author: ["rickardoberg", "mesirii", "tiqview"],
                 introText: "<ul><li><a href='http://rickardoberg.wordpress.com/2011/12/19/creating-a-jdbc-driver-for-neo4j/'>Introduction by Rickard Öberg</a></li>\
-                <li><a href='http://blog.neo4j.org/2012/07/cypher-jdbc-tools-testing-results.html'>Using the JDBC Driver with SQL-Tools</a></li>\
+                <li><a href='http://neo4j.com/blog/cypher-jdbc-tools-testing-results'>Using the JDBC Driver with SQL-Tools</a></li>\
                 <li><a href='http://tiqview.tumblr.com/post/25503986247/using-sqlexplorer-with-neo4j-graph-database'>SQL Explorer</a></li>\
                 <li><a href='http://tiqview.tumblr.com/post/25427068878/querying-neo4j-graph-data-with-cypher-in-squirrel-via'>SQuirrel SQL</a></li>\
                 </ul>"
@@ -2293,8 +2293,8 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 url: "/learn/graphgist_challenge",
                 content: "<p>The best way gathering great graph models is to ask your community. \
             That's why we already ran two challenges to find interesting ideas for GraphGists with tremendous results.<br/>\
-            The first challenge in September 2013 had <a href='https://github.com/neo4j-contrib/graphgist/wiki#wiki-graphgist-september-challenge-submissions'>17 submissions</a> and <a href='http://blog.neo4j.org/2013/10/the-first-graphgist-challenge-completed.html'>3 winners</a>.<br/>\
-            Our GraphGist Winter Challenge (Dec 2013-Jan 2014) asked for contributions in 10 categories. We got an impressive <a href='https://github.com/neo4j-contrib/graphgist/wiki#wiki-graphgist-winter-challenge-submissions---categories'>65 submissions</a>. Here are the <a href='http://blog.neo4j.org/2014/02/graph-gist-winter-challenge-winners.html'>winners per category</a><br/>\
+            The first challenge in September 2013 had <a href='https://github.com/neo4j-contrib/graphgist/wiki#wiki-graphgist-september-challenge-submissions'>17 submissions</a> and <a href='http://neo4j.com/blog/the-first-graphgist-challenge-completed'>3 winners</a>.<br/>\
+            Our GraphGist Winter Challenge (Dec 2013-Jan 2014) asked for contributions in 10 categories. We got an impressive <a href='https://github.com/neo4j-contrib/graphgist/wiki#wiki-graphgist-winter-challenge-submissions---categories'>65 submissions</a>. Here are the <a href='http://neo4j.com/blog/graph-gist-winter-challenge-winners'>winners per category</a><br/>\
             But we don't stop here. There will be more challenges. And you can even win now.<br/> Every original Graph Model that is <a href='http://bit.ly/graphgist'>submitted via this form</a> will get a personalized Neo4j T-Shirt from us.</p>\
             "
             }
@@ -2438,7 +2438,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 title: "Neo4j Spatial Part 1 - Finding things close to other things",
                 author: "craigtaverner",
                 introText: "Geography is a natural domain for graphs and graph databases, the Neo4j Spatial project has been providing early access releases enabling a wide range of convenient and powerful geographic capabilities in the Neo4j database.",
-                path: "http://blog.neo4j.org/2011/03/neo4j-spatial-part1-finding-things.html"
+                path: "http://neo4j.com/blog/neo4j-spatial-part1-finding-things"
             }
         ],
         related: [

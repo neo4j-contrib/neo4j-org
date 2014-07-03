@@ -23,7 +23,7 @@ exports.load = function (app) {
         if (current != data.version) {
             data.version = current;
             data.date = current_date || "2014";
-            data.readme = "http://blog.neo4j.org";
+            data.readme = "http://neo4j.com/blog/";
         }
     }
 
