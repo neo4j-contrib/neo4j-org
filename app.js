@@ -456,8 +456,9 @@ route_get('/ruby', forward("/develop/ruby"));
 
 route_get('/community', forward("/participate"));
 route_get('/learn/intro', forward("/learn"));
-route_get('/learn', forward("http://neo4j.com/graphacademy/",301));
 route_get('/learn/education', forward("http://neo4j.com/graphacademy/",301));
+route_get('/learn/online-course', forward("http://neo4j.com/graphacademy/online-course",301));
+route_get('/learn/intro-course-finish', forward("http://neo4j.com/graphacademy/online-course/intro-course-finish",301));
 route_get('/learn/concepts', forward("/learn"));
 route_get('/community/feeds', forward("/participate"));
 route_get('/resources', forward("/learn"));
