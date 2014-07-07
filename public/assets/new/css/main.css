@@ -117,12 +117,12 @@ blockquote .course_form .endquote {
  */
 
 ::-moz-selection {
-    background: #b3d4fc;
+    background: #777;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: #777;
     text-shadow: none;
 }
 
@@ -196,6 +196,7 @@ textarea {
 
 #sites {
     text-align: center;
+    display: none;
 }
 #site a:active, #sites a:link, #sites a {
     color: #333333;
@@ -504,14 +505,14 @@ body {
 }
 
 body, h1, h2, h3, h4 {
-    font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif;
-    color: #555;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    color: #444;
     padding: 0;
     margin: 0;
 }
 
 body {
-    background: #f7f7f7;
+    background: #f9f9f9;
     height: 100%;
 }
 
@@ -520,19 +521,23 @@ html {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2em;
+    font-weight: normal;
 }
 
 h2,.mainpage .markdown h1 {
-    font-size: 2em;
+    font-size: 1.25em;
+    font-weight: normal;
 }
 
 h3,.mainpage .markdown h2 {
-    font-size: 1.3em;
+    font-size: 1em;
+    font-weight: normal;
 }
 
 h4,.mainpage .markdown h3 {
     font-size: 1em;
+    font-weight: normal;
 }
 
 p {
@@ -678,7 +683,7 @@ ul.hor li {
 }
 
 #headerWrapper {
-    background: #00546a; /*url('../img/header_bg.gif') repeat-x;*/
+    background: #f9f9f9; /*url('../img/header_bg.gif') repeat-x;*/
     /*border-bottom: .1em solid #c4ced0;*/
     /*position: fixed;*/
     top: 0;
@@ -687,11 +692,11 @@ ul.hor li {
 }
 
 #header {
-    height: 5em;
-    width: 62em;
+    background: none repeat scroll 0 0 transparent;
+    height: 7em;
     margin: 0 auto;
-    background: transparent;
     position: relative;
+    width: 62em;
 }
 
 #header .brand {
@@ -702,7 +707,7 @@ ul.hor li {
 }
 
 #header a, #header a:hover, #header a:active, #header a:visited {
-    color: #fff;
+    color: #444;
     text-decoration: none;   
 }
 
@@ -715,8 +720,8 @@ ul.hor li {
 
 #logo {
     float: left;
-    width: 3em;
-    margin: .75em 0 0 0;
+    margin: 1.7em 0 0;
+    width: 9em;
 }
 
 #mobileMenu {
@@ -762,14 +767,13 @@ ul.hor li {
 }
 
 #mainNav {
+    color: #fff;
+    font-family: 'Open Sans',Helvetica,sans-serif;
+    font-size: 1.25em;
+    font-weight: normal;
+    margin: 1.75em 0 0;
     position: absolute;
     right: 1em;
-    bottom: .5em;
-    margin: 1.5em 0 0 0;
-    font-size: 1.2em;
-    font-family: 'Open Sans', Helvetica, sans-serif;
-    font-weight: bold;
-    color: #fff;
 }
 
 #mainNav a:hover, #mainNav .active {
@@ -787,16 +791,20 @@ ul.hor li {
     text-decoration: none;   
 }
 
+#btn-search {
+
+}
+
 .bigsearch {
-    width: 10em ! important;
+
 }
 
 #q {
-    padding: .15em;
-    width: 6em;
-    font-size: .7em;
-    line-height: 1.1em;
-    border: 1px inset #fff;
+    border: 1px solid #ccc;
+    font-size: 0.7em;
+    line-height: 1.25em;
+    padding: 0.5em;
+    width: 9em;
     -webkit-border-radius: .25em;
        -moz-border-radius: .25em;
             border-radius: .25em;
@@ -809,7 +817,7 @@ ul.hor li {
     font-size: 2em;
     line-height: 0.3em;
     margin-bottom: -.19em;
-    color: #f7f7f7;
+    color: #cdcdcd;
     z-index: 9999;
 }
 
@@ -862,14 +870,19 @@ ul.hor li {
 
 .mainpage .introText {
     color: #555;
-    font-size: 1.5em;
+    font-size: 1em;
     margin: 0;
+    padding-bottom: 1em;
 }
 
 .mainpage .content {
     /*color: #555;*/
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 0;
+}
+
+.download .image a {
+    font-size: 12px;
 }
 
 .mainpage h2 {
@@ -992,20 +1005,16 @@ ul.hor li {
 /****************** featured *******************/
 
 .featured {
-/*    position: absolute;
-    top: 9em;
-    left: 1em;
-*/
-    padding: 1em;
-    margin: 1em 0;
-    box-shadow: 0px 0px 1em #e5e5e5;
+    background: none repeat scroll 0 0 #fff;
+    border: 0.05em solid #e5e5e5;
+    border-radius: 10px;
+    box-shadow: 0 0 1em #e5e5e5;
+    height: auto;
+    margin: 1em auto auto;
+    padding: .5em 1em;
+    width: 59em;
     -webkit-box-shadow: 0px 0px 1em #e5e5e5;
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
-    border: .1em solid #dce7ea;
-    background: #fff;
-    overflow: none; /* makes children expand this box to max height */
-    width: 59em;
-    height: auto;
 }
 
 .featured .slide {
@@ -1081,18 +1090,17 @@ ul.hor li {
 }
 
 .featured .caption h3 {
-    line-height: 1em;
-    font-size: 1.75em;
-    padding: 0 0 .5em 0;
-    margin: -.2em 0 0 0;
     color: #00546a;
+    font-size: 1.25em;
+    line-height: 1.25em;
+    margin: 1em 0;
 }
 
 .featured a,
 .featured a:visited,
 .featured a:hover,
 .featured a:active {
-    font-weight: 600;
+    font-weight: 400;
 }
 
 
@@ -1137,7 +1145,7 @@ ul.hor li {
 }
 
 .featured .article .introText {
-    font-size: 1.2em;
+    font-size: 1em;
     color: #222;
 }
 
@@ -1253,31 +1261,30 @@ ul.hor li {
 .related a:visited,
 .related a:hover,
 .related a:active {
-    font-family: "source-sans-pro", "Source Sans Pro", "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif;
     color: #00546a;
-    font-weight: 600;
+    font-family: "Open Sans",helvetica;
+    font-weight: 400;
 }
 
 .related .row {
     width: 63em;
     min-height: 6em;
-    margin-left: -.5em;
     /*border-top: .1em solid #dce7ea;*/
     padding-top: 1em;
 }
 
 .related .row .item {
-    width: 12.4em;
-    /*min-height: 6em;*/
+    background: none repeat scroll 0 0 #fff;
+    border: 0.1em solid #e5e5e5;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em #e5e5e5;
     float: left;
+    margin: 0.5em;
+    padding: 1em 1em 2em;
     position: relative;
-    padding: 1em 1em 2em 1em;
-    margin: .5em;
-    box-shadow: 0px 0px 1em #e5e5e5;
+    width: 12.4em;
     -webkit-box-shadow: 0px 0px 1em #e5e5e5;
     -moz-box-shadow: 0px 0px 1em #e5e5e5;
-    border: .1em solid #dce7ea;
-    background: #fff;
 }
 
 .related .row .item:hover {
@@ -1288,7 +1295,7 @@ ul.hor li {
 }
 
 .related .row .item h3 {
-    padding-bottom: .5em;
+    padding-bottom: 1em;
 }
 
 .related .item img {
@@ -1366,6 +1373,7 @@ ul.hor li {
     position: absolute;
     bottom: .65em;
     right: 1em;
+    font-size: .8em;
 }
 .related .item .github {
     position: absolute;
@@ -1509,6 +1517,12 @@ a.vote i {
     margin: 0 0 0 -10px ! important;
 }
 
+.subscribe {
+    font-size: 0.8em;
+    text-align: left;
+    width: 14em;
+}
+
 /****************** footer *******************/
 
 .wrapper {
@@ -1524,9 +1538,8 @@ a.vote i {
 }
 
 #footer {
-    background-color: #e5e5e5;
-    border-top: .1em solid #c4ced0;
-    height: 15.9em;
+    background-color: #fff;
+    height: 19em;
     overflow: hidden;
 }
 
@@ -2128,3 +2141,7 @@ text.caption a:hover {
 
 /* XXLarge screens*/
 @media only screen and (min-width: 120.063em) { } /* min-width 1921px, xlarge screens */
+
+/* OVERLOADS */
+
+
