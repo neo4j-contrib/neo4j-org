@@ -1463,22 +1463,21 @@ exports.pages = {
         featured: [
             content.videos.browser_styling,
             {
-                type:"video",
-                title: "GraphConnect 2012: Visualizing Graphs-Max De Marzi",
-                author: "maxdemarzi",
-                src:"http://player.vimeo.com/video/53205761",
-                img: "http://maxdemarzidotcom.files.wordpress.com/2012/01/visualization.png?w=500",
-                thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2012/01/visualization.png?w=100",
-                introText: "Max de Marzi, the graph visualization rock star shows how to present graphs in different ways, with just a few lines of codes."+
- "<a href='http://slideshare.net/GraphConnect/1434-adopt-marzi-visualizing-graphs'>Slides</a>"
-            },
-            {
                 type:"link",
                 author: {name:"Alistair Jones",twitter:"apcj"},
                 title:"Seeing patterns in your data",
                 path:"https://skillsmatter.com/skillscasts/5095-seeing-patterns-in-your-data",
                 introText: "Alistair will give an overview of the techniques and technologies for visualising graph data, and explain where these work well for different types of problems. <a href='http://www.apcjones.com/talks/2014-03-26_Neo4j_London/'>Interactive Slides</a>",
                 thumbnail: asset("img/still/seening_pattern_in_data.jpg")
+            },
+            {
+                type: "video",
+                author: {name:"Tom Sawyer", twitter:"tomsawyer"},
+                title: "Tom Sawyer Perspectives",
+                introText: "<a href='https://www.tomsawyer.com/pressreleases/pressrelease.php?release_id=164&news=product'>Tom Sawyer Perspectives 6.0</a> offers Cypher support for Neo4j graph databases and connects them to the broad visualization capabilities of the tool. The integration with the latest Neo4j version makes it easier to write complex queries and render their results in a comprehensive way.",
+                src: "http://player.vimeo.com/video/90897466",
+                img: "https://www.tomsawyer.com/products/perspectives/images/perspectives/overview/2012.08.13.0.DesignPreviewDeploy.png",
+                thumbnail: "https://www.tomsawyer.com/products/perspectives/images/perspectives/overview/2012.08.13.0.DesignPreviewDeploy.thumb.png"
             }
         ],
         related: [
@@ -1491,6 +1490,16 @@ exports.pages = {
             "graphgist",
             content.links.linkurious,
             content.links.keylines,
+            {
+                type:"video",
+                title: "GraphConnect 2012: Visualizing Graphs-Max De Marzi",
+                author: "maxdemarzi",
+                src:"http://player.vimeo.com/video/53205761",
+                img: "http://maxdemarzidotcom.files.wordpress.com/2012/01/visualization.png?w=500",
+                thumbnail: "http://maxdemarzidotcom.files.wordpress.com/2012/01/visualization.png?w=100",
+                introText: "Max de Marzi, the graph visualization rock star shows how to present graphs in different ways, with just a few lines of codes."+
+                    "<a href='http://slideshare.net/GraphConnect/1434-adopt-marzi-visualizing-graphs'>Slides</a>"
+            },
             content.links.d3,
             content.links.gephi,
             "neoclipse",
