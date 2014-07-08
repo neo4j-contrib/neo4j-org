@@ -13,8 +13,8 @@ exports.load = function (app) {
         }, /*neo4jP:{
             version:"2.0.0-M03", date:"May 28, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html"
         },*/ neo4jS:{
-            version:"2.0-SNAPSHOT",
-            date:"2013",
+            version:"2.1.3-SNAPSHOT",
+            date:"2014",
             summary:"Unstable Snapshot, for issue resolution verification"
         }
     });
