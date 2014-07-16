@@ -22,7 +22,9 @@ var DROPBOX_BASE_URL = 'https://dl.dropboxusercontent.com/u/';
 var DEFAULT_SOURCE = 'github-neo4j-contrib/gists//meta/Home.adoc';
 var VALID_GIST = /^[0-9a-f]{5,32}\/?$/;
 
-exports.load_gist = function (id, callback) {
+var CACHE_TTL = 10*60*1000;
+
+exports.load_gist = function (id, cache, callback) {
     if (id.length < 2) {
         id = DEFAULT_SOURCE;
     }
@@ -32,6 +34,11 @@ exports.load_gist = function (id, callback) {
         if (idCut !== -1) {
             id = id.substring(0, idCut);
         }
+    }
+    var entry = cache[id];
+    if (entry && entry.time > Date.now() - CACHE_TTL) {
+        callback(null,entry.content,entry.link);
+        return;
     }
     var fetcher = fetchGithubGist;
     if (id.length > 8 && id.substr(0, 8) === 'dropbox-') {
@@ -50,7 +57,12 @@ exports.load_gist = function (id, callback) {
             fetcher = fetchLocalSnippet;
         }
     }
-    fetcher(id, callback);
+    fetcher(id, new function(err,content,link) {
+        if (!err) {
+            cache[id] = {time: Date.now(), content: content, link: link};
+        }
+        callback(err,content,link);
+    });
 };
 
 function fetchGithubGist(gist, callback) {

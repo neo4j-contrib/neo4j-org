@@ -1,5 +1,6 @@
 <% include ../head %>
 <%
+    data = data || "";
     function findAttribute(attr,defaultValue) {
        var m = data.match(attr);
        return m ? m[1] : defaultValue;

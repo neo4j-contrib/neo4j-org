@@ -51,6 +51,8 @@ var kmClient = new kissmetrics({ key: process.env.KM_KEY });
 
 var app = express();
 
+var gist_cache = {};
+
 // data
 // app.locals.chapters=content_data.chapters;
 app.locals.apps = data.apps;
@@ -521,7 +523,7 @@ function findGist(locals, url) {
 
 route_get('/api/graphgist',function (req, res) {
     var path =  req.originalUrl.substring("/api/graphgist".length);
-    load_gist(path, function(err, data) {
+    load_gist(path, gist_cache, function(err, data) {
         if (err) {
             console.log("Error loading graphgist",path,err);
             res.send(404,"Error loading graphgist from: " + path+" "+err)
@@ -547,7 +549,7 @@ route_get('/api/graphgist',function (req, res) {
 
 route_get('/graphgist', function (req, res) {
     var path =  req.originalUrl.substring("/graphgist".length);
-    load_gist(path, function(err, data) {
+    load_gist(path, gist_cache, function(err, data) {
         var item = {};
         if (err) {
             console.log("Error loading graphgist",path,err);
