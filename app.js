@@ -552,7 +552,7 @@ route_get('/graphgist', function (req, res) {
     load_gist(path, gist_cache, function(err, data) {
         var item = {};
         if (err) {
-            console.log("Error loading graphgist",path,err);
+                console.log("Error loading graphgist",path,err);
         } else {
             item = findGist(app.locals,path) | {};
         }

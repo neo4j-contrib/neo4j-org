@@ -57,7 +57,7 @@ exports.load_gist = function (id, cache, callback) {
             fetcher = fetchLocalSnippet;
         }
     }
-    fetcher(id, new function(err,content,link) {
+    fetcher(id, function(err,content,link) {
         if (!err) {
             cache[id] = {time: Date.now(), content: content, link: link};
         }
@@ -70,7 +70,6 @@ function fetchGithubGist(gist, callback) {
         callback('The gist id is malformed: ' + gist);
         return;
     }
-
     var url = 'https://api.github.com/gists/' + gist.replace("/", "");
     request(url,
         { headers: {'User-Agent': 'neo4j.org'}, json: true,

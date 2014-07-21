@@ -31,7 +31,7 @@ function load_github_content(locals, name, path, host) {
             auth : {user:github_personal_token,pass:'x-oauth-basic'}, encoding:"UTF-8"
         },function(err,res,data) {
             if (err) {
-                console.log("Error loading content for",name,host,path,e);
+                console.log("Error loading content for",name,host,path,err);
                 locals.content[name]="Content from http://"+host+"/"+path+" not loaded!";
                 return;
             }
