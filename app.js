@@ -305,8 +305,9 @@ app.configure(function () {
     });
     app.use(function(req, res, next) {
         res.header('Access-Control-Allow-Origin', '*');
-        res.header('Access-Control-Allow-Methods', 'GET'); // 'PUT, GET, POST, DELETE, OPTIONS');
-        res.header('Access-Control-Allow-Headers', '*');
+        res.header('Access-Control-Allow-Methods', 'GET,OPTIONS'); // 'PUT, GET, POST, DELETE, OPTIONS');
+        res.header('Access-Control-Allow-Headers', 'Content-Type,ETag,Content-Length,Date,Connection,GraphGist-Url,GraphGist-Source,GraphGist-Category,GraphGist-Image,GraphGist-Description,GraphGist-Title,GraphGist-Author,GraphGist-Twitter');
+        res.header('Access-Control-Expose-Headers', 'Content-Type,ETag,Content-Length,Date,Connection,GraphGist-Url,GraphGist-Source,GraphGist-Category,GraphGist-Image,GraphGist-Description,GraphGist-Title,GraphGist-Author,GraphGist-Twitter');
         next();
     });
     app.use(function(req, res, next) {
@@ -543,6 +544,8 @@ route_get('/api/graphgist',function (req, res) {
             }
             res.set("GraphGist-Url","http://neo4j.org/graphgist"+path);
             res.set("GraphGist-Source",link);
+            res.header('Access-Control-Allow-Headers', 'Content-Type,ETag,Content-Length,Date,Connection,GraphGist-Url,GraphGist-Source,GraphGist-Category,GraphGist-Image,GraphGist-Description,GraphGist-Title,GraphGist-Author,GraphGist-Twitter');
+
             res.send(200,data);
         }
     });
