@@ -523,7 +523,7 @@ function findGist(locals, url) {
 
 route_get('/api/graphgist',function (req, res) {
     var path =  req.originalUrl.substring("/api/graphgist".length);
-    load_gist(path, gist_cache, function(err, data) {
+    load_gist(path, gist_cache, function(err, data, link) {
         if (err) {
             console.log("Error loading graphgist",path,err);
             res.send(404,"Error loading graphgist from: " + path+" "+err)
@@ -540,8 +540,9 @@ route_get('/api/graphgist',function (req, res) {
                 setHeader("Description","introText");
                 setHeader("Image","img");
                 setHeader("Category","Category");
-                res.set("Url","http://neo4j.org/graphgist"+path);
             }
+            res.set("GraphGist-Url","http://neo4j.org/graphgist"+path);
+            res.set("GraphGist-Source",link);
             res.send(200,data);
         }
     });
