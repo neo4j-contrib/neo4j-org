@@ -68,12 +68,12 @@ exports.load_gist = function (id, cache, callback) {
     });
 };
 
-function fetchGithubGist(gist, callback) {
-    if (!VALID_GIST.test(gist)) {
-        callback('The gist id is malformed: ' + gist);
+function fetchGithubGist(id, callback) {
+    if (!VALID_GIST.test(id)) {
+        callback('The gist id is malformed: ' + id);
         return;
     }
-    var url = 'https://api.github.com/gists/' + gist.replace("/", "");
+    var url = 'https://api.github.com/gists/' + id.replace("/", "");
     console.log("fetchGithubGist() start ",id,"url",url);
     request(url,
         { headers: {'User-Agent': 'neo4j.org'}, json: true,
