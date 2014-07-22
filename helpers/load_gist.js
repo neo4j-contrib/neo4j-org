@@ -37,6 +37,7 @@ exports.load_gist = function (id, cache, callback) {
     }
     var entry = cache[id];
     if (entry && entry.time > Date.now() - CACHE_TTL) {
+        console.log("Returning cache entry for ",id);
         callback(null,entry.content,entry.link);
         return;
     }
@@ -57,7 +58,9 @@ exports.load_gist = function (id, cache, callback) {
             fetcher = fetchLocalSnippet;
         }
     }
+    console.log("Using fetcher for id ",id,fetcher.toString().substring(0,20));
     fetcher(id, function(err,content,link) {
+        console.log("Fetcher returning ",id,"err",err,"link",link);
         if (!err) {
             cache[id] = {time: Date.now(), content: content, link: link};
         }
@@ -71,10 +74,12 @@ function fetchGithubGist(gist, callback) {
         return;
     }
     var url = 'https://api.github.com/gists/' + gist.replace("/", "");
+    console.log("fetchGithubGist() start ",id,"url",url);
     request(url,
         { headers: {'User-Agent': 'neo4j.org'}, json: true,
             auth: {user: github_personal_token, pass: 'x-oauth-basic'}, encoding: "UTF-8" },
         function (err, resp, data) {
+            console.log("fetchGithubGist() result ",id,resp.statusCode,"err",err);
             if (err) {
                 return callback(err, "Could not load gist from " + url);
             }
@@ -99,10 +104,12 @@ function fetchGithubFile(id, callback) {
 
 
     var url = 'https://api.github.com/repos/' + parts[0] + '/' + parts[1] + '/contents/' + parts.slice(pathPartsIndex).join('/');
+    console.log("fetchGithubFile() start ",id,"url",url);
     request(url,
         { headers: {'User-Agent': 'neo4j.org'}, json: true, qs: "ref=" + branch,
             auth: {user: github_personal_token, pass: 'x-oauth-basic'}, encoding: "UTF-8" },
         function (err, resp, data) {
+            console.log("fetchGithubFile() result ",id,resp.statusCode,"err",err);
             if (err) {
                 console.log(err);
                 callback("Could not load gist from " + url+ " "+err);
@@ -125,7 +132,9 @@ function fetchDropboxFile(id, callback) {
 
 function fetchAnyUrl(id, callback) {
     var url = decodeURIComponent(id);
+    console.log("fetchAnyUrl() start ",id,"url",url);
     request(url, {Headers: {accept: "text/plain"}}, function (err, resp, data) {
+        console.log("fetchAnyUrl() result ",id,resp.statusCode,"err",err);
         callback(err, data, id);
     });
 }
