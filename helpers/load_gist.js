@@ -110,8 +110,9 @@ function fetchGithubFile(id, callback) {
             auth: {user: github_personal_token, pass: 'x-oauth-basic'}, encoding: "UTF-8" },
         function (err, resp, data) {
             console.log("fetchGithubFile() result ",id,resp.statusCode,"err",err);
-            if (err) {
-                console.log(err);
+            if (err || !data || !data['content']) {
+                console.log("Could not load gist from " + url+ " "+err);
+                console.log(data);
                 callback("Could not load gist from " + url+ " "+err);
                 return;
             }
