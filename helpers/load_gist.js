@@ -80,48 +80,61 @@ function fetchGithubGist(gist, callback) {
             auth: {user: github_personal_token, pass: 'x-oauth-basic'}, encoding: "UTF-8" },
         function (err, resp, data) {
             console.log("fetchGithubGist() result ",id,resp.statusCode,"err",err);
-            if (err) {
-                return callback(err, "Could not load gist from " + url);
+            try {
+                if (err) {
+                    return callback(err, "Could not load gist from " + url);
+                }
+                var file = data.files[Object.keys(data.files)[0]]; // todo check for content-type asciidoc or suffix
+                var content = file.content;
+                var link = data.html_url;
+                callback(null, content, link);
+            } catch(e) {
+                console.log("Error: fetchGithubGist()",id,url,err,data,e);
+                callback("Could not load gist from " + url + " " + e);
             }
-            var file = data.files[Object.keys(data.files)[0]]; // todo check for content-type asciidoc or suffix
-            var content = file.content;
-            var link = data.html_url;
-            callback(null, content, link);
         }
     );
 }
 
 function fetchGithubFile(id, callback) {
+    console.log(fetchGithubFile,id);
     var decoded = decodeURIComponent(id);
     decoded = decoded.replace(/\/contents\//, '//');
+    decoded = decoded.replace(/\/\//, '/');
     var parts = decoded.split('/');
     var branch = 'master';
-    var pathPartsIndex = 3;
-    if (parts.length >= 4 && parts[3] === '') {
-        branch = parts[2];
-        pathPartsIndex++;
-    }
+    var pathPartsIndex = 2;
+//    if (parts.length >= 4 && parts[3] === '') {
+//        branch = parts[2];
+//        pathPartsIndex++;
+//    }
 
 
     var url = 'https://api.github.com/repos/' + parts[0] + '/' + parts[1] + '/contents/' + parts.slice(pathPartsIndex).join('/');
+    console.log(fetchGithubFile,"parts",parts,"branch",branch,pathPartsIndex,"url",url);
     console.log("fetchGithubFile() start ",id,"url",url);
     request(url,
         { headers: {'User-Agent': 'neo4j.org'}, json: true, qs: "ref=" + branch,
             auth: {user: github_personal_token, pass: 'x-oauth-basic'}, encoding: "UTF-8" },
         function (err, resp, data) {
-            console.log("fetchGithubFile() result ",id,resp.statusCode,"err",err);
-            if (err || !data || !data['content']) {
-                console.log("Could not load gist from " + url+ " "+err);
-                console.log(data);
-                callback("Could not load gist from " + url+ " "+err);
-                return;
-            }
+            try {
+                console.log("fetchGithubFile() result ",id,resp.statusCode,"err",err);
+                if (err || !data || !data['content']) {
+                    console.log("Could not load gist from " + url + " " + err);
+                    //console.log(data);
+                    callback("Could not load gist from " + url + " " + err);
+                    return;
+                }
 
-            var content = Base64.decode(data.content);
-            var link = data.html_url;
-            var imagesdir = 'https://raw.github.com/' + parts[0] + '/' + parts[1]
-                + '/' + branch + '/' + data.path.substring(0, -data.name.length);
-            callback(null, content, link, imagesdir); // todo images
+                var content = Base64.decode(data.content);
+                var link = data.html_url;
+                var imagesdir = 'https://raw.github.com/' + parts[0] + '/' + parts[1]
+                    + '/' + branch + '/' + data.path.substring(0, -data.name.length);
+                callback(null, content, link, imagesdir); // todo images
+            } catch(e) {
+                console.log("Error: fetchGithubFile()",id,url,err,data,e);
+                callback("Could not load gist from " + url + " " + e);
+            }
         }
     );
 }
