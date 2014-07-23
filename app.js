@@ -541,21 +541,25 @@ route_get('/api/graphgist',function (req, res) {
     });
 });
 
-route_get('/graphgist$', function (req, res) {
-    res.redirect('/graphgist/');
-});
-
-route_get('/graphgist/', function (req, res) {
-    var path =  req.originalUrl.substring("/graphgist/".length);
+function render_gist(req, res, path) {
     load_gist(path, gist_cache, function(err, data) {
         var item = {};
         if (err) {
-                console.log("Error loading graphgist",path,err);
+            console.log("Error loading graphgist",path,err);
         } else {
             item = findGist(app.locals,path) | {};
         }
         res.render("participate/graphgist",{ path: path, title:"Neo4j GraphGist "+(item['title']?item.title:""), category:"Participate", data:data, req:req, item:item});
     });
+}
+
+route_get('/graphgist/', function (req, res) {
+    render_gist(req,res, req.originalUrl.substring("/graphgist/".length));
+});
+
+route_get('/graphgist', function (req, res) {
+    if (req.originalUrl.match(/graphgist$/)) return res.redirect("/graphgist/");
+    render_gist(req,res, req.originalUrl.substring("/graphgist".length));
 });
 
 // todo redirect to our video content page
