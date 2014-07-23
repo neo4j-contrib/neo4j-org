@@ -366,16 +366,6 @@ function route_get(url, fun) {
 
 /////// ROUTING ///////
 
-route_get('/*/', function (req, res) {
-    var path = req.path.substring(0, req.path.length - 1);
-
-	var i = req.url.indexOf('?');
-	if (i != -1) {
-		path += req.url.substr(i)	
-	}
-    res.redirect(path);
-});
-
 //route_get('/', forward("/index"));
 app.get("/", function (req, res) {
     var page = app.locals.pages["index"];
@@ -551,8 +541,12 @@ route_get('/api/graphgist',function (req, res) {
     });
 });
 
-route_get('/graphgist', function (req, res) {
-    var path =  req.originalUrl.substring("/graphgist".length);
+route_get('/graphgist$', function (req, res) {
+    res.redirect('/graphgist/');
+});
+
+route_get('/graphgist/', function (req, res) {
+    var path =  req.originalUrl.substring("/graphgist/".length);
     load_gist(path, gist_cache, function(err, data) {
         var item = {};
         if (err) {
@@ -596,6 +590,16 @@ route_get('/api/sitemap.csv', function (req, res) {
         if (!(page.related || page.featured)) result.push(pageStr);
     }
     res.send(result.join("\n"));
+});
+
+route_get('/*/', function (req, res) {
+    var path = req.path.substring(0, req.path.length - 1);
+
+    var i = req.url.indexOf('?');
+    if (i != -1) {
+        path += req.url.substr(i)
+    }
+    res.redirect(path);
 });
 
 
