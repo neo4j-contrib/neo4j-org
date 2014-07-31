@@ -73,6 +73,22 @@ exports.ext_content = {
         src: "http://player.vimeo.com/video/57182040",
         introText: "A brief introduction to Neo4j, Belgian beers and import and recommendations."
     },
+    beer_graph_app: {
+        type: "link",
+        author: {twitter:"@athiele_", name:"Alexander Thiele"},
+        title: "Beer Graph Android App",
+        thumbnail: "http://i.imgur.com/XPwtqgf.png",
+        path: "https://play.google.com/store/apps/details?id=de.alexander.thiele.beergraph",
+        introText: "An Android App served by a world-wide beer database on <a href='http://structr.org'>Structr</a>, the CMS based on Neo4j."
+    },
+    oregon_beer_graph_gist: {
+        type: "link",
+        author: {name:"Kenny Bastani",twitter:"kennybastani"},
+        title: "Oregon Brewfest GraphGist",
+        thumbnail: "http://i.imgur.com/hV3UKw9.jpg",
+        path: "/graphgist?6c3df0418d9d61a1a994",
+        introText: "Oregon has a long tradition of micro breweries and beer tastings, this GraphGist celebrates the many varieties found at <a href='http://www.oregonbrewfest.com/'>BrewFest</a>"
+    },
     popchartlabs_beer: {
         author: "@popchartlab",
         type: "link",

@@ -1874,7 +1874,7 @@ exports.pages = {
         <blockquote>A traditional relational database may tell you the average age of everyone in this pub, but a graph database will tell you who is most likely to buy you a beer. <i>Andreas Kollegger</i></blockquote>\
         <p>Of course, we are sponsoring beer for the <a href='/participate/meetups'>Neo4j Meetups</a>, so drop by!</p>",
         featured: ["rik_belgian_beers1"],
-        related: ["popchartlabs_beer", "trycypher_beer", "beer_rik_screencast", "frostymug"],
+        related: ["beer_graph_app","oregon_beer_graph_gist","popchartlabs_beer", "trycypher_beer", "beer_rik_screencast", "frostymug"],
         actionText: "Grab a beer"
 
     },
