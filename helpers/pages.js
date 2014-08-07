@@ -1988,6 +1988,15 @@ exports.pages = {
             },
             {
                 type: "link",
+                tags: ["talend","import","music"],
+                title: "Import Data into Neo4j Directly using Talend",
+                path: "http://lucidwebdreams.wordpress.com/2014/07/24/import-data-into-neo4j-from-ms-sql-server-directly-using-talend/",
+                author: "Yasser Moukhtar",
+                thumbnail: "https://lucidwebdreams.files.wordpress.com/2014/07/07_importpackage.png?w=1196&h=634",
+                introText: "Yasser is importing directly from SQL Server into Neo4j using Talend."
+            },
+            {
+                type: "link",
                 title: "Neo4j Shell Import Data Tools",
                 github: "https://github.com/jexp/neo4j-shell-tools",
                 path: "https://github.com/jexp/neo4j-shell-tools#import-data-into-your-neo4j-database-from-the-neo4j-shell-command",
