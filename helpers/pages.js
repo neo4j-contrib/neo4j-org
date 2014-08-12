@@ -2467,7 +2467,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 author: ["peterneubauer", "craigtaverner", "amorgner"],
                 thumbnail: asset("img/logo/github.png"),
                 github: "http://github.com/neo4j/spatial",
-                path: "http://neo4j.github.io/spatial/"
+                path: "http://neo4j-contrib.github.io/spatial/"
             },
             {
                 type: "link",
@@ -2476,7 +2476,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 content: "Neo4J Spatial extends the Neo4J Graph Database with the necessary tools and utilities to store and query spatial data in your graph models. For visualizing my running data, I will make use of Gephi, an open-source visualization and manipulation tool that allows users to interactively browse and explore graphs.",
                 author: "dsuvee",
                 thumbnail: "http://datablend.be/wp-content/uploads/geo5.jpg",
-                path: "http://datablend.be/?p=1255",
+                path: "http://datablend.be/?p=262",
                 github: "https://github.com/datablend/neo4j-spatial-running"
             },
             {
@@ -2541,7 +2541,7 @@ Questions?  Feedback?   Contact us at <a href='mailto:training@neotechnology.com
                 introText: "Spring Data Neo4j supports Spatial extensions via the Neo4j Spatial index provider. It offers automatic spatial indexing and method for finding entities in spatial geometries.",
                 author: "mesirii",
                 thumbnail: asset("img/languages/sdn.png"),
-                path: "http://static.springsource.org/spring-data/data-graph/snapshot-site/reference/html/#d5e1074"
+                path: "http://docs.spring.io/spring-data/data-neo4j/docs/3.1.2.RELEASE/reference/html/programming-model.html#d0e2318"
             },
             {
                 type: "link",
