@@ -1470,6 +1470,7 @@ exports.pages = {
                 introText: "Alistair will give an overview of the techniques and technologies for visualising graph data, and explain where these work well for different types of problems. <a href='http://www.apcjones.com/talks/2014-03-26_Neo4j_London/'>Interactive Slides</a>",
                 thumbnail: asset("img/still/seening_pattern_in_data.jpg")
             },
+            content.links.keylines,
             {
                 type: "video",
                 author: {name:"Tom Sawyer", twitter:"tomsawyer"},
@@ -1489,7 +1490,7 @@ exports.pages = {
             },
             "graphgist",
             content.links.linkurious,
-            content.links.keylines,
+            content.links.alchemy,
             {
                 type:"video",
                 title: "GraphConnect 2012: Visualizing Graphs-Max De Marzi",

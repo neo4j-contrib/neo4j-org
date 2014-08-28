@@ -849,13 +849,21 @@ exports.content = {
             img: "http://linkurio.us/wp-content/uploads/2012/11/linkurious-screenshot-22-halo.jpg",
             path: "http://linkurio.us/"
         },
+        alchemy: {
+            title: "Alchemy.js OSS Graph Visualization Toolkit",
+            introText: "Alchemy.js is an open source graph javascript visualization library and toolkit that allows you to visualize your data without or only little programming",
+            content: "\
+            Alchemy.js was built so that developers could easily get up and running with Graph visualization applications, without much over head. Minimal code is actually required to generate Alchemy.js graphs with most projects. Most customization of the application takes place by overriding default configurations, rather than direct implementation via JavaScript. Explore the <a href='http://graphalchemist.github.io/Alchemy/#/examples#Basic_Graph'>Examples</a> or check it out on <a href='https://github.com/graphalchemist/alchemy/'>GitHub</a>\
+            ",
+            thumbnail: "http://graphalchemist.github.io/Alchemy/images/alchemyLogoFlat.png",
+            img: "http://graphalchemist.github.io/Alchemy/images/alchemy-01.svg",
+            path: "http://graphalchemist.github.io/Alchemy/#/"
+        },
         keylines: {
             title: "Keylines Neo4j Graph Visualization",
-            introText: "KeyLines is a JavaScript toolkit for visualizing networks. It works in all major browsers, and on all platforms, including the iPad. It uses HTML5 but also works on old versions of Internet Explorer.",
+            introText: "KeyLines is a JavaScript toolkit for visualizing networks. It works in all major browsers, and on all platforms, including the iPad.",
             content: "\
-            <h3>How does it work?</h3><p>KeyLines will integrate into existing web applications easily and with very little effort.<br/>How and where you get the data is up to you. KeyLines does the job of rendering it and responding to user interactions like clicking, touching, moving nodes, etc. You bind to these events to customize what happens.<br/>Your data stays under your control at all times: KeyLines is self-contained and needs no external connections.</p>\
-            <h3>What kind of data?</h3><p>KeyLines can work on any kind of network - all you need is data with nodes and links.</p>\
-            \
+            <h3>How does it work?</h3><p>KeyLines will integrate into existing web applications easily and with very little effort. How and where you get the data is up to you. KeyLines does the job of rendering it and responding to user interactions like clicking, touching, moving nodes, etc. You bind to these events to customize what happens. Your data stays under your control at all times: KeyLines is self-contained and needs no external connections.</p>\
             ",
             thumbnail: "http://www.neotechnology.com/wp-content/uploads/2013/02/Keylines-logo-tex-tagline-medium-300x89.png",
             img: "http://keylines.com/im/product/KeyLinesNeo4j.png",
