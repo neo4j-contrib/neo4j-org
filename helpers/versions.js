@@ -7,13 +7,13 @@ exports.load = function (app) {
 
     locals({
         neo4j:{
-            version:"2.1.3", date:"July 28, 2014", summary:"Release", readme:"http://neo4j.com/blog/neo4j-2-1-2/"
+            version:"2.1.4", date:"Sept 4, 2014", summary:"Release", readme:"http://neo4j.com/release-notes/neo4j-2-1-4/"
         }, neo4jGA:{
-            version:"2.1.3", date:"July 28, 2014", summary:"Release", readme:"http://neo4j.com/blog/neo4j-2-1-2/"
+            version:"2.1.4", date:"Sept 4, 2014", summary:"Release", readme:"http://neo4j.com/release-notes/neo4j-2-1-4/"
         }, /*neo4jP:{
             version:"2.0.0-M03", date:"May 28, 2013", summary:"Preview", readme:"http://blog.neo4j.org/2013/04/nodes-are-people-too.html"
         },*/ neo4jS:{
-            version:"2.1.4-SNAPSHOT",
+            version:"2.1.5-SNAPSHOT",
             date:"2014",
             summary:"Unstable Snapshot, for issue resolution verification"
         }
