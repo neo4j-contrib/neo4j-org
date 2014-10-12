@@ -1112,7 +1112,7 @@ exports.pages = {
         thumbnail: asset("img/events/webinar.png"),
         introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher",
         featured: [],
-        related: ["videos_webinar", "videos_interview", "videos_graphconnect", "videos_other"],
+        related: ["videos_webinar", "videos_interview", "videos_graphconnect"],
         actionText: "Watch them"
     },
     videos_webinar: {
@@ -1143,23 +1143,10 @@ exports.pages = {
     videos_graphconnect: {
         type: "track",
         prev: ["videos_interview"],
-        next: ["videos_other"],
         path: "/learn/videos_graphconnect",
         title: "Neo4j GraphConnect recordings",
         thumbnail: asset("img/logo/graphconnect.png"),
         introText: "Enjoy watching these session recordings from our <a href='http://graphconnect.com'>GraphConnect</a> about graphs, graph databases, Neo4j and applications using them conference. Hope you are there next time too.",
-        featured: [],
-        related: [],
-        actionText: "Watch them"
-    },
-    videos_other: {
-        type: "track",
-        prev: ["videos_graphconnect"],
-        next: ["videos"],
-        path: "/learn/videos_other",
-        title: "Neo4j related videos",
-        thumbnail: asset("img/events/webinar.png"),
-        introText: "Enjoy yourself watching these videos that were produced to entertain and educate about graph databases, Neo4j and Cypher.",
         featured: [],
         related: [],
         actionText: "Watch them"
