@@ -419,7 +419,6 @@ route_get('/tutorials', forward("/participate/events/trainings"));
 route_get('/learn/events', forward("/events"));
 route_get('/events', forward("http://neo4j.com/events/",301));
 
-route_get('/download_thanks', routes.pages);
 route_get('/subscribe_thanks', function(req, res){
     res.render('subscribe_thanks', { title: "Thanks"});
 });
@@ -430,7 +429,6 @@ route_get('/terms', forward("http://neo4j.com/terms/",301));
 route_get('/privacy', forward("http://neo4j.com/privacy-policy/",301));
 route_get('/release-notes', routes.release_notes);
 route_get('/release-notes/faq', forward("/download/upgrade-faq"));
-route_get('/download/upgrade-faq', routes.upgrade_faq);
 route_get('/learn/online_course', routes.online_course);
 
 // route_get('/misc/beer', routes.beer);
@@ -500,6 +498,13 @@ route_get('/highlighter/*', routes.resource);
 
 route_get('/asciidoc', routes.asciidoc);
 route_get('/js', routes.javascript);
+
+route_get('/download', forward('http://neo4j.com/download/', 301));
+route_get('/download_thanks', forward('http://neo4j.com/download/', 301));
+route_get('/download/upgrade-faq', forward('http://neo4j.com/upgrade-faq/', 301));
+route_get('/download/linux', forward('http://neo4j.com/download/', 301));
+route_get('/download/windows', forward('http://neo4j.com/download/', 301));
+
 
 function findGist(locals, url) {
     var item;
