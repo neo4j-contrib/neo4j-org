@@ -366,13 +366,15 @@ function route_get(url, fun) {
 
 /////// ROUTING ///////
 
-//route_get('/', forward("/index"));
+route_get('/', forward("http://neo4j.com/", 301));
+/*
 app.get("/", function (req, res) {
     var page = app.locals.pages["index"];
     var params = merge({ path:page.path, title:page.title || "", locals:merge(app.locals,res.locals) });
     console.log("merge",Object.keys(params));
     res.render("partials/page", params);
 });
+*/
 
 route_get('/index_graph', routes.index_graph);
 route_get('/search', routes.search);
