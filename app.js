@@ -612,7 +612,18 @@ route_get('/*/', function (req, res) {
     }
     res.redirect(path);
 });
+TODO:
 
+route_get('/develop', forward('http://neo4j.com/developer/', 301));
+route_get('/develop/drivers', forward('http://neo4j.com/developer/language-guides/', 301));
+route_get('/develop/getting_started', forward('http://neo4j.com/developer/get-started/', 301));
+route_get('/develop/import', forward('http://neo4j.com/developer/guide-importing-data-and-etl/', 301));
+route_get('/develop/javascript', forward('http://neo4j.com/developer/javascript/', 301));
+route_get('/develop/modeling', forward('http://neo4j.com/developer/guide-data-modeling/', 301);
+route_get('/develop/php', forward('http://neo4j.com/developer/php/', 301));
+route_get('/develop/python', forward('http://neo4j.com/developer/python/', 301));
+route_get('/develop/ruby', forward('http://neo4j.com/developer/ruby/', 301));
+route_get('/develop/visualize', forward('http://neo4j.com/developer/guide-data-visualization/', 301));
 
 http.createServer(app).listen(app.get('port'), function () {
     
