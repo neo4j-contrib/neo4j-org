@@ -612,8 +612,14 @@ route_get('/*/', function (req, res) {
     }
     res.redirect(path);
 });
-TODO:
-
+route_get('/learn', forward('http://neo4j.com/developer/get-started/', 301));
+route_get('/learn/online_course', forward('http://neo4j.com/graphacademy/', 301));
+route_get('/learn/cypher', forward('http://neo4j.com/developer/cypher-query-language/', 301));
+route_get('/learn/graphdatabase', forward('http://neo4j.com/developer/graph-database/', 301));
+route_get('/learn/neo4j', forward('http://neo4j.com/developer/get-started/', 301));
+route_get('/participate', forward('http://neo4j.com/community/', 301));
+route_get('/develop/java', forward('http://neo4j.com/developer/java/', 301));
+route_get('/develop/spatial', forward('https://github.com/neo4j-contrib/spatial', 301));
 route_get('/develop', forward('http://neo4j.com/developer/', 301));
 route_get('/develop/drivers', forward('http://neo4j.com/developer/language-guides/', 301));
 route_get('/develop/getting_started', forward('http://neo4j.com/developer/get-started/', 301));
