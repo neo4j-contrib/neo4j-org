@@ -615,9 +615,10 @@ route_get('/*/', function (req, res) {
     }
     res.redirect(path);
 });
-route_get('/learn', forward('http://neo4j.com/developer/get-started/', 301));
+route_get('/learn',               forward('http://neo4j.com/developer/get-started/', 301));
 route_get('/learn/online_course', forward('http://neo4j.com/graphacademy/', 301));
-route_get('/learn/cypher', forward('http://neo4j.com/developer/cypher-query-language/', 301));
+route_get('/learn/console',       forward('http://console.neo4j.org/', 301));
+route_get('/learn/cypher',        forward('http://neo4j.com/developer/cypher-query-language/', 301));
 route_get('/learn/graphdatabase', forward('http://neo4j.com/developer/graph-database/', 301));
 route_get('/learn/neo4j', forward('http://neo4j.com/developer/get-started/', 301));
 route_get('/participate', forward('http://neo4j.com/community/', 301));
@@ -634,6 +635,7 @@ route_get('/develop/php', forward('http://neo4j.com/developer/php/', 301));
 route_get('/develop/python', forward('http://neo4j.com/developer/python/', 301));
 route_get('/develop/ruby', forward('http://neo4j.com/developer/ruby/', 301));
 route_get('/develop/visualize', forward('http://neo4j.com/developer/guide-data-visualization/', 301));
+route_get('/download/other_versions', forward('http://neo4j.com/download/', 301));
 
 http.createServer(app).listen(app.get('port'), function () {
     
