@@ -51,6 +51,9 @@ var kmClient = new kissmetrics({ key: process.env.KM_KEY });
 
 var app = express();
 
+var morgan = require('morgan')
+app.use(morgan('combined'))
+
 var gist_cache = {};
 
 // data
@@ -621,6 +624,7 @@ route_get('/participate', forward('http://neo4j.com/community/', 301));
 route_get('/develop/java', forward('http://neo4j.com/developer/java/', 301));
 route_get('/develop/spatial', forward('https://github.com/neo4j-contrib/spatial', 301));
 route_get('/develop', forward('http://neo4j.com/developer/', 301));
+route_get('/develop/dotnet', forward('http://neo4j.com/developer/dotnet/', 301));
 route_get('/develop/drivers', forward('http://neo4j.com/developer/language-guides/', 301));
 route_get('/develop/getting_started', forward('http://neo4j.com/developer/get-started/', 301));
 route_get('/develop/import', forward('http://neo4j.com/developer/guide-importing-data-and-etl/', 301));

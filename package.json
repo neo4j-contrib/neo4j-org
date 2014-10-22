@@ -10,6 +10,7 @@
     "start": "node app"
   },
   "dependencies": {
+  "morgan": "*",
 	"maxmind-native" :"0.1.2",
 	"request" :"2.14.0",
 	"asciidoctorjs-npm-wrapper" :"0.1.3",
