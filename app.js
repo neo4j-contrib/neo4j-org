@@ -434,7 +434,7 @@ route_get('/terms', forward("http://neo4j.com/terms/",301));
 route_get('/privacy', forward("http://neo4j.com/privacy-policy/",301));
 route_get('/release-notes', routes.release_notes);
 route_get('/release-notes/faq', forward("/download/upgrade-faq"));
-route_get('/learn/online_course', routes.online_course);
+//route_get('/learn/online_course', routes.online_course);
 
 // route_get('/misc/beer', routes.beer);
 
