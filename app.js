@@ -620,22 +620,23 @@ route_get('/learn/online_course', forward('http://neo4j.com/graphacademy/', 301)
 route_get('/learn/console',       forward('http://console.neo4j.org/', 301));
 route_get('/learn/cypher',        forward('http://neo4j.com/developer/cypher-query-language/', 301));
 route_get('/learn/graphdatabase', forward('http://neo4j.com/developer/graph-database/', 301));
-route_get('/learn/neo4j', forward('http://neo4j.com/developer/get-started/', 301));
-route_get('/participate', forward('http://neo4j.com/community/', 301));
-route_get('/develop/java', forward('http://neo4j.com/developer/java/', 301));
-route_get('/develop/spatial', forward('https://github.com/neo4j-contrib/spatial', 301));
-route_get('/develop', forward('http://neo4j.com/developer/', 301));
-route_get('/develop/dotnet', forward('http://neo4j.com/developer/dotnet/', 301));
-route_get('/develop/drivers', forward('http://neo4j.com/developer/language-guides/', 301));
+route_get('/learn/neo4j',         forward('http://neo4j.com/developer/get-started/', 301));
+route_get('/participate',         forward('http://neo4j.com/community/', 301));
+route_get('/develop/java',        forward('http://neo4j.com/developer/java/', 301));
+route_get('/develop/spatial',     forward('https://github.com/neo4j-contrib/spatial', 301));
+route_get('/develop',             forward('http://neo4j.com/developer/', 301));
+route_get('/develop/dotnet',      forward('http://neo4j.com/developer/dotnet/', 301));
+route_get('/develop/drivers',     forward('http://neo4j.com/developer/language-guides/', 301));
 route_get('/develop/getting_started', forward('http://neo4j.com/developer/get-started/', 301));
-route_get('/develop/import', forward('http://neo4j.com/developer/guide-importing-data-and-etl/', 301));
-route_get('/develop/javascript', forward('http://neo4j.com/developer/javascript/', 301));
-route_get('/develop/modeling', forward('http://neo4j.com/developer/guide-data-modeling/', 301));
-route_get('/develop/php', forward('http://neo4j.com/developer/php/', 301));
-route_get('/develop/python', forward('http://neo4j.com/developer/python/', 301));
-route_get('/develop/ruby', forward('http://neo4j.com/developer/ruby/', 301));
-route_get('/develop/visualize', forward('http://neo4j.com/developer/guide-data-visualization/', 301));
+route_get('/develop/import',          forward('http://neo4j.com/developer/guide-importing-data-and-etl/', 301));
+route_get('/develop/javascript',      forward('http://neo4j.com/developer/javascript/', 301));
+route_get('/develop/modeling',        forward('http://neo4j.com/developer/guide-data-modeling/', 301));
+route_get('/develop/php',             forward('http://neo4j.com/developer/php/', 301));
+route_get('/develop/python',          forward('http://neo4j.com/developer/python/', 301));
+route_get('/develop/ruby',            forward('http://neo4j.com/developer/ruby/', 301));
+route_get('/develop/visualize',       forward('http://neo4j.com/developer/guide-data-visualization/', 301));
 route_get('/download/other_versions', forward('http://neo4j.com/download/', 301));
+route_get('/training',                forward('http://neo4j.com/graphacademy/', 301));
 
 http.createServer(app).listen(app.get('port'), function () {
     
