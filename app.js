@@ -638,6 +638,15 @@ route_get('/develop/visualize',       forward('http://neo4j.com/developer/guide-
 route_get('/download/other_versions', forward('http://neo4j.com/download/', 301));
 route_get('/training',                forward('http://neo4j.com/graphacademy/', 301));
 
+app.use(function (req, res, next) {
+    if ('/robots.txt' == req.url) {
+        res.type('text/plain')
+        res.send("User-agent: *\nDisallow: /");
+    } else {
+        next();
+    }
+});
+
 http.createServer(app).listen(app.get('port'), function () {
     
     console.log("Express server listening on port " + app.get('port'));
