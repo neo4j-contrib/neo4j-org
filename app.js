@@ -616,6 +616,7 @@ route_get('/*/', function (req, res) {
     res.redirect(path);
 });
 route_get('/learn',               forward('http://neo4j.com/developer/get-started/', 301));
+route_get('/learn_graphdb',       forward('http://neo4j.com/learn-graphdb/', 301));
 route_get('/learn/online_course', forward('http://neo4j.com/graphacademy/', 301));
 route_get('/learn/console',       forward('http://console.neo4j.org/', 301));
 route_get('/learn/cypher',        forward('http://neo4j.com/developer/cypher-query-language/', 301));
