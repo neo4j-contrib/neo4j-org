@@ -368,6 +368,7 @@ function route_get(url, fun) {
 }
 
 /////// ROUTING ///////
+console.log('processing routing');
 
 route_get('/', forward("http://neo4j.com/", 301));
 /*
@@ -477,8 +478,8 @@ page_handling.init(app,app.locals.pages);
 
 mylog.init(app);
 
-twitter.load_tweets(app,10*60*1000);
-twitter.add_tweet_route("/api/tweets",app);
+//twitter.load_tweets(app,10*60*1000);
+//twitter.add_tweet_route("/api/tweets",app);
 
 munchkin.add_route('/api/marketo',app);
 meetup.add_route("/api/meetup",app);
@@ -573,6 +574,7 @@ route_get('/graphgist', function (req, res) {
 });
 
 // todo redirect to our video content page
+/*
 route_get('/video/*', function (req, res) {
     var path = req.path;
     var idx = path.lastIndexOf('/');
@@ -580,8 +582,8 @@ route_get('/video/*', function (req, res) {
 //    console.log('got request for ', path, ' from ', req.header('Referer'));
     res.redirect('http://watch.neo4j.org/video/' + file);
 });
-
-
+*/
+/*
 route_get('/api/sitemap.csv', function (req, res) {
     function quote(value) {
         if (value == null || value == "") return "";
@@ -605,6 +607,7 @@ route_get('/api/sitemap.csv', function (req, res) {
     }
     res.send(result.join("\n"));
 });
+*/
 
 route_get('/*/', function (req, res) {
     var path = req.path.substring(0, req.path.length - 1);
@@ -638,6 +641,7 @@ route_get('/develop/ruby',            forward('http://neo4j.com/developer/ruby/'
 route_get('/develop/visualize',       forward('http://neo4j.com/developer/guide-data-visualization/', 301));
 route_get('/download/other_versions', forward('http://neo4j.com/download/', 301));
 route_get('/training',                forward('http://neo4j.com/graphacademy/', 301));
+console.log('finished routing');
 
 app.use(function (req, res, next) {
     if ('/robots.txt' == req.url) {
@@ -647,8 +651,6 @@ app.use(function (req, res, next) {
         next();
     }
 });
-
 http.createServer(app).listen(app.get('port'), function () {
-    
     console.log("Express server listening on port " + app.get('port'));
 });
