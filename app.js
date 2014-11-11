@@ -626,7 +626,7 @@ route_get('/learn/console',       forward('http://console.neo4j.org/', 301));
 route_get('/learn/cypher',        forward('http://neo4j.com/developer/cypher-query-language/', 301));
 route_get('/learn/graphdatabase', forward('http://neo4j.com/developer/graph-database/', 301));
 route_get('/learn/neo4j',         forward('http://neo4j.com/developer/get-started/', 301));
-route+get('/learn/production',    forward('http://neo4j.com/developer/in-production/', 301));
+route_get('/learn/production',    forward('http://neo4j.com/developer/in-production/', 301));
 route_get('/participate',         forward('http://neo4j.com/community/', 301));
 route_get('/develop/java',        forward('http://neo4j.com/developer/java/', 301));
 route_get('/develop/spatial',     forward('https://github.com/neo4j-contrib/spatial', 301));
