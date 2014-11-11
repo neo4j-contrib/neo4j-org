@@ -77,8 +77,9 @@ exports.loadAllVideos = function(pages, content, nr_featured) {
     nr_featured= nr_featured || 4;
 
     function distributeToVideoPages(pages,nr_featured) {
-        ['graphconnect', 'interview', 'webinar', 'other'].forEach(function (category) {
+        ['graphconnect', 'interview', 'webinar'].forEach(function (category) {
             var pageName = "videos_" + category;
+            console.log(pages[pageName]);
             var page = pages[pageName];
             page.related = [];
             all_videos.forEach(function (video) {
