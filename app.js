@@ -648,6 +648,7 @@ route_get('/download/other_versions', forward('http://neo4j.com/download/', 301)
 route_get('/training',                forward('http://neo4j.com/graphacademy/', 301));
 route_get('/develop/tools/neoclipse', forward('http://neo4j.com/developer/', 301));
 route_get('/develop/tools/jdbc',      forward('http://neo4j.com/developer/', 301));
+route_get('/develop/tools',           forward('http://neo4j.com/developer/', 301));
 route_get('/develop/labels',          forward('http://neo4j.com/developer/', 301));
 route_get('/develop/jee',             forward('http://neo4j.com/developer/', 301));
 route_get('/develop/heroku',          forward('http://neo4j.com/developer/', 301));
