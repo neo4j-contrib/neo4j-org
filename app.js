@@ -664,6 +664,7 @@ route_get('/develop/ec2',             forward('http://neo4j.com/developer/', 301
 route_get('/particpate/channels',     forward('http://neo4j.com/developer/', 301));
 route_get('/tracks/neo4j_server',     forward('http://neo4j.com/developer/', 301));
 route_get('/develop/spring',          forward('http://neo4j.com/developer/', 301));
+route_get('/download/maven',          forward('http://neo4j.com/developer/', 301));
 
 console.log('finished routing');
 
