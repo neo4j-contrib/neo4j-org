@@ -646,6 +646,23 @@ route_get('/develop/clojure',         forward('http://neo4j.com/developer/java/'
 route_get('/develop/visualize',       forward('http://neo4j.com/developer/guide-data-visualization/', 301));
 route_get('/download/other_versions', forward('http://neo4j.com/download/', 301));
 route_get('/training',                forward('http://neo4j.com/graphacademy/', 301));
+route_get('/develop/tools/neoclipse', forward('http://neo4j.com/developer/', 301));
+route_get('/develop/tools/jdbc',      forward('http://neo4j.com/developer/', 301));
+route_get('/develop/labels',          forward('http://neo4j.com/developer/', 301));
+route_get('/develop/jee',             forward('http://neo4j.com/developer/', 301));
+route_get('/develop/heroku',          forward('http://neo4j.com/developer/', 301));
+route_get('/develop/cloud',           forward('http://neo4j.com/developer/', 301));
+route_get('/develop/cloud/azure',     forward('http://neo4j.com/developer/', 301));
+route_get('/develop/linked_data',     forward('http://neo4j.com/developer/', 301));
+route_get('/misc/beer',               forward('http://neo4j.com/developer/', 301));
+route_get('/java/java_basics',        forward('http://neo4j.com/developer/', 301));
+route_get('/learn/try',               forward('http://neo4j.com/developer/', 301));
+route_get('/learn/apps',              forward('http://neo4j.com/developer/', 301));
+route_get('/learn/nosql',             forward('http://neo4j.com/developer/', 301));
+route_get('/learn/videos',            forward('http://neo4j.com/developer/', 301));
+route_get('/develop/ec2',             forward('http://neo4j.com/developer/', 301));
+route_get('/particpate/channels',     forward('http://neo4j.com/developer/', 301));
+
 console.log('finished routing');
 
 app.use(function (req, res, next) {
