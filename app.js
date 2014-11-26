@@ -633,6 +633,7 @@ route_get('/develop/spatial',     forward('https://github.com/neo4j-contrib/spat
 route_get('/develop',             forward('http://neo4j.com/developer/', 301));
 route_get('/develop/dotnet',      forward('http://neo4j.com/developer/dotnet/', 301));
 route_get('/develop/drivers',     forward('http://neo4j.com/developer/language-guides/', 301));
+route_get('/software',            forward('http://neo4j.com/developer/language-guides/', 301));
 route_get('/develop/example_data',    forward('http://neo4j.com/developer/guide-example-data/', 301));
 route_get('/develop/getting_started', forward('http://neo4j.com/developer/get-started/', 301));
 route_get('/develop/import',          forward('http://neo4j.com/developer/guide-importing-data-and-etl/', 301));
