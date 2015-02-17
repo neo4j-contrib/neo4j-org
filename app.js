@@ -459,8 +459,8 @@ route_get('/learn/intro-course-finish', forward("http://neo4j.com/graphacademy/o
 route_get('/learn/concepts', forward("/learn"));
 route_get('/community/feeds', forward("/participate"));
 route_get('/resources', forward("/learn"));
-route_get('/forums', forward("http://groups.google.com/group/neo4j"));
-route_get('/nabble', forward("http://groups.google.com/group/neo4j"));
+route_get('/forums', forward("http://groups.google.com/group/neo4j", 301));
+route_get('/nabble', forward("http://groups.google.com/group/neo4j", 301));
 route_get('/spring', forward("/develop/spring"));
 route_get('/heroku', forward("/develop/heroku"));
 route_get('/azure', forward("/develop/cloud/azure"));
@@ -487,12 +487,12 @@ versal.add_route("/api/versal",app);
 calendar.add_events_route('/api/events.json', app);
 calendar.add_ics_route('/api/event.ics', app);
 
-route_get('/buch_de', forward('http://info.neotechnology.com/Neo4j20_de.html'));
+route_get('/buch_de', forward('http://info.neotechnology.com/Neo4j20_de.html'), 301);
 
 // download resources
-route_get('/resources/cypher19', forward('http://docs.neo4j.org/refcard/1.9/'));
-route_get('/resources/cypher20', forward('http://docs.neo4j.org/refcard/2.0/'));
-route_get('/resources/cypher', forward('http://docs.neo4j.org/refcard/2.1/'));
+route_get('/resources/cypher19', forward('http://docs.neo4j.org/refcard/1.9/', 301));
+route_get('/resources/cypher20', forward('http://docs.neo4j.org/refcard/2.0/', 301));
+route_get('/resources/cypher', forward('http://docs.neo4j.org/refcard/2.1/', 301));
 
 route_get('/google2239a2d33a72ae12.html', forward("/public/google2239a2d33a72ae12.html"));
 route_get('/wp-content/*', routes.resource);
