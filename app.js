@@ -418,6 +418,7 @@ route_get('/participate/events/webinars', forward('http://neo4j.com/events/#/eve
 
 route_get('/learn/licensing', forward('http://neo4j.com/subscriptions/',301));
 route_get('/learn/use_cases', forward('http://neo4j.com/use-cases/',301));
+route_get('/learn/videos_graphconnect', forward('http://graphconnect.com/gc2014-sf/',301));
 
 
 route_get('/trainings', forward("/participate/events/trainings"));
@@ -661,6 +662,7 @@ route_get('/learn/try',               forward('http://neo4j.com/developer/', 301
 route_get('/learn/apps',              forward('http://neo4j.com/developer/', 301));
 route_get('/learn/nosql',             forward('http://neo4j.com/developer/', 301));
 route_get('/learn/videos',            forward('http://neo4j.com/developer/', 301));
+route_get('/learn/videos_interview',  forward('http://neo4j.com/developer/', 301));
 route_get('/develop/ec2',             forward('http://neo4j.com/developer/', 301));
 route_get('/particpate/channels',     forward('http://neo4j.com/developer/', 301));
 route_get('/tracks/neo4j_server',     forward('http://neo4j.com/developer/', 301));
