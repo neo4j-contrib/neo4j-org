@@ -27,6 +27,7 @@ exports.load = function (app) {
         }
     }
 
+/*
     request("https://raw.github.com/neo4j/current-versions/master/versions.json",
         function (err, res, body) {
             if (err || res.statusCode != 200) {
@@ -42,4 +43,5 @@ exports.load = function (app) {
             temp_update_version(locals.versions.snapshot, locals.neo4jS);
         }
     )
+*/
 };
