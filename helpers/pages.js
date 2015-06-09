@@ -2076,50 +2076,6 @@ exports.pages = {
             }
         ]
     },
-    shell: {
-        path: "/develop/shell",
-        title: "The awesome Neo4j Shell",
-        introText: "Neo4j's shell allows you to issue Cypher statements, export and import subgraphs navigate and update the graph using a set of commands that remind of a unix shell. It is available both on the command line and in the Neo4j-Server web-ui.",
-        content: "",
-        featured: [],
-        related: [
-            {
-                type: "link",
-                author: "duanenickull",
-                title: "Duane explains the Neo4j-Shell",
-                path: "http://technoracle.blogspot.de/2012/04/neo4j-installing-running-and-shell.html",
-                introText: "In a detailed walkthrough Duane shows how to download and install Neo4j and explains how to use the shell to create nodes and relationships"
-            },
-            {
-                type: "link",
-                title: "Neo4j-Shell in the Manual",
-                path: "http://docs.neo4j.org/chunked/milestone/shell.html",
-                introText: "The manual describes how to use the shell, lists the individual commands and also explains how to extend it with your own commands."
-            },
-            {
-                type: "link",
-                title: "A sample shell session",
-                introText: "This session shows how to navigate in the shell, set properties and create nodes and relationships.",
-                path: "http://docs.neo4j.org/chunked/milestone/shell-sample-session.html"
-            }
-        ]
-    },
-    import_shell: {
-        path: "/develop/import/shell",
-        title: "Import and export with the Neo4j-Shell",
-        introText: "",
-        content: "",
-        featured: [],
-        related: []
-    },
-    "batch-insert": {
-        path: "/develop/import/batch-insert",
-        title: "High performance imports with the non-transactional Batch-Inserter API's",
-        introText: "",
-        content: "",
-        featured: [],
-        related: []
-    },
     jdbc: {
         path: "/develop/tools/jdbc",
         title: "Cypher-Neo4j-JDBC driver",

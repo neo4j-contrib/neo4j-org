@@ -202,20 +202,20 @@ app.locals.resolve_authors = function (authors) {
     });
 };
 
-ejs.filters.blank = function (b) {
-    return b || "";
-};
-
-ejs.filters.md = function (b) {
-    return markdown(b)
-};
-ejs.filters.asciidoc = function (b) {
-    return asciidoc.$render(b, null);
-};
-
-ejs.filters.wrap = function (content, tag) {
-    return "<" + tag + ">" + content + "</" + tag + ">";
-};
+//ejs.filters.blank = function (b) {
+//    return b || "";
+//};
+//
+//ejs.filters.md = function (b) {
+//    return markdown(b)
+//};
+//ejs.filters.asciidoc = function (b) {
+//    return asciidoc.$render(b, null);
+//};
+//
+//ejs.filters.wrap = function (content, tag) {
+//    return "<" + tag + ">" + content + "</" + tag + ">";
+//};
 
 function dateFormat(d,time,tz) {
     var mthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -242,12 +242,12 @@ function dateFormat(d,time,tz) {
         (time ? (" "+ d.getHours()+":"+ zeroPad(d.getMinutes()) + (tz ? " "+tz:"")) : "");
 }
 
-ejs.filters.formatDate = function(b) {
-    return  dateFormat(b);
-}
-ejs.filters.formatDateTime = function(b,tz) {
-    return  dateFormat(b,true,tz);
-}
+//ejs.filters.formatDate = function(b) {
+//    return  dateFormat(b);
+//}
+//ejs.filters.formatDateTime = function(b,tz) {
+//    return  dateFormat(b,true,tz);
+//}
 
 // todo move somewhere else
 app.locals({
@@ -668,6 +668,8 @@ route_get('/particpate/channels',     forward('http://neo4j.com/developer/', 301
 route_get('/tracks/neo4j_server',     forward('http://neo4j.com/developer/', 301));
 route_get('/develop/spring',          forward('http://neo4j.com/developer/', 301));
 route_get('/download/maven',          forward('http://neo4j.com/developer/', 301));
+route_get('/develop/shell',           forward('http://neo4j.com/docs/stable/shell.html', 301));
+route_get('/develop/import/shell',    forward('http://neo4j.com/docs/stable/shell.html', 301));
 
 console.log('finished routing');
 
