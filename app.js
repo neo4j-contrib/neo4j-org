@@ -573,42 +573,6 @@ route_get('/graphgist', function (req, res) {
     render_gist(req,res, req.originalUrl.substring("/graphgist".length));
 });
 
-// todo redirect to our video content page
-/*
-route_get('/video/*', function (req, res) {
-    var path = req.path;
-    var idx = path.lastIndexOf('/');
-    var file = idx > -1 ? path.substring(idx + 1, path.length) : path;
-//    console.log('got request for ', path, ' from ', req.header('Referer'));
-    res.redirect('http://watch.neo4j.org/video/' + file);
-});
-*/
-/*
-route_get('/api/sitemap.csv', function (req, res) {
-    function quote(value) {
-        if (value == null || value == "") return "";
-        return '"'+value.toString().replace(/"/g,'""')+'"';
-    }
-    function values(item) {
-        if (!item) return [];
-        return [item["id"]||item["key"],item["type"],item["path"]||item["url"]||item["src"],item["title"]||item["name"],item["author"]||item["authors"],quote(item["introText"]),quote(item["content"]||item["description"]),item["tags"]];
-    }
-
-    var delim = "§";
-    var header = ["id", "type", "url", "title", "authors", "intro", "content","tags","child","c_id", "c_type", "c_url", "c_title", "c_authors", "c_intro", "c_content","c_tags"].join(delim);
-    var result=[header];
-    for (var id in app.locals.pages) {
-        var page = app.locals.pages[id];
-        var pageStr = values(page).join(delim)+delim;
-        console.log(id,"related",typeof(page.related),"featured",typeof(page.featured));
-        if (page.featured) page.featured.forEach(function (f) { var item = findItem(f); result.push(pageStr + "FEATURED§" + values(item).join("§"))});
-        if (page.related) page.related.forEach(function (f) { var item = findItem(f); result.push(pageStr + "RELATED§" + values(item).join("§"))});
-        if (!(page.related || page.featured)) result.push(pageStr);
-    }
-    res.send(result.join("\n"));
-});
-*/
-
 route_get('/*/', function (req, res) {
     var path = req.path.substring(0, req.path.length - 1);
 
@@ -623,6 +587,7 @@ route_get('/learn_graphdb',       forward('http://neo4j.com/learn-graphdb/', 301
 route_get('/learn/online_course', forward('http://neo4j.com/graphacademy/', 301));
 route_get('/console',             forward('http://console.neo4j.org/', 301));
 route_get('/learn/console',       forward('http://console.neo4j.org/', 301));
+route_get('/learn/graphgist',     forward('http://neo4j.com/developer/graphgist/', 301));
 route_get('/learn/cypher',        forward('http://neo4j.com/developer/cypher-query-language/', 301));
 route_get('/learn/graphdatabase', forward('http://neo4j.com/developer/graph-database/', 301));
 route_get('/learn/neo4j',         forward('http://neo4j.com/developer/get-started/', 301));
