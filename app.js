@@ -569,8 +569,11 @@ route_get('/graphgist/', function (req, res) {
 });
 
 route_get('/graphgist', function (req, res) {
+    var key;
     if (req.originalUrl.match(/graphgist$/)) return res.redirect("/graphgist/");
-    render_gist(req,res, req.originalUrl.substring("/graphgist".length));
+
+    key = req.originalUrl.substring("/graphgist".length);
+    res.redirect(301, "http://gist.neo4j.org/" + key);
 });
 
 route_get('/*/', function (req, res) {
