@@ -644,7 +644,7 @@ console.log('finished routing');
 app.use(function (req, res, next) {
     if ('/robots.txt' == req.url) {
         res.type('text/plain')
-        res.send("User-agent: *\nDisallow: /graphgist/");
+        res.send("User-agent: *\nAllow: *");
     } else {
         next();
     }
