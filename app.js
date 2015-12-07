@@ -15,7 +15,6 @@ var express = require('express')
     , ejs = require('ejs')
     , fs = require('fs')
     , experiment = ejs.render(fs.readFileSync("views/experiment.ejs", "utf-8"))
-    , forwarder = require("./helpers/forwarder")
     , munchkin = require("./helpers/munchkin")
     , data = require("./helpers/data")
     , track_data = require("./helpers/track_data")
@@ -278,7 +277,6 @@ app.locals.related = function (path, page) {
     return paths.related(app.locals, path, page);
 };
 
-forwarder.add_console_forward(app, express, http);
 /////// APP-CONFIG ///////
 
 app.configure(function () {
