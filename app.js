@@ -571,8 +571,8 @@ route_get('/graphgist', function (req, res) {
     var key;
     if (req.originalUrl.match(/graphgist$/)) return res.redirect("/graphgist/");
 
-    key = req.originalUrl.substring("/graphgist".length);
-    res.redirect(301, "http://gist.neo4j.org/" + key);
+    key = req.originalUrl.substring("/graphgist".length).substring(1);
+    res.redirect(301, "http://neo4j.com/graphgist/" + key + '/');
 });
 
 route_get('/*/', function (req, res) {
