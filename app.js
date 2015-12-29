@@ -415,7 +415,7 @@ route_get('/participate/events/meetups_EU', forward('http://neo4j.com/events/#/e
 route_get('/participate/events/meetups_US', forward('http://neo4j.com/events/#/events?area=US / CA / MX&type=Meetup',301));
 route_get('/participate/events/webinars', forward('http://neo4j.com/events/#/events?area=World&type=Webinar',301));
 
-route_get('/learn/licensing', forward('http://neo4j.com/subscriptions/',301));
+route_get('/learn/licensing', forward('http://neo4j.com/licensing/',301));
 route_get('/learn/use_cases', forward('http://neo4j.com/use-cases/',301));
 route_get('/learn/videos_graphconnect', forward('http://graphconnect.com/gc2014-sf/',301));
 
@@ -636,6 +636,7 @@ route_get('/develop/spring',          forward('http://neo4j.com/developer/', 301
 route_get('/download/maven',          forward('http://neo4j.com/developer/', 301));
 route_get('/develop/shell',           forward('http://neo4j.com/docs/stable/shell.html', 301));
 route_get('/develop/import/shell',    forward('http://neo4j.com/docs/stable/shell.html', 301));
+route_get('/learn/graphgist_challenge', forward('http://neo4j.com/blog/graphgist-winter-challenge/', 301));
 
 console.log('finished routing');
 
@@ -647,6 +648,7 @@ app.use(function (req, res, next) {
         next();
     }
 });
+
 http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
 });
