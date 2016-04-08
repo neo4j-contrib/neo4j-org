@@ -219,36 +219,13 @@ ejs.filters.wrap = function (content, tag) {
 function dateFormat(d,time,tz) {
     var mthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     var dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-//    var timezones = { PT : -8, PST:-8, "PDT":-7, EST: -5, ET: -4,"EDT":-4 ,MT: -7, MST: -7, "MDT":-6, CT:-6,CST:-6, CDT:-5, CEST: +2, CET: 1,BST:1,AEST:1,IST:5.5}
     var zeroPad = function(number) {
         return ("0"+number).substr(-2,2);
     }
-    /*
-    var offset = 0;
-    if (time && tz) {
-        if (tz.match(/^GMT[+-]\d{1,2}$/)) {
-            offset = parseFloat(tz.replace(/^(GMT[+-])(\d{1,2})$/,"$2"));
-        } else
-        if (tz.match(/^GMT[+-]\d{3,4}$/)) {
-            offset = parseFloat(tz.replace(/^(GMT[+-])(\d{1,2})(\d{2})$/,"$2.$3"));
-        } else if (timezones[tz]) {
-            offset = timezones[tz];
-        }
-        d=new Date(d.getTime()+offset*3600*1000);
-    }
-*/
     return dayNames[d.getDay()]+" "+zeroPad(d.getDate())+" "+mthNames[d.getMonth()]+", "+ d.getFullYear() +
         (time ? (" "+ d.getHours()+":"+ zeroPad(d.getMinutes()) + (tz ? " "+tz:"")) : "");
 }
 
-//ejs.filters.formatDate = function(b) {
-//    return  dateFormat(b);
-//}
-//ejs.filters.formatDateTime = function(b,tz) {
-//    return  dateFormat(b,true,tz);
-//}
-
-// todo move somewhere else
 app.locals({
     tutorial: {
         matrix: 'node:node_auto_index(id="603")',
@@ -262,9 +239,7 @@ app.locals({
 content_loading.load_github_content(app.locals, 'puppet', "/neo4j-contrib/neo4j-puppet/master/README.md");
 content_loading.load_github_content(app.locals, 'graphgist_syntax', "neo4j-contrib/graphgist/master/gists/syntax.adoc");
 content_loading.load_github_content(app.locals, 'ec2_template', "/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md");
-// https://raw.githubusercontent.com/neo4j/neo4j/master/community/embedded-examples/src/docs/dev/hello-world.asciidoc
 content_loading.load_github_content(app.locals, 'java_hello_world', "/neo4j/neo4j/master/community/embedded-examples/src/docs/dev/hello-world.asciidoc");
-//https://raw.githubusercontent.com/neo4j/neo4j/master/community/cypher/docs/cypher-docs/src/docs/dev/java/index.asciidoc
 content_loading.load_github_content(app.locals, 'java_cypher', "/neo4j/neo4j/master/community/cypher/docs/cypher-docs/src/docs/dev/java/index.asciidoc");
 
 
@@ -370,14 +345,6 @@ function route_get(url, fun) {
 console.log('processing routing');
 
 route_get('/', forward("http://neo4j.com/", 301));
-/*
-app.get("/", function (req, res) {
-    var page = app.locals.pages["index"];
-    var params = merge({ path:page.path, title:page.title || "", locals:merge(app.locals,res.locals) });
-    console.log("merge",Object.keys(params));
-    res.render("partials/page", params);
-});
-*/
 
 route_get('/index_graph', routes.index_graph);
 route_get('/search', routes.search);
@@ -388,6 +355,7 @@ route_get('/release-notes', forward("http://neo4j.com/release-notes/",301));
 route_get('/participate/events/tutorials_EU', forward("/participate/events/trainings_EU"));
 route_get('/participate/events/tutorials_US', forward("/participate/events/trainings_US"));
 route_get('/participate/events/tutorials_DE', forward("/participate/events/trainings_DE"));
+route_get('/participate/events/trainings_DE', forward("http://neo4j.com/graphacademy",301));
 route_get('/participate/q_and_a', forward("http://neo4j.com/contact-us/",301));
 
 
@@ -584,6 +552,7 @@ route_get('/*/', function (req, res) {
     }
     res.redirect(path);
 });
+
 route_get('/learn',               forward('http://neo4j.com/developer/get-started/', 301));
 route_get('/learn_graphdb',       forward('http://neo4j.com/learn-graphdb/', 301));
 route_get('/learn/online_course', forward('http://neo4j.com/graphacademy/', 301));
@@ -637,6 +606,14 @@ route_get('/download/maven',          forward('http://neo4j.com/developer/', 301
 route_get('/develop/shell',           forward('http://neo4j.com/docs/stable/shell.html', 301));
 route_get('/develop/import/shell',    forward('http://neo4j.com/docs/stable/shell.html', 301));
 route_get('/learn/graphgist_challenge', forward('http://neo4j.com/blog/graphgist-winter-challenge/', 301));
+route_get('/misc/music',              forward('http://neo4j.com/developer/', 301));
+route_get('/java/server_plugins',     forward('http://neo4j.com/developer/', 301));
+route_get('/learn/scientfic',         forward('http://neo4j.com/developer/', 301));
+route_get('/graphgist',               forward('http://neo4j.com/graphgists/', 301));
+route_get('/java/jvm',                forward('http://neo4j.com/developer/', 301));
+route_get('/develop/ec2_manual',      forward('http://neo4j.com/developer/', 301));
+route_get('/tracks/cypher_track_start', forward('http://neo4j.com/developer/', 301));
+route_get('/learn/videos_webinar',     forward('http://neo4j.com/developer/', 301));
 
 console.log('finished routing');
 
