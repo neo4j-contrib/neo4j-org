@@ -22,7 +22,6 @@ var express = require('express')
     , asciidoc = require('asciidoctorjs-npm-wrapper').Asciidoctor
     , calendar = require("./helpers/calendar")
     , contributors = require("./helpers/contributors")
-    , graphgists = require("./helpers/graphgists")
     , versions = require("./helpers/versions")
     , channels = require("./helpers/channels")
     , spreadsheet = require("./helpers/spreadsheet")
@@ -63,8 +62,6 @@ app.locals.pages = pages.pages;
 app.locals.content = content.content;
 // app.locals.contributors = data.contributors;
 app.locals.contributors = {};
-app.locals.graphgists = {};
-app.locals.graphgist_files = { content : {}};
 app.locals.drivers = data.drivers;
 app.locals.ext_content = data.ext_content;
 app.locals.trainings = data.trainings;
@@ -81,44 +78,6 @@ app.locals.asset = asset;
 app.locals._include = render.include;
 app.locals.render = ejs.render;
 app.locals.merge = merge;
-
-function get_graphgist(item,cb) {
-    function resolveGraphGistUrl(url) {
-        // http://gist.neo4j.org/?8173017
-        // http://gist.neo4j.org/?github-HazardJ%2Fgists%2F%2FDoc_Source_Graph.adoc
-        // http://gist.neo4j.org/?dropbox-14493611%2Fmovie_recommendation.adoc
-        var decoded = decodeURIComponent(url);
-console.log("resolveGraphGistUrl",url,"#"+decoded+"#");
-        var match = decoded.match(/^http:\/\/gist.neo4j.org\/\?(.+)/);
-        if (match) {
-            var original = match[1];
-            if (original.match(/^[0-9a-f]{5,}/i)) {
-                // gist
-                return "https://gist.github.com/" + original;
-            }
-            if (original.match(/github-/i)) {
-                // gist
-                return "https://github.com/" + original.substring("github-".length);
-            }
-            if (original.match(/dropbox-/i)) {
-                // gist
-                return "https://dl.dropboxusercontent.com/u/" + original.substring("dropbox-".length);
-            }
-            // todo dropbox
-            // o
-        }
-    }
-
-    var original = resolveGraphGistUrl(item.url);
-    var content = app.locals.graphgist_files.content[item.id];
-    if (!content || content == "Content not found") {
-        content_loading.load_content(app.locals.graphgist_files, item.id, original,cb);
-    } else {
-        cb(null, content, item.id, original);
-    }
-}
-
-app.locals.get_graphgist = get_graphgist;
 
 app.locals.theme = function () {
     return "aqua";
@@ -167,14 +126,12 @@ function findItem(key,type) {
     if (content.content.drivers[key]) return addType(content.content.drivers[key], "driver");
     if (content.content.books[key]) return addType(content.content.books[key], "book");
     if (app.locals.contributors[key]) return addType(app.locals.contributors[key], "contributor");
-    if (app.locals.graphgists[key]) return addType(app.locals.graphgists[key], "graphgist");
     if (data.contributors[key]) return addType(data.contributors[key], "contributor");
     if (data.ext_content[key]) return addType(data.ext_content[key], "external");
     if (content.content.apps[key]) return addType(content.content.apps[key], "app");
     if (content.content.links[key]) return addType(content.content.drivers[key], "link");
     if (content.content.videos[key]) return addType(content.content.videos[key], "video");
     if (content.content.asciidoc[key]) return addType(content.content.asciidoc[key], "asciidoc");
-    if (app.locals.graphgists[key]) return addType(app.locals.graphgists[key], "graphgist");
     return key;
 }
 app.locals.findItem = findItem;
@@ -237,7 +194,6 @@ app.locals({
 });
 
 content_loading.load_github_content(app.locals, 'puppet', "/neo4j-contrib/neo4j-puppet/master/README.md");
-content_loading.load_github_content(app.locals, 'graphgist_syntax', "neo4j-contrib/graphgist/master/gists/syntax.adoc");
 content_loading.load_github_content(app.locals, 'ec2_template', "/neo4j-contrib/neo4j-puppet/master/README.CLOUDFORMATION.md");
 content_loading.load_github_content(app.locals, 'java_hello_world', "/neo4j/neo4j/master/community/embedded-examples/src/docs/dev/hello-world.asciidoc");
 content_loading.load_github_content(app.locals, 'java_cypher', "/neo4j/neo4j/master/community/cypher/docs/cypher-docs/src/docs/dev/java/index.asciidoc");
@@ -324,7 +280,6 @@ videos.loadAllVideos(app.locals.pages,app.locals.content,4);
 calendar.init(app,3600*1000);
 channels.init(app,60*1000);
 contributors.init(app,3600*1000);
-graphgists.init(app,3600*1000);
 
 function forward(url, stat) {
     if (typeof stat === 'undefined') {
@@ -479,17 +434,6 @@ route_get('/download/linux', forward('http://neo4j.com/download/', 301));
 route_get('/download/windows', forward('http://neo4j.com/download/', 301));
 
 
-function findGist(locals, url) {
-    var item;
-    for (var k in locals.graphgists) {
-        var gist = locals.graphgists[k];
-        if (gist.url.indexOf(url) != -1) {
-            item = gist;
-        }
-    }
-    return item;
-}
-
 route_get('/api/graphgist',function (req, res) {
     var path =  req.originalUrl.substring("/api/graphgist".length);
     load_gist(path, gist_cache, function(err, data, link) {
@@ -517,30 +461,6 @@ route_get('/api/graphgist',function (req, res) {
             res.send(200,data);
         }
     });
-});
-
-function render_gist(req, res, path) {
-    load_gist(path, gist_cache, function(err, data) {
-        var item = {};
-        if (err) {
-            console.log("Error loading graphgist",path,err);
-        } else {
-            item = findGist(app.locals,path) | {};
-        }
-        res.render("participate/graphgist",{ path: path, title:"Neo4j GraphGist "+(item['title']?item.title:""), category:"Participate", data:data, req:req, item:item});
-    });
-}
-
-route_get('/graphgist/', function (req, res) {
-    render_gist(req,res, req.originalUrl.substring("/graphgist/".length));
-});
-
-route_get('/graphgist', function (req, res) {
-    var key;
-    if (req.originalUrl.match(/graphgist$/)) return res.redirect("/graphgist/");
-
-    key = req.originalUrl.substring("/graphgist".length).substring(1);
-    res.redirect(301, "http://neo4j.com/graphgist/" + key + '/');
 });
 
 route_get('/*/', function (req, res) {
@@ -610,6 +530,7 @@ route_get('/misc/music',              forward('http://neo4j.com/developer/', 301
 route_get('/java/server_plugins',     forward('http://neo4j.com/developer/', 301));
 route_get('/learn/scientfic',         forward('http://neo4j.com/developer/', 301));
 route_get('/graphgist',               forward('http://neo4j.com/graphgists/', 301));
+route_get('/graphgist/',               forward('http://neo4j.com/graphgists/', 301));
 route_get('/java/jvm',                forward('http://neo4j.com/developer/', 301));
 route_get('/develop/ec2_manual',      forward('http://neo4j.com/developer/', 301));
 route_get('/tracks/cypher_track_start', forward('http://neo4j.com/developer/', 301));
