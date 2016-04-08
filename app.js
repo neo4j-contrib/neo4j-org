@@ -328,7 +328,7 @@ graphgists.init(app,3600*1000);
 
 function forward(url, stat) {
     if (typeof stat === 'undefined') {
-      stat = 302;
+      stat = 301;
     }
     return function (req, res) {
         res.redirect(stat, url);
