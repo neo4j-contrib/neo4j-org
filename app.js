@@ -255,6 +255,9 @@ app.configure(function () {
                 console.log("Error sending to kissmetrics",err,info);
             }
         }
+        app.use(function(req, res, next){
+           res.status(404).render('404', {title: "page not found"});
+        });
         next();
     });
 	app.use(routes.assets);
